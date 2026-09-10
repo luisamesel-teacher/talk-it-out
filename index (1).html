@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Past tenses — study card · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+  --erro:#A32D2D; --erro-fundo:#F7E7E7;
+  --entalhe:12px;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
+  line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
+
+/* ---------- topo ---------- */
+header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
+
+/* ---------- navegação ---------- */
+nav{display:flex;gap:8px;overflow-x:auto;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:15;
+  border-bottom:1px solid #e2e0ec;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;
+  color:var(--primaria);background:var(--lilas);padding:9px 15px;border-radius:20px;white-space:nowrap}
+nav a:active{background:var(--lilas-forte)}
+
+/* ---------- cartão de seção ---------- */
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;margin-bottom:0;
+  scroll-margin-top:80px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+.tag.leve{background:var(--primaria-clara)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;color:var(--primaria);line-height:1.14}
+
+/* ---------- linha do tempo ---------- */
+figure{margin:20px 0 4px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:14px;color:var(--texto-2);margin-top:8px;text-align:center;font-style:italic}
+
+/* ---------- blocos ---------- */
+.bloco{border-radius:12px;padding:15px 17px;margin-top:16px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.bloco.lilas{background:var(--lilas)} .bloco.lilas .rot{color:var(--texto-lilas)}
+.bloco.rosa{background:var(--rosa)}  .bloco.rosa .rot{color:var(--texto-rosa)}
+.bloco.ambar{background:var(--ambar)}.bloco.ambar .rot{color:var(--texto-ambar)}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:7px}
+.bloco p{font-size:17px;font-weight:600}
+.bloco .form{font-size:19px;font-weight:700;color:var(--primaria);letter-spacing:.01em}
+
+/* ---------- exemplos ---------- */
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin:24px 0 10px}
+.ex{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ex li{background:var(--neutro);border-radius:11px;padding:13px 15px;border-left:4px solid var(--primaria-clara)}
+.ex li b{font-weight:700;font-style:italic;color:var(--primaria)}
+.ex li .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px;font-weight:400}
+
+/* ---------- comparação ---------- */
+.par{display:flex;flex-direction:column;gap:11px}
+.par .cartao{background:var(--neutro);border-radius:11px;padding:14px 15px}
+.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--texto-2);margin-bottom:6px}
+.par .cartao b{font-weight:700;font-style:italic;color:var(--primaria)}
+.par .cartao .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px}
+
+/* ---------- exercício: escolher (details nativo) ---------- */
+details{margin-top:16px}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+.abrir{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);border-radius:16px;padding:7px 14px;margin-top:12px}
+details[open] .abrir{display:none}
+
+.quiz{background:var(--lilas);border-radius:14px;padding:18px 17px 17px}
+.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:10px}
+.quiz .pergunta{font-size:18px;font-weight:600;margin-bottom:13px}
+.quiz .pergunta i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;
+  display:flex;align-items:center;gap:10px}
+.marca-op{font-family:Inter,sans-serif;font-weight:700;font-size:15px;flex:none;width:20px;color:var(--texto-2)}
+.resposta{margin-top:4px}
+.fb{font-size:15.5px;padding:12px 14px;border-radius:10px;line-height:1.45;margin-bottom:9px;display:flex;gap:9px}
+.fb .m{font-weight:700;flex:none}
+.fb b{font-weight:700}
+.fb.bom{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.fb.bom .m{color:var(--acerto)}
+.fb.ruim{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
+.fb.ruim .m{color:var(--erro)}
+
+/* ---------- exercício: tocar para corrigir (details nativo) ---------- */
+.corrige{background:var(--ambar);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.corrige > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-ambar);margin-bottom:11px}
+.fix{margin-top:0;margin-bottom:10px}
+.fix summary{background:#fff;border-radius:11px;padding:13px 15px}
+.fix .frase{display:block;font-size:17.5px;font-weight:600;line-height:1.55}
+.fix .abrir{margin-top:9px;border-color:var(--ambar);font-size:11px;padding:6px 12px}
+.alvo{background:var(--erro-fundo);border-bottom:2px dashed var(--erro);padding:1px 5px;border-radius:4px;
+  color:var(--erro);font-weight:700}
+.fix-resp{background:#fff;border-radius:0 0 11px 11px;margin-top:-4px;padding:4px 15px 13px;font-size:17.5px;font-weight:600}
+.fix-resp s{color:var(--erro);opacity:.6;font-weight:600}
+.consertado{color:var(--acerto);font-weight:700;background:var(--acerto-fundo);padding:1px 6px;
+  border-radius:4px;margin-left:8px}
+.porque{display:block;font-size:14.5px;color:var(--texto-2);margin-top:8px;font-weight:400;line-height:1.45}
+
+/* ---------- avisos ---------- */
+.nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px}
+.nota b{font-weight:700}
+.errado{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:16px;border-left:4px solid var(--erro)}
+.errado .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--erro);margin-bottom:8px}
+.errado .l{font-size:16.5px;margin-top:6px}
+.errado s{color:var(--erro);text-decoration-thickness:2px}
+.errado .ok{color:var(--acerto);font-weight:700}
+
+footer{text-align:center;padding:14px 20px 24px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
+</style>
+</head>
+<body>
+<div class="tela">
+
+<header>
+  <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+  <h1>Past tenses</h1>
+  <p>Scroll down, one tense at a time. Tap the exercises as you go.</p>
+</header>
+
+<nav>
+  <a href="#simple">Past simple</a>
+  <a href="#continuous">Past continuous</a>
+  <a href="#perfect">Present perfect</a>
+  <a href="#perfectcont">Pres. perf. continuous</a>
+  <a href="#pastperfect">Past perfect</a>
+  <a href="#pastperfcont">Past perf. continuous</a>
+  <a href="#having">Having done</a>
+  <a href="#usedto">Used to</a>
+</nav>
+
+
+
+<main>
+<!-- ============ PAST SIMPLE ============ -->
+<section id="simple">
+  <span class="tag leve">THE BASELINE</span>
+  <h2>Past simple</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: one finished point in the past">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="95" cy="52" r="8" fill="#3C3489"/>
+      <text x="95" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">I got home</text>
+      <line x1="262" y1="38" x2="262" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="262" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+      <text x="95" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5F5E5A">finished</text>
+    </svg>
+    <figcaption>It happened once, and it's over.</figcaption>
+  </figure>
+
+  <div class="bloco lilas"><div class="rot">FORM</div><div class="form">subject + verb-ed / irregular verb</div></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li><b>I got</b> home at eleven.<span class="efeito">It happened and it's over.</span></li>
+    <li><b>She trained</b> every day last year.<span class="efeito">She doesn't do it anymore.</span></li>
+  </ul>
+
+  <div class="nota">Every tense below is the past simple <b>plus one extra idea</b>. Compare them with this one.</div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ PAST CONTINUOUS ============ -->
+<section id="continuous">
+  <span class="tag">IN PROGRESS</span>
+  <h2>Past continuous</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: a long action interrupted by a short one">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="52" y="44" width="150" height="16" rx="8" fill="#CECBF6"/>
+      <text x="127" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">it was raining</text>
+      <circle cx="150" cy="52" r="7.5" fill="#993556"/>
+      <text x="150" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#993556">I arrived</text>
+      <line x1="262" y1="38" x2="262" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="262" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>The long action had already started when the short one happened.</figcaption>
+  </figure>
+
+  <div class="bloco rosa"><div class="rot">FORM</div><div class="form">was / were + verb-ing</div></div>
+  <div class="bloco lilas"><div class="rot">THE EXTRA IDEA</div><p>The action <b>wasn't finished</b>. It was happening at that moment in the past.</p></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li><b>It was raining</b> when I arrived.<span class="efeito">The rain started before I arrived and kept going.</span></li>
+    <li>I <b>was studying</b> at eight last night.<span class="efeito">I was in the middle of it at that time.</span></li>
+  </ul>
+
+  <div class="subrot">SIMPLE OR CONTINUOUS?</div>
+  <div class="par">
+    <div class="cartao"><div class="lab">SIMPLE</div>When she called, I <b>cooked</b> dinner.<span class="efeito">First the call, then I cooked.</span></div>
+    <div class="cartao"><div class="lab">CONTINUOUS</div>When she called, I <b>was cooking</b> dinner.<span class="efeito">I was already in the middle of cooking.</span></div>
+  </div>
+
+    <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">I <i>_____</i> my homework when the lights went out.</p>
+      <div class="op-e"><span class="marca-op">A</span>was doing</div>
+      <div class="op-e"><span class="marca-op">B</span>did</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb bom"><span class="m">✓</span><b>A — was doing.</b> Yes. I was in the middle of the homework when the lights went out.</div>
+      <div class="fb ruim"><span class="m">✕</span><b>B — did.</b> This means I did the homework after the lights went out. You need the action that was already happening.</div>
+    </div>
+  </details>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ PRESENT PERFECT ============ -->
+<section id="perfect">
+  <span class="tag">PAST TOUCHING NOW</span>
+  <h2>Present perfect</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: a past action whose result reaches the present">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="80" cy="52" r="8" fill="#3C3489"/>
+      <text x="80" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">I lost them</text>
+      <path d="M92 52 L252 52" stroke="#7F77DD" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round"/>
+      <path d="M246 46 L256 52 L246 58" fill="none" stroke="#7F77DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="168" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#7F77DD">still lost</text>
+      <line x1="262" y1="38" x2="262" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="262" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>It happened in the past, but it still matters now.</figcaption>
+  </figure>
+
+  <div class="bloco rosa"><div class="rot">FORM</div><div class="form">have / has + past participle</div></div>
+  <div class="bloco lilas"><div class="rot">THE EXTRA IDEA</div><p>It happened in the past, but it <b>still matters now</b>.</p></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li><b>I've lost</b> my keys.<span class="efeito">They are still lost right now.</span></li>
+    <li><b>It's been</b> years <b>since</b> I last saw her.<span class="efeito">I haven't seen her for years, and that's still true today.</span></li>
+    <li>That's the third time <b>I've called</b> the coach.<span class="efeito">I'm counting the times up to now, and I may call again.</span></li>
+    <li>It's the first time <b>I've been</b> on a plane.<span class="efeito"><i>It's</i> is present, so the verb goes with <i>have/has</i>.</span></li>
+  </ul>
+
+  <div class="subrot">SIMPLE OR PERFECT?</div>
+  <div class="par">
+    <div class="cartao"><div class="lab">SIMPLE — closed</div>I <b>lost</b> my keys yesterday.<span class="efeito">Yesterday is finished, so there's no link to now.</span></div>
+    <div class="cartao"><div class="lab">PERFECT — still open</div>I<b>'ve lost</b> my keys.<span class="efeito">Still lost as I speak.</span></div>
+  </div>
+
+    <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">It's the second time she <i>_____</i> that question today.</p>
+      <div class="op-e"><span class="marca-op">A</span>has asked</div>
+      <div class="op-e"><span class="marca-op">B</span>asked</div>
+      <div class="op-e"><span class="marca-op">C</span>had asked</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb bom"><span class="m">✓</span><b>A — has asked.</b> Yes. It's the second time is present, so the verb takes has.</div>
+      <div class="fb ruim"><span class="m">✕</span><b>B — asked.</b> No. It's points to now, so the verb has to reach now too.</div>
+      <div class="fb ruim"><span class="m">✕</span><b>C — had asked.</b> This works only if the first part is past: It was the second time she had asked.</div>
+    </div>
+  </details>
+
+    <div class="corrige">
+    <div class="lab">TAP THE SENTENCE TO FIX IT</div>
+    <details class="fix">
+      <summary><span class="frase">It's been years<span class="alvo">that</span> I last saw her.</span><span class="abrir">Tap to fix</span></summary>
+      <div class="fix-resp"><s>that</s><b class="consertado">since</b><span class="porque">It's been years <b>since</b> + past simple. Since marks the point you count from.</span></div>
+    </details>
+    <details class="fix">
+      <summary><span class="frase">I<span class="alvo">was</span> to Paris three times.</span><span class="abrir">Tap to fix</span></summary>
+      <div class="fix-resp"><s>was</s><b class="consertado">'ve been</b><span class="porque">No finished time is given, so you count up to now with <i>have/has</i>.</span></div>
+    </details>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ PRESENT PERFECT CONTINUOUS ============ -->
+<section id="perfectcont">
+  <span class="tag">HOW LONG, UP TO NOW</span>
+  <h2>Present perfect continuous</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: an activity running from the past up to now">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="70" y="44" width="192" height="16" rx="8" fill="#CECBF6"/>
+      <text x="166" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">I've been waiting</text>
+      <text x="70" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5F5E5A">midnight</text>
+      <line x1="262" y1="34" x2="262" y2="70" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="262" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>It started in the past and is still going now.</figcaption>
+  </figure>
+
+  <div class="bloco rosa"><div class="rot">FORM</div><div class="form">have / has + been + verb-ing</div></div>
+  <div class="bloco lilas"><div class="rot">THE EXTRA IDEA</div><p>It <b>started in the past and is still going</b>. You're saying how long, not what's done.</p></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li><b>I've been waiting</b> outside since midnight.<span class="efeito">I'm still waiting, and how long matters.</span></li>
+    <li><b>She's been training</b> for the competition all month.<span class="efeito">She started a month ago and is still training.</span></li>
+  </ul>
+
+  <div class="subrot">RESULT OR ACTIVITY?</div>
+  <div class="par">
+    <div class="cartao"><div class="lab">PERFECT — the result</div>I<b>'ve read</b> three chapters.<span class="efeito">How many chapters — the result.</span></div>
+    <div class="cartao"><div class="lab">PERFECT CONTINUOUS — the activity</div>I<b>'ve been reading</b> all afternoon.<span class="efeito">How long I read — and maybe I haven't finished.</span></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ PAST PERFECT ============ -->
+<section id="pastperfect">
+  <span class="tag">THE PAST BEFORE THE PAST</span>
+  <h2>Past perfect</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: two past actions, one before the other">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="66" cy="52" r="8" fill="#3C3489"/>
+      <text x="66" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">I'd left the keys</text>
+      <text x="66" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A">1st</text>
+      <circle cx="172" cy="52" r="8" fill="#993556"/>
+      <text x="172" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#993556">I got home</text>
+      <text x="172" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A">2nd</text>
+      <line x1="262" y1="38" x2="262" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="262" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>Both happened in the past. Had shows which one came first.</figcaption>
+  </figure>
+
+  <div class="bloco rosa"><div class="rot">FORM</div><div class="form">had + past participle</div></div>
+  <div class="bloco lilas"><div class="rot">THE EXTRA IDEA</div><p>One past action happened <b>before</b> another past action.</p></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li>I<b>'d left</b> my keys at the office when I got home.<span class="efeito">Leaving them came first; getting home came second.</span></li>
+    <li>By the time she arrived, the film <b>had started</b>.<span class="efeito">The film started before she got there.</span></li>
+    <li>It was the first time I<b>'d seen</b> snow.<span class="efeito"><i>It was</i> is past, so the verb goes one step further back.</span></li>
+  </ul>
+
+  <div class="nota">Watch the <b>'d</b>: here it is <b>had</b> — <i>had left, had seen</i> — because a past participle follows it.</div>
+
+    <details class="quiz">
+    <summary>
+      <div class="lab">WOULD OR HAD?</div>
+      <p class="pergunta">She'<i>d</i> <b>finished</b> the book before the film came out.</p>
+      <div class="op-e"><span class="marca-op">A</span>'d = had</div>
+      <div class="op-e"><span class="marca-op">B</span>'d = would</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb bom"><span class="m">✓</span><b>A — 'd = had.</b> Yes. Finished is a past participle, so 'd must be had.</div>
+      <div class="fb ruim"><span class="m">✕</span><b>B — 'd = would.</b> Would needs a base verb — she'd finish. The -ed form here rules it out.</div>
+    </div>
+  </details>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ PAST PERFECT CONTINUOUS ============ -->
+<section id="pastperfcont">
+  <span class="tag">HOW LONG, BEFORE A PAST POINT</span>
+  <h2>Past perfect continuous</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: an activity running up to a point in the past">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="46" y="44" width="126" height="16" rx="8" fill="#CECBF6"/>
+      <text x="109" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">she'd been dancing</text>
+      <circle cx="180" cy="52" r="7.5" fill="#993556"/>
+      <text x="186" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#993556">she was tired</text>
+      <line x1="272" y1="38" x2="272" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="272" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>It went on for a while and stopped before that past moment.</figcaption>
+  </figure>
+
+  <div class="bloco rosa"><div class="rot">FORM</div><div class="form">had + been + verb-ing</div></div>
+  <div class="bloco lilas"><div class="rot">THE EXTRA IDEA</div><p>It <b>went on for a while and then stopped</b> before another past moment, and often explains it.</p></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li>She was tired because she<b>'d been dancing</b> for hours.<span class="efeito">The dancing is why she was tired.</span></li>
+    <li>I<b>'d been carrying</b> that spare key for months.<span class="efeito">I carried it for months, up to that day.</span></li>
+  </ul>
+
+  <div class="subrot">DONE OR ONGOING?</div>
+  <div class="par">
+    <div class="cartao"><div class="lab">PAST PERFECT — finished</div>She<b>'d written</b> the report.<span class="efeito">The report was finished.</span></div>
+    <div class="cartao"><div class="lab">PAST PERFECT CONTINUOUS — the activity</div>She<b>'d been writing</b> for hours.<span class="efeito">How long she wrote — maybe she didn't finish.</span></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ HAVING DONE ============ -->
+<section id="having">
+  <span class="tag">A SHORTCUT</span>
+  <h2>Having done something</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: a finished action before the main past action">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="40" y="44" width="98" height="16" rx="8" fill="#CECBF6"/>
+      <text x="89" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">having read it</text>
+      <path d="M144 52 L164 52" stroke="#7F77DD" stroke-width="3" stroke-linecap="round"/>
+      <path d="M158 47 L166 52 L158 57" fill="none" stroke="#7F77DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="180" cy="52" r="7.5" fill="#993556"/>
+      <text x="188" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#993556">she felt confident</text>
+      <line x1="272" y1="38" x2="272" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="272" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>Same idea as the past perfect, in one word.</figcaption>
+  </figure>
+
+  <div class="bloco rosa"><div class="rot">FORM</div><div class="form">Having + past participle, …</div></div>
+  <div class="bloco lilas"><div class="rot">THE EXTRA IDEA</div><p>It says <b>after + had</b> in one word. The first action is finished before the main one.</p></div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li><b>Having read</b> it twice, she felt confident.<span class="efeito">= After she had read it twice, she felt confident.</span></li>
+    <li><b>Having trained</b> all year, he was ready for the match.<span class="efeito">The training came first, and it explains why.</span></li>
+    <li><b>Having lived</b> in Japan, she spoke fluent Japanese.<span class="efeito">Here it also gives the reason: because she had lived there.</span></li>
+  </ul>
+
+  <div class="errado">
+    <div class="lab">MIND THIS</div>
+    <div class="l">The subject must be the same on both sides.</div>
+    <div class="l"><s>Having read it, the report seemed clear.</s></div>
+    <div class="l"><span class="ok">✓</span> <b>Having read it, she found the report clear.</b></div>
+  </div>
+
+    <div class="corrige">
+    <div class="lab">TAP THE SENTENCE TO FIX IT</div>
+    <details class="fix">
+      <summary><span class="frase"><span class="alvo">Having finish</span> the exam, she went home.</span><span class="abrir">Tap to fix</span></summary>
+      <div class="fix-resp"><s>Having finish</s><b class="consertado">Having finished</b><span class="porque">After <b>having</b>, the verb takes the past participle — never the base form.</span></div>
+    </details>
+    <details class="fix">
+      <summary><span class="frase"><span class="alvo">Have lived</span> abroad, he spoke three languages.</span><span class="abrir">Tap to fix</span></summary>
+      <div class="fix-resp"><s>Have lived</s><b class="consertado">Having lived</b><span class="porque">The structure starts with <b>having</b>. <i>Have lived</i> would need a subject in front of it.</span></div>
+    </details>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+
+<!-- ============ USED TO ============ -->
+<section id="usedto">
+  <span class="tag">THREE THAT LOOK ALIKE</span>
+  <h2>Used to · be used to · get used to</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 86" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: a repeated past habit that stopped before now">
+      <line x1="14" y1="52" x2="306" y2="52" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="48" cy="52" r="6.5" fill="#3C3489"/>
+      <circle cx="82" cy="52" r="6.5" fill="#3C3489"/>
+      <circle cx="116" cy="52" r="6.5" fill="#3C3489"/>
+      <circle cx="150" cy="52" r="6.5" fill="#3C3489"/>
+      <text x="99" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">I used to dance</text>
+      <line x1="178" y1="44" x2="194" y2="60" stroke="#A32D2D" stroke-width="3" stroke-linecap="round"/>
+      <line x1="194" y1="44" x2="178" y2="60" stroke="#A32D2D" stroke-width="3" stroke-linecap="round"/>
+      <text x="186" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#A32D2D">stopped</text>
+      <line x1="272" y1="38" x2="272" y2="66" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="272" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>I did it again and again, but not anymore.</figcaption>
+  </figure>
+
+  <div class="par">
+    <div class="cartao"><div class="lab">USED TO + BASE VERB</div>A past habit that stopped.<span class="efeito"><b>I used to dance every day.</b></span></div>
+    <div class="cartao"><div class="lab">BE USED TO + -ING</div>Already familiar with it.<span class="efeito"><b>I'm used to dancing every day.</b></span></div>
+    <div class="cartao"><div class="lab">GET USED TO + -ING</div>Becoming familiar with it.<span class="efeito"><b>I'm getting used to training early.</b></span></div>
+  </div>
+
+    <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">It was hard at first, but now I'm used to <i>_____</i> up at six.</p>
+      <div class="op-e"><span class="marca-op">A</span>getting</div>
+      <div class="op-e"><span class="marca-op">B</span>get</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb bom"><span class="m">✓</span><b>A — getting.</b> Yes. After be used to, the verb takes -ing.</div>
+      <div class="fb ruim"><span class="m">✕</span><b>B — get.</b> That's the pattern for plain used to, the past habit. After be used to, the verb needs -ing.</div>
+    </div>
+  </details>
+
+    <div class="corrige">
+    <div class="lab">TAP THE SENTENCE TO FIX IT</div>
+    <details class="fix">
+      <summary><span class="frase">I'm used to<span class="alvo">dance</span> every day.</span><span class="abrir">Tap to fix</span></summary>
+      <div class="fix-resp"><s>dance</s><b class="consertado">dancing</b><span class="porque">After <b>be used to</b> and <b>get used to</b>, the verb takes -ing. Only plain <i>used to</i> takes the base verb.</span></div>
+    </details>
+    <details class="fix">
+      <summary><span class="frase">I<span class="alvo">used to having</span> long hair.</span><span class="abrir">Tap to fix</span></summary>
+      <div class="fix-resp"><s>used to having</s><b class="consertado">used to have</b><span class="porque">Plain <b>used to</b> — the past habit — is followed by the base verb.</span></div>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+  Talk It Out · by Luisa Mesel
+</footer>
+
+</div>
+
+
+</body>
+</html>
