@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Talk It Out — materiais de estudo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --neutro:#F4F2EC; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --entalhe:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:var(--neutro);color:var(--texto);
+  line-height:1.6;font-size:18px;padding:0 20px 60px}
+.coluna{max-width:640px;margin:0 auto}
+
+header{padding:46px 0 32px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo svg{width:40px;height:auto;display:block;flex:none}
+.logo .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;
+  color:var(--primaria);line-height:1}
+.logo .ass{display:block;font-size:12px;color:var(--texto-2);margin-top:3px}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:31px;
+  color:var(--primaria);line-height:1.15;margin-top:28px}
+.sub{font-size:17.5px;color:var(--texto-2);margin-top:12px}
+
+.lista{display:flex;flex-direction:column;gap:14px}
+.material{display:block;text-decoration:none;background:#fff;border-radius:14px;padding:22px 22px 20px;
+  border-left:5px solid var(--primaria-clara);
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%);
+  box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.material .nivel{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  color:var(--texto-lilas)}
+.material h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:21px;
+  color:var(--primaria);margin-top:7px;line-height:1.2}
+.material p{font-size:16.5px;color:var(--texto-2);margin-top:8px}
+.material .abrir{display:inline-block;font-family:Inter,sans-serif;font-size:13px;font-weight:700;
+  color:var(--primaria);margin-top:14px}
+
+.nota{margin-top:30px;font-size:15.5px;color:var(--texto-2);font-style:italic}
+
+footer{margin-top:46px;padding-top:22px;border-top:1px solid #e0ddd3;
+  font-size:14px;color:var(--texto-2)}
+</style>
+</head>
+<body>
+<div class="coluna">
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 74 56" xmlns="http://www.w3.org/2000/svg" aria-label="Talk It Out">
+        <path d="M4 12a8 8 0 0 1 8-8h26a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H22l-9 9v-9h-1a8 8 0 0 1-8-8z" fill="#CECBF6"/>
+        <path d="M28 26a9 9 0 0 1 9-9h25a9 9 0 0 1 9 9v15a9 9 0 0 1-9 9H45l-8 8v-8a9 9 0 0 1-9-9z" fill="#F4F2EC"/>
+        <path d="M31 27a7 7 0 0 1 7-7h23a7 7 0 0 1 7 7v13a7 7 0 0 1-7 7H45l-6 6v-6a7 7 0 0 1-8-7z" fill="#3C3489"/>
+      </svg>
+      <span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></span>
+    </div>
+
+    <h1>Materiais de estudo</h1>
+    <p class="sub">Páginas de revisão para abrir no navegador do celular. Não precisa instalar nada.</p>
+  </header>
+
+  <div class="lista">
+    <a class="material" href="materiais/past-tenses/">
+      <span class="nivel">B2 · C1</span>
+      <h2>Past tenses</h2>
+      <p>Os seis tempos do passado, com linha do tempo e exercícios de toque. Inclui <em>having done</em> e a família <em>used to</em>.</p>
+      <span class="abrir">Abrir →</span>
+    </a>
+  </div>
+
+  <p class="nota">Novos materiais entram aqui conforme forem ficando prontos.</p>
+
+  <footer>Talk It Out · by Luisa Mesel</footer>
+
+</div>
+</body>
+</html>
