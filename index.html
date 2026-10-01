@@ -1,84 +1,481 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Talk It Out — materiais de estudo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Challenge &amp; achievement — study card · Talk It Out</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
-  --lilas:#EEEDFE; --texto-lilas:#534AB7;
-  --neutro:#F4F2EC; --texto:#2C2C2A; --texto-2:#5F5E5A;
-  --entalhe:12px;
+ --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+ --lilas:#EEEDFE; --texto-lilas:#534AB7;
+ --rosa:#FBEAF0; --texto-rosa:#993556;
+ --ambar:#FAEEDA; --texto-ambar:#854F0B;
+ --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+ --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+ --erro:#A32D2D; --erro-fundo:#F7E7E7;
+ --entalhe:12px;
 }
+html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:'Source Sans 3',sans-serif;background:var(--neutro);color:var(--texto);
-  line-height:1.6;font-size:18px;padding:0 20px 60px}
-.coluna{max-width:640px;margin:0 auto}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
+ line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
 
-header{padding:46px 0 32px}
-.logo{display:flex;align-items:center;gap:11px}
-.logo svg{width:40px;height:auto;display:block;flex:none}
-.logo .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;
-  color:var(--primaria);line-height:1}
-.logo .ass{display:block;font-size:12px;color:var(--texto-2);margin-top:3px}
-h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:31px;
-  color:var(--primaria);line-height:1.15;margin-top:28px}
-.sub{font-size:17.5px;color:var(--texto-2);margin-top:12px}
+header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:28px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
 
-.lista{display:flex;flex-direction:column;gap:14px}
-.material{display:block;text-decoration:none;background:#fff;border-radius:14px;padding:22px 22px 20px;
-  border-left:5px solid var(--primaria-clara);
-  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%);
-  box-shadow:0 1px 3px rgba(30,24,70,.07)}
-.material .nivel{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.08em;
-  color:var(--texto-lilas)}
-.material h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:21px;
-  color:var(--primaria);margin-top:7px;line-height:1.2}
-.material p{font-size:16.5px;color:var(--texto-2);margin-top:8px}
-.material .abrir{display:inline-block;font-family:Inter,sans-serif;font-size:13px;font-weight:700;
-  color:var(--primaria);margin-top:14px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:15;
+ border-bottom:1px solid #e2e0ec;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;
+ color:var(--primaria);background:var(--lilas);padding:9px 15px;border-radius:20px;white-space:nowrap}
+nav a:active{background:var(--lilas-forte)}
 
-.nota{margin-top:30px;font-size:15.5px;color:var(--texto-2);font-style:italic}
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;margin-bottom:0;
+ scroll-margin-top:80px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+ color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+.tag.leve{background:var(--primaria-clara)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;color:var(--primaria);line-height:1.14}
+.sub{margin-top:6px;color:var(--texto-2);font-size:15px}
 
-footer{margin-top:46px;padding-top:22px;border-top:1px solid #e0ddd3;
-  font-size:14px;color:var(--texto-2)}
+.bloco{border-radius:12px;padding:15px 17px;margin-top:16px;
+ clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.bloco.lilas{background:var(--lilas)} .bloco.lilas .rot{color:var(--texto-lilas)}
+.bloco.rosa{background:var(--rosa)} .bloco.rosa .rot{color:var(--texto-rosa)}
+.bloco.ambar{background:var(--ambar)}.bloco.ambar .rot{color:var(--texto-ambar)}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:7px}
+.bloco p{font-size:17px;font-weight:600}
+
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+ color:var(--texto-2);margin:24px 0 10px}
+.ex{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ex li{background:var(--neutro);border-radius:11px;padding:13px 15px;border-left:4px solid var(--primaria-clara)}
+.ex li b{font-weight:700;font-style:italic;color:var(--primaria)}
+.ex li .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px;font-weight:400}
+
+.baralho{margin-top:18px}
+.cartao-flip{background:var(--lilas);border-radius:16px;padding:26px 20px;min-height:235px;
+ display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer}
+.cartao-flip .palavra{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:32px;color:var(--primaria);line-height:1.1}
+.cartao-flip .classe{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+ color:var(--texto-lilas);margin-top:10px}
+.cartao-flip .toque{font-family:Inter,sans-serif;font-size:12px;font-weight:600;color:var(--texto-2);margin-top:22px}
+.cartao-flip .verso{display:none}
+.cartao-flip.virado .frente{display:none}
+.cartao-flip.virado .verso{display:block}
+.cartao-flip .def{font-size:18px;font-weight:600;line-height:1.45}
+.cartao-flip .frase{font-size:16px;font-style:italic;color:var(--texto-2);margin-top:14px;
+ border-top:2px dashed var(--lilas-forte);padding-top:14px}
+.cartao-flip .frase b{font-style:italic;font-weight:700;color:var(--primaria)}
+.barra-baralho{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px}
+.barra-baralho button{font-family:Inter,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:18px;
+ padding:10px 20px;background:var(--primaria);color:#fff;cursor:pointer}
+.barra-baralho button:disabled{opacity:.3;cursor:default}
+.contador{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--texto-2)}
+
+/* gap fill */
+.gap-item{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:11px}
+.gap-item .n{font-family:Inter,sans-serif;font-size:12px;color:var(--texto-2);margin-bottom:5px}
+.gap-item p{font-size:16.5px;font-weight:600;line-height:1.5}
+.gap-item input{font:inherit;font-weight:700;font-size:16.5px;color:var(--primaria);background:#fff;
+ border:2px solid var(--lilas-forte);border-radius:8px;padding:3px 9px;width:118px;text-align:center}
+.gap-item input:focus{outline:none;border-color:var(--primaria)}
+.gap-item input.certo{border-color:var(--acerto);background:var(--acerto-fundo);color:var(--acerto)}
+.gap-item input.errado{border-color:var(--erro);background:var(--erro-fundo);color:var(--erro)}
+.banco-palavras{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 4px;padding:14px;background:var(--lilas);border-radius:12px}
+.banco-palavras span{font-family:Inter,sans-serif;font-weight:700;font-size:14px;color:var(--texto-lilas);
+ background:#fff;padding:6px 12px;border-radius:16px}
+
+/* multiple choice reading */
+.mc-item{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:14px}
+.mc-item .n{font-family:Inter,sans-serif;font-size:12px;color:var(--texto-2);margin-bottom:7px}
+.mc-item .op{display:flex;gap:8px;flex-wrap:wrap}
+.mc-item button{font-family:'Source Sans 3',sans-serif;font-size:15.5px;font-weight:600;color:var(--texto);
+ background:#fff;border:2px solid var(--lilas-forte);border-radius:10px;padding:9px 13px;cursor:pointer;text-align:left}
+.mc-item button[aria-pressed="true"]{border-color:var(--primaria);background:var(--lilas)}
+.mc-item button.certo{border-color:var(--acerto);background:var(--acerto-fundo);color:var(--acerto)}
+.mc-item button.errado{border-color:var(--erro);background:var(--erro-fundo);color:var(--erro);text-decoration:line-through}
+.mc-item button:disabled{cursor:default}
+
+.leia{background:var(--neutro);border-radius:12px;padding:16px 16px;font-size:15.5px;line-height:1.65;margin-bottom:6px}
+.leia b{color:var(--primaria)}
+
+.acoes-bloco{display:flex;gap:9px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.acoes-bloco button{font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.04em;border:none;
+ border-radius:18px;padding:10px 18px;background:var(--primaria);color:#fff;cursor:pointer}
+.acoes-bloco button:disabled{opacity:.35;cursor:default}
+.placar{font-family:Inter,sans-serif;font-weight:700;color:var(--primaria);font-size:15px}
+
+.nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px}
+.nota b{font-weight:700}
+
+.resumo-box{background:var(--neutro);border-radius:12px;padding:14px 16px;white-space:pre-wrap;
+ font-family:Inter,monospace;font-size:13.5px;line-height:1.6;color:var(--texto);margin-top:14px}
+.status{font-size:14.5px;font-weight:700;color:var(--acerto);margin-top:10px;display:block}
+
+footer{text-align:center;padding:14px 20px 24px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
 </style>
 </head>
 <body>
-<div class="coluna">
+<div class="tela">
 
-  <header>
-    <div class="logo">
-      <svg viewBox="0 0 74 56" xmlns="http://www.w3.org/2000/svg" aria-label="Talk It Out">
-        <path d="M4 12a8 8 0 0 1 8-8h26a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H22l-9 9v-9h-1a8 8 0 0 1-8-8z" fill="#CECBF6"/>
-        <path d="M28 26a9 9 0 0 1 9-9h25a9 9 0 0 1 9 9v15a9 9 0 0 1-9 9H45l-8 8v-8a9 9 0 0 1-9-9z" fill="#F4F2EC"/>
-        <path d="M31 27a7 7 0 0 1 7-7h23a7 7 0 0 1 7 7v13a7 7 0 0 1-7 7H45l-6 6v-6a7 7 0 0 1-8-7z" fill="#3C3489"/>
-      </svg>
-      <span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></span>
-    </div>
+<header>
+ <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+ <h1>Challenge &amp; achievement</h1>
+ <p>Study card for Unit 1. Scroll down and tap the exercises as you go.</p>
+</header>
 
-    <h1>Materiais de estudo</h1>
-    <p class="sub">Páginas de revisão para abrir no navegador do celular. Não precisa instalar nada.</p>
-  </header>
+<nav>
+ <a href="#vocab">New words</a>
+ <a href="#collocations">Collocations</a>
+ <a href="#exA">Exercise A</a>
+ <a href="#exB">Exercise B</a>
+ <a href="#resultados">Send results</a>
+</nav>
 
-<div class="lista">
-    <a class="material" href="index%20(1).html">
-      <span class="nivel">B2 · C1</span>
-      <h2>Past tenses</h2>
-      <p>Os seis tempos do passado, com linha do tempo e exercícios de toque. Inclui <em>having done</em> e a família <em>used to</em>.</p>
-      <span class="abrir">Abrir → Ir para a segunda página</span>
-    </a>
-  </div>
+<main>
 
-  <p class="nota">Novos materiais entram aqui conforme forem ficando prontos.</p>
+<!-- ============ VOCAB ============ -->
+<section id="vocab">
+ <span class="tag leve">FLASHCARDS</span>
+ <h2>New words</h2>
+ <p class="sub">From our 01/10 class. Say the meaning out loud, then tap the card to check.</p>
 
-  <footer>Talk It Out · by Luisa Mesel</footer>
+ <div class="baralho">
+ <div class="cartao-flip" id="cartao">
+ <div class="frente">
+ <div class="palavra"></div>
+ <div class="classe"></div>
+ <div class="toque">Tap to see the meaning</div>
+ </div>
+ <div class="verso">
+ <div class="def"></div>
+ <div class="frase"></div>
+ </div>
+ </div>
+ <div class="barra-baralho">
+ <button id="cartao-ant">Back</button>
+ <span class="contador" id="cartao-contador"></span>
+ <button id="cartao-prox">Next</button>
+ </div>
+ </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ COLLOCATIONS ============ -->
+<section id="collocations">
+ <span class="tag">LEARN THESE</span>
+ <h2>Verb + noun collocations</h2>
+ <p class="sub">The verb that goes with each noun isn't random — learn them as pairs.</p>
+
+ <div class="bloco lilas">
+ <div class="rot">WHY THIS MATTERS</div>
+ <p>Native speakers don't think "which verb means X" — they think "which verb goes with this noun." That's exactly what cause × make trouble is about too.</p>
+ </div>
+
+ <div class="subrot">EXAMPLES</div>
+ <ul class="ex">
+ <li>She decided to <b>face</b> the challenge of running her own business.<span class="efeito">face a challenge</span></li>
+ <li>He finally <b>achieved</b> his ambition of becoming a pilot.<span class="efeito">achieve/realise an ambition</span></li>
+ <li>With no experience, she didn't <b>stand</b> a chance of winning.<span class="efeito">stand a chance</span></li>
+ <li>Even though it was new to her, she <b>rose</b> to the challenge.<span class="efeito">rise to a challenge</span></li>
+ <li>I'll probably never <b>fulfil</b> my ambition to become an internet influencer.<span class="efeito">fulfil an ambition</span></li>
+ <li>His first attempt at comedy was <b>met</b> with complete failure.<span class="efeito">meet with failure</span></li>
+ <li>The brand <b>enjoyed</b> limited success for a few years.<span class="efeito">enjoy success</span></li>
+ <li>Most entrepreneurs don't <b>lack</b> motivation, but they lack a plan.<span class="efeito">lack motivation</span></li>
+ <li>When the job came up, she <b>jumped</b> at the chance.<span class="efeito">jump at the chance</span></li>
+ </ul>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ EXERCISE A ============ -->
+<section id="exA">
+ <span class="tag leve">EXERCISE A</span>
+ <h2>Complete the sentences</h2>
+ <p class="sub">Use the correct form of a verb from the box.</p>
+ <div class="banco-palavras">
+ <span>enjoy</span><span>face</span><span>jump</span><span>lack</span><span>leave</span><span>meet</span><span>realise</span><span>rise</span><span>stand</span>
+ </div>
+
+ <div id="lista-a"></div>
+
+ <div class="acoes-bloco">
+ <button id="checar-a">Check Exercise A</button>
+ <span class="placar" id="placar-a"></span>
+ </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ EXERCISE B ============ -->
+<section id="exB">
+ <span class="tag">EXERCISE B</span>
+ <h2>Grace Under Fire</h2>
+ <p class="sub">Read the text, then choose the correct word for each gap.</p>
+
+ <div class="leia" id="texto-b"></div>
+
+ <div id="lista-b"></div>
+
+ <div class="acoes-bloco">
+ <span class="placar" id="placar-b"></span>
+ </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ RESULTS ============ -->
+<section id="resultados">
+ <span class="tag leve">LAST STEP</span>
+ <h2>Send your results</h2>
+ <p class="sub">When you've checked both exercises, copy your results and paste them in our chat.</p>
+ <div class="acoes-bloco">
+ <button id="copiar-resultados">Copy my results</button>
+ </div>
+ <span class="status" id="status-copia"></span>
+ <div class="resumo-box" id="resumo"></div>
+ <div class="nota">Don't worry about getting everything right — this just helps me see what to go over together.</div>
+</section>
+
+</main>
+
+<footer>
+ <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+ Talk It Out — by Luisa Mesel
+</footer>
 
 </div>
+
+<script>
+/* ---------- state ---------- */
+const CHAVE = 'talkitout-laura-challenge-v1';
+let S = { a:{}, b:{}, checkedA:false };
+try { const raw = localStorage.getItem(CHAVE); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e) {}
+function salvar(){ try { localStorage.setItem(CHAVE, JSON.stringify(S)); } catch(e) {} atualizarResumo(); }
+
+/* ---------- flashcards ---------- */
+const palavras = [
+ {p:"ferry",c:"NOUN",d:"A boat that carries people across water on a fixed route.",
+  f:"She takes the <b>ferry</b> to get to school every morning."},
+ {p:"fulfil",c:"VERB",d:"To achieve or complete something you hoped for.",
+  f:"She finally <b>fulfilled</b> her lifelong ambition to open a restaurant."},
+ {p:"daunting",c:"ADJECTIVE",d:"So difficult that it makes you feel nervous or discouraged.",
+  f:"Moving to a new country alone can be a <b>daunting</b> challenge."},
+ {p:"dismal",c:"ADJECTIVE",d:"Very bad, with no sign of improvement.",
+  f:"After months of effort, the result was a <b>dismal</b> failure."},
+ {p:"burning (ambition)",c:"ADJECTIVE",d:"Extremely strong and impossible to ignore.",
+  f:"He has a <b>burning</b> ambition to become a professional athlete."},
+ {p:"resounding",c:"ADJECTIVE",d:"Complete and impressive, leaving no doubt.",
+  f:"The campaign was a <b>resounding</b> success."},
+ {p:"overnight (success)",c:"ADJECTIVE",d:"Happening suddenly, with no warning.",
+  f:"The singer became an <b>overnight</b> success after one video went viral."},
+ {p:"formidable",c:"ADJECTIVE",d:"Impressively difficult to deal with.",
+  f:"They are facing a <b>formidable</b> opponent in the final."},
+ {p:"lifelong",c:"ADJECTIVE",d:"Lasting an entire life.",
+  f:"Climbing Everest was her <b>lifelong</b> ambition."}
+];
+let iCard = 0;
+const cartao = document.getElementById('cartao');
+const contador = document.getElementById('cartao-contador');
+function pintar(){
+ const v = palavras[iCard];
+ cartao.classList.remove('virado');
+ cartao.querySelector('.palavra').textContent = v.p;
+ cartao.querySelector('.classe').textContent = v.c;
+ cartao.querySelector('.def').textContent = v.d;
+ cartao.querySelector('.frase').innerHTML = v.f;
+ contador.textContent = (iCard+1) + ' / ' + palavras.length;
+ document.getElementById('cartao-ant').disabled = iCard === 0;
+ document.getElementById('cartao-prox').disabled = iCard === palavras.length - 1;
+}
+cartao.addEventListener('click', () => cartao.classList.toggle('virado'));
+document.getElementById('cartao-ant').addEventListener('click', () => { if (iCard>0){iCard--;pintar()} });
+document.getElementById('cartao-prox').addEventListener('click', () => { if (iCard<palavras.length-1){iCard++;pintar()} });
+pintar();
+
+/* ---------- Exercise A: gap fill ---------- */
+const EXA = [
+ {q:'The organisers said I could use their computer for my presentation, but I decided to {gap} nothing to chance and took my laptop just in case.', a:['leave']},
+ {q:"At first, we thought you wouldn't cope with all your new responsibilities, but we're delighted with the way you've {gap} to the challenge.", a:['risen']},
+ {q:"Helen decided to enter the race, even though she didn't {gap} a chance of winning.", a:['stand']},
+ {q:'At one point, I was tempted to close my business because of all the formidable challenges I {gap}, but somehow I made it through.', a:['faced']},
+ {q:"I've fulfilled most of my ambitions, but there's one that I'll probably never {gap}: to become an internet influencer.", a:['realise','realize']},
+ {q:"Bryan's attempts at humour were {gap} with complete failure – he just came across as rude.", a:['met']},
+ {q:'When I was a singer, I {gap} limited success for a few years, but it never lasted.', a:['enjoyed']},
+ {q:'The problem with most entrepreneurs is not that they {gap} motivation, but rather that they don\'t know how to turn that motivation into concrete results.', a:['lack']},
+ {q:"I'd always dreamt of living abroad, so when I was offered an opportunity to work in our global HQ, I {gap} at the chance.", a:['jumped']}
+];
+const listaA = document.getElementById('lista-a');
+function renderA(){
+ listaA.innerHTML = EXA.map((it,i) => {
+ const partes = it.q.split('{gap}');
+ return `<div class="gap-item" data-i="${i}">
+ <div class="n">${i+1}</div>
+ <p>${partes[0]}<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${(S.a[i]||'').replace(/"/g,'&quot;')}">${partes[1]}</p>
+ </div>`;
+ }).join('');
+ listaA.addEventListener('input', e => {
+ const inp = e.target.closest('input'); if (!inp) return;
+ const i = +inp.closest('.gap-item').dataset.i;
+ S.a[i] = inp.value;
+ document.getElementById('checar-a').disabled = S.checkedA;
+ salvar();
+ });
+ document.getElementById('checar-a').disabled = !Object.values(S.a).some(v => v && v.trim());
+ if (S.checkedA) checarA();
+}
+function norm(s){ return (s||'').toLowerCase().trim(); }
+function checarA(){
+ S.checkedA = true;
+ let acertos = 0;
+ listaA.querySelectorAll('.gap-item').forEach(el => {
+ const i = +el.dataset.i, it = EXA[i], inp = el.querySelector('input');
+ const ok = it.a.includes(norm(inp.value));
+ if (ok) acertos++;
+ inp.readOnly = true;
+ inp.classList.add(ok ? 'certo' : 'errado');
+ });
+ document.getElementById('placar-a').textContent = `${acertos} / ${EXA.length}`;
+ document.getElementById('checar-a').disabled = true;
+ salvar();
+}
+document.getElementById('checar-a').addEventListener('click', checarA);
+
+/* ---------- Exercise B: Grace Under Fire ---------- */
+const TEXTO_B = `Grace Spellacy always enjoyed cooking, but it wasn't enough just to cook for her friends and family. Since early childhood, she'd always had a (1) {Q1} ambition to open her own restaurant. Of course, Grace realised that she couldn't simply open a restaurant and expect to be (2) {Q2}, but on the other hand, she thought she stood a (3) {Q3} chance of success.
+
+Grace certainly never imagined all the (4) {Q4} challenges she would face, especially staff management and marketing. The problem was that her (5) {Q5} motivation had always been to cook great food rather than to make money – and, as a result, her first restaurant was an extremely (6) {Q6} failure. For a while, it looked as if Grace would never fulfil her (7) {Q7} ambition, but then she was given a (8) {Q8} chance when a group of investors offered to go into business with her. Fortunately, they knew a lot more about management and marketing, allowing Grace to focus on the food. Second time round, Grace's Place has been a (9) {Q9} success.`;
+
+const EXB = [
+ {op:['burning','complete','resounding'], a:'burning'},
+ {op:['a main','an overnight','a strong'], a:'an overnight'},
+ {op:['fair','formidable','major'], a:'fair'},
+ {op:['daunting','strong','total'], a:'daunting'},
+ {op:['burning','formidable','primary'], a:'primary'},
+ {op:['costly','poor','strong'], a:'costly'},
+ {op:['daunting','huge','lifelong'], a:'lifelong'},
+ {op:['complete','primary','second'], a:'second'},
+ {op:['burning','resounding','strong'], a:'resounding'}
+];
+
+const textoB = document.getElementById('texto-b');
+const listaB = document.getElementById('lista-b');
+
+function renderB(){
+ let html = TEXTO_B;
+ EXB.forEach((it, idx) => {
+ html = html.replace(`{Q${idx+1}}`, `<span id="marcador-${idx}">______</span>`);
+ });
+ textoB.innerHTML = html.replace(/\n\n/g,'<br><br>');
+
+ listaB.innerHTML = EXB.map((it,i) => `
+ <div class="mc-item" data-i="${i}">
+ <div class="n">Gap ${i+1}</div>
+ <div class="op">
+ ${it.op.map((o,k) => `<button data-k="${k}" aria-pressed="${S.b[i]===k}">${o}</button>`).join('')}
+ </div>
+ </div>`).join('');
+
+ listaB.addEventListener('click', e => {
+ const btn = e.target.closest('button'); if (!btn || btn.disabled) return;
+ const item = btn.closest('.mc-item');
+ const i = +item.dataset.i;
+ S.b[i] = +btn.dataset.k;
+ checarUmaB(i);
+ salvar();
+ });
+
+ Object.keys(S.b).forEach(i => checarUmaB(+i));
+}
+
+function checarUmaB(i){
+ const it = EXB[i];
+ const escolhido = S.b[i];
+ const item = listaB.querySelector(`.mc-item[data-i="${i}"]`);
+ const marcador = document.getElementById(`marcador-${i}`);
+ const ok = it.op[escolhido] === it.a;
+ item.querySelectorAll('button').forEach((b,k) => {
+ b.disabled = true;
+ b.setAttribute('aria-pressed', k === escolhido);
+ if (it.op[k] === it.a) b.classList.add('certo');
+ else if (k === escolhido) b.classList.add('errado');
+ });
+ if (marcador) marcador.innerHTML = `<b>${it.op[escolhido]}</b>`;
+ atualizarPlacarB();
+}
+
+function atualizarPlacarB(){
+ const total = Object.keys(S.b).length;
+ if (total === 0) { document.getElementById('placar-b').textContent = ''; return; }
+ let acertos = 0;
+ EXB.forEach((it,i) => { if (S.b[i] !== undefined && it.op[S.b[i]] === it.a) acertos++; });
+ document.getElementById('placar-b').textContent = `${acertos} / ${EXB.length} answered so far`;
+}
+
+/* ---------- copy results ---------- */
+async function copiar(texto, statusEl){
+ let ok = false;
+ try { await navigator.clipboard.writeText(texto); ok = true; } catch(e) {
+ try { const t=document.createElement('textarea'); t.value=texto; t.style.position='fixed'; t.style.opacity='0';
+ document.body.appendChild(t); t.select(); ok=document.execCommand('copy'); t.remove(); } catch(_) {}
+ }
+ statusEl.textContent = ok ? 'Copied! Paste it in our chat.' : 'Select the text below and copy it manually.';
+}
+
+function atualizarResumo(){
+ const linhas = ['Laura — Challenge & achievement review', ''];
+ if (S.checkedA) {
+ let acertos = 0; const erros = [];
+ EXA.forEach((it,i) => {
+ const v = S.a[i] || '';
+ if (it.a.includes(norm(v))) acertos++;
+ else erros.push(`  ${i+1}: wrote "${v.trim()||'nothing'}", answer "${it.a[0]}"`);
+ });
+ linhas.push(`Exercise A (collocations): ${acertos}/${EXA.length}`, ...erros, '');
+ } else {
+ linhas.push('Exercise A (collocations): not checked yet', '');
+ }
+ const totalB = Object.keys(S.b).length;
+ if (totalB === EXB.length) {
+ let acertos = 0; const erros = [];
+ EXB.forEach((it,i) => {
+ const escolhido = it.op[S.b[i]];
+ if (escolhido === it.a) acertos++;
+ else erros.push(`  Gap ${i+1}: chose "${escolhido}", answer "${it.a}"`);
+ });
+ linhas.push(`Exercise B (Grace Under Fire): ${acertos}/${EXB.length}`, ...erros);
+ } else if (totalB > 0) {
+ linhas.push(`Exercise B (Grace Under Fire): ${totalB}/${EXB.length} answered so far`);
+ } else {
+ linhas.push('Exercise B (Grace Under Fire): not started yet');
+ }
+ document.getElementById('resumo').textContent = linhas.join('\n').trim();
+}
+
+document.getElementById('copiar-resultados').addEventListener('click', () => {
+ copiar(document.getElementById('resumo').textContent, document.getElementById('status-copia'));
+});
+
+renderA();
+renderB();
+atualizarResumo();
+</script>
 </body>
 </html>
