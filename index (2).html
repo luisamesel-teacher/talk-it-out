@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Present perfect × Past simple — study card · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+  --erro:#A32D2D; --erro-fundo:#F7E7E7;
+  --entalhe:12px;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
+  line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
+
+header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
+
+nav{display:flex;gap:8px;overflow-x:auto;padding:14px 16px;background:#fff;position:sticky;top:0;z-index:15;
+  border-bottom:1px solid #e2e0ec;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;
+  color:var(--primaria);background:var(--lilas);padding:9px 15px;border-radius:20px;white-space:nowrap}
+nav a:active{background:var(--lilas-forte)}
+
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;margin-bottom:0;
+  scroll-margin-top:80px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+.tag.leve{background:var(--primaria-clara)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;color:var(--primaria);line-height:1.14}
+
+figure{margin:20px 0 4px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:14px;color:var(--texto-2);margin-top:8px;text-align:center;font-style:italic}
+
+.bloco{border-radius:12px;padding:15px 17px;margin-top:16px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.bloco.lilas{background:var(--lilas)} .bloco.lilas .rot{color:var(--texto-lilas)}
+.bloco.rosa{background:var(--rosa)}  .bloco.rosa .rot{color:var(--texto-rosa)}
+.bloco.ambar{background:var(--ambar)}.bloco.ambar .rot{color:var(--texto-ambar)}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:7px}
+.bloco p{font-size:17px;font-weight:600}
+.bloco .form{font-size:19px;font-weight:700;color:var(--primaria);letter-spacing:.01em}
+
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin:24px 0 10px}
+.ex{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ex li{background:var(--neutro);border-radius:11px;padding:13px 15px;border-left:4px solid var(--primaria-clara)}
+.ex li b{font-weight:700;font-style:italic;color:var(--primaria)}
+.ex li .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px;font-weight:400}
+
+.par{display:flex;flex-direction:column;gap:11px}
+.par .cartao{background:var(--neutro);border-radius:11px;padding:14px 15px}
+.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--texto-2);margin-bottom:6px}
+.par .cartao b{font-weight:700;font-style:italic;color:var(--primaria)}
+.par .cartao .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px}
+
+details{margin-top:16px}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+.abrir{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);border-radius:16px;padding:7px 14px;margin-top:12px}
+details[open] .abrir{display:none}
+
+.quiz{background:var(--lilas);border-radius:14px;padding:18px 17px 17px}
+.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:10px}
+.quiz .pergunta{font-size:18px;font-weight:600;margin-bottom:13px}
+.quiz .pergunta i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;
+  display:flex;align-items:center;gap:10px}
+.marca-op{font-family:Inter,sans-serif;font-weight:700;font-size:15px;flex:none;width:20px;color:var(--texto-2)}
+.resposta{margin-top:4px}
+.fb{font-size:15.5px;padding:12px 14px;border-radius:10px;line-height:1.45;margin-bottom:9px;display:flex;gap:9px}
+.fb .m{font-weight:700;flex:none}
+.fb b{font-weight:700}
+.fb.bom{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.fb.bom .m{color:var(--acerto)}
+.fb.ruim{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
+.fb.ruim .m{color:var(--erro)}
+
+.corrige{background:var(--ambar);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.corrige > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-ambar);margin-bottom:11px}
+.fix{margin-top:0;margin-bottom:10px}
+.fix summary{background:#fff;border-radius:11px;padding:13px 15px}
+.fix .frase{display:block;font-size:17.5px;font-weight:600;line-height:1.55}
+.fix .abrir{margin-top:9px;border-color:var(--ambar);font-size:11px;padding:6px 12px}
+.alvo{background:var(--erro-fundo);border-bottom:2px dashed var(--erro);padding:1px 5px;border-radius:4px;
+  color:var(--erro);font-weight:700}
+.fix-resp{background:#fff;border-radius:0 0 11px 11px;margin-top:-4px;padding:4px 15px 13px;font-size:17.5px;font-weight:600}
+.fix-resp s{color:var(--erro);opacity:.6;font-weight:600}
+.consertado{color:var(--acerto);font-weight:700;background:var(--acerto-fundo);padding:1px 6px;border-radius:4px}
+.porque{display:block;font-size:14.5px;color:var(--texto-2);margin-top:8px;font-weight:400;line-height:1.45}
+
+.nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px}
+.nota b{font-weight:700}
+.errado{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:16px;border-left:4px solid var(--erro)}
+.errado .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--erro);margin-bottom:8px}
+.errado .l{font-size:16.5px;margin-top:6px}
+.errado s{color:var(--erro);text-decoration-thickness:2px}
+.errado .ok{color:var(--acerto);font-weight:700}
+
+.tres{width:100%;border-collapse:collapse;margin-top:16px;font-size:16.5px;background:var(--neutro);border-radius:12px;overflow:hidden}
+.tres th{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--texto-lilas);
+  text-align:left;padding:10px 12px;background:var(--lilas)}
+.tres td{padding:9px 12px;border-top:1px solid #e2e0ec}
+.tres td:nth-child(2){font-weight:700;color:var(--texto-rosa)}
+.tres td:nth-child(3){font-weight:700;color:var(--primaria)}
+
+.ordem{background:var(--lilas);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.ordem .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-lilas);margin-bottom:11px}
+.linha{min-height:54px;background:#fff;border-radius:11px;padding:9px 11px;display:flex;flex-wrap:wrap;gap:6px;
+  align-items:center;border:2px solid transparent}
+.linha.certo{border-color:var(--acerto);background:var(--acerto-fundo)}
+.linha.errado{border-color:var(--erro);background:var(--erro-fundo)}
+.banco{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.chip{background:#fff;border:2px solid var(--lilas-forte);border-radius:9px;padding:8px 12px;
+  font-family:'Source Sans 3',sans-serif;font-size:16.5px;font-weight:600;color:var(--texto);cursor:pointer}
+.linha .chip{border-color:var(--primaria-clara)}
+.chip.usado{opacity:.28;pointer-events:none}
+.acoes{display:flex;gap:9px;margin-top:12px}
+.acoes button{font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.05em;border:none;
+  border-radius:18px;padding:10px 18px;background:var(--primaria);color:#fff;cursor:pointer}
+.acoes button.limpar{background:#fff;color:var(--primaria);border:2px solid var(--lilas-forte)}
+.acoes button:disabled{opacity:.35;cursor:default}
+
+.baralho{margin-top:18px}
+.cartao-flip{background:var(--lilas);border-radius:16px;padding:26px 20px;min-height:235px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer}
+.cartao-flip .palavra{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;color:var(--primaria);line-height:1.1}
+.cartao-flip .classe{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-top:10px}
+.cartao-flip .toque{font-family:Inter,sans-serif;font-size:12px;font-weight:600;color:var(--texto-2);margin-top:22px}
+.cartao-flip .verso{display:none}
+.cartao-flip.virado .frente{display:none}
+.cartao-flip.virado .verso{display:block}
+.cartao-flip .def{font-size:19px;font-weight:600;line-height:1.45}
+.cartao-flip .frase{font-size:16.5px;font-style:italic;color:var(--texto-2);margin-top:14px;
+  border-top:2px dashed var(--lilas-forte);padding-top:14px}
+.cartao-flip .frase b{font-style:italic;font-weight:700;color:var(--primaria)}
+.barra-baralho{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px}
+.barra-baralho button{font-family:Inter,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:18px;
+  padding:10px 20px;background:var(--primaria);color:#fff;cursor:pointer}
+.barra-baralho button:disabled{opacity:.3;cursor:default}
+.contador{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--texto-2)}
+
+footer{text-align:center;padding:14px 20px 24px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
+</style>
+</head>
+<body>
+<div class="tela">
+
+<header>
+  <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+  <h1>Present perfect × Past simple</h1>
+  <p>Study card for Test 3. Scroll down and tap the exercises as you go.</p>
+</header>
+
+<nav>
+  <a href="#helper">The helper</a>
+  <a href="#participle">Past participle</a>
+  <a href="#qual">Which one?</a>
+  <a href="#formas">Three forms</a>
+  <a href="#ordem">Word order</a>
+  <a href="#vocab">Vocabulary</a>
+</nav>
+
+<main>
+
+<!-- ============ THE HELPER ============ -->
+<section id="helper">
+  <span class="tag leve">START HERE</span>
+  <h2>have, has, haven't, hasn't</h2>
+
+  <div class="bloco lilas"><div class="rot">FORM</div><div class="form">have / has + past participle</div></div>
+  <div class="bloco rosa"><div class="rot">WHO GETS WHICH</div>
+    <p>I · you · we · they → <b>have</b><br>he · she · it → <b>has</b></p>
+  </div>
+
+  <div class="nota">The helper is <b>never optional</b>. Without <b>have</b> or <b>has</b>, there is no present perfect — only a verb standing alone.</div>
+
+  <div class="subrot">EXAMPLES</div>
+  <ul class="ex">
+    <li>Supermarkets <b>have wasted</b> tons of food.<span class="efeito">Affirmative: helper + participle.</span></li>
+    <li>She <b>hasn't finished</b> her homework.<span class="efeito">Negative: <i>not</i> comes after the helper.</span></li>
+    <li><b>Have</b> you <b>seen</b> that campaign?<span class="efeito">Question: the helper jumps to the front.</span></li>
+  </ul>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">Miss Trunchbull <i>_____</i> never been kind to the children.</p>
+      <div class="op-e"><span class="marca-op">A</span>have</div>
+      <div class="op-e"><span class="marca-op">B</span>has</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb ruim"><span class="m">A</span><span>Miss Trunchbull is one person — <i>she</i>, not <i>they</i>.</span></div>
+      <div class="fb bom"><span class="m">B</span><span>She → <b>has</b>. <i>Miss Trunchbull has never been kind.</i></span></div>
+    </div>
+  </details>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">I <i>_____</i> finished my homework yet.</p>
+      <div class="op-e"><span class="marca-op">A</span>hasn't</div>
+      <div class="op-e"><span class="marca-op">B</span>haven't</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb ruim"><span class="m">A</span><span><i>Hasn't</i> belongs to he, she, it — never to <i>I</i>.</span></div>
+      <div class="fb bom"><span class="m">B</span><span>I → <b>haven't</b>. And <i>yet</i> only appears in negatives and questions.</span></div>
+    </div>
+  </details>
+
+  <div class="corrige">
+    <div class="lab">FIX THE SENTENCE</div>
+
+    <details class="fix">
+      <summary>
+        <span class="frase">My parents <span class="alvo">has</span> seen that campaign before.</span>
+        <span class="abrir">Tap to fix</span>
+      </summary>
+    </details>
+    <div class="fix-resp">My parents <s>has</s> <span class="consertado">have</span> seen that campaign before.
+      <span class="porque">My parents = they. Two people never take <i>has</i>.</span></div>
+
+    <details class="fix">
+      <summary>
+        <span class="frase">She <span class="alvo">not has</span> arrived yet.</span>
+        <span class="abrir">Tap to fix</span>
+      </summary>
+    </details>
+    <div class="fix-resp">She <s>not has</s> <span class="consertado">hasn't</span> arrived yet.
+      <span class="porque">In English <i>not</i> comes after the helper, never before it. This is the Portuguese order sneaking in.</span></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ PARTICIPLE ============ -->
+<section id="participle">
+  <span class="tag">THE SECOND PIECE</span>
+  <h2>The past participle</h2>
+
+  <div class="bloco lilas"><div class="rot">THE RULE</div>
+    <p>Regular verbs: <b>verb + -ed</b>, the same as the past.<br>Irregular verbs: <b>a third form you have to know</b>.</p>
+  </div>
+  <div class="nota">The past and the participle are <b>not always the same word</b>. <i>Went</i> is a past. <i>Gone</i> is a participle. Only the participle can follow have or has.</div>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">She has <i>_____</i> her lunch already.</p>
+      <div class="op-e"><span class="marca-op">A</span>ate</div>
+      <div class="op-e"><span class="marca-op">B</span>eaten</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb ruim"><span class="m">A</span><span><i>Ate</i> is the past. It goes alone: <i>She ate her lunch at noon.</i></span></div>
+      <div class="fb bom"><span class="m">B</span><span>eat · ate · <b>eaten</b>. After <i>has</i>, use the third form.</span></div>
+    </div>
+  </details>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">They have <i>_____</i> a big mistake.</p>
+      <div class="op-e"><span class="marca-op">A</span>made</div>
+      <div class="op-e"><span class="marca-op">B</span>maked</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb bom"><span class="m">A</span><span>make · made · <b>made</b>. Here the past and the participle are the same word.</span></div>
+      <div class="fb ruim"><span class="m">B</span><span>Irregular verbs never take <i>-ed</i>. There is no <i>maked</i>.</span></div>
+    </div>
+  </details>
+
+  <div class="errado">
+    <div class="lab">WATCH OUT</div>
+    <div class="l"><s>I have go to the supermarket.</s> → <span class="ok">I have gone to the supermarket.</span></div>
+    <div class="l"><s>We have buy the vegetables.</s> → <span class="ok">We have bought the vegetables.</span></div>
+    <div class="l"><s>He has write three books.</s> → <span class="ok">He has written three books.</span></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ WHICH ONE ============ -->
+<section id="qual">
+  <span class="tag">THE BIG QUESTION</span>
+  <h2>Which one do I use?</h2>
+
+  <figure>
+    <svg viewBox="0 0 320 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: past simple is one known point, present perfect is somewhere before now">
+      <line x1="14" y1="56" x2="306" y2="56" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="80" cy="56" r="8" fill="#993556"/>
+      <text x="80" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#993556">yesterday</text>
+      <text x="80" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5F5E5A">past simple</text>
+      <rect x="130" y="48" width="112" height="16" rx="8" fill="#CECBF6"/>
+      <text x="186" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#3C3489">at some point</text>
+      <text x="186" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5F5E5A">present perfect</text>
+      <line x1="276" y1="42" x2="276" y2="70" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="276" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#5F5E5A" letter-spacing="1">NOW</text>
+    </svg>
+    <figcaption>Both are finished. Only one of them says when.</figcaption>
+  </figure>
+
+  <div class="par" style="margin-top:18px">
+    <div class="cartao"><div class="lab">PAST SIMPLE</div>I <b>threw</b> it away yesterday.<span class="efeito">The time is known: yesterday, last week, in 2023, two days ago.</span></div>
+    <div class="cartao"><div class="lab">PRESENT PERFECT</div>I <b>have already thrown</b> it away.<span class="efeito">The time is not said, or the period hasn't finished: today, this week, this year.</span></div>
+  </div>
+
+  <div class="bloco ambar"><div class="rot">THE GIVEAWAY WORDS</div>
+    <p><i>yesterday · last week · in 2023 · two days ago</i> → past simple<br>
+    <i>ever · never · just · already · yet · this week</i> → present perfect</p>
+  </div>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">Consumers <i>_____</i> more careful this year.</p>
+      <div class="op-e"><span class="marca-op">A</span>became</div>
+      <div class="op-e"><span class="marca-op">B</span>have become</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb ruim"><span class="m">A</span><span>This would need a finished time, like <i>last year</i>.</span></div>
+      <div class="fb bom"><span class="m">B</span><span><i>This year</i> hasn't finished yet → <b>have become</b>.</span></div>
+    </div>
+  </details>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta">The shop <i>_____</i> the ugly carrots two days ago.</p>
+      <div class="op-e"><span class="marca-op">A</span>rejected</div>
+      <div class="op-e"><span class="marca-op">B</span>has rejected</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb bom"><span class="m">A</span><span><i>Two days ago</i> says exactly when → <b>rejected</b>.</span></div>
+      <div class="fb ruim"><span class="m">B</span><span>The present perfect can't live with <i>ago</i>. They cancel each other out.</span></div>
+    </div>
+  </details>
+
+  <details class="quiz">
+    <summary>
+      <div class="lab">CHOOSE ONE</div>
+      <p class="pergunta"><i>_____</i> you ever eaten something rotten?</p>
+      <div class="op-e"><span class="marca-op">A</span>Did</div>
+      <div class="op-e"><span class="marca-op">B</span>Have</div>
+      <span class="abrir">Tap to check</span>
+    </summary>
+    <div class="resposta">
+      <div class="fb ruim"><span class="m">A</span><span><i>Did</i> would ask about one specific moment.</span></div>
+      <div class="fb bom"><span class="m">B</span><span><i>Ever</i> asks about your whole life up to now → <b>Have</b>.</span></div>
+    </div>
+  </details>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ THREE FORMS ============ -->
+<section id="formas">
+  <span class="tag leve">LEARN THESE</span>
+  <h2>The three forms</h2>
+  <p style="margin-top:6px;color:#5F5E5A">Column 2 stands alone. Column 3 always needs <b>have</b> or <b>has</b> in front of it.</p>
+
+  <table class="tres">
+    <tr><th>Base</th><th>Past</th><th>Participle</th></tr>
+    <tr><td>be</td><td>was / were</td><td>been</td></tr>
+    <tr><td>buy</td><td>bought</td><td>bought</td></tr>
+    <tr><td>do</td><td>did</td><td>done</td></tr>
+    <tr><td>eat</td><td>ate</td><td>eaten</td></tr>
+    <tr><td>go</td><td>went</td><td>gone</td></tr>
+    <tr><td>grow</td><td>grew</td><td>grown</td></tr>
+    <tr><td>make</td><td>made</td><td>made</td></tr>
+    <tr><td>read</td><td>read</td><td>read</td></tr>
+    <tr><td>see</td><td>saw</td><td>seen</td></tr>
+    <tr><td>take</td><td>took</td><td>taken</td></tr>
+    <tr><td>throw</td><td>threw</td><td>thrown</td></tr>
+    <tr><td>write</td><td>wrote</td><td>written</td></tr>
+  </table>
+
+  <div class="nota">Cover column 3 with your thumb and say it out loud. That's the column the test asks for.</div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ WORD ORDER ============ -->
+<section id="ordem">
+  <span class="tag">PUT IT TOGETHER</span>
+  <h2>Word order</h2>
+
+  <div class="bloco rosa"><div class="rot">WHERE THEY GO</div>
+    <p><b>already · just · never · ever</b> → between the helper and the verb<br><b>yet</b> → at the end of the sentence</p>
+  </div>
+
+  <div class="ordem" data-resposta="I have already finished my homework">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div>
+    <div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+
+  <div class="ordem" data-resposta="She hasn't arrived yet">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div>
+    <div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+
+  <div class="ordem" data-resposta="Have you ever been to London">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div>
+    <div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+
+  <div class="ordem" data-resposta="They have just thrown it away">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div>
+    <div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+
+  <div class="ordem" data-resposta="I have never eaten anything rotten">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div>
+    <div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ VOCABULARY ============ -->
+<section id="vocab">
+  <span class="tag">FLASHCARDS</span>
+  <h2>Food waste vocabulary</h2>
+  <p style="margin-top:6px;color:#5F5E5A">Expeditions 2, pages 94–96. Say the meaning out loud, then tap the card to check.</p>
+
+  <div class="baralho">
+    <div class="cartao-flip" id="cartao">
+      <div class="frente">
+        <div class="palavra"></div>
+        <div class="classe"></div>
+        <div class="toque">Tap to see the meaning</div>
+      </div>
+      <div class="verso">
+        <div class="def"></div>
+        <div class="frase"></div>
+      </div>
+    </div>
+    <div class="barra-baralho">
+      <button id="cartao-ant">Back</button>
+      <span class="contador" id="cartao-contador"></span>
+      <button id="cartao-prox">Next</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+  Talk It Out — by Luisa Mesel
+</footer>
+
+</div>
+
+<script>
+/* ---------- word order ---------- */
+function embaralhar(a){
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  return a;
+}
+document.querySelectorAll('.ordem').forEach(bloco=>{
+  const resposta=bloco.dataset.resposta;
+  const linha=bloco.querySelector('.linha');
+  const banco=bloco.querySelector('.banco');
+  const checar=bloco.querySelector('.checar');
+  const limpar=bloco.querySelector('.limpar');
+  function montar(){
+    linha.innerHTML='';banco.innerHTML='';
+    linha.classList.remove('certo','errado');
+    checar.disabled=true;
+    embaralhar(resposta.split(' ')).forEach(p=>{
+      const c=document.createElement('button');
+      c.className='chip';c.textContent=p;
+      c.addEventListener('click',()=>{
+        const posto=document.createElement('button');
+        posto.className='chip';posto.textContent=p;
+        posto.addEventListener('click',()=>{
+          posto.remove();c.classList.remove('usado');
+          linha.classList.remove('certo','errado');
+          checar.disabled=linha.children.length===0;
+        });
+        linha.appendChild(posto);
+        c.classList.add('usado');
+        linha.classList.remove('certo','errado');
+        checar.disabled=false;
+      });
+      banco.appendChild(c);
+    });
+  }
+  checar.addEventListener('click',()=>{
+    const dado=[...linha.children].map(c=>c.textContent).join(' ');
+    const ok=dado===resposta;
+    linha.classList.toggle('certo',ok);
+    linha.classList.toggle('errado',!ok);
+    if(ok){[...banco.children].forEach(c=>c.classList.add('usado'));checar.disabled=true}
+  });
+  limpar.addEventListener('click',montar);
+  montar();
+});
+
+/* ---------- flashcards ---------- */
+const palavras=[
+  {p:"supermarket",c:"NOUN",d:"A big shop where you buy food and things for the house.",
+   f:"The <b>supermarket</b> throws away food that looks ugly."},
+  {p:"consumer",c:"NOUN",d:"A person who buys and uses things.",
+   f:"<b>Consumers</b> have become more careful about waste."},
+  {p:"produce",c:"NOUN",d:"Fruit and vegetables that come from a farm.",
+   f:"Fresh <b>produce</b> goes bad faster than frozen food."},
+  {p:"supplies",c:"NOUN",d:"The amount of something that is available to use.",
+   f:"The shop has ordered new <b>supplies</b> for the week."},
+  {p:"fields",c:"NOUN",d:"Open land where farmers grow food.",
+   f:"Tons of vegetables are left in the <b>fields</b> every year."},
+  {p:"landfill",c:"NOUN",d:"A big hole in the ground where rubbish is buried.",
+   f:"Most of that food ends up in a <b>landfill</b>."},
+  {p:"waste",c:"NOUN / VERB",d:"Things we throw away; or to use something badly.",
+   f:"We <b>waste</b> food every time we buy too much."},
+  {p:"campaign",c:"NOUN",d:"A series of actions planned to change something.",
+   f:"Have you seen the <b>campaign</b> against food waste?"},
+  {p:"challenge",c:"NOUN",d:"Something difficult that you have to deal with.",
+   f:"Feeding everyone is a real <b>challenge</b>."},
+  {p:"standard",c:"NOUN",d:"The level something must reach to be accepted.",
+   f:"These apples don't reach the shop's <b>standard</b>."},
+  {p:"appearance",c:"NOUN",d:"The way something looks from the outside.",
+   f:"Supermarkets reject fruit because of its <b>appearance</b>."},
+  {p:"bunch",c:"NOUN",d:"A group of things held together, like bananas or grapes.",
+   f:"She bought a <b>bunch</b> of bananas."},
+  {p:"lump",c:"NOUN",d:"A small hard piece with no regular shape.",
+   f:"A potato with a <b>lump</b> is still good to eat."},
+  {p:"size",c:"NOUN",d:"How big or small something is.",
+   f:"Carrots of the wrong <b>size</b> never arrive at the shop."},
+  {p:"edible",c:"ADJECTIVE",d:"Good enough to be eaten; safe to eat.",
+   f:"The food was still <b>edible</b> when they threw it away."},
+  {p:"nutritious",c:"ADJECTIVE",d:"Full of the things your body needs to be healthy.",
+   f:"Vegetables are cheap and <b>nutritious</b>."},
+  {p:"fresh",c:"ADJECTIVE",d:"Recently picked or made; not old.",
+   f:"I have just bought some <b>fresh</b> bread."},
+  {p:"rotten",c:"ADJECTIVE",d:"Food that has gone bad and smells terrible.",
+   f:"Have you ever eaten something <b>rotten</b>?"},
+  {p:"shocking",c:"ADJECTIVE",d:"So surprising and bad that it upsets you.",
+   f:"The numbers about food waste are <b>shocking</b>."},
+  {p:"reject",c:"VERB",d:"To refuse to accept something.",
+   f:"Shops <b>reject</b> fruit that isn't perfect."},
+  {p:"throw away",c:"PHRASAL VERB",d:"To put something in the bin because you don't want it.",
+   f:"They have <b>thrown away</b> tons of good food."}
+];
+let iCard=0;
+const cartao=document.getElementById('cartao');
+const contador=document.getElementById('cartao-contador');
+function pintar(){
+  const v=palavras[iCard];
+  cartao.classList.remove('virado');
+  cartao.querySelector('.palavra').textContent=v.p;
+  cartao.querySelector('.classe').textContent=v.c;
+  cartao.querySelector('.def').textContent=v.d;
+  cartao.querySelector('.frase').innerHTML=v.f;
+  contador.textContent=(iCard+1)+' / '+palavras.length;
+  document.getElementById('cartao-ant').disabled=iCard===0;
+  document.getElementById('cartao-prox').disabled=iCard===palavras.length-1;
+}
+cartao.addEventListener('click',()=>cartao.classList.toggle('virado'));
+document.getElementById('cartao-ant').addEventListener('click',()=>{if(iCard>0){iCard--;pintar()}});
+document.getElementById('cartao-prox').addEventListener('click',()=>{if(iCard<palavras.length-1){iCard++;pintar()}});
+pintar();
+</script>
+</body>
+</html>
