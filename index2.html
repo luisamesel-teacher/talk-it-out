@@ -20,8 +20,7 @@
 }
 html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
-  line-height:1.5;font-size:17px}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);line-height:1.5;font-size:17px}
 .tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
 
 header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
@@ -74,8 +73,7 @@ figcaption{font-size:14px;color:var(--texto-2);margin-top:8px;text-align:center;
 
 .par{display:flex;flex-direction:column;gap:11px}
 .par .cartao{background:var(--neutro);border-radius:11px;padding:14px 15px}
-.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
-  color:var(--texto-2);margin-bottom:6px}
+.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--texto-2);margin-bottom:6px}
 .par .cartao b{font-weight:700;font-style:italic;color:var(--primaria)}
 .par .cartao .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px}
 
@@ -88,12 +86,10 @@ summary::marker{content:""}
 details[open] .abrir{display:none}
 
 .quiz{background:var(--lilas);border-radius:14px;padding:18px 17px 17px}
-.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
-  color:var(--texto-lilas);margin-bottom:10px}
+.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-lilas);margin-bottom:10px}
 .quiz .pergunta{font-size:18px;font-weight:600;margin-bottom:13px}
 .quiz .pergunta i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
-.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;
-  display:flex;align-items:center;gap:10px}
+.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:10px}
 .marca-op{font-family:Inter,sans-serif;font-weight:700;font-size:15px;flex:none;width:20px;color:var(--texto-2)}
 .resposta{margin-top:4px}
 .fb{font-size:15.5px;padding:12px 14px;border-radius:10px;line-height:1.45;margin-bottom:9px;display:flex;gap:9px}
@@ -104,19 +100,45 @@ details[open] .abrir{display:none}
 .fb.ruim{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
 .fb.ruim .m{color:var(--erro)}
 
+/* --- FIX THE SENTENCE --- */
 .corrige{background:var(--ambar);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
-.corrige > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
-  color:var(--texto-ambar);margin-bottom:11px}
+.corrige > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-ambar);margin-bottom:11px}
 .fix{margin-top:0;margin-bottom:10px}
 .fix summary{background:#fff;border-radius:11px;padding:13px 15px}
+details[open].fix summary{border-radius:11px 11px 0 0}
 .fix .frase{display:block;font-size:17.5px;font-weight:600;line-height:1.55}
+.fix .hint{display:block;font-size:13.5px;color:var(--texto-2);font-weight:400;margin-top:4px}
 .fix .abrir{margin-top:9px;border-color:var(--ambar);font-size:11px;padding:6px 12px}
-.alvo{background:var(--erro-fundo);border-bottom:2px dashed var(--erro);padding:1px 5px;border-radius:4px;
-  color:var(--erro);font-weight:700}
-.fix-resp{background:#fff;border-radius:0 0 11px 11px;margin-top:-4px;padding:4px 15px 13px;font-size:17.5px;font-weight:600}
+.alvo{background:var(--erro-fundo);border-bottom:2px dashed var(--erro);padding:1px 5px;border-radius:4px;color:var(--erro);font-weight:700}
+.fix-resp{background:#fff;border-radius:0 0 11px 11px;padding:4px 15px 13px;font-size:17.5px;font-weight:600}
 .fix-resp s{color:var(--erro);opacity:.6;font-weight:600}
 .consertado{color:var(--acerto);font-weight:700;background:var(--acerto-fundo);padding:1px 6px;border-radius:4px}
 .porque{display:block;font-size:14.5px;color:var(--texto-2);margin-top:8px;font-weight:400;line-height:1.45}
+
+/* --- BUILD (write & check) --- */
+.build-bloco{border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.build-bloco > .blab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:14px}
+.build-item{background:#fff;border-radius:12px;padding:14px 15px;margin-bottom:10px}
+.build-item:last-child{margin-bottom:0}
+.build-prompt{font-size:16.5px;font-weight:600;margin-bottom:4px}
+.build-hint{font-size:13px;color:var(--texto-2);margin-bottom:11px}
+.build-campo{width:100%;font-family:'Source Sans 3',sans-serif;font-size:17px;font-weight:600;
+  border:2px solid var(--lilas-forte);border-radius:9px;padding:10px 13px;color:var(--texto);
+  outline:none;background:#fff;resize:none;min-height:52px}
+.build-campo:focus{border-color:var(--primaria-clara)}
+.build-acoes{display:flex;gap:8px;margin-top:9px}
+.build-btn{font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.05em;border:none;
+  border-radius:18px;padding:9px 18px;cursor:pointer}
+.build-btn.checar{background:var(--primaria);color:#fff}
+.build-btn.tentar{background:#fff;color:var(--primaria);border:2px solid var(--lilas-forte)}
+.build-fb{margin-top:10px;border-radius:10px;padding:11px 13px;font-size:15px;line-height:1.5;display:none}
+.build-fb.certo{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.build-fb.errado{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
+.build-fb .bf-titulo{font-weight:700;margin-bottom:4px}
+.build-fb .bf-resp{margin-top:6px;font-size:14.5px;color:var(--texto-2)}
+/* correct answer display inside fb */
+.bf-correta{display:block;font-weight:700;font-size:16.5px;margin-top:4px;color:#2C4A0B}
+.bf-sua{display:block;font-size:14px;color:#6E1F1F;margin-top:6px;text-decoration:line-through;opacity:.75}
 
 .nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px}
 .nota b{font-weight:700}
@@ -126,17 +148,18 @@ details[open] .abrir{display:none}
 .errado s{color:var(--erro);text-decoration-thickness:2px}
 .errado .ok{color:var(--acerto);font-weight:700}
 
+/* --- THREE FORMS TABLE --- */
 .tres{width:100%;border-collapse:collapse;margin-top:16px;font-size:16.5px;background:var(--neutro);border-radius:12px;overflow:hidden}
-.tres th{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--texto-lilas);
-  text-align:left;padding:10px 12px;background:var(--lilas)}
+.tres th{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--texto-lilas);text-align:left;padding:10px 12px;background:var(--lilas)}
 .tres td{padding:9px 12px;border-top:1px solid #e2e0ec}
 .tres td:nth-child(2){font-weight:700;color:var(--texto-rosa)}
-.tres td:nth-child(3){font-weight:700;color:var(--primaria)}
+.tres td:nth-child(3){font-weight:700;color:var(--primaria);cursor:pointer;user-select:none}
+.tres td.oculto-pp{color:transparent;background:var(--lilas);border-radius:6px;text-align:center}
+.tres td.oculto-pp::after{content:'tap';font-family:Inter,sans-serif;font-size:11px;font-weight:700;color:var(--primaria-clara);letter-spacing:.06em}
 
 .ordem{background:var(--lilas);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
 .ordem .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-lilas);margin-bottom:11px}
-.linha{min-height:54px;background:#fff;border-radius:11px;padding:9px 11px;display:flex;flex-wrap:wrap;gap:6px;
-  align-items:center;border:2px solid transparent}
+.linha{min-height:54px;background:#fff;border-radius:11px;padding:9px 11px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;border:2px solid transparent}
 .linha.certo{border-color:var(--acerto);background:var(--acerto-fundo)}
 .linha.errado{border-color:var(--erro);background:var(--erro-fundo)}
 .banco{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
@@ -150,23 +173,23 @@ details[open] .abrir{display:none}
 .acoes button.limpar{background:#fff;color:var(--primaria);border:2px solid var(--lilas-forte)}
 .acoes button:disabled{opacity:.35;cursor:default}
 
+/* --- FLASHCARDS --- */
 .baralho{margin-top:18px}
 .cartao-flip{background:var(--lilas);border-radius:16px;padding:26px 20px;min-height:235px;
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer}
 .cartao-flip .palavra{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;color:var(--primaria);line-height:1.1}
-.cartao-flip .classe{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
-  color:var(--texto-lilas);margin-top:10px}
+.cartao-flip .classe{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-lilas);margin-top:10px}
 .cartao-flip .toque{font-family:Inter,sans-serif;font-size:12px;font-weight:600;color:var(--texto-2);margin-top:22px}
 .cartao-flip .verso{display:none}
 .cartao-flip.virado .frente{display:none}
 .cartao-flip.virado .verso{display:block}
+.cartao-flip .ptbr{font-size:15px;font-weight:600;color:var(--texto-lilas);margin-top:6px;font-style:italic}
 .cartao-flip .def{font-size:19px;font-weight:600;line-height:1.45}
 .cartao-flip .frase{font-size:16.5px;font-style:italic;color:var(--texto-2);margin-top:14px;
   border-top:2px dashed var(--lilas-forte);padding-top:14px}
 .cartao-flip .frase b{font-style:italic;font-weight:700;color:var(--primaria)}
 .barra-baralho{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px}
-.barra-baralho button{font-family:Inter,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:18px;
-  padding:10px 20px;background:var(--primaria);color:#fff;cursor:pointer}
+.barra-baralho button{font-family:Inter,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:18px;padding:10px 20px;background:var(--primaria);color:#fff;cursor:pointer}
 .barra-baralho button:disabled{opacity:.3;cursor:default}
 .contador{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--texto-2)}
 
@@ -252,18 +275,18 @@ footer .b2{background:var(--primaria);margin-left:-6px}
         <span class="frase">My parents <span class="alvo">has</span> seen that campaign before.</span>
         <span class="abrir">Tap to fix</span>
       </summary>
+      <div class="fix-resp">My parents <s>has</s> <span class="consertado">have</span> seen that campaign before.
+        <span class="porque">My parents = they. Two people never take <i>has</i>.</span></div>
     </details>
-    <div class="fix-resp">My parents <s>has</s> <span class="consertado">have</span> seen that campaign before.
-      <span class="porque">My parents = they. Two people never take <i>has</i>.</span></div>
 
     <details class="fix">
       <summary>
         <span class="frase">She <span class="alvo">not has</span> arrived yet.</span>
         <span class="abrir">Tap to fix</span>
       </summary>
+      <div class="fix-resp">She <s>not has</s> <span class="consertado">hasn't</span> arrived yet.
+        <span class="porque">In English <i>not</i> comes after the helper, never before it. This is the Portuguese order sneaking in.</span></div>
     </details>
-    <div class="fix-resp">She <s>not has</s> <span class="consertado">hasn't</span> arrived yet.
-      <span class="porque">In English <i>not</i> comes after the helper, never before it. This is the Portuguese order sneaking in.</span></div>
   </div>
 </section>
 <div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
@@ -321,7 +344,7 @@ footer .b2{background:var(--primaria);margin-left:-6px}
   <h2>Which one do I use?</h2>
 
   <figure>
-    <svg viewBox="0 0 320 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: past simple is one known point, present perfect is somewhere before now">
+    <svg viewBox="0 0 320 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline">
       <line x1="14" y1="56" x2="306" y2="56" stroke="#C9C6D8" stroke-width="2.5" stroke-linecap="round"/>
       <circle cx="80" cy="56" r="8" fill="#993556"/>
       <text x="80" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#993556">yesterday</text>
@@ -386,6 +409,107 @@ footer .b2{background:var(--primaria);margin-left:-6px}
       <div class="fb bom"><span class="m">B</span><span><i>Ever</i> asks about your whole life up to now → <b>Have</b>.</span></div>
     </div>
   </details>
+
+  <!-- BUILD with text input -->
+  <div class="build-bloco" style="background:var(--rosa)">
+    <div class="blab" style="color:var(--texto-rosa)">BUILD THE QUESTION — type and check</div>
+
+    <div class="build-item" data-answer="Has Lucas ever eaten sushi?">
+      <div class="build-prompt">Lucas / eat / sushi / ever?</div>
+      <div class="build-hint">Present Perfect question.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your question here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+
+    <div class="build-item" data-answer="Have you finished your homework yet?">
+      <div class="build-prompt">you / finish / homework / yet?</div>
+      <div class="build-hint">Present Perfect question.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your question here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+
+    <div class="build-item" data-answer="Have they ever visited a landfill?">
+      <div class="build-prompt">they / visit / a landfill / ever?</div>
+      <div class="build-hint">Present Perfect question.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your question here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+  </div>
+
+  <div class="build-bloco" style="background:var(--lilas)">
+    <div class="blab" style="color:var(--texto-lilas)">BUILD THE NEGATIVE — type and check</div>
+
+    <div class="build-item" data-answer="She hasn't seen the campaign yet.">
+      <div class="build-prompt">She / see / the campaign. (not yet)</div>
+      <div class="build-hint">Present Perfect negative.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your sentence here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+
+    <div class="build-item" data-answer="I haven't eaten anything today.">
+      <div class="build-prompt">I / eat / anything / today. (not)</div>
+      <div class="build-hint">Present Perfect negative.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your sentence here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+
+    <div class="build-item" data-answer="He has never gone there.">
+      <div class="build-prompt">He / go / there. (never)</div>
+      <div class="build-hint">Present Perfect negative with <i>never</i>.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your sentence here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+  </div>
+
+  <div class="build-bloco" style="background:var(--ambar)">
+    <div class="blab" style="color:var(--texto-ambar)">PAST SIMPLE — Q &amp; NEG — type and check</div>
+
+    <div class="build-item" data-answer="Did she go to the market yesterday?">
+      <div class="build-prompt">she / go / to the market / yesterday?</div>
+      <div class="build-hint">Past Simple question.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your question here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+
+    <div class="build-item" data-answer="They didn't buy anything last week.">
+      <div class="build-prompt">they / buy / anything / last week. (not)</div>
+      <div class="build-hint">Past Simple negative.</div>
+      <textarea class="build-campo" rows="1" placeholder="Type your sentence here…"></textarea>
+      <div class="build-acoes">
+        <button class="build-btn checar">Check</button>
+        <button class="build-btn tentar" style="display:none">Try again</button>
+      </div>
+      <div class="build-fb"></div>
+    </div>
+  </div>
 </section>
 <div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
 
@@ -393,25 +517,25 @@ footer .b2{background:var(--primaria);margin-left:-6px}
 <section id="formas">
   <span class="tag leve">LEARN THESE</span>
   <h2>The three forms</h2>
-  <p style="margin-top:6px;color:#5F5E5A">Column 2 stands alone. Column 3 always needs <b>have</b> or <b>has</b> in front of it.</p>
+  <p style="margin-top:6px;color:#5F5E5A">Column 2 stands alone. Column 3 always needs <b>have</b> or <b>has</b> in front of it. <b>Tap column 3 to reveal.</b></p>
 
   <table class="tres">
     <tr><th>Base</th><th>Past</th><th>Participle</th></tr>
-    <tr><td>be</td><td>was / were</td><td>been</td></tr>
-    <tr><td>buy</td><td>bought</td><td>bought</td></tr>
-    <tr><td>do</td><td>did</td><td>done</td></tr>
-    <tr><td>eat</td><td>ate</td><td>eaten</td></tr>
-    <tr><td>go</td><td>went</td><td>gone</td></tr>
-    <tr><td>grow</td><td>grew</td><td>grown</td></tr>
-    <tr><td>make</td><td>made</td><td>made</td></tr>
-    <tr><td>read</td><td>read</td><td>read</td></tr>
-    <tr><td>see</td><td>saw</td><td>seen</td></tr>
-    <tr><td>take</td><td>took</td><td>taken</td></tr>
-    <tr><td>throw</td><td>threw</td><td>thrown</td></tr>
-    <tr><td>write</td><td>wrote</td><td>written</td></tr>
+    <tr><td>be</td><td>was / were</td><td class="oculto-pp" data-pp="been"></td></tr>
+    <tr><td>buy</td><td>bought</td><td class="oculto-pp" data-pp="bought"></td></tr>
+    <tr><td>do</td><td>did</td><td class="oculto-pp" data-pp="done"></td></tr>
+    <tr><td>eat</td><td>ate</td><td class="oculto-pp" data-pp="eaten"></td></tr>
+    <tr><td>go</td><td>went</td><td class="oculto-pp" data-pp="gone"></td></tr>
+    <tr><td>grow</td><td>grew</td><td class="oculto-pp" data-pp="grown"></td></tr>
+    <tr><td>make</td><td>made</td><td class="oculto-pp" data-pp="made"></td></tr>
+    <tr><td>read</td><td>read</td><td class="oculto-pp" data-pp="read"></td></tr>
+    <tr><td>see</td><td>saw</td><td class="oculto-pp" data-pp="seen"></td></tr>
+    <tr><td>take</td><td>took</td><td class="oculto-pp" data-pp="taken"></td></tr>
+    <tr><td>throw</td><td>threw</td><td class="oculto-pp" data-pp="thrown"></td></tr>
+    <tr><td>write</td><td>wrote</td><td class="oculto-pp" data-pp="written"></td></tr>
   </table>
 
-  <div class="nota">Cover column 3 with your thumb and say it out loud. That's the column the test asks for.</div>
+  <div class="nota">Tap each cell in column 3 to test yourself. Tap again to hide it.</div>
 </section>
 <div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
 
@@ -426,36 +550,37 @@ footer .b2{background:var(--primaria);margin-left:-6px}
 
   <div class="ordem" data-resposta="I have already finished my homework">
     <div class="lab">TAP THE WORDS IN ORDER</div>
-    <div class="linha"></div>
-    <div class="banco"></div>
+    <div class="linha"></div><div class="banco"></div>
     <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
   </div>
-
   <div class="ordem" data-resposta="She hasn't arrived yet">
     <div class="lab">TAP THE WORDS IN ORDER</div>
-    <div class="linha"></div>
-    <div class="banco"></div>
+    <div class="linha"></div><div class="banco"></div>
     <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
   </div>
-
   <div class="ordem" data-resposta="Have you ever been to London">
     <div class="lab">TAP THE WORDS IN ORDER</div>
-    <div class="linha"></div>
-    <div class="banco"></div>
+    <div class="linha"></div><div class="banco"></div>
     <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
   </div>
-
   <div class="ordem" data-resposta="They have just thrown it away">
     <div class="lab">TAP THE WORDS IN ORDER</div>
-    <div class="linha"></div>
-    <div class="banco"></div>
+    <div class="linha"></div><div class="banco"></div>
     <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
   </div>
-
   <div class="ordem" data-resposta="I have never eaten anything rotten">
     <div class="lab">TAP THE WORDS IN ORDER</div>
-    <div class="linha"></div>
-    <div class="banco"></div>
+    <div class="linha"></div><div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+  <div class="ordem" data-resposta="Did she go to the market yesterday">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div><div class="banco"></div>
+    <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
+  </div>
+  <div class="ordem" data-resposta="They didn't buy anything last week">
+    <div class="lab">TAP THE WORDS IN ORDER</div>
+    <div class="linha"></div><div class="banco"></div>
     <div class="acoes"><button class="checar">Check</button><button class="limpar">Clear</button></div>
   </div>
 </section>
@@ -475,6 +600,7 @@ footer .b2{background:var(--primaria);margin-left:-6px}
         <div class="toque">Tap to see the meaning</div>
       </div>
       <div class="verso">
+        <div class="ptbr"></div>
         <div class="def"></div>
         <div class="frase"></div>
       </div>
@@ -497,10 +623,80 @@ footer .b2{background:var(--primaria);margin-left:-6px}
 </div>
 
 <script>
+/* ---------- participle column reveal ---------- */
+document.querySelectorAll('.tres td.oculto-pp').forEach(td=>{
+  td.addEventListener('click',()=>{
+    if(td.classList.contains('oculto-pp')){
+      td.classList.remove('oculto-pp');
+      td.textContent=td.dataset.pp;
+    } else {
+      td.classList.add('oculto-pp');
+      td.textContent='';
+    }
+  });
+});
+
+/* ---------- build: write and check ---------- */
+function normalize(s){
+  return s.trim()
+    .replace(/’/g,"'").replace(/‘/g,"'")
+    .replace(/“/g,'"').replace(/”/g,'"')
+    .replace(/\s+/g,' ')
+    .toLowerCase()
+    .replace(/[.,!?;:]$/,''); /* strip trailing punctuation for comparison */
+}
+
+
+document.querySelectorAll('.build-item').forEach(item=>{
+  const answer = item.dataset.answer;
+  const campo = item.querySelector('.build-campo');
+  const btnCheck = item.querySelector('.build-btn.checar');
+  const btnTry = item.querySelector('.build-btn.tentar');
+  const fb = item.querySelector('.build-fb');
+
+  /* auto-grow textarea */
+  campo.addEventListener('input',()=>{
+    campo.style.height='auto';
+    campo.style.height=campo.scrollHeight+'px';
+  });
+
+  /* allow Enter to submit on mobile (not newline) */
+  campo.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){e.preventDefault();btnCheck.click();}
+  });
+
+  btnCheck.addEventListener('click',()=>{
+    const val = campo.value;
+    if(!val.trim()) return;
+    const correct = normalize(val)===normalize(answer);
+    fb.className='build-fb '+(correct?'certo':'errado');
+    fb.style.display='block';
+    if(correct){
+      fb.innerHTML=`<div class="bf-titulo">✓ Perfect!</div><div class="bf-resp">${answer}</div>`;
+      btnCheck.disabled=true;
+      btnTry.style.display='none';
+      campo.style.borderColor='var(--acerto)';
+    } else {
+      fb.innerHTML=`<div class="bf-titulo">Not quite — here's the correct answer:</div><span class="bf-correta">${answer}</span><span class="bf-sua">You wrote: ${val.trim()}</span>`;
+      btnTry.style.display='inline-block';
+      campo.style.borderColor='var(--erro)';
+    }
+  });
+
+  btnTry.addEventListener('click',()=>{
+    campo.value='';
+    campo.style.height='auto';
+    campo.style.borderColor='';
+    fb.style.display='none';
+    btnCheck.disabled=false;
+    btnTry.style.display='none';
+    campo.focus();
+  });
+});
+
 /* ---------- word order ---------- */
 function embaralhar(a){
-  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
-  return a;
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;
 }
 document.querySelectorAll('.ordem').forEach(bloco=>{
   const resposta=bloco.dataset.resposta;
@@ -510,23 +706,18 @@ document.querySelectorAll('.ordem').forEach(bloco=>{
   const limpar=bloco.querySelector('.limpar');
   function montar(){
     linha.innerHTML='';banco.innerHTML='';
-    linha.classList.remove('certo','errado');
-    checar.disabled=true;
+    linha.classList.remove('certo','errado');checar.disabled=true;
     embaralhar(resposta.split(' ')).forEach(p=>{
-      const c=document.createElement('button');
-      c.className='chip';c.textContent=p;
+      const c=document.createElement('button');c.className='chip';c.textContent=p;
       c.addEventListener('click',()=>{
-        const posto=document.createElement('button');
-        posto.className='chip';posto.textContent=p;
+        const posto=document.createElement('button');posto.className='chip';posto.textContent=p;
         posto.addEventListener('click',()=>{
           posto.remove();c.classList.remove('usado');
           linha.classList.remove('certo','errado');
           checar.disabled=linha.children.length===0;
         });
-        linha.appendChild(posto);
-        c.classList.add('usado');
-        linha.classList.remove('certo','errado');
-        checar.disabled=false;
+        linha.appendChild(posto);c.classList.add('usado');
+        linha.classList.remove('certo','errado');checar.disabled=false;
       });
       banco.appendChild(c);
     });
@@ -534,57 +725,55 @@ document.querySelectorAll('.ordem').forEach(bloco=>{
   checar.addEventListener('click',()=>{
     const dado=[...linha.children].map(c=>c.textContent).join(' ');
     const ok=dado===resposta;
-    linha.classList.toggle('certo',ok);
-    linha.classList.toggle('errado',!ok);
+    linha.classList.toggle('certo',ok);linha.classList.toggle('errado',!ok);
     if(ok){[...banco.children].forEach(c=>c.classList.add('usado'));checar.disabled=true}
   });
-  limpar.addEventListener('click',montar);
-  montar();
+  limpar.addEventListener('click',montar);montar();
 });
 
 /* ---------- flashcards ---------- */
 const palavras=[
-  {p:"supermarket",c:"NOUN",d:"A big shop where you buy food and things for the house.",
+  {p:"supermarket",c:"NOUN",pt:"supermercado",d:"A big shop where you buy food and things for the house.",
    f:"The <b>supermarket</b> throws away food that looks ugly."},
-  {p:"consumer",c:"NOUN",d:"A person who buys and uses things.",
+  {p:"consumer",c:"NOUN",pt:"consumidor(a)",d:"A person who buys and uses things.",
    f:"<b>Consumers</b> have become more careful about waste."},
-  {p:"produce",c:"NOUN",d:"Fruit and vegetables that come from a farm.",
+  {p:"produce",c:"NOUN",pt:"hortifruti / produtos frescos",d:"Fruit and vegetables that come from a farm.",
    f:"Fresh <b>produce</b> goes bad faster than frozen food."},
-  {p:"supplies",c:"NOUN",d:"The amount of something that is available to use.",
+  {p:"supplies",c:"NOUN",pt:"estoques / suprimentos",d:"The amount of something that is available to use.",
    f:"The shop has ordered new <b>supplies</b> for the week."},
-  {p:"fields",c:"NOUN",d:"Open land where farmers grow food.",
+  {p:"fields",c:"NOUN",pt:"campos / lavouras",d:"Open land where farmers grow food.",
    f:"Tons of vegetables are left in the <b>fields</b> every year."},
-  {p:"landfill",c:"NOUN",d:"A big hole in the ground where rubbish is buried.",
+  {p:"landfill",c:"NOUN",pt:"aterro sanitário",d:"A big hole in the ground where rubbish is buried.",
    f:"Most of that food ends up in a <b>landfill</b>."},
-  {p:"waste",c:"NOUN / VERB",d:"Things we throw away; or to use something badly.",
+  {p:"waste",c:"NOUN / VERB",pt:"desperdício / desperdiçar",d:"Things we throw away; or to use something badly.",
    f:"We <b>waste</b> food every time we buy too much."},
-  {p:"campaign",c:"NOUN",d:"A series of actions planned to change something.",
+  {p:"campaign",c:"NOUN",pt:"campanha",d:"A series of actions planned to change something.",
    f:"Have you seen the <b>campaign</b> against food waste?"},
-  {p:"challenge",c:"NOUN",d:"Something difficult that you have to deal with.",
+  {p:"challenge",c:"NOUN",pt:"desafio",d:"Something difficult that you have to deal with.",
    f:"Feeding everyone is a real <b>challenge</b>."},
-  {p:"standard",c:"NOUN",d:"The level something must reach to be accepted.",
+  {p:"standard",c:"NOUN",pt:"padrão / norma",d:"The level something must reach to be accepted.",
    f:"These apples don't reach the shop's <b>standard</b>."},
-  {p:"appearance",c:"NOUN",d:"The way something looks from the outside.",
+  {p:"appearance",c:"NOUN",pt:"aparência",d:"The way something looks from the outside.",
    f:"Supermarkets reject fruit because of its <b>appearance</b>."},
-  {p:"bunch",c:"NOUN",d:"A group of things held together, like bananas or grapes.",
+  {p:"bunch",c:"NOUN",pt:"cacho / maço",d:"A group of things held together, like bananas or grapes.",
    f:"She bought a <b>bunch</b> of bananas."},
-  {p:"lump",c:"NOUN",d:"A small hard piece with no regular shape.",
+  {p:"lump",c:"NOUN",pt:"protuberância / caroço",d:"A small hard piece with no regular shape.",
    f:"A potato with a <b>lump</b> is still good to eat."},
-  {p:"size",c:"NOUN",d:"How big or small something is.",
+  {p:"size",c:"NOUN",pt:"tamanho",d:"How big or small something is.",
    f:"Carrots of the wrong <b>size</b> never arrive at the shop."},
-  {p:"edible",c:"ADJECTIVE",d:"Good enough to be eaten; safe to eat.",
+  {p:"edible",c:"ADJECTIVE",pt:"comestível",d:"Good enough to be eaten; safe to eat.",
    f:"The food was still <b>edible</b> when they threw it away."},
-  {p:"nutritious",c:"ADJECTIVE",d:"Full of the things your body needs to be healthy.",
+  {p:"nutritious",c:"ADJECTIVE",pt:"nutritivo(a)",d:"Full of the things your body needs to be healthy.",
    f:"Vegetables are cheap and <b>nutritious</b>."},
-  {p:"fresh",c:"ADJECTIVE",d:"Recently picked or made; not old.",
+  {p:"fresh",c:"ADJECTIVE",pt:"fresco(a)",d:"Recently picked or made; not old.",
    f:"I have just bought some <b>fresh</b> bread."},
-  {p:"rotten",c:"ADJECTIVE",d:"Food that has gone bad and smells terrible.",
+  {p:"rotten",c:"ADJECTIVE",pt:"podre",d:"Food that has gone bad and smells terrible.",
    f:"Have you ever eaten something <b>rotten</b>?"},
-  {p:"shocking",c:"ADJECTIVE",d:"So surprising and bad that it upsets you.",
+  {p:"shocking",c:"ADJECTIVE",pt:"chocante / absurdo(a)",d:"So surprising and bad that it upsets you.",
    f:"The numbers about food waste are <b>shocking</b>."},
-  {p:"reject",c:"VERB",d:"To refuse to accept something.",
+  {p:"reject",c:"VERB",pt:"rejeitar / recusar",d:"To refuse to accept something.",
    f:"Shops <b>reject</b> fruit that isn't perfect."},
-  {p:"throw away",c:"PHRASAL VERB",d:"To put something in the bin because you don't want it.",
+  {p:"throw away",c:"PHRASAL VERB",pt:"jogar fora",d:"To put something in the bin because you don't want it.",
    f:"They have <b>thrown away</b> tons of good food."}
 ];
 let iCard=0;
@@ -595,6 +784,7 @@ function pintar(){
   cartao.classList.remove('virado');
   cartao.querySelector('.palavra').textContent=v.p;
   cartao.querySelector('.classe').textContent=v.c;
+  cartao.querySelector('.verso .ptbr').textContent=v.pt;
   cartao.querySelector('.def').textContent=v.d;
   cartao.querySelector('.frase').innerHTML=v.f;
   contador.textContent=(iCard+1)+' / '+palavras.length;
