@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>School test revision — Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+  --erro:#A32D2D; --erro-fundo:#F7E7E7;
+  --entalhe:12px;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
+  line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
+
+/* ---------- topo ---------- */
+header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
+.voltar{display:inline-block;font-family:Inter,sans-serif;font-size:13px;font-weight:600;
+  color:#fff;opacity:.75;text-decoration:none;margin-bottom:20px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
+.selo{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.07em;background:var(--lilas-forte);color:var(--primaria);
+  padding:6px 13px;border-radius:15px;margin-bottom:14px}
+
+/* ---------- navegacao ---------- */
+.barra{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e2e0ec;padding:11px 16px}
+.menu{margin:0}
+.menu>summary{font-family:Inter,sans-serif;font-size:14.5px;font-weight:700;color:var(--primaria);
+  background:var(--lilas);padding:12px 18px;border-radius:24px;display:flex;align-items:center;
+  justify-content:space-between;cursor:pointer;list-style:none}
+.menu>summary::-webkit-details-marker{display:none}
+.menu>summary::after{content:"\25BE";font-size:13px;opacity:.7}
+.menu[open]>summary::after{content:"\25B4"}
+.menu-lista{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.menu-lista a{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--primaria);
+  background:var(--neutro);padding:11px 10px;border-radius:10px;text-decoration:none;text-align:center}
+.menu-lista a:active{background:var(--lilas-forte)}
+
+/* ---------- cartao de secao ---------- */
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;margin-bottom:0;
+  scroll-margin-top:80px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+.tag.leve{background:var(--primaria-clara)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;color:var(--primaria);line-height:1.14}
+h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;color:var(--primaria);
+  line-height:1.18;margin-top:28px}
+
+/* ---------- figuras ---------- */
+figure{margin:20px 0 4px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:14px;color:var(--texto-2);margin-top:8px;text-align:center;font-style:italic}
+
+/* ---------- blocos ---------- */
+.bloco{border-radius:12px;padding:15px 17px;margin-top:16px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.bloco.lilas{background:var(--lilas)} .bloco.lilas .rot{color:var(--texto-lilas)}
+.bloco.rosa{background:var(--rosa)}  .bloco.rosa .rot{color:var(--texto-rosa)}
+.bloco.ambar{background:var(--ambar)}.bloco.ambar .rot{color:var(--texto-ambar)}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:7px}
+.bloco p{font-size:17px;font-weight:600}
+.bloco p + p{margin-top:9px}
+.bloco .form{font-size:19px;font-weight:700;color:var(--primaria);letter-spacing:.01em}
+.bloco em{font-style:italic}
+
+/* ---------- exemplos ---------- */
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin:24px 0 10px}
+.ex{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ex li{background:var(--neutro);border-radius:11px;padding:13px 15px;border-left:4px solid var(--primaria-clara)}
+.ex li b{font-weight:700;font-style:italic;color:var(--primaria)}
+.ex li .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px;font-weight:400}
+
+/* ---------- tabela de tempos ---------- */
+.tabela{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid #e4e2ee}
+.tlinha{display:grid;grid-template-columns:.82fr 1.3fr;gap:0;border-bottom:1px solid #e4e2ee}
+.tlinha:last-child{border-bottom:none}
+.tlinha.cab{background:var(--primaria)}
+.tlinha.cab div{color:#fff;font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.06em}
+.tlinha > div{padding:11px 13px;font-size:15.5px}
+.tlinha > div:first-child{background:var(--lilas);font-family:Inter,sans-serif;font-size:12.5px;
+  font-weight:700;color:var(--texto-lilas);letter-spacing:.01em;display:flex;align-items:center}
+.tlinha > div:first-child i{font-size:11.5px;letter-spacing:0;color:#6E66B8;font-weight:600}
+.tlinha.cab > div:first-child{background:var(--primaria)}
+.tlinha b{font-weight:700;color:var(--primaria)}
+.tlinha i{font-style:italic;color:var(--texto-2);display:block;font-size:13.5px;margin-bottom:4px}
+
+/* ---------- comparacao ---------- */
+.par{display:flex;flex-direction:column;gap:11px}
+.par .cartao{background:var(--neutro);border-radius:11px;padding:14px 15px}
+.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--texto-2);margin-bottom:6px}
+.par .cartao b{font-weight:700;font-style:italic;color:var(--primaria)}
+.par .cartao .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px}
+
+/* ---------- duas colunas get/set ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.duo .lado{border-radius:12px;padding:15px 14px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.duo .lado.g{background:var(--lilas)}
+.duo .lado.s{background:var(--rosa)}
+.duo .lado .pal{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;line-height:1}
+.duo .lado.g .pal{color:var(--texto-lilas)}
+.duo .lado.s .pal{color:var(--texto-rosa)}
+.duo .lado .ideia{font-size:15px;font-weight:600;margin-top:8px;line-height:1.35}
+.duo .lado .ideia span{display:block;font-weight:400;font-size:14px;color:var(--texto-2);margin-top:5px;font-style:italic}
+
+/* ---------- lista de chunks (tap para revelar) ---------- */
+.chunks{display:flex;flex-direction:column;gap:7px;margin-top:14px}
+.ch{position:relative;background:var(--neutro);border-radius:10px;padding:12px 15px;cursor:pointer;
+  border-left:4px solid var(--lilas-forte)}
+.ch .frente{font-size:17px;font-weight:700;color:var(--primaria)}
+.ch .atras{display:none;font-size:15px;color:var(--texto-2);margin-top:6px;line-height:1.42}
+.ch .atras i{font-style:italic;color:var(--texto)}
+.ch.aberto{border-left-color:var(--primaria-clara)}
+.ch.aberto .atras{display:block}
+.ch:not(.aberto)::after{content:"tap";font-family:Inter,sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.06em;color:var(--primaria-clara);position:absolute;right:15px;top:14px}
+.tudo{display:block;width:100%;margin-top:14px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:var(--lilas);border:none;border-radius:22px;
+  padding:13px;cursor:pointer}
+
+/* ---------- grupos de marcadores ---------- */
+.grupo{background:var(--neutro);border-radius:12px;padding:14px 16px;margin-top:11px;
+  border-left:4px solid var(--primaria-clara)}
+.grupo .funcao{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:7px}
+.grupo .lista-m{font-size:16.5px;font-weight:600;color:var(--primaria);line-height:1.5}
+.grupo .lista-m span{white-space:nowrap}
+.grupo .mod{font-size:14.5px;color:var(--texto-2);margin-top:7px;font-style:italic;font-weight:400}
+
+/* ---------- exercicio: escolher ---------- */
+details{margin-top:16px}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+.abrir{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);border-radius:16px;padding:7px 14px;margin-top:12px}
+details[open] .abrir{display:none}
+
+.quiz{background:var(--lilas);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:10px}
+.quiz .pergunta{font-size:17.5px;font-weight:600;margin-bottom:13px;line-height:1.5}
+.quiz .pergunta i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;
+  display:flex;align-items:center;gap:10px}
+.marca-op{font-family:Inter,sans-serif;font-weight:700;font-size:15px;flex:none;width:20px;color:var(--texto-2)}
+.resposta{margin-top:4px}
+.quiz .resp-wrap{margin-top:6px}
+.quiz .abrir{background:#fff;border-color:var(--primaria-clara);color:var(--primaria)}
+.quiz .resp-wrap[open] .abrir{display:none}
+.fb{font-size:15.5px;padding:12px 14px;border-radius:10px;line-height:1.45;margin-bottom:9px;display:flex;gap:9px}
+.fb .m{font-weight:700;flex:none}
+.fb b{font-weight:700}
+.fb.bom{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.fb.bom .m{color:var(--acerto)}
+.fb.ruim{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
+.fb.ruim .m{color:var(--erro)}
+
+/* ---------- exercicio digitado ---------- */
+.escreve{background:var(--ambar);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.escreve > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-ambar);margin-bottom:5px}
+.escreve .instr{font-size:15px;color:#6B4208;margin-bottom:13px;line-height:1.4}
+.item{background:#fff;border-radius:11px;padding:13px 15px;margin-bottom:9px;font-size:16.5px;
+  line-height:2;font-weight:500}
+.item .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.campo{font-family:'Source Sans 3',sans-serif;font-size:16px;font-weight:700;color:var(--primaria);
+  background:var(--lilas);border:none;border-bottom:2.5px solid var(--primaria-clara);
+  border-radius:5px 5px 0 0;padding:2px 5px;width:5.4em;text-align:center;outline:none;
+  vertical-align:baseline}
+.campo.larga{width:9.1em}
+.campo.xl{width:11.2em}
+.campo:focus{background:#fff;border-bottom-color:var(--primaria)}
+.campo.certo{background:var(--acerto-fundo);color:#2C4A0B;border-bottom-color:var(--acerto)}
+.campo.errado{background:var(--erro-fundo);color:#6E1F1F;border-bottom-color:var(--erro)}
+.botoes{display:flex;gap:9px;margin-top:13px}
+.botoes button{flex:1;font-family:Inter,sans-serif;font-size:13.5px;font-weight:700;border:none;
+  border-radius:22px;padding:13px 10px;cursor:pointer}
+.bt-con{background:var(--primaria);color:#fff}
+.bt-rev{background:#fff;color:var(--texto-ambar);border:2px solid #E3CFA4}
+.placar{display:none;margin-top:12px;font-size:15.5px;font-weight:600;padding:12px 14px;border-radius:10px;line-height:1.4}
+.placar.mostra{display:block}
+.placar.bom{background:var(--acerto-fundo);color:#2C4A0B}
+.placar.meio{background:#fff;color:var(--texto-ambar)}
+
+/* ---------- avisos ---------- */
+.nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px;line-height:1.48}
+.nota b{font-weight:700}
+.nota em{font-style:italic}
+.c1{background:#2A2458;color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px;line-height:1.48;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.c1 .rot{color:var(--lilas-forte);letter-spacing:.08em}
+.c1 b{font-weight:700;color:#fff}
+.c1 em{font-style:italic;color:var(--lilas-forte)}
+.errado-box{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:16px;border-left:4px solid var(--erro)}
+.errado-box .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--erro);margin-bottom:8px}
+.errado-box .l{font-size:16.5px;margin-top:11px;line-height:1.45}
+.errado-box .l s{display:block;margin-bottom:2px}
+.errado-box s{color:var(--erro);text-decoration-thickness:2px}
+.errado-box .ok{color:var(--acerto);font-weight:700}
+.errado-box .pq{display:block;font-size:14px;color:var(--texto-2);font-style:italic;margin-top:2px}
+
+
+/* ---------- flashcards de participio ---------- */
+.legenda{display:flex;flex-direction:column;gap:5px;margin-top:16px;font-size:14.5px;color:var(--texto-2)}
+.legenda b{font-weight:700}
+.legenda .q1{color:var(--texto)}
+.legenda .q2{color:var(--acerto)}
+.dica{font-size:15px;color:var(--texto-2);font-style:italic;margin-top:8px}
+.fcards{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.fc{position:relative;background:var(--neutro);border-radius:12px;padding:15px 10px 13px;text-align:center;
+  cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:center;
+  border-bottom:4px solid var(--lilas-forte)}
+.fc .base{font-size:20px;font-weight:700;color:var(--primaria);line-height:1.1}
+.fc .verso{display:none}
+.fc .p1{font-size:17px;font-weight:600;color:var(--texto);line-height:1.2}
+.fc .p2{font-size:18px;font-weight:700;color:var(--acerto);line-height:1.2;margin-top:3px}
+.fc.aberto{background:#fff;border-bottom-color:var(--acerto)}
+.fc.aberto .base{font-size:15px;font-weight:600;color:var(--texto-2)}
+.fc.aberto .verso{display:block;margin-top:7px}
+.fc:not(.aberto)::after{content:"tap";position:absolute;bottom:7px;left:0;right:0;
+  font-family:Inter,sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--primaria-clara)}
+
+
+/* ---------- multipla escolha ---------- */
+.mcq{background:var(--lilas);border-radius:14px;padding:18px 16px 17px;margin-top:16px}
+.mcq > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:5px}
+.mcq .instr{font-size:15px;color:#4B4293;margin-bottom:14px;line-height:1.4}
+.mq{background:#fff;border-radius:12px;padding:14px 14px 12px;margin-bottom:11px}
+.mq .enun{font-size:17px;font-weight:600;line-height:1.5;margin-bottom:11px}
+.mq .enun .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.mq .enun i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.mq .op{display:block;width:100%;text-align:left;font-family:'Source Sans 3',sans-serif;
+  font-size:17px;font-weight:600;color:var(--texto);background:var(--neutro);border:2px solid transparent;
+  border-radius:10px;padding:11px 14px;margin-bottom:8px;cursor:pointer;transition:background .12s,border-color .12s}
+.mq .op:active{background:var(--lilas-forte)}
+.mq.feita .op{cursor:default}
+.mq .op.certa{background:var(--acerto-fundo);border-color:var(--acerto);color:#2C4A0B}
+.mq .op.errada{background:var(--erro-fundo);border-color:var(--erro);color:#6E1F1F}
+.mq .op .tick{float:right;font-weight:700}
+.mq .porque{display:none;font-size:15px;line-height:1.45;color:var(--texto-2);
+  background:var(--neutro);border-radius:9px;padding:11px 13px;margin-top:3px}
+.mq .porque b{color:var(--texto);font-weight:700}
+.mq.feita .porque{display:block}
+.placar-mcq{display:none;font-size:16.5px;font-weight:700;padding:14px 15px;border-radius:11px;
+  line-height:1.4;margin-top:4px;text-align:center}
+.placar-mcq.mostra{display:block}
+.placar-mcq.bom{background:var(--acerto-fundo);color:#2C4A0B}
+.placar-mcq.meio{background:#fff;color:var(--texto-ambar)}
+.bt-zerar{display:block;width:100%;margin-top:11px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);
+  border-radius:22px;padding:13px;cursor:pointer}
+.zerar-txt{display:block;width:100%;margin-top:9px;font-family:Inter,sans-serif;font-size:13px;
+  font-weight:700;color:var(--texto-ambar);background:none;border:none;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px}
+
+
+/* ---------- passo a passo ---------- */
+.passos{counter-reset:passo;margin-top:18px}
+.passo{position:relative;padding:0 0 20px 42px;border-left:2px dashed #BEB9D6;margin-left:15px}
+.passo:last-child{border-left-color:transparent;padding-bottom:2px}
+.passo::before{counter-increment:passo;content:counter(passo);position:absolute;left:-16px;top:-3px;
+  width:31px;height:31px;border-radius:50%;background:var(--primaria);color:#fff;
+  font-family:Inter,sans-serif;font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.passo .t{font-size:17.5px;font-weight:700;color:var(--primaria);line-height:1.28}
+.passo .d{font-size:16px;color:var(--texto);margin-top:6px;line-height:1.48}
+.passo .d b{font-weight:700;color:var(--primaria)}
+.passo .d em{font-style:italic}
+
+/* ---------- exemplo resolvido ---------- */
+.trab{background:var(--neutro);border-radius:12px;padding:16px 16px 15px;margin-top:18px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.rot-trab{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin-bottom:9px}
+.trab .orig{font-size:18px;font-weight:700;color:var(--texto);line-height:1.35;
+  padding-bottom:11px;margin-bottom:12px;border-bottom:2px dashed #C9C6D8}
+.trab .linha{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start}
+.trab .linha .num{flex:none;font-family:Inter,sans-serif;font-size:11px;font-weight:700;color:#fff;
+  background:var(--primaria-clara);border-radius:50%;width:21px;height:21px;
+  display:flex;align-items:center;justify-content:center;margin-top:2px}
+.trab .linha .txt{font-size:15.5px;line-height:1.45;color:var(--texto-2)}
+.trab .linha .txt b{color:var(--primaria);font-weight:700}
+.trab .linha .txt em{font-style:italic}
+.trab .final{font-size:19px;font-weight:700;color:#2C4A0B;background:var(--acerto-fundo);
+  border-left:4px solid var(--acerto);border-radius:9px;padding:12px 14px;margin-top:12px;text-align:center}
+
+footer{text-align:center;padding:14px 20px 24px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
+</style>
+</head>
+<body>
+<div class="tela">
+
+<header>
+  <a class="voltar" href="../../">&larr; Materiais</a>
+  <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+  <span class="selo">TSE &middot; 6 OCTOBER</span>
+  <h1>School test revision</h1>
+  <p>Built from your teacher's Unit 6 revision sheet. Everything here is on it. Read, then tap the exercises &mdash; don't just scroll.</p>
+</header>
+
+<div class="barra">
+  <details class="menu">
+    <summary>Jump to a section</summary>
+    <div class="menu-lista">
+      <a href="#passiva">1. Passive voice</a>
+      <a href="#passiva2">1b. Two extras</a>
+      <a href="#participios">1c. Participles</a>
+      <a href="#marcadores">2. Markers &mdash; 1</a>
+      <a href="#marcadores2">2b. Markers &mdash; 2</a>
+      <a href="#confunde">2c. What follows</a>
+      <a href="#getset">3. GET &amp; SET</a>
+      <a href="#sucesso">4. Success family</a>
+      <a href="#teste">Mixed test</a>
+    </div>
+  </details>
+</div>
+
+<main>
+<!-- ============ 1. PASSIVE VOICE ============ -->
+<section id="passiva">
+  <span class="tag">GRAMMAR 1</span>
+  <h2>Passive voice</h2>
+
+  <div class="bloco ambar">
+    <div class="rot">WHEN WE USE IT &mdash; FROM YOUR SHEET</div>
+    <p>When we are more interested in <b>the action</b> than in the agent.</p>
+    <p>When we are more interested in <b>the receiver</b> of the action than in the agent.</p>
+    <p>When the agent is <b>not important, not known, or obvious</b>.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 320 118" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Active to passive transformation">
+      <text x="10" y="16" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#5F5E5A" letter-spacing="1">ACTIVE</text>
+      <rect x="10" y="24" width="94" height="26" rx="7" fill="#CECBF6"/>
+      <text x="57" y="41" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#3C3489">The students</text>
+      <rect x="108" y="24" width="56" height="26" rx="7" fill="#EFEDE6"/>
+      <text x="136" y="41" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#2C2C2A">gave</text>
+      <rect x="168" y="24" width="102" height="26" rx="7" fill="#FBEAF0"/>
+      <text x="219" y="41" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#993556">a present</text>
+
+      <path d="M57 54 C57 70, 219 68, 219 84" stroke="#7F77DD" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+      <path d="M219 54 C219 70, 57 68, 57 84" stroke="#7F77DD" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+
+      <text x="10" y="80" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#5F5E5A" letter-spacing="1">PASSIVE</text>
+      <rect x="10" y="86" width="96" height="26" rx="7" fill="#FBEAF0"/>
+      <text x="58" y="103" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#993556">A present</text>
+      <rect x="110" y="86" width="96" height="26" rx="7" fill="#EFEDE6"/>
+      <text x="158" y="103" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#2C2C2A">was given</text>
+      <rect x="210" y="86" width="100" height="26" rx="7" fill="#CECBF6"/>
+      <text x="260" y="103" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#3C3489">to the teacher</text>
+    </svg>
+    <figcaption>The object moves to the front. The agent goes to the end with <em>by</em> &mdash; or disappears.</figcaption>
+  </figure>
+
+  <div class="bloco lilas">
+    <div class="rot">FORMATION</div>
+    <div class="form">a form of <em>be</em> + past participle</div>
+    <p style="margin-top:9px;font-weight:400;font-size:16px">The tense lives in <em>be</em>. The participle never changes.</p>
+  </div>
+
+  <h3>The four forms on your sheet</h3>
+  <div class="tabela">
+    <div class="tlinha cab"><div>VERB TENSE</div><div>PASSIVE VOICE</div></div>
+    <div class="tlinha"><div>Simple present</div><div><b>am / is / are</b> + past participle<i>The table is set every evening.</i></div></div>
+    <div class="tlinha"><div>Present continuous</div><div><b>am / is / are being</b> + past participle<i>The table is being set right now.</i></div></div>
+    <div class="tlinha"><div>Simple past</div><div><b>was / were</b> + past participle<i>The table was set an hour ago.</i></div></div>
+    <div class="tlinha"><div>Modal verbs<i>present</i></div><div><b>can / must / should / could / may / might</b> + <b>be</b> + past participle<i>The table must be set before seven.</i></div></div>
+  </div>
+  <div class="nota">Those four are what the test is built on. Learn them as four shapes, not as a rule: <b>is set</b> &middot; <b>is being set</b> &middot; <b>was set</b> &middot; <b>must be set</b>.</div>
+
+  <div class="errado-box">
+    <div class="lab">THE FOUR MISTAKES THAT COST MARKS</div>
+    <div class="l"><s>The present given to the teacher.</s><span class="ok">The present was given to the teacher.</span><span class="pq">No <em>be</em>, no passive. The most common one.</span></div>
+    <div class="l"><s>The table was set by she.</s><span class="ok">The table was set by her.</span><span class="pq">After <em>by</em>, object pronoun: me, him, her, us, them.</span></div>
+    <div class="l"><s>The students was told to wait.</s><span class="ok">The students were told to wait.</span><span class="pq"><em>be</em> agrees with the new subject, not with the old one.</span></div>
+    <div class="l"><s>The accident was happened at six.</s><span class="ok">The accident happened at six.</span><span class="pq">happen, arrive, die, go, come, fall take no object, so they have no passive.</span></div>
+  </div>
+
+  <div class="quiz">
+    <div class="lab">CHECK YOURSELF 1 &middot; WHICH ONE IS POSSIBLE?</div>
+    <div class="pergunta">Dinner <i>___</i> at the moment, so please wait.</div>
+    <div class="op-e"><span class="marca-op">A</span>is prepared</div>
+    <div class="op-e"><span class="marca-op">B</span>is being prepared</div>
+    <div class="op-e"><span class="marca-op">C</span>was prepared</div>
+    <details class="resp-wrap">
+      <summary><span class="abrir">Show the answer</span></summary>
+      <div class="resposta">
+        <div class="fb bom"><span class="m">B</span><span><b>is being prepared.</b> <em>at the moment</em> forces the present continuous, so you need <em>is being</em> + participle.</span></div>
+        <div class="fb ruim"><span class="m">A</span><span><em>is prepared</em> is simple present &mdash; a routine, not something happening now.</span></div>
+        <div class="fb ruim"><span class="m">C</span><span><em>was prepared</em> is finished and past. <em>At the moment</em> rules it out.</span></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="escreve">
+    <div class="lab">REWRITE IT &mdash; PASSIVE</div>
+    <div class="instr">Type the missing words. Keep the tense of the original, and stay inside the four forms on your sheet.</div>
+    <div class="item"><span class="n">1 &mdash; Farmers grow soya here.</span>Soya <input class="campo larga" data-resp="is grown" aria-label="forma"> here.</div>
+    <div class="item"><span class="n">2 &mdash; They cleared the forest in the 1980s.</span>The forest <input class="campo larga" data-resp="was cleared" aria-label="forma"> in the 1980s.</div>
+    <div class="item"><span class="n">3 &mdash; They are planting new trees right now.</span>New trees <input class="campo larga xl" data-resp="are being planted" aria-label="forma"> right now.</div>
+    <div class="item"><span class="n">4 &mdash; You can restore degraded land.</span>Degraded land <input class="campo larga xl" data-resp="can be restored" aria-label="forma">.</div>
+    <div class="item"><span class="n">5 &mdash; Someone must sign the form.</span>The form <input class="campo larga" data-resp="must be signed" aria-label="forma">.</div>
+    <div class="item"><span class="n">6 &mdash; Nobody cleans this room.</span>This room <input class="campo larga xl" data-resp="is not cleaned/isn't cleaned" aria-label="forma">.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="g1">Check</button>
+      <button class="bt-rev" data-revelar="g1">Show answers</button>
+    </div>
+    <div class="placar" data-placar="g1"></div>
+  </div>
+
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ 1b. THE TWO EXTRAS ============ -->
+<section id="passiva2">
+  <span class="tag leve">GRAMMAR 1 &mdash; PART TWO</span>
+  <h2>The two notes under the chart</h2>
+
+  <h3>1. <em>get</em> instead of <em>be</em></h3>
+  <p style="margin-top:12px;font-size:17px">In informal, non-standard English, <b>get</b> sometimes replaces <b>be</b> in a passive. Your sheet marks it as non-standard, so recognise it &mdash; but write <em>be</em> in the test unless you are asked for the informal version.</p>
+  <ul class="ex">
+    <li>Henry <b>got promoted</b> last week.<span class="efeito">= Henry was promoted. Informal.</span></li>
+    <li>Sandra <b>got stood up</b> this morning. She was waiting for the guy, but he never showed up.<span class="efeito">= Sandra was stood up. <em>stand someone up</em> = fail to meet them as arranged.</span></li>
+  </ul>
+  <div class="nota">This is the bridge between the two halves of the unit: the same <b>get</b> that builds <em>get dressed</em> and <em>get lost</em> is the one that sneaks into passives.</div>
+
+  <h3>2. Verbs with two objects</h3>
+  <p style="margin-top:12px;font-size:17px">Some verbs take a <b>direct object</b> (the thing) and an <b>indirect object</b> (the person). Those verbs have <b>two</b> possible passives.</p>
+  <div class="par">
+    <div class="cartao"><div class="lab">ACTIVE</div>The students gave <b>a present</b> to <b>the teacher</b>.</div>
+    <div class="cartao"><div class="lab">PASSIVE &mdash; THING FIRST</div><b>A present was given</b> to the teacher (by the students).<span class="efeito">The thing becomes the subject, and the person keeps <em>to</em>.</span></div>
+    <div class="cartao"><div class="lab">PASSIVE &mdash; PERSON FIRST</div><b>The teacher was given</b> a present (by the students).<span class="efeito">The person becomes the subject, and <em>to</em> disappears.</span></div>
+  </div>
+  <h3>Step by step</h3>
+  <p style="margin-top:10px;font-size:17px">Follow the six steps in order. Don't try to hear the right answer &mdash; build it.</p>
+
+  <div class="passos">
+    <div class="passo">
+      <div class="t">Find the two objects</div>
+      <div class="d">One is a <b>person</b>, one is a <b>thing</b>. <em>They gave <b>information</b> to <b>us</b>.</em></div>
+    </div>
+    <div class="passo">
+      <div class="t">Decide which one starts the sentence</div>
+      <div class="d">Either works. Starting with the <b>person</b> is the more natural one in English.</div>
+    </div>
+    <div class="passo">
+      <div class="t">If it's a pronoun, make it a subject pronoun</div>
+      <div class="d">A sentence can't start with <em>me</em>, <em>us</em> or <em>them</em>. Change it: <b>us &rarr; we</b>. And <b>drop the <em>to</em></b> &mdash; a subject never starts with <em>to</em>.</div>
+    </div>
+    <div class="passo">
+      <div class="t">Look at the tense of the active verb, and put <em>be</em> in that tense</div>
+      <div class="d"><em>gave</em> is simple past, so you need <b>was</b> or <b>were</b>. Which one depends on your <b>new</b> subject: <em>we</em> is plural, so <b>were</b>.</div>
+    </div>
+    <div class="passo">
+      <div class="t">Change the main verb to the past participle</div>
+      <div class="d"><em>give &rarr; gave &rarr; <b>given</b></em>. Third column, never the second.</div>
+    </div>
+    <div class="passo">
+      <div class="t">Write the rest of the sentence</div>
+      <div class="d">Person first &rarr; the <em>to</em> is gone for good. Thing first &rarr; the person keeps its <em>to</em>.</div>
+    </div>
+  </div>
+
+  <div class="trab">
+    <div class="rot-trab">WORKED EXAMPLE &mdash; STARTING WITH THE PERSON</div>
+    <div class="orig">They gave information to us.</div>
+    <div class="linha"><span class="num">1</span><span class="txt">Two objects: <b>information</b> (thing) and <b>us</b> (person).</span></div>
+    <div class="linha"><span class="num">2</span><span class="txt">I'll start with the person: <b>us</b>.</span></div>
+    <div class="linha"><span class="num">3</span><span class="txt"><em>us</em> is an object pronoun &rarr; <b>we</b>. And the <em>to</em> goes in the bin.</span></div>
+    <div class="linha"><span class="num">4</span><span class="txt"><em>gave</em> = simple past; <em>we</em> is plural &rarr; <b>were</b>.</span></div>
+    <div class="linha"><span class="num">5</span><span class="txt"><em>give</em> &rarr; <b>given</b>.</span></div>
+    <div class="linha"><span class="num">6</span><span class="txt">Add what's left: <b>information</b>.</span></div>
+    <div class="final">We were given information.</div>
+  </div>
+
+  <div class="trab">
+    <div class="rot-trab">SAME SENTENCE &mdash; STARTING WITH THE THING</div>
+    <div class="orig">They gave information to us.</div>
+    <div class="linha"><span class="num">2</span><span class="txt">This time I start with the thing: <b>information</b>.</span></div>
+    <div class="linha"><span class="num">3</span><span class="txt">It isn't a pronoun, so nothing to change &mdash; and <b>us keeps its <em>to</em></b>, because it is not the subject.</span></div>
+    <div class="linha"><span class="num">4</span><span class="txt"><em>information</em> is singular &rarr; <b>was</b>.</span></div>
+    <div class="linha"><span class="num">5</span><span class="txt"><em>give</em> &rarr; <b>given</b>.</span></div>
+    <div class="final">Information was given to us.</div>
+  </div>
+
+  <div class="errado-box">
+    <div class="lab">THE THREE WAYS THIS GOES WRONG</div>
+    <div class="l"><s>To us was given information.</s><span class="ok">We were given information.</span><span class="pq">Never start a passive with <em>to</em>. The moment the person becomes the subject, the <em>to</em> disappears.</span></div>
+    <div class="l"><s>Us were given information.</s><span class="ok">We were given information.</span><span class="pq">Object pronoun in subject position. Change it: <em>us &rarr; we</em>.</span></div>
+    <div class="l"><s>We were give information.</s><span class="ok">We were given information.</span><span class="pq">Second column instead of third. After <em>be</em>, always the participle.</span></div>
+  </div>
+
+  <h3>Object pronoun &rarr; subject pronoun</h3>
+  <div class="tabela">
+    <div class="tlinha cab"><div>IN THE ACTIVE</div><div>AS THE NEW SUBJECT</div></div>
+    <div class="tlinha"><div>(to) me</div><div><b>I</b><i>They gave it to me. &rarr; I was given it.</i></div></div>
+    <div class="tlinha"><div>(to) you</div><div><b>you</b><i>the only one that doesn't change</i></div></div>
+    <div class="tlinha"><div>(to) him</div><div><b>he</b></div></div>
+    <div class="tlinha"><div>(to) her</div><div><b>she</b></div></div>
+    <div class="tlinha"><div>(to) us</div><div><b>we</b></div></div>
+    <div class="tlinha"><div>(to) them</div><div><b>they</b></div></div>
+  </div>
+
+  <div class="escreve">
+    <div class="lab">YOUR TURN &mdash; START WITH THE PERSON</div>
+    <div class="instr">Rewrite each one starting with the person. Watch the pronoun and remember where the <em>to</em> goes.</div>
+    <div class="item"><span class="n">1 &mdash; They gave information to us.</span><input class="campo larga xl" data-resp="We were given" aria-label="inicio"> information.</div>
+    <div class="item"><span class="n">2 &mdash; They gave a present to me.</span><input class="campo larga xl" data-resp="I was given" aria-label="inicio"> a present.</div>
+    <div class="item"><span class="n">3 &mdash; The school gave a prize to her.</span><input class="campo larga xl" data-resp="She was given" aria-label="inicio"> a prize.</div>
+    <div class="item"><span class="n">4 &mdash; They gave the keys to them.</span><input class="campo larga xl" data-resp="They were given" aria-label="inicio"> the keys.</div>
+    <div class="item"><span class="n">5 &mdash; The students gave a present to the teacher.</span><input class="campo larga xl" data-resp="The teacher was given" aria-label="inicio"> a present.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="g2o">Check</button>
+      <button class="bt-rev" data-revelar="g2o">Show answers</button>
+    </div>
+    <div class="placar" data-placar="g2o"></div>
+  </div>
+
+  <div class="quiz">
+    <div class="lab">CHECK YOURSELF 2 &middot; BOTH PASSIVES, ONE ACTIVE</div>
+    <div class="pergunta">The students gave Marina a present. Which pair is right?</div>
+    <div class="op-e"><span class="marca-op">A</span>A present was given to Marina. / Marina was given a present.</div>
+    <div class="op-e"><span class="marca-op">B</span>A present was given Marina. / Marina was given to a present.</div>
+    <details class="resp-wrap">
+      <summary><span class="abrir">Show the answer</span></summary>
+      <div class="resposta">
+        <div class="fb bom"><span class="m">A</span><span>Thing first keeps <b>to</b>. Person first drops it. That is the whole rule.</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+<!-- ============ 1c. PARTICIPLE FLASHCARDS ============ -->
+<section id="participios">
+  <span class="tag leve">GRAMMAR 1 &mdash; PART THREE</span>
+  <h2>Past participles</h2>
+
+  <p style="margin-top:12px;font-size:17px">Every passive is <b>be + past participle</b>. If the participle is wrong, the whole sentence is wrong, however good your <em>be</em> is. The regular ones just take <em>-ed</em>. These are the ones that don't.</p>
+
+  <div class="legenda">
+    <span><b class="q1">past simple</b> &mdash; what you say about yesterday</span>
+    <span><b class="q2">past participle</b> &mdash; what goes after <em>be</em></span>
+  </div>
+
+  <h3>Same three times</h3>
+  <p class="dica">The easiest group: nothing changes.</p>
+  <div class="fcards">
+    <div class="fc"><div class="base">put</div><div class="verso"><div class="p1">put</div><div class="p2">put</div></div></div>
+    <div class="fc"><div class="base">cut</div><div class="verso"><div class="p1">cut</div><div class="p2">cut</div></div></div>
+    <div class="fc"><div class="base">set</div><div class="verso"><div class="p1">set</div><div class="p2">set</div></div></div>
+    <div class="fc"><div class="base">let</div><div class="verso"><div class="p1">let</div><div class="p2">let</div></div></div>
+    <div class="fc"><div class="base">hit</div><div class="verso"><div class="p1">hit</div><div class="p2">hit</div></div></div>
+    <div class="fc"><div class="base">cost</div><div class="verso"><div class="p1">cost</div><div class="p2">cost</div></div></div>
+  </div>
+  <button class="tudo" data-tudo="f1">Show all six</button>
+
+  <h3>Past and participle are the same</h3>
+  <p class="dica">Two forms to learn instead of three.</p>
+  <div class="fcards">
+    <div class="fc"><div class="base">make</div><div class="verso"><div class="p1">made</div><div class="p2">made</div></div></div>
+    <div class="fc"><div class="base">buy</div><div class="verso"><div class="p1">bought</div><div class="p2">bought</div></div></div>
+    <div class="fc"><div class="base">bring</div><div class="verso"><div class="p1">brought</div><div class="p2">brought</div></div></div>
+    <div class="fc"><div class="base">teach</div><div class="verso"><div class="p1">taught</div><div class="p2">taught</div></div></div>
+    <div class="fc"><div class="base">find</div><div class="verso"><div class="p1">found</div><div class="p2">found</div></div></div>
+    <div class="fc"><div class="base">pay</div><div class="verso"><div class="p1">paid</div><div class="p2">paid</div></div></div>
+    <div class="fc"><div class="base">sell</div><div class="verso"><div class="p1">sold</div><div class="p2">sold</div></div></div>
+    <div class="fc"><div class="base">tell</div><div class="verso"><div class="p1">told</div><div class="p2">told</div></div></div>
+    <div class="fc"><div class="base">send</div><div class="verso"><div class="p1">sent</div><div class="p2">sent</div></div></div>
+    <div class="fc"><div class="base">build</div><div class="verso"><div class="p1">built</div><div class="p2">built</div></div></div>
+    <div class="fc"><div class="base">keep</div><div class="verso"><div class="p1">kept</div><div class="p2">kept</div></div></div>
+    <div class="fc"><div class="base">leave</div><div class="verso"><div class="p1">left</div><div class="p2">left</div></div></div>
+    <div class="fc"><div class="base">lose</div><div class="verso"><div class="p1">lost</div><div class="p2">lost</div></div></div>
+    <div class="fc"><div class="base">say</div><div class="verso"><div class="p1">said</div><div class="p2">said</div></div></div>
+    <div class="fc"><div class="base">hear</div><div class="verso"><div class="p1">heard</div><div class="p2">heard</div></div></div>
+    <div class="fc"><div class="base">hold</div><div class="verso"><div class="p1">held</div><div class="p2">held</div></div></div>
+    <div class="fc"><div class="base">win</div><div class="verso"><div class="p1">won</div><div class="p2">won</div></div></div>
+    <div class="fc"><div class="base">feed</div><div class="verso"><div class="p1">fed</div><div class="p2">fed</div></div></div>
+  </div>
+  <button class="tudo" data-tudo="f2">Show all eighteen</button>
+
+  <h3>All three different</h3>
+  <p class="dica">The dangerous group. Almost all of these participles end in <b>-n</b> &mdash; that is your clue.</p>
+  <div class="fcards">
+    <div class="fc"><div class="base">give</div><div class="verso"><div class="p1">gave</div><div class="p2">given</div></div></div>
+    <div class="fc"><div class="base">take</div><div class="verso"><div class="p1">took</div><div class="p2">taken</div></div></div>
+    <div class="fc"><div class="base">write</div><div class="verso"><div class="p1">wrote</div><div class="p2">written</div></div></div>
+    <div class="fc"><div class="base">speak</div><div class="verso"><div class="p1">spoke</div><div class="p2">spoken</div></div></div>
+    <div class="fc"><div class="base">break</div><div class="verso"><div class="p1">broke</div><div class="p2">broken</div></div></div>
+    <div class="fc"><div class="base">steal</div><div class="verso"><div class="p1">stole</div><div class="p2">stolen</div></div></div>
+    <div class="fc"><div class="base">choose</div><div class="verso"><div class="p1">chose</div><div class="p2">chosen</div></div></div>
+    <div class="fc"><div class="base">grow</div><div class="verso"><div class="p1">grew</div><div class="p2">grown</div></div></div>
+    <div class="fc"><div class="base">know</div><div class="verso"><div class="p1">knew</div><div class="p2">known</div></div></div>
+    <div class="fc"><div class="base">show</div><div class="verso"><div class="p1">showed</div><div class="p2">shown</div></div></div>
+    <div class="fc"><div class="base">drive</div><div class="verso"><div class="p1">drove</div><div class="p2">driven</div></div></div>
+    <div class="fc"><div class="base">eat</div><div class="verso"><div class="p1">ate</div><div class="p2">eaten</div></div></div>
+    <div class="fc"><div class="base">see</div><div class="verso"><div class="p1">saw</div><div class="p2">seen</div></div></div>
+    <div class="fc"><div class="base">wear</div><div class="verso"><div class="p1">wore</div><div class="p2">worn</div></div></div>
+    <div class="fc"><div class="base">hide</div><div class="verso"><div class="p1">hid</div><div class="p2">hidden</div></div></div>
+    <div class="fc"><div class="base">forget</div><div class="verso"><div class="p1">forgot</div><div class="p2">forgotten</div></div></div>
+    <div class="fc"><div class="base">do</div><div class="verso"><div class="p1">did</div><div class="p2">done</div></div></div>
+    <div class="fc"><div class="base">get</div><div class="verso"><div class="p1">got</div><div class="p2">gotten / got</div></div></div>
+  </div>
+  <button class="tudo" data-tudo="f3">Show all eighteen</button>
+
+  <div class="errado-box">
+    <div class="lab">THE MIX-UP THAT RUINS A PASSIVE</div>
+    <div class="l"><s>The letter was wrote yesterday.</s><span class="ok">The letter was written yesterday.</span><span class="pq"><em>wrote</em> is the past simple. After <em>be</em> you always need the third column.</span></div>
+    <div class="l"><s>My bike was stole.</s><span class="ok">My bike was stolen.</span><span class="pq">Same trap: <em>stole</em> is column two, <em>stolen</em> is column three.</span></div>
+  </div>
+
+  <div class="escreve">
+    <div class="lab">PARTICIPLE ONLY &mdash; 8 GAPS</div>
+    <div class="instr">Write the past participle of the verb in brackets.</div>
+    <div class="item"><span class="n">1 &mdash; WRITE</span>The letter was <input class="campo" data-resp="written" aria-label="participio"> by hand.</div>
+    <div class="item"><span class="n">2 &mdash; STEAL</span>Her phone was <input class="campo" data-resp="stolen" aria-label="participio"> at the bus stop.</div>
+    <div class="item"><span class="n">3 &mdash; GIVE</span>Marina was <input class="campo" data-resp="given" aria-label="participio"> a present.</div>
+    <div class="item"><span class="n">4 &mdash; TAKE</span>The photos were <input class="campo" data-resp="taken" aria-label="participio"> last summer.</div>
+    <div class="item"><span class="n">5 &mdash; SELL</span>All the tickets are <input class="campo" data-resp="sold" aria-label="participio"> online.</div>
+    <div class="item"><span class="n">6 &mdash; GROW</span>Soya is <input class="campo" data-resp="grown" aria-label="participio"> on that land.</div>
+    <div class="item"><span class="n">7 &mdash; SET</span>The table must be <input class="campo" data-resp="set" aria-label="participio"> before seven.</div>
+    <div class="item"><span class="n">8 &mdash; TEACH</span>French is <input class="campo" data-resp="taught" aria-label="participio"> here too.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="gp">Check</button>
+      <button class="bt-rev" data-revelar="gp">Show answers</button>
+    </div>
+    <div class="placar" data-placar="gp"></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+<!-- ============ 2. DISCOURSE MARKERS ============ -->
+<section id="marcadores">
+  <span class="tag">GRAMMAR 2</span>
+  <h2>Discourse markers &mdash; chart 1</h2>
+
+  <p style="margin-top:12px;font-size:17px">A discourse marker adds no information. It tells the reader <b>what kind of idea is coming next</b>. Your sheet lists their jobs: showing turns, joining ideas, changing a topic, adding information, contrasting, ordering speech, reason and effect, concluding.</p>
+
+  <figure>
+    <svg viewBox="0 0 320 104" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A marker sits between two ideas and labels the relationship">
+      <rect x="8" y="34" width="96" height="36" rx="9" fill="#EFEDE6"/>
+      <text x="56" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#2C2C2A">idea 1</text>
+      <rect x="216" y="34" width="96" height="36" rx="9" fill="#EFEDE6"/>
+      <text x="264" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#2C2C2A">idea 2</text>
+      <path d="M106 52 H212" stroke="#7F77DD" stroke-width="2.5"/>
+      <path d="M206 46 l10 6 -10 6 z" fill="#3C3489"/>
+      <rect x="126" y="12" width="68" height="26" rx="13" fill="#3C3489"/>
+      <text x="160" y="29" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#fff">however</text>
+      <line x1="160" y1="38" x2="160" y2="48" stroke="#3C3489" stroke-width="2"/>
+      <text x="160" y="86" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-style="italic" fill="#5F5E5A">change the sign, change the meaning</text>
+    </svg>
+    <figcaption>The two ideas stay the same. The marker decides how they relate.</figcaption>
+  </figure>
+
+  <div class="grupo">
+    <div class="funcao">ADDITION</div>
+    <div class="lista-m"><span>and</span> &middot; <span>moreover</span> &middot; <span>furthermore</span> &middot; <span>in addition</span> &middot; <span>also</span> &middot; <span>besides</span> &middot; <span>along with this</span></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">CAUSE, REASON OR EFFECT</div>
+    <div class="lista-m"><span>because</span> &middot; <span>for</span> &middot; <span>as</span> &middot; <span>since</span> &middot; <span>therefore</span> &middot; <span>given that</span> &middot; <span>due to</span></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">COMPARISON</div>
+    <div class="lista-m"><span>like</span> &middot; <span>as</span> &middot; <span>unlike</span> &middot; <span>similarly</span> &middot; <span>in the same way</span> &middot; <span>just as</span> &middot; <span>in comparison</span></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">CONSEQUENCE OR RESULT</div>
+    <div class="lista-m"><span>consequently</span> &middot; <span>as a result</span> &middot; <span>so</span> &middot; <span>thus</span> &middot; <span>hence</span> &middot; <span>in conclusion</span> &middot; <span>because (of)</span></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">CONTRAST</div>
+    <div class="lista-m"><span>but</span> &middot; <span>however</span> &middot; <span>even though</span> &middot; <span>nevertheless</span> &middot; <span>yet</span> &middot; <span>whereas</span> &middot; <span>on the contrary</span></div>
+  </div>
+
+  <div class="nota">Three words appear in <b>more than one column</b>. <em>as</em> is cause, comparison and condition. <em>like</em> is comparison and illustration. <em>because</em> is cause and <em>because of</em> is result. Don't memorise them by column &mdash; memorise what comes after them.</div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ 2b. CHART 2 ============ -->
+<section id="marcadores2">
+  <span class="tag leve">GRAMMAR 2 &mdash; PART TWO</span>
+  <h2>Discourse markers &mdash; chart 2</h2>
+
+  <div class="grupo">
+    <div class="funcao">EMPHASIS</div>
+    <div class="lista-m"><span>in fact</span> &middot; <span>as a matter of fact</span> &middot; <span>indeed</span> &middot; <span>actually</span> &middot; <span>in reality</span> &middot; <span>essentially</span> &middot; <span>fortunately</span></div>
+    <div class="mod">These add weight to what you just said, or correct it. <i>It wasn't expensive. In fact, it was free.</i></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">CONDITION</div>
+    <div class="lista-m"><span>if</span> &middot; <span>whether</span> &middot; <span>as long as</span> &middot; <span>provided that</span> &middot; <span>assuming that</span> &middot; <span>unless</span> &middot; <span>now that</span></div>
+    <div class="mod"><em>unless</em> already means <em>if not</em>. <s>unless you don't come</s> is a double negative. <i>Unless you come, I'll go alone.</i></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">ILLUSTRATING</div>
+    <div class="lista-m"><span>for example</span> &middot; <span>for instance</span> &middot; <span>in some cases</span> &middot; <span>such as</span> &middot; <span>like</span> &middot; <span>let's say</span> &middot; <span>be it</span></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">ORDERING</div>
+    <div class="lista-m"><span>first</span> &middot; <span>second</span> &middot; <span>then</span> &middot; <span>next</span> &middot; <span>now</span> &middot; <span>continuing</span> &middot; <span>finally</span></div>
+  </div>
+  <div class="grupo">
+    <div class="funcao">PURPOSE</div>
+    <div class="lista-m"><span>so that</span> &middot; <span>to</span> &middot; <span>not to</span> &middot; <span>in order to</span> &middot; <span>in order not to</span> &middot; <span>so as to</span> &middot; <span>so as not to</span></div>
+    <div class="mod">Purpose answers <em>why?</em> with an aim, not with a cause. <i>She left early <b>in order to</b> catch the bus.</i></div>
+  </div>
+
+  <div class="bloco rosa">
+    <div class="rot">SO, SO THAT, SO AS TO &mdash; THREE DIFFERENT THINGS</div>
+    <p><b>so</b> = result. <em>It was late, <b>so</b> we left.</em></p>
+    <p><b>so that</b> = purpose, followed by a subject and a verb. <em>We left early <b>so that</b> we wouldn't miss it.</em></p>
+    <p><b>so as to</b> = purpose, followed by an infinitive. <em>We left early <b>so as to</b> catch the bus.</em></p>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ 2c. WHAT COMES AFTER ============ -->
+<section id="confunde">
+  <span class="tag leve">GRAMMAR 2 &mdash; PART THREE</span>
+  <h2>What comes after it</h2>
+  <p style="margin-top:12px;font-size:17px">Your sheet gives you the meanings. This is where the marks actually go: students pick the right idea and then put the wrong kind of thing after the marker.</p>
+
+  <div class="tabela">
+    <div class="tlinha cab"><div>MARKER</div><div>WHAT FOLLOWS</div></div>
+    <div class="tlinha"><div>because &middot; since &middot; as &middot; given that</div><div><b>subject + verb</b><i>We left because it was late.</i></div></div>
+    <div class="tlinha"><div>due to &middot; because of</div><div><b>noun or -ing</b><i>We left because of the time.</i></div></div>
+    <div class="tlinha"><div>even though &middot; whereas</div><div><b>subject + verb</b><i>Even though it rained, we went.</i></div></div>
+    <div class="tlinha"><div>however &middot; nevertheless &middot; therefore &middot; consequently &middot; moreover</div><div><b>a new sentence</b>, then a comma<i>It rained. However, we went.</i></div></div>
+    <div class="tlinha"><div>but &middot; yet &middot; so &middot; and</div><div><b>join two clauses</b> with a comma before<i>It rained, but we went.</i></div></div>
+    <div class="tlinha"><div>such as &middot; like &middot; unlike</div><div><b>noun</b><i>crops such as soya and corn</i></div></div>
+    <div class="tlinha"><div>so that &middot; provided that &middot; as long as</div><div><b>subject + verb</b><i>Take it, provided that you give it back.</i></div></div>
+    <div class="tlinha"><div>in order to &middot; so as to &middot; to</div><div><b>infinitive without <em>to</em> after it</b><i>She called in order to explain.</i></div></div>
+  </div>
+
+  <div class="errado-box">
+    <div class="lab">DON'T DO THIS</div>
+    <div class="l"><s>It rained all day, however we still went.</s><span class="ok">It rained all day. However, we still went.</span><span class="pq"><em>however</em> cannot glue two clauses with a comma. Full stop or semicolon.</span></div>
+    <div class="l"><s>Even though it rained, but we went.</s><span class="ok">Even though it rained, we went.</span><span class="pq">One contrast word per contrast. Never both.</span></div>
+    <div class="l"><s>Due to it was late, we left.</s><span class="ok">Because it was late, we left.</span><span class="pq"><em>due to</em> needs a noun, not a clause.</span></div>
+  </div>
+
+  <div class="quiz">
+    <div class="lab">CHECK YOURSELF 3 &middot; PICK THE CORRECT SENTENCE</div>
+    <div class="pergunta">Which one is right?</div>
+    <div class="op-e"><span class="marca-op">A</span>The match was called off due to it rained.</div>
+    <div class="op-e"><span class="marca-op">B</span>The match was called off due to the rain.</div>
+    <div class="op-e"><span class="marca-op">C</span>The match was called off due to because of rain.</div>
+    <details class="resp-wrap">
+      <summary><span class="abrir">Show the answer</span></summary>
+      <div class="resposta">
+        <div class="fb bom"><span class="m">B</span><span><b>due to + noun.</b> <em>the rain</em> is a noun phrase, so it fits.</span></div>
+        <div class="fb ruim"><span class="m">A</span><span><em>it rained</em> is a clause. That needs <em>because</em> or <em>since</em>.</span></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="escreve">
+    <div class="lab">ONE MARKER PER GAP &mdash; 10 GAPS</div>
+    <div class="instr">Every answer is a word from your two charts. Look at what comes after the gap before you choose.</div>
+    <div class="item"><span class="n">1</span>She failed the first test. <input class="campo larga" data-resp="however/nevertheless" aria-label="marcador">, she passed the second one easily.</div>
+    <div class="item"><span class="n">2</span><input class="campo larga" data-resp="even though" aria-label="marcador"> she had studied for weeks, she still felt nervous.</div>
+    <div class="item"><span class="n">3</span>The match was called off <input class="campo larga" data-resp="due to/because of" aria-label="marcador"> the storm.</div>
+    <div class="item"><span class="n">4</span>My sister loves parties, <input class="campo larga" data-resp="whereas" aria-label="marcador"> I'd rather stay in.</div>
+    <div class="item"><span class="n">5</span>The deadline was moved. <input class="campo larga xl" data-resp="consequently/therefore" aria-label="marcador">, we had an extra week.</div>
+    <div class="item"><span class="n">6</span>She left early <input class="campo larga xl" data-resp="in order to/so as to" aria-label="marcador"> catch the last bus.</div>
+    <div class="item"><span class="n">7</span>I'll lend it to you <input class="campo larga xl" data-resp="provided that/as long as" aria-label="marcador"> you give it back on Friday.</div>
+    <div class="item"><span class="n">8</span>It wasn't expensive. <input class="campo larga" data-resp="in fact/actually" aria-label="marcador">, it was free.</div>
+    <div class="item"><span class="n">9</span>She grows several crops, <input class="campo larga" data-resp="such as/like" aria-label="marcador"> soya and corn.</div>
+    <div class="item"><span class="n">10</span><input class="campo larga" data-resp="unless" aria-label="marcador"> it rains, the game starts at four.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="g2">Check</button>
+      <button class="bt-rev" data-revelar="g2">Show answers</button>
+    </div>
+    <div class="placar" data-placar="g2"></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+<!-- ============ 3. GET AND SET ============ -->
+<section id="getset">
+  <span class="tag">VOCABULARY 1</span>
+  <h2>Collocations with <em>get</em> and <em>set</em></h2>
+
+  <p style="margin-top:12px;font-size:17px">Your sheet gives eight. These eight are the test. Learn each one as <b>one word</b>, with its example attached &mdash; don't build them from <em>get</em> plus something.</p>
+
+  <div class="duo">
+    <div class="lado g">
+      <div class="pal">GET</div>
+      <div class="ideia">You <b>become</b> something.<span>A state you weren't in before. Followed by an adjective or a participle.</span></div>
+    </div>
+    <div class="lado s">
+      <div class="pal">SET</div>
+      <div class="ideia">You <b>fix</b> something.<span>You decide or arrange it on purpose. Followed by a noun.</span></div>
+    </div>
+  </div>
+
+  <div class="subrot">THE EIGHT &mdash; TAP TO SEE THE MEANING</div>
+  <div class="chunks">
+    <div class="ch"><div class="frente">get dressed</div><div class="atras">Put your clothes on. <i>It takes her half an hour to get dressed in the morning.</i></div></div>
+    <div class="ch"><div class="frente">get drunk</div><div class="atras">Become drunk. <i>Lisa got drunk last night and had to take a taxi home.</i></div></div>
+    <div class="ch"><div class="frente">get lost</div><div class="atras">Lose your way. <i>Without your help, I would get lost. Thank you!</i></div></div>
+    <div class="ch"><div class="frente">get sick</div><div class="atras">Become ill. <i>Gosh, this is the second time I've gotten sick this month!</i></div></div>
+    <div class="ch"><div class="frente">set a precedent</div><div class="atras">Do something that becomes the model for what comes after. <i>What you have done will set a legal precedent.</i></div></div>
+    <div class="ch"><div class="frente">set an example</div><div class="atras">Behave in a way others should copy. <i>Parents and teachers should set an example.</i></div></div>
+    <div class="ch"><div class="frente">set the date and time</div><div class="atras">Decide when something will happen. <i>Have you set the date and time for Jason's farewell party?</i></div></div>
+    <div class="ch"><div class="frente">set the table</div><div class="atras">Put the plates and cutlery out before a meal. <i>She hasn't set the table yet. How can I serve dinner?</i></div></div>
+  </div>
+  <button class="tudo" data-tudo="gs">Show all eight meanings</button>
+
+  <div class="bloco ambar">
+    <div class="rot">TWO THINGS IN THE EXAMPLES WORTH NOTICING</div>
+    <p><b>gotten</b> is the American past participle of <em>get</em>. British English says <em>got</em>. Your sheet uses the American one &mdash; both are correct.</p>
+    <p><b>a precedent</b> is a first case that others then follow. <em>A legal precedent</em> is a court decision that later decisions copy.</p>
+  </div>
+
+  <div class="nota">The pattern underneath: after <b>get</b> comes an <b>adjective or participle</b> &mdash; <em>dressed, drunk, lost, sick</em>. After <b>set</b> comes a <b>noun</b> &mdash; <em>a precedent, an example, the date, the table</em>. If the gap is followed by a noun with <em>a</em> or <em>the</em>, it is almost always <b>set</b>.</div>
+
+  <div class="escreve">
+    <div class="lab">GET OR SET? &mdash; 10 GAPS</div>
+    <div class="instr">Write only <em>get</em> or <em>set</em>, in the form the sentence needs: get, gets, got, gotten, setting, set.</div>
+    <div class="item"><span class="n">1</span>It takes her half an hour to <input class="campo" data-resp="get" aria-label="verbo"> dressed in the morning.</div>
+    <div class="item"><span class="n">2</span>Parents and teachers should <input class="campo" data-resp="set" aria-label="verbo"> an example.</div>
+    <div class="item"><span class="n">3</span>She hasn't <input class="campo" data-resp="set" aria-label="verbo"> the table yet. How can I serve dinner?</div>
+    <div class="item"><span class="n">4</span>Without your help, I would <input class="campo" data-resp="get" aria-label="verbo"> lost.</div>
+    <div class="item"><span class="n">5</span>Have you <input class="campo" data-resp="set" aria-label="verbo"> the date and time for the party?</div>
+    <div class="item"><span class="n">6</span>This is the second time I've <input class="campo" data-resp="gotten/got" aria-label="verbo"> sick this month.</div>
+    <div class="item"><span class="n">7</span>What you have done will <input class="campo" data-resp="set" aria-label="verbo"> a legal precedent.</div>
+    <div class="item"><span class="n">8</span>Lisa <input class="campo" data-resp="got" aria-label="verbo"> drunk last night and had to take a taxi home.</div>
+    <div class="item"><span class="n">9</span>Hurry up and <input class="campo" data-resp="get" aria-label="verbo"> dressed &mdash; we're late.</div>
+    <div class="item"><span class="n">10</span>They always <input class="campo" data-resp="set" aria-label="verbo"> the table before the guests arrive.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="g3">Check</button>
+      <button class="bt-rev" data-revelar="g3">Show answers</button>
+    </div>
+    <div class="placar" data-placar="g3"></div>
+  </div>
+
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ 4. SUCCESS ============ -->
+<section id="sucesso">
+  <span class="tag">VOCABULARY 2</span>
+  <h2>The <em>success</em> family</h2>
+
+  <p style="margin-top:12px;font-size:17px">Your sheet lists nine forms. The test will give you one and ask for another. Decide the <b>class</b> of word first, the meaning second.</p>
+
+  <div class="bloco lilas">
+    <div class="rot">THE QUESTION TO ASK, IN THIS ORDER</div>
+    <p style="font-weight:400;font-size:16.5px">1. Is there <b>a</b>, <b>the</b> or <b>her</b> before the gap? &rarr; <b>noun</b>.</p>
+    <p style="font-weight:400;font-size:16.5px">2. Is there a noun straight after, or <b>was / is / felt / seemed</b> before? &rarr; <b>adjective</b>.</p>
+    <p style="font-weight:400;font-size:16.5px">3. Is the sentence already complete without it? &rarr; <b>adverb</b>, ending in <em>-ly</em>.</p>
+    <p style="font-weight:400;font-size:16.5px">4. Only then ask whether it needs to be <b>negative</b>.</p>
+  </div>
+
+  <h3>The nine, and what each one is for</h3>
+  <div class="tabela">
+    <div class="tlinha cab"><div>WORD</div><div>CLASS &middot; MEANING &middot; EXAMPLE</div></div>
+    <div class="tlinha"><div>success</div><div><i>noun</i>Her second album was a huge <b>success</b>.</div></div>
+    <div class="tlinha"><div>succeed</div><div><i>verb</i>Very few people <b>succeed</b> on the first try.</div></div>
+    <div class="tlinha"><div>successful</div><div><i>adjective</i>She is a <b>successful</b> lawyer.</div></div>
+    <div class="tlinha"><div>successfully</div><div><i>adverb</i>The plan was <b>successfully</b> carried out.</div></div>
+    <div class="tlinha"><div>unsuccessful</div><div><i>adjective &mdash; negative</i>After three <b>unsuccessful</b> attempts, she gave up.</div></div>
+    <div class="tlinha"><div>unsuccessfully</div><div><i>adverb &mdash; negative</i>She applied twice, <b>unsuccessfully</b>.</div></div>
+    <div class="tlinha"><div>successless</div><div><i>adjective &mdash; rare</i>Without success. Recognise it; use <em>unsuccessful</em> instead.</div></div>
+    <div class="tlinha"><div>successfulness</div><div><i>noun &mdash; rare</i>The quality of being successful. Normally just <em>success</em>.</div></div>
+    <div class="tlinha"><div>unsuccessfulness</div><div><i>noun &mdash; rare</i>The quality of being unsuccessful.</div></div>
+  </div>
+
+  <div class="quiz">
+    <div class="lab">CHECK YOURSELF 4 &middot; ONE OF THESE IS NOT WHAT YOU THINK</div>
+    <div class="pergunta">They lost three <i>___</i> matches, one after the other.</div>
+    <div class="op-e"><span class="marca-op">A</span>successful</div>
+    <div class="op-e"><span class="marca-op">B</span>successive</div>
+    <div class="op-e"><span class="marca-op">C</span>successfully</div>
+    <details class="resp-wrap">
+      <summary><span class="abrir">Show the answer</span></summary>
+      <div class="resposta">
+        <div class="fb bom"><span class="m">B</span><span><b>successive</b> = one after another. The sentence says <em>one after the other</em>, and it is about <b>losing</b>.</span></div>
+        <div class="fb ruim"><span class="m">A</span><span><em>successful</em> would mean they won them &mdash; the opposite of what the sentence says.</span></div>
+        <div class="fb ruim"><span class="m">C</span><span><em>successfully</em> is an adverb. Before a noun you need an adjective.</span></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="bloco ambar">
+    <div class="rot">THE ONE THAT WILL TRICK YOU &mdash; SUCCESSIVE</div>
+    <p>It sits in the family and it is <b>not</b> about succeeding.</p>
+    <p style="font-weight:400;font-size:16px"><b>successive</b> = one after another, in a row. <em>They lost three successive matches.</em> &mdash; three defeats, no success anywhere.</p>
+    <p style="font-weight:400;font-size:16px">If the sentence is about doing well, <em>successive</em> is the wrong answer. If it is about things in a sequence, it is the right one.</p>
+  </div>
+
+  <div class="bloco rosa">
+    <div class="rot">SPELLING</div>
+    <p>Two <b>c</b>, two <b>s</b>: su<b>cc</b>e<b>ss</b>. And one <b>l</b> in <em>successful</em>, two in <em>successfully</em>.</p>
+    <p style="font-weight:400;font-size:16px">The negative prefix goes on the front, the suffix stays on the back: <em>un + successful + ly</em>.</p>
+  </div>
+
+  <div class="escreve">
+    <div class="lab">EXAM FORMAT &mdash; 10 GAPS</div>
+    <div class="instr">Every answer is one of the nine words from your sheet. Decide the class first.</div>
+    <div class="item"><span class="n">1</span>Her second album was a huge <input class="campo larga" data-resp="success" aria-label="palavra">.</div>
+    <div class="item"><span class="n">2</span>Very few people <input class="campo larga" data-resp="succeed" aria-label="palavra"> on the first try.</div>
+    <div class="item"><span class="n">3</span>She applied twice, <input class="campo larga xl" data-resp="unsuccessfully" aria-label="palavra">, before she got a place.</div>
+    <div class="item"><span class="n">4</span>He is one of the most <input class="campo larga" data-resp="successful" aria-label="palavra"> players in the league.</div>
+    <div class="item"><span class="n">5</span>The operation was <input class="campo larga xl" data-resp="successfully" aria-label="palavra"> completed.</div>
+    <div class="item"><span class="n">6</span>After three <input class="campo larga xl" data-resp="unsuccessful" aria-label="palavra"> attempts, they changed the plan.</div>
+    <div class="item"><span class="n">7</span>Nobody doubts that she will <input class="campo larga" data-resp="succeed" aria-label="palavra">.</div>
+    <div class="item"><span class="n">8</span>The campaign was a complete <input class="campo larga" data-resp="success" aria-label="palavra">.</div>
+    <div class="item"><span class="n">9</span>They lost three <input class="campo larga" data-resp="successive" aria-label="palavra"> matches, one after the other.</div>
+    <div class="item"><span class="n">10</span>She finished the course <input class="campo larga xl" data-resp="successfully" aria-label="palavra"> despite the delays.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="g4">Check</button>
+      <button class="bt-rev" data-revelar="g4">Show answers</button>
+    </div>
+    <div class="placar" data-placar="g4"></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ MIXED TEST ============ -->
+<section id="teste">
+  <span class="tag">THE NIGHT BEFORE</span>
+  <h2>Mixed test</h2>
+  <p style="margin-top:12px;font-size:17px">Twelve gaps, all four topics mixed up, in no order &mdash; the way the real test will feel. Do it without scrolling back up.</p>
+
+  <div class="mcq">
+    <div class="lab">12 QUESTIONS</div>
+    <div class="instr">Tap the option you think is right. You'll know straight away. If you get fewer than 9, go back to the section it came from.</div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">1</span>The form <i>___</i> before Friday.</div>
+      <button class="op" data-op="a">must signed</button>
+      <button class="op" data-op="b">must be signed</button>
+      <button class="op" data-op="c">must be sign</button>
+      <div class="porque">After a modal: <b>modal + be + past participle</b>.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">2</span>Parents and teachers should <i>___</i>.</div>
+      <button class="op" data-op="a">get an example</button>
+      <button class="op" data-op="b">set an example</button>
+      <button class="op" data-op="c">set example</button>
+      <div class="porque"><b>set an example.</b> An example is a noun you fix on purpose, and it keeps its article.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">3</span>It rained all morning. <i>___</i>, the match went ahead.</div>
+      <button class="op" data-op="a">However</button>
+      <button class="op" data-op="b">Therefore</button>
+      <button class="op" data-op="c">Because</button>
+      <div class="porque">The second idea goes against the first, so it is <b>contrast</b>. <em>Therefore</em> is result, <em>because</em> is cause.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">4</span>After two <i>___</i> attempts, she passed.</div>
+      <button class="op" data-op="a">unsuccessful</button>
+      <button class="op" data-op="b">unsuccessfully</button>
+      <button class="op" data-op="c">unsuccessfulness</button>
+      <div class="porque"><em>attempts</em> is a noun, so the gap in front of it is an <b>adjective</b>.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">5</span>The report <i>___</i> right now, so please wait.</div>
+      <button class="op" data-op="a">is written</button>
+      <button class="op" data-op="b">is being written</button>
+      <button class="op" data-op="c">is writing</button>
+      <div class="porque"><em>right now</em> forces the continuous: <b>is being</b> + participle.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">6</span>Without a map I always <i>___</i> lost.</div>
+      <button class="op" data-op="a">set</button>
+      <button class="op" data-op="b">get</button>
+      <button class="op" data-op="c">make</button>
+      <div class="porque"><em>lost</em> is a participle used like an adjective, and <b>get</b> is the verb that goes with those.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">7</span>The trip was cancelled <i>___</i> the weather.</div>
+      <button class="op" data-op="a">because</button>
+      <button class="op" data-op="b">due to</button>
+      <button class="op" data-op="c">therefore</button>
+      <div class="porque"><em>the weather</em> is a noun. <b>due to</b> takes a noun; <em>because</em> needs a subject and a verb.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">8</span>Marina <i>___</i> a present by the class.</div>
+      <button class="op" data-op="a">was given</button>
+      <button class="op" data-op="b">was give</button>
+      <button class="op" data-op="c">gave</button>
+      <div class="porque">Two objects, person first: <b>Marina was given a present</b>. <em>gave</em> would mean she did the giving.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">9</span>She studies at night <i>___</i> keep up with the class.</div>
+      <button class="op" data-op="a">so that</button>
+      <button class="op" data-op="b">in order to</button>
+      <button class="op" data-op="c">because</button>
+      <div class="porque">An infinitive follows, so you need <b>in order to</b>. <em>so that</em> would need a subject and a verb after it.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">10</span>Have you <i>___</i> the date and time yet?</div>
+      <button class="op" data-op="a">set</button>
+      <button class="op" data-op="b">got</button>
+      <button class="op" data-op="c">gotten</button>
+      <div class="porque"><b>set the date and time</b> &mdash; you decide it. And <em>set</em> never changes its form.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">11</span>The project was <i>___</i> finished on time.</div>
+      <button class="op" data-op="a">successful</button>
+      <button class="op" data-op="b">successfully</button>
+      <button class="op" data-op="c">success</button>
+      <div class="porque">The gap describes <em>finished</em>, which is a verb, so you need the <b>adverb</b>.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">12</span>Soya <i>___</i> by local farmers.</div>
+      <button class="op" data-op="a">is grown</button>
+      <button class="op" data-op="b">is grew</button>
+      <button class="op" data-op="c">is growing</button>
+      <div class="porque"><em>by local farmers</em> gives the agent, so the sentence is passive: <b>is + grown</b>, the third form.</div>
+    </div>
+
+    <div class="placar-mcq"></div>
+    <button class="bt-zerar">Start again</button>
+  </div>
+
+  <div class="nota">Last thing before the test: say out loud, from memory, the <b>four passive forms</b>, the <b>eight collocations</b>, and <b>one marker from each of the ten columns</b>. Anything slow is what to reread.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+  Talk It Out &middot; by Luisa Mesel
+</footer>
+
+</div>
+
+<script>
+// ---------------- grupos de campos digitados ----------------
+(function(){
+  function norm(s){
+    return (s||'').trim().toLowerCase()
+      .replace(/[’ʼ]/g,"'")
+      .replace(/\s+/g,' ')
+      .replace(/[.,;!?]+$/,'');
+  }
+  function aceita(c){
+    var dado = norm(c.value);
+    if(!dado) return false;
+    return c.dataset.resp.split('/').some(function(r){ return norm(r) === dado; });
+  }
+
+  document.querySelectorAll('.escreve').forEach(function(caixa){
+    var campos  = [].slice.call(caixa.querySelectorAll('.campo'));
+    var btCon   = caixa.querySelector('[data-conferir]');
+    var btRev   = caixa.querySelector('[data-revelar]');
+    var placar  = caixa.querySelector('[data-placar]');
+    var total   = campos.length;
+
+    campos.forEach(function(c, i){
+      c.setAttribute('autocapitalize','none');
+      c.setAttribute('autocomplete','off');
+      c.setAttribute('spellcheck','false');
+      c.addEventListener('input', function(){ c.classList.remove('certo','errado'); });
+      c.addEventListener('keydown', function(ev){
+        if(ev.key !== 'Enter') return;
+        ev.preventDefault();
+        if(i < total - 1) campos[i+1].focus();
+        else btCon.click();
+      });
+    });
+
+    btCon.addEventListener('click', function(){
+      var certos = 0;
+      campos.forEach(function(c){
+        var ok = aceita(c);
+        c.classList.toggle('certo', ok);
+        c.classList.toggle('errado', !ok);
+        if(ok) certos++;
+      });
+      placar.className = 'placar mostra ' + (certos === total ? 'bom' : 'meio');
+      placar.textContent = certos === total
+        ? 'All ' + total + ' right. Move on.'
+        : certos + ' out of ' + total + ' right. Fix the red ones and check again.';
+    });
+
+    btRev.addEventListener('click', function(){
+      campos.forEach(function(c){
+        c.value = c.dataset.resp.split('/')[0];
+        c.classList.remove('errado');
+        c.classList.add('certo');
+      });
+      placar.className = 'placar mostra meio';
+      placar.textContent = 'Answers filled in. Read each sentence again and say why that word fits.';
+    });
+  });
+})();
+
+
+// ---------------- multipla escolha ----------------
+document.querySelectorAll('.mcq').forEach(function(caixa){
+  var qs     = [].slice.call(caixa.querySelectorAll('.mq'));
+  var placar = caixa.querySelector('.placar-mcq');
+  var zerar  = caixa.querySelector('.bt-zerar');
+
+  function atualiza(){
+    var feitas = qs.filter(function(q){ return q.classList.contains('feita'); });
+    if(!feitas.length){ placar.className = 'placar-mcq'; return; }
+    var certas = feitas.filter(function(q){ return q.dataset.acertou === '1'; }).length;
+    placar.className = 'placar-mcq mostra ' +
+      (feitas.length === qs.length && certas === qs.length ? 'bom' : 'meio');
+    placar.textContent = feitas.length === qs.length
+      ? certas + ' out of ' + qs.length + (certas === qs.length ? ' — all right.' : '. Go back to the ones you missed.')
+      : certas + ' right so far (' + feitas.length + ' of ' + qs.length + ' answered)';
+  }
+
+  qs.forEach(function(q){
+    var certa = q.dataset.certa;
+    q.querySelectorAll('.op').forEach(function(bt){
+      bt.addEventListener('click', function(){
+        if(q.classList.contains('feita')) return;
+        var ok = bt.dataset.op === certa;
+        q.classList.add('feita');
+        q.dataset.acertou = ok ? '1' : '0';
+        q.querySelectorAll('.op').forEach(function(o){
+          if(o.dataset.op === certa){
+            o.classList.add('certa');
+            o.insertAdjacentHTML('beforeend','<span class="tick">&#10003;</span>');
+          } else if(o === bt){
+            o.classList.add('errada');
+            o.insertAdjacentHTML('beforeend','<span class="tick">&times;</span>');
+          }
+        });
+        atualiza();
+      });
+    });
+  });
+
+  zerar.addEventListener('click', function(){
+    qs.forEach(function(q){
+      q.classList.remove('feita');
+      delete q.dataset.acertou;
+      q.querySelectorAll('.op').forEach(function(o){
+        o.classList.remove('certa','errada');
+        var tk = o.querySelector('.tick'); if(tk) tk.remove();
+      });
+    });
+    placar.className = 'placar-mcq';
+    caixa.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ---------------- reiniciar os exercicios digitados ----------------
+document.querySelectorAll('.escreve').forEach(function(caixa){
+  var bt = document.createElement('button');
+  bt.className = 'zerar-txt';
+  bt.textContent = 'Clear and start again';
+  caixa.appendChild(bt);
+  bt.addEventListener('click', function(){
+    caixa.querySelectorAll('.campo').forEach(function(c){
+      c.value = '';
+      c.classList.remove('certo','errado');
+    });
+    var p = caixa.querySelector('[data-placar]');
+    p.className = 'placar';
+    p.textContent = '';
+    caixa.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ---------------- cartoes de chunk ----------------
+document.querySelectorAll('.ch, .fc').forEach(function(el){
+  el.addEventListener('click', function(){ el.classList.toggle('aberto'); });
+});
+
+document.querySelectorAll('.tudo').forEach(function(bt){
+  bt.addEventListener('click', function(){
+    var lista = bt.previousElementSibling;
+    var cartoes = [].slice.call(lista.querySelectorAll('.ch, .fc'));
+    var abrir = cartoes.some(function(c){ return !c.classList.contains('aberto'); });
+    cartoes.forEach(function(c){ c.classList.toggle('aberto', abrir); });
+    bt.textContent = abrir ? 'Hide them again' : bt.dataset.rotulo;
+  });
+  bt.dataset.rotulo = bt.textContent;
+});
+</script>
+</body>
+</html>
