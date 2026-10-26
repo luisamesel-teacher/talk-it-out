@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Gap-fill &amp; word building — Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+  --erro:#A32D2D; --erro-fundo:#F7E7E7;
+  --entalhe:12px;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
+
+header{background:var(--primaria);color:#fff;padding:26px 22px}
+.voltar{display:inline-block;font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:#fff;opacity:.75;text-decoration:none;margin-bottom:20px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
+
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;color:var(--primaria);line-height:1.14}
+.instr{font-size:16px;color:var(--texto-2);margin-top:10px}
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-2);margin:24px 0 10px}
+
+/* ---------- campos do cloze ---------- */
+.cloze{font-size:18px;line-height:2.3;margin-top:20px;font-weight:500}
+.campo{font-family:'Source Sans 3',sans-serif;font-size:17px;font-weight:700;color:var(--primaria);
+  text-align:center;background:var(--lilas);border:none;border-bottom:3px solid var(--primaria-clara);
+  border-radius:5px 5px 0 0;padding:4px 6px;width:108px;vertical-align:baseline}
+.campo:focus{outline:none;background:var(--lilas-forte);border-bottom-color:var(--primaria)}
+.campo.certo{background:var(--acerto-fundo);border-bottom-color:var(--acerto);color:var(--acerto)}
+.campo.errado{background:var(--erro-fundo);border-bottom-color:var(--erro);color:var(--erro)}
+.acoes{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.botao{font-family:Inter,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:22px;
+  padding:13px 20px;cursor:pointer;background:var(--primaria);color:#fff}
+.botao.claro{background:var(--lilas);color:var(--primaria)}
+.placar{margin-top:14px;font-size:16px;font-weight:600;padding:13px 15px;border-radius:11px;display:none}
+.placar.mostra{display:block}
+.placar.bom{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.placar.meio{background:var(--ambar);color:var(--texto-ambar);border-left:4px solid #B8860B}
+
+/* ---------- word building ---------- */
+.grupo{background:var(--neutro);border-radius:12px;padding:15px 16px;margin-top:12px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.grupo .suf{font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--texto-lilas)}
+.grupo .oque{font-size:15px;color:var(--texto-2);margin-top:3px}
+.pares{display:flex;flex-direction:column;gap:8px;margin-top:11px}
+.par{background:#fff;border-radius:9px;padding:11px 13px;cursor:pointer;display:flex;
+  justify-content:space-between;align-items:center;gap:10px;font-size:17px}
+.par .base{font-weight:600}
+.par .seta{color:var(--primaria-clara);font-weight:700}
+.par .forma{font-weight:700;color:var(--acerto);visibility:hidden;text-align:right}
+.par.aberto .forma{visibility:visible}
+.par:not(.aberto) .forma::after{content:"tap";visibility:visible;font-family:Inter,sans-serif;
+  font-size:11px;letter-spacing:.06em;color:var(--primaria-clara)}
+.par:not(.aberto) .forma{visibility:visible;color:transparent}
+.cuidado{background:var(--ambar);border-radius:12px;padding:15px 16px;margin-top:16px}
+.cuidado .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--texto-ambar);margin-bottom:8px}
+.cuidado li{font-size:16px;margin-top:6px;list-style:none}
+.cuidado b{color:var(--texto)}
+
+/* ---------- prática ---------- */
+.item-p{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:10px;cursor:pointer;
+  border-left:4px solid var(--primaria-clara)}
+.item-p .frase{font-size:17px;font-weight:500;line-height:1.45}
+.item-p .pista{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--texto-lilas)}
+.item-p .resposta{display:none;margin-top:9px;font-size:17px;font-weight:700;color:var(--acerto)}
+.item-p.aberto .resposta{display:block}
+
+footer{text-align:center;padding:26px 20px 10px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
+</style>
+</head>
+<body>
+<div class="tela">
+
+<header>
+  <a class="voltar" href="../../">← Materiais</a>
+  <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+  <h1>Gap-fill &amp; word building</h1>
+  <p>Two short exercises. Tap your way through them — no writing needed.</p>
+</header>
+
+<main>
+
+<section id="cloze">
+  <span class="tag">EXERCISE 1</span>
+  <h2>One word in each gap</h2>
+  <p class="instr">Type one word in each gap — never two. Most of them are small grammar words: prepositions, adverbs, pronouns.</p>
+
+  <p class="cloze">Ten years ago, almost every teenager owned a CD player. Today that is no
+    <input class="campo" data-n="1" data-resp="longer" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    true: streaming has taken over. The demand
+    <input class="campo" data-n="2" data-resp="for" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    physical albums fell so fast that hundreds of shops closed.
+    <input class="campo" data-n="3" data-resp="despite/although" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    this, vinyl came back. Collectors decided
+    <input class="campo" data-n="4" data-resp="not" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    to give up on records, and sales rose
+    <input class="campo" data-n="5" data-resp="just" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    as quickly as they had dropped. Some fans buy vinyl
+    <input class="campo" data-n="6" data-resp="rather" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    than streaming because they want something they can hold. If you already own
+    <input class="campo" data-n="7" data-resp="one" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">,
+    you know the feeling. Others collect records
+    <input class="campo" data-n="8" data-resp="out" size="8" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    of pure nostalgia.</p>
+
+  <div class="acoes">
+    <button class="botao" id="conferir">Check my answers</button>
+    <button class="botao claro" id="revelar">Show the answers</button>
+  </div>
+  <div class="placar" id="placar"></div>
+</section>
+
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<section id="building">
+  <span class="tag">EXERCISE 2</span>
+  <h2>Turning verbs and adjectives into nouns</h2>
+  <p class="instr">Tap each line to see the noun. Read the group heading first — the ending tells you what kind of noun it makes.</p>
+
+  <div class="grupo">
+    <div class="suf">-MENT</div>
+    <div class="oque">From a verb: the action, or its result.</div>
+    <div class="pares">
+      <div class="par"><span class="base">fulfil</span><span class="seta">→</span><span class="forma">fulfilment</span></div>
+      <div class="par"><span class="base">amend</span><span class="seta">→</span><span class="forma">amendment</span></div>
+      <div class="par"><span class="base">detach</span><span class="seta">→</span><span class="forma">detachment</span></div>
+      <div class="par"><span class="base">achieve</span><span class="seta">→</span><span class="forma">achievement</span></div>
+    </div>
+  </div>
+
+  <div class="grupo">
+    <div class="suf">-ER · -OR</div>
+    <div class="oque">From a verb: the person or thing that does it.</div>
+    <div class="pares">
+      <div class="par"><span class="base">seek</span><span class="seta">→</span><span class="forma">seeker</span></div>
+      <div class="par"><span class="base">advise</span><span class="seta">→</span><span class="forma">adviser / advisor</span></div>
+      <div class="par"><span class="base">compete</span><span class="seta">→</span><span class="forma">competitor</span></div>
+    </div>
+  </div>
+
+  <div class="grupo">
+    <div class="suf">-ION · -ATION</div>
+    <div class="oque">From a verb: the process or the act.</div>
+    <div class="pares">
+      <div class="par"><span class="base">decide</span><span class="seta">→</span><span class="forma">decision</span></div>
+      <div class="par"><span class="base">determine</span><span class="seta">→</span><span class="forma">determination</span></div>
+      <div class="par"><span class="base">transform</span><span class="seta">→</span><span class="forma">transformation</span></div>
+    </div>
+  </div>
+
+  <div class="grupo">
+    <div class="suf">-NESS · -ITY</div>
+    <div class="oque">From an adjective: the quality itself.</div>
+    <div class="pares">
+      <div class="par"><span class="base">aware</span><span class="seta">→</span><span class="forma">awareness</span></div>
+      <div class="par"><span class="base">willing</span><span class="seta">→</span><span class="forma">willingness</span></div>
+      <div class="par"><span class="base">able</span><span class="seta">→</span><span class="forma">ability</span></div>
+      <div class="par"><span class="base">curious</span><span class="seta">→</span><span class="forma">curiosity</span></div>
+    </div>
+  </div>
+
+  <div class="cuidado">
+    <div class="lab">WATCH OUT</div>
+    <ul>
+      <li><b>fulfil → fulfilment</b>, with one L in British English.</li>
+      <li><b>decide → decision</b>: the <i>d</i> becomes <i>s</i>.</li>
+      <li><b>able → ability</b> and <b>curious → curiosity</b>: the word changes shape, not just the ending.</li>
+      <li><b>spite</b> makes an adjective, not a noun: <b>spiteful</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<section id="pratica">
+  <span class="tag">EXERCISE 3</span>
+  <h2>Now try it yourself</h2>
+  <p class="instr">Say the missing word out loud, then tap to check.</p>
+
+  <div class="item-p">
+    <div class="frase">She finally found <span class="pista">FULFIL</span> in teaching.</div>
+    <div class="resposta">fulfilment</div>
+  </div>
+  <div class="item-p">
+    <div class="frase">His <span class="pista">DETACH</span> surprised everyone at the meeting.</div>
+    <div class="resposta">detachment</div>
+  </div>
+  <div class="item-p">
+    <div class="frase">The committee voted on the <span class="pista">AMEND</span> yesterday.</div>
+    <div class="resposta">amendment</div>
+  </div>
+  <div class="item-p">
+    <div class="frase">Her <span class="pista">ABLE</span> to stay calm impressed the judges.</div>
+    <div class="resposta">ability</div>
+  </div>
+  <div class="item-p">
+    <div class="frase">He made the comment <span class="pista">SPITE</span>, just to hurt her.</div>
+    <div class="resposta">spitefully</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+  Talk It Out · by Luisa Mesel
+</footer>
+
+</div>
+
+<script>
+// ---------------- open cloze digitado ----------------
+(function(){
+  var campos = [].slice.call(document.querySelectorAll('.campo'));
+
+  function aceita(campo){
+    var dado = (campo.value || '').trim().toLowerCase();
+    return campo.dataset.resp.split('/').some(function(r){ return r === dado; });
+  }
+
+  campos.forEach(function(c){
+    c.addEventListener('input', function(){ c.classList.remove('certo','errado'); });
+    c.addEventListener('keydown', function(ev){
+      if (ev.key !== 'Enter') return;
+      ev.preventDefault();
+      var i = campos.indexOf(c);
+      if (i < campos.length - 1) campos[i+1].focus();
+      else document.getElementById('conferir').click();
+    });
+  });
+
+  document.getElementById('conferir').addEventListener('click', function(){
+    var certos = 0;
+    campos.forEach(function(c){
+      var ok = aceita(c);
+      c.classList.toggle('certo', ok);
+      c.classList.toggle('errado', !ok);
+      if (ok) certos++;
+    });
+    var p = document.getElementById('placar');
+    p.className = 'placar mostra ' + (certos === campos.length ? 'bom' : 'meio');
+    p.textContent = certos === campos.length
+      ? 'All eight right. Well done!'
+      : certos + ' out of 8 right. Fix the red ones and check again.';
+  });
+
+  document.getElementById('revelar').addEventListener('click', function(){
+    campos.forEach(function(c){
+      c.value = c.dataset.resp.split('/')[0];
+      c.classList.remove('errado');
+      c.classList.add('certo');
+    });
+    var p = document.getElementById('placar');
+    p.className = 'placar mostra meio';
+    p.textContent = 'Answers filled in. Read the sentence again and say why each word fits.';
+  });
+})();
+
+// ---------------- revelar ----------------
+document.querySelectorAll('.par, .item-p').forEach(function(el){
+  el.addEventListener('click', function(){ el.classList.toggle('aberto'); });
+});
+</script>
+</body>
+</html>

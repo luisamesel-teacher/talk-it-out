@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Word families — Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+  --erro:#A32D2D; --erro-fundo:#F7E7E7;
+  --entalhe:12px;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
+  line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
+
+/* ---------- topo ---------- */
+header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
+.voltar{display:inline-block;font-family:Inter,sans-serif;font-size:13px;font-weight:600;
+  color:#fff;opacity:.75;text-decoration:none;margin-bottom:20px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
+.selo{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.07em;background:var(--lilas-forte);color:var(--primaria);
+  padding:6px 13px;border-radius:15px;margin-bottom:14px}
+
+/* ---------- navegacao ---------- */
+.barra{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e2e0ec;padding:11px 16px}
+.menu{margin:0}
+.menu>summary{font-family:Inter,sans-serif;font-size:14.5px;font-weight:700;color:var(--primaria);
+  background:var(--lilas);padding:12px 18px;border-radius:24px;display:flex;align-items:center;
+  justify-content:space-between;cursor:pointer;list-style:none}
+.menu>summary::-webkit-details-marker{display:none}
+.menu>summary::after{content:"\25BE";font-size:13px;opacity:.7}
+.menu[open]>summary::after{content:"\25B4"}
+.menu-lista{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.menu-lista a{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--primaria);
+  background:var(--neutro);padding:11px 10px;border-radius:10px;text-decoration:none;text-align:center}
+.menu-lista a:active{background:var(--lilas-forte)}
+
+/* ---------- cartao de secao ---------- */
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;margin-bottom:0;
+  scroll-margin-top:80px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+.tag.leve{background:var(--primaria-clara)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;color:var(--primaria);line-height:1.14}
+h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;color:var(--primaria);
+  line-height:1.18;margin-top:28px}
+
+/* ---------- figuras ---------- */
+figure{margin:20px 0 4px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:14px;color:var(--texto-2);margin-top:8px;text-align:center;font-style:italic}
+
+/* ---------- blocos ---------- */
+.bloco{border-radius:12px;padding:15px 17px;margin-top:16px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.bloco.lilas{background:var(--lilas)} .bloco.lilas .rot{color:var(--texto-lilas)}
+.bloco.rosa{background:var(--rosa)}  .bloco.rosa .rot{color:var(--texto-rosa)}
+.bloco.ambar{background:var(--ambar)}.bloco.ambar .rot{color:var(--texto-ambar)}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:7px}
+.bloco p{font-size:17px;font-weight:600}
+.bloco p + p{margin-top:9px}
+.bloco .form{font-size:19px;font-weight:700;color:var(--primaria);letter-spacing:.01em}
+.bloco em{font-style:italic}
+
+/* ---------- exemplos ---------- */
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin:24px 0 10px}
+.ex{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ex li{background:var(--neutro);border-radius:11px;padding:13px 15px;border-left:4px solid var(--primaria-clara)}
+.ex li b{font-weight:700;font-style:italic;color:var(--primaria)}
+.ex li .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px;font-weight:400}
+
+/* ---------- tabela de tempos ---------- */
+.tabela{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid #e4e2ee}
+.tlinha{display:grid;grid-template-columns:.82fr 1.3fr;gap:0;border-bottom:1px solid #e4e2ee}
+.tlinha:last-child{border-bottom:none}
+.tlinha.cab{background:var(--primaria)}
+.tlinha.cab div{color:#fff;font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.06em}
+.tlinha > div{padding:11px 13px;font-size:15.5px}
+.tlinha > div:first-child{background:var(--lilas);font-family:Inter,sans-serif;font-size:12.5px;
+  font-weight:700;color:var(--texto-lilas);letter-spacing:.01em;display:flex;align-items:center}
+.tlinha > div:first-child i{font-size:11.5px;letter-spacing:0;color:#6E66B8;font-weight:600}
+.tlinha.cab > div:first-child{background:var(--primaria)}
+.tlinha b{font-weight:700;color:var(--primaria)}
+.tlinha i{font-style:italic;color:var(--texto-2);display:block;font-size:13.5px;margin-bottom:4px}
+
+/* ---------- comparacao ---------- */
+.par{display:flex;flex-direction:column;gap:11px}
+.par .cartao{background:var(--neutro);border-radius:11px;padding:14px 15px}
+.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--texto-2);margin-bottom:6px}
+.par .cartao b{font-weight:700;font-style:italic;color:var(--primaria)}
+.par .cartao .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px}
+
+/* ---------- duas colunas get/set ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.duo .lado{border-radius:12px;padding:15px 14px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.duo .lado.g{background:var(--lilas)}
+.duo .lado.s{background:var(--rosa)}
+.duo .lado .pal{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;line-height:1}
+.duo .lado.g .pal{color:var(--texto-lilas)}
+.duo .lado.s .pal{color:var(--texto-rosa)}
+.duo .lado .ideia{font-size:15px;font-weight:600;margin-top:8px;line-height:1.35}
+.duo .lado .ideia span{display:block;font-weight:400;font-size:14px;color:var(--texto-2);margin-top:5px;font-style:italic}
+
+/* ---------- lista de chunks (tap para revelar) ---------- */
+.chunks{display:flex;flex-direction:column;gap:7px;margin-top:14px}
+.ch{position:relative;background:var(--neutro);border-radius:10px;padding:12px 15px;cursor:pointer;
+  border-left:4px solid var(--lilas-forte)}
+.ch .frente{font-size:17px;font-weight:700;color:var(--primaria)}
+.ch .atras{display:none;font-size:15px;color:var(--texto-2);margin-top:6px;line-height:1.42}
+.ch .atras i{font-style:italic;color:var(--texto)}
+.ch.aberto{border-left-color:var(--primaria-clara)}
+.ch.aberto .atras{display:block}
+.ch:not(.aberto)::after{content:"tap";font-family:Inter,sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.06em;color:var(--primaria-clara);position:absolute;right:15px;top:14px}
+.tudo{display:block;width:100%;margin-top:14px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:var(--lilas);border:none;border-radius:22px;
+  padding:13px;cursor:pointer}
+
+/* ---------- grupos de marcadores ---------- */
+.grupo{background:var(--neutro);border-radius:12px;padding:14px 16px;margin-top:11px;
+  border-left:4px solid var(--primaria-clara)}
+.grupo .funcao{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:7px}
+.grupo .lista-m{font-size:16.5px;font-weight:600;color:var(--primaria);line-height:1.5}
+.grupo .lista-m span{white-space:nowrap}
+.grupo .mod{font-size:14.5px;color:var(--texto-2);margin-top:7px;font-style:italic;font-weight:400}
+
+/* ---------- exercicio: escolher ---------- */
+details{margin-top:16px}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+.abrir{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);border-radius:16px;padding:7px 14px;margin-top:12px}
+details[open] .abrir{display:none}
+
+.quiz{background:var(--lilas);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:10px}
+.quiz .pergunta{font-size:17.5px;font-weight:600;margin-bottom:13px;line-height:1.5}
+.quiz .pergunta i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;
+  display:flex;align-items:center;gap:10px}
+.marca-op{font-family:Inter,sans-serif;font-weight:700;font-size:15px;flex:none;width:20px;color:var(--texto-2)}
+.resposta{margin-top:4px}
+.quiz .resp-wrap{margin-top:6px}
+.quiz .abrir{background:#fff;border-color:var(--primaria-clara);color:var(--primaria)}
+.quiz .resp-wrap[open] .abrir{display:none}
+.fb{font-size:15.5px;padding:12px 14px;border-radius:10px;line-height:1.45;margin-bottom:9px;display:flex;gap:9px}
+.fb .m{font-weight:700;flex:none}
+.fb b{font-weight:700}
+.fb.bom{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.fb.bom .m{color:var(--acerto)}
+.fb.ruim{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
+.fb.ruim .m{color:var(--erro)}
+
+/* ---------- exercicio digitado ---------- */
+.escreve{background:var(--ambar);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.escreve > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-ambar);margin-bottom:5px}
+.escreve .instr{font-size:15px;color:#6B4208;margin-bottom:13px;line-height:1.4}
+.item{background:#fff;border-radius:11px;padding:13px 15px;margin-bottom:9px;font-size:16.5px;
+  line-height:2;font-weight:500}
+.item .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.campo{font-family:'Source Sans 3',sans-serif;font-size:16px;font-weight:700;color:var(--primaria);
+  background:var(--lilas);border:none;border-bottom:2.5px solid var(--primaria-clara);
+  border-radius:5px 5px 0 0;padding:2px 5px;width:5.4em;text-align:center;outline:none;
+  vertical-align:baseline}
+.campo.larga{width:9.1em}
+.campo.xl{width:11.2em}
+.campo:focus{background:#fff;border-bottom-color:var(--primaria)}
+.campo.certo{background:var(--acerto-fundo);color:#2C4A0B;border-bottom-color:var(--acerto)}
+.campo.errado{background:var(--erro-fundo);color:#6E1F1F;border-bottom-color:var(--erro)}
+.botoes{display:flex;gap:9px;margin-top:13px}
+.botoes button{flex:1;font-family:Inter,sans-serif;font-size:13.5px;font-weight:700;border:none;
+  border-radius:22px;padding:13px 10px;cursor:pointer}
+.bt-con{background:var(--primaria);color:#fff}
+.bt-rev{background:#fff;color:var(--texto-ambar);border:2px solid #E3CFA4}
+.placar{display:none;margin-top:12px;font-size:15.5px;font-weight:600;padding:12px 14px;border-radius:10px;line-height:1.4}
+.placar.mostra{display:block}
+.placar.bom{background:var(--acerto-fundo);color:#2C4A0B}
+.placar.meio{background:#fff;color:var(--texto-ambar)}
+
+/* ---------- avisos ---------- */
+.nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px;line-height:1.48}
+.nota b{font-weight:700}
+.nota em{font-style:italic}
+.c1{background:#2A2458;color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px;line-height:1.48;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.c1 .rot{color:var(--lilas-forte);letter-spacing:.08em}
+.c1 b{font-weight:700;color:#fff}
+.c1 em{font-style:italic;color:var(--lilas-forte)}
+.errado-box{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:16px;border-left:4px solid var(--erro)}
+.errado-box .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--erro);margin-bottom:8px}
+.errado-box .l{font-size:16.5px;margin-top:11px;line-height:1.45}
+.errado-box .l s{display:block;margin-bottom:2px}
+.errado-box s{color:var(--erro);text-decoration-thickness:2px}
+.errado-box .ok{color:var(--acerto);font-weight:700}
+.errado-box .pq{display:block;font-size:14px;color:var(--texto-2);font-style:italic;margin-top:2px}
+
+
+/* ---------- flashcards de participio ---------- */
+.legenda{display:flex;flex-direction:column;gap:5px;margin-top:16px;font-size:14.5px;color:var(--texto-2)}
+.legenda b{font-weight:700}
+.legenda .q1{color:var(--texto)}
+.legenda .q2{color:var(--acerto)}
+.dica{font-size:15px;color:var(--texto-2);font-style:italic;margin-top:8px}
+.fcards{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.fc{position:relative;background:var(--neutro);border-radius:12px;padding:15px 10px 13px;text-align:center;
+  cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:center;
+  border-bottom:4px solid var(--lilas-forte)}
+.fc .base{font-size:20px;font-weight:700;color:var(--primaria);line-height:1.1}
+.fc .verso{display:none}
+.fc .p1{font-size:17px;font-weight:600;color:var(--texto);line-height:1.2}
+.fc .p2{font-size:18px;font-weight:700;color:var(--acerto);line-height:1.2;margin-top:3px}
+.fc.aberto{background:#fff;border-bottom-color:var(--acerto)}
+.fc.aberto .base{font-size:15px;font-weight:600;color:var(--texto-2)}
+.fc.aberto .verso{display:block;margin-top:7px}
+.fc:not(.aberto)::after{content:"tap";position:absolute;bottom:7px;left:0;right:0;
+  font-family:Inter,sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--primaria-clara)}
+
+
+/* ---------- multipla escolha ---------- */
+.mcq{background:var(--lilas);border-radius:14px;padding:18px 16px 17px;margin-top:16px}
+.mcq > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:5px}
+.mcq .instr{font-size:15px;color:#4B4293;margin-bottom:14px;line-height:1.4}
+.mq{background:#fff;border-radius:12px;padding:14px 14px 12px;margin-bottom:11px}
+.mq .enun{font-size:17px;font-weight:600;line-height:1.5;margin-bottom:11px}
+.mq .enun .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.mq .enun i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.mq .op{display:block;width:100%;text-align:left;font-family:'Source Sans 3',sans-serif;
+  font-size:17px;font-weight:600;color:var(--texto);background:var(--neutro);border:2px solid transparent;
+  border-radius:10px;padding:11px 14px;margin-bottom:8px;cursor:pointer;transition:background .12s,border-color .12s}
+.mq .op:active{background:var(--lilas-forte)}
+.mq.feita .op{cursor:default}
+.mq .op.certa{background:var(--acerto-fundo);border-color:var(--acerto);color:#2C4A0B}
+.mq .op.errada{background:var(--erro-fundo);border-color:var(--erro);color:#6E1F1F}
+.mq .op .tick{float:right;font-weight:700}
+.mq .porque{display:none;font-size:15px;line-height:1.45;color:var(--texto-2);
+  background:var(--neutro);border-radius:9px;padding:11px 13px;margin-top:3px}
+.mq .porque b{color:var(--texto);font-weight:700}
+.mq.feita .porque{display:block}
+.placar-mcq{display:none;font-size:16.5px;font-weight:700;padding:14px 15px;border-radius:11px;
+  line-height:1.4;margin-top:4px;text-align:center}
+.placar-mcq.mostra{display:block}
+.placar-mcq.bom{background:var(--acerto-fundo);color:#2C4A0B}
+.placar-mcq.meio{background:#fff;color:var(--texto-ambar)}
+.bt-zerar{display:block;width:100%;margin-top:11px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);
+  border-radius:22px;padding:13px;cursor:pointer}
+.zerar-txt{display:block;width:100%;margin-top:9px;font-family:Inter,sans-serif;font-size:13px;
+  font-weight:700;color:var(--texto-ambar);background:none;border:none;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px}
+
+
+/* ---------- passo a passo ---------- */
+.passos{counter-reset:passo;margin-top:18px}
+.passo{position:relative;padding:0 0 20px 42px;border-left:2px dashed #BEB9D6;margin-left:15px}
+.passo:last-child{border-left-color:transparent;padding-bottom:2px}
+.passo::before{counter-increment:passo;content:counter(passo);position:absolute;left:-16px;top:-3px;
+  width:31px;height:31px;border-radius:50%;background:var(--primaria);color:#fff;
+  font-family:Inter,sans-serif;font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.passo .t{font-size:17.5px;font-weight:700;color:var(--primaria);line-height:1.28}
+.passo .d{font-size:16px;color:var(--texto);margin-top:6px;line-height:1.48}
+.passo .d b{font-weight:700;color:var(--primaria)}
+.passo .d em{font-style:italic}
+
+/* ---------- exemplo resolvido ---------- */
+.trab{background:var(--neutro);border-radius:12px;padding:16px 16px 15px;margin-top:18px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.rot-trab{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin-bottom:9px}
+.trab .orig{font-size:18px;font-weight:700;color:var(--texto);line-height:1.35;
+  padding-bottom:11px;margin-bottom:12px;border-bottom:2px dashed #C9C6D8}
+.trab .linha{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start}
+.trab .linha .num{flex:none;font-family:Inter,sans-serif;font-size:11px;font-weight:700;color:#fff;
+  background:var(--primaria-clara);border-radius:50%;width:21px;height:21px;
+  display:flex;align-items:center;justify-content:center;margin-top:2px}
+.trab .linha .txt{font-size:15.5px;line-height:1.45;color:var(--texto-2)}
+.trab .linha .txt b{color:var(--primaria);font-weight:700}
+.trab .linha .txt em{font-style:italic}
+.trab .final{font-size:19px;font-weight:700;color:#2C4A0B;background:var(--acerto-fundo);
+  border-left:4px solid var(--acerto);border-radius:9px;padding:12px 14px;margin-top:12px;text-align:center}
+
+
+/* ---------- cartao de familia ---------- */
+.fam{background:#fff;border-radius:14px;padding:16px 16px 14px;margin-top:13px;
+  border-left:5px solid var(--primaria-clara);box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.fam .raiz{font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;
+  color:var(--primaria);background:var(--lilas);display:inline-block;padding:6px 13px;border-radius:14px}
+.fam .linhas{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.fam .ln{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;align-items:baseline}
+.fam .cl{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--texto-2);text-transform:uppercase}
+.fam .ln b{font-size:18.5px;font-weight:700;color:var(--texto);line-height:1.25}
+.fam .ln.neg b{color:var(--erro)}
+.fam .ln i{font-style:italic;font-weight:400;color:var(--texto-2);font-size:15px}
+.fam.coberta .ln b{visibility:hidden}
+.fam.coberta .aviso{display:none}
+.fam.coberta .ln::after{content:"";}
+.fam .cobrir{display:inline-block;margin-top:13px;font-family:Inter,sans-serif;font-size:11.5px;
+  font-weight:700;letter-spacing:.06em;color:var(--primaria);background:var(--lilas);
+  border:none;border-radius:14px;padding:7px 14px;cursor:pointer}
+.fam .aviso{font-size:15px;line-height:1.45;color:var(--texto-2);background:var(--ambar);
+  border-radius:10px;padding:11px 13px;margin-top:12px}
+.fam .aviso b{color:var(--texto-ambar);font-weight:700}
+.cobrir-todas{display:block;width:100%;margin-top:14px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:var(--lilas);border:none;border-radius:22px;
+  padding:13px;cursor:pointer}
+
+/* ---------- classe primeiro ---------- */
+.dois{background:var(--lilas);border-radius:14px;padding:18px 16px 16px;margin-top:16px}
+.dois > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:5px}
+.dois .instr{font-size:15px;color:#4B4293;margin-bottom:14px;line-height:1.4}
+.passo2{background:#fff;border-radius:12px;padding:14px 14px 12px;margin-bottom:11px}
+.passo2 .frase{font-size:16.5px;font-weight:500;line-height:1.55;margin-bottom:11px}
+.passo2 .frase .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.passo2 .frase b{color:var(--primaria);font-weight:700}
+.classes{display:flex;gap:7px;flex-wrap:wrap}
+.classes button{font-family:Inter,sans-serif;font-size:13px;font-weight:700;color:var(--texto);
+  background:var(--neutro);border:2px solid transparent;border-radius:16px;padding:9px 14px;cursor:pointer}
+.classes button.certa{background:var(--acerto-fundo);border-color:var(--acerto);color:#2C4A0B}
+.classes button.errada{background:var(--erro-fundo);border-color:var(--erro);color:#6E1F1F}
+.passo2 .segunda{display:none;margin-top:12px;font-size:16.5px;font-weight:500;line-height:1.9}
+.passo2.liberada .segunda{display:block}
+.passo2 .segunda .campo{width:9.6em}
+
+footer{text-align:center;padding:14px 20px 24px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
+</style>
+</head>
+<body>
+<div class="tela">
+
+<header>
+  <a class="voltar" href="../../">&larr; Materiais</a>
+  <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+  <span class="selo">READY FOR C1 ADVANCED</span>
+  <h1>Word families</h1>
+  <p>One root, one family. Cover the words and say them out loud before you look. Reading this page does nothing. Saying it does.</p>
+</header>
+
+<div class="barra">
+  <details class="menu">
+    <summary>Jump to a section</summary>
+    <div class="menu-lista">
+      <a href="#como">How to use it</a>
+      <a href="#novas">This week</a>
+      <a href="#banco">The bank</a>
+      <a href="#classe">Class first</a>
+      <a href="#pares">Tricky pairs</a>
+      <a href="#prefixos">Two prefixes</a>
+      <a href="#grafia">Spelling</a>
+      <a href="#teste">Mixed test</a>
+    </div>
+  </details>
+</div>
+
+<main>
+<!-- ============ COMO USAR ============ -->
+<section id="como">
+  <span class="tag leve">THE RULE OF THIS PAGE</span>
+  <h2>Cover, then say</h2>
+
+  <div class="bloco lilas">
+    <div class="rot">ALWAYS IN THIS ORDER</div>
+    <p style="font-weight:400;font-size:16.5px">verb &rarr; noun &rarr; person &rarr; adjective &rarr; adverb &rarr; negative</p>
+    <p style="font-weight:400;font-size:16px;margin-top:8px">The order is the path. Say it the same way every time and it becomes automatic.</p>
+  </div>
+
+  <div class="bloco rosa">
+    <div class="rot">IN A TEST, TWO STEPS</div>
+    <p style="font-weight:400;font-size:16.5px">1. What <b>class</b> does the gap need? Noun, adjective or adverb?</p>
+    <p style="font-weight:400;font-size:16.5px">2. <b>Then</b> the word.</p>
+    <p style="font-weight:400;font-size:16px;margin-top:8px">Choosing the word first is what goes wrong. Every time.</p>
+  </div>
+
+  <div class="nota">Three new families a week. The old ones come back first, from memory, before the new ones go in.</div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ ESTA SEMANA ============ -->
+<section id="novas">
+  <span class="tag">THIS WEEK</span>
+  <h2>Three families</h2>
+  <p style="margin-top:12px;font-size:17px">These three come from your own work. Two of them caught you out already.</p>
+
+  <div class="fam">
+    <div class="raiz">EDUCATE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>educate</b></div>
+      <div class="ln"><span class="cl">noun</span><b>education</b></div>
+      <div class="ln"><span class="cl">person</span><b>educator</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>educational</b></div>
+      <div class="ln"><span class="cl">adverb</span><b>educationally</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>uneducated</b></div>
+    </div>
+    <div class="aviso"><b>educative</b> exists, but almost nobody says it. The ordinary adjective is <b>educational</b>. Both are built correctly &mdash; only one is the real word.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+
+  <div class="fam">
+    <div class="raiz">OBJECT</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>object <i>(to something)</i></b></div>
+      <div class="ln"><span class="cl">noun</span><b>objection <i>&mdash; usually plural: objections</i></b></div>
+      <div class="ln"><span class="cl">person</span><b>objector</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>objectionable</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unobjectionable</b></div>
+    </div>
+    <div class="aviso">You raise <b>objections</b>, in the plural, far more often than one objection. When the sentence means "all the things she said against it", it is plural.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+
+  <div class="fam">
+    <div class="raiz">IMAGINE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>imagine</b></div>
+      <div class="ln"><span class="cl">noun</span><b>imagination</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>imaginative <i>&mdash; full of new ideas</i></b></div>
+      <div class="ln"><span class="cl">adjective</span><b>imaginary <i>&mdash; not real</i></b></div>
+      <div class="ln"><span class="cl">adjective</span><b>imaginable <i>&mdash; possible to picture</i></b></div>
+      <div class="ln"><span class="cl">adverb</span><b>imaginatively</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unimaginative</b></div>
+    </div>
+    <div class="aviso">Three adjectives, three meanings. <b>An imaginative child</b> invents games. <b>An imaginary friend</b> does not exist. <b>The worst thing imaginable</b> is the worst you can picture.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+
+  <button class="cobrir-todas">Cover all three</button>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+<!-- ============ BANCO ============ -->
+<section id="banco">
+  <span class="tag">THE BANK</span>
+  <h2>Families you already met</h2>
+  <p style="margin-top:12px;font-size:17px">Every word here came out of a page you have done. Cover one, say the whole family out loud, then check.</p>
+
+  <div class="fam">
+    <div class="raiz">SUCCEED</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>succeed</b></div>
+      <div class="ln"><span class="cl">noun</span><b>success</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>successful</b></div>
+      <div class="ln"><span class="cl">adverb</span><b>successfully</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unsuccessful, unsuccessfully</b></div>
+    </div>
+    <div class="aviso"><b>successive</b> looks like family and is not. It means <b>one after another</b>: <i>three successive defeats</i>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">ACHIEVE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>achieve</b></div>
+      <div class="ln"><span class="cl">noun</span><b>achievement</b></div>
+      <div class="ln"><span class="cl">person</span><b>a high achiever</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>achievable</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unachievable</b></div>
+    </div>
+    <div class="aviso">This one <b>keeps the e</b>: achiev<b>e</b>ment. Compare <i>argue &rarr; argument</i>, which loses it.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">DETERMINE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>determine</b></div>
+      <div class="ln"><span class="cl">noun</span><b>determination</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>determined</b></div>
+    </div>
+    <div class="aviso">This one <b>drops the e</b>: determin<b>a</b>tion. Same family, opposite rule to <i>achievement</i>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">COMPETE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>compete</b></div>
+      <div class="ln"><span class="cl">noun</span><b>competition <i>&mdash; the event</i></b></div>
+      <div class="ln"><span class="cl">person</span><b>competitor</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>competitive</b></div>
+      <div class="ln"><span class="cl">adverb</span><b>competitively</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>uncompetitive</b></div>
+    </div>
+    <div class="aviso"><b>competition</b> is the event. <b>competitor</b> is the person. Don't swap them.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">RELY</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>rely <i>on</i></b></div>
+      <div class="ln"><span class="cl">noun</span><b>reliance</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>reliable</b></div>
+      <div class="ln"><span class="cl">adverb</span><b>reliably</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unreliable</b></div>
+    </div>
+    <div class="aviso"><b>y becomes i</b> before the suffix. Same move in <i>apply &rarr; applicable</i> and <i>qualify &rarr; qualification</i>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">QUALIFY</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>qualify</b></div>
+      <div class="ln"><span class="cl">noun</span><b>qualification</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>qualified</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unqualified, overqualified</b></div>
+    </div>
+    <div class="aviso">Two different prefixes, two meanings. <b>unqualified</b> = without the training. <b>overqualified</b> = too much of it.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">MOTIVATE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>motivate</b></div>
+      <div class="ln"><span class="cl">noun</span><b>motivation</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>motivated <i>&mdash; the person</i></b></div>
+      <div class="ln"><span class="cl">adjective</span><b>motivating <i>&mdash; the thing</i></b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>unmotivated, demotivating</b></div>
+    </div>
+    <div class="aviso"><b>-ed</b> is how someone feels. <b>-ing</b> is what causes it. <i>She felt motivated because the talk was motivating.</i></div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">INFORM</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>inform</b></div>
+      <div class="ln"><span class="cl">noun</span><b>information</b></div>
+      <div class="ln"><span class="cl">person</span><b>informant</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>informative</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>uninformed</b></div>
+    </div>
+    <div class="aviso"><b>information</b> is uncountable. Never <i>informations</i>. Say <b>a piece of information</b>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">APPLY</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>apply <i>for / to</i></b></div>
+      <div class="ln"><span class="cl">noun</span><b>application</b></div>
+      <div class="ln"><span class="cl">person</span><b>applicant</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>applicable</b></div>
+      <div class="ln neg"><span class="cl">negative</span><b>inapplicable</b></div>
+    </div>
+    <div class="aviso">Three changes at once: y to i, a new vowel, and the stress moves. <b>app-LIC-able</b>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">PERSIST</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>persist</b></div>
+      <div class="ln"><span class="cl">noun</span><b>persistence</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>persistent</b></div>
+      <div class="ln"><span class="cl">adverb</span><b>persistently</b></div>
+    </div>
+    <div class="aviso">Watch the <b>-ence</b> turning into <b>-ent</b>. Same in <i>confidence &rarr; confident</i>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">INFLUENCE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>influence</b></div>
+      <div class="ln"><span class="cl">noun</span><b>influence <i>&mdash; same word</i></b></div>
+      <div class="ln"><span class="cl">adjective</span><b>influential</b></div>
+      <div class="ln"><span class="cl">adverb</span><b>influentially</b></div>
+    </div>
+    <div class="aviso">Verb and noun are <b>identical</b>. Only the adjective changes shape.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+  <div class="fam">
+    <div class="raiz">INTRODUCE</div>
+    <div class="linhas">
+      <div class="ln"><span class="cl">verb</span><b>introduce</b></div>
+      <div class="ln"><span class="cl">noun</span><b>introduction</b></div>
+      <div class="ln"><span class="cl">adjective</span><b>introductory</b></div>
+    </div>
+    <div class="aviso"><b>-ory</b>, not <i>-ive</i>. Same family as <i>contradict &rarr; contradictory</i> and <i>prepare &rarr; preparatory</i>.</div>
+    <button class="cobrir">Cover</button>
+  </div>
+
+  <button class="cobrir-todas">Cover all twelve</button>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+<!-- ============ CLASSE PRIMEIRO ============ -->
+<section id="classe">
+  <span class="tag">THE TWO-STEP</span>
+  <h2>Class first, word second</h2>
+  <p style="margin-top:12px;font-size:17px">Tap the class before you type anything. The word box only opens afterwards, on purpose.</p>
+
+  <div class="bloco ambar">
+    <div class="rot">HOW TO TELL</div>
+    <p style="font-weight:400;font-size:16px"><b>a / the / her</b> before the gap &rarr; noun</p>
+    <p style="font-weight:400;font-size:16px">a noun right after, or <b>was / is / felt / seemed</b> before &rarr; adjective</p>
+    <p style="font-weight:400;font-size:16px">sentence already complete without it &rarr; adverb</p>
+  </div>
+
+  <div class="dois">
+    <div class="lab">SIX ITEMS</div>
+    <div class="instr">Decide the class, then write the word. The root is in capitals.</div>
+
+    <div class="passo2" data-classe="noun">
+      <div class="frase"><span class="n">1 &mdash; DETERMINE</span>It was her <b>___</b> that got her through the final year.</div>
+      <div class="classes"><button data-c="noun">noun</button><button data-c="adjective">adjective</button><button data-c="adverb">adverb</button></div>
+      <div class="segunda">Write it: <input class="campo" data-resp="determination" aria-label="palavra"></div>
+    </div>
+
+    <div class="passo2" data-classe="adverb">
+      <div class="frase"><span class="n">2 &mdash; SUCCEED</span>She applied twice, <b>___</b>, before she got a place.</div>
+      <div class="classes"><button data-c="noun">noun</button><button data-c="adjective">adjective</button><button data-c="adverb">adverb</button></div>
+      <div class="segunda">Write it: <input class="campo" data-resp="unsuccessfully" aria-label="palavra"></div>
+    </div>
+
+    <div class="passo2" data-classe="noun">
+      <div class="frase"><span class="n">3 &mdash; OBJECT</span>She listened to all their <b>___</b> and changed nothing.</div>
+      <div class="classes"><button data-c="noun">noun</button><button data-c="adjective">adjective</button><button data-c="adverb">adverb</button></div>
+      <div class="segunda">Write it: <input class="campo" data-resp="objections" aria-label="palavra"></div>
+    </div>
+
+    <div class="passo2" data-classe="adjective">
+      <div class="frase"><span class="n">4 &mdash; EDUCATE</span>The museum runs an <b>___</b> programme for schools.</div>
+      <div class="classes"><button data-c="noun">noun</button><button data-c="adjective">adjective</button><button data-c="adverb">adverb</button></div>
+      <div class="segunda">Write it: <input class="campo" data-resp="educational" aria-label="palavra"></div>
+    </div>
+
+    <div class="passo2" data-classe="adjective">
+      <div class="frase"><span class="n">5 &mdash; RELY</span>He never turns up on time. He is completely <b>___</b>.</div>
+      <div class="classes"><button data-c="noun">noun</button><button data-c="adjective">adjective</button><button data-c="adverb">adverb</button></div>
+      <div class="segunda">Write it: <input class="campo" data-resp="unreliable" aria-label="palavra"></div>
+    </div>
+
+    <div class="passo2" data-classe="noun">
+      <div class="frase"><span class="n">6 &mdash; COMPETE</span>There were over two hundred <b>___</b> in the race.</div>
+      <div class="classes"><button data-c="noun">noun</button><button data-c="adjective">adjective</button><button data-c="adverb">adverb</button></div>
+      <div class="segunda">Write it: <input class="campo" data-resp="competitors" aria-label="palavra"></div>
+    </div>
+
+    <div class="botoes">
+      <button class="bt-con" data-conferir="d1">Check the words</button>
+      <button class="bt-rev" data-revelar="d1">Show answers</button>
+    </div>
+    <div class="placar" data-placar="d1"></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ PARES ============ -->
+<section id="pares">
+  <span class="tag">THE PAIRS THAT TRICK YOU</span>
+  <h2>Two real words, one right answer</h2>
+  <p style="margin-top:12px;font-size:17px">No rule will save you here. These are the ones worth knowing by heart.</p>
+
+  <div class="subrot">TAP TO SEE THE DIFFERENCE</div>
+  <div class="chunks">
+    <div class="ch"><div class="frente">economic &middot; economical</div><div class="atras"><b>economic</b> = about the economy. <b>economical</b> = cheap to run. <i>an economic crisis</i> &middot; <i>an economical little car</i></div></div>
+    <div class="ch"><div class="frente">historic &middot; historical</div><div class="atras"><b>historic</b> = important enough to be remembered. <b>historical</b> = belonging to history. <i>a historic victory</i> &middot; <i>historical documents</i></div></div>
+    <div class="ch"><div class="frente">imaginative &middot; imaginary</div><div class="atras"><b>imaginative</b> = full of new ideas. <b>imaginary</b> = not real. <i>an imaginative answer</i> &middot; <i>an imaginary friend</i></div></div>
+    <div class="ch"><div class="frente">sensitive &middot; sensible</div><div class="atras"><b>sensitive</b> = feels things deeply, or is easily hurt. <b>sensible</b> = has good judgement. <i>sensitive skin</i> &middot; <i>a sensible decision</i></div></div>
+    <div class="ch"><div class="frente">effective &middot; efficient</div><div class="atras"><b>effective</b> = it works. <b>efficient</b> = it works without waste. <i>an effective treatment</i> &middot; <i>an efficient engine</i></div></div>
+    <div class="ch"><div class="frente">continual &middot; continuous</div><div class="atras"><b>continual</b> = again and again, with breaks. <b>continuous</b> = without stopping. <i>continual interruptions</i> &middot; <i>continuous rain</i></div></div>
+    <div class="ch"><div class="frente">classic &middot; classical</div><div class="atras"><b>classic</b> = the best example of its kind. <b>classical</b> = of ancient Greece and Rome, or the music. <i>a classic mistake</i> &middot; <i>classical music</i></div></div>
+    <div class="ch"><div class="frente">industrial &middot; industrious</div><div class="atras"><b>industrial</b> = about industry. <b>industrious</b> = hard-working. <i>an industrial estate</i> &middot; <i>an industrious student</i></div></div>
+  </div>
+  <button class="tudo" data-tudo="pares">Show all eight</button>
+
+  <div class="escreve">
+    <div class="lab">PICK THE RIGHT ONE</div>
+    <div class="instr">Write the correct form of the word in capitals.</div>
+    <div class="item"><span class="n">1 &mdash; ECONOMY</span>The new engine is far more <input class="campo larga" data-resp="economical" aria-label="palavra"> than the old one.</div>
+    <div class="item"><span class="n">2 &mdash; HISTORY</span>She spent the summer reading <input class="campo larga" data-resp="historical" aria-label="palavra"> novels.</div>
+    <div class="item"><span class="n">3 &mdash; IMAGINE</span>As a child she had an <input class="campo larga" data-resp="imaginary" aria-label="palavra"> friend called Bo.</div>
+    <div class="item"><span class="n">4 &mdash; IMAGINE</span>Her answer was the most <input class="campo larga" data-resp="imaginative" aria-label="palavra"> in the class.</div>
+    <div class="item"><span class="n">5 &mdash; SENSE</span>Taking the earlier train was the <input class="campo larga" data-resp="sensible" aria-label="palavra"> thing to do.</div>
+    <div class="item"><span class="n">6 &mdash; CONTINUE</span>The <input class="campo larga" data-resp="continual" aria-label="palavra"> interruptions made it impossible to study.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="p1">Check</button>
+      <button class="bt-rev" data-revelar="p1">Show answers</button>
+    </div>
+    <div class="placar" data-placar="p1"></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+<!-- ============ PREFIXOS ============ -->
+<section id="prefixos">
+  <span class="tag">PREFIXES</span>
+  <h2>Two different machines</h2>
+  <p style="margin-top:12px;font-size:17px">Some prefixes say <b>no</b>. Others change the meaning entirely. Mixing them up is why <em>undergone</em> looks like a negative and isn't.</p>
+
+  <div class="grupo">
+    <div class="funcao">MACHINE 1 &mdash; THEY SAY NO</div>
+    <div class="lista-m"><span>un-</span> &middot; <span>in-</span> &middot; <span>im-</span> &middot; <span>il-</span> &middot; <span>ir-</span> &middot; <span>dis-</span> &middot; <span>non-</span></div>
+    <div class="mod">unhappy &middot; incorrect &middot; impossible &middot; illegal &middot; irregular &middot; dishonest &middot; non-stop</div>
+  </div>
+
+  <div class="bloco lilas">
+    <div class="rot">WHICH NEGATIVE? THE SPELLING DECIDES</div>
+    <p style="font-weight:400;font-size:16px"><b>im-</b> before <b>p, b, m</b> &mdash; impossible, imbalance, immature</p>
+    <p style="font-weight:400;font-size:16px"><b>il-</b> before <b>l</b> &mdash; illegal, illogical</p>
+    <p style="font-weight:400;font-size:16px"><b>ir-</b> before <b>r</b> &mdash; irregular, irresponsible</p>
+    <p style="font-weight:400;font-size:16px"><b>in-</b> for most of the rest &mdash; incorrect, inability</p>
+    <p style="font-weight:400;font-size:16px"><b>un-</b> is the default, and the only one that works on participles &mdash; unfinished, unknown</p>
+  </div>
+
+  <div class="grupo">
+    <div class="funcao">MACHINE 2 &mdash; THEY CHANGE THE MEANING</div>
+    <div class="lista-m"><span>over-</span> &middot; <span>under-</span> &middot; <span>re-</span> &middot; <span>mis-</span> &middot; <span>out-</span> &middot; <span>pre-</span> &middot; <span>co-</span></div>
+  </div>
+
+  <div class="tabela">
+    <div class="tlinha cab"><div>PREFIX</div><div>MEANING</div></div>
+    <div class="tlinha"><div>over-</div><div>too much<i>overconfident, overcooked, overworked</i></div></div>
+    <div class="tlinha"><div>under-</div><div>too little &mdash; or <b>to go through</b><i>underpaid, underestimate &middot; <b>undergo a change</b></i></div></div>
+    <div class="tlinha"><div>re-</div><div>again<i>rewrite, rebuild, reconsider</i></div></div>
+    <div class="tlinha"><div>mis-</div><div>wrongly<i>misunderstand, misspell, misjudge</i></div></div>
+    <div class="tlinha"><div>out-</div><div>more or better than<i>outnumber, outrun, outperform</i></div></div>
+    <div class="tlinha"><div>pre-</div><div>before<i>prepaid, preview, prehistoric</i></div></div>
+    <div class="tlinha"><div>co-</div><div>together<i>cooperate, co-author, coexist</i></div></div>
+  </div>
+
+  <div class="nota"><b>undergo &rarr; underwent &rarr; undergone</b> means to go through something, usually something you did not choose. <em>The building has undergone major repairs.</em> Nothing negative about it.</div>
+
+  <div class="escreve">
+    <div class="lab">WHICH PREFIX?</div>
+    <div class="instr">One prefix per gap. Some say no, some change the meaning.</div>
+    <div class="item"><span class="n">1</span>Her story was completely <input class="campo" data-resp="il" aria-label="prefixo">logical.</div>
+    <div class="item"><span class="n">2</span>They lost because they were <input class="campo" data-resp="over" aria-label="prefixo">confident.</div>
+    <div class="item"><span class="n">3</span>Sorry, I think I <input class="campo" data-resp="mis" aria-label="prefixo">understood you.</div>
+    <div class="item"><span class="n">4</span>It is <input class="campo" data-resp="im" aria-label="prefixo">possible to finish by Friday.</div>
+    <div class="item"><span class="n">5</span>The theatre has <input class="campo" data-resp="under" aria-label="prefixo">gone a complete refurbishment.</div>
+    <div class="item"><span class="n">6</span>He is being very <input class="campo" data-resp="ir" aria-label="prefixo">responsible about it.</div>
+    <div class="item"><span class="n">7</span>I had to <input class="campo" data-resp="re" aria-label="prefixo">write the whole essay.</div>
+    <div class="item"><span class="n">8</span>The visitors <input class="campo" data-resp="out" aria-label="prefixo">numbered the locals.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="pf">Check</button>
+      <button class="bt-rev" data-revelar="pf">Show answers</button>
+    </div>
+    <div class="placar" data-placar="pf"></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ GRAFIA ============ -->
+<section id="grafia">
+  <span class="tag leve">SPELLING</span>
+  <h2>Five changes, and that's all</h2>
+  <p style="margin-top:12px;font-size:17px">This is a closed list. Learn these five and the spelling stops costing you marks.</p>
+
+  <div class="tabela">
+    <div class="tlinha cab"><div>CHANGE</div><div>EXAMPLES</div></div>
+    <div class="tlinha"><div>y &rarr; i</div><div>rely &rarr; rel<b>i</b>able &middot; apply &rarr; appl<b>i</b>cable &middot; qualify &rarr; qual<b>i</b>fication</div></div>
+    <div class="tlinha"><div>the e drops</div><div>determine &rarr; determination &middot; argue &rarr; argument &middot; prepare &rarr; preparatory</div></div>
+    <div class="tlinha"><div>the e stays</div><div>achieve &rarr; achiev<b>e</b>ment &middot; manage &rarr; manag<b>e</b>ment</div></div>
+    <div class="tlinha"><div>-sm &rarr; -st</div><div>enthusiasm &rarr; enthusia<b>st</b>ic &middot; optimism &rarr; optimi<b>st</b>ic</div></div>
+    <div class="tlinha"><div>-ce &rarr; -t</div><div>confidence &rarr; confiden<b>t</b> &middot; persistence &rarr; persisten<b>t</b></div></div>
+  </div>
+
+  <div class="errado-box">
+    <div class="lab">THE TWO THAT LOOK THE SAME AND AREN'T</div>
+    <div class="l"><span class="ok">achievement</span><span class="pq">keeps the e</span></div>
+    <div class="l"><span class="ok">argument</span><span class="pq">loses it. Nothing explains why. Just learn the pair together.</span></div>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ TESTE ============ -->
+<section id="teste">
+  <span class="tag">MIXED TEST</span>
+  <h2>Ten gaps</h2>
+  <p style="margin-top:12px;font-size:17px">Exam format. Decide the class first, every single time.</p>
+
+  <div class="escreve">
+    <div class="lab">10 GAPS</div>
+    <div class="instr">Use the word in capitals to make the word that fits.</div>
+    <div class="item"><span class="n">1 &mdash; ACHIEVE</span>Winning the regional final was her greatest <input class="campo larga xl" data-resp="achievement" aria-label="palavra">.</div>
+    <div class="item"><span class="n">2 &mdash; APPLY</span>There were nearly four hundred <input class="campo larga" data-resp="applicants" aria-label="palavra"> for the job.</div>
+    <div class="item"><span class="n">3 &mdash; ENTHUSIASM</span>She talked about the trip <input class="campo larga xl" data-resp="enthusiastically" aria-label="palavra">.</div>
+    <div class="item"><span class="n">4 &mdash; INFORM</span>The talk was short but very <input class="campo larga" data-resp="informative" aria-label="palavra">.</div>
+    <div class="item"><span class="n">5 &mdash; QUALIFY</span>You need a <input class="campo larga xl" data-resp="qualification" aria-label="palavra"> to teach here.</div>
+    <div class="item"><span class="n">6 &mdash; RESPONSIBLE</span>Leaving without telling anyone was <input class="campo larga xl" data-resp="irresponsible" aria-label="palavra">.</div>
+    <div class="item"><span class="n">7 &mdash; PERSIST</span>Her <input class="campo larga" data-resp="persistence" aria-label="palavra"> is what got her the place.</div>
+    <div class="item"><span class="n">8 &mdash; ESTIMATE</span>They badly <input class="campo larga xl" data-resp="underestimated" aria-label="palavra"> how long it would take.</div>
+    <div class="item"><span class="n">9 &mdash; MOTIVATE</span>Getting the same mark again was really <input class="campo larga xl" data-resp="demotivating" aria-label="palavra">.</div>
+    <div class="item"><span class="n">10 &mdash; INTRODUCE</span>We only had time for a short <input class="campo larga xl" data-resp="introduction" aria-label="palavra">.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="mt">Check</button>
+      <button class="bt-rev" data-revelar="mt">Show answers</button>
+    </div>
+    <div class="placar" data-placar="mt"></div>
+  </div>
+
+  <div class="nota">Before you close the page: cover the three families of the week and say them out loud, in order. If any of the three is slow, that is the one that comes back next time.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+  Talk It Out &middot; by Luisa Mesel
+</footer>
+
+</div>
+
+<script>
+// ---------------- grupos de campos digitados ----------------
+(function(){
+  function norm(s){
+    return (s||'').trim().toLowerCase()
+      .replace(/[’ʼ]/g,"'")
+      .replace(/\s+/g,' ')
+      .replace(/[.,;!?]+$/,'');
+  }
+  function aceita(c){
+    var dado = norm(c.value);
+    if(!dado) return false;
+    return c.dataset.resp.split('/').some(function(r){ return norm(r) === dado; });
+  }
+
+  document.querySelectorAll('.escreve, .dois').forEach(function(caixa){
+    var campos  = [].slice.call(caixa.querySelectorAll('.campo'));
+    var btCon   = caixa.querySelector('[data-conferir]');
+    var btRev   = caixa.querySelector('[data-revelar]');
+    var placar  = caixa.querySelector('[data-placar]');
+    var total   = campos.length;
+
+    campos.forEach(function(c, i){
+      c.setAttribute('autocapitalize','none');
+      c.setAttribute('autocomplete','off');
+      c.setAttribute('spellcheck','false');
+      c.addEventListener('input', function(){ c.classList.remove('certo','errado'); });
+      c.addEventListener('keydown', function(ev){
+        if(ev.key !== 'Enter') return;
+        ev.preventDefault();
+        if(i < total - 1) campos[i+1].focus();
+        else btCon.click();
+      });
+    });
+
+    btCon.addEventListener('click', function(){
+      var certos = 0;
+      campos.forEach(function(c){
+        var ok = aceita(c);
+        c.classList.toggle('certo', ok);
+        c.classList.toggle('errado', !ok);
+        if(ok) certos++;
+      });
+      placar.className = 'placar mostra ' + (certos === total ? 'bom' : 'meio');
+      placar.textContent = certos === total
+        ? 'All ' + total + ' right. Move on.'
+        : certos + ' out of ' + total + ' right. Fix the red ones and check again.';
+    });
+
+    btRev.addEventListener('click', function(){
+      campos.forEach(function(c){
+        c.value = c.dataset.resp.split('/')[0];
+        c.classList.remove('errado');
+        c.classList.add('certo');
+      });
+      placar.className = 'placar mostra meio';
+      placar.textContent = 'Answers filled in. Read each sentence again and say why that word fits.';
+    });
+  });
+})();
+
+
+// ---------------- multipla escolha ----------------
+document.querySelectorAll('.mcq').forEach(function(caixa){
+  var qs     = [].slice.call(caixa.querySelectorAll('.mq'));
+  var placar = caixa.querySelector('.placar-mcq');
+  var zerar  = caixa.querySelector('.bt-zerar');
+
+  function atualiza(){
+    var feitas = qs.filter(function(q){ return q.classList.contains('feita'); });
+    if(!feitas.length){ placar.className = 'placar-mcq'; return; }
+    var certas = feitas.filter(function(q){ return q.dataset.acertou === '1'; }).length;
+    placar.className = 'placar-mcq mostra ' +
+      (feitas.length === qs.length && certas === qs.length ? 'bom' : 'meio');
+    placar.textContent = feitas.length === qs.length
+      ? certas + ' out of ' + qs.length + (certas === qs.length ? ' — all right.' : '. Go back to the ones you missed.')
+      : certas + ' right so far (' + feitas.length + ' of ' + qs.length + ' answered)';
+  }
+
+  qs.forEach(function(q){
+    var certa = q.dataset.certa;
+    q.querySelectorAll('.op').forEach(function(bt){
+      bt.addEventListener('click', function(){
+        if(q.classList.contains('feita')) return;
+        var ok = bt.dataset.op === certa;
+        q.classList.add('feita');
+        q.dataset.acertou = ok ? '1' : '0';
+        q.querySelectorAll('.op').forEach(function(o){
+          if(o.dataset.op === certa){
+            o.classList.add('certa');
+            o.insertAdjacentHTML('beforeend','<span class="tick">&#10003;</span>');
+          } else if(o === bt){
+            o.classList.add('errada');
+            o.insertAdjacentHTML('beforeend','<span class="tick">&times;</span>');
+          }
+        });
+        atualiza();
+      });
+    });
+  });
+
+  zerar.addEventListener('click', function(){
+    qs.forEach(function(q){
+      q.classList.remove('feita');
+      delete q.dataset.acertou;
+      q.querySelectorAll('.op').forEach(function(o){
+        o.classList.remove('certa','errada');
+        var tk = o.querySelector('.tick'); if(tk) tk.remove();
+      });
+    });
+    placar.className = 'placar-mcq';
+    caixa.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ---------------- reiniciar os exercicios digitados ----------------
+document.querySelectorAll('.escreve, .dois').forEach(function(caixa){
+  var bt = document.createElement('button');
+  bt.className = 'zerar-txt';
+  bt.textContent = 'Clear and start again';
+  caixa.appendChild(bt);
+  bt.addEventListener('click', function(){
+    caixa.querySelectorAll('.campo').forEach(function(c){
+      c.value = '';
+      c.classList.remove('certo','errado');
+    });
+    var p = caixa.querySelector('[data-placar]');
+    p.className = 'placar';
+    p.textContent = '';
+    caixa.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+
+// ---------------- cobrir familia ----------------
+document.querySelectorAll('.fam .cobrir').forEach(function(bt){
+  var fam = bt.closest('.fam');
+  function rotulo(){ bt.textContent = fam.classList.contains('coberta') ? 'Show' : 'Cover'; }
+  bt.addEventListener('click', function(){ fam.classList.toggle('coberta'); rotulo(); });
+  rotulo();
+});
+
+document.querySelectorAll('.cobrir-todas').forEach(function(bt){
+  var sec = bt.closest('section');
+  bt.dataset.rotulo = bt.textContent;
+  bt.addEventListener('click', function(){
+    var fams = [].slice.call(sec.querySelectorAll('.fam'));
+    var cobrir = fams.some(function(f){ return !f.classList.contains('coberta'); });
+    fams.forEach(function(f){
+      f.classList.toggle('coberta', cobrir);
+      var b = f.querySelector('.cobrir');
+      if(b) b.textContent = cobrir ? 'Show' : 'Cover';
+    });
+    bt.textContent = cobrir ? 'Show them all' : bt.dataset.rotulo;
+  });
+});
+
+// ---------------- classe primeiro, palavra depois ----------------
+document.querySelectorAll('.passo2').forEach(function(item){
+  var certa = item.dataset.classe;
+  item.querySelectorAll('.classes button').forEach(function(bt){
+    bt.addEventListener('click', function(){
+      if(item.classList.contains('liberada')) return;
+      var ok = bt.dataset.c === certa;
+      bt.classList.add(ok ? 'certa' : 'errada');
+      if(ok){
+        item.classList.add('liberada');
+        var campo = item.querySelector('.campo');
+        if(campo) campo.focus();
+      }
+    });
+  });
+});
+
+// ---------------- cartoes de chunk ----------------
+document.querySelectorAll('.ch, .fc').forEach(function(el){
+  el.addEventListener('click', function(){ el.classList.toggle('aberto'); });
+});
+
+document.querySelectorAll('.tudo').forEach(function(bt){
+  bt.addEventListener('click', function(){
+    var lista = bt.previousElementSibling;
+    var cartoes = [].slice.call(lista.querySelectorAll('.ch, .fc'));
+    var abrir = cartoes.some(function(c){ return !c.classList.contains('aberto'); });
+    cartoes.forEach(function(c){ c.classList.toggle('aberto', abrir); });
+    bt.textContent = abrir ? 'Hide them again' : bt.dataset.rotulo;
+  });
+  bt.dataset.rotulo = bt.textContent;
+});
+
+// ---------------- manter o passo 1 em sincronia com conferir/revelar/zerar ----------------
+document.querySelectorAll('.dois').forEach(function(caixa){
+  var itens = [].slice.call(caixa.querySelectorAll('.passo2'));
+  var rev = caixa.querySelector('[data-revelar]');
+  var zer = caixa.querySelector('.zerar-txt');
+
+  if(rev) rev.addEventListener('click', function(){
+    itens.forEach(function(it){
+      it.classList.add('liberada');
+      var certo = it.querySelector('.classes button[data-c="'+it.dataset.classe+'"]');
+      if(certo) certo.classList.add('certa');
+    });
+  });
+
+  if(zer) zer.addEventListener('click', function(){
+    itens.forEach(function(it){
+      it.classList.remove('liberada');
+      it.querySelectorAll('.classes button').forEach(function(b){
+        b.classList.remove('certa','errada');
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

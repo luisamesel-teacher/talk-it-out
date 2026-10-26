@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>The suffix -ment — Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#EFEDE6; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --acerto-fundo:#E8F2DD;
+  --erro:#A32D2D; --erro-fundo:#F7E7E7;
+  --entalhe:12px;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:#dedbf0;color:var(--texto);
+  line-height:1.5;font-size:17px}
+.tela{max-width:540px;margin:0 auto;background:var(--neutro);min-height:100vh;padding-bottom:50px}
+
+/* ---------- topo ---------- */
+header{background:var(--primaria);color:#fff;padding:26px 22px 26px}
+.voltar{display:inline-block;font-family:Inter,sans-serif;font-size:13px;font-weight:600;
+  color:#fff;opacity:.75;text-decoration:none;margin-bottom:20px}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.marca .b1,.marca .b2{width:22px;height:16px;border-radius:5px;display:inline-block}
+.marca .b1{background:var(--lilas-forte)}
+.marca .b2{background:#fff;margin-left:-7px}
+.marca .nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;margin-left:3px}
+.marca .ass{font-size:12px;opacity:.8}
+header h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+header p{font-size:15px;opacity:.88;margin-top:10px}
+.selo{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.07em;background:var(--lilas-forte);color:var(--primaria);
+  padding:6px 13px;border-radius:15px;margin-bottom:14px}
+
+/* ---------- navegacao ---------- */
+.barra{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e2e0ec;padding:11px 16px}
+.menu{margin:0}
+.menu>summary{font-family:Inter,sans-serif;font-size:14.5px;font-weight:700;color:var(--primaria);
+  background:var(--lilas);padding:12px 18px;border-radius:24px;display:flex;align-items:center;
+  justify-content:space-between;cursor:pointer;list-style:none}
+.menu>summary::-webkit-details-marker{display:none}
+.menu>summary::after{content:"\25BE";font-size:13px;opacity:.7}
+.menu[open]>summary::after{content:"\25B4"}
+.menu-lista{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.menu-lista a{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--primaria);
+  background:var(--neutro);padding:11px 10px;border-radius:10px;text-decoration:none;text-align:center}
+.menu-lista a:active{background:var(--lilas-forte)}
+
+/* ---------- cartao de secao ---------- */
+main{padding:20px 14px 0}
+section{background:#fff;border-radius:18px;padding:26px 20px 28px;margin-bottom:0;
+  scroll-margin-top:80px;box-shadow:0 1px 3px rgba(30,24,70,.07)}
+.sep{display:flex;align-items:center;gap:11px;margin:24px 6px}
+.sep .tr{flex:1;height:0;border-top:2px dashed #BEB9D6}
+.sep .bolinha{flex:none;width:9px;height:9px;border-radius:50%;background:var(--primaria-clara)}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:#fff;background:var(--primaria);padding:6px 14px;border-radius:16px;margin-bottom:14px}
+.tag.leve{background:var(--primaria-clara)}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;color:var(--primaria);line-height:1.14}
+h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;color:var(--primaria);
+  line-height:1.18;margin-top:28px}
+
+/* ---------- figuras ---------- */
+figure{margin:20px 0 4px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:14px;color:var(--texto-2);margin-top:8px;text-align:center;font-style:italic}
+
+/* ---------- blocos ---------- */
+.bloco{border-radius:12px;padding:15px 17px;margin-top:16px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.bloco.lilas{background:var(--lilas)} .bloco.lilas .rot{color:var(--texto-lilas)}
+.bloco.rosa{background:var(--rosa)}  .bloco.rosa .rot{color:var(--texto-rosa)}
+.bloco.ambar{background:var(--ambar)}.bloco.ambar .rot{color:var(--texto-ambar)}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;margin-bottom:7px}
+.bloco p{font-size:17px;font-weight:600}
+.bloco p + p{margin-top:9px}
+.bloco .form{font-size:19px;font-weight:700;color:var(--primaria);letter-spacing:.01em}
+.bloco em{font-style:italic}
+
+/* ---------- exemplos ---------- */
+.subrot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin:24px 0 10px}
+.ex{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ex li{background:var(--neutro);border-radius:11px;padding:13px 15px;border-left:4px solid var(--primaria-clara)}
+.ex li b{font-weight:700;font-style:italic;color:var(--primaria)}
+.ex li .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px;font-weight:400}
+
+/* ---------- tabela de tempos ---------- */
+.tabela{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid #e4e2ee}
+.tlinha{display:grid;grid-template-columns:.82fr 1.3fr;gap:0;border-bottom:1px solid #e4e2ee}
+.tlinha:last-child{border-bottom:none}
+.tlinha.cab{background:var(--primaria)}
+.tlinha.cab div{color:#fff;font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.06em}
+.tlinha > div{padding:11px 13px;font-size:15.5px}
+.tlinha > div:first-child{background:var(--lilas);font-family:Inter,sans-serif;font-size:12.5px;
+  font-weight:700;color:var(--texto-lilas);letter-spacing:.01em;display:flex;align-items:center}
+.tlinha > div:first-child i{font-size:11.5px;letter-spacing:0;color:#6E66B8;font-weight:600}
+.tlinha.cab > div:first-child{background:var(--primaria)}
+.tlinha b{font-weight:700;color:var(--primaria)}
+.tlinha i{font-style:italic;color:var(--texto-2);display:block;font-size:13.5px;margin-bottom:4px}
+
+/* ---------- comparacao ---------- */
+.par{display:flex;flex-direction:column;gap:11px}
+.par .cartao{background:var(--neutro);border-radius:11px;padding:14px 15px}
+.par .cartao .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--texto-2);margin-bottom:6px}
+.par .cartao b{font-weight:700;font-style:italic;color:var(--primaria)}
+.par .cartao .efeito{display:block;font-size:14.5px;color:var(--texto-2);margin-top:5px}
+
+/* ---------- duas colunas get/set ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.duo .lado{border-radius:12px;padding:15px 14px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.duo .lado.g{background:var(--lilas)}
+.duo .lado.s{background:var(--rosa)}
+.duo .lado .pal{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;line-height:1}
+.duo .lado.g .pal{color:var(--texto-lilas)}
+.duo .lado.s .pal{color:var(--texto-rosa)}
+.duo .lado .ideia{font-size:15px;font-weight:600;margin-top:8px;line-height:1.35}
+.duo .lado .ideia span{display:block;font-weight:400;font-size:14px;color:var(--texto-2);margin-top:5px;font-style:italic}
+
+/* ---------- lista de chunks (tap para revelar) ---------- */
+.chunks{display:flex;flex-direction:column;gap:7px;margin-top:14px}
+.ch{position:relative;background:var(--neutro);border-radius:10px;padding:12px 15px;cursor:pointer;
+  border-left:4px solid var(--lilas-forte)}
+.ch .frente{font-size:17px;font-weight:700;color:var(--primaria)}
+.ch .atras{display:none;font-size:15px;color:var(--texto-2);margin-top:6px;line-height:1.42}
+.ch .atras i{font-style:italic;color:var(--texto)}
+.ch.aberto{border-left-color:var(--primaria-clara)}
+.ch.aberto .atras{display:block}
+.ch:not(.aberto)::after{content:"tap";font-family:Inter,sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.06em;color:var(--primaria-clara);position:absolute;right:15px;top:14px}
+.tudo{display:block;width:100%;margin-top:14px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:var(--lilas);border:none;border-radius:22px;
+  padding:13px;cursor:pointer}
+
+/* ---------- grupos de marcadores ---------- */
+.grupo{background:var(--neutro);border-radius:12px;padding:14px 16px;margin-top:11px;
+  border-left:4px solid var(--primaria-clara)}
+.grupo .funcao{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:7px}
+.grupo .lista-m{font-size:16.5px;font-weight:600;color:var(--primaria);line-height:1.5}
+.grupo .lista-m span{white-space:nowrap}
+.grupo .mod{font-size:14.5px;color:var(--texto-2);margin-top:7px;font-style:italic;font-weight:400}
+
+/* ---------- exercicio: escolher ---------- */
+details{margin-top:16px}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+.abrir{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);border-radius:16px;padding:7px 14px;margin-top:12px}
+details[open] .abrir{display:none}
+
+.quiz{background:var(--lilas);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.quiz .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:10px}
+.quiz .pergunta{font-size:17.5px;font-weight:600;margin-bottom:13px;line-height:1.5}
+.quiz .pergunta i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.op-e{background:#fff;border-radius:11px;padding:12px 15px;font-size:17px;font-weight:600;margin-bottom:9px;
+  display:flex;align-items:center;gap:10px}
+.marca-op{font-family:Inter,sans-serif;font-weight:700;font-size:15px;flex:none;width:20px;color:var(--texto-2)}
+.resposta{margin-top:4px}
+.quiz .resp-wrap{margin-top:6px}
+.quiz .abrir{background:#fff;border-color:var(--primaria-clara);color:var(--primaria)}
+.quiz .resp-wrap[open] .abrir{display:none}
+.fb{font-size:15.5px;padding:12px 14px;border-radius:10px;line-height:1.45;margin-bottom:9px;display:flex;gap:9px}
+.fb .m{font-weight:700;flex:none}
+.fb b{font-weight:700}
+.fb.bom{background:var(--acerto-fundo);color:#2C4A0B;border-left:4px solid var(--acerto)}
+.fb.bom .m{color:var(--acerto)}
+.fb.ruim{background:var(--erro-fundo);color:#6E1F1F;border-left:4px solid var(--erro)}
+.fb.ruim .m{color:var(--erro)}
+
+/* ---------- exercicio digitado ---------- */
+.escreve{background:var(--ambar);border-radius:14px;padding:18px 17px 17px;margin-top:16px}
+.escreve > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-ambar);margin-bottom:5px}
+.escreve .instr{font-size:15px;color:#6B4208;margin-bottom:13px;line-height:1.4}
+.item{background:#fff;border-radius:11px;padding:13px 15px;margin-bottom:9px;font-size:16.5px;
+  line-height:2;font-weight:500}
+.item .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.campo{font-family:'Source Sans 3',sans-serif;font-size:16px;font-weight:700;color:var(--primaria);
+  background:var(--lilas);border:none;border-bottom:2.5px solid var(--primaria-clara);
+  border-radius:5px 5px 0 0;padding:2px 5px;width:5.4em;text-align:center;outline:none;
+  vertical-align:baseline}
+.campo.larga{width:9.1em}
+.campo.xl{width:11.2em}
+.campo:focus{background:#fff;border-bottom-color:var(--primaria)}
+.campo.certo{background:var(--acerto-fundo);color:#2C4A0B;border-bottom-color:var(--acerto)}
+.campo.errado{background:var(--erro-fundo);color:#6E1F1F;border-bottom-color:var(--erro)}
+.botoes{display:flex;gap:9px;margin-top:13px}
+.botoes button{flex:1;font-family:Inter,sans-serif;font-size:13.5px;font-weight:700;border:none;
+  border-radius:22px;padding:13px 10px;cursor:pointer}
+.bt-con{background:var(--primaria);color:#fff}
+.bt-rev{background:#fff;color:var(--texto-ambar);border:2px solid #E3CFA4}
+.placar{display:none;margin-top:12px;font-size:15.5px;font-weight:600;padding:12px 14px;border-radius:10px;line-height:1.4}
+.placar.mostra{display:block}
+.placar.bom{background:var(--acerto-fundo);color:#2C4A0B}
+.placar.meio{background:#fff;color:var(--texto-ambar)}
+
+/* ---------- avisos ---------- */
+.nota{background:var(--primaria);color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px;line-height:1.48}
+.nota b{font-weight:700}
+.nota em{font-style:italic}
+.c1{background:#2A2458;color:#fff;border-radius:12px;padding:16px 17px;margin-top:18px;font-size:16px;line-height:1.48;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.c1 .rot{color:var(--lilas-forte);letter-spacing:.08em}
+.c1 b{font-weight:700;color:#fff}
+.c1 em{font-style:italic;color:var(--lilas-forte)}
+.errado-box{background:var(--neutro);border-radius:11px;padding:14px 15px;margin-top:16px;border-left:4px solid var(--erro)}
+.errado-box .lab{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--erro);margin-bottom:8px}
+.errado-box .l{font-size:16.5px;margin-top:11px;line-height:1.45}
+.errado-box .l s{display:block;margin-bottom:2px}
+.errado-box s{color:var(--erro);text-decoration-thickness:2px}
+.errado-box .ok{color:var(--acerto);font-weight:700}
+.errado-box .pq{display:block;font-size:14px;color:var(--texto-2);font-style:italic;margin-top:2px}
+
+
+/* ---------- flashcards de participio ---------- */
+.legenda{display:flex;flex-direction:column;gap:5px;margin-top:16px;font-size:14.5px;color:var(--texto-2)}
+.legenda b{font-weight:700}
+.legenda .q1{color:var(--texto)}
+.legenda .q2{color:var(--acerto)}
+.dica{font-size:15px;color:var(--texto-2);font-style:italic;margin-top:8px}
+.fcards{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.fc{position:relative;background:var(--neutro);border-radius:12px;padding:15px 10px 13px;text-align:center;
+  cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:center;
+  border-bottom:4px solid var(--lilas-forte)}
+.fc .base{font-size:20px;font-weight:700;color:var(--primaria);line-height:1.1}
+.fc .verso{display:none}
+.fc .p1{font-size:17px;font-weight:600;color:var(--texto);line-height:1.2}
+.fc .p2{font-size:18px;font-weight:700;color:var(--acerto);line-height:1.2;margin-top:3px}
+.fc.aberto{background:#fff;border-bottom-color:var(--acerto)}
+.fc.aberto .base{font-size:15px;font-weight:600;color:var(--texto-2)}
+.fc.aberto .verso{display:block;margin-top:7px}
+.fc:not(.aberto)::after{content:"tap";position:absolute;bottom:7px;left:0;right:0;
+  font-family:Inter,sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--primaria-clara)}
+
+
+/* ---------- multipla escolha ---------- */
+.mcq{background:var(--lilas);border-radius:14px;padding:18px 16px 17px;margin-top:16px}
+.mcq > .lab{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-lilas);margin-bottom:5px}
+.mcq .instr{font-size:15px;color:#4B4293;margin-bottom:14px;line-height:1.4}
+.mq{background:#fff;border-radius:12px;padding:14px 14px 12px;margin-bottom:11px}
+.mq .enun{font-size:17px;font-weight:600;line-height:1.5;margin-bottom:11px}
+.mq .enun .n{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;color:var(--texto-2);
+  letter-spacing:.06em;display:block;margin-bottom:4px}
+.mq .enun i{color:var(--primaria);font-style:normal;letter-spacing:.06em}
+.mq .op{display:block;width:100%;text-align:left;font-family:'Source Sans 3',sans-serif;
+  font-size:17px;font-weight:600;color:var(--texto);background:var(--neutro);border:2px solid transparent;
+  border-radius:10px;padding:11px 14px;margin-bottom:8px;cursor:pointer;transition:background .12s,border-color .12s}
+.mq .op:active{background:var(--lilas-forte)}
+.mq.feita .op{cursor:default}
+.mq .op.certa{background:var(--acerto-fundo);border-color:var(--acerto);color:#2C4A0B}
+.mq .op.errada{background:var(--erro-fundo);border-color:var(--erro);color:#6E1F1F}
+.mq .op .tick{float:right;font-weight:700}
+.mq .porque{display:none;font-size:15px;line-height:1.45;color:var(--texto-2);
+  background:var(--neutro);border-radius:9px;padding:11px 13px;margin-top:3px}
+.mq .porque b{color:var(--texto);font-weight:700}
+.mq.feita .porque{display:block}
+.placar-mcq{display:none;font-size:16.5px;font-weight:700;padding:14px 15px;border-radius:11px;
+  line-height:1.4;margin-top:4px;text-align:center}
+.placar-mcq.mostra{display:block}
+.placar-mcq.bom{background:var(--acerto-fundo);color:#2C4A0B}
+.placar-mcq.meio{background:#fff;color:var(--texto-ambar)}
+.bt-zerar{display:block;width:100%;margin-top:11px;font-family:Inter,sans-serif;font-size:13.5px;
+  font-weight:700;color:var(--primaria);background:#fff;border:2px solid var(--lilas-forte);
+  border-radius:22px;padding:13px;cursor:pointer}
+.zerar-txt{display:block;width:100%;margin-top:9px;font-family:Inter,sans-serif;font-size:13px;
+  font-weight:700;color:var(--texto-ambar);background:none;border:none;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px}
+
+
+/* ---------- passo a passo ---------- */
+.passos{counter-reset:passo;margin-top:18px}
+.passo{position:relative;padding:0 0 20px 42px;border-left:2px dashed #BEB9D6;margin-left:15px}
+.passo:last-child{border-left-color:transparent;padding-bottom:2px}
+.passo::before{counter-increment:passo;content:counter(passo);position:absolute;left:-16px;top:-3px;
+  width:31px;height:31px;border-radius:50%;background:var(--primaria);color:#fff;
+  font-family:Inter,sans-serif;font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center}
+.passo .t{font-size:17.5px;font-weight:700;color:var(--primaria);line-height:1.28}
+.passo .d{font-size:16px;color:var(--texto);margin-top:6px;line-height:1.48}
+.passo .d b{font-weight:700;color:var(--primaria)}
+.passo .d em{font-style:italic}
+
+/* ---------- exemplo resolvido ---------- */
+.trab{background:var(--neutro);border-radius:12px;padding:16px 16px 15px;margin-top:18px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.rot-trab{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin-bottom:9px}
+.trab .orig{font-size:18px;font-weight:700;color:var(--texto);line-height:1.35;
+  padding-bottom:11px;margin-bottom:12px;border-bottom:2px dashed #C9C6D8}
+.trab .linha{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start}
+.trab .linha .num{flex:none;font-family:Inter,sans-serif;font-size:11px;font-weight:700;color:#fff;
+  background:var(--primaria-clara);border-radius:50%;width:21px;height:21px;
+  display:flex;align-items:center;justify-content:center;margin-top:2px}
+.trab .linha .txt{font-size:15.5px;line-height:1.45;color:var(--texto-2)}
+.trab .linha .txt b{color:var(--primaria);font-weight:700}
+.trab .linha .txt em{font-style:italic}
+.trab .final{font-size:19px;font-weight:700;color:#2C4A0B;background:var(--acerto-fundo);
+  border-left:4px solid var(--acerto);border-radius:9px;padding:12px 14px;margin-top:12px;text-align:center}
+
+
+/* ---------- flashcards em coluna unica ---------- */
+.fcards.col1{grid-template-columns:1fr;gap:11px}
+.fcards.col1 .fc{min-height:0;padding:17px 16px 15px;text-align:left}
+.fcards.col1 .fc .base{font-size:17px;letter-spacing:.09em;font-family:Inter,sans-serif;
+  font-weight:700;color:var(--texto-2)}
+.fcards.col1 .fc.aberto .base{font-size:13px}
+.fcards.col1 .fc .p2{font-size:25px;margin-top:2px}
+.fcards.col1 .fc .gl{font-size:16px;font-weight:500;color:var(--texto);margin-top:7px;line-height:1.42}
+.fcards.col1 .fc .ex{font-size:15.5px;font-style:italic;color:var(--texto-2);margin-top:6px;line-height:1.42}
+.fcards.col1 .fc .alerta{font-size:14.5px;background:var(--ambar);color:var(--texto-ambar);
+  border-radius:9px;padding:9px 12px;margin-top:10px;line-height:1.4;font-weight:600}
+.fcards.col1 .fc:not(.aberto)::after{right:16px;top:17px;left:auto}
+.nivel-fc{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--texto-2);margin:22px 0 2px}
+
+footer{text-align:center;padding:14px 20px 24px;color:var(--texto-2);font-size:13px}
+footer .lg{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:9px}
+footer .b1,footer .b2{width:17px;height:12px;border-radius:4px;display:inline-block}
+footer .b1{background:var(--lilas-forte)}
+footer .b2{background:var(--primaria);margin-left:-6px}
+</style>
+</head>
+<body>
+<div class="tela">
+
+<header>
+  <a class="voltar" href="../../">&larr; Materiais</a>
+  <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="ass">by Luisa Mesel</span></div>
+  <span class="selo">HOMEWORK</span>
+  <h1>The suffix &minus;ment</h1>
+  <p>Twelve words, one suffix. Learn the cards first, then do the two tests. Twenty minutes, not more.</p>
+</header>
+
+<div class="barra">
+  <details class="menu">
+    <summary>Jump to a section</summary>
+    <div class="menu-lista">
+      <a href="#oque">What it does</a>
+      <a href="#cartoes">The twelve</a>
+      <a href="#funcao">What job?</a>
+      <a href="#teste">Write it</a>
+    </div>
+  </details>
+</div>
+
+<main>
+<!-- ============ O QUE FAZ ============ -->
+<section id="oque">
+  <span class="tag leve">ONE SUFFIX, ONE JOB</span>
+  <h2>It turns an action into a thing</h2>
+
+  <div class="bloco lilas">
+    <div class="rot">THE WHOLE RULE</div>
+    <div class="form">verb + &minus;ment = noun</div>
+    <p style="margin-top:9px;font-weight:400;font-size:16.5px">Every single word on this page is a <b>noun</b>. No exceptions.</p>
+  </div>
+
+  <ul class="ex">
+    <li><b>improve</b> is something you do.<span class="efeito">I want to improve my pronunciation.</span></li>
+    <li><b>improvement</b> is the thing that happened.<span class="efeito">There has been a big improvement.</span></li>
+  </ul>
+
+  <div class="nota">Same idea, two jobs. That is all <b>function</b> means &mdash; not what the word means, but <b>what it is doing</b> in the sentence.</div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ CARTOES ============ -->
+<section id="cartoes">
+  <span class="tag">LEARN THESE FIRST</span>
+  <h2>Twelve cards</h2>
+  <p style="margin-top:12px;font-size:17px">The verb is on the front, the way the exam gives it to you. Say the noun out loud before you tap.</p>
+
+  <div class="nivel-fc">EASY &mdash; THREE</div>
+  <div class="fcards col1">
+    <div class="fc"><div class="base">AGREE</div><div class="verso">
+      <div class="p2">agreement</div>
+      <div class="gl">when everyone accepts the same thing</div>
+      <div class="ex">They finally reached an agreement.</div></div></div>
+    <div class="fc"><div class="base">IMPROVE</div><div class="verso">
+      <div class="p2">improvement</div>
+      <div class="gl">a change that makes something better</div>
+      <div class="ex">There has been a real improvement in her marks.</div></div></div>
+    <div class="fc"><div class="base">PAY</div><div class="verso">
+      <div class="p2">payment</div>
+      <div class="gl">money given for something</div>
+      <div class="ex">The first payment is due in May.</div></div></div>
+  </div>
+
+  <div class="nivel-fc">MEDIUM &mdash; FOUR</div>
+  <div class="fcards col1">
+    <div class="fc"><div class="base">ACHIEVE</div><div class="verso">
+      <div class="p2">achievement</div>
+      <div class="gl">something difficult that you managed to do</div>
+      <div class="ex">Winning the final was her greatest achievement.</div>
+      <div class="alerta">Keeps the <b>e</b>. Compare <i>argue &rarr; argument</i>, which loses it.</div></div></div>
+    <div class="fc"><div class="base">REQUIRE</div><div class="verso">
+      <div class="p2">requirement</div>
+      <div class="gl">something you must have or must do</div>
+      <div class="ex">A passport is a requirement for the trip.</div></div></div>
+    <div class="fc"><div class="base">COMMIT</div><div class="verso">
+      <div class="p2">commitment</div>
+      <div class="gl">a promise that ties you to something</div>
+      <div class="ex">Training twice a day is a serious commitment.</div>
+      <div class="alerta">One <b>t</b>, not two. <i>committed</i> doubles it, <i>commitment</i> does not.</div></div></div>
+    <div class="fc"><div class="base">MANAGE</div><div class="verso">
+      <div class="p2">management</div>
+      <div class="gl">the people who run a place, or the act of running it</div>
+      <div class="ex">The management refused to comment.</div>
+      <div class="alerta">Keeps the <b>e</b>, like <i>achievement</i>.</div></div></div>
+  </div>
+
+  <div class="nivel-fc">HARD &mdash; FIVE</div>
+  <div class="fcards col1">
+    <div class="fc"><div class="base">RESENT</div><div class="verso">
+      <div class="p2">resentment</div>
+      <div class="gl">a slow, quiet anger at being treated unfairly</div>
+      <div class="ex">She felt a growing resentment towards her sister.</div></div></div>
+    <div class="fc"><div class="base">BEWILDER</div><div class="verso">
+      <div class="p2">bewilderment</div>
+      <div class="gl">complete confusion</div>
+      <div class="ex">He stared at the form in bewilderment.</div></div></div>
+    <div class="fc"><div class="base">CONCEAL</div><div class="verso">
+      <div class="p2">concealment</div>
+      <div class="gl">the act of hiding something on purpose</div>
+      <div class="ex">He was accused of the concealment of evidence.</div></div></div>
+    <div class="fc"><div class="base">ENTITLE</div><div class="verso">
+      <div class="p2">entitlement</div>
+      <div class="gl">the right to have something, or the belief that you deserve it</div>
+      <div class="ex">Free healthcare is an entitlement here.</div></div></div>
+    <div class="fc"><div class="base">ENDORSE</div><div class="verso">
+      <div class="p2">endorsement</div>
+      <div class="gl">public support for a person or an idea</div>
+      <div class="ex">The campaign won the endorsement of three newspapers.</div></div></div>
+  </div>
+
+  <button class="tudo" data-tudo="ment">Show all twelve</button>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ FUNCAO ============ -->
+<section id="funcao">
+  <span class="tag">TEST ONE &mdash; THE JOB</span>
+  <h2>What is the gap doing?</h2>
+
+  <div class="bloco ambar">
+    <div class="rot">TWO SIGNALS, AND THAT'S IT</div>
+    <p style="font-weight:400;font-size:16.5px"><b>a</b>, <b>an</b>, <b>the</b>, <b>his</b>, <b>any</b> before the gap &rarr; the gap is a <b>thing</b>. Use the noun.</p>
+    <p style="font-weight:400;font-size:16.5px"><b>to</b>, <b>can</b>, <b>will</b>, <b>didn't</b> before the gap &rarr; the gap is an <b>action</b>. Use the verb.</p>
+  </div>
+
+  <div class="mcq">
+    <div class="lab">SIX ITEMS</div>
+    <div class="instr">Look at the word just before the gap. Decide the job first, then pick the form.</div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">1 &mdash; AGREE</span>After three hours they could not <i>___</i> on a price.</div>
+      <button class="op" data-op="a">agreement</button>
+      <button class="op" data-op="b">agree</button>
+      <button class="op" data-op="c">agreed</button>
+      <div class="porque"><b>could not</b> comes first, so the gap is an <b>action</b>. After a modal you need the bare verb.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">2 &mdash; AGREE</span>After three hours they finally reached an <i>___</i>.</div>
+      <button class="op" data-op="a">agreement</button>
+      <button class="op" data-op="b">agree</button>
+      <button class="op" data-op="c">agreeing</button>
+      <div class="porque"><b>an</b> comes first, so the gap is a <b>thing</b>. Same idea as question 1, different job.</div>
+    </div>
+
+    <div class="mq" data-certa="c">
+      <div class="enun"><span class="n">3 &mdash; IMPROVE</span>I need to <i>___</i> my pronunciation before the exam.</div>
+      <button class="op" data-op="a">improvement</button>
+      <button class="op" data-op="b">improving</button>
+      <button class="op" data-op="c">improve</button>
+      <div class="porque"><b>to</b> comes first, so the gap is an <b>action</b>.</div>
+    </div>
+
+    <div class="mq" data-certa="b">
+      <div class="enun"><span class="n">4 &mdash; IMPROVE</span>Her teacher noticed a real <i>___</i> this term.</div>
+      <button class="op" data-op="a">improve</button>
+      <button class="op" data-op="b">improvement</button>
+      <button class="op" data-op="c">improved</button>
+      <div class="porque"><b>a</b> comes first, and <b>real</b> is describing it. Only a <b>thing</b> can be described that way.</div>
+    </div>
+
+    <div class="mq" data-certa="a">
+      <div class="enun"><span class="n">5 &mdash; CONCEAL</span>He did his best to <i>___</i> how angry he was.</div>
+      <button class="op" data-op="a">conceal</button>
+      <button class="op" data-op="b">concealment</button>
+      <button class="op" data-op="c">concealing</button>
+      <div class="porque"><b>to</b> again, so <b>action</b>. The long word is tempting, but the signal says no.</div>
+    </div>
+
+    <div class="mq" data-certa="c">
+      <div class="enun"><span class="n">6 &mdash; CONCEAL</span>He was charged with the <i>___</i> of evidence.</div>
+      <button class="op" data-op="a">conceal</button>
+      <button class="op" data-op="b">concealing</button>
+      <button class="op" data-op="c">concealment</button>
+      <div class="porque"><b>the</b> comes first and <b>of</b> comes after. Between those two, it can only be a <b>thing</b>.</div>
+    </div>
+
+    <div class="placar-mcq"></div>
+    <button class="bt-zerar">Start again</button>
+  </div>
+</section>
+<div class="sep"><span class="tr"></span><span class="bolinha"></span><span class="tr"></span></div>
+
+<!-- ============ TESTE ============ -->
+<section id="teste">
+  <span class="tag">TEST TWO &mdash; WRITE IT</span>
+  <h2>Eight gaps</h2>
+  <p style="margin-top:12px;font-size:17px">Exam format. Every answer here is a noun ending in &minus;ment. Watch the spelling.</p>
+
+  <div class="escreve">
+    <div class="lab">8 GAPS</div>
+    <div class="instr">Use the word in capitals to make the word that fits.</div>
+    <div class="item"><span class="n">1 &mdash; ACHIEVE</span>Finishing the course at sixteen was a huge <input class="campo larga xl" data-resp="achievement" aria-label="palavra">.</div>
+    <div class="item"><span class="n">2 &mdash; RESENT</span>She never said anything, but you could feel the <input class="campo larga xl" data-resp="resentment" aria-label="palavra">.</div>
+    <div class="item"><span class="n">3 &mdash; REQUIRE</span>Punctuality is a basic <input class="campo larga xl" data-resp="requirement" aria-label="palavra"> here.</div>
+    <div class="item"><span class="n">4 &mdash; ENDORSE</span>The product gained the <input class="campo larga xl" data-resp="endorsement" aria-label="palavra"> of two famous dancers.</div>
+    <div class="item"><span class="n">5 &mdash; COMMIT</span>Playing in the team is a real <input class="campo larga xl" data-resp="commitment" aria-label="palavra">.</div>
+    <div class="item"><span class="n">6 &mdash; BEWILDER</span>She looked at the results in complete <input class="campo larga xl" data-resp="bewilderment" aria-label="palavra">.</div>
+    <div class="item"><span class="n">7 &mdash; ENTITLE</span>He behaves with a sense of <input class="campo larga xl" data-resp="entitlement" aria-label="palavra"> that annoys everyone.</div>
+    <div class="item"><span class="n">8 &mdash; MANAGE</span>The <input class="campo larga xl" data-resp="management" aria-label="palavra"> has promised to look into it.</div>
+    <div class="botoes">
+      <button class="bt-con" data-conferir="mt">Check</button>
+      <button class="bt-rev" data-revelar="mt">Show answers</button>
+    </div>
+    <div class="placar" data-placar="mt"></div>
+  </div>
+
+  <div class="nota">Before you close this: cover the cards and say the five hard ones out loud, from the verb. <b>resent, bewilder, conceal, entitle, endorse.</b> Those are the five that decide whether this was worth doing.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="lg"><span class="b1"></span><span class="b2"></span></div>
+  Talk It Out &middot; by Luisa Mesel
+</footer>
+
+</div>
+
+<script>
+// ---------------- grupos de campos digitados ----------------
+(function(){
+  function norm(s){
+    return (s||'').trim().toLowerCase()
+      .replace(/[’ʼ]/g,"'")
+      .replace(/\s+/g,' ')
+      .replace(/[.,;!?]+$/,'');
+  }
+  function aceita(c){
+    var dado = norm(c.value);
+    if(!dado) return false;
+    return c.dataset.resp.split('/').some(function(r){ return norm(r) === dado; });
+  }
+
+  document.querySelectorAll('.escreve').forEach(function(caixa){
+    var campos  = [].slice.call(caixa.querySelectorAll('.campo'));
+    var btCon   = caixa.querySelector('[data-conferir]');
+    var btRev   = caixa.querySelector('[data-revelar]');
+    var placar  = caixa.querySelector('[data-placar]');
+    var total   = campos.length;
+
+    campos.forEach(function(c, i){
+      c.setAttribute('autocapitalize','none');
+      c.setAttribute('autocomplete','off');
+      c.setAttribute('spellcheck','false');
+      c.addEventListener('input', function(){ c.classList.remove('certo','errado'); });
+      c.addEventListener('keydown', function(ev){
+        if(ev.key !== 'Enter') return;
+        ev.preventDefault();
+        if(i < total - 1) campos[i+1].focus();
+        else btCon.click();
+      });
+    });
+
+    btCon.addEventListener('click', function(){
+      var certos = 0;
+      campos.forEach(function(c){
+        var ok = aceita(c);
+        c.classList.toggle('certo', ok);
+        c.classList.toggle('errado', !ok);
+        if(ok) certos++;
+      });
+      placar.className = 'placar mostra ' + (certos === total ? 'bom' : 'meio');
+      placar.textContent = certos === total
+        ? 'All ' + total + ' right. Move on.'
+        : certos + ' out of ' + total + ' right. Fix the red ones and check again.';
+    });
+
+    btRev.addEventListener('click', function(){
+      campos.forEach(function(c){
+        c.value = c.dataset.resp.split('/')[0];
+        c.classList.remove('errado');
+        c.classList.add('certo');
+      });
+      placar.className = 'placar mostra meio';
+      placar.textContent = 'Answers filled in. Read each sentence again and say why that word fits.';
+    });
+  });
+})();
+
+
+// ---------------- multipla escolha ----------------
+document.querySelectorAll('.mcq').forEach(function(caixa){
+  var qs     = [].slice.call(caixa.querySelectorAll('.mq'));
+  var placar = caixa.querySelector('.placar-mcq');
+  var zerar  = caixa.querySelector('.bt-zerar');
+
+  function atualiza(){
+    var feitas = qs.filter(function(q){ return q.classList.contains('feita'); });
+    if(!feitas.length){ placar.className = 'placar-mcq'; return; }
+    var certas = feitas.filter(function(q){ return q.dataset.acertou === '1'; }).length;
+    placar.className = 'placar-mcq mostra ' +
+      (feitas.length === qs.length && certas === qs.length ? 'bom' : 'meio');
+    placar.textContent = feitas.length === qs.length
+      ? certas + ' out of ' + qs.length + (certas === qs.length ? ' — all right.' : '. Go back to the ones you missed.')
+      : certas + ' right so far (' + feitas.length + ' of ' + qs.length + ' answered)';
+  }
+
+  qs.forEach(function(q){
+    var certa = q.dataset.certa;
+    q.querySelectorAll('.op').forEach(function(bt){
+      bt.addEventListener('click', function(){
+        if(q.classList.contains('feita')) return;
+        var ok = bt.dataset.op === certa;
+        q.classList.add('feita');
+        q.dataset.acertou = ok ? '1' : '0';
+        q.querySelectorAll('.op').forEach(function(o){
+          if(o.dataset.op === certa){
+            o.classList.add('certa');
+            o.insertAdjacentHTML('beforeend','<span class="tick">&#10003;</span>');
+          } else if(o === bt){
+            o.classList.add('errada');
+            o.insertAdjacentHTML('beforeend','<span class="tick">&times;</span>');
+          }
+        });
+        atualiza();
+      });
+    });
+  });
+
+  zerar.addEventListener('click', function(){
+    qs.forEach(function(q){
+      q.classList.remove('feita');
+      delete q.dataset.acertou;
+      q.querySelectorAll('.op').forEach(function(o){
+        o.classList.remove('certa','errada');
+        var tk = o.querySelector('.tick'); if(tk) tk.remove();
+      });
+    });
+    placar.className = 'placar-mcq';
+    caixa.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ---------------- reiniciar os exercicios digitados ----------------
+document.querySelectorAll('.escreve').forEach(function(caixa){
+  var bt = document.createElement('button');
+  bt.className = 'zerar-txt';
+  bt.textContent = 'Clear and start again';
+  caixa.appendChild(bt);
+  bt.addEventListener('click', function(){
+    caixa.querySelectorAll('.campo').forEach(function(c){
+      c.value = '';
+      c.classList.remove('certo','errado');
+    });
+    var p = caixa.querySelector('[data-placar]');
+    p.className = 'placar';
+    p.textContent = '';
+    caixa.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ---------------- cartoes de chunk ----------------
+document.querySelectorAll('.ch, .fc').forEach(function(el){
+  el.addEventListener('click', function(){ el.classList.toggle('aberto'); });
+});
+
+document.querySelectorAll('.tudo').forEach(function(bt){
+  bt.addEventListener('click', function(){
+    var lista = bt.previousElementSibling;
+    var cartoes = [].slice.call(bt.closest('section').querySelectorAll('.ch, .fc'));
+    var abrir = cartoes.some(function(c){ return !c.classList.contains('aberto'); });
+    cartoes.forEach(function(c){ c.classList.toggle('aberto', abrir); });
+    bt.textContent = abrir ? 'Hide them again' : bt.dataset.rotulo;
+  });
+  bt.dataset.rotulo = bt.textContent;
+});
+</script>
+</body>
+</html>
