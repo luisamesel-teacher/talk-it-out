@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3C3489">
+<title>Orações coordenadas — Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD;
+  --lilas:#EEEDFE; --lilas-forte:#CECBF6; --texto-lilas:#534AB7;
+  --rosa:#FBEAF0; --texto-rosa:#993556;
+  --ambar:#FAEEDA; --texto-ambar:#854F0B;
+  --neutro:#F1EFE8; --fundo:#FFFFFF;
+  --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --acerto:#3B6D11; --erro:#A32D2D;
+  --trilha:#3C3489; --trilha-clara:#E3E1FA;
+  --raio:10px; --entalhe:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--neutro);color:var(--texto);
+  font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:17px;line-height:1.5;font-weight:400;
+  padding:0 0 60px;overflow-x:hidden}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px}
+
+/* ---------- topo ---------- */
+header{background:var(--trilha);color:#fff;padding:26px 0 22px;margin-bottom:20px}
+.marca{display:flex;align-items:center;gap:9px;margin-bottom:16px}
+.b1,.b2{border-radius:5px;display:inline-block;width:22px;height:16px}
+.b1{background:rgba(255,255,255,.45)}
+.b2{background:#fff;margin-left:-6px}
+.nome-marca{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px}
+.assinatura{font-size:13px;opacity:.75}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:30px;line-height:1.1}
+.sub{font-size:16px;opacity:.85;margin-top:8px}
+
+/* ---------- secoes ---------- */
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:23px;line-height:1.15;
+  color:var(--primaria);margin:30px 0 4px}
+.rot{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.09em;
+  color:var(--texto-2);text-transform:uppercase;margin-top:26px}
+.lede{color:var(--texto-2);font-size:16px;margin-bottom:14px}
+
+.card{background:var(--fundo);border-radius:var(--raio);padding:15px 17px;margin-bottom:11px;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.card.lilas{background:var(--lilas)}
+.card.rosa{background:var(--rosa)}
+.card.ambar{background:var(--ambar)}
+.card .tag{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;
+  color:var(--texto-lilas);text-transform:uppercase;display:block;margin-bottom:5px}
+.card.rosa .tag{color:var(--texto-rosa)}
+.card.ambar .tag{color:var(--texto-ambar)}
+.card b{font-weight:700}
+.card em{font-style:italic;color:var(--texto-2);display:block;margin-top:6px}
+.card em b{color:var(--texto)}
+
+/* ---------- mapa mental ---------- */
+.mapa{margin:6px 0 4px}
+.no{border-radius:var(--raio);padding:12px 15px;position:relative;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.no .n{font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.no .c{font-size:16px;line-height:1.4;margin-top:3px}
+.raiz{background:var(--trilha);color:#fff;margin-bottom:14px}
+.raiz .n{font-size:15px}
+.ramo{margin-left:20px;padding-left:20px;border-left:3px solid var(--lilas-forte);position:relative}
+.lig{position:relative;margin-bottom:11px}
+.lig::before{content:'';position:absolute;left:-20px;top:23px;width:17px;height:3px;
+  background:var(--lilas-forte);border-radius:2px}
+.lig>.no{margin:0}
+.n1{background:var(--lilas-forte)}
+.n1 .n{color:var(--primaria)}
+.n2{background:var(--lilas)}
+.n2 .n{color:var(--texto-lilas)}
+.n2 .c{color:var(--texto)}
+.n2 .c b{color:var(--primaria)}
+.sub-ramo{margin-left:16px;padding-left:18px;border-left:3px solid var(--trilha-clara);margin-bottom:12px}
+.sub-ramo .lig::before{background:var(--trilha-clara);left:-18px;width:15px}
+
+/* ---------- checagem ---------- */
+.q{background:var(--fundo);border:none;width:100%;text-align:left;display:block;
+  border-radius:var(--raio);padding:15px 17px;margin-bottom:10px;cursor:pointer;
+  font-family:'Source Sans 3',sans-serif;font-size:17px;font-weight:500;color:var(--texto);
+  min-height:52px;line-height:1.4;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%);
+  transition:background .15s}
+.q:active{background:var(--lilas)}
+.q .r{display:none;margin-top:9px;padding-top:9px;border-top:2px solid var(--lilas-forte);
+  color:var(--acerto);font-weight:700}
+.q.aberta .r{display:block}
+.q .toque{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--primaria-clara);text-transform:uppercase;display:block;margin-top:8px}
+.q.aberta .toque{display:none}
+
+footer{text-align:center;color:var(--texto-2);font-size:14px;margin-top:34px;padding-top:18px;
+  border-top:2px solid var(--lilas-forte)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="marca"><span class="b1"></span><span class="b2"></span>
+      <span class="nome-marca">Talk It Out</span><span class="assinatura">by Luisa Mesel</span></div>
+    <h1>Orações coordenadas</h1>
+    <div class="sub">Revisão rápida · conjunções · mas e mais · afim e a fim</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card ambar">
+    <span class="tag">Comece por aqui</span>
+    <b>Oração</b> tem verbo. <b>Período composto</b> tem duas ou mais orações.
+    Se elas se ligam sem conjunção, é <b>assindética</b>. Com conjunção, é <b>sindética</b> —
+    e a conjunção diz qual das cinco relações é.
+  </div>
+
+  <h2>Mapa</h2>
+  <div class="lede">Os tipos e os conectivos de cada um.</div>
+
+  <div class="mapa">
+    <div class="no raiz">
+      <span class="n">Orações coordenadas</span>
+      <div class="c">Cada uma tem sentido próprio. Nenhuma depende da outra.</div>
+    </div>
+
+    <div class="ramo">
+      <div class="lig"><div class="no n1">
+        <span class="n">Assindética</span>
+        <div class="c">Sem conjunção, só a vírgula.<br><em>Cheguei, vi, venci.</em></div>
+      </div></div>
+
+      <div class="lig"><div class="no n1">
+        <span class="n">Sindética</span>
+        <div class="c">Com conjunção. São cinco:</div>
+      </div></div>
+
+      <div class="sub-ramo">
+        <div class="lig"><div class="no n2">
+          <span class="n">Aditiva · soma</span>
+          <div class="c"><b>e, nem, mas também</b><br><em>Chegou cedo <b>e</b> arrumou a sala.</em></div>
+        </div></div>
+        <div class="lig"><div class="no n2">
+          <span class="n">Adversativa · oposição</span>
+          <div class="c"><b>mas, porém, contudo, todavia, entretanto, no entanto</b><br><em>Treinou muito, <b>mas</b> não competiu.</em></div>
+        </div></div>
+        <div class="lig"><div class="no n2">
+          <span class="n">Alternativa · escolha</span>
+          <div class="c"><b>ou, ou… ou, ora… ora, quer… quer</b><br><em><b>Ou</b> você estuda, <b>ou</b> você sai.</em></div>
+        </div></div>
+        <div class="lig"><div class="no n2">
+          <span class="n">Conclusiva · fecho</span>
+          <div class="c"><b>logo, portanto, por isso, então, assim, por conseguinte</b><br><em>Chovia muito, <b>portanto</b> o jogo foi adiado.</em></div>
+        </div></div>
+        <div class="lig"><div class="no n2">
+          <span class="n">Explicativa · motivo</span>
+          <div class="c"><b>pois, porque, que, porquanto</b><br><em>Leve o casaco, <b>pois</b> vai esfriar.</em></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>As duas que confundem</h2>
+  <div class="lede">Conclusiva e explicativa parecem iguais. Não são.</div>
+
+  <div class="card lilas">
+    <span class="tag">Conclusiva</span>
+    A causa vem primeiro, o resultado depois.
+    <em>Vai esfriar, <b>portanto</b> leve o casaco.</em>
+  </div>
+  <div class="card lilas">
+    <span class="tag">Explicativa</span>
+    A afirmação vem primeiro, o motivo depois.
+    <em>Leve o casaco, <b>pois</b> vai esfriar.</em>
+  </div>
+  <div class="card ambar">
+    <span class="tag">O teste que resolve</span>
+    Cabe <b>portanto</b>? É conclusiva.<br>
+    Cabe <b>porque</b>? É explicativa.
+  </div>
+
+  <div class="rot">Armadilhas</div>
+
+  <div class="card rosa">
+    <span class="tag">O pois muda de papel</span>
+    <b>Antes</b> do verbo é explicativa. <b>Entre vírgulas</b>, depois do verbo, é conclusiva.
+    <em>Leve o casaco, <b>pois</b> vai esfriar. · Vai esfriar, leve, <b>pois</b>, o casaco.</em>
+  </div>
+  <div class="card rosa">
+    <span class="tag">Portanto e logo</span>
+    São <b>sempre</b> conclusivos. Nunca explicativos. Quem troca de papel é só o <b>pois</b>.
+  </div>
+  <div class="card rosa">
+    <span class="tag">Logo nem sempre é conjunção</span>
+    <em>Volto <b>logo</b>.</em> advérbio de tempo<br>
+    <em><b>Logo que</b> chegou, saiu.</em> subordinada<br>
+    <em>Penso, <b>logo</b> existo.</em> conjunção conclusiva
+  </div>
+
+  <h2>Mas ou mais?</h2>
+  <div class="lede">Os exemplos saem da imagem da atividade: Brasil e Portugal, a feijoada e o bacalhau, o menino estudando.</div>
+  <div class="card lilas">
+    <span class="tag">Cabe "porém"?</span>
+    Então é <b>mas</b>, com s. É conjunção.
+    <em>Os dois países falam português, <b>mas</b> o sotaque é diferente.</em>
+  </div>
+  <div class="card lilas">
+    <span class="tag">Cabe "menos"?</span>
+    Então é <b>mais</b>, com i. É quantidade.
+    <em>No Brasil come-se <b>mais</b> feijão do que bacalhau.</em>
+  </div>
+  <div class="card ambar">
+    <span class="tag">Os dois na mesma frase</span>
+    É o item que vale mais ponto, porque cobra a escolha duas vezes.
+    <em>No Brasil come-se <b>mais</b> feijoada, <b>mas</b> em Portugal o prato típico é o bacalhau.</em>
+  </div>
+
+  <h2>Afim ou a fim?</h2>
+  <div class="card lilas">
+    <span class="tag">Afim · junto</span>
+    Adjetivo: parecido, da mesma natureza.
+    <em>Português e História são matérias <b>afins</b>.</em>
+  </div>
+  <div class="card lilas">
+    <span class="tag">A fim de · separado</span>
+    Finalidade: com o objetivo de.
+    <em>O menino estuda <b>a fim de</b> tirar 10.</em>
+  </div>
+  <div class="card rosa">
+    <span class="tag">Não confunda</span>
+    <b>Afins</b> são as matérias parecidas. <b>A fim de</b> é o motivo de estudar.
+    <em>Ele estuda matérias <b>afins</b> <b>a fim de</b> passar.</em>
+  </div>
+
+  <h2>Checagem</h2>
+  <div class="lede">Responda de cabeça. Toque para conferir.</div>
+
+  <button class="q"><span>"Estudou muito, mas não passou."</span>
+    <span class="r">Adversativa.</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>"Cheguei, vi, venci."</span>
+    <span class="r">Coordenadas assindéticas — não há conjunção.</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>"Chovia muito, portanto o jogo foi adiado."</span>
+    <span class="r">Conclusiva. Cabe trocar por "portanto".</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>"Não insista, que eu não mudo de ideia."</span>
+    <span class="r">Explicativa. Cabe trocar por "porque".</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>"Ela estudou; passou, pois, na prova."</span>
+    <span class="r">Conclusiva — o pois vem depois do verbo, entre vírgulas.</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>Ela queria ir, ___ não pôde.</span>
+    <span class="r">mas — cabe trocar por "porém".</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>No Brasil come-se ___ feijoada, ___ em Portugal o prato é o bacalhau.</span>
+    <span class="r">mais, mas — na primeira cabe "menos"; na segunda cabe "porém".</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>O menino estuda ___ de tirar 10.</span>
+    <span class="r">a fim — separado, porque indica finalidade.</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>Português e História são matérias ___.</span>
+    <span class="r">afins — junto, porque quer dizer parecidas.</span><span class="toque">Toque para ver</span></button>
+  <button class="q"><span>Em "Volto logo", "logo" é conjunção conclusiva?</span>
+    <span class="r">Não. É advérbio de tempo. Só é conjunção quando cabe trocar por "portanto".</span><span class="toque">Toque para ver</span></button>
+
+  <footer>Talk It Out — by Luisa Mesel</footer>
+</div>
+
+<script>
+document.querySelectorAll('.q').forEach(function(b){
+  b.addEventListener('click', function(){ b.classList.toggle('aberta') });
+});
+</script>
+</body>
+</html>
