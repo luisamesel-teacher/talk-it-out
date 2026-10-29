@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font-family:system-ui,sans-serif;font-size:14px}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Speaking Test — Macbeth</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Outfit:wght@300..700&display=swap">
+<style>
+/* Layout: poster hero on blood-red glow, electric-blue accent, tab bar, one panel at a time. Single dark world by design. */
+:root{
+  --bg:#101016; --surface:#1A1A22; --raised:#22222B; --line:#2E2E38; --line-soft:#26262E;
+  --fg:#E7E5EC; --fg-soft:#C4C2CD; --muted:#908E9B;
+  --neon:#E8637A; --neon-solid:#901D2D; --neon-ink:#FFFFFF; --neon-dim:#E8637A3D; --neon-wash:#901D2D1F; --neon-hi:#A82437;
+  --blood:#8E0F22;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --paper:#F0E4CE; --paper-2:#E5D7BC; --ink:#1B1915; --ink-soft:#4B463C; --ink-line:#D2C2A2;
+  --ink-accent:#751522; --ink-accent-soft:#7515221F;
+  --s1:.75rem; --s2:.8125rem; --s3:1rem; --s4:1.0625rem; --s5:1.3125rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:var(--s4);line-height:1.6;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.wrap{max-width:1060px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+
+/* ───────────── hero ───────────── */
+.hero{position:relative;overflow:hidden;background:var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(80% 115% at 76% 46%, #A81226 0%, #660B1B 32%, #2A0610 58%, transparent 78%);opacity:.95;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(to bottom, transparent 58%, #101016 100%),
+  linear-gradient(to right, #09090CCC 0%, transparent 48%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(34px,7vw,62px) clamp(30px,6vw,52px)}
+.kicker{font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 800;
+  font-size:var(--s2);letter-spacing:.24em;text-transform:uppercase;color:var(--neon);margin:0 0 clamp(12px,2vw,18px)}
+h1{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:clamp(1.9rem,8.4vw,4rem);line-height:.9;letter-spacing:-.035em;
+  text-transform:uppercase;margin:0;color:var(--fg)}
+@media (min-width:700px){h1{font-size:calc((min(100vw,1060px) - 40px) / 13.7);white-space:nowrap;line-height:1}}
+h1 .out{color:transparent;-webkit-text-stroke:clamp(1.3px,.2vw,2.2px) var(--fg)}
+.tagline{margin:clamp(16px,2.6vw,22px) 0 0;color:var(--fg-soft);font-size:var(--s4);line-height:1.6}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(20px,3.4vw,28px)}
+.btn{font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 800;
+  font-size:var(--s2);letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:0;
+  cursor:pointer;border:1.5px solid var(--neon-solid);background:var(--neon-solid);color:var(--neon-ink);transition:background .16s,border-color .16s,color .16s}
+.btn.ghost{background:transparent;color:var(--fg);border-color:#ffffff3d}
+.btn:hover{background:var(--neon-hi);border-color:var(--neon-hi)}
+.btn.ghost:hover{background:#ffffff14;color:var(--fg);border-color:var(--fg)}
+.btn:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+.btn[disabled]{opacity:.45;cursor:default}
+
+/* ───────────── nav ───────────── */
+nav.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#101016F2;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:11px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:transparent;cursor:pointer;
+  font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 700;
+  font-size:var(--s1);letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  padding:9px 15px;white-space:nowrap;transition:color .15s,border-color .15s,background .15s}
+.tab:hover{color:var(--fg);border-color:#4F4C59}
+.tab[aria-current="true"]{background:var(--neon-solid);border-color:var(--neon-solid);color:var(--neon-ink)}
+.tab:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+
+/* ───────────── panels ───────────── */
+main .wrap{padding-block:clamp(34px,6vw,52px) 80px}
+.panel{animation:rise .24s cubic-bezier(.2,.7,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel{animation:none}}
+section + section{margin-top:clamp(48px,8vw,74px)}
+h2{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:clamp(2rem,7vw,3.2rem);line-height:.94;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 12px}
+h2 .hi{color:var(--neon)}
+h3{font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 800;
+  font-size:var(--s2);letter-spacing:.18em;text-transform:uppercase;color:var(--neon);margin:38px 0 14px;
+  display:flex;align-items:center;gap:12px}
+h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.lede{color:var(--muted);font-size:var(--s4);margin:0 0 26px}
+p{margin:0 0 14px}
+b,strong{font-weight:600;color:var(--fg)}
+
+/* ───────────── part cards ───────────── */
+.parts{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.part{position:relative;background:var(--surface);border:1px solid var(--line);padding:20px 20px 20px 74px}
+.part .n{position:absolute;left:20px;top:16px;font-family:var(--display);
+  font-variation-settings:"wdth" 112,"wght" 900;font-size:2.4rem;line-height:1;color:var(--neon)}
+.part .h{display:block;font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 800;
+  font-size:var(--s3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.part .b{color:var(--fg-soft);font-size:var(--s3);margin:0}
+@media (max-width:460px){.part{padding:18px 16px}.part .n{position:static;display:block;margin-bottom:6px;font-size:2rem}}
+
+/* ───────────── timing ───────────── */
+.timing{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.timing li{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 2px;border-bottom:1px solid var(--line)}
+.timing .what{font-size:var(--s3);color:var(--fg-soft);min-width:0}
+.timing .when{font-family:var(--display);font-variation-settings:"wdth" 110,"wght" 900;
+  font-size:var(--s5);color:var(--neon);white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* ───────────── notes ───────────── */
+.note{border-left:3px solid var(--neon);background:var(--neon-wash);padding:15px 18px;margin:24px 0;font-size:var(--s3);color:var(--fg-soft)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+@media (max-width:640px){.split{grid-template-columns:1fr}}
+.col{border:1px solid var(--line);padding:18px;background:var(--surface)}
+.col h4{margin:0 0 9px;font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 800;
+  font-size:var(--s1);letter-spacing:.16em;text-transform:uppercase}
+.col p{margin:0;font-size:var(--s3);color:var(--fg-soft)}
+.col.plus{border-top:3px solid var(--neon)} .col.plus h4{color:var(--neon)}
+.col.minus{border-top:3px solid var(--blood)} .col.minus h4{color:#E2566C}
+
+/* ───────────── question lists ───────────── */
+.qs{list-style:none;counter-reset:q;margin:0;padding:0}
+.qs li{counter-increment:q;position:relative;padding:12px 0 12px 48px;border-bottom:1px solid var(--line-soft);font-size:var(--s3);line-height:1.55;color:var(--fg-soft)}
+.qs li:last-child{border-bottom:0}
+.qs li::before{content:counter(q,decimal-leading-zero);position:absolute;left:0;top:13px;
+  font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 900;
+  font-size:var(--s3);color:var(--neon);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.qs.plain li::before{content:"→"}
+.qs .dim{color:var(--muted)}
+.bank{margin-top:34px}
+
+/* ───────────── language rows ───────────── */
+.lang{display:grid;gap:10px}
+.row{background:var(--surface);border:1px solid var(--line);padding:16px 18px}
+.row .fn{font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 800;
+  font-size:var(--s2);letter-spacing:.1em;text-transform:uppercase;margin:0 0 9px;color:#fff}
+.row .fn span{font-variation-settings:"wdth" 100,"wght" 500;text-transform:none;letter-spacing:.01em;color:var(--muted);font-size:var(--s2)}
+.row .ex{margin:0;font-size:var(--s3);color:var(--fg-soft);line-height:1.8}
+.row .ex i{font-style:normal;color:var(--neon);padding:0 6px;opacity:.6}
+
+/* ───────────── rubric ───────────── */
+.tscroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table.scale{border-collapse:collapse;width:100%;min-width:880px;font-size:var(--s2)}
+table.scale th,table.scale td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+table.scale thead th{font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 800;
+  font-size:var(--s1);letter-spacing:.11em;text-transform:uppercase;color:var(--neon);
+  background:var(--raised);border-bottom:1px solid var(--neon-dim);white-space:normal}
+table.scale tbody td{color:var(--fg-soft);line-height:1.5}
+table.scale .band{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:1.9rem;line-height:1;color:var(--neon);letter-spacing:-.03em;text-align:center;
+  width:72px;position:sticky;left:0;background:var(--surface);border-right:1px solid var(--line);padding:16px 8px}
+table.scale thead .band{background:var(--raised);font-size:var(--s1);color:var(--neon);letter-spacing:.11em;padding:14px 8px}
+table.scale tr.between td{font-size:var(--s2);color:var(--muted);font-style:italic;padding:11px 16px}
+table.scale tr.between .band{font-size:1.25rem;color:#C17C89;padding:11px 8px}
+table.scale tr.zero td{color:var(--muted)}
+table.scale tr.zero .band{color:#9A6470;font-size:1.5rem}
+table.scale tbody tr:last-child th,table.scale tbody tr:last-child td{border-bottom:0}
+.scoreline{display:flex;align-items:center;gap:20px;margin:28px 0 30px;flex-wrap:wrap;border-left:3px solid var(--neon);padding-left:20px}
+.scoreline .big{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:clamp(3.2rem,12vw,4.8rem);line-height:.82;color:var(--neon);letter-spacing:-.045em}
+.scoreline .cap{color:var(--fg-soft);font-size:var(--s3);flex:1 1 320px;min-width:0}
+
+/* ───────────── characters + moments ───────────── */
+figure.chars{margin:0}
+figure.chars img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.moment{border-left:2px solid var(--neon-dim);padding:2px 0 2px 22px;margin:0 0 30px}
+.moment .who{font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 800;
+  font-size:var(--s2);letter-spacing:.11em;text-transform:uppercase;margin:0 0 11px;display:flex;gap:11px;align-items:center;flex-wrap:wrap}
+.moment .pg{font-size:var(--s1);letter-spacing:.09em;color:var(--neon-ink);background:var(--neon-solid);padding:2px 9px;white-space:nowrap}
+.moment blockquote{margin:0 0 11px;font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 700;
+  font-size:clamp(1.15rem,3.4vw,1.45rem);line-height:1.35;color:var(--fg);letter-spacing:-.018em}
+.moment .ask{margin:0;color:var(--muted);font-size:var(--s3)}
+
+/* ───────────── home grid ───────────── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px}
+.card{position:relative;text-align:left;background:var(--surface);border:1px solid var(--line);padding:20px;
+  cursor:pointer;font-family:var(--body);color:var(--fg);min-width:0;transition:border-color .16s,background .16s}
+.card:hover{border-color:var(--neon);background:var(--raised)}
+.card:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+.card .idx{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:1.5rem;color:var(--neon);display:block;margin-bottom:10px;line-height:1;letter-spacing:-.03em}
+.card .t{display:block;font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 800;
+  font-size:var(--s3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.card .d{display:block;color:var(--muted);font-size:var(--s2);line-height:1.55}
+
+/* ───────────── practise ───────────── */
+.prbox{border:1px solid var(--neon-dim);background:var(--surface);padding:clamp(20px,4vw,30px);margin-top:26px}
+.prsteps{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.prstep{font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 800;font-size:var(--s1);
+  letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--line);color:var(--muted);
+  background:transparent;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.prstep:hover{color:var(--fg);border-color:#4F4C59}
+.prstep:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+.prstep[data-on="now"]{background:var(--neon-solid);border-color:var(--neon-solid);color:var(--neon-ink)}
+.prstep[data-on="done"]{border-color:var(--neon-dim);color:var(--neon)}
+.prtask{font-family:var(--display);font-variation-settings:"wdth" 106,"wght" 800;font-size:var(--s1);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--neon);margin:0 0 12px}
+.prprompt{font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 700;
+  font-size:clamp(1.25rem,4vw,1.85rem);line-height:1.25;letter-spacing:-.02em;color:#fff;margin:0 0 8px}
+.prprompt + .prprompt{margin-top:16px}
+.prhint{color:var(--muted);font-size:var(--s3);margin:14px 0 0}
+.prclock{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:clamp(3.4rem,15vw,5.6rem);line-height:.85;letter-spacing:-.05em;color:var(--neon);
+  font-variant-numeric:tabular-nums;margin:26px 0 12px}
+.prclock[data-low="true"]{color:#FF5A6E}
+.prbar{height:4px;background:var(--line);overflow:hidden;margin-bottom:24px}
+.prbar span{display:block;height:100%;width:100%;background:var(--neon);transform-origin:left;transition:transform .25s linear}
+.prclock[data-low="true"] + .prbar span{background:#FF5A6E}
+.practs{display:flex;gap:10px;flex-wrap:wrap}
+.prlang{margin-top:30px;border-top:1px solid var(--line);padding-top:8px}
+.prdone{font-family:var(--display);font-variation-settings:"wdth" 112,"wght" 900;
+  font-size:clamp(2rem,8vw,3rem);text-transform:uppercase;letter-spacing:-.03em;color:var(--neon);margin:0 0 10px}
+/* ───────────── paper: long-reading blocks ───────────── */
+.paper{background:var(--paper);color:var(--ink);border:1px solid var(--ink-line)}
+.paper .fn,.paper .h{color:var(--ink)}
+.paper .b,.paper .ex{color:var(--ink-soft)}
+.paper .ex i{color:var(--ink-accent);opacity:.75}
+ol.qs.paper{padding:6px 20px}
+ol.qs.paper li{color:var(--ink-soft);border-bottom:1px solid var(--ink-line);font-size:var(--s3);line-height:1.6}
+ol.qs.paper li::before{color:var(--ink-accent)}
+#p-part-1 ol.qs li,#p-part-2 ol.qs li,#p-part-3 ol.qs li{font-weight:600;color:var(--ink)}
+.part.paper .n{color:var(--ink-accent)}
+.tscroll.paper{overflow-x:auto}
+.paper table.scale thead th{background:var(--paper-2);color:var(--ink-accent);border-bottom:1px solid var(--ink-line)}
+.paper table.scale th,.paper table.scale td{border-bottom:1px solid var(--ink-line)}
+.paper table.scale tbody td{color:var(--ink-soft);font-size:var(--s3);line-height:1.55}
+.paper table.scale .band{color:var(--ink-accent);background:var(--paper);border-right:1px solid var(--ink-line)}
+.paper table.scale thead .band{background:var(--paper-2)}
+.paper table.scale tr.between td{color:#6B6456}
+.paper table.scale tr.between .band{color:#8E3344}
+.paper table.scale tr.zero td{color:#6B6456}
+.paper table.scale tr.zero .band{color:#9A5B66}
+.col.paper p{color:var(--ink-soft)}
+.col.paper.plus h4{color:#0D6B52} .col.paper.plus{border-top:3px solid #0D6B52}
+.col.paper.minus h4{color:#9C2032} .col.paper.minus{border-top:3px solid #9C2032}
+.prbox .paper{margin-top:12px}
+footer{border-top:1px solid var(--line);margin-top:76px;padding-top:22px;color:var(--muted);font-size:var(--s2)}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">9th grade · Speaking · 15 points</p>
+    <h1><span class="out">Speaking Test</span> Macbeth</h1>
+    <p class="tagline">Five minutes. A card you don't choose. A side you might not believe in. Prepare all of it.</p>
+    <div class="cta">
+      <button class="btn" type="button" data-go="practise">Practise here</button>
+      <button class="btn ghost" type="button" data-go="part-2">See the questions</button>
+    </div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="Sections">
+  <div class="wrap"><div class="tabs" id="tabs"></div></div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <!-- ══════════ HOME ══════════ -->
+    <div class="panel" id="p-home" hidden>
+      <section>
+        <h2>The <span class="hi">format</span></h2>
+        <p class="lede">In pairs or groups of three. It lasts about five minutes and it is all in English. You need to have read the book and to be ready to give an opinion and defend it.</p>
+        <ul class="parts">
+          <li class="part paper"><span class="n">1</span><span class="h">Interview</span><p class="b">Personal questions. Nothing about Macbeth.</p></li>
+          <li class="part paper"><span class="n">2</span><span class="h">Questions</span><p class="b">Your pair gets a question. Student A answers it and defends that answer; Student B takes the opposite side. Then a new question for B, with A arguing against.</p></li>
+          <li class="part paper"><span class="n">3</span><span class="h">Decide together</span><p class="b">One question for the two of you. Argue it out and agree on a single answer.</p></li>
+        </ul>
+        <div class="note"><strong>Based on the Cambridge B2 First (FCE) Speaking paper</strong>, with Cambridge's own marking criteria. Part 1 is their Interview, Part 2 their Long turn, Part 3 their Collaborative task.</div>
+      </section>
+
+      <section>
+        <h2>The <span class="hi">clock</span></h2>
+        <p class="lede">Use the time you are given. If you pass the time, you will be interrupted. On the other hand, stopping too early makes you lose marks.</p>
+        <ul class="timing">
+          <li><span class="what">Name and age, for the recording</span><span class="when">10s</span></li>
+          <li><span class="what">Part 1 — personal questions</span><span class="when">~1 min</span></li>
+          <li><span class="what">Part 2 — reading each question</span><span class="when">15s</span></li>
+          <li><span class="what">Part 2 — answering and defending</span><span class="when">45s</span></li>
+          <li><span class="what">Part 2 — arguing against your partner</span><span class="when">25–30s</span></li>
+          <li><span class="what">Part 3 — the question, discussed together</span><span class="when">80–90s</span></li>
+        </ul>
+        <div class="note"><strong>Groups of three:</strong> one question each, and the student who argues against rotates. Your Part 3 question has three options — one each to start, then agree on one.</div>
+      </section>
+
+      <section>
+        <h3>Everything else</h3>
+        <div class="grid" id="grid"></div>
+      </section>
+    </div>
+
+    <!-- ══════════ EXPECTED + LANGUAGE ══════════ -->
+    <div class="panel" id="p-language" hidden>
+      <section>
+        <h2>What is <span class="hi">expected</span></h2>
+        <p class="lede">What earns marks in each part — and the language that earns them.</p>
+        <ul class="parts">
+          <li class="part paper"><span class="n">1</span><span class="h">Part 1</span><p class="b">Never a one-word answer. Always a reason or an example.</p></li>
+          <li class="part paper"><span class="n">2</span><span class="h">Part 2 — answering</span><p class="b">Answer the question clearly, give two reasons, and use something that happens in the book as evidence. You do not have to believe it, either side can get full marks.</p></li>
+          <li class="part paper"><span class="n">2</span><span class="h">Part 2 — arguing against</span><p class="b">Take the opposite side, politely. One good counter-argument, not three weak ones.</p></li>
+          <li class="part paper"><span class="n">3</span><span class="h">Part 3</span><p class="b">Talk to each other. Ninety seconds is room for about six turns (two or three arguments from each of you) and then the final decision. Consider more than one option before you decide. <b>Two separate opinions with no agreement does not complete the task.</b></p></li>
+        </ul>
+        <div class="split">
+          <div class="col paper plus"><h4>Gains marks</h4><p>Using the useful language, disagreeing politely, correcting yourself, asking your partner what they think, naming something from the book.</p></div>
+          <div class="col paper minus"><h4>Loses marks</h4><p>Reciting a memorised text, one-word answers, letting your partner do the work, speaking Portuguese, reading from a paper. <b>The book stays closed.</b></p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Useful <span class="hi">language</span></h2>
+        <p class="lede">This is what you are marked on. Learn a few from each box and use them.</p>
+
+        <h3>Part 1</h3>
+        <div class="lang" data-lang="p1">
+          <div class="row paper"><p class="fn">Extending your answer</p><p class="ex">Yes, definitely — in fact, I'd go as far as to say…<i>/</i>Not really, no. The thing is…<i>/</i>It depends, actually. If…, then…<i>/</i>I suppose so, although I've never really thought about it.</p></div>
+        </div>
+
+        <h3>Part 2 — answering</h3>
+        <div class="lang" data-lang="p2">
+          <div class="row paper"><p class="fn">Taking a position</p><p class="ex">I'd argue that…<i>/</i>To a large extent, yes — though not entirely.<i>/</i>There's a strong case for saying…<i>/</i>I'm inclined to think…</p></div>
+          <div class="row paper"><p class="fn">Conceding, then pushing back</p><p class="ex">Admittedly…, but that doesn't change the fact that…<i>/</i>While it's true that…, I'd still argue…<i>/</i>Even if…, the point remains that…</p></div>
+          <div class="row paper"><p class="fn">Using the book as evidence</p><p class="ex">This comes across most clearly when…<i>/</i>You only have to look at the banquet scene…<i>/</i>What really stands out is…<i>/</i>That's exactly what happens when…</p></div>
+          <div class="row paper"><p class="fn">Speculating</p><p class="ex">He might well have…<i>/</i>She must have known…<i>/</i>It's quite possible that…<i>/</i>By then, I'd imagine…</p></div>
+        </div>
+
+        <h3>Part 2 — arguing against</h3>
+        <div class="lang" data-lang="p2">
+          <div class="row paper"><p class="fn">Disagreeing politely <span>— never “You're wrong”</span></p><p class="ex">I see your point, but I'd put it differently.<i>/</i>That's true up to a point, although…<i>/</i>I take your point, and yet…<i>/</i>I'm not entirely convinced, because…<i>/</i>That's one way of looking at it, but…</p></div>
+        </div>
+
+        <h3>Part 3</h3>
+        <div class="lang" data-lang="p3">
+          <div class="row paper"><p class="fn">Bringing your partner in</p><p class="ex">What do you make of that?<i>/</i>Where do you stand on this?<i>/</i>Would you go along with that?</p></div>
+          <div class="row paper"><p class="fn">Partly agreeing</p><p class="ex">I'd go along with that, up to a point.<i>/</i>There's something in that, although…<i>/</i>Fair enough — but only if…</p></div>
+          <div class="row paper"><p class="fn">Reaching the decision <span>— you must finish with one</span></p><p class="ex">So, shall we go with…?<i>/</i>Let's settle on…<i>/</i>Can we agree on that?<i>/</i>Right, so our final answer is…<i>/</i>Why don't we meet in the middle?</p></div>
+        </div>
+
+        <h3>Any part</h3>
+        <div class="lang" data-lang="any">
+          <div class="row paper"><p class="fn">Can't find the word</p><p class="ex">It's a kind of…<i>/</i>I don't know the word, but it's when you…</p></div>
+          <div class="row paper"><p class="fn">Need a second</p><p class="ex">That's a tricky one.<i>/</i>Let me think for a second.<i>/</i>How can I put this…</p></div>
+          <div class="row paper"><p class="fn">Correcting yourself <span>— gains marks</span></p><p class="ex">Sorry, what I meant was…<i>/</i>Let me rephrase that.<i>/</i>Or rather…</p></div>
+          <div class="row paper"><p class="fn">Didn't understand</p><p class="ex">Sorry, could you repeat that?<i>/</i>Do you mean…?</p></div>
+        </div>
+
+        <h3>Stretch language — for the B2 exam</h3>
+        <p class="lede" style="margin-bottom:14px">These structures are what separate a good answer from a Band 3 one. Two or three of them, used well, do more for your mark than a whole list half-remembered.</p>
+        <div class="lang">
+          <div class="row paper"><p class="fn">Cleft sentences <span>— put the emphasis where you want it</span></p><p class="ex">What really destroys him is his imagination, not his ambition.<i>/</i>It's Lady Macbeth who pushes him, but it's Macbeth who decides.<i>/</i>What I find hardest to accept is…</p></div>
+          <div class="row paper"><p class="fn">The past that never happened</p><p class="ex">Had he stopped after Duncan, he might have survived.<i>/</i>He needn't have killed Banquo at all.<i>/</i>She can't have expected him to go that far.</p></div>
+          <div class="row paper"><p class="fn">Hedging <span>— measured, not vague</span></p><p class="ex">He tends to act first and think afterwards.<i>/</i>Arguably, the witches are the least guilty of the three.<i>/</i>On balance, I'd say…<i>/</i>To some extent, yes — but only to some extent.</p></div>
+          <div class="row paper"><p class="fn">Two ideas in one sentence</p><p class="ex">Having killed Duncan, he can't stop.<i>/</i>Terrified by the prophecy, he kills again.<i>/</i>Left alone, she falls apart.</p></div>
+          <div class="row paper"><p class="fn">Linking the argument</p><p class="ex">Having said that…<i>/</i>That said, there's another way of seeing it.<i>/</i>What's more…<i>/</i>Whereas Macbeth hesitates, his wife never does.</p></div>
+          <div class="row paper"><p class="fn">Reporting what they say</p><p class="ex">He claims that…<i>/</i>She insists that…<i>/</i>He admits that…<i>/</i>The witches never actually promise anything.</p></div>
+          <div class="row paper"><p class="fn">Emphasis</p><p class="ex">It's precisely because he is brave that…<i>/</i>Not only does he kill Duncan, he kills the guards too.</p></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ CHARACTERS + MOMENTS ══════════ -->
+    <div class="panel" id="p-characters" hidden>
+      <section>
+        <h2>Who's <span class="hi">who</span></h2>
+        <p class="lede">The nine people you need to be able to name and place.</p>
+        <figure class="chars">
+          <img src="characters.jpg" alt="Chart of the main characters in Macbeth — Macbeth, Lady Macbeth, King Duncan, Banquo, Fleance, Macduff, Lady Macduff, Malcolm and the three witches — each with a portrait and a one-line description." width="1536" height="1024">
+        </figure>
+      </section>
+
+      <section>
+        <h2>Moments from <span class="hi">the book</span></h2>
+        <p class="lede">Evidence you can use in Part 2. Each one can be read more than one way.</p>
+
+        <div class="moment">
+          <p class="who">Lady Macbeth reads the letter <span class="pg">p. 24</span></p>
+          <blockquote>“You are ambitious, but not bold enough / To do what must be done.”</blockquote>
+          <p class="ask">Is she pushing him, or saying out loud what he already wants?</p>
+        </div>
+        <div class="moment">
+          <p class="who">Macbeth hesitates <span class="pg">p. 29</span></p>
+          <blockquote>“King Duncan trusts me… I am his host. / I should protect him, keep him from all harm. … Ambition is my only spur and that may be my downfall.”</blockquote>
+          <p class="ask">He lists every reason not to do it — and does it anyway.</p>
+        </div>
+        <div class="moment">
+          <p class="who">She calls him a coward <span class="pg">p. 30</span></p>
+          <blockquote>“Are you a coward after all, afraid to act? / I cannot and I will not love a coward.”</blockquote>
+          <p class="ask">That word is what changes his mind.</p>
+        </div>
+        <div class="moment">
+          <p class="who">The point of no return <span class="pg">p. 60</span></p>
+          <blockquote>“I'm in so far that going back / Would be as difficult as going on.”</blockquote>
+          <p class="ask">A man who cannot stop, or one who has chosen not to?</p>
+        </div>
+        <div class="moment">
+          <p class="who">Lady Macbeth sleepwalking <span class="pg">pp. 77–79</span></p>
+          <blockquote>“The blood's still on my hands. I can smell it! … What's done cannot be undone.”</blockquote>
+          <p class="ask">She said a little water would clean their hands.</p>
+        </div>
+
+        <h3>Also worth thinking about</h3>
+        <p class="lede" style="margin-bottom:6px">From <i>Points for Understanding</i>, no single right answer:</p>
+        <ol class="qs paper plain">
+          <li>Did Lady Macbeth really faint, or was she acting? <span class="dim">(Act 2, q. 6)</span></li>
+          <li>Would you put a real actor on stage as Banquo's ghost? <span class="dim">(Act 3, q. 5)</span></li>
+          <li>Why did Macduff leave his family unprotected? <span class="dim">(Act 4, q. 7)</span></li>
+        </ol>
+      </section>
+    </div>
+
+    <!-- ══════════ PART 1 ══════════ -->
+    <div class="panel" id="p-part-1" hidden>
+      <section>
+        <h2>Part 1 <span class="hi">questions</span></h2>
+        <p class="lede">Chosen at random on the day, from both lists.</p>
+        <h3>Everyday questions</h3>
+        <ol class="qs paper" data-bank="p1a">
+          <li>Where do you live? What do you like about it?</li>
+          <li>Tell me about your family.</li>
+          <li>What do you usually do at the weekend?</li>
+          <li>Do you prefer studying in the morning or in the evening? Why?</li>
+          <li>What's your favourite subject at school? Why?</li>
+          <li>Do you play any sport? How often?</li>
+          <li>What kind of music do you listen to?</li>
+          <li>Tell me about a film or series you enjoyed recently.</li>
+          <li>How do you usually get to school?</li>
+          <li>What did you do on your last holiday?</li>
+          <li>Do you spend much time on your phone? Doing what?</li>
+          <li>Is there a job you'd like to do in the future?</li>
+          <li>Who do you spend most of your free time with?</li>
+          <li>What do you usually have for breakfast?</li>
+        </ol>
+        <div class="bank">
+          <h3>Questions connected to the play</h3>
+          <ol class="qs paper" data-bank="p1b" style="counter-reset:q 14">
+            <li>Do you usually make decisions quickly, or do you take your time?</li>
+            <li>Who do you ask for advice when you have a difficult decision?</li>
+            <li>What's something you'd really like to achieve in the next few years?</li>
+            <li>Have you ever done something just because your friends were doing it?</li>
+            <li>Do you work better under pressure or when you're relaxed?</li>
+            <li>Have you ever changed your mind about something important?</li>
+            <li>What's the bravest thing you've ever done?</li>
+            <li>Are you superstitious about anything?</li>
+            <li>Are you good at keeping secrets?</li>
+            <li>Is there something you'd like to be braver about?</li>
+            <li>Do you believe in luck?</li>
+            <li>Have you ever regretted something you said?</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ PART 2 ══════════ -->
+    <div class="panel" id="p-part-2" hidden>
+      <section>
+        <h2>Part 2 <span class="hi">questions</span></h2>
+        <p class="lede">Two of these per pair, at random. Prepare all of them: for each, <b>two reasons for yes and two for no</b>. You will not know which side you get.</p>
+
+        <h3>Guilt and responsibility</h3>
+        <ol class="qs paper" data-bank="p2">
+          <li>Is Lady Macbeth more guilty than her husband?</li>
+          <li>Is Macbeth a victim of the people around him?</li>
+          <li>Was killing Banquo worse than killing Duncan?</li>
+          <li>Is anyone in this play completely innocent?</li>
+        </ol>
+        <h3>The witches and the future</h3>
+        <ol class="qs paper" data-bank="p2" style="counter-reset:q 4">
+          <li>Did the witches force Macbeth to do anything?</li>
+          <li>Did the prophecy come true only because Macbeth believed it?</li>
+          <li>Can the witches be trusted?</li>
+        </ol>
+        <h3>Courage and fear</h3>
+        <ol class="qs paper" data-bank="p2" style="counter-reset:q 7">
+          <li>Was Macbeth a brave man?</li>
+          <li>At the end, does Macbeth kill out of fear or out of ambition?</li>
+          <li>Could Macbeth have stopped after killing Duncan?</li>
+        </ol>
+        <h3>Women and power</h3>
+        <ol class="qs paper" data-bank="p2" style="counter-reset:q 10">
+          <li>Would Lady Macbeth be judged the same way if she were a man?</li>
+          <li>Does Lady Macbeth lose her power when Macbeth becomes king?</li>
+          <li>Is Lady Macbeth the strongest character in the play?</li>
+        </ol>
+        <h3>Kings and leaders</h3>
+        <ol class="qs paper" data-bank="p2" style="counter-reset:q 13">
+          <li>Should Macduff be the king after killing Macbeth?</li>
+          <li>Was Duncan a good king?</li>
+          <li>Does a great soldier make a good king?</li>
+        </ol>
+        <h3>Choices and consequences</h3>
+        <ol class="qs paper" data-bank="p2" style="counter-reset:q 16">
+          <li>Would Macbeth have been a good king if he had never killed Banquo?</li>
+          <li>Was telling his wife about the prophecy Macbeth's real mistake?</li>
+        </ol>
+      </section>
+    </div>
+
+    <!-- ══════════ PART 3 ══════════ -->
+    <div class="panel" id="p-part-3" hidden>
+      <section>
+        <h2>Part 3 <span class="hi">questions</span></h2>
+        <p class="lede"><b>Agree on a single answer</b> — not two separate opinions.</p>
+        <ol class="qs paper" data-bank="p3">
+          <li>Who is most responsible for Duncan's death — Macbeth, Lady Macbeth, or the witches? Choose one.</li>
+          <li>Who suffers the most in this play? Choose one person.</li>
+          <li>Which is more dangerous: ambition or fear?</li>
+          <li>Which is worse: killing a friend or killing a king?</li>
+          <li>Lady Macbeth is on trial. Guilty or not guilty? Agree on one verdict.</li>
+          <li>Should Lady Macbeth be punished more or less than her husband?</li>
+          <li>Which moment changes everything in the play? Agree on one scene.</li>
+          <li>Was there any moment when Macbeth could still have saved himself?</li>
+          <li>If Macbeth had never met the witches, would he still have become king?</li>
+          <li>Do the witches change the future, or do they only describe it?</li>
+          <li>Your school is staging <i>Macbeth</i>. Which single scene must be included?</li>
+          <li>Which character would be the hardest to play? Choose one.</li>
+          <li>Is Macbeth a villain or a victim? You must choose one word.</li>
+          <li>Would you feel sorry for him at the end? Agree on one answer.</li>
+          <li>What is the most important lesson of this play? Agree on one.</li>
+          <li>Is this story still relevant today? Agree on one answer.</li>
+          <li>Who is the most intelligent character in the play? Choose one.</li>
+          <li>Who makes the worst decision in the play? Choose one.</li>
+        </ol>
+        <div class="bank">
+          <h3>Groups of three</h3>
+          <p class="lede" style="margin-bottom:6px">Three options, one each to start, then agree on one.</p>
+          <ol class="qs paper">
+            <li>Who is most responsible for Duncan's death — Macbeth, Lady Macbeth, or the witches?</li>
+            <li>What does the most damage in this play — ambition, fear, or pride?</li>
+            <li>Who is the most tragic character — Macbeth, Lady Macbeth, or Lady Macduff?</li>
+            <li>Which murder costs Macbeth the most — Duncan, Banquo, or Macduff's family?</li>
+            <li>Who could have stopped all of this — Macbeth, Lady Macbeth, or Banquo?</li>
+            <li>Who is the most intelligent character — Lady Macbeth, Macduff, or the witches?</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ MARKING ══════════ -->
+    <div class="panel" id="p-marking" hidden>
+      <section>
+        <h2>How it's <span class="hi">marked</span></h2>
+        <div class="scoreline">
+          <span class="big">15</span>
+          <span class="cap">points in total. Five criteria, 3 points each, marked individually. Half points possible — the bands between.</span>
+        </div>
+        <div class="tscroll paper">
+          <table class="scale">
+            <thead>
+              <tr>
+                <th class="band" scope="col">Band</th>
+                <th scope="col">Grammar and Vocabulary</th>
+                <th scope="col">Discourse Management</th>
+                <th scope="col">Pronunciation</th>
+                <th scope="col">Interactive Communication</th>
+                <th scope="col">Content and evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="band" scope="row">3</th>
+                <td>Accurate use of the grammar and vocabulary studied.</td>
+                <td>Ideas organised and developed; little hesitation.</td>
+                <td>Easy to understand; good word stress.</td>
+                <td>Starts, responds, disagrees, helps reach the decision.</td>
+                <td>Argument based on what happens in the book.</td>
+              </tr>
+              <tr class="between">
+                <th class="band" scope="row">2.5</th>
+                <td colspan="5">Performance shares features of Bands 2 and 3.</td>
+              </tr>
+              <tr>
+                <th class="band" scope="row">2</th>
+                <td>Some slips, meaning clear.</td>
+                <td>Developed with effort; some repetition.</td>
+                <td>Clear most of the time.</td>
+                <td>Takes part, but mostly reacts — or does all the talking.</td>
+                <td>General, little evidence.</td>
+              </tr>
+              <tr class="between">
+                <th class="band" scope="row">1.5</th>
+                <td colspan="5">Performance shares features of Bands 1 and 2.</td>
+              </tr>
+              <tr>
+                <th class="band" scope="row">1</th>
+                <td>Limited; mistakes get in the way.</td>
+                <td>Very short answers; loses the thread.</td>
+                <td>Hard to follow.</td>
+                <td>Needs the partner to keep the conversation going.</td>
+                <td>No sign of having read it.</td>
+              </tr>
+              <tr class="zero">
+                <th class="band" scope="row">0</th>
+                <td colspan="5">Nothing to assess, or the task was not attempted.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note"><strong>The three things that lift your mark most:</strong> add a reason or an example every time; paraphrase instead of stopping; disagree politely at least once in Part 3.</div>
+      </section>
+    </div>
+
+    <!-- ══════════ PREPARE ══════════ -->
+    <div class="panel" id="p-prepare" hidden>
+      <section>
+        <h2>How to <span class="hi">prepare</span></h2>
+        <p class="lede">Four things, in this order.</p>
+        <ol class="qs paper">
+          <li>For each of the 18 questions, find one thing in the book that supports a yes and one that supports a no.</li>
+          <li>Decide what you think about the Part 3 questions — and be ready to change your mind.</li>
+          <li>Learn five expressions from the useful language.</li>
+          <li>Practise out loud with a timer. Forty-five seconds is the hard part.</li>
+        </ol>
+        <div class="note">You will not know which question you get, which side you have to take, or who your partner is. The only preparation that works is preparing all of them.</div>
+        <div style="margin-top:28px">
+          <button class="btn" type="button" data-go="practise">Practise here</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════ PRACTISE ══════════ -->
+    <div class="panel" id="p-practise" hidden>
+      <section>
+        <h2>Practise <span class="hi">here</span></h2>
+        <p class="lede">A full run, timed like the real thing. Questions are drawn at random — speak out loud until the clock stops.</p>
+
+        <div class="prbox">
+          <div class="prsteps" id="pr-steps"></div>
+
+          <div id="pr-intro">
+            <p class="prprompt">Ready?</p>
+            <p class="prhint">You will get one Part 1 question from each list, one Part 2 question, and one Part 3 question. Nothing is saved — run it as many times as you like.</p>
+            <div class="practs" style="margin-top:24px">
+              <button class="btn" type="button" id="pr-begin">Start</button>
+            </div>
+          </div>
+
+          <div id="pr-run" hidden>
+            <p class="prtask" id="pr-task"></p>
+            <div id="pr-prompt"></div>
+            <p class="prhint" id="pr-hint"></p>
+            <div class="prclock" id="pr-clock">0:00</div>
+            <div class="prbar"><span id="pr-fill"></span></div>
+            <div class="practs">
+              <button class="btn" type="button" id="pr-go">Start</button>
+              <button class="btn ghost" type="button" id="pr-next" hidden>Next</button>
+              <button class="btn ghost" type="button" id="pr-quit">Stop</button>
+            </div>
+            <div class="prlang" id="pr-lang" hidden></div>
+          </div>
+
+          <div id="pr-done" hidden>
+            <p class="prdone">Run complete</p>
+            <p class="prhint">Five minutes is shorter than it looks. Do it again with a different draw — and next time, count how many times you used the useful language.</p>
+            <div class="practs" style="margin-top:24px">
+              <button class="btn" type="button" id="pr-again">Run again</button>
+              <button class="btn ghost" type="button" data-go="language">Useful language</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>Speaking Test — Macbeth · Macmillan Readers edition, retold by Margaret Tarner</footer>
+  </div>
+</main>
+
+<script>
+(function(){
+  /* ───── sections ───── */
+  var S = [
+    {id:"home",       tab:"Format & Timing", t:"Format & Timing",      d:"How the test runs and how long each stage lasts."},
+    {id:"language",   tab:"What's expected", t:"What's expected",      d:"What earns marks, plus all the useful language."},
+    {id:"characters", tab:"Who's who",       t:"Who's who & the book", d:"The characters, and five moments worth quoting."},
+    {id:"part-1",     tab:"Part 1",          t:"Part 1 questions",     d:"All 26 possible personal questions."},
+    {id:"part-2",     tab:"Part 2",          t:"Part 2 questions",     d:"All 18 questions you might have to answer."},
+    {id:"part-3",     tab:"Part 3",          t:"Part 3 questions",     d:"Every question you might have to agree on."},
+    {id:"marking",    tab:"Marking",         t:"How it's marked",      d:"The five criteria and what each score means."},
+    {id:"prepare",    tab:"Prepare",         t:"How to prepare",       d:"Four steps before the day."},
+    {id:"practise",   tab:"Practise",        t:"Practise here",        d:"A timed run with random questions."}
+  ];
+  var tabs = document.getElementById("tabs"), grid = document.getElementById("grid");
+
+  S.forEach(function(s, i){
+    var b = document.createElement("button");
+    b.className = "tab"; b.type = "button"; b.textContent = s.tab; b.dataset.target = s.id;
+    b.addEventListener("click", function(){ go(s.id, true); });
+    tabs.appendChild(b);
+    if (s.id !== "home") {
+      var c = document.createElement("button");
+      c.className = "card"; c.type = "button";
+      c.innerHTML = '<span class="idx"></span><span class="t"></span><span class="d"></span>';
+      c.querySelector(".idx").textContent = String(i).padStart(2, "0");
+      c.querySelector(".t").textContent = s.t;
+      c.querySelector(".d").textContent = s.d;
+      c.addEventListener("click", function(){ go(s.id, true); });
+      grid.appendChild(c);
+    }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-go]"), function(el){
+    el.addEventListener("click", function(){ go(el.dataset.go, true); });
+  });
+
+  function go(id, push){
+    var hit = S.filter(function(s){ return s.id === id; })[0] || S[0];
+    S.forEach(function(s){
+      var p = document.getElementById("p-" + s.id);
+      if (p) p.hidden = (s.id !== hit.id);
+    });
+    Array.prototype.forEach.call(tabs.children, function(b){
+      b.setAttribute("aria-current", b.dataset.target === hit.id ? "true" : "false");
+    });
+    if (hit.id !== "practise") reset();
+    if (push) {
+      try { history.replaceState(null, "", "#" + hit.id); } catch(e){ location.hash = hit.id; }
+      var bar = document.querySelector("nav.bar");
+      if (bar) window.scrollTo(0, Math.max(0, bar.offsetTop - 1));
+    }
+    var on = tabs.querySelector('[aria-current="true"]');
+    if (on && on.scrollIntoView) on.scrollIntoView({block:"nearest", inline:"nearest"});
+  }
+
+  function fromHash(){
+    var h = (location.hash || "").replace(/^#/, "");
+    go(S.some(function(s){ return s.id === h; }) ? h : "home", false);
+  }
+  window.addEventListener("hashchange", fromHash);
+
+  /* ───── practise ───── */
+  function bank(name){
+    var out = [];
+    Array.prototype.forEach.call(document.querySelectorAll('[data-bank="' + name + '"] li'), function(li){
+      out.push(li.textContent.trim());
+    });
+    return out;
+  }
+  function pick(a){ return a.length ? a[Math.floor(Math.random() * a.length)] : ""; }
+  function langFor(key){
+    var frag = document.createDocumentFragment();
+    Array.prototype.forEach.call(document.querySelectorAll('[data-lang="' + key + '"], [data-lang="any"]'), function(block){
+      var c = block.cloneNode(true);
+      c.removeAttribute("data-lang");
+      c.style.marginTop = "12px";
+      frag.appendChild(c);
+    });
+    return frag;
+  }
+
+  var STEPS = [
+    {key:"p1", label:"Part 1", task:"Part 1 — Interview",
+     hint:"Answer both out loud. Never one word — always a reason or an example.", secs:50, lang:null},
+    {key:"p2", label:"Part 2", task:"Part 2 — Answer and defend",
+     hint:"Take 15 seconds to choose your answer, then press start. Say yes or no clearly, give two reasons, use evidence from the book.", secs:45, lang:"p2"},
+    {key:"p3", label:"Part 3", task:"Part 3 — Decide together",
+     hint:"With a partner if you have one. Argue it out, then agree on one answer before the clock stops.", secs:90, lang:"p3"}
+  ];
+
+  var elSteps = document.getElementById("pr-steps"), elIntro = document.getElementById("pr-intro"),
+      elRun = document.getElementById("pr-run"), elDone = document.getElementById("pr-done"),
+      elTask = document.getElementById("pr-task"), elPrompt = document.getElementById("pr-prompt"),
+      elHint = document.getElementById("pr-hint"), elClock = document.getElementById("pr-clock"),
+      elFill = document.getElementById("pr-fill"), elGo = document.getElementById("pr-go"),
+      elNext = document.getElementById("pr-next"), elLang = document.getElementById("pr-lang");
+  var at = -1, tick = null, left = 0, total = 0;
+
+  STEPS.forEach(function(s, i){
+    var p = document.createElement("button");
+    p.type = "button"; p.className = "prstep"; p.textContent = s.label; p.dataset.on = "off";
+    p.addEventListener("click", function(){
+      stopTick();
+      elIntro.hidden = true; elDone.hidden = true; elRun.hidden = false;
+      load(i);
+    });
+    elSteps.appendChild(p);
+  });
+
+  function paintSteps(){
+    Array.prototype.forEach.call(elSteps.children, function(el, i){
+      el.dataset.on = i < at ? "done" : (i === at ? "now" : "off");
+    });
+  }
+  function fmt(s){ return Math.floor(s/60) + ":" + String(s % 60).padStart(2, "0"); }
+  function paintClock(){
+    elClock.textContent = fmt(left);
+    elClock.dataset.low = (left <= 10 && left > 0) ? "true" : "false";
+    elFill.style.transform = "scaleX(" + (total ? left/total : 1) + ")";
+  }
+  function stopTick(){ if (tick) { clearInterval(tick); tick = null; } }
+
+  function load(i){
+    at = i; paintSteps();
+    var s = STEPS[i];
+    elTask.textContent = s.task;
+    elHint.textContent = s.hint;
+    elPrompt.innerHTML = "";
+    if (s.key === "p1") {
+      [pick(bank("p1a")), pick(bank("p1b"))].forEach(function(q){
+        var p = document.createElement("p"); p.className = "prprompt"; p.textContent = q;
+        elPrompt.appendChild(p);
+      });
+    } else {
+      var p = document.createElement("p"); p.className = "prprompt";
+      p.textContent = pick(bank(s.key)); elPrompt.appendChild(p);
+    }
+    elLang.innerHTML = "";
+    if (s.lang) { elLang.appendChild(langFor(s.lang)); elLang.hidden = false; }
+    else { elLang.hidden = true; }
+    total = s.secs; left = s.secs; paintClock();
+    elGo.hidden = false; elGo.disabled = false; elGo.textContent = "Start " + s.secs + "s";
+    elNext.hidden = true;
+  }
+
+  function run(){
+    elGo.disabled = true; elGo.textContent = "Speaking…";
+    stopTick();
+    tick = setInterval(function(){
+      left--; paintClock();
+      if (left <= 0) {
+        stopTick(); elGo.hidden = true;
+        elNext.hidden = false;
+        elNext.textContent = at < STEPS.length - 1 ? "Next: " + STEPS[at+1].label : "Finish";
+        elNext.focus();
+      }
+    }, 1000);
+  }
+
+  function reset(){
+    stopTick(); at = -1; paintSteps();
+    elIntro.hidden = false; elRun.hidden = true; elDone.hidden = true;
+  }
+
+  document.getElementById("pr-begin").addEventListener("click", function(){
+    elIntro.hidden = true; elDone.hidden = true; elRun.hidden = false; load(0);
+  });
+  elGo.addEventListener("click", run);
+  elNext.addEventListener("click", function(){
+    if (at < STEPS.length - 1) { load(at + 1); }
+    else { stopTick(); elRun.hidden = true; elDone.hidden = false; at = STEPS.length; paintSteps(); }
+  });
+  document.getElementById("pr-quit").addEventListener("click", reset);
+  document.getElementById("pr-again").addEventListener("click", function(){
+    elDone.hidden = true; elRun.hidden = false; load(0);
+  });
+
+  fromHash();
+})();
+</script>
+
+</body>
+</html>
