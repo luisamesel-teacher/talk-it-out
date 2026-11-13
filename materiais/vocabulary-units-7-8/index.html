@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#EEEDFE">
+<title>Units 7 &amp; 8 vocabulary &middot; Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489;
+  --primaria-clara:#7F77DD;
+  --lilas:#EEEDFE;
+  --lilas-forte:#CECBF6;
+  --texto-lilas:#534AB7;
+  --rosa:#FBEAF0;
+  --texto-rosa:#993556;
+  --ambar:#FAEEDA;
+  --texto-ambar:#854F0B;
+  --neutro:#F1EFE8;
+  --texto:#2C2C2A;
+  --texto-2:#5F5E5A;
+  --acerto:#3B6D11;
+  --entalhe:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:var(--lilas);
+  font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--texto);
+  display:flex;flex-direction:column;overflow:hidden;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+#app{flex:1;display:flex;flex-direction:column;min-height:0;max-width:620px;width:100%;margin:0 auto;padding:14px 16px 16px}
+
+/* ---- topo ---- */
+header{flex:none}
+.voltar{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:600;
+  color:var(--texto-lilas);text-decoration:none;margin-bottom:9px;opacity:.85}
+.marca{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.b1,.b2{border-radius:5px;display:inline-block;width:22px;height:16px}
+.b1{background:var(--lilas-forte)}
+.b2{background:var(--primaria);margin-left:-6px}
+.nome{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;color:var(--primaria)}
+.assin{font-size:12px;color:var(--texto-2);margin-left:auto}
+
+.abas{display:flex;gap:0;background:rgba(255,255,255,.62);border-radius:22px;padding:4px;margin-bottom:10px}
+.abas button{flex:1;border:none;border-radius:18px;padding:10px 6px;cursor:pointer;background:transparent;
+  font-family:Inter,sans-serif;font-size:14px;font-weight:700;color:var(--texto-lilas);transition:background .15s,color .15s}
+.abas button.on{background:var(--primaria);color:#fff}
+
+.filtros{display:flex;gap:7px;margin-bottom:11px}
+.filtros button{flex:1;border:none;border-radius:20px;padding:9px 6px;cursor:pointer;
+  font-family:Inter,sans-serif;font-size:13px;font-weight:600;
+  background:rgba(255,255,255,.72);color:var(--texto-lilas);transition:background .15s,color .15s}
+.filtros button.on{background:var(--lilas-forte);color:var(--primaria)}
+
+.barra-fora{height:5px;background:rgba(60,52,137,.14);border-radius:3px;overflow:hidden}
+.barra-dentro{height:100%;width:0;background:var(--primaria);border-radius:3px;transition:width .25s}
+.conta{display:flex;justify-content:space-between;align-items:baseline;margin-top:7px;
+  font-family:Inter,sans-serif;font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--texto-2)}
+.conta .rever{color:var(--texto-rosa)}
+
+/* ---- modo cartas ---- */
+#modo-cartas{flex:1;display:flex;flex-direction:column;min-height:0}
+#palco{flex:1;display:flex;align-items:stretch;min-height:0;margin:12px 0}
+.carta{flex:1;background:#fff;border-radius:16px;cursor:pointer;
+  display:flex;flex-direction:column;padding:26px 24px;min-height:0;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%);
+  box-shadow:0 2px 10px rgba(60,52,137,.07)}
+.carta .lado{display:none;flex-direction:column;justify-content:center;flex:1;min-height:0;overflow:auto}
+.carta .lado.visivel{display:flex}
+.unidade{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.09em;
+  color:var(--texto-ambar);margin-bottom:14px;flex:none}
+.palavra{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:40px;line-height:1.1;color:var(--primaria)}
+.meio{flex:1;display:flex;align-items:center;min-height:0}
+.dica{font-size:15px;color:var(--texto-2);padding-top:16px;flex:none}
+.sentido{font-size:25px;font-weight:600;line-height:1.3;color:var(--texto)}
+.frase{background:var(--ambar);border-radius:10px;padding:13px 15px;margin-top:16px;
+  font-size:17px;line-height:1.4;color:var(--texto);flex:none;
+  clip-path:polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%)}
+.frase b{font-weight:700;color:var(--texto-ambar)}
+.frase .rot{display:block;font-family:Inter,sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.09em;color:var(--texto-ambar);margin-bottom:5px}
+
+.acoes{flex:none;display:flex;gap:9px}
+.acoes button{flex:1;border:none;border-radius:13px;padding:15px 8px;cursor:pointer;
+  font-family:Inter,sans-serif;font-size:15px;font-weight:700;transition:transform .08s}
+.acoes button:active{transform:scale(.97)}
+.de-novo{background:var(--rosa);color:var(--texto-rosa)}
+.sei{background:var(--primaria);color:#fff}
+.virar{background:#fff;color:var(--primaria);box-shadow:0 2px 8px rgba(60,52,137,.08)}
+.linha-extra{flex:none;display:flex;gap:9px;margin-top:9px}
+.linha-extra button{flex:1;border:none;border-radius:11px;padding:11px 8px;cursor:pointer;
+  background:rgba(255,255,255,.72);font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--texto-lilas)}
+
+#fim{flex:1;display:none;flex-direction:column;justify-content:center}
+#fim.visivel{display:flex}
+#fim h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;line-height:1.15;color:var(--primaria);margin-bottom:12px}
+#fim p{font-size:19px;line-height:1.45;color:var(--texto-2);margin-bottom:26px}
+#fim .botoes{display:flex;flex-direction:column;gap:10px}
+#fim button{border:none;border-radius:13px;padding:16px;cursor:pointer;
+  font-family:Inter,sans-serif;font-size:16px;font-weight:700}
+#fim .rever-btn{background:var(--texto-rosa);color:#fff}
+#fim .tudo-btn{background:#fff;color:var(--primaria)}
+
+/* ---- modo lista ---- */
+#modo-lista{flex:1;display:none;flex-direction:column;min-height:0}
+#modo-lista.visivel{display:flex}
+.topo-lista{flex:none;display:flex;gap:9px;margin:10px 0 12px}
+.topo-lista button{flex:1;border:none;border-radius:11px;padding:11px 8px;cursor:pointer;
+  background:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:700;color:var(--primaria)}
+#rolagem{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.grupo{font-family:Inter,sans-serif;font-size:11px;font-weight:700;letter-spacing:.09em;
+  color:var(--texto-ambar);margin:4px 0 9px;padding-left:2px}
+.grupo:not(:first-child){margin-top:20px}
+.item{background:#fff;border-radius:11px;margin-bottom:8px;cursor:pointer;overflow:hidden;
+  clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)}
+.item .cabeca{display:flex;align-items:center;gap:10px;padding:14px 16px}
+.item .termo{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:21px;color:var(--primaria);line-height:1.2}
+.item .mais{margin-left:auto;font-family:Inter,sans-serif;font-size:19px;font-weight:700;color:var(--lilas-forte);
+  transition:transform .18s,color .18s;flex:none}
+.item.aberto .mais{transform:rotate(45deg);color:var(--primaria-clara)}
+.item .detalhe{display:none;padding:0 16px 15px}
+.item.aberto .detalhe{display:block}
+.item .sig{font-size:17px;line-height:1.4;color:var(--texto);font-weight:500}
+.item .ctx{background:var(--ambar);border-radius:9px;padding:10px 13px;margin-top:10px;font-size:15px;line-height:1.4;
+  clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)}
+.item .ctx b{font-weight:700;color:var(--texto-ambar)}
+
+@media (max-height:620px){
+  .palavra{font-size:32px}
+  .sentido{font-size:21px}
+  .frase{font-size:15px;padding:11px 13px}
+  .carta{padding:20px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <a class="voltar" href="../../">&larr; Materiais</a>
+    <div class="marca"><span class="b1"></span><span class="b2"></span><span class="nome">Talk It Out</span><span class="assin">by Luisa Mesel</span></div>
+    <div class="abas">
+      <button data-m="cartas" class="on">Flashcards</button>
+      <button data-m="lista">Word list</button>
+    </div>
+    <div class="filtros">
+      <button data-f="all" class="on">All 16</button>
+      <button data-f="7">Unit 7</button>
+      <button data-f="8">Unit 8</button>
+    </div>
+    <div id="progresso">
+      <div class="barra-fora"><div class="barra-dentro" id="barra"></div></div>
+      <div class="conta"><span id="posicao">1 / 16</span><span class="rever" id="pilha"></span></div>
+    </div>
+  </header>
+
+  <!-- ---- FLASHCARDS ---- -->
+  <div id="modo-cartas">
+    <div id="palco">
+      <div class="carta" id="carta">
+        <div class="lado visivel" id="frente">
+          <div class="unidade" id="uni">UNIT 7</div>
+          <div class="meio"><div class="palavra" id="palavra">word</div></div>
+          <div class="dica">Tap to see the meaning</div>
+        </div>
+        <div class="lado" id="verso">
+          <div class="unidade" id="uni2">UNIT 7</div>
+          <div class="sentido" id="sentido">meaning</div>
+          <div class="frase"><span class="rot">IN THE TEXT</span><span id="frase"></span></div>
+        </div>
+      </div>
+    </div>
+    <div id="fim">
+      <h2 id="fim-titulo">Round finished.</h2>
+      <p id="fim-texto"></p>
+      <div class="botoes">
+        <button class="rever-btn" id="rever-btn">Review the hard ones</button>
+        <button class="tudo-btn" id="tudo-btn">Start again from the top</button>
+      </div>
+    </div>
+    <div class="acoes" id="acoes"><button class="virar" id="btn-virar">Flip</button></div>
+    <div class="linha-extra" id="extra">
+      <button id="btn-voltar">Back</button>
+      <button id="btn-baralhar">Shuffle</button>
+    </div>
+  </div>
+
+  <!-- ---- LISTA ---- -->
+  <div id="modo-lista">
+    <div class="topo-lista">
+      <button id="btn-abrir">Open all</button>
+      <button id="btn-fechar">Close all</button>
+    </div>
+    <div id="rolagem"></div>
+  </div>
+
+</div>
+
+<script>
+const CARTAS=[
+ {u:7,p:"disrupted",s:"broke something up and threw it into disorder",f:"Globalization <b>disrupted</b> both international and domestic power structures."},
+ {u:7,p:"counter-reaction",s:"a strong reaction against something; a backlash",f:"The globalization <b>counter-reaction</b>."},
+ {u:7,p:"willingness",s:"being ready and prepared to do something",f:"the <b>willingness</b> of America to act as global policeman"},
+ {u:7,p:"eroded",s:"worn away slowly, little by little",f:"The ability to act as global policeman has been <b>eroded</b>."},
+ {u:7,p:"quarrels",s:"arguments, disputes",f:"imported the <b>quarrels</b> of other countries"},
+ {u:7,p:"shrink",s:"to get smaller",f:"They will cause trade to <b>shrink</b>."},
+ {u:7,p:"sluggish",s:"slow, with no energy",f:"For all the hype about new technology, productivity has been <b>sluggish</b>."},
+ {u:7,p:"omens",s:"signs of what is going to happen",f:"The <b>omens</b> are not great."},
+ {u:7,p:"grab",s:"to take something quickly, especially without the right to it",f:"Governments will appear to <b>grab</b> a larger share of global trade for their own countries."},
+ {u:7,p:"nativist",s:"favouring people born in the country over immigrants",f:"Voters rejected globalization and turned center-right parties more <b>nativist</b>."},
+ {u:7,p:"mortgage",s:"a loan you take to buy a house, with the house as security",f:"just as American subprime <b>mortgages</b> hit the world in 2008"},
+
+ {u:8,p:"misinformation",s:"incorrect information, especially when it is meant to deceive people",f:"specialists working to stop the spread of <b>misinformation</b> and propaganda"},
+ {u:8,p:"scrutiny",s:"careful and thorough examination",f:"The company has faced intensifying <b>scrutiny</b>."},
+ {u:8,p:"amid",s:"while noisy, busy or confused events are happening around you",f:"taking abuses seriously <b>amid</b> an avalanche of scandals"},
+ {u:8,p:"threat",s:"a danger; something that could cause harm",f:"<b>threat</b> investigators and other Facebook experts"},
+ {u:8,p:"crowded",s:"gathered in large numbers in a small space",f:"a group of journalists <b>crowded</b> outside a windowless room"}
+];
+
+const el=id=>document.getElementById(id);
+let baralho=[], i=0, virado=false, pilha=[], filtro='all', modo='cartas';
+
+function daFiltro(){ return filtro==='all'?CARTAS:CARTAS.filter(c=>String(c.u)===filtro); }
+
+function montar(lista){
+  baralho=lista.slice(); i=0; virado=false; pilha=[];
+  el('fim').classList.remove('visivel');
+  el('palco').style.display='flex';
+  el('acoes').style.display='flex';
+  el('extra').style.display='flex';
+  render();
+}
+
+function trocarModo(m){
+  modo=m;
+  document.querySelectorAll('.abas button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  el('modo-cartas').style.display = m==='cartas'?'flex':'none';
+  el('modo-lista').classList.toggle('visivel',m==='lista');
+  el('progresso').style.display = m==='cartas'?'block':'none';
+  if(m==='lista') desenharLista();
+}
+
+function filtrar(f){
+  filtro=f;
+  document.querySelectorAll('.filtros button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  montar(daFiltro());
+  if(modo==='lista') desenharLista();
+}
+
+/* ---- cartas ---- */
+function render(){
+  if(i>=baralho.length){ terminar(); return; }
+  const c=baralho[i];
+  el('uni').textContent='UNIT '+c.u;
+  el('uni2').textContent='UNIT '+c.u;
+  el('palavra').textContent=c.p;
+  el('sentido').textContent=c.s;
+  el('frase').innerHTML=c.f;
+  mostrarLado(false);
+  el('posicao').textContent=(i+1)+' / '+baralho.length;
+  el('barra').style.width=(i/baralho.length*100)+'%';
+  el('pilha').textContent=pilha.length?pilha.length+' to review':'';
+}
+
+function mostrarLado(mostrarVerso){
+  virado=mostrarVerso;
+  el('frente').classList.toggle('visivel',!mostrarVerso);
+  el('verso').classList.toggle('visivel',mostrarVerso);
+  el('acoes').innerHTML = mostrarVerso
+    ? '<button class="de-novo" id="btn-dificil">Again</button><button class="sei" id="btn-facil">Got it</button>'
+    : '<button class="virar" id="btn-virar">Flip</button>';
+  ligarAcoes();
+}
+
+function ligarAcoes(){
+  const v=el('btn-virar'); if(v) v.onclick=e=>{e.stopPropagation();mostrarLado(true)};
+  const d=el('btn-dificil'); if(d) d.onclick=e=>{e.stopPropagation();marcar(false)};
+  const f=el('btn-facil'); if(f) f.onclick=e=>{e.stopPropagation();marcar(true)};
+}
+
+function marcar(sabia){ if(!sabia) pilha.push(baralho[i]); i++; render(); }
+
+function terminar(){
+  el('palco').style.display='none';
+  el('acoes').style.display='none';
+  el('extra').style.display='none';
+  el('barra').style.width='100%';
+  el('posicao').textContent=baralho.length+' / '+baralho.length;
+  el('pilha').textContent='';
+  el('fim').classList.add('visivel');
+  const n=pilha.length;
+  if(n===0){
+    el('fim-titulo').textContent='All of them. Nice.';
+    el('fim-texto').textContent='You knew every card in this round.';
+    el('rever-btn').style.display='none';
+  }else{
+    el('fim-titulo').textContent=n===1?'One to go back to.':n+' to go back to.';
+    el('fim-texto').textContent='Do that pile again until it is empty. That is the whole trick.';
+    el('rever-btn').style.display='block';
+    el('rever-btn').textContent=n===1?'Review that one':'Review those '+n;
+  }
+}
+
+/* ---- lista ---- */
+function desenharLista(){
+  const lista=daFiltro();
+  const caixa=el('rolagem');
+  caixa.innerHTML='';
+  let unidadeAtual=null;
+  lista.forEach(c=>{
+    if(c.u!==unidadeAtual){
+      unidadeAtual=c.u;
+      const g=document.createElement('div');
+      g.className='grupo';
+      g.textContent=c.u===7?'UNIT 7 · GLOBALIZATION':'UNIT 8 · FAKE NEWS';
+      caixa.appendChild(g);
+    }
+    const it=document.createElement('div');
+    it.className='item';
+    it.innerHTML='<div class="cabeca"><span class="termo"></span><span class="mais">+</span></div>'+
+      '<div class="detalhe"><div class="sig"></div><div class="ctx"></div></div>';
+    it.querySelector('.termo').textContent=c.p;
+    it.querySelector('.sig').textContent=c.s;
+    it.querySelector('.ctx').innerHTML=c.f;
+    it.onclick=()=>it.classList.toggle('aberto');
+    caixa.appendChild(it);
+  });
+}
+
+el('btn-abrir').onclick=()=>document.querySelectorAll('#rolagem .item').forEach(x=>x.classList.add('aberto'));
+el('btn-fechar').onclick=()=>document.querySelectorAll('#rolagem .item').forEach(x=>x.classList.remove('aberto'));
+
+/* ---- ligações ---- */
+el('carta').onclick=()=>mostrarLado(!virado);
+el('btn-voltar').onclick=()=>{ if(i>0){ i--; render(); } };
+el('btn-baralhar').onclick=()=>{
+  const b=baralho.slice();
+  for(let k=b.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[b[k],b[j]]=[b[j],b[k]];}
+  montar(b);
+};
+el('rever-btn').onclick=()=>montar(pilha);
+el('tudo-btn').onclick=()=>filtrar(filtro);
+document.querySelectorAll('.filtros button').forEach(b=>b.onclick=()=>filtrar(b.dataset.f));
+document.querySelectorAll('.abas button').forEach(b=>b.onclick=()=>trocarModo(b.dataset.m));
+
+/* deslizar */
+let tx=0,ty=0,tempo=0;
+el('palco').addEventListener('touchstart',ev=>{
+  const t=ev.changedTouches[0];tx=t.clientX;ty=t.clientY;tempo=Date.now();
+},{passive:true});
+el('palco').addEventListener('touchend',ev=>{
+  const t=ev.changedTouches[0];
+  const dx=t.clientX-tx, dy=t.clientY-ty;
+  if(Date.now()-tempo<600 && Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)*1.4){
+    if(dx<0){ if(virado) marcar(true); else mostrarLado(true); }
+    else { if(i>0){ i--; render(); } }
+  }
+},{passive:true});
+
+addEventListener('keydown',ev=>{
+  if(modo!=='cartas')return;
+  if(ev.key===' '||ev.key==='ArrowUp'){ev.preventDefault();mostrarLado(!virado)}
+  if(ev.key==='ArrowRight'&&virado)marcar(true);
+  if(ev.key==='ArrowLeft'&&i>0){i--;render()}
+});
+
+filtrar('all');
+trocarModo('cartas');
+</script>
+</body>
+</html>
