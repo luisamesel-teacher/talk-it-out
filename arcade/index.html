@@ -21,11 +21,11 @@ voicePage() 2801-2818 · spNorm() 2819-2819 · spellDeck() 2820-2831 · spelling
 clockSVG() 2982-2988 · numbers() 2989-3007 · numDrill() 3008-3047 · WV 3048-3062 · ADJ 3063-3069 · ADJQ 3070-3070 · ADVF 3071-3071 · ADVD 3072-3072
 ADVM 3073-3073 · ADVP 3074-3074 · ADVQ 3075-3075 · strip() 3076-3076 · meter() 3077-3077 · pics() 3078-3078 · words() 3079-3122 · wDrill() 3123-3146
 LAB 3147-3264 · LABMAP 3265-3265 · LSLOT 3266-3266 · LLINES 3267-3267 · LPART 3268-3268 · labOpts() 3269-3279 · labRobot() 3280-3296 · labSentence() 3297-3311
-labCheck() 3312-3327 · labSense() 3328-3337 · lab() 3338-3401 · RSWAP 3402-3402 · rVariant() 3403-3413 · race() 3414-3492 · ZAPX 3493-3511 · ideas() 3512-3519
-ownBox() 3520-3525 · applyTheme() 3526-3526 · nm() 3527-3527 · hi() 3528-3528 · welcome() 3529-3544 · SG_SING 3545-3545 · SG_VERB 3546-3546 · sentenceTips() 3547-3580
-tipsBox() 3581-3589 · AI 3590-3590 · aiInit() 3591-3591 · aiReady() 3592-3592 · aiContext() 3593-3593 · aiCall() 3594-3598 · aiCheck() 3599-3603 · askTeacher() 3604-3620
-askFab() 3621-3623 · hub() 3624-3641 · STORY 3642-3690 · storyFor() 3691-3691 · storyList() 3692-3699 · storyPage() 3700-3728 · aiStory() 3729-3734 · BDE 3735-3736
-TONE 3737-3737 · route() 3738-3745 · start() 3746-3758
+labCheck() 3312-3327 · labSense() 3328-3337 · lab() 3338-3401 · RSWAP 3402-3402 · rVariant() 3403-3413 · race() 3414-3502 · ZAPX 3503-3521 · ideas() 3522-3529
+ownBox() 3530-3535 · applyTheme() 3536-3536 · nm() 3537-3537 · hi() 3538-3538 · welcome() 3539-3554 · SG_SING 3555-3555 · SG_VERB 3556-3556 · sentenceTips() 3557-3590
+tipsBox() 3591-3599 · AI 3600-3600 · aiInit() 3601-3601 · aiReady() 3602-3602 · aiContext() 3603-3603 · aiCall() 3604-3608 · aiCheck() 3609-3613 · askTeacher() 3614-3630
+askFab() 3631-3633 · hub() 3634-3651 · STORY 3652-3700 · storyFor() 3701-3701 · storyList() 3702-3709 · storyPage() 3710-3738 · aiStory() 3739-3744 · BDE 3745-3746
+TONE 3747-3747 · route() 3748-3755 · start() 3756-3768
 MAP END -->
 <html lang="en">
 <head>
@@ -1461,7 +1461,7 @@ var T={en:{
  verbs:"Verb lab", verbsD:"30 irregular verbs: past simple and past participle, with flashcards, a memory game and sentences from the lessons.", fc:"Flashcards", mem:"Memory game", sent:"Sentences", flip:"Tap the card to turn it.", prev:"Previous", vbase:"Base form", vpast:"Past simple", vpp:"Past participle", special:"Extra lessons", specialD:"Situations, culture and celebrations", culture:"Culture note", arcade:"Arcade: play against the robot", level:"Level", best:"Best level", first5:"First to 5 points",
  tennis:"Robot tennis", tennisD:"Play real tennis: move your racket and hit the ball back. Hit with the edge of the racket to aim. When the robot misses, answer to take the point. When you miss, answer to save it.", saveT:"You missed! Answer to save the point.", saveSay:"You missed it! One chance to save the point.", saved:"Saved! No point for me. Play again.", winT:"The robot missed! Answer to take the point.", winSay:"Oh no, I missed! Answer and the point is yours.", noPoint:"Wrong answer: no point this time. Play on!", quit:"Quit game", rally:"Rally", power:"Power shot!", weak:"Weak shot…",
  duel:"Beat the boss", duelD:"Every right answer knocks a piece off the boss. Every wrong answer costs you a heart, and the boss puts a piece back. Take it apart to unlock a stronger boss.", wild:"A wild % appeared!", repair:"SELF-REPAIR! One piece is back.",
- zap:"Bug zapper", zapD:"The robot is sending sentences. Tap the ones with a mistake. Let the correct ones pass.", story:"Write the story", storyD:"Look at the pictures and tell the story. You get the tense and the verbs: you choose the words.", race:"Sentence race", raceD:"Drive into the lane with the next word of the sentence. The colours show the kind of word. Beat the robot car to the finish!", lab:"Robot sentence lab", labD:"Build your own sentence: choose a word for each coloured box and check it. Every right line brings a part of the robot to life.",
+ zap:"Bug zapper", zapD:"The robot is sending sentences. Tap the ones with a mistake. Let the correct ones pass.", story:"Write the story", storyD:"Look at the pictures and tell the story. You get the tense and the verbs: you choose the words.", race:"Sentence race", raceD:"Drive into the lane with the next word of the sentence. The colours show the kind of word. You have 3 lives: lose them all and you crash! Beat the robot car to the finish.", lab:"Robot sentence lab", labD:"Build your own sentence: choose a word for each coloured box and check it. Every right line brings a part of the robot to life.",
  hitSay:"You hit it! Answer to place your shot.", youWin:"You win!", botWins:"The robot wins", lvup:"Level up! You unlocked level", nextLv:"Play the next level", beaten:"is out of battery.",
  score:"Score", lives:"Lives", gameOver:"Game over", newBest:"New best level!",
  cert:"Certificate", certD:"You passed the final test. Your certificate is ready.", certNo:"Pass the final test to get your module certificate.", seeCert:"See your certificate",
@@ -1499,7 +1499,7 @@ var T={en:{
  verbsD:"30 verbos irregulares: past simple e past participle, com flashcards, jogo da memória e frases das aulas.", flip:"Toque no cartão para virar.", prev:"Anterior", special:"Extra lessons", specialD:"Situações, cultura e datas comemorativas", culture:"Culture note", arcade:"Arcade: jogue contra o robô", level:"Level", best:"Best level", first5:"First to 5 points",
  tennis:"Robot tennis", tennisD:"Jogue tênis de verdade: mova a raquete e rebata a bola. Rebater com a ponta da raquete muda a direção. Quando o robô errar, responda para ganhar o ponto. Quando você errar, responda para salvar o ponto.", quit:"Sair do jogo",
  duel:"Beat the boss", duelD:"Cada acerto arranca um pedaço do chefão. Cada erro custa um coração, e ele recoloca um pedaço. Desmonte-o inteiro para liberar um chefão mais forte.",
- zap:"Bug zapper", zapD:"O robô está mandando frases. Toque nas que têm erro. Deixe passar as corretas.", story:"Write the story", storyD:"Olhe as imagens e conte a história. Você recebe o tempo verbal e os verbos; as palavras são suas.", race:"Sentence race", raceD:"Dirija até a faixa com a próxima palavra da frase. As cores mostram o tipo de palavra. Chegue antes do carro do robô!", lab:"Robot sentence lab", labD:"Monte a sua frase: escolha uma palavra para cada caixa colorida e confira. Cada linha certa dá vida a uma parte do robô.",
+ zap:"Bug zapper", zapD:"O robô está mandando frases. Toque nas que têm erro. Deixe passar as corretas.", story:"Write the story", storyD:"Olhe as imagens e conte a história. Você recebe o tempo verbal e os verbos; as palavras são suas.", race:"Sentence race", raceD:"Dirija até a faixa com a próxima palavra da frase. As cores mostram o tipo de palavra. Você tem 3 vidas: se perder todas, bate o carro! Chegue antes do carro do robô.", lab:"Robot sentence lab", labD:"Monte a sua frase: escolha uma palavra para cada caixa colorida e confira. Cada linha certa dá vida a uma parte do robô.",
  certD:"Você passou na prova final. O seu certificado está pronto.", certNo:"Passe na prova final para receber o certificado do módulo.", seeCert:"Ver o certificado",
  nameLbl:"Seu nome no certificado", yourName:"Your name", certHint:"Tire um print para guardar ou compartilhar o seu certificado.", before:"Antes de começar", guide:"Grammar guide", guideD:"Leia antes das atividades.", how:"Como funciona", exs:"Exemplos", mist:"Erro comum", tips:"Como evitar os erros mais comuns", tl:"Translanguaging", qc:"Quick check", toActs:"Ir para as atividades", read:"Lido",
  chat:"Real-life chat", chatD:"Escolha a melhor resposta em uma conversa real.",
@@ -3457,19 +3457,24 @@ function race(m){
     var g=gates.items[lane],s=sent[si];
     if(g.ok){got++;wi++;flash={c:"#17805f",t:performance.now()};ui.talk(pick(["Nice driving!","Correct lane!","Vroom! Right word."]));
       if(wi>=s.w.length){if(canSpeak())sayIt(s.w.join(" "),.95);si++;wi=0;if(si>=sent.length){end(true);return}ui.talk("Sentence complete! Next one…")}
-    }else{errs++;flash={c:"#c23f37",t:performance.now()};pause=penalty;ui.talk("Oops! “"+g.w+"” doesn't fit. You spin out…");
+    }else{errs++;lives--;board();flash={c:"#c23f37",t:performance.now()};pause=penalty;
+      if(lives<=0){crash={lane:lane,y:-90,t:performance.now()};ui.talk("Oh no! No lives left… LOOK OUT!");}
+      else ui.talk("Oops! “"+g.w+"” doesn't fit. You lose a life ("+lives+" left).");
       miss(m,"race",s.w.slice(0,wi).join(" ")+" ___",g.w,s.w[wi],"Next word: "+s.w[wi]+" → "+s.w.join(" "))}
     showBuilt();gates=null;
   }
-  function end(win){if(over)return;over=true;setTimeout(function(){if(my===tok)arcadeEnd(m,"race",win,(win?"You crossed the line first! ":"The robot crossed the line first. ")+got+" words · "+errs+" wrong lanes",lvl)},700)}
+  function end(win,why){if(over)return;over=true;setTimeout(function(){if(my===tok)arcadeEnd(m,"race",win,(win?"You crossed the line first! ":why==="crash"?"💥 Crash! You lost all your lives. ":"The robot crossed the line first. ")+got+" words · "+errs+" wrong lanes",lvl)},why==="crash"?1400:700)}
+  var lives=3,crash=null,boom=0;
+  function board(){ui.board([faceEl()," "+t("you")],"❤️❤️❤️".slice(0,lives*2)+"🖤🖤🖤".slice(0,(3-lives)*2),[t("level")+" "+lvl,total+" words"],"🤖 Robot","🏎️")}
   function rr(x,y,w,hh,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+hh,r);cx.arcTo(x+w,y+hh,x,y+hh,r);cx.arcTo(x,y+hh,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
   function laneX(i){return W/6+i*W/3}
   function frame(now){
     if(my!==tok)return;
     var dt=now-last;last=now;
-    if(!over){botPos+=dt/dur*pace;if(botPos>=total){botPos=total;end(false)}}
+    if(!over&&!crash){botPos+=dt/dur*pace;if(botPos>=total){botPos=total;end(false)}}
     me.style.left=(got/total*92)+"%";rb.style.left=(Math.min(botPos,total)/total*92)+"%";
-    if(!over){if(pause>0){pause-=dt;if(pause<=0&&!gates)newGates()}else if(!gates)newGates()}
+    if(!over&&!crash){if(pause>0){pause-=dt;if(pause<=0&&!gates)newGates()}else if(!gates)newGates()}
+    if(crash&&!boom){gates=null;crash.y+=dt*.55;crash.lane=lane;if(crash.y>=carY-60){boom=now;end(false,"crash")}}
     if(gates&&pause<=0){gates.y=-50+(now-t0)/dur*(carY+50);if(gates.y>=carY-30)arrive()}
     // road
     cx.fillStyle="#2b3245";cx.fillRect(0,0,W,H);
@@ -3485,10 +3490,15 @@ function race(m){
     cx.fillStyle="#111";[[-26,-24],[18,-24],[-26,12],[18,12]].forEach(function(p){cx.fillRect(p[0],p[1],8,16)});
     rr(-22,-34,44,68,12);cx.fillStyle="#f0a92b";cx.fill();rr(-15,-20,30,20,6);cx.fillStyle="#bfe3ff";cx.fill();
     cx.restore();
+    if(crash){var ox=laneX(crash.lane),oy=boom?carY-60:crash.y;cx.save();cx.translate(ox,oy+28);cx.rotate(Math.PI);
+      cx.fillStyle="#111";[[-26,-24],[18,-24],[-26,12],[18,12]].forEach(function(p){cx.fillRect(p[0],p[1],8,16)});
+      rr(-22,-34,44,68,12);cx.fillStyle="#c23f37";cx.fill();rr(-15,-20,30,20,6);cx.fillStyle="#bfe3ff";cx.fill();cx.restore()}
+    if(boom){var k=Math.min(1,(now-boom)/600);cx.font=(60+90*k)+"px system-ui, sans-serif";cx.textAlign="center";cx.textBaseline="middle";cx.globalAlpha=1-k*.3;cx.fillText("💥",laneX(lane),carY-10);cx.globalAlpha=1;
+      cx.font="800 42px system-ui, sans-serif";cx.fillStyle="#ffd166";cx.fillText("GAME OVER",W/2,H/2-60)}
     if(flash&&now-flash.t<350){cx.fillStyle=flash.c;cx.globalAlpha=.25;cx.fillRect(0,0,W,H);cx.globalAlpha=1}
     raf=requestAnimationFrame(frame);
   }
-  showBuilt();ui.board([faceEl()," "+t("you")],"🚗",[t("level")+" "+lvl,total+" words"],"🤖 Robot","🏎️");
+  showBuilt();board();
   raf=requestAnimationFrame(frame);
 }
 /* more bug-zapper sentences: "wrong|right", many of them typical mistakes of Brazilian learners */
