@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preposition Baskets · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12152e;--card:#1f2456;--ink:#eef1ff;--mute:#cfd5ff;--yel:#ffd166;--good:#7CFC9A;--bad:#ff8a80;
+ --at:#ff8a5c;--by:#3ccf9f;--in:#9d93ff;--on:#f2b84b;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;
+ background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+.wrap{max-width:900px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,h3{font-family:var(--disp);margin:0}
+h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255,209,102,.4)}
+.label{font:700 12px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.btn{font:800 17px var(--label);border-radius:999px;padding:12px 22px;min-height:48px;border:2px solid #12152e;border-bottom-width:5px;background:var(--yel);color:#12152e;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn:focus-visible,.bk:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spread{justify-content:space-between}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:10px 14px}
+.how .e{font-size:28px;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
+.hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
+.field{position:relative;height:min(48vh,360px);border-radius:18px 18px 0 0;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
+.word{position:absolute;top:0;padding:10px 20px;border-radius:14px;background:#fff;color:#12152e;font:800 24px var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s}
+.toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
+.toast small{display:block;font:600 16px var(--body);color:var(--mute)}
+.toast.ok{color:var(--good)}.toast.no{color:var(--bad)}
+.baskets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 28px var(--label);cursor:pointer;transition:transform .15s}
+.bk small{font:700 14px var(--label);opacity:.8}
+.bk.at{background:var(--at)}.bk.by{background:var(--by)}.bk.in{background:var(--in)}.bk.on{background:var(--on)}
+.bk.under{transform:translateY(-8px);box-shadow:0 0 0 4px var(--yel)}
+.bk.hit{animation:pop .45s}.bk.bad{animation:shake .4s}
+@keyframes pop{50%{transform:scale(1.1);box-shadow:0 0 22px var(--good)}}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.say{min-height:28px;font-weight:700;margin:10px 0 0}
+.list{display:grid;gap:8px;margin:12px 0}
+.list div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;background:rgba(255,255,255,.06);border-radius:12px;padding:8px 12px}
+.list b{color:var(--yel);white-space:nowrap}
+.list .wrongrow{background:rgba(255,80,80,.16);box-shadow:inset 0 0 0 2px #ff6b6b}.list .wrongrow b{color:#ff8a80}
+.redh{color:#ff8a80}
+.mean{color:var(--mute)}
+.stars{font-size:40px;letter-spacing:6px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.lv button{font:800 16px var(--label);padding:10px 16px;border-radius:999px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+@media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:20px;padding:8px 14px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var P=[
+["at","all","Used in negative sentences and questions to make them stronger.",[["I don't like horror movies ___.","at least","at once"],["Tom didn't sleep ___ last night.","at times","on average"]]],
+["at","first","In the beginning, before something changed.",[["___, the test looked hard, but it was easy.","at least","on purpose"],["___, I didn't like my new school, but now I love it.","at once","by chance"]]],
+["at","last","Finally, after a long wait.",[["___, the holidays are here!","at first","on average"],["We waited for an hour, and ___ the bus came.","by hand","at all"]]],
+["at","least","Not less than a number or amount; the minimum.",[["Drink ___ two liters of water a day.","at all","at once"],["You need ___ 60% to pass the test.","at last","by hand"]]],
+["at","once","Immediately; right now.",[["Come to the principal's office ___!","at times","by chance"],["The fire alarm is ringing! Leave the building ___!","at least","at all"]]],
+["at","the moment","Now; at this time.",[["She can't talk. She's busy ___.","at first","at last"],["My dad is in a meeting ___. Call him later.","by hand","on foot"]]],
+["at","times","Sometimes, but not always.",[["___, I feel tired after school.","at once","at all"],["My little brother is funny, but ___ he is really annoying.","at last","by hand"]]],
+["by","accident","Without planning it or wanting it to happen.",[["I deleted the file ___.","on foot","at least"],["I sat on my glasses ___ and broke them.","on sale","in time"]]],
+["by","chance","By luck, without planning.",[["I met my teacher at the mall ___.","by hand","on sale"],["We found this great café ___ when we got lost.","in addition to","at once"]]],
+["by","hand","Made or done by a person, not by a machine.",[["This bag was made ___.","on foot","at times"],["In the past, people wrote all their letters ___.","on sale","in danger"]]],
+["by","mistake","Because of an error; doing the wrong thing.",[["He took my backpack ___.","in danger","at least"],["I sent the message to my teacher ___. It was for my friend!","on sale","at first"]]],
+["by","the time","When something happens (and something else has already happened).",[["___ we arrived, the movie had started.","in addition to","on average"],["___ I got home, my family had eaten all the pizza.","at last","in trouble"]]],
+["in","a hurry","Doing things very fast because you don't have much time.",[["I was ___ and forgot my keys.","on sale","by hand"],["Sorry, I can't talk now. I'm ___.","on foot","at all"]]],
+["in","addition to","As well as; besides.",[["___ English, she speaks Spanish.","in danger","at last"],["___ the test, we have a project to finish.","by the time","on foot"]]],
+["in","danger","At risk of being hurt or destroyed.",[["Many animals are ___ because of pollution.","on time","by hand"],["Help! That cat is ___. It's on the road!","on sale","at first"]]],
+["in","the end","Finally, after a long time or many changes.",[["___, we won the game.","at once","by hand"],["We argued for hours, but ___ we decided to watch a comedy.","on sale","at all"]]],
+["in","time","Early enough; before it is too late.",[["We got to school ___ for the test.","on average","by hand"],["I finished my homework just ___ for class.","at all","on foot"]]],
+["in","trouble","Having problems, or about to be punished.",[["You will be ___ if you miss class again.","on foot","by chance"],["If Mom sees this mess, we'll be ___.","on sale","at first"]]],
+["on","average","Usually; the typical number or amount.",[["___, teenagers sleep seven hours a night.","by hand","at once"],["___, I spend three hours a day on my phone.","in danger","by accident"]]],
+["on","foot","Walking.",[["I go to school ___ every day.","on sale","in danger"],["The park is close, so we can go ___.","by mistake","at least"]]],
+["on","purpose","Intentionally; because you wanted to.",[["She didn't break the glass ___.","on foot","at least"],["Sorry! I didn't step on your foot ___.","in time","at first"]]],
+["on","sale","Available to buy, often at a lower price.",[["These sneakers are ___ this week.","on foot","by hand"],["Tickets for the concert go ___ tomorrow.","in trouble","at all"]]],
+["on","time","At the correct time; not late.",[["The bus arrived ___.","by hand","at all"],["The train left ___, at exactly 8:15.","in danger","by chance"]]]
+];
+var PREPS=["at","by","in","on"];
+var SYN={"at all":"in any way","at first":"in the beginning","at last":"finally","at least":"the minimum","at once":"immediately","at the moment":"now","at times":"sometimes","by accident":"accidentally","by chance":"by luck","by hand":"manually","by mistake":"in error","by the time":"when","in a hurry":"rushing","in addition to":"besides","in danger":"at risk","in the end":"eventually","in time":"early enough","in trouble":"with problems","on average":"typically","on foot":"walking","on purpose":"intentionally","on sale":"cheaper than usual","on time":"punctually"};
+/* phrases too close in meaning to appear together as options */
+var TWIN=[["at last","in the end"],["by accident","by mistake"],["at the moment","at once"],["by chance","by accident"]];
+function twin(a,b){return TWIN.some(function(t){return t.indexOf(a)>=0&&t.indexOf(b)>=0})}
+
+/* real phrases, but not the ones we practise: no heart lost, just a note */
+var NEAR={"at hand":"“at hand” exists (= near), but it's not one of our phrases.","in hand":"“in hand” exists, but it's not one of our phrases.","on hand":"“on hand” exists, but it's not one of our phrases.","at the end":"“at the end (of)” exists, but here we practise “in the end”.","by the end":"“by the end (of)” exists, but it's not one of our phrases.","in the moment":"Here we practise “at the moment” (= now).","by foot":"People sometimes say it, but the correct phrase is “on foot”.","at the time":"“at the time” exists (= then), but here we practise “by the time”.","in all":"“in all” exists (= in total), but here we practise “at all”.","by time":"Not quite! We say “by the time”.","at time":"Not quite! We say “at times” (= sometimes)."};
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(at[k]!=null)e.setAttribute(k,at[k])}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
+var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=1;
+var SPEEDS=[["🐢 Slow",11000],["🚲 Normal",8000],["🚀 Fast",5500]];
+function preps(c){return P.filter(function(x){return x[1]===c}).map(function(x){return x[0]})}
+function stop(){if(raf)cancelAnimationFrame(raf);raf=null;if(keyh)window.removeEventListener("keydown",keyh);keyh=null}
+function start(){
+  stop();app.innerHTML="";
+  var lv=h("div",{class:"lv"});
+  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
+  drawLv();
+  app.appendChild(h("div",{class:"card"},
+    h("span",{class:"label"},"Talk It Out · Prepositional phrases"),
+    h("h1",null,"🧺 Preposition Baskets"),
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"⬇️"),h("span",null,"A word falls from the sky: once, purpose, a hurry…")),
+      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Put it in the right basket: at, by, in or on. Tap the basket, press 1–4, or move with ← → and drop with ↓.")),
+      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"A wrong basket costs a heart. You have 3.")),
+      h("li",null,h("span",{class:"e"},"🏆"),h("span",null,"Sort all "+WORDS().length+" words to win. It gets faster!"))),
+    h("span",{class:"label"},"Speed"),lv,
+    h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
+}
+function WORDS(){var c=[];P.forEach(function(x){if(c.indexOf(x[1])<0)c.push(x[1])});return c}
+function play(){
+  stop();app.innerHTML="";
+  G={list:shuffle(WORDS()),i:0,ok:0,lives:3,col:1,cur:null,last:0,miss:[],good:[],over:false,toast:null};
+  var field=h("div",{class:"field"}),bas=h("div",{class:"baskets"}),say=h("p",{class:"say",role:"status"});
+  var hud=h("div",{class:"hud"});
+  var bk=["at","by","in","on"].map(function(p,i){var b=h("button",{class:"bk "+p,"aria-label":"Basket "+p,on:{click:function(){if(G.cur)land(i)}}},p,h("small",null,String(i+1)));bas.appendChild(b);return b});
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧺 Preposition Baskets"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
+  app.appendChild(hud);app.appendChild(field);app.appendChild(bas);app.appendChild(say);
+  function drawHud(){hud.innerHTML="";hud.appendChild(h("div",null,h("span",{class:"label"},"Sorted"),h("b",null,G.ok+" / "+G.list.length)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Word"),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))))}
+  drawHud();
+  function toast(txt,sub,cls){if(G.toast&&G.toast.parentNode)G.toast.remove();G.toast=h("div",{class:"toast "+cls},txt,h("small",null,sub));field.appendChild(G.toast);var t=G.toast;setTimeout(function(){if(t.parentNode)t.remove()},1800)}
+  function spawn(now){
+    if(G.i>=G.list.length){end(true);return}
+    var w=G.list[G.i++];G.col=Math.floor(Math.random()*4);
+    var dur=SPEEDS[speed][1]*Math.pow(.97,G.ok);
+    G.cur={w:w,t0:now,dur:dur,fast:false,el:h("div",{class:"word"},w)};field.appendChild(G.cur.el);place(0);drawHud();
+  }
+  function place(p){var c=G.cur;if(!c)return;c.el.style.left="calc("+((G.col+.5)*25)+"% - "+(c.el.offsetWidth/2)+"px)";c.el.style.top=(p*(field.clientHeight-c.el.offsetHeight-6))+"px"}
+  function land(i){
+    var c=G.cur;if(!c||G.over)return;G.cur=null;c.el.remove();
+    var p=["at","by","in","on"][i],right=preps(c.w),good=right.indexOf(p)>=0,b=bk[i];
+    b.classList.remove("hit","bad");void b.offsetWidth;b.classList.add(good?"hit":"bad");
+    var x=P.filter(function(z){return z[1]===c.w&&z[0]===(good?p:right[0])})[0];
+    if(good){G.ok++;if(G.good.indexOf(p+" "+c.w)<0)G.good.push(p+" "+c.w);toast("✓ "+p+" "+c.w,"= "+SYN[p+" "+c.w],"ok");
+      say.textContent=c.w==="time"?(p==="in"?"in time = early enough. (on time = not late)":"on time = not late. (in time = early enough)"):""}
+    else{G.lives--;G.miss.push({bad:p+" "+c.w,right:right.map(function(r){return r+" "+c.w}).join(" / ")});toast("✗ "+right.map(function(r){return r+" "+c.w}).join(" / "),"= "+x[2],"no");say.textContent=""}
+    drawHud();G.last=performance.now();
+    if(G.lives<=0)end(false);
+  }
+  keyh=function(e){if(!G.cur)return;
+    if(e.key==="ArrowLeft"){G.col=Math.max(0,G.col-1);e.preventDefault()}else if(e.key==="ArrowRight"){G.col=Math.min(3,G.col+1);e.preventDefault()}
+    else if(e.key==="ArrowDown"){G.cur.fast=true;e.preventDefault()}else{var n=parseInt(e.key,10);if(n>=1&&n<=4)land(n-1)}};
+  window.addEventListener("keydown",keyh);
+  bk.forEach(function(b,i){b.addEventListener("pointerenter",function(){})});
+  function frame(now){
+    if(G.over)return;
+    if(!G.cur&&now-G.last>900)spawn(now);
+    if(G.cur){if(G.cur.fast)G.cur.t0-=(now-(G.cur.lt||now))*5;G.cur.lt=now;var p=(now-G.cur.t0)/G.cur.dur;if(p>=1)land(G.col);else place(p)}
+    bk.forEach(function(b,i){b.classList.toggle("under",!!G.cur&&i===G.col)});
+    raf=requestAnimationFrame(frame);
+  }
+  G.last=performance.now();raf=requestAnimationFrame(frame);
+}
+function end(win){
+  G.over=true;stop();
+  setTimeout(function(){
+    var miss=G.miss.length,stars=!win?0:miss===0?3:miss===1?2:1;
+    app.innerHTML="";
+    var c=h("div",{class:"card"},h("span",{class:"label"},win?"You did it!":"Game over"),
+      h("h1",null,win?"🏆 All words sorted!":"💔 No hearts left"),
+      h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
+      h("p",null,"Sorted: ",h("b",null,G.ok+" / "+G.list.length)," · Speed: ",h("b",null,SPEEDS[speed][0])));
+    if(miss){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",null,"→ "+m.right))})))}
+    if(G.good.length){c.appendChild(h("h3",null,"✓ Right"));c.appendChild(h("div",{class:"list"},G.good.map(function(g){var p=g.split(" "),x=P.filter(function(z){return z[0]===p[0]&&z[1]===p.slice(1).join(" ")})[0];return h("div",null,h("b",null,"✓ "+g),h("span",null,x[2]))})))}
+    c.appendChild(h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn",on:{click:play}},"🔄 Play again"),h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change speed")));
+    app.appendChild(c);window.scrollTo(0,0);
+  },700);
+}
+start();
+</script>
+</body>
+</html>
