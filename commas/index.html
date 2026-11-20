@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comma Detective · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12152e;--card:#1f2456;--ink:#eef1ff;--mute:#cfd5ff;--yel:#ffd166;--good:#7CFC9A;--bad:#ff8a80;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,h3{font-family:var(--disp);margin:0}
+h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255,209,102,.4)}
+.label{font:700 12px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.btn{font:800 17px var(--label);border-radius:999px;padding:12px 22px;min-height:48px;border:2px solid #12152e;border-bottom-width:5px;background:var(--yel);color:#12152e;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn:disabled{opacity:.4}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:10px 14px}
+.how .e{font-size:28px;text-align:center}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.lv button{font:800 16px var(--label);padding:10px 16px;border-radius:999px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer;text-align:left}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
+.hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
+.case{background:#fffbea;color:#12152e;border-radius:16px;padding:22px 16px;border:3px solid #12152e;border-bottom-width:7px;box-shadow:0 0 0 6px rgba(255,209,102,.15);font:700 clamp(19px,4.6vw,25px)/2.1 var(--body);text-align:center}
+.case .w{white-space:nowrap}
+.gap{display:inline-block;width:22px;height:30px;vertical-align:-6px;margin:0 1px;border:none;border-bottom:3px dotted #9aa1c0;background:transparent;cursor:pointer;font:900 30px/18px var(--body);color:#c2185b;padding:0}
+.gap:hover{border-bottom-color:#534AB7}
+.gap.on{border-bottom-color:transparent}
+.gap.ok{color:#17805f}.gap.no{color:#c62828;text-decoration:line-through}.gap.miss{color:#17805f;opacity:.6}
+.gap:disabled{cursor:default}
+.q2{margin-top:14px;padding:14px;border-radius:14px;background:rgba(255,255,255,.07)}
+.q2 p{margin:0 0 10px;font-weight:700}
+.opt{font:800 17px var(--label);padding:10px 22px;border-radius:999px;border:2px solid #8b85e6;border-bottom-width:5px;background:#2a3070;color:#fff;cursor:pointer}
+.opt.ok{background:#17805f;border-color:var(--good)}.opt.no{background:#8a2a2a;border-color:var(--bad)}
+.fb{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.08)}
+.fb.good b{color:var(--good)}.fb.bad b{color:var(--bad)}
+.list{display:grid;gap:8px;margin:12px 0}
+.list div{background:rgba(255,255,255,.06);border-radius:12px;padding:8px 12px}
+.list .wrongrow{background:rgba(255,80,80,.16);box-shadow:inset 0 0 0 2px #ff6b6b}.list .wrongrow b{color:#ff8a80}
+.redh{color:#ff8a80}.mean{color:var(--mute)}
+.stars{font-size:40px;letter-spacing:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* sentence with its real commas | can we use "that"? (y/n) | can we leave out the pronoun? (y/n) */
+var S=[
+"My brother, who lives in London, is a doctor.|n|n","Rio, which is in Brazil, is famous for its beaches.|n|n","Mrs Silva, who teaches us English, is very kind.|n|n",
+"My phone, which I bought last year, is already broken.|n|n","Paris, where my aunt lives, is beautiful.|n|n","My grandmother, who is 90, still cooks every day.|n|n",
+"The Amazon, which is the largest rainforest in the world, is in danger.|n|n","This is my best friend Ana, who sits next to me.|n|n","I love Salvador, where I was born.|n|n",
+"I talked to my mother, who was very worried.|n|n","Our school, which is near the beach, has a big library.|n|n","Neymar, who plays football, is very famous.|n|n",
+"The girl who sits next to me is from Bahia.|y|n","I lost the book that you gave me.|y|y","This is the café where we met.|n|n",
+"People who smoke can get sick.|y|n","The bus which goes to the beach is always full.|y|n","Do you know the man who is talking to Tom?|y|n",
+"The film that we watched was boring.|y|y","That's the hospital where I was born.|n|n","The students who studied passed the test.|y|n",
+"The cake that she made was delicious.|y|y","I have a friend who speaks Japanese.|y|n","The shoes which I bought are too small.|y|y"];
+var LV=[["⭐ 1 · Commas only",1],["⭐⭐ 2 · Commas + that",2],["⭐⭐⭐ 3 · Commas + that + leave out",3]],ROUND=10;
+var PRON=/^(who|which|where|that)$/;
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(at[k]!=null)e.setAttribute(k,at[k])}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
+var app=document.getElementById("app"),lvl=0,G=null;
+function parse(line){var p=line.split("|"),words=p[0].split(" "),commas=[];
+  var clean=words.map(function(w,i){if(/,$/.test(w)){commas.push(i);return w.slice(0,-1)}return w});
+  var pr=clean.map(function(w){return w.replace(/[.?!]$/,"").toLowerCase()}).findIndex(function(w){return PRON.test(w)});
+  return {words:clean,commas:commas,that:p[1]==="y",omit:p[2]==="y",nd:commas.length>0,pr:clean[pr],full:p[0]}}
+function start(){
+  G=null;app.innerHTML="";var lv=h("div",{class:"lv"});
+  function d(){lv.innerHTML="";LV.forEach(function(l,i){lv.appendChild(h("button",{class:i===lvl?"on":null,on:{click:function(){lvl=i;d()}}},l[0]))})}d();
+  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Talk It Out · Relative clauses"),h("h1",null,"🔍 Comma Detective"),
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"🕵️"),h("span",null,"Read the sentence. Does the relative clause need commas?")),
+      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap the spaces between words to add (or remove) a comma. No commas needed? Just check!")),
+      h("li",null,h("span",{class:"e"},"💡"),h("span",null,"Non-defining = extra information, with commas. Defining = necessary information, no commas.")),
+      h("li",null,h("span",{class:"e"},"❓"),h("span",null,"In levels 2 and 3, answer more questions: can we use “that”? Can we leave out the pronoun?"))),
+    h("span",{class:"label"},"Level"),lv,h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
+}
+function play(){G={list:shuffle(S).slice(0,ROUND).map(parse),i:0,pts:0,max:0,miss:[]};show()}
+function show(){
+  var it=G.list[G.i],on={},stage=0;app.innerHTML="";
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔍 Comma Detective"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
+  app.appendChild(h("div",{class:"hud"},h("div",null,h("span",{class:"label"},"Case"),h("b",null,(G.i+1)+" / "+G.list.length)),h("div",null,h("span",{class:"label"},"Points"),h("b",null,String(G.pts))),h("div",null,h("span",{class:"label"},"Level"),h("b",null,String(lvl+1)))));
+  var box=h("div",{class:"case","aria-label":"Sentence"}),gaps=[];
+  it.words.forEach(function(w,i){var sp=h("span",{class:"w"},w);box.appendChild(sp);
+    if(i<it.words.length-1){var g=h("button",{class:"gap","aria-label":"Add a comma after "+w,on:{click:function(){if(stage)return;on[i]=!on[i];g.textContent=on[i]?",":"";g.classList.toggle("on",!!on[i])}}});gaps.push(g);box.appendChild(g)}
+    if(i<it.words.length-1)box.appendChild(document.createTextNode(" "))});
+  var q=h("div",null),fb=h("div",null),act=h("div",{class:"row",style:"margin-top:14px;justify-content:flex-end"});
+  app.appendChild(h("p",{class:"mean",style:"margin:4px 0 8px"},"Tap the dotted spaces to add commas."));
+  app.appendChild(box);app.appendChild(fb);app.appendChild(q);app.appendChild(act);
+  var chk=h("button",{class:"btn",on:{click:checkCommas}},"🔍 Check the commas");act.appendChild(chk);
+  function note(good,txt){var n=h("div",{class:"fb "+(good?"good":"bad")},h("b",null,good?"✓ ":"✗ "),txt);fb.appendChild(n)}
+  function checkCommas(){
+    stage=1;chk.remove();G.max++;
+    var ok=true;gaps.forEach(function(g,i){g.disabled=true;var want=it.commas.indexOf(i)>=0,has=!!on[i];
+      if(want&&has)g.classList.add("ok");else if(want&&!has){ok=false;g.textContent=",";g.classList.add("miss")}else if(!want&&has){ok=false;g.classList.add("no")}});
+    if(ok)G.pts++;else G.miss.push({s:it.full,what:it.nd?"Commas: this is extra information (non-defining).":"No commas: this information is necessary (defining)."});
+    note(ok,it.nd?"Non-defining: “"+it.pr+"…” gives extra information. We put it between commas.":"Defining: “"+it.pr+"…” tells us which one. It's necessary, so no commas.");
+    if(lvl>=1&&it.pr.toLowerCase()==="that"){if(lvl>=2)ask("Can we leave out “that”?",it.omit,it.omit?"Yes: “that” is the object here, so we can leave it out.":"No: here “that” is the subject (it does the action), so we need it.",next);else next()}
+    else if(lvl>=1)ask("Can we use “that” instead of “"+it.pr+"” here?",it.that,it.that?"Yes: in a defining clause, “that” can replace who or which.":it.nd?"No: we never use “that” in a non-defining clause (with commas).":"No: we don't use “that” instead of where.",function(){
+      if(lvl>=2)ask("Can we leave out “"+it.pr+"”?",it.omit,it.omit?"Yes: the pronoun is the object (“you gave me the book”), so we can leave it out: “the book you gave me”.":it.nd?"No: in a non-defining clause, we always need the pronoun.":it.pr==="where"?"No: we need “where” here.":"No: here “"+it.pr+"” is the subject (it does the action), so we need it.",next);else next()});
+    else next();
+  }
+  function ask(txt,ans,why,then){
+    var box2=h("div",{class:"q2"},h("p",null,"❓ "+txt)),r=h("div",{class:"row"});box2.appendChild(r);q.appendChild(box2);
+    [["Yes",true],["No",false]].forEach(function(o){r.appendChild(h("button",{class:"opt",on:{click:function(e){
+      [].forEach.call(r.children,function(b){b.disabled=true});var good=o[1]===ans;e.currentTarget.classList.add(good?"ok":"no");G.max++;
+      if(good)G.pts++;else G.miss.push({s:it.full,what:txt+" → "+(ans?"Yes":"No")});
+      box2.appendChild(h("div",{class:"fb "+(good?"good":"bad")},h("b",null,good?"✓ ":"✗ "),why));then()}}},o[0]))});
+  }
+  function next(){act.innerHTML="";act.appendChild(h("button",{class:"btn",on:{click:function(){G.i++;if(G.i>=G.list.length)end();else show()}}},G.i+1<G.list.length?"Next case →":"See results →"))}
+  window.scrollTo(0,0);
+}
+function end(){
+  var pct=G.pts/G.max,stars=pct>=.9?3:pct>=.7?2:pct>=.5?1:0;app.innerHTML="";
+  var c=h("div",{class:"card"},h("span",{class:"label"},"Case closed!"),h("h1",null,"🔍 Detective report"),
+    h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),h("p",null,"Points: ",h("b",null,G.pts+" / "+G.max)," · "+LV[lvl][0]));
+  if(G.miss.length){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,m.s),h("div",null,m.what))})))}
+  c.appendChild(h("div",{class:"list"},h("div",null,h("b",null,"Defining"),h("div",{class:"mean"},"Necessary information · no commas · who/which can be “that” · object pronoun can go")),
+    h("div",null,h("b",null,"Non-defining"),h("div",{class:"mean"},"Extra information · commas · never “that” · never leave out the pronoun"))));
+  c.appendChild(h("div",{class:"row",style:"margin-top:12px"},h("button",{class:"btn",on:{click:play}},"🔄 New cases"),h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")));
+  app.appendChild(c);window.scrollTo(0,0);
+}
+start();
+</script>
+<script>if(/github\.io$/.test(location.hostname)){var bk=document.createElement("a");bk.href="../9ano/";bk.textContent="← 9º ano Arcade";bk.style.cssText="position:fixed;left:12px;bottom:12px;z-index:50;font:800 14px Inter,system-ui,sans-serif;background:#ffd166;color:#12152e;border:2px solid #12152e;border-bottom-width:4px;border-radius:999px;padding:8px 14px;text-decoration:none";document.body.appendChild(bk)}</script>
+</body>
+</html>
