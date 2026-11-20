@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Comma Detective · Talk It Out</title>
+<title>Comma Detective · 9º ano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -76,7 +76,7 @@ function parse(line){var p=line.split("|"),words=p[0].split(" "),commas=[];
 function start(){
   G=null;app.innerHTML="";var lv=h("div",{class:"lv"});
   function d(){lv.innerHTML="";LV.forEach(function(l,i){lv.appendChild(h("button",{class:i===lvl?"on":null,on:{click:function(){lvl=i;d()}}},l[0]))})}d();
-  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Talk It Out · Relative clauses"),h("h1",null,"🔍 Comma Detective"),
+  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Relative clauses"),h("h1",null,"🔍 Comma Detective"),
     h("ol",{class:"how"},
       h("li",null,h("span",{class:"e"},"🕵️"),h("span",null,"Read the sentence. Does the relative clause need commas?")),
       h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap the spaces between words to add (or remove) a comma. No commas needed? Just check!")),

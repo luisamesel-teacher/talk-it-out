@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Preposition Tubes · Talk It Out</title>
+<title>Preposition Tubes · 9º ano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -76,7 +76,7 @@ function start(){
   function draw(){ms.innerHTML="";Object.keys(SETS).forEach(function(k){ms.appendChild(h("button",{class:k===mode?"on":null,on:{click:function(){mode=k;draw()}}},SETS[k].icon+" "+SETS[k].t))});
     if(LEVELS[level][3]&&!SETS[mode].base)level=1;lv.innerHTML="";LEVELS.forEach(function(l,i){if(l[3]&&!SETS[mode].base)return;lv.appendChild(h("button",{class:i===level?"on":null,on:{click:function(){level=i;draw()}}},l[0]))})}
   draw();
-  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Talk It Out"),h("h1",null,"🧪 Preposition Tubes"),
+  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"English Arcade"),h("h1",null,"🧪 Preposition Tubes"),
     h("ol",{class:"how"},
       h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap a tube to pick up the word on top. Tap another tube to pour it there.")),
       h("li",null,h("span",{class:"e"},"🧪"),h("span",null,"Put the words of the same group together. A full tube with one group lights up with its colour!")),

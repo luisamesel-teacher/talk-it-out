@@ -41,7 +41,7 @@ MAP END -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talk It Out · 9º ano</title>
+<title>English Arcade · 9º ano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -1780,14 +1780,14 @@ function bar(){
   nav.innerHTML="";
   b.appendChild(h("button",{class:"brand",onclick:function(){go("home")}},
     h("span",{class:"mark"},h("i"),h("i")),
-    h("span",null,h("b",null,"Talk It Out"),h("small",null,t("sub")))));
+    h("span",null,h("b",null,window.NINTH?"English Arcade":"Talk It Out"),h("small",null,t("sub")))));
   var langB=h("button",{class:"pillbtn langbtn","aria-label":t("lang"),onclick:function(){S.lang=S.lang==="en"?"pt":"en";save();route()}},h("span",{class:"l"},t("lang")),h("span",{class:"s","aria-hidden":"true"},S.lang==="en"?"PT":"EN"));
   if(!S.name){b.appendChild(langB);return}
   b.appendChild(h("span",{class:"stat plvl",title:t("plv"),"aria-label":t("plv")+" "+(Math.floor(S.xp/100)+1)},"⭐ ",h("b",null,"Lv "+(Math.floor(S.xp/100)+1))));
   b.appendChild(h("span",{class:"stat mini",title:t("streak"),"aria-label":"Day "+Math.max(S.streak||0,1)+" "+t("streak")},"🔥",h("b",null,Math.max(S.streak||0,1))));
-  b.appendChild(h("span",{class:"stat mini",title:t("coins"),"aria-label":S.coins+" "+t("coins")},"🪙",h("b",null,S.coins)));
+  if(!window.NINTH)b.appendChild(h("span",{class:"stat mini",title:t("coins"),"aria-label":S.coins+" "+t("coins")},"🪙",h("b",null,S.coins)));
   b.appendChild(langB);
-  b.appendChild(h("button",{class:"avatar",title:t("avatars"),"aria-label":t("avatars"),onclick:function(){go("avatars")}},faceEl()));
+  if(!window.NINTH)b.appendChild(h("button",{class:"avatar",title:t("avatars"),"aria-label":t("avatars"),onclick:function(){go("avatars")}},faceEl()));
   b.appendChild(h("button",{class:"tswitch"+(S.theme==="light"?" day":""),role:"switch","aria-checked":S.theme==="light"?"true":"false",title:S.theme==="light"?"Switch to dark mode":"Switch to light mode","aria-label":"Light mode",onclick:function(){S.theme=S.theme==="light"?"dark":"light";save();applyTheme();route()}},h("span",{class:"ic","aria-hidden":"true"},"🌙"),h("span",{class:"ic","aria-hidden":"true"},"☀️"),h("i",{class:"knob","aria-hidden":"true"},S.theme==="light"?"☀️":"🌙")));
   if(!window.NINTH)b.appendChild(h("button",{class:"menubtn","aria-label":t("navMenu"),onclick:function(){go("menu")}},"☰",h("span",{class:"l"}," "+t("navMenu"))));
   nav.appendChild(h("button",{class:"navbtn navback",onclick:goBack},"← "+t("navBack")));
@@ -1970,7 +1970,7 @@ function finish(m,k,pct,review,note){
     h("div",{class:"big"},Math.round(pct*100)+"%"),
     k==="cp"?h("p",{style:"margin:0"},pct>=.8?h("span",{class:"badge"},t("passed")):t("cpNo")):starEl(starsFor(pct)),
     note?h("p",{class:"hint"},note):null,
-    gain?h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+gain),t("earned")):null,goal?h("p",{class:"goal"},goal):null,
+    gain&&!window.NINTH?h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+gain),t("earned")):null,goal?h("p",{class:"goal"},goal):null,
     h("div",{class:"rowend"},
       nx&&!low?h("button",{class:"btn next",onclick:nx.go},tx("Next: ","Próxima: ")+nx.n+" →"):null,
       h("button",{class:"btn"+(low||!nx?"":" ghost"),onclick:function(){run(m,k)}},t("again")),
@@ -2348,7 +2348,7 @@ function arcadeEnd(m,k,win,line,lvl){
     h("div",{class:"big",style:"font-size:44px"},win?t("youWin"):t("botWins")),win&&nm()?h("p",{class:"hello",style:"margin:0"},"Well done, "+nm()+"! 🎉"):nm()?h("p",{class:"hello",style:"margin:0"},"Try again, "+nm()+". You can do it! 💪"):null,
     h("p",{style:"margin:0"},line),
     up?h("span",{class:"badge lvup"},t("lvup")+" "+(lvl+1)):null,
-    h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+gain),t("earned")),
+    window.NINTH?null:h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+gain),t("earned")),
     h("div",{class:"rowend"},
       h("button",{class:"btn ghost",onclick:function(){go(m.id)}},t("back")),
       h("button",{class:"btn",onclick:function(){GAMES[k](m)}},up?t("nextLv"):t("again")))));
@@ -2503,7 +2503,7 @@ function zap(m){
       h("div",{class:"big",style:"font-size:44px"},t("gameOver")),
       h("p",{style:"margin:0"},t("score")+": "+pts+" · "+t("level")+" "+lvl),
       nb?h("span",{class:"badge lvup"},t("newBest")):null,
-      h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+gain),t("earned")),
+      window.NINTH?null:h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+gain),t("earned")),
       h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){go(m.id)}},t("back")),h("button",{class:"btn",onclick:function(){zap(m)}},t("again")))));
     window.scrollTo(0,0);
   }
@@ -3178,7 +3178,7 @@ function hub(m){
   }
   S.gtopic=m.id;save();
   if(!window.NINTH)a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("home")}},"← "+(window.ONLY_GAMES?"All topics":t("navHome")))));
-  else a.appendChild(h("section",{class:"arcadebox hubhead"},h("div",{class:"arctitle"},h("b",null,"🕹️ TALK IT OUT ARCADE · 9º ANO"),h("span",null,hi("Hi {n}! Choose a game and get ready for the test.")))));
+  else a.appendChild(h("section",{class:"arcadebox hubhead"},h("div",{class:"arctitle"},h("b",null,"🕹️ ENGLISH ARCADE · 9º ANO"),h("span",null,hi("Hi {n}! Choose a game and get ready for the test.")))));
   a.appendChild(h("section",{class:"arcadebox"},
     h("div",{class:"arctitle"},h("b",null,m.t),h("span",null,m.g)),
     h("div",{class:"arcgrid"},gameCards(m).concat(m.rev?[]:[
@@ -4505,13 +4505,13 @@ function welcome(again){
   var a=app();cur={k:"welcome"};
   var inp=h("input",{id:"wel-name",class:"inp",type:"text",maxlength:"30",autocomplete:"given-name",placeholder:"Your first name",value:S.name||""}),fb=h("p",{class:"hint"});
   function go2(){var v=inp.value.trim();if(!v){fb.textContent="Please write your name first. 🙂";inp.focus();return}S.name=v;
-    if(!again&&!S.gift&&window.ONLY_GAMES){S.gift=1;S.coins+=20;touchStreak()}
+    if(!again&&!S.gift&&window.ONLY_GAMES){S.gift=1;S.coins+=window.NINTH?0:20;touchStreak()}
     if(!again&&!S.gift){S.gift=1;S.coins+=20;touchStreak();save();bar();choice();return}
     save();bar();route()}
   inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();go2()}});
   a.appendChild(h("section",{class:"card welcome"},
     h("div",{class:"wbot","aria-hidden":"true"},"🤖"),
-    h("h1",null,again?"What's your name?":"Hi! Welcome to Talk It Out."),
+    h("h1",null,again?"What's your name?":window.NINTH?"Hi! Welcome to the English Arcade.":"Hi! Welcome to Talk It Out."),
     h("p",{class:"lead"},again?"Change the name I use to talk to you.":"I'm your robot study buddy. What's your name?"),
     h("label",{class:"label",for:"wel-name"},"My name is…"),inp,fb,
     h("div",{class:"rowend"},h("button",{class:"btn",onclick:go2},again?t("save")||"Save":"Let's start →")),
@@ -4784,7 +4784,7 @@ function route(){
   var k=location.hash.replace("#",""),m=mod(k);
   if(m&&m.rev&&S.name){document.body.setAttribute("data-tone","rose");hub(m);return}
   if(!S.name&&k!=="avatars"){document.body.setAttribute("data-tone","sky");welcome();return}
-  if(window.NINTH){document.body.setAttribute("data-tone",k==="avatars"?"rose":"");if(k==="avatars")avatars();else hub(NINE);return}
+  if(window.NINTH){document.body.setAttribute("data-tone",k==="avatars"?"rose":"");hub(NINE);return}
   if(window.ONLY_GAMES){document.body.setAttribute("data-tone",k==="avatars"?"rose":"");if(k==="avatars")avatars();else hub(m);return}
   document.body.setAttribute("data-tone",m?(TONE[m.id]||{A1:"sand",A2:"mint",B1:"lilac"}[m.lv]):(TONE[k]||""));
   if(m)modulePage(m);else if(k==="avatars")avatars();else if(k==="verbs")verbs();else if(k==="review")review(false);else if(k==="mistakes")mistakes();else if(k==="emails")mail(0);else if(k==="spelling")spelling();else if(k==="sentences")gym();else if(k==="stories")storyList();else if(k==="culture")culture();else if(k==="numbers")numbers(0);else if(k==="words")words();else if(k==="voice")voicePage();else if(k==="menu")menu();else if(k==="start")place();else home();
