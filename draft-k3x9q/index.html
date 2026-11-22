@@ -3791,7 +3791,7 @@ function voicePage(){
   a.appendChild(h("p",{class:"hint",style:"margin-top:18px"},t("voiceTip")));
   window.scrollTo(0,0);
 }
-function spNorm(x){return String(x).toLowerCase().replace(/[’‘`]/g,"'").replace(/[.,!?…"“”]/g,"").replace(/\s+/g," ").trim()}
+function spNorm(x){return String(x).toLowerCase().replace(/[’‘`]/g,"'").replace(/[.,!?…"“”]/g,"").replace(/-/g," ").replace(/\s+/g," ").trim()}function spLong(x){return spNorm(x).replace(/\bcan't\b/g,"cannot").replace(/\bwon't\b/g,"will not").replace(/\bshan't\b/g,"shall not").replace(/n't\b/g," not").replace(/\b(i)'m\b/g,"$1 am").replace(/'re\b/g," are").replace(/'ll\b/g," will").replace(/'ve\b/g," have").replace(/'d\b/g," would").replace(/\b(it|that|what|there|here|he|she|who|where)'s\b/g,"$1 is").replace(/\bcan not\b/g,"cannot").replace(/\s+/g," ").trim()}function spSame(a,b){return spNorm(a)===spNorm(b)||spLong(a)===spLong(b)}function spMarks(you,ans){var n=function(c){return c.toLowerCase().replace(/[’‘`]/g,"'").replace(/-/g," ")},A=ans.split(""),B=spNorm(you).split(""),m=A.length,k=B.length,T=[],i,j,out=h("span",null);for(i=0;i<=m;i++){T[i]=[];for(j=0;j<=k;j++)T[i][j]=0}for(i=m-1;i>=0;i--)for(j=k-1;j>=0;j--)T[i][j]=n(A[i])===B[j]?T[i+1][j+1]+1:Math.max(T[i+1][j],T[i][j+1]);i=0;j=0;while(i<m){if(j<k&&n(A[i])===B[j]){out.appendChild(document.createTextNode(A[i]));i++;j++}else if(j<k&&T[i][j+1]>=T[i+1][j])j++;else{out.appendChild(/[.,!?…"“”\s-]/.test(A[i])?document.createTextNode(A[i]):h("mark",null,A[i]));i++}}return out}function spHint(e){return e.replace(/[A-Za-z]+/g,function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,"_")})}
 function spellDeck(k){
   var out=[];
   if(k==="verbs")verbList().forEach(function(v){var p=v.p.split(" / ")[0];
@@ -3799,13 +3799,13 @@ function spellDeck(k){
     if(v.pp!==p)out.push({say:v.pp,ans:v.pp,clue:"Past participle of “"+v.b+"”",show:true})});
   else for(var id in EXP)exList(id).forEach(function(x){
     if(x.k!==(k==="chunks"?"c":"p")||/[\/(]/.test(x.e))return;
-    var e=x.e.replace(/…/g,"").replace(/\s+,/g,",").replace(/[,\s]+$/,"").trim();
+    var full={"How do I get to…?":["How do I get to the station?","Como eu chego à estação?"],"Can I have…, please?":["Can I have a coffee, please?","Pode me ver um café, por favor?"],"Have you ever…?":["Have you ever been to London?","Você já foi a Londres?"],"I see your point, but…":["I see your point, but I don't agree.","Entendo o seu ponto, mas não concordo."]}[x.e];if(full){out.push({say:full[0],ans:full[0],clue:full[1],show:false});return}var e=x.e.replace(/…/g,"").replace(/\s+,/g,",").replace(/[,\s]+$/,"").trim();
     if(e.split(" ").length<2&&k==="chunks")return;
     out.push({say:e,ans:e,clue:(k==="chunks"?x.pt:x.m+" · "+x.pt),show:false})});
   return shuffle(out).slice(0,8);
 }
 function spelling(k){
-  var a=app(),decks=[["verbs","Past verbs"],["chunks","Chunks of language"],["pv","Phrasal verbs"]],audio=canSpeak();cur={k:"spell"};
+  var a=app(),decks=[["verbs","Past verbs"],["chunks","Chunks of language"],["pv","Phrasal verbs"]],audio=canSpeak()&&voices().length>0;cur={k:"spell"};if(canSpeak()&&!audio)speechSynthesis.onvoiceschanged=function(){if(cur&&cur.k==="spell"&&voices().length){speechSynthesis.onvoiceschanged=null;spelling(k)}};
   a.appendChild(backBtn());
   a.appendChild(h("div",{class:"mhead"},h("h1",null,t("spell")),h("p",{class:"hint"},t("spellD"))));
   a.appendChild(h("div",{class:"chips",style:"margin-bottom:14px"},decks.map(function(d){return h("button",{class:"pillbtn"+(d[0]===k?" on":""),onclick:function(){spelling(d[0])}},d[1])})));
@@ -3817,15 +3817,15 @@ function spelling(k){
     stage.innerHTML="";
     if(i>=list.length){touchStreak();S.coins+=ok*2;S.xp+=ok*3;save();bar();
       stage.appendChild(h("div",{class:"card res"},h("div",{class:"big"},ok+" / "+list.length),h("p",{class:"stat",style:"margin:0"},h("b",null,"+"+ok*2),t("earned")),h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){spelling(k)}},t("again")))));return}
-    var c=list[i],done=false,inp=h("input",{id:"spell-in",class:"inp spellin",type:"text",autocomplete:"off",autocapitalize:"off",autocorrect:"off",spellcheck:"false","aria-label":"Write what you hear"}),fb=h("div",null),clue=h("p",{class:"hint"},c.clue);
+    var c=list[i],done=false,doneAt=0,inp=h("input",{id:"spell-in",class:"inp spellin",type:"text",autocomplete:"off",autocapitalize:"off",autocorrect:"off",spellcheck:"false","aria-label":"Write what you hear"}),fb=h("div",null),clue=h("p",{class:"hint"},c.clue,!c.show&&!audio?h("b",{style:"display:block;letter-spacing:.08em;margin-top:4px"},spHint(c.ans)):null);
     cur.card=c;if(!c.show&&audio)clue.hidden=true;
     var go2=h("button",{class:"btn",onclick:check},t("check"));
     function check(){
-      if(done){i++;card();return}
-      done=true;var good=spNorm(inp.value)===spNorm(c.ans);inp.disabled=true;clue.hidden=false;
+      if(done){if(Date.now()-doneAt<400)return;i++;card();return}
+      done=true;doneAt=Date.now();var good=spSame(inp.value,c.ans);inp.disabled=true;clue.hidden=false;
       if(good)ok++;else miss(null,"spell","🔊 "+c.clue,inp.value||"—",c.ans,"");
       var right=h("span",null);
-      if(!good){var w=spNorm(inp.value);c.ans.split("").forEach(function(ch,n){right.appendChild(w.charAt(n)===ch.toLowerCase()?document.createTextNode(ch):h("mark",null,ch))})}
+      if(!good)right=spMarks(inp.value,c.ans);
       fb.appendChild(h("div",{class:"fb "+(good?"ok":"no")},h("b",null,(good?t("right"):t("wrong"))+" "),good?c.ans:right));
       go2.textContent=i+1<list.length?t("next"):t("finish");go2.focus({preventScroll:true});
     }
