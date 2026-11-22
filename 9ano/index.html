@@ -423,11 +423,37 @@ body.ai-on .askfab{display:block}
 .labgrid{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:22px;align-items:start}
 .labbot{width:100%;height:auto;display:block}
 .labbot .rp{cursor:pointer;transition:filter .15s}
-.labbot .rp:hover,.labbot .rp.on{filter:drop-shadow(0 0 6px #f0a92b)}
+.labbot .rp:hover,.labbot .rp.on{filter:drop-shadow(0 0 6px #ffd166)}
 .labbot .rp:focus{outline:none;filter:drop-shadow(0 0 6px #1f3a8a)}
 .labbot .shake{animation:lshake .4s 2}
 @keyframes lshake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-.labsay{margin:8px 0 0;font-weight:600;background:var(--bg);border-radius:12px;padding:10px 12px;font-size:15.5px}
+.labsay{position:relative;margin:14px 0 0;font-weight:700;background:#fff;color:#12152e;border:2px solid #12152e;border-bottom-width:4px;border-radius:14px;padding:10px 12px;font-size:15.5px;line-height:1.35}
+.labsay::before{content:"";position:absolute;left:28px;top:-11px;border:9px solid transparent;border-bottom-color:#12152e;border-top:0}
+.labsay::after{content:"";position:absolute;left:30px;top:-7px;border:7px solid transparent;border-bottom-color:#fff;border-top:0}
+.labsay.pop{animation:lbsay .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes lbsay{0%{transform:scale(.9);opacity:.4}100%{transform:scale(1);opacity:1}}
+.labcoins{display:flex;align-items:center;gap:5px;width:max-content;margin-top:6px;font:800 14px var(--label);color:#12152e;background:#ffd166;border:2px solid #b8860b;border-bottom-width:4px;border-radius:999px;padding:3px 10px 3px 5px;white-space:nowrap}
+.labcoins svg,.labfly svg{width:18px;height:18px;display:block}
+/* WEB-2026-11-22: robot being built (blueprint), chest lights, celebration */
+.labbotbox{position:relative;border-radius:14px;padding:10px;--lemp:#1a1f4a;--les:#4cc9f0;--lline:#eef1ff;background-color:#12152e;background-image:linear-gradient(rgba(76,201,240,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(76,201,240,.08) 1px,transparent 1px);background-size:18px 18px}
+:root[data-theme="light"] .labbotbox{--lemp:#ffffff;--les:#534AB7;--lline:#12152e;background-color:#efeaff;border:2px solid #12152e;background-image:linear-gradient(rgba(83,74,183,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(83,74,183,.1) 1px,transparent 1px)}
+.labbot{overflow:visible}
+.labbot .plus{font:800 20px var(--label);fill:var(--les);pointer-events:none}
+.labbot .rp.pop{transform-box:fill-box;transform-origin:center;animation:lbpop .4s cubic-bezier(.3,1.7,.5,1)}
+@keyframes lbpop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.labbot.hop{animation:lbhop .5s 2 ease-out}
+@keyframes lbhop{40%{transform:translateY(-12px)}}
+.labbot .spk{opacity:0;transform-box:view-box;transform-origin:120px 8px}
+.labbot.done .spk{animation:lbspk .7s 3 ease-out}
+@keyframes lbspk{0%{opacity:0;transform:scale(.4)}40%{opacity:1}100%{opacity:0;transform:scale(1.3)}}
+.labbot.done .eye{filter:drop-shadow(0 0 5px #ffd166)}
+.labconf{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.labconf i{position:absolute;width:7px;height:11px;border-radius:2px;top:35%;left:50%;opacity:0;animation:labconf 1.3s ease-out forwards}
+@keyframes labconf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r))}}
+.labfly{position:fixed;z-index:50;pointer-events:none;transition:transform .7s cubic-bezier(.5,0,.7,1)}
+.labbump{display:inline-block;animation:labbump .35s}
+@keyframes labbump{50%{transform:scale(1.3)}}
+@media (prefers-reduced-motion:reduce){.labsay.pop,.labbot .rp.pop,.labbot.hop,.labbot.done .spk,.labconf i,.labbump{animation:none}}
 .labrows{display:grid;gap:14px}
 .labrow{display:grid;gap:10px;padding:14px;border-radius:14px;border:2px solid var(--line);background:var(--surface)}
 .labrow.ok{opacity:.75;border-style:dashed}
@@ -630,7 +656,7 @@ body.ai-on .askfab{display:block}
 :root[data-theme="dark"] .tl{background:color-mix(in srgb,var(--track) 10%,var(--s2))}
 :root[data-theme="dark"] .gtop,:root[data-theme="dark"] .arcadebox{box-shadow:inset 0 0 0 2px #4b50a8,0 0 24px rgba(76,201,240,.18)}
 :root[data-theme="dark"] .avatar{box-shadow:0 0 12px rgba(255,209,102,.45)}
-:root[data-theme="dark"] .labsay,:root[data-theme="dark"] .optpan,:root[data-theme="dark"] .ideas{background:var(--bg)}
+:root[data-theme="dark"] .optpan,:root[data-theme="dark"] .ideas{background:var(--bg)}
 :root[data-theme="dark"] .labrow,:root[data-theme="dark"] .ownbox{background:var(--s2)}
 :root[data-theme="dark"] .msg{background:var(--s1);color:var(--ink)}
 :root[data-theme="dark"] .msg.me{background:var(--brand);color:#0b0d1f}
@@ -4313,15 +4339,20 @@ function labOpts(B,k){
     return {w:x,c:c};
   });
 }
-function labRobot(fill,bad,on){
+function labRobot(fill,bad,on,lines,last,done){
   var C={s:["#dbe6ff","#1f3a8a"],v:["#ffe0dc","#c23f37"],a:["#dcf3e9","#17805f"],d:["#ebe4fb","#5b3fb0"],o:["#f4f5f8","#6b7489"]};
-  function st(k){var f=fill[k];if(!f)return 'fill="var(--bg)" stroke="var(--muted)" stroke-dasharray="6 5" stroke-width="2.5"';var c=C[f.c]||C.o;return 'fill="'+c[0]+'" stroke="'+(bad===k?"#c23f37":c[1])+'" stroke-width="'+(bad===k?6:3.5)+'"'}
-  function g(k,inner){return '<g class="rp'+(bad===k?" shake":"")+(on===k?" on":"")+'" data-k="'+k+'" role="button" tabindex="0" aria-label="'+LSLOT[k][0]+'"><title>'+LSLOT[k][0]+'</title>'+inner+'</g>'}
-  var lit=fill.s&&fill.v&&fill.o,eye=lit?'fill="#f0a92b"':'fill="var(--muted)"';
-  var o='<svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg" class="labbot">';
-  o+='<line x1="120" y1="8" x2="120" y2="26" stroke="var(--muted)" stroke-width="4"/><circle cx="120" cy="8" r="6" '+eye+'/>';
-  o+=g("s",'<rect x="76" y="26" width="88" height="62" rx="16" '+st("s")+'/><circle cx="102" cy="55" r="8" '+eye+'/><circle cx="138" cy="55" r="8" '+eye+'/><path d="M104 74q16 '+(lit?10:2)+' 32 0" stroke="#17213b" stroke-width="3" fill="none"/>');
-  o+=g("v",'<rect x="66" y="96" width="108" height="92" rx="14" '+st("v")+'/><rect x="98" y="118" width="44" height="30" rx="6" fill="#ffffff" opacity=".6"/>');
+  var PL={s:[120,63],v:[120,178],f:[43,137],m:[43,188],a:[197,137],w:[197,188],o:[96,232,144,232],t:[94,280,146,280]};
+  function st(k){var f=fill[k];if(!f)return 'fill="var(--lemp)" stroke="var(--les)" stroke-dasharray="7 5" stroke-width="2.5"';var c=C[f.c]||C.o;return 'fill="'+c[0]+'" stroke="'+(bad===k?"#c23f37":c[1])+'" stroke-width="'+(bad===k?6:3.5)+'"'}
+  function g(k,inner){var pl="",p=PL[k];if(!fill[k])for(var i=0;i<p.length;i+=2)pl+='<text class="plus" x="'+p[i]+'" y="'+p[i+1]+'" text-anchor="middle">+</text>';
+    return '<g class="rp'+(bad===k?" shake":"")+(on===k?" on":"")+(last===k?" pop":"")+'" data-k="'+k+'" role="button" tabindex="0" aria-label="'+LSLOT[k][0]+'"><title>'+LSLOT[k][0]+'</title>'+inner+pl+'</g>'}
+  var lit=fill.s&&fill.v&&fill.o,eye='fill="'+(done?"#ffd166":lit?"#4cc9f0":"var(--muted)")+'"';
+  var o='<svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg" class="labbot'+(done?" done":"")+'">';
+  o+='<line x1="120" y1="8" x2="120" y2="26" stroke="var(--lline)" stroke-width="4"/><circle cx="120" cy="8" r="7" fill="'+(done?"#ffd166":"#ff7f8f")+'"/>';
+  o+='<g class="spk" stroke="#ffd166" stroke-width="3" stroke-linecap="round"><path d="M120 -10v-6M104 -2l-5-4M136 -2l5-4M100 12h-7M140 12h7"/></g>';
+  var mouth=done?'<path d="M104 70q16 16 32 0z" fill="#ff6b9a" stroke="#17213b" stroke-width="3" stroke-linejoin="round"/>':'<path d="M104 74q16 '+(lit?10:2)+' 32 0" stroke="#17213b" stroke-width="3" fill="none" stroke-linecap="round"/>';
+  o+=g("s",'<rect x="76" y="26" width="88" height="62" rx="16" '+st("s")+'/>'+(fill.s?'<circle class="eye" cx="102" cy="55" r="8" '+eye+'/><circle class="eye" cx="138" cy="55" r="8" '+eye+'/>'+mouth:''));
+  var lt="";for(var i=0;i<3;i++)lt+='<circle cx="'+(106+i*14)+'" cy="133" r="4.5" fill="'+(i<(lines||0)?"#5be3a8":"#3a3f8c")+'"/>';
+  o+=g("v",'<rect x="66" y="96" width="108" height="92" rx="14" '+st("v")+'/><rect x="96" y="120" width="48" height="26" rx="6" fill="#12152e" stroke="#3a3f8c" stroke-width="2"/>'+lt);
   o+=g("f",'<rect x="26" y="100" width="34" height="62" rx="12" '+st("f")+'/>');
   o+=g("m",'<circle cx="43" cy="182" r="18" '+st("m")+'/>');
   o+=g("a",'<rect x="180" y="100" width="34" height="62" rx="12" '+st("a")+'/>');
@@ -4329,6 +4360,25 @@ function labRobot(fill,bad,on){
   o+=g("o",'<rect x="80" y="194" width="32" height="64" rx="10" '+st("o")+'/><rect x="128" y="194" width="32" height="64" rx="10" '+st("o")+'/>');
   o+=g("t",'<rect x="70" y="262" width="48" height="24" rx="10" '+st("t")+'/><rect x="122" y="262" width="48" height="24" rx="10" '+st("t")+'/>');
   return o+'</svg>';
+}
+var LABCOIN='<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#ffd166" stroke="#b8860b" stroke-width="1.6"/><circle cx="10" cy="10" r="5.5" fill="none" stroke="#b8860b" stroke-width="1.2"/></svg>';
+function labParty(box,n){
+  var bot=box.querySelector(".labbot");if(!bot)return;
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  bot.classList.add("hop");
+  var cf=h("div",{class:"labconf"}),cols=["#8fb0ff","#ff7f8f","#5be3a8","#b39dff","#ffffff","#ffd166"];box.appendChild(cf);
+  for(var i=0;i<36;i++){var c=document.createElement("i");c.style.background=cols[i%6];c.style.setProperty("--x",(Math.random()*240-120)+"px");c.style.setProperty("--y",(Math.random()*-170-10)+"px");c.style.setProperty("--r",(Math.random()*540)+"deg");c.style.animationDelay=(Math.random()*.3)+"s";cf.appendChild(c)}
+  setTimeout(function(){cf.remove()},1800);
+  var stat=[].filter.call(document.querySelectorAll("#bar .stat.mini"),function(x){return x.title===t("coins")})[0];
+  if(!stat)return;var num=stat.querySelector("b"),z=stat.getBoundingClientRect();if(!z.width)return;
+  var end=+num.textContent||0,val=end-n;num.textContent=val;
+  var src=bot.getBoundingClientRect();
+  for(var j=0;j<n;j++)(function(j){setTimeout(function(){
+    var el=document.createElement("div");el.className="labfly";el.innerHTML=LABCOIN;
+    var x0=src.left+src.width/2-9+(j-2)*10,y0=src.top+src.height*.45;el.style.left=x0+"px";el.style.top=y0+"px";document.body.appendChild(el);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.transform="translate("+(z.left-x0)+"px,"+(z.top-y0)+"px) scale(.8)"})});
+    setTimeout(function(){el.remove();val=Math.min(end,val+1);num.textContent=val;num.classList.remove("labbump");void num.offsetWidth;num.classList.add("labbump")},720);
+  },600+j*160)})(j);
 }
 function labSentence(B,fill,upto){
   var keys=[].concat.apply([],LLINES.slice(0,upto)),has=function(k){return keys.indexOf(k)>=0&&fill[k]},out=[];
@@ -4398,7 +4448,7 @@ function labSense(B,fill,line){
   return null;
 }
 function lab(m){
-  var a=app(),B=LAB[LABMAP[m.id]||"daily"],fill={},line=0,open=null,bad=null,done=[];cur={m:m.id,k:"lab"};
+  var a=app(),B=LAB[LABMAP[m.id]||"daily"],fill={},line=0,open=null,bad=null,done=[],last=null,party=false,lastSay="";cur={m:m.id,k:"lab"};
   var O={};"sofamwt".split("").forEach(function(k){O[k]=labOpts(B,k)});
   O.a=O.a.concat([{w:"",c:"a",none:true}]);
   O.r=[{w:"a",c:"o"},{w:"an",c:"o"},{w:"the",c:"o"},{w:"",c:"o",none:true}];
@@ -4411,21 +4461,22 @@ function lab(m){
   O.v=B.v.map(function(x){var f=x.split("|");return {base:f[0],cats:f[3]||"",forms:B.mode==="free"?f.slice(0,3):[B.mode+" "+f[0],B.mode+" "+f[1],B.mode+" to "+f[0]]}});
   function mkV(vb,fi){return {w:vb.forms[fi],c:"v",base:vb.base,cats:vb.cats,forms:vb.forms,form:fi,parts:B.mode==="free"?null:[B.mode,vb.forms[fi].slice(B.mode.length+1)]}}
   a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go(m.id)}},"← "+t("back"))));
-  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},lvTag(m.lv)," "+m.t+(B.name!==m.t?" · "+B.name:"")),h("h1",null,"🤖 "+t("lab")),h("p",{class:"hint"},t("labD"))));
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},lvTag(m.lv)," "+m.t+(B.name!==m.t?" · "+B.name:"")),h("h1",null,""+t("lab")),h("p",{class:"hint"},t("labD"))));
   var key=h("div",{class:"train labkey"},[["subject","s"],["verb","v"],["what","o"],["adjective","a"],["how · how often · where · when","d"]].map(function(x){return h("span",{class:"t-"+x[1]},x[0])}));
   var bot=h("div",{class:"labbotbox"}),say=h("p",{class:"labsay",role:"status"},"Click a box, or a part of my body, and choose a word."),rows=h("div",{class:"labrows"}),out=h("div",{class:"labout"});
   a.appendChild(key);
   a.appendChild(h("section",{class:"card labcard"},h("div",{class:"labgrid"},h("div",null,bot,say),rows),out));
   function upto(li){return "sfvraomwt".split("").filter(function(k){return LLINES.slice(0,li+1).join().indexOf(k)>=0})}
-  function pickSlot(k){if(line>2)return;if(upto(line).indexOf(k)<0){say.textContent="🤖 First finish line "+(line+1)+".";return}open=open===k?null:k;draw()}
-  function choose(k,opt){fill[k]=opt;bad=null;open=null;
-    if(opt.bad){bad=k;say.textContent="🤖 Hmm… "+opt.bad;draw();return}
-    var q=labArt(fill)||labTense(B,fill);if(q){bad=q.k;say.textContent="🤖 Wait… "+q.why;draw();return}
-    say.textContent="🤖 Good. Keep going!";
+  function pickSlot(k){if(line>2)return;if(upto(line).indexOf(k)<0){say.textContent="First finish line "+(line+1)+".";return}open=open===k?null:k;draw()}
+  function choose(k,opt){fill[k]=opt;bad=null;open=null;last=k;
+    if(opt.bad){bad=k;say.textContent="Hmm… "+opt.bad;draw();return}
+    var q=labArt(fill)||labTense(B,fill);if(q){bad=q.k;say.textContent="Wait… "+q.why;draw();return}
+    say.textContent="Good. Keep going!";
     var keys=[].concat.apply([],LLINES.slice(0,line+1));for(var i=0;i<keys.length;i++)if(!fill[keys[i]]){open=keys[i];break}
     draw()}
   function draw(){
-    bot.innerHTML=labRobot(fill,bad,open);
+    if(say.textContent!==lastSay){lastSay=say.textContent;say.classList.remove("pop");void say.offsetWidth;say.classList.add("pop")}
+    bot.innerHTML=labRobot(fill,bad,open,done.length,last,line===3);last=null;
     [].forEach.call(bot.querySelectorAll(".rp"),function(g){var k=g.getAttribute("data-k");g.addEventListener("click",function(){pickSlot(k)});g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pickSlot(k)}})});
     rows.innerHTML="";
     LLINES.forEach(function(ks,li){
@@ -4462,11 +4513,12 @@ function lab(m){
   }
   function check(){
     var e=labCheck(B,fill,line);
-    if(e){bad=e.k;open=null;say.textContent="🤖 Hmm… "+e.why;miss(m,"lab",labSentence(B,fill,line+1).map(function(x){return x[0]}).join(" "),"","",e.why);draw();return}
+    if(e){bad=e.k;open=null;say.textContent="Hmm… "+e.why;miss(m,"lab",labSentence(B,fill,line+1).map(function(x){return x[0]}).join(" "),"","",e.why);draw();return}
     bad=null;done.push({n:line,sn:labSentence(B,fill,line+1)});
-    if(line<2){line++;open=LLINES[line][0];say.textContent=pick(["🤖 Correct! My "+(line===1?"head, body and legs work":"arms and hands work")+". Now make the sentence longer.","🤖 Beep! Perfect. Let's grow the sentence."])}
-    else{open=null;touchStreak();S.coins+=5;S.xp+=10;save();bar();say.textContent=hi("🤖 I'm complete! Great sentence, {n}. +5 coins.");line=3}
+    if(line<2){line++;open=LLINES[line][0];say.textContent=pick(["Correct! My "+(line===1?"head, body and legs work":"arms and hands work")+". Now make the sentence longer.","Beep! Perfect. Let's grow the sentence."])}
+    else{open=null;touchStreak();S.coins+=5;S.xp+=10;save();bar();say.textContent=hi("I'm complete! Great sentence, {n}.");var cc=h("span",{class:"labcoins"},h("span"),"+5 coins");cc.firstChild.innerHTML=LABCOIN;say.appendChild(cc);line=3;party=true}
     draw();
+    if(party){party=false;labParty(bot,5)}
   }
   draw();
   window.scrollTo(0,0);
