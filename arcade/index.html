@@ -4461,7 +4461,7 @@ function lab(m){
   O.v=B.v.map(function(x){var f=x.split("|");return {base:f[0],cats:f[3]||"",forms:B.mode==="free"?f.slice(0,3):[B.mode+" "+f[0],B.mode+" "+f[1],B.mode+" to "+f[0]]}});
   function mkV(vb,fi){return {w:vb.forms[fi],c:"v",base:vb.base,cats:vb.cats,forms:vb.forms,form:fi,parts:B.mode==="free"?null:[B.mode,vb.forms[fi].slice(B.mode.length+1)]}}
   a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go(m.id)}},"← "+t("back"))));
-  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},lvTag(m.lv)," "+m.t+(B.name!==m.t?" · "+B.name:"")),h("h1",null,""+t("lab")),h("p",{class:"hint"},t("labD"))));
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},lvTag(m.lv)," "+m.t+(B.name!==m.t?" · "+B.name:"")),h("h1",null,"🤖 "+t("lab")),h("p",{class:"hint"},t("labD"))));
   var key=h("div",{class:"train labkey"},[["subject","s"],["verb","v"],["what","o"],["adjective","a"],["how · how often · where · when","d"]].map(function(x){return h("span",{class:"t-"+x[1]},x[0])}));
   var bot=h("div",{class:"labbotbox"}),say=h("p",{class:"labsay",role:"status"},"Click a box, or a part of my body, and choose a word."),rows=h("div",{class:"labrows"}),out=h("div",{class:"labout"});
   a.appendChild(key);
