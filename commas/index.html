@@ -48,6 +48,9 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .redh{color:#ff8a80}.mean{color:var(--mute)}
 .stars{font-size:40px;letter-spacing:6px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px;max-width:60vw}
+.bigpts{font:800 30px var(--disp,inherit);color:var(--yel,#ffd166);margin:6px 0}
 </style>
 </head>
 <body>
@@ -78,17 +81,19 @@ function start(){
   function d(){lv.innerHTML="";LV.forEach(function(l,i){lv.appendChild(h("button",{class:i===lvl?"on":null,on:{click:function(){lvl=i;d()}}},l[0]))})}d();
   app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Relative clauses"),h("h1",null,"🔍 Comma Detective"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"🕵️"),h("span",null,"Read the sentence. Does the relative clause need commas?")),
-      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap the spaces between words to add (or remove) a comma. No commas needed? Just check!")),
-      h("li",null,h("span",{class:"e"},"💡"),h("span",null,"Non-defining = extra information, with commas. Defining = necessary information, no commas.")),
-      h("li",null,h("span",{class:"e"},"❓"),h("span",null,"In levels 2 and 3, answer more questions: can we use “that”? Can we leave out the pronoun?"))),
+      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap the spaces to add commas. Extra information = commas.")),
+      h("li",null,h("span",{class:"e"},"❓"),h("span",null,"Levels 2–3: answer about “that” and leaving out the pronoun.")),
+      h("li",null,h("span",{class:"e"},"⚡"),h("span",null,"Right and fast = more points (up to 100 each)."))),
     h("span",{class:"label"},"Level"),lv,h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
 }
-function play(){G={list:shuffle(S).slice(0,ROUND).map(parse),i:0,pts:0,max:0,miss:[]};show()}
+function play(){G={list:shuffle(S).slice(0,ROUND).map(parse),i:0,pts:0,max:0,miss:[],kp:0};show()}
+function bestP(){try{return +localStorage.getItem("pcommas-best-"+lvl)||0}catch(e){return 0}}
+function addP(t0){var p=Math.max(30,Math.round(100-(performance.now()-t0)/1000*4));G.kp+=p;return p}
 function show(){
-  var it=G.list[G.i],on={},stage=0;app.innerHTML="";
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔍 Comma Detective"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
-  app.appendChild(h("div",{class:"hud"},h("div",null,h("span",{class:"label"},"Case"),h("b",null,(G.i+1)+" / "+G.list.length)),h("div",null,h("span",{class:"label"},"Points"),h("b",null,String(G.pts))),h("div",null,h("span",{class:"label"},"Level"),h("b",null,String(lvl+1)))));
+  var it=G.list[G.i],on={},stage=0,t0=performance.now();app.innerHTML="";
+  var sel=h("select",{class:"lvsel","aria-label":"Change level",on:{change:function(){lvl=+sel.value;play()}}},LV.map(function(l,i){var o=h("option",{value:String(i)},l[0]);if(i===lvl)o.selected=true;return o}));
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔍 Comma Detective"),h("div",{class:"row"},sel,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
+  app.appendChild(h("div",{class:"hud"},h("div",null,h("span",{class:"label"},"Case"),h("b",null,(G.i+1)+" / "+G.list.length)),h("div",null,h("span",{class:"label"},"⚡ Points"),h("b",null,String(G.kp))),h("div",null,h("span",{class:"label"},"Level"),h("b",null,String(lvl+1)))));
   var box=h("div",{class:"case","aria-label":"Sentence"}),gaps=[];
   it.words.forEach(function(w,i){var sp=h("span",{class:"w"},w);box.appendChild(sp);
     if(i<it.words.length-1){var g=h("button",{class:"gap","aria-label":"Add a comma after "+w,on:{click:function(){if(stage)return;on[i]=!on[i];g.textContent=on[i]?",":"";g.classList.toggle("on",!!on[i])}}});gaps.push(g);box.appendChild(g)}
@@ -102,7 +107,7 @@ function show(){
     stage=1;chk.remove();G.max++;
     var ok=true;gaps.forEach(function(g,i){g.disabled=true;var want=it.commas.indexOf(i)>=0,has=!!on[i];
       if(want&&has)g.classList.add("ok");else if(want&&!has){ok=false;g.textContent=",";g.classList.add("miss")}else if(!want&&has){ok=false;g.classList.add("no")}});
-    if(ok)G.pts++;else G.miss.push({s:it.full,what:it.nd?"Commas: this is extra information (non-defining).":"No commas: this information is necessary (defining)."});
+    if(ok){G.pts++;var ap=addP(t0);note(true,"⚡ +"+ap+" points")}else G.miss.push({s:it.full,what:it.nd?"Commas: this is extra information (non-defining).":"No commas: this information is necessary (defining)."});t0=performance.now();
     note(ok,it.nd?"Non-defining: “"+it.pr+"…” gives extra information. We put it between commas.":"Defining: “"+it.pr+"…” tells us which one. It's necessary, so no commas.");
     if(lvl>=1&&it.pr.toLowerCase()==="that"){if(lvl>=2)ask("Can we leave out “that”?",it.omit,it.omit?"Yes: “that” is the object here, so we can leave it out.":"No: here “that” is the subject (it does the action), so we need it.",next);else next()}
     else if(lvl>=1)ask("Can we use “that” instead of “"+it.pr+"” here?",it.that,it.that?"Yes: in a defining clause, “that” can replace who or which.":it.nd?"No: we never use “that” in a non-defining clause (with commas).":"No: we don't use “that” instead of where.",function(){
@@ -113,20 +118,22 @@ function show(){
     var box2=h("div",{class:"q2"},h("p",null,"❓ "+txt)),r=h("div",{class:"row"});box2.appendChild(r);q.appendChild(box2);
     [["Yes",true],["No",false]].forEach(function(o){r.appendChild(h("button",{class:"opt",on:{click:function(e){
       [].forEach.call(r.children,function(b){b.disabled=true});var good=o[1]===ans;e.currentTarget.classList.add(good?"ok":"no");G.max++;
-      if(good)G.pts++;else G.miss.push({s:it.full,what:txt+" → "+(ans?"Yes":"No")});
+      if(good){G.pts++;var ap=addP(t0);why="⚡ +"+ap+" · "+why}else G.miss.push({s:it.full,what:txt+" → "+(ans?"Yes":"No")});t0=performance.now();
       box2.appendChild(h("div",{class:"fb "+(good?"good":"bad")},h("b",null,good?"✓ ":"✗ "),why));then()}}},o[0]))});
   }
   function next(){act.innerHTML="";act.appendChild(h("button",{class:"btn",on:{click:function(){G.i++;if(G.i>=G.list.length)end();else show()}}},G.i+1<G.list.length?"Next case →":"See results →"))}
   window.scrollTo(0,0);
 }
 function end(){
-  var pct=G.pts/G.max,stars=pct>=.9?3:pct>=.7?2:pct>=.5?1:0;app.innerHTML="";
+  var pct=G.pts/G.max,stars=pct>=.9?3:pct>=.7?2:pct>=.5?1:0,bp=bestP(),rec=G.kp>bp;if(rec)try{localStorage.setItem("pcommas-best-"+lvl,String(G.kp))}catch(e){}app.innerHTML="";var win=pct>=.7;
   var c=h("div",{class:"card"},h("span",{class:"label"},"Case closed!"),h("h1",null,"🔍 Detective report"),
-    h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),h("p",null,"Points: ",h("b",null,G.pts+" / "+G.max)," · "+LV[lvl][0]));
+    h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),h("p",null,"Right answers: ",h("b",null,G.pts+" / "+G.max)," · "+LV[lvl][0]),
+    h("p",{class:"bigpts"},"⚡ "+G.kp+" points"),h("p",{class:"mean"},rec?"🏆 New record!":"🏆 Best on this level: "+bp),
+    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn"+(win&&lvl<LV.length-1?" ghost":""),on:{click:play}},"🔄 Try again"),win&&lvl<LV.length-1?h("button",{class:"btn",on:{click:function(){lvl++;play()}}},"⏭ Next level"):null,h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")));
   if(G.miss.length){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,m.s),h("div",null,m.what))})))}
   c.appendChild(h("div",{class:"list"},h("div",null,h("b",null,"Defining"),h("div",{class:"mean"},"Necessary information · no commas · who/which can be “that” · object pronoun can go")),
     h("div",null,h("b",null,"Non-defining"),h("div",{class:"mean"},"Extra information · commas · never “that” · never leave out the pronoun"))));
-  c.appendChild(h("div",{class:"row",style:"margin-top:12px"},h("button",{class:"btn",on:{click:play}},"🔄 New cases"),h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")));
+
   app.appendChild(c);window.scrollTo(0,0);
 }
 start();

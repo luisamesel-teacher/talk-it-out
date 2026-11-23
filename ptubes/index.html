@@ -51,6 +51,9 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .stars{font-size:40px;letter-spacing:6px}
 @media (max-width:560px){.tube{width:84px}.tube::before{left:-5px;right:-5px}.layer{font-size:12.5px;height:38px}.layer:first-child{height:42px}.rack{gap:44px 14px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -69,6 +72,10 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(at[k]!=null)e.setAttribute(k,at[k])}
   for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
 var app=document.getElementById("app"),mode="preps",level=0,G=null;
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function bestT(){try{return +localStorage.getItem("ptubes-best-"+mode+"-"+level)||0}catch(e){return 0}}
+function okLv(){var o=[];LEVELS.forEach(function(l,i){if(!(l[3]&&!SETS[mode].base))o.push(i)});return o}
+setInterval(function(){var c=document.getElementById("ptclock");if(c&&G&&G.t0){var b=bestT();c.textContent="⏱ "+fmtT(performance.now()-G.t0)+(b?" · best "+fmtT(b):"")}},250);
 function speak(w){try{if(!window.speechSynthesis)return;var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 function start(){
   G=null;app.innerHTML="";
@@ -78,10 +85,9 @@ function start(){
   draw();
   app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"English Arcade"),h("h1",null,"🧪 Preposition Tubes"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap a tube to pick up the word on top. Tap another tube to pour it there.")),
-      h("li",null,h("span",{class:"e"},"🧪"),h("span",null,"Put the words of the same group together. A full tube with one group lights up with its colour!")),
-      h("li",null,h("span",{class:"e"},"⚠️"),h("span",null,"A full tube with mixed groups shakes: something there doesn't belong.")),
-      h("li",null,h("span",{class:"e"},"💡"),h("span",null,"Need help? A hint shows the group of the word on top. You have 3."))),
+      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Tap a tube to pick up the top word, then tap another tube to pour it.")),
+      h("li",null,h("span",{class:"e"},"🧪"),h("span",null,"Make each tube hold one group.")),
+      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Beat your best time. 3 hints if you need help."))),
     h("span",{class:"label"},"Level"),lv,
     h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
 }
@@ -92,15 +98,17 @@ function play(){
   words.forEach(function(x){x.acc=[];groups.forEach(function(g,gi){if(g.w.some(function(w){return w.split(":")[base?1:0]===x.w||w.split(":")[0]===x.f}))x.acc.push(gi)})});
   var tubes;do{var sh=shuffle(words);tubes=[];for(var i=0;i<ng;i++)tubes.push(sh.slice(i*cap,(i+1)*cap));}while(tubes.some(function(t){return common(t)>=0}));
   tubes.push([]);tubes.push([]);
-  G={S:S,base:base,lvl:L[0],groups:groups,cap:cap,tubes:tubes,done:tubes.map(function(){return -1}),sel:-1,moves:0,mistakes:0,hints:3,shown:{}};
+  G={S:S,base:base,lvl:L[0],groups:groups,cap:cap,tubes:tubes,done:tubes.map(function(){return -1}),sel:-1,moves:0,mistakes:0,hints:3,shown:{},t0:performance.now()};
   render("Tap a tube to pick up its top word.");
 }
 function render(msg,cls,badTube){
   app.innerHTML="";
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧪 Word Tubes · "+G.S.t),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
+  var sel=h("select",{class:"lvsel","aria-label":"Change level",on:{change:function(){level=+sel.value;play()}}},okLv().map(function(i){var o=h("option",{value:String(i)},LEVELS[i][0]);if(i===level)o.selected=true;return o}));
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧪 Word Tubes · "+G.S.t),h("div",{class:"row"},sel,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
   var fin=G.done.filter(function(d){return d>=0}).length;
   app.appendChild(h("div",{class:"hud"},h("div",null,h("span",{class:"label"},"Groups done"),h("b",null,fin+" / "+G.groups.length)),
     h("div",null,h("span",{class:"label"},"Moves"),h("b",null,String(G.moves))),h("div",null,h("span",{class:"label"},"Mixed tubes"),h("b",null,String(G.mistakes)))));
+  app.appendChild(h("p",{class:"clock",id:"ptclock"},"⏱ "+fmtT(performance.now()-G.t0)));
   app.appendChild(h("p",{class:"mean",style:"margin:0 0 8px"},(G.base?"🔤 "+G.S.dBase:G.S.d)+" · "+G.lvl));
   var rack=h("div",{class:"rack"});
   G.tubes.forEach(function(t,ti){
@@ -149,15 +157,18 @@ function showRules(){
   document.body.appendChild(m);
 }
 function end(){
-  var stars=G.mistakes===0&&G.hints===3?3:G.mistakes<=2?2:1;
+  var stars=G.mistakes===0&&G.hints===3?3:G.mistakes<=2?2:1,el=performance.now()-G.t0,bt=bestT(),rec=!bt||el<bt;if(rec)try{localStorage.setItem("ptubes-best-"+mode+"-"+level,String(Math.round(el)))}catch(e){}G.t0=0;
+  var ol=okLv(),nx=ol[ol.indexOf(level)+1];
   app.innerHTML="";
   var c=h("div",{class:"card"},h("span",{class:"label"},"You did it!"),h("h1",null,"🧪 All tubes sorted!"),
     h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
     h("p",null,"Moves: ",h("b",null,String(G.moves))," · Mixed tubes: ",h("b",null,String(G.mistakes))," · Hints used: ",h("b",null,String(3-G.hints))),
+    h("p",{class:"mean"},"⏱ "+fmtT(el)+(rec?" · 🏆 New record!":" · Best "+fmtT(bt))),
+    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn"+(nx!=null?" ghost":""),on:{click:play}},"🔄 Try again"),nx!=null?h("button",{class:"btn",on:{click:function(){level=nx;play()}}},"⏭ Next level"):null,h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")),
     h("h3",null,"The groups"),
     h("div",{class:"list"},G.groups.map(function(g,gi){var ws=[];G.tubes.forEach(function(t,ti){if(G.done[ti]===gi)t.forEach(function(x){ws.push(x.b!==x.f?x.b+" → "+x.f:x.w)})});
       return h("div",{style:"box-shadow:inset 6px 0 0 "+g.c},h("b",null,g.n+" · "+g.r),h("span",null,ws.join(", ")))})),
-    h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn",on:{click:play}},"🔄 Play again"),h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change game or level")));
+    null);
   app.appendChild(c);window.scrollTo(0,0);
 }
 start();

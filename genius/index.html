@@ -57,6 +57,10 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .redh{color:#ff8a80}.mean{color:var(--mute)}
 .big{font:900 64px var(--disp);color:var(--yel);line-height:1}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.board.paused .pad,.board.paused .center{filter:blur(3px) grayscale(.6);opacity:.6}
+.lv button{font-size:14px;padding:8px 12px}
 </style>
 </head>
 <body>
@@ -100,40 +104,46 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
 function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(at[k]!=null)e.setAttribute(k,at[k])}
   for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
-var PREPS=["at","by","in","on"],app=document.getElementById("app"),G=null,speed=0,BEST=0;
-try{BEST=+localStorage.getItem("pgenius-best")||0}catch(e){}
-var SPEEDS=[["⭐ Level 1 · Words stay on screen",1400,true],["⭐⭐ Level 2 · Memory",1300,false],["⭐⭐⭐ Level 3 · Memory, faster",1050,false],["🚀 Level 4 · Fast",750,false]];
+var PREPS=["at","by","in","on"],app=document.getElementById("app"),G=null,speed=0,paused=false;
+/* [label, ms per word, words stay on screen, how many phrases, goal (words in a row)] */
+var SPEEDS=[["1 · 6 phrases · words stay",1400,true,6,5],["2 · 10 phrases",1350,false,10,5],["3 · 12 phrases",1300,false,12,6],["4 · 14 phrases",1250,false,14,6],["5 · 16 phrases",1150,false,16,7],["6 · 18 phrases",1100,false,18,7],["7 · 20 phrases",1000,false,20,8],["8 · all phrases",950,false,22,8],["9 · all, faster",850,false,22,9],["10 · all, fastest 🚀",750,false,22,10]];
+var ORDER=["foot","purpose","first","least","mistake","chance","danger","the end","sale","a hurry","once","last","trouble","hand","average","the moment","accident","times","all","time","the time","addition to"];
+function bestOf(l){try{return +localStorage.getItem("pgenius-best-"+l)||0}catch(e){return 0}}
+function setBest(l,v){try{localStorage.setItem("pgenius-best-"+l,String(v))}catch(e){}}
 function preps(c){return P.filter(function(x){return x[1]===c}).map(function(x){return x[0]})}
 function meaning(p,c){var x=P.filter(function(z){return z[0]===p&&z[1]===c})[0];return x?x[2]:""}
-function comps(){var c=[];P.forEach(function(x){if(c.indexOf(x[1])<0)c.push(x[1])});return c}
+function comps(){var all=[];P.forEach(function(x){if(all.indexOf(x[1])<0)all.push(x[1])});var o=ORDER.filter(function(c){return all.indexOf(c)>=0});all.forEach(function(c){if(o.indexOf(c)<0)o.push(c)});return o.slice(0,SPEEDS[speed][3])}
+function wait(ms,fn,tok){var left=ms;(function lp(){if(!G||G.my!==tok)return;if(!paused)left-=50;if(left<=0)fn();else setTimeout(lp,50)})()}
+function levelPills(onPick){var lv=h("div",{class:"lv"});SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;onPick()}}},s[0]))});return lv}
 function start(){
-  G=null;app.innerHTML="";
-  var lv=h("div",{class:"lv"});
-  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
-  drawLv();
+  G=null;paused=false;app.innerHTML="";
+  var box=h("div",null);function draw(){box.innerHTML="";box.appendChild(levelPills(draw));var b=bestOf(speed);box.appendChild(h("p",{class:"mean"},"🎯 Goal: "+SPEEDS[speed][4]+" words in a row"+(b?" · 🏆 Your best: "+b:"")))}draw();
   app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Prepositional phrases"),h("h1",null,"🔴🟢 Preposition Genius"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"👀"),h("span",null,"Watch: words appear in the middle, one by one (purpose, last, hand…).")),
-      h("li",null,h("span",{class:"e"},"🧠"),h("span",null,"Then tap the preposition for each word, in the same order: on, at, by… In Level 1 the words stay on screen. From Level 2 you have to remember them!")),
-      h("li",null,h("span",{class:"e"},"➕"),h("span",null,"Every round adds one more word. How long can you go?")),
-      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"You have 3 hearts. A mistake costs one heart and the robot shows the sequence again."))),
-    h("span",{class:"label"},"Level"),lv,
-    BEST?h("p",{class:"mean"},"🏆 Your best: "+BEST+" words in a row"):null,
+      h("li",null,h("span",{class:"e"},"👀"),h("span",null,"Watch the words, one by one.")),
+      h("li",null,h("span",{class:"e"},"🧠"),h("span",null,"Tap the preposition for each word, in the same order.")),
+      h("li",null,h("span",{class:"e"},"➕"),h("span",null,"Each round adds a word. Reach the goal to pass the level.")),
+      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. Each mistake costs one."))),
+    h("span",{class:"label"},"Level"),box,
     h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
 }
 function play(){
-  var pool=shuffle(comps());
-  G={seq:[pool.pop(),pool.pop()],pool:pool,i:0,lives:3,state:"show",best:0,miss:[],my:{}};
+  paused=false;var pool=shuffle(comps());
+  G={seq:[pool.pop(),pool.pop()],pool:pool,i:0,lives:3,state:"show",best:0,miss:[],my:{},won:false};
   app.innerHTML="";
   var strip=h("div",{class:"strip","aria-live":"polite"}),hud=h("div",{class:"hud"}),center=h("div",{class:"center"}),say=h("p",{class:"say",role:"status"}),board=h("div",{class:"board"});
   var pads=PREPS.map(function(p){var b=h("button",{class:"pad "+p,"aria-label":p,on:{pointerdown:function(e){e.preventDefault();tap(p,b)}}},p);board.appendChild(b);return b});
   board.appendChild(center);
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔴🟢 Preposition Genius"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
+  var sel=h("select",{class:"lvsel","aria-label":"Change level",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(s,i){var o=h("option",{value:String(i)},"Level "+s[0]);if(i===speed)o.selected=true;return o}));
+  var pb=h("button",{class:"btn ghost small",on:{click:togglePause}},"❚❚ Pause");
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔴🟢 Preposition Genius"),h("div",{class:"row"},sel,pb,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
   app.appendChild(hud);if(SPEEDS[speed][2])app.appendChild(strip);app.appendChild(board);app.appendChild(say);
-  var tok=G.my;
-  window.onkeydown=function(e){var n=parseInt(e.key,10);if(n>=1&&n<=4){tap(PREPS[n-1],pads[n-1])}};
-  function drawHud(){hud.innerHTML="";hud.appendChild(h("div",null,h("span",{class:"label"},"Round"),h("b",null,String(G.seq.length-1))));
-    hud.appendChild(h("div",null,h("span",{class:"label"},"Best now"),h("b",null,G.best+" words")));
+  var tok=G.my,goal=SPEEDS[speed][4],saved=null;
+  function togglePause(){paused=!paused;pb.textContent=paused?"▶ Resume":"❚❚ Pause";board.classList.toggle("paused",paused);
+    if(paused){saved=say.textContent;say.className="say";say.textContent="⏸ Paused. Press Resume when you are ready."}else if(saved!=null)say.textContent=saved}
+  window.onkeydown=function(e){if(e.key==="p"||e.key==="P"){togglePause();return}var n=parseInt(e.key,10);if(n>=1&&n<=4){tap(PREPS[n-1],pads[n-1])}};
+  function drawHud(){hud.innerHTML="";hud.appendChild(h("div",null,h("span",{class:"label"},"Level "+(speed+1)),h("b",null,G.best+" / "+goal)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Round"),h("b",null,String(G.seq.length-1))));
     hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))))}
   function centerSet(w,s,show){center.innerHTML="";center.className="center"+(show?" show":"");center.appendChild(h("div",null,h("div",{class:"w"},w),s?h("div",{class:"s"},s):null,dots()))}
   function dots(){var d=h("div",{class:"dots"});G.seq.forEach(function(_,k){d.appendChild(h("i",{class:G.state==="input"?(k<G.i?"ok":k===G.i?"now":""):""}))});return d}
@@ -144,48 +154,50 @@ function play(){
     var k=0,ms=SPEEDS[speed][1];
     centerSet("Ready…","",false);
     (function next(){
-      if(G===null||G.my!==tok)return;
-      setTimeout(function(){
-        if(G===null||G.my!==tok)return;
-        if(k<G.seq.length){centerSet(G.seq[k],"word "+(k+1)+" of "+G.seq.length,true);k++;drawStrip(k);setTimeout(function(){if(G&&G.my===tok){centerSet("","",false);next()}},ms)}
+      wait(k===0?700:ms*.25,function(){
+        if(k<G.seq.length){centerSet(G.seq[k],"word "+(k+1)+" of "+G.seq.length,true);k++;drawStrip(k);wait(ms,function(){centerSet("","",false);next()},tok)}
         else{G.state="input";G.done=[];drawStrip(G.seq.length);lock(false);centerSet("Your turn!","tap the prepositions",false);say.textContent="🧠 Tap the preposition for each word, in order."}
-      },k===0?700:ms*.25);
+      },tok);
     })();
   }
   function tap(p,b){
-    if(!G||G.state!=="input")return;
+    if(!G||G.state!=="input"||paused)return;
     var w=G.seq[G.i],ok=preps(w).indexOf(p)>=0;
     b.classList.remove("lit","no");void b.offsetWidth;
     if(ok){
       b.classList.add("lit");setTimeout(function(){b.classList.remove("lit")},260);
       G.done[G.i]=p;G.i++;drawStrip(G.seq.length);centerSet(p+" "+w,"✓",true);say.className="say good";say.textContent="✓ "+p+" "+w+(w==="time"?" (in time = early enough · on time = not late)":"");
       if(G.i>=G.seq.length){
-        G.best=Math.max(G.best,G.seq.length);G.state="wait";lock(true);
+        G.best=Math.max(G.best,G.seq.length);G.state="wait";lock(true);drawHud();
+        if(G.best>=goal){G.won=true;say.textContent="🏆 "+G.best+" in a row! Level complete!";wait(1200,end,tok);return}
         if(!G.pool.length)G.pool=shuffle(comps());
         G.seq.push(G.pool.pop());
-        setTimeout(function(){if(G&&G.my===tok){say.textContent="⭐ Perfect! One more word…";setTimeout(function(){if(G&&G.my===tok)show()},800)}},500);
-      }else setTimeout(function(){if(G&&G.my===tok&&G.state==="input")centerSet("?","word "+(G.i+1)+" of "+G.seq.length,false)},500);
+        wait(500,function(){say.textContent="⭐ Perfect! One more word…";wait(800,show,tok)},tok);
+      }else wait(500,function(){if(G.state==="input")centerSet("?","word "+(G.i+1)+" of "+G.seq.length,false)},tok);
     }else{
       b.classList.add("no");G.lives--;G.state="wait";lock(true);
       var right=preps(w);G.miss.push({bad:p+" "+w,right:right.map(function(r){return r+" "+w}).join(" / "),m:meaning(right[0],w)});
       centerSet(right.join("/")+" "+w,"not “"+p+"”",true);say.className="say bad";say.textContent="✗ We say “"+right.map(function(r){return r+" "+w}).join("” or “")+"”.";drawHud();
-      setTimeout(function(){if(!G||G.my!==tok)return;if(G.lives<=0)end();else show()},2200);
+      wait(2200,function(){if(G.lives<=0)end();else show()},tok);
     }
   }
   drawHud();show();
 }
 function end(){
-  var g=G;G=null;window.onkeydown=null;
-  if(g.best>BEST){BEST=g.best;try{localStorage.setItem("pgenius-best",String(BEST))}catch(e){}}
+  var g=G;G=null;paused=false;window.onkeydown=null;
+  var b=bestOf(speed),rec=g.best>b;if(rec)setBest(speed,g.best);
   app.innerHTML="";
-  var c=h("div",{class:"card"},h("span",{class:"label"},"Game over"),h("h1",null,"🧠 Great memory!"),
+  var c=h("div",{class:"card"},h("span",{class:"label"},"Level "+SPEEDS[speed][0]),h("h1",null,g.won?"🏆 Level complete!":"🧠 Game over"),
     h("p",null,"Longest sequence:"),h("div",{class:"big"},g.best+" words"),
-    h("p",{class:"mean"},"🏆 Your best ever: "+BEST+" words · "+SPEEDS[speed][0]));
+    h("p",{class:"mean"},(rec?"🏆 New record!":"🏆 Your best on this level: "+Math.max(b,g.best)+" words")+" · Goal: "+SPEEDS[speed][4]));
+  var row=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(g.won&&speed<SPEEDS.length-1?" ghost":""),on:{click:play}},"🔄 Try again"));
+  if(g.won&&speed<SPEEDS.length-1)row.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));
+  row.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level"));
+  c.appendChild(row);
   if(g.miss.length){c.appendChild(h("h3",{class:"redh",style:"margin-top:14px"},"✗ Your mistakes"));
     c.appendChild(h("div",{class:"list"},g.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",null,"→ "+m.right+(m.m?" · "+m.m:"")))})))}
   c.appendChild(h("h3",{style:"margin-top:14px"},"The words in your last sequence"));
   c.appendChild(h("div",{class:"list"},g.seq.map(function(w){var r=preps(w);return h("div",null,h("b",null,r.join(" / ")+" "+w),h("span",null,meaning(r[0],w)))})));
-  c.appendChild(h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn",on:{click:play}},"🔄 Play again"),h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")));
   app.appendChild(c);window.scrollTo(0,0);
 }
 start();

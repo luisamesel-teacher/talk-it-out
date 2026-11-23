@@ -81,6 +81,7 @@ textarea{width:100%;min-height:90px;font:600 18px var(--body);border-radius:14px
 .stars{font-size:40px;letter-spacing:6px}
 @media (max-width:560px){.tile .w{font-size:16px;padding:6px 10px}.tile .p{min-width:44px;font-size:17px}.hud b{font-size:22px}body{font-size:17px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -129,16 +130,18 @@ function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="
 var app=document.getElementById("app"),G;
 var GOAL=12;
 
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function bestT(){try{return +localStorage.getItem("pdomino-best")||0}catch(e){return 0}}
+setInterval(function(){var c=document.getElementById("dclock");if(c&&G&&G.t0){var b=bestT();c.textContent="⏱ "+fmtT(performance.now()-G.t0)+(b?" · best "+fmtT(b):"")}},250);
 function start(){
   app.innerHTML="";
   app.appendChild(h("div",{class:"card"},
     h("span",{class:"label"},"Prepositional phrases"),
     h("h1",null,"🁫 Preposition Domino"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"🧩"),h("span",null,"The end of the chain shows a preposition: at, by, in or on.")),
-      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Choose a domino from your hand that makes a real phrase with it. Example: on + purpose = on purpose.")),
-      h("li",null,h("span",{class:"e"},"❓"),h("span",null,"Then show what it means: choose the right meaning or synonym. Right answer = gold domino ⭐ (2 points).")),
-      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"A phrase that doesn't exist costs a heart. Place "+GOAL+" dominoes to win!"))),
+      h("li",null,h("span",{class:"e"},"👆"),h("span",null,"Pick a domino that makes a real phrase with the end of the chain (on + purpose).")),
+      h("li",null,h("span",{class:"e"},"❓"),h("span",null,"Choose its meaning. Right = gold domino ⭐.")),
+      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Place "+GOAL+" dominoes. 3 hearts. Beat your best time."))),
     h("div",{class:"legend"},PREPS.map(function(p){return h("span",{style:"background:var(--"+p+")"},p)})),
     h("div",{class:"row"},h("button",{class:"btn",on:{click:newGame}},"▶ Play"),h("button",{class:"btn ghost",on:{click:phrases}},"📖 See the phrases"))));
 }
@@ -153,7 +156,7 @@ function phrases(){
 function newGame(){
   var comps=[];P.forEach(function(x){if(comps.indexOf(x[1])<0)comps.push(x[1])});
   var pile=shuffle(comps).map(function(c){return {c:c,n:pick(PREPS)}});
-  G={pile:pile,hand:[],chain:[],open:pick(PREPS),pts:0,gold:0,hearts:3,used:[],bad:[],miss:[],qi:{}};
+  G={pile:pile,hand:[],chain:[],open:pick(PREPS),pts:0,gold:0,hearts:3,used:[],bad:[],miss:[],qi:{},t0:performance.now()};
   for(var i=0;i<5;i++)G.hand.push(G.pile.pop());
   ensureFit();render("Find a domino that goes with “"+G.open+"”.");
 }
@@ -177,6 +180,7 @@ function domino(d,cls,click){
 function render(msg,kind){
   app.innerHTML="";
   app.appendChild(h("div",{class:"row spread"},h("h2",null,"🁫 Preposition Domino"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
+  app.appendChild(h("p",{class:"clock",id:"dclock"},"⏱ "+fmtT(performance.now()-G.t0)));
   app.appendChild(h("div",{class:"hud"},
     h("div",null,h("span",{class:"label"},"Points"),h("b",null,String(G.pts))),
     h("div",null,h("span",{class:"label"},"Dominoes"),h("b",null,placedN()+" / "+GOAL)),
@@ -256,16 +260,18 @@ function ask(x,placed){
   }
 }
 function end(win){
-  var stars=!win?0:G.gold>=GOAL-1?3:G.gold>=GOAL-4?2:1;
+  var stars=!win?0:G.gold>=GOAL-1?3:G.gold>=GOAL-4?2:1,el=performance.now()-G.t0,bt=bestT(),rec=win&&(!bt||el<bt);if(rec)try{localStorage.setItem("pdomino-best",String(Math.round(el)))}catch(e){}G.t0=0;
   app.innerHTML="";
   var c=h("div",{class:"card"},h("span",{class:"label"},win?"You did it!":"Game over"),
     h("h1",null,win?"🏆 Chain complete!":"💔 No hearts left"),
     h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
-    h("p",null,"Points: ",h("b",null,String(G.pts))," · Gold dominoes: ",h("b",null,G.gold+" / "+placedN())));
+    h("p",null,"Points: ",h("b",null,String(G.pts))," · Gold dominoes: ",h("b",null,G.gold+" / "+placedN())),
+    h("p",{class:"mean"},"⏱ "+fmtT(el)+(win?(rec?" · 🏆 New record!":" · Best "+fmtT(bt)):"")),
+    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn",on:{click:newGame}},"🔄 Try again")));
   if(G.used.length){c.appendChild(h("h3",null,"Your phrases"));c.appendChild(h("div",{class:"list"},G.used.map(function(ph){var p=ph.split(" "),x=info(p[0],p.slice(1).join(" "));var w=G.miss.indexOf(ph)>=0;return h("div",{class:w?"wrongrow":""},h("b",null,(w?"✗ ":"✓ ")+ph),h("span",null,x[2]+(w?" ("+SYN[ph]+")":"")))})))}
   if(G.bad.length){c.appendChild(h("h3",{class:"redh"},"✗ Phrases that don't exist"));c.appendChild(h("div",{class:"list"},G.bad.map(function(b){return h("div",{class:"wrongrow"},h("b",null,"✗ "+b.bad),h("span",null,"→ say: "+b.right))})))}
   if(G.miss.length||G.bad.length)c.appendChild(h("p",{class:"mean"},"Red = practise again. "+(G.miss.length?G.miss.length+" meaning"+(G.miss.length>1?"s":"")+" to review. ":"")+(G.bad.length?G.bad.length+" wrong combination"+(G.bad.length>1?"s":"")+".":"")))
-  c.appendChild(h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn",on:{click:newGame}},"🔄 Play again"),h("button",{class:"btn ghost",on:{click:phrases}},"📖 See the phrases")));
+  c.appendChild(h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn ghost",on:{click:phrases}},"📖 See the phrases")));
   app.appendChild(c);window.scrollTo(0,0);
 }
 start();

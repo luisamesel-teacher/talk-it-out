@@ -55,6 +55,9 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
 @media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:20px;padding:8px 14px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -99,6 +102,8 @@ function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="
   for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
 var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=1;
 var SPEEDS=[["🐢 Slow",11000],["🚲 Normal",8000],["🚀 Fast",5500]];
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function bestT(l){try{return +localStorage.getItem("pbaskets-best-"+l)||0}catch(e){return 0}}
 function preps(c){return P.filter(function(x){return x[1]===c}).map(function(x){return x[0]})}
 function stop(){if(raf)cancelAnimationFrame(raf);raf=null;if(keyh)window.removeEventListener("keydown",keyh);keyh=null}
 function start(){
@@ -110,22 +115,23 @@ function start(){
     h("span",{class:"label"},"Prepositional phrases"),
     h("h1",null,"🧺 Preposition Baskets"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"⬇️"),h("span",null,"A word falls from the sky: once, purpose, a hurry…")),
-      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Put it in the right basket: at, by, in or on. Tap the basket, press 1–4, or move with ← → and drop with ↓.")),
-      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"A wrong basket costs a heart. You have 3.")),
-      h("li",null,h("span",{class:"e"},"🏆"),h("span",null,"Sort all "+WORDS().length+" words to win. It gets faster!"))),
+      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Put each falling word in the right basket: at, by, in or on.")),
+      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong basket costs one.")),
+      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+WORDS().length+" words and beat your best time."))),
     h("span",{class:"label"},"Speed"),lv,
     h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
 }
 function WORDS(){var c=[];P.forEach(function(x){if(c.indexOf(x[1])<0)c.push(x[1])});return c}
 function play(){
   stop();app.innerHTML="";
-  G={list:shuffle(WORDS()),i:0,ok:0,lives:3,col:1,cur:null,last:0,miss:[],good:[],over:false,toast:null};
+  G={list:shuffle(WORDS()),i:0,ok:0,lives:3,col:1,cur:null,last:0,miss:[],good:[],over:false,toast:null,t0:performance.now()};
   var field=h("div",{class:"field"}),bas=h("div",{class:"baskets"}),say=h("p",{class:"say",role:"status"});
   var hud=h("div",{class:"hud"});
   var bk=["at","by","in","on"].map(function(p,i){var b=h("button",{class:"bk "+p,"aria-label":"Basket "+p,on:{click:function(){if(G.cur)land(i)}}},p,h("small",null,String(i+1)));bas.appendChild(b);return b});
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧺 Preposition Baskets"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
-  app.appendChild(hud);app.appendChild(field);app.appendChild(bas);app.appendChild(say);
+  var sel=h("select",{class:"lvsel","aria-label":"Change speed",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
+  var clock=h("p",{class:"clock"},"⏱ 0:00");
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧺 Preposition Baskets"),h("div",{class:"row"},sel,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
+  app.appendChild(hud);app.appendChild(clock);app.appendChild(field);app.appendChild(bas);app.appendChild(say);
   function drawHud(){hud.innerHTML="";hud.appendChild(h("div",null,h("span",{class:"label"},"Sorted"),h("b",null,G.ok+" / "+G.list.length)));
     hud.appendChild(h("div",null,h("span",{class:"label"},"Word"),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
     hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))))}
@@ -159,22 +165,24 @@ function play(){
     if(!G.cur&&now-G.last>900)spawn(now);
     if(G.cur){if(G.cur.fast)G.cur.t0-=(now-(G.cur.lt||now))*5;G.cur.lt=now;var p=(now-G.cur.t0)/G.cur.dur;if(p>=1)land(G.col);else place(p)}
     bk.forEach(function(b,i){b.classList.toggle("under",!!G.cur&&i===G.col)});
+    var bt=bestT(speed);clock.textContent="⏱ "+fmtT(now-G.t0)+(bt?" · best "+fmtT(bt):"");
     raf=requestAnimationFrame(frame);
   }
   G.last=performance.now();raf=requestAnimationFrame(frame);
 }
 function end(win){
-  G.over=true;stop();
+  G.over=true;stop();var el=performance.now()-G.t0,bt=bestT(speed),rec=win&&(!bt||el<bt);if(rec)try{localStorage.setItem("pbaskets-best-"+speed,String(Math.round(el)))}catch(e){}
   setTimeout(function(){
     var miss=G.miss.length,stars=!win?0:miss===0?3:miss===1?2:1;
     app.innerHTML="";
     var c=h("div",{class:"card"},h("span",{class:"label"},win?"You did it!":"Game over"),
       h("h1",null,win?"🏆 All words sorted!":"💔 No hearts left"),
       h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
-      h("p",null,"Sorted: ",h("b",null,G.ok+" / "+G.list.length)," · Speed: ",h("b",null,SPEEDS[speed][0])));
+      h("p",null,"Sorted: ",h("b",null,G.ok+" / "+G.list.length)," · Speed: ",h("b",null,SPEEDS[speed][0])),
+      h("p",{class:"mean"},"⏱ "+fmtT(el)+(win?(rec?" · 🏆 New record!":" · Best "+fmtT(bt)):"")));
     if(miss){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",null,"→ "+m.right))})))}
     if(G.good.length){c.appendChild(h("h3",null,"✓ Right"));c.appendChild(h("div",{class:"list"},G.good.map(function(g){var p=g.split(" "),x=P.filter(function(z){return z[0]===p[0]&&z[1]===p.slice(1).join(" ")})[0];return h("div",null,h("b",null,"✓ "+g),h("span",null,x[2]))})))}
-    c.appendChild(h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn",on:{click:play}},"🔄 Play again"),h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change speed")));
+    var row=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(win&&speed<2?" ghost":""),on:{click:play}},"🔄 Try again"));if(win&&speed<2)row.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));row.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change speed"));c.insertBefore(row,c.children[4]||null);
     app.appendChild(c);window.scrollTo(0,0);
   },700);
 }
