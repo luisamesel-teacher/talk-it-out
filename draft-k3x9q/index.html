@@ -1,6 +1,15 @@
 <!doctype html><html><head>
 <meta name="robots" content="noindex, nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 .revchip.on{background:#ff6b9a!important;color:#12152e!important}
+
+.gpick{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
+.gpick .lvpill{flex:1 1 0;min-width:58px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.gpick .lvpill.on{outline:3px solid #ffd166;outline-offset:2px}
+.bossbox .boss{max-height:max(100px,calc(100vh - 560px));width:auto;max-width:100%;margin:0 auto}
+.btn.big[disabled]{opacity:.45;cursor:not-allowed;filter:grayscale(.6)}
+.mem.fit{grid-template-columns:repeat(var(--cols),var(--cw))!important;grid-auto-rows:var(--ch);justify-content:center}
+.mem.fit .mc{aspect-ratio:auto;height:100%;font-size:var(--fs)}
+.mem.fit .mc.up.em{font-size:var(--fe)}
 </style></head><body>
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
 NEVER read line 1721 (PIMG: avatar pictures, ~320 KB on one line).
@@ -1948,8 +1957,8 @@ function bar(){
   b.appendChild(langB);
   if(!window.NINTH)b.appendChild(h("button",{class:"avatar",title:t("avatars"),"aria-label":t("avatars"),onclick:function(){go("avatars")}},faceEl()));
   b.appendChild(h("button",{class:"tswitch"+(S.theme==="light"?" day":""),role:"switch","aria-checked":S.theme==="light"?"true":"false",title:S.theme==="light"?"Switch to dark mode":"Switch to light mode","aria-label":"Light mode",onclick:function(){S.theme=S.theme==="light"?"dark":"light";save();applyTheme();route()}},h("span",{class:"ic","aria-hidden":"true"},"🌙"),h("span",{class:"ic","aria-hidden":"true"},"☀️"),h("i",{class:"knob","aria-hidden":"true"},S.theme==="light"?"☀️":"🌙")));
-  if(!window.NINTH)b.appendChild(h("button",{class:"menubtn","aria-label":t("navMenu"),onclick:function(){go("menu")}},"☰",h("span",{class:"l"}," "+t("navMenu"))));
-  nav.appendChild(h("button",{class:"navbtn navback",onclick:goBack},"← "+t("navBack")));
+  if(!window.NINTH&&!window.TRIP)b.appendChild(h("button",{class:"menubtn","aria-label":t("navMenu"),onclick:function(){go("menu")}},"☰",h("span",{class:"l"}," "+t("navMenu"))));
+  var _hk=location.hash.replace("#","");if(!(_hk===""||_hk==="home"||(window.TRIP&&!mod(_hk.split("/")[0])&&_hk!=="avatars")))nav.appendChild(h("button",{class:"navbtn navback",onclick:goBack},"← "+t("navBack")));
 }
 /* Back: from an activity or a guide to its module; from anything else to the home page */
 function goBack(){var k=location.hash.replace("#","");if(cur&&cur.m&&cur.k)go(cur.m);else if(window.FROMM&&k&&!mod(k.split("/")[0]))go(window.FROMM);else if(k&&k!=="home")go("home");else toTop()}
@@ -2398,6 +2407,15 @@ function match(m){
     grid.appendChild(c.el);
   });
   tick();
+  var n=cards.length,cols=n%4===0||n>12?4:3,rows=Math.ceil(n/cols),me=cur;grid.classList.add("fit");
+  function fit(){if(!grid.isConnected){window.removeEventListener("resize",fit);return}
+    var gap=parseFloat(getComputedStyle(grid).columnGap)||10,r=grid.getBoundingClientRect(),top=r.top+window.scrollY,
+      avail=Math.max(160,window.innerHeight-top-14),wAv=grid.parentNode.getBoundingClientRect().width,
+      cw=(wAv-gap*(cols-1))/cols,ch=Math.min((avail-gap*(rows-1))/rows,cw*(window.innerWidth<560?1.05:0.82));
+    cw=Math.min(cw,ch/(window.innerWidth<560?0.9:0.7));
+    grid.style.setProperty("--cols",cols);grid.style.setProperty("--cw",cw.toFixed(1)+"px");grid.style.setProperty("--ch",ch.toFixed(1)+"px");
+    grid.style.setProperty("--fs",Math.max(11,Math.min(16,cw/7)).toFixed(1)+"px");grid.style.setProperty("--fe",Math.max(20,Math.min(34,ch*0.45)).toFixed(1)+"px")}
+  window.scrollTo(0,0);fit();window.addEventListener("resize",fit);
 }
 
 /* 5. speed round */
@@ -2575,7 +2593,7 @@ function arcade(m,k){
   hd.appendChild(h("p",{class:"hint"},window.gD?gD(m,k):t(k+"D")));
   if(k!=="zap"){var mx=maxLv(m,k),now=lvOf(m,k);
     hd.appendChild(h("div",{class:"diff"},h("span",{class:"label"},t("diff")),[1,2,3,4,5].map(function(n){
-      return h("button",{class:"pillbtn lvpill"+(n===now?" on":""),disabled:n>mx,"aria-label":t("level")+" "+n+" "+LVN[n-1]+(n>mx?" (locked)":""),onclick:function(){if(!S.pick)S.pick={};S.pick[m.id+":"+k]=n;save();GAMES[k](m)}},(n>mx?"🔒 ":"")+n,h("small",null,LVN[n-1]))}),
+      return h("button",{class:"pillbtn lvpill"+(n===now?" on":""),disabled:n>mx,"aria-label":t("level")+" "+n+" "+LVN[n-1]+(n>mx?" (locked)":""),onclick:function(){if(!S.pick)S.pick={};S.pick[m.id+":"+k]=n;save();GP.chosen=m.id+":"+k;GAMES[k](m)}},(n>mx?"🔒 ":"")+n,h("small",null,LVN[n-1]))}),
       h("span",{class:"hint"},window.ONLY_GAMES?"All levels are open: choose your challenge.":t("diffD"))))}
   var ui={sb:h("div",{class:"score"}),say:h("div",{class:"say"}),stage:h("div",null),panel:h("div",{class:"shell",style:"margin-top:16px"})};
   a.appendChild(ui.sb);a.appendChild(ui.say);a.appendChild(ui.stage);a.appendChild(ui.panel);
@@ -2735,7 +2753,7 @@ function duel(m){
 
 /* bug zapper */
 function zap(m){
-  var ui=arcade(m,"zap"),my=tok,lvl=1,pts=0,kp=0,lives=3,run=0,items=[],bag=[],last=0,qi=0,log=h("div",{class:"rev"}),field=h("div",{class:"field"});
+  var ui=arcade(m,"zap"),my=tok,lvl=Math.max(1,Math.min(5,(S.pick||{})[m.id+":zap"]||1)),pts=0,kp=0,lives=3,run=0,items=[],bag=[],last=0,qi=0,log=h("div",{class:"rev"}),field=h("div",{class:"field"});
   gameQ(m,"zap").forEach(function(it){if(!it.bad)return;bag.push({s:it.fix,ok:true});bag.push({s:it.bad,ok:false,fix:it.fix})});
   (ZAPX[m.id]||[]).forEach(function(x){var p=x.split("|");bag.push({s:p[1],ok:true});bag.push({s:p[0],ok:false,fix:p[1]})});
   var seenS={};bag=shuffle(bag.filter(function(d){if(seenS[d.s])return false;seenS[d.s]=1;return true}));ui.stage.appendChild(h("div",{class:"zapcmd",role:"note"},h("b",null,"👆 "+(matchMedia("(pointer:coarse)").matches?"TAP":"CLICK")+" ON THE WRONG ONES!"),h("span",null,"Sentences with a mistake: zap them. Correct sentences: let them fall.")));ui.stage.appendChild(field);ui.panel.appendChild(log);setTimeout(function(){if(my===tok&&field.getBoundingClientRect().bottom>innerHeight)ui.sb.scrollIntoView({block:"start",behavior:"smooth"})},60);
@@ -2805,15 +2823,22 @@ var HOW={
  pool:function(l){return [["🎱","Drag back from the white ball and let go to shoot. Or use the buttons and SHOOT."],["🔤","Hit the word ball into the right pocket."],["❌","Wrong pocket, or the white ball in a pocket: you lose a life."],["🏆","Pocket "+poolNeed(l)+" words in the right pockets to win."]]}
 };
 function gIntro(m,k,ui){
-  var lvl=lvOf(m,k);
+  var key=m.id+":"+k,isZ=k==="zap",lvl=isZ?Math.max(1,Math.min(5,(S.pick||{})[key]||1)):lvOf(m,k),mx=isZ?(window.ONLY_GAMES?5:Math.max(1,Math.min(5,S.lv[key]||1))):maxLv(m,k),chosen=GP.chosen===key;GP.chosen=null;
+  var tag=h("p",{class:"lvtagline lv"+lvl,style:chosen?"":"visibility:hidden"},t("level")+" "+lvl+" · "+LVN[lvl-1]+" — "+LVTAG[lvl-1]);
+  var playB=h("button",{class:"btn big",disabled:!chosen,onclick:function(){if(playB.disabled)return;gReady(ui)}},"▶ PLAY");
+  var pills=h("div",{class:"gpick"},[1,2,3,4,5].map(function(n){return h("button",{class:"pillbtn lvpill"+(chosen&&n===lvl?" on":""),disabled:n>mx,"aria-label":t("level")+" "+n+" "+LVN[n-1]+(n>mx?" (locked)":""),onclick:function(){
+      if(!S.pick)S.pick={};S.pick[key]=n;save();
+      if(n===lvl){pills.querySelectorAll(".lvpill").forEach(function(b){b.classList.remove("on")});this.classList.add("on");tag.style.visibility="";playB.disabled=false;try{playB.focus()}catch(e){}}
+      else{GP.chosen=key;GAMES[k](m)}}},(n>mx?"🔒 ":"")+n,h("small",null,LVN[n-1]))}));
   gOverlay(h("div",{class:"gbox"},
     h("div",{class:"gico","aria-hidden":"true"},GICONS[k]||"🎮"),
     h("h2",null,t(k)),
-    k==="zap"?null:h("p",{class:"lvtagline lv"+lvl},t("level")+" "+lvl+" · "+LVN[lvl-1]+" — "+LVTAG[lvl-1]),
-    h("p",{class:"label"},"How to play"),
+    h("p",{class:"label"},isZ?"1 · Choose your starting speed":"1 · Choose your level"),pills,tag,
+    h("p",{class:"label"},"2 · How to play"),
     h("ol",{class:"ghow"},HOW[k](lvl).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))})),
     h("p",{class:"hint"},"⏸ Press P or the Pause button to stop the game at any time."),
-    h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){go(m.id)}},"← Back"),h("button",{class:"btn big",onclick:function(){gReady(ui)}},"▶ PLAY"))));
+    h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){go(m.id)}},"← Back"),playB)));
+  if(!chosen)setTimeout(function(){var b=pills.querySelector(".lvpill:not([disabled])");try{b&&b.focus()}catch(e){}},40);
 }
 function gCount(n,ui){
   var my=tok,el=h("div",{class:"gcount"},String(n));
@@ -2823,7 +2848,7 @@ function gCount(n,ui){
     n--;
     if(n>0){el.textContent=n;el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop")}
     else if(n===0){el.textContent="GO!";el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop")}
-    else{clearInterval(iv);gClose();gGo();if(ui&&ui._go){var f=ui._go;ui._go=null;f()}}
+    else{clearInterval(iv);gClose();gGo();function gTopFit(){if(ui&&ui.sb&&ui.sb.isConnected){var sbb=ui.sb.style.display==="none"?ui.stage:ui.sb;try{window.scrollTo(0,Math.max(0,sbb.getBoundingClientRect().top+window.scrollY-6))}catch(e){}}}gTopFit();if(ui&&ui._go){var f=ui._go;ui._go=null;f()}setTimeout(gTopFit,60);setTimeout(gTopFit,400)}
   },1000);
 }
 function gPause(){
