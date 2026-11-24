@@ -1091,7 +1091,8 @@ body[data-page="module"] .grid>.card.act>p{margin:2px 0 0}
 .shop.classic .card{padding-left:8px;padding-right:8px}
 .shop .card .btn,.shop .card .locked{white-space:nowrap;padding:8px 14px;font-size:14px;min-height:40px;line-height:1.1}
 .shop .card .locked{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:6px 14px}
-.shop .card.islocked .face,.shop .card.islocked .pimg{opacity:.55;filter:grayscale(.35)}
+.shop .card.islocked .face,.shop .card.islocked .pimg{opacity:.55;filter:grayscale(.35);transition:opacity .2s,filter .2s,transform .2s}
+.shop .card.islocked:hover .face,.shop .card.islocked:hover .pimg,.shop .card.islocked:active .face,.shop .card.islocked:active .pimg{opacity:1;filter:none}
 .pricel{font-size:13px}
 .pshop.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:640px){
