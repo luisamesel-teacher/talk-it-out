@@ -3832,10 +3832,10 @@ function avatars(){
   var how=h("div",{class:"coinhow",hidden:true},
     h("b",null,tx("How to get coins","Como ganhar moedas")),
     h("ul",null,
-      h("li",null,"⭐ ",tx("Each new star in an activity: ","Cada estrela nova numa atividade: "),h("b",null,"+10")),
-      window.ONLY_GAMES?null:h("li",null,"🎓 ",tx("Pass a final test: ","Passar num teste final: "),h("b",null,"+50")),
-      h("li",null,"🕹️ ",tx("Win a game: ","Vencer um jogo: "),h("b",null,"+15 to +35"),tx(" (harder level, more coins)"," (nível mais difícil, mais moedas)")),
-      h("li",null,"🔁 ",tx("Labs, reviews and stories: ","Labs, revisões e histórias: "),h("b",null,"+5 to +15"))));
+      h("li",null,"⭐ ",tx("Each new star in an activity: ","Cada estrela nova numa atividade: "),h("b",null,"10 🪙")),
+      window.ONLY_GAMES?null:h("li",null,"🎓 ",tx("Pass a final test: ","Passar num teste final: "),h("b",null,"50 🪙")),
+      h("li",null,"🕹️ ",tx("Win a game: ","Vencer um jogo: "),h("b",null,"15 - 35 🪙"),tx(" (harder level, more coins)"," (nível mais difícil, mais moedas)")),
+      h("li",null,"🔁 ",tx("Labs, reviews and stories: ","Labs, revisões e histórias: "),h("b",null,"5 - 15 🪙"))));
   var hb=h("button",{class:"pillbtn coinhowbtn","aria-expanded":"false",onclick:function(){how.hidden=!how.hidden;hb.setAttribute("aria-expanded",how.hidden?"false":"true")}},"❓ "+tx("How to get coins?","Como ganhar moedas?"));
   a.appendChild(h("div",{class:"wallet"},
     h("div",{class:"wl"},h("span",{class:"wcoins"},"🪙 ",h("b",null,String(S.coins))),
