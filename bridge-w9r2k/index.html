@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bridge Words · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12152e;--card:#1f2456;--ink:#eef1ff;--mute:#cfd5ff;--yel:#ffd166;--good:#7CFC9A;--bad:#ff8a80;
+ --p-on:#ff8a5c;--p-for:#3ccf9f;--p-to:#9d93ff;--p-no:#f2b84b;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;
+ background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+.wrap{max-width:900px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,h3{font-family:var(--disp);margin:0}
+h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255,209,102,.4)}
+.label{font:700 12px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.btn{font:800 17px var(--label);border-radius:999px;padding:12px 22px;min-height:48px;border:2px solid #12152e;border-bottom-width:5px;background:var(--yel);color:#12152e;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.btn:focus-visible,.bk:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spread{justify-content:space-between}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:10px 14px}
+.how .e{font-size:28px;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
+.hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
+.field{position:relative;height:min(48vh,360px);border-radius:18px 18px 0 0;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
+.word{position:absolute;top:0;padding:10px 18px;border-radius:14px;background:#fff;color:#12152e;font:800 26px var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s;text-align:center}
+.word small{display:block;font:600 14px var(--body);color:#444;margin-top:2px;letter-spacing:0}
+.toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
+.toast small{display:block;font:600 16px var(--body);color:var(--mute)}
+.toast.ok{color:var(--good)}.toast.no{color:var(--bad)}
+.baskets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 28px var(--label);cursor:pointer;transition:transform .15s}
+.bk small{font:700 14px var(--label);opacity:.8}
+.bk.p-on{background:var(--p-on)}.bk.p-for{background:var(--p-for)}.bk.p-to{background:var(--p-to)}.bk.p-no{background:var(--p-no)}
+.bk.under{transform:translateY(-8px);box-shadow:0 0 0 4px var(--yel)}
+.bk.hit{animation:pop .45s}.bk.bad{animation:shake .4s}
+@keyframes pop{50%{transform:scale(1.1);box-shadow:0 0 22px var(--good)}}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.say{min-height:28px;font-weight:700;margin:10px 0 0}
+.list{display:grid;gap:8px;margin:12px 0}
+.list div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;background:rgba(255,255,255,.06);border-radius:12px;padding:8px 12px}
+.list b{color:var(--yel);white-space:nowrap}
+.list .wrongrow{background:rgba(255,80,80,.16);box-shadow:inset 0 0 0 2px #ff6b6b}.list .wrongrow b{color:#ff8a80}
+.redh{color:#ff8a80}
+.mean{color:var(--mute)}
+.stars{font-size:40px;letter-spacing:6px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.lv button{font:800 16px var(--label);padding:10px 16px;border-radius:999px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
+.ajuda{margin-top:14px;background:rgba(255,255,255,.06);border-radius:14px;padding:14px 16px}
+.ajuda h3{color:var(--yel);font-size:20px;margin-bottom:8px}
+.ajuda table{width:100%;border-collapse:collapse;font-size:16px}
+.ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+.ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
+.ajuda b{color:#fff}
+@media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:21px;padding:8px 14px}.word small{font-size:12px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* [basket, verb, gapped example, full example, meaning, contraste em português] */
+var V=[
+["on","depend","It all depends ___ the traffic.","It all depends <b>on</b> the traffic.","to be decided by something else","depender <b>de</b> — o português usa <i>de</i>, o inglês usa <i>on</i>"],
+["on","rely","You can rely ___ me.","You can rely <b>on</b> me.","to trust someone to help you","contar <b>com</b> — o português usa <i>com</i>"],
+["on","insist","He insisted ___ paying.","He insisted <b>on</b> paying.","to say firmly that something must happen","insistir <b>em</b>"],
+["on","concentrate","Concentrate ___ the question.","Concentrate <b>on</b> the question.","to give all your attention to one thing","concentrar-se <b>em</b>"],
+["for","wait","We're still waiting ___ our bags.","We're still waiting <b>for</b> our bags.","to stay until something comes","esperar — em português não tem preposição nenhuma"],
+["for","look","I'm looking ___ gate 24.","I'm looking <b>for</b> gate 24.","to try to find something","procurar — em português não tem preposição nenhuma"],
+["for","apply","She applied ___ a visa.","She applied <b>for</b> a visa.","to ask officially for something","solicitar / dar entrada <b>em</b>"],
+["for","pay","Who paid ___ the tickets?","Who paid <b>for</b> the tickets?","to give money so you can have something","pagar — em português não tem preposição"],
+["to","listen","Listen ___ the announcement.","Listen <b>to</b> the announcement.","to pay attention to a sound","ouvir / escutar — em português não tem preposição"],
+["to","explain","Can you explain it ___ me?","Can you explain it <b>to</b> me?","to make something clear to someone","explicar <b>para</b> — e nunca <i>explain me</i>"],
+["to","belong","This suitcase belongs ___ my mother.","This suitcase belongs <b>to</b> my mother.","to be owned by someone","pertencer <b>a</b> / ser <b>de</b>"],
+["to","talk","I'll talk ___ the officer.","I'll talk <b>to</b> the officer.","to speak with someone","falar <b>com</b> — o português usa <i>com</i>"],
+["—","call","I'll call ___ the hotel.","I'll call the hotel.","to phone someone","ligar <b>para</b> — em inglês a pessoa vem direto"],
+["—","tell","Tell ___ them we're staying.","Tell them we're staying.","to give information to someone","dizer / contar <b>para</b> — em inglês a pessoa vem direto"],
+["—","answer","Answer ___ the question.","Answer the question.","to say something back","responder <b>a</b> — em inglês não tem preposição"],
+["—","enter","We entered ___ the room.","We entered the room.","to go into a place","entrar <b>em</b> — em inglês não tem preposição"]
+];
+var B=[["on","on"],["for","for"],["to","to"],["—","nothing"]];
+var CLS={"on":"p-on","for":"p-for","to":"p-to","—":"p-no"};
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(k==="html")e.innerHTML=at.html;else if(at[k]!=null)e.setAttribute(k,at[k])}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
+var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=1;
+var SPEEDS=[["🐢 Slow",11000],["🚲 Normal",8000],["🚀 Fast",5500]];
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function bestT(l){try{return +localStorage.getItem("bridge-best-"+l)||0}catch(e){return 0}}
+function row(v){return V.filter(function(x){return x[1]===v})[0]}
+function stop(){if(raf)cancelAnimationFrame(raf);raf=null;if(keyh)window.removeEventListener("keydown",keyh);keyh=null}
+
+function ajudaBox(){
+  var box=h("div",{class:"ajuda",style:"display:none"});
+  box.appendChild(h("h3",null,"Por que isso é difícil em português"));
+  var tb=h("table");
+  V.forEach(function(x){
+    tb.appendChild(h("tr",null,
+      h("td",null,x[1]+" "+(x[0]==="—"?"(nada)":x[0])),
+      h("td",{html:x[5]})));
+  });
+  box.appendChild(tb);
+  return box;
+}
+
+function start(){
+  stop();app.innerHTML="";
+  var lv=h("div",{class:"lv"});
+  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
+  drawLv();
+  var box=ajudaBox();
+  var card=h("div",{class:"card"},
+    h("span",{class:"label"},"Verbs and their little words"),
+    h("h1",null,"🧺 Bridge Words"),
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Drop each verb in the basket that goes with it: on, for, to — or nothing at all.")),
+      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong basket costs one.")),
+      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+V.length+" verbs and beat your best time."))),
+    h("span",{class:"label"},"Speed"),lv,
+    h("div",{class:"row"},
+      h("button",{class:"btn",on:{click:play}},"▶ Play"),
+      h("button",{class:"btn ghost small",on:{click:function(){box.style.display=box.style.display==="none"?"block":"none"}}},"Ajuda em português")),
+    box);
+  app.appendChild(card);
+}
+
+function play(){
+  stop();app.innerHTML="";
+  G={list:shuffle(V.map(function(x){return x[1]})),i:0,ok:0,lives:3,col:1,cur:null,last:0,miss:[],good:[],over:false,toast:null,t0:performance.now()};
+  var field=h("div",{class:"field"}),bas=h("div",{class:"baskets"}),say=h("p",{class:"say",role:"status"});
+  var hud=h("div",{class:"hud"});
+  var bk=B.map(function(p,i){var b=h("button",{class:"bk "+CLS[p[0]],"aria-label":"Basket "+p[1],on:{click:function(){if(G.cur)land(i)}}},p[0],h("small",null,String(i+1)));bas.appendChild(b);return b});
+  var sel=h("select",{class:"lvsel","aria-label":"Change speed",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
+  var clock=h("p",{class:"clock"},"⏱ 0:00");
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧺 Bridge Words"),h("div",{class:"row"},sel,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
+  app.appendChild(hud);app.appendChild(clock);app.appendChild(field);app.appendChild(bas);app.appendChild(say);
+  function drawHud(){hud.innerHTML="";
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Sorted"),h("b",null,G.ok+" / "+G.list.length)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Verb"),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))))}
+  drawHud();
+  function toast(txt,sub,cls){if(G.toast&&G.toast.parentNode)G.toast.remove();G.toast=h("div",{class:"toast "+cls},txt,h("small",null,sub));field.appendChild(G.toast);var t=G.toast;setTimeout(function(){if(t.parentNode)t.remove()},1800)}
+  function spawn(now){
+    if(G.i>=G.list.length){end(true);return}
+    var v=G.list[G.i++],r=row(v);G.col=Math.floor(Math.random()*4);
+    var dur=SPEEDS[speed][1]*Math.pow(.97,G.ok);
+    var el=h("div",{class:"word"},r[1],h("small",null,r[2]));
+    G.cur={w:v,t0:now,dur:dur,fast:false,el:el};field.appendChild(el);place(0);drawHud();
+  }
+  function place(p){var c=G.cur;if(!c)return;c.el.style.left="calc("+((G.col+.5)*25)+"% - "+(c.el.offsetWidth/2)+"px)";c.el.style.top=(p*(field.clientHeight-c.el.offsetHeight-6))+"px"}
+  function land(i){
+    var c=G.cur;if(!c||G.over)return;G.cur=null;c.el.remove();
+    var chosen=B[i][0],r=row(c.w),right=r[0],good=chosen===right,b=bk[i];
+    b.classList.remove("hit","bad");void b.offsetWidth;b.classList.add(good?"hit":"bad");
+    var rotulo=right==="—"?r[1]+" + nothing":r[1]+" "+right;
+    if(good){G.ok++;if(G.good.indexOf(c.w)<0)G.good.push(c.w);toast("✓ "+rotulo,r[4],"ok");say.innerHTML=r[3]}
+    else{G.lives--;G.miss.push({bad:r[1]+" "+(chosen==="—"?"+ nothing":chosen),right:rotulo});toast("✗ "+rotulo,r[4],"no");say.innerHTML=r[3]}
+    drawHud();G.last=performance.now();
+    if(G.lives<=0)end(false);
+  }
+  keyh=function(e){if(!G.cur)return;
+    if(e.key==="ArrowLeft"){G.col=Math.max(0,G.col-1);e.preventDefault()}else if(e.key==="ArrowRight"){G.col=Math.min(3,G.col+1);e.preventDefault()}
+    else if(e.key==="ArrowDown"){G.cur.fast=true;e.preventDefault()}else{var n=parseInt(e.key,10);if(n>=1&&n<=4)land(n-1)}};
+  window.addEventListener("keydown",keyh);
+  function frame(now){
+    if(G.over)return;
+    if(!G.cur&&now-G.last>900)spawn(now);
+    if(G.cur){if(G.cur.fast)G.cur.t0-=(now-(G.cur.lt||now))*5;G.cur.lt=now;var p=(now-G.cur.t0)/G.cur.dur;if(p>=1)land(G.col);else place(p)}
+    bk.forEach(function(b,i){b.classList.toggle("under",!!G.cur&&i===G.col)});
+    var bt=bestT(speed);clock.textContent="⏱ "+fmtT(now-G.t0)+(bt?" · best "+fmtT(bt):"");
+    raf=requestAnimationFrame(frame);
+  }
+  G.last=performance.now();raf=requestAnimationFrame(frame);
+}
+
+function end(win){
+  G.over=true;stop();var el=performance.now()-G.t0,bt=bestT(speed),rec=win&&(!bt||el<bt);
+  if(rec)try{localStorage.setItem("bridge-best-"+speed,String(Math.round(el)))}catch(e){}
+  setTimeout(function(){
+    var miss=G.miss.length,stars=!win?0:miss===0?3:miss===1?2:1;
+    app.innerHTML="";
+    var c=h("div",{class:"card"},h("span",{class:"label"},win?"You did it!":"Game over"),
+      h("h1",null,win?"🏆 All verbs sorted!":"💔 No hearts left"),
+      h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
+      h("p",null,"Sorted: ",h("b",null,G.ok+" / "+G.list.length)," · Speed: ",h("b",null,SPEEDS[speed][0])),
+      h("p",{class:"mean"},"⏱ "+fmtT(el)+(win?(rec?" · 🏆 New record!":(bt?" · Best "+fmtT(bt):"")):"")));
+    if(miss){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));
+      c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",null,"→ "+m.right))})))}
+    if(G.good.length){c.appendChild(h("h3",null,"✓ Right"));
+      c.appendChild(h("div",{class:"list"},G.good.map(function(v){var r=row(v);return h("div",null,h("b",null,"✓ "+(r[0]==="—"?r[1]+" + nothing":r[1]+" "+r[0])),h("span",{html:r[3]}))})))}
+    var rw=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(win&&speed<2?" ghost":""),on:{click:play}},"🔄 Try again"));
+    if(win&&speed<2)rw.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));
+    rw.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change speed"));
+    c.insertBefore(rw,c.children[4]||null);
+    app.appendChild(c);window.scrollTo(0,0);
+  },700);
+}
+start();
+</script>
+<script data-goatcounter="https://englisharcade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
