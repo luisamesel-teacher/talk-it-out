@@ -82,6 +82,22 @@ textarea{width:100%;min-height:90px;font:600 18px var(--body);border-radius:14px
 @media (max-width:560px){.tile .w{font-size:16px;padding:6px 10px}.tile .p{min-width:44px;font-size:17px}.hud b{font-size:22px}body{font-size:17px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
+
+/* ---- pausa, reinicio e contagem ---- */
+.pausebtn{font:800 14px var(--label);padding:8px 14px;min-height:40px;border-radius:999px;border:2px solid #12152e;border-bottom-width:3px;background:var(--yel);color:#12152e;cursor:pointer}
+.pausebtn:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.gov{position:fixed;inset:0;background:rgba(6,8,22,.88);display:grid;place-items:center;z-index:60;padding:18px}
+.gbox{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:22px;max-width:520px;width:100%}
+.gico{font-size:44px;text-align:center;line-height:1}
+.gbox h2{color:var(--yel);text-align:center;margin:6px 0 4px;font-size:32px}
+.ghow{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.ghow li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:12px;padding:8px 12px;font-size:16px}
+.ghow .e{font-size:24px;text-align:center}
+.rowend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:18px}
+.btn.big{font-size:20px;padding:14px 28px;min-height:54px}
+.count{font:800 clamp(70px,20vw,140px)/1 var(--disp);color:var(--yel);text-shadow:0 0 26px rgba(255,209,102,.5)}
+.count.pop{animation:cpop .5s}
+@keyframes cpop{0%{transform:scale(.6);opacity:.25}60%{transform:scale(1.12)}100%{transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -132,7 +148,7 @@ var GOAL=12;
 
 function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
 function bestT(){try{return +localStorage.getItem("pdomino-best")||0}catch(e){return 0}}
-setInterval(function(){var c=document.getElementById("dclock");if(c&&G&&G.t0){var b=bestT();c.textContent="⏱ "+fmtT(performance.now()-G.t0)+(b?" · best "+fmtT(b):"")}},250);
+setInterval(function(){var c=document.getElementById("dclock");if(c&&G&&G.t0&&!PA.on){var b=bestT();c.textContent="⏱ "+fmtT(performance.now()-G.t0)+(b?" · best "+fmtT(b):"")}},250);
 function start(){
   app.innerHTML="";
   app.appendChild(h("div",{class:"card"},
@@ -157,6 +173,10 @@ function newGame(){
   var comps=[];P.forEach(function(x){if(comps.indexOf(x[1])<0)comps.push(x[1])});
   var pile=shuffle(comps).map(function(c){return {c:c,n:pick(PREPS)}});
   G={pile:pile,hand:[],chain:[],open:pick(PREPS),pts:0,gold:0,hearts:3,used:[],bad:[],miss:[],qi:{},t0:performance.now()};
+  PA.how=[["\U0001F0AB","Play a domino that matches the open end."],["\U0001F4A1","Answer the question right to turn it gold."],["\u2764\uFE0F","A wrong domino costs one heart. You have 3."]];
+  PA.restart=newGame;
+  PA.pause=function(){if(PA.on||PA.counting||!G)return;PA.on=true;PA.at=performance.now();pauseBox()};
+  PA.resume=function(){if(!PA.on||PA.counting)return;closeOv();countdown(3,function(){G.t0+=performance.now()-PA.at;PA.on=false})};
   for(var i=0;i<5;i++)G.hand.push(G.pile.pop());
   ensureFit();render("Find a domino that goes with “"+G.open+"”.");
 }
@@ -179,7 +199,7 @@ function domino(d,cls,click){
 }
 function render(msg,kind){
   app.innerHTML="";
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🁫 Preposition Domino"),h("button",{class:"btn ghost",on:{click:start}},"← Quit")));
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🁫 Preposition Domino"),h("div",{class:"row"},paBtn(),h("button",{class:"btn ghost",on:{click:start}},"← Quit"))));
   app.appendChild(h("p",{class:"clock",id:"dclock"},"⏱ "+fmtT(performance.now()-G.t0)));
   app.appendChild(h("div",{class:"hud"},
     h("div",null,h("span",{class:"label"},"Points"),h("b",null,String(G.pts))),
@@ -267,13 +287,43 @@ function end(win){
     h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
     h("p",null,"Points: ",h("b",null,String(G.pts))," · Gold dominoes: ",h("b",null,G.gold+" / "+placedN())),
     h("p",{class:"mean"},"⏱ "+fmtT(el)+(win?(rec?" · 🏆 New record!":" · Best "+fmtT(bt)):"")),
-    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn",on:{click:newGame}},"🔄 Try again")));
+    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn",on:{click:newGame}},"↻ Try again")));
   if(G.used.length){c.appendChild(h("h3",null,"Your phrases"));c.appendChild(h("div",{class:"list"},G.used.map(function(ph){var p=ph.split(" "),x=info(p[0],p.slice(1).join(" "));var w=G.miss.indexOf(ph)>=0;return h("div",{class:w?"wrongrow":""},h("b",null,(w?"✗ ":"✓ ")+ph),h("span",null,x[2]+(w?" ("+SYN[ph]+")":"")))})))}
   if(G.bad.length){c.appendChild(h("h3",{class:"redh"},"✗ Phrases that don't exist"));c.appendChild(h("div",{class:"list"},G.bad.map(function(b){return h("div",{class:"wrongrow"},h("b",null,"✗ "+b.bad),h("span",null,"→ say: "+b.right))})))}
   if(G.miss.length||G.bad.length)c.appendChild(h("p",{class:"mean"},"Red = practise again. "+(G.miss.length?G.miss.length+" meaning"+(G.miss.length>1?"s":"")+" to review. ":"")+(G.bad.length?G.bad.length+" wrong combination"+(G.bad.length>1?"s":"")+".":"")))
   c.appendChild(h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn ghost",on:{click:phrases}},"📖 See the phrases")));
   app.appendChild(c);window.scrollTo(0,0);
 }
+
+/* ---- pausa, reinicio e contagem (padrao dos jogos do hub) ---- */
+var OV=null,PA={on:false,at:0,counting:false,pause:null,resume:null,restart:null,how:[]};
+function closeOv(){if(OV&&OV.parentNode)OV.parentNode.removeChild(OV);OV=null}
+function overlay(inner){closeOv();OV=h("div",{class:"gov"},inner);document.body.appendChild(OV);return OV}
+function countdown(n,done){
+  PA.counting=true;var el=h("div",{class:"count pop"},String(n));overlay(el);
+  var iv=setInterval(function(){
+    n--;
+    if(n>0)el.textContent=String(n);else if(n===0)el.textContent="GO!";
+    else{clearInterval(iv);closeOv();PA.counting=false;done();return}
+    el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");
+  },800);
+}
+function pauseBox(){
+  var tips=(PA.how||[]).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))});
+  overlay(h("div",{class:"gbox"},
+    h("div",{class:"gico","aria-hidden":"true"},"\u23F8"),h("h2",null,"Paused"),
+    tips.length?h("ol",{class:"ghow"},tips):null,
+    h("div",{class:"rowend"},
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"\u2190 Quit game"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;if(PA.restart)PA.restart()}}},"\u21BB Restart"),
+      h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"\u25B6 RESUME"))));
+}
+function paBtn(){return h("button",{class:"pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"\u23F8 Pause")}
+window.addEventListener("keydown",function(e){
+  if(PA.counting||!PA.pause)return;
+  if(e.key==="p"||e.key==="P"||e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();
+    if(PA.on){if(PA.resume)PA.resume()}else PA.pause()}
+});
 start();
 </script>
 <script>if(/github\.io$/.test(location.hostname)){var bk=document.createElement("a");bk.href="../9ano/";bk.textContent="← 9º ano Arcade";bk.style.cssText="position:fixed;left:12px;bottom:12px;z-index:50;font:800 14px Inter,system-ui,sans-serif;background:#ffd166;color:#12152e;border:2px solid #12152e;border-bottom-width:4px;border-radius:999px;padding:8px 14px;text-decoration:none";document.body.appendChild(bk)}</script>

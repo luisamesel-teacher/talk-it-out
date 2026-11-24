@@ -136,7 +136,7 @@ function play(){
   board.appendChild(center);
   var sel=h("select",{class:"lvsel","aria-label":"Change level",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(s,i){var o=h("option",{value:String(i)},"Level "+s[0]);if(i===speed)o.selected=true;return o}));
   var pb=h("button",{class:"btn ghost small",on:{click:togglePause}},"❚❚ Pause");
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔴🟢 Preposition Genius"),h("div",{class:"row"},sel,pb,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔴🟢 Preposition Genius"),h("div",{class:"row"},sel,pb,h("button",{class:"btn ghost small",on:{click:play}},"↻ Restart"),h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
   app.appendChild(hud);if(SPEEDS[speed][2])app.appendChild(strip);app.appendChild(board);app.appendChild(say);
   var tok=G.my,goal=SPEEDS[speed][4],saved=null;
   function togglePause(){paused=!paused;pb.textContent=paused?"▶ Resume":"❚❚ Pause";board.classList.toggle("paused",paused);
@@ -190,7 +190,7 @@ function end(){
   var c=h("div",{class:"card"},h("span",{class:"label"},"Level "+SPEEDS[speed][0]),h("h1",null,g.won?"🏆 Level complete!":"🧠 Game over"),
     h("p",null,"Longest sequence:"),h("div",{class:"big"},g.best+" words"),
     h("p",{class:"mean"},(rec?"🏆 New record!":"🏆 Your best on this level: "+Math.max(b,g.best)+" words")+" · Goal: "+SPEEDS[speed][4]));
-  var row=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(g.won&&speed<SPEEDS.length-1?" ghost":""),on:{click:play}},"🔄 Try again"));
+  var row=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(g.won&&speed<SPEEDS.length-1?" ghost":""),on:{click:play}},"↻ Try again"));
   if(g.won&&speed<SPEEDS.length-1)row.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));
   row.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level"));
   c.appendChild(row);

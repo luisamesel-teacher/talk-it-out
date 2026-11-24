@@ -54,6 +54,22 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
 .lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
 .clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
+
+/* ---- pausa, reinicio e contagem ---- */
+.pausebtn{font:800 14px var(--label);padding:8px 14px;min-height:40px;border-radius:999px;border:2px solid #12152e;border-bottom-width:3px;background:var(--yel);color:#12152e;cursor:pointer}
+.pausebtn:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.gov{position:fixed;inset:0;background:rgba(6,8,22,.88);display:grid;place-items:center;z-index:60;padding:18px}
+.gbox{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:22px;max-width:520px;width:100%}
+.gico{font-size:44px;text-align:center;line-height:1}
+.gbox h2{color:var(--yel);text-align:center;margin:6px 0 4px;font-size:32px}
+.ghow{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.ghow li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:12px;padding:8px 12px;font-size:16px}
+.ghow .e{font-size:24px;text-align:center}
+.rowend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:18px}
+.btn.big{font-size:20px;padding:14px 28px;min-height:54px}
+.count{font:800 clamp(70px,20vw,140px)/1 var(--disp);color:var(--yel);text-shadow:0 0 26px rgba(255,209,102,.5)}
+.count.pop{animation:cpop .5s}
+@keyframes cpop{0%{transform:scale(.6);opacity:.25}60%{transform:scale(1.12)}100%{transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -75,7 +91,7 @@ var app=document.getElementById("app"),mode="preps",level=0,G=null;
 function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
 function bestT(){try{return +localStorage.getItem("ptubes-best-"+mode+"-"+level)||0}catch(e){return 0}}
 function okLv(){var o=[];LEVELS.forEach(function(l,i){if(!(l[3]&&!SETS[mode].base))o.push(i)});return o}
-setInterval(function(){var c=document.getElementById("ptclock");if(c&&G&&G.t0){var b=bestT();c.textContent="⏱ "+fmtT(performance.now()-G.t0)+(b?" · best "+fmtT(b):"")}},250);
+setInterval(function(){var c=document.getElementById("ptclock");if(c&&G&&G.t0&&!PA.on){var b=bestT();c.textContent="⏱ "+fmtT(performance.now()-G.t0)+(b?" · best "+fmtT(b):"")}},250);
 function speak(w){try{if(!window.speechSynthesis)return;var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 function start(){
   G=null;app.innerHTML="";
@@ -99,12 +115,16 @@ function play(){
   var tubes;do{var sh=shuffle(words);tubes=[];for(var i=0;i<ng;i++)tubes.push(sh.slice(i*cap,(i+1)*cap));}while(tubes.some(function(t){return common(t)>=0}));
   tubes.push([]);tubes.push([]);
   G={S:S,base:base,lvl:L[0],groups:groups,cap:cap,tubes:tubes,done:tubes.map(function(){return -1}),sel:-1,moves:0,mistakes:0,hints:3,shown:{},t0:performance.now()};
+  PA.how=[["\U0001F9EA","Tap a tube to pick up its top word, then tap where it goes."],["\U0001F4A1","Each tube must end up with one family of words."],["\U0001F4A1","You have 3 hints."]];
+  PA.restart=play;
+  PA.pause=function(){if(PA.on||PA.counting||!G)return;PA.on=true;PA.at=performance.now();pauseBox()};
+  PA.resume=function(){if(!PA.on||PA.counting)return;closeOv();countdown(3,function(){G.t0+=performance.now()-PA.at;PA.on=false})};
   render("Tap a tube to pick up its top word.");
 }
 function render(msg,cls,badTube){
   app.innerHTML="";
   var sel=h("select",{class:"lvsel","aria-label":"Change level",on:{change:function(){level=+sel.value;play()}}},okLv().map(function(i){var o=h("option",{value:String(i)},LEVELS[i][0]);if(i===level)o.selected=true;return o}));
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧪 Word Tubes · "+G.S.t),h("div",{class:"row"},sel,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🧪 Word Tubes · "+G.S.t),h("div",{class:"row"},sel,paBtn(),h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
   var fin=G.done.filter(function(d){return d>=0}).length;
   app.appendChild(h("div",{class:"hud"},h("div",null,h("span",{class:"label"},"Groups done"),h("b",null,fin+" / "+G.groups.length)),
     h("div",null,h("span",{class:"label"},"Moves"),h("b",null,String(G.moves))),h("div",null,h("span",{class:"label"},"Mixed tubes"),h("b",null,String(G.mistakes)))));
@@ -164,13 +184,43 @@ function end(){
     h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
     h("p",null,"Moves: ",h("b",null,String(G.moves))," · Mixed tubes: ",h("b",null,String(G.mistakes))," · Hints used: ",h("b",null,String(3-G.hints))),
     h("p",{class:"mean"},"⏱ "+fmtT(el)+(rec?" · 🏆 New record!":" · Best "+fmtT(bt))),
-    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn"+(nx!=null?" ghost":""),on:{click:play}},"🔄 Try again"),nx!=null?h("button",{class:"btn",on:{click:function(){level=nx;play()}}},"⏭ Next level"):null,h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")),
+    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn"+(nx!=null?" ghost":""),on:{click:play}},"↻ Try again"),nx!=null?h("button",{class:"btn",on:{click:function(){level=nx;play()}}},"⏭ Next level"):null,h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")),
     h("h3",null,"The groups"),
     h("div",{class:"list"},G.groups.map(function(g,gi){var ws=[];G.tubes.forEach(function(t,ti){if(G.done[ti]===gi)t.forEach(function(x){ws.push(x.b!==x.f?x.b+" → "+x.f:x.w)})});
       return h("div",{style:"box-shadow:inset 6px 0 0 "+g.c},h("b",null,g.n+" · "+g.r),h("span",null,ws.join(", ")))})),
     null);
   app.appendChild(c);window.scrollTo(0,0);
 }
+
+/* ---- pausa, reinicio e contagem (padrao dos jogos do hub) ---- */
+var OV=null,PA={on:false,at:0,counting:false,pause:null,resume:null,restart:null,how:[]};
+function closeOv(){if(OV&&OV.parentNode)OV.parentNode.removeChild(OV);OV=null}
+function overlay(inner){closeOv();OV=h("div",{class:"gov"},inner);document.body.appendChild(OV);return OV}
+function countdown(n,done){
+  PA.counting=true;var el=h("div",{class:"count pop"},String(n));overlay(el);
+  var iv=setInterval(function(){
+    n--;
+    if(n>0)el.textContent=String(n);else if(n===0)el.textContent="GO!";
+    else{clearInterval(iv);closeOv();PA.counting=false;done();return}
+    el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");
+  },800);
+}
+function pauseBox(){
+  var tips=(PA.how||[]).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))});
+  overlay(h("div",{class:"gbox"},
+    h("div",{class:"gico","aria-hidden":"true"},"\u23F8"),h("h2",null,"Paused"),
+    tips.length?h("ol",{class:"ghow"},tips):null,
+    h("div",{class:"rowend"},
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"\u2190 Quit game"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;if(PA.restart)PA.restart()}}},"\u21BB Restart"),
+      h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"\u25B6 RESUME"))));
+}
+function paBtn(){return h("button",{class:"pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"\u23F8 Pause")}
+window.addEventListener("keydown",function(e){
+  if(PA.counting||!PA.pause)return;
+  if(e.key==="p"||e.key==="P"||e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();
+    if(PA.on){if(PA.resume)PA.resume()}else PA.pause()}
+});
 start();
 </script>
 <script>if(/github\.io$/.test(location.hostname)){var bk=document.createElement("a");bk.href="../9ano/";bk.textContent="← 9º ano Arcade";bk.style.cssText="position:fixed;left:12px;bottom:12px;z-index:50;font:800 14px Inter,system-ui,sans-serif;background:#ffd166;color:#12152e;border:2px solid #12152e;border-bottom-width:4px;border-radius:999px;padding:8px 14px;text-decoration:none";document.body.appendChild(bk)}</script>

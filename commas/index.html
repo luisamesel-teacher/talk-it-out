@@ -51,6 +51,22 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
 .lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px;max-width:60vw}
 .bigpts{font:800 30px var(--disp,inherit);color:var(--yel,#ffd166);margin:6px 0}
+
+/* ---- pausa, reinicio e contagem ---- */
+.pausebtn{font:800 14px var(--label);padding:8px 14px;min-height:40px;border-radius:999px;border:2px solid #12152e;border-bottom-width:3px;background:var(--yel);color:#12152e;cursor:pointer}
+.pausebtn:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.gov{position:fixed;inset:0;background:rgba(6,8,22,.88);display:grid;place-items:center;z-index:60;padding:18px}
+.gbox{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:22px;max-width:520px;width:100%}
+.gico{font-size:44px;text-align:center;line-height:1}
+.gbox h2{color:var(--yel);text-align:center;margin:6px 0 4px;font-size:32px}
+.ghow{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.ghow li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:12px;padding:8px 12px;font-size:16px}
+.ghow .e{font-size:24px;text-align:center}
+.rowend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:18px}
+.btn.big{font-size:20px;padding:14px 28px;min-height:54px}
+.count{font:800 clamp(70px,20vw,140px)/1 var(--disp);color:var(--yel);text-shadow:0 0 26px rgba(255,209,102,.5)}
+.count.pop{animation:cpop .5s}
+@keyframes cpop{0%{transform:scale(.6);opacity:.25}60%{transform:scale(1.12)}100%{transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -86,13 +102,18 @@ function start(){
       h("li",null,h("span",{class:"e"},"⚡"),h("span",null,"Right and fast = more points (up to 100 each)."))),
     h("span",{class:"label"},"Level"),lv,h("div",{class:"row"},h("button",{class:"btn",on:{click:play}},"▶ Play"))));
 }
-function play(){G={list:shuffle(S).slice(0,ROUND).map(parse),i:0,pts:0,max:0,miss:[],kp:0};show()}
+function play(){G={list:shuffle(S).slice(0,ROUND).map(parse),i:0,pts:0,max:0,miss:[],kp:0,qt0:performance.now()};
+  PA.how=[["\U0001F50D","Decide whether the sentence needs commas."],["\u26A1","The faster you answer, the more points you get."],["\U0001F4D6","Read the whole sentence before you choose."]];
+  PA.restart=play;
+  PA.pause=function(){if(PA.on||PA.counting||!G)return;PA.on=true;PA.at=performance.now();pauseBox()};
+  PA.resume=function(){if(!PA.on||PA.counting)return;closeOv();countdown(3,function(){G.qt0+=performance.now()-PA.at;PA.on=false})};
+  show()}
 function bestP(){try{return +localStorage.getItem("pcommas-best-"+lvl)||0}catch(e){return 0}}
 function addP(t0){var p=Math.max(30,Math.round(100-(performance.now()-t0)/1000*4));G.kp+=p;return p}
 function show(){
-  var it=G.list[G.i],on={},stage=0,t0=performance.now();app.innerHTML="";
+  var it=G.list[G.i],on={},stage=0;G.qt0=performance.now();app.innerHTML="";
   var sel=h("select",{class:"lvsel","aria-label":"Change level",on:{change:function(){lvl=+sel.value;play()}}},LV.map(function(l,i){var o=h("option",{value:String(i)},l[0]);if(i===lvl)o.selected=true;return o}));
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔍 Comma Detective"),h("div",{class:"row"},sel,h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🔍 Comma Detective"),h("div",{class:"row"},sel,paBtn(),h("button",{class:"btn ghost small",on:{click:start}},"← Quit"))));
   app.appendChild(h("div",{class:"hud"},h("div",null,h("span",{class:"label"},"Case"),h("b",null,(G.i+1)+" / "+G.list.length)),h("div",null,h("span",{class:"label"},"⚡ Points"),h("b",null,String(G.kp))),h("div",null,h("span",{class:"label"},"Level"),h("b",null,String(lvl+1)))));
   var box=h("div",{class:"case","aria-label":"Sentence"}),gaps=[];
   it.words.forEach(function(w,i){var sp=h("span",{class:"w"},w);box.appendChild(sp);
@@ -107,7 +128,7 @@ function show(){
     stage=1;chk.remove();G.max++;
     var ok=true;gaps.forEach(function(g,i){g.disabled=true;var want=it.commas.indexOf(i)>=0,has=!!on[i];
       if(want&&has)g.classList.add("ok");else if(want&&!has){ok=false;g.textContent=",";g.classList.add("miss")}else if(!want&&has){ok=false;g.classList.add("no")}});
-    if(ok){G.pts++;var ap=addP(t0);note(true,"⚡ +"+ap+" points")}else G.miss.push({s:it.full,what:it.nd?"Commas: this is extra information (non-defining).":"No commas: this information is necessary (defining)."});t0=performance.now();
+    if(ok){G.pts++;var ap=addP(G.qt0);note(true,"⚡ +"+ap+" points")}else G.miss.push({s:it.full,what:it.nd?"Commas: this is extra information (non-defining).":"No commas: this information is necessary (defining)."});G.qt0=performance.now();
     note(ok,it.nd?"Non-defining: “"+it.pr+"…” gives extra information. We put it between commas.":"Defining: “"+it.pr+"…” tells us which one. It's necessary, so no commas.");
     if(lvl>=1&&it.pr.toLowerCase()==="that"){if(lvl>=2)ask("Can we leave out “that”?",it.omit,it.omit?"Yes: “that” is the object here, so we can leave it out.":"No: here “that” is the subject (it does the action), so we need it.",next);else next()}
     else if(lvl>=1)ask("Can we use “that” instead of “"+it.pr+"” here?",it.that,it.that?"Yes: in a defining clause, “that” can replace who or which.":it.nd?"No: we never use “that” in a non-defining clause (with commas).":"No: we don't use “that” instead of where.",function(){
@@ -118,7 +139,7 @@ function show(){
     var box2=h("div",{class:"q2"},h("p",null,"❓ "+txt)),r=h("div",{class:"row"});box2.appendChild(r);q.appendChild(box2);
     [["Yes",true],["No",false]].forEach(function(o){r.appendChild(h("button",{class:"opt",on:{click:function(e){
       [].forEach.call(r.children,function(b){b.disabled=true});var good=o[1]===ans;e.currentTarget.classList.add(good?"ok":"no");G.max++;
-      if(good){G.pts++;var ap=addP(t0);why="⚡ +"+ap+" · "+why}else G.miss.push({s:it.full,what:txt+" → "+(ans?"Yes":"No")});t0=performance.now();
+      if(good){G.pts++;var ap=addP(G.qt0);why="⚡ +"+ap+" · "+why}else G.miss.push({s:it.full,what:txt+" → "+(ans?"Yes":"No")});G.qt0=performance.now();
       box2.appendChild(h("div",{class:"fb "+(good?"good":"bad")},h("b",null,good?"✓ ":"✗ "),why));then()}}},o[0]))});
   }
   function next(){act.innerHTML="";act.appendChild(h("button",{class:"btn",on:{click:function(){G.i++;if(G.i>=G.list.length)end();else show()}}},G.i+1<G.list.length?"Next case →":"See results →"))}
@@ -129,13 +150,43 @@ function end(){
   var c=h("div",{class:"card"},h("span",{class:"label"},"Case closed!"),h("h1",null,"🔍 Detective report"),
     h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),h("p",null,"Right answers: ",h("b",null,G.pts+" / "+G.max)," · "+LV[lvl][0]),
     h("p",{class:"bigpts"},"⚡ "+G.kp+" points"),h("p",{class:"mean"},rec?"🏆 New record!":"🏆 Best on this level: "+bp),
-    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn"+(win&&lvl<LV.length-1?" ghost":""),on:{click:play}},"🔄 Try again"),win&&lvl<LV.length-1?h("button",{class:"btn",on:{click:function(){lvl++;play()}}},"⏭ Next level"):null,h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")));
+    h("div",{class:"row",style:"margin:10px 0"},h("button",{class:"btn"+(win&&lvl<LV.length-1?" ghost":""),on:{click:play}},"↻ Try again"),win&&lvl<LV.length-1?h("button",{class:"btn",on:{click:function(){lvl++;play()}}},"⏭ Next level"):null,h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change level")));
   if(G.miss.length){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,m.s),h("div",null,m.what))})))}
   c.appendChild(h("div",{class:"list"},h("div",null,h("b",null,"Defining"),h("div",{class:"mean"},"Necessary information · no commas · who/which can be “that” · object pronoun can go")),
     h("div",null,h("b",null,"Non-defining"),h("div",{class:"mean"},"Extra information · commas · never “that” · never leave out the pronoun"))));
 
   app.appendChild(c);window.scrollTo(0,0);
 }
+
+/* ---- pausa, reinicio e contagem (padrao dos jogos do hub) ---- */
+var OV=null,PA={on:false,at:0,counting:false,pause:null,resume:null,restart:null,how:[]};
+function closeOv(){if(OV&&OV.parentNode)OV.parentNode.removeChild(OV);OV=null}
+function overlay(inner){closeOv();OV=h("div",{class:"gov"},inner);document.body.appendChild(OV);return OV}
+function countdown(n,done){
+  PA.counting=true;var el=h("div",{class:"count pop"},String(n));overlay(el);
+  var iv=setInterval(function(){
+    n--;
+    if(n>0)el.textContent=String(n);else if(n===0)el.textContent="GO!";
+    else{clearInterval(iv);closeOv();PA.counting=false;done();return}
+    el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");
+  },800);
+}
+function pauseBox(){
+  var tips=(PA.how||[]).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))});
+  overlay(h("div",{class:"gbox"},
+    h("div",{class:"gico","aria-hidden":"true"},"\u23F8"),h("h2",null,"Paused"),
+    tips.length?h("ol",{class:"ghow"},tips):null,
+    h("div",{class:"rowend"},
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"\u2190 Quit game"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;if(PA.restart)PA.restart()}}},"\u21BB Restart"),
+      h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"\u25B6 RESUME"))));
+}
+function paBtn(){return h("button",{class:"pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"\u23F8 Pause")}
+window.addEventListener("keydown",function(e){
+  if(PA.counting||!PA.pause)return;
+  if(e.key==="p"||e.key==="P"||e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();
+    if(PA.on){if(PA.resume)PA.resume()}else PA.pause()}
+});
 start();
 </script>
 <script>if(/github\.io$/.test(location.hostname)){var bk=document.createElement("a");bk.href="../9ano/";bk.textContent="← 9º ano Arcade";bk.style.cssText="position:fixed;left:12px;bottom:12px;z-index:50;font:800 14px Inter,system-ui,sans-serif;background:#ffd166;color:#12152e;border:2px solid #12152e;border-bottom-width:4px;border-radius:999px;padding:8px 14px;text-decoration:none";document.body.appendChild(bk)}</script>
