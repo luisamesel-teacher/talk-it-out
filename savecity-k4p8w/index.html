@@ -88,13 +88,27 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
  font:800 clamp(16px,2.4vw,24px) var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;
  box-shadow:0 6px 18px rgba(0,0,0,.45);cursor:pointer;text-align:center;z-index:2}
 .bomb small{display:block;font:700 12px var(--label);opacity:.5;letter-spacing:.06em}
-@keyframes ploc{0%{transform:translateX(-50%) scale(1);opacity:1}40%{transform:translateX(-50%) scale(1.22)}100%{transform:translateX(-50%) scale(.08);opacity:0}}
-.bomb.ploc{animation:ploc .38s forwards;background:var(--bad);pointer-events:none}
+@keyframes bolha{
+ 0%{transform:translateX(-50%) scale(1) rotate(0);opacity:1;filter:blur(0)}
+ 30%{transform:translateX(-50%) scale(1.1) rotate(-2deg)}
+ 55%{transform:translateX(-50%) scale(1.2) rotate(2.5deg)}
+ 72%{transform:translateX(-50%) scale(1.26) rotate(-1.5deg);opacity:.9}
+ 100%{transform:translateX(-50%) scale(1.34);opacity:0;filter:blur(4px)}}
+.bomb.ploc{animation:bolha .34s ease-out forwards;pointer-events:none}
+.drop{position:absolute;border-radius:50%;pointer-events:none;z-index:4;
+ box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),0 0 8px rgba(255,255,255,.35);
+ animation:drop .52s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes drop{
+ 0%{opacity:1;transform:translate(-50%,-50%) translate(0,0) scale(1)}
+ 70%{opacity:.85}
+ 100%{opacity:0;transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) scale(.22)}}
 .bomb.safe{background:var(--good);opacity:0;transform:translateX(-50%) translateY(-26px);transition:opacity .4s,transform .4s;pointer-events:none}
 .bomb.boom{background:var(--bad);pointer-events:none;transition:top .3s cubic-bezier(.45,0,1,.5)}
 .bomb.fade{opacity:0;transition:opacity .35s;pointer-events:none}
-.puff{position:absolute;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;border:3px solid var(--bad);animation:puff .44s forwards;pointer-events:none;z-index:4}
-@keyframes puff{to{width:92px;height:92px;opacity:0;border-width:1px}}
+.puff{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;
+ border:3px solid rgba(255,255,255,.8);box-shadow:0 0 14px rgba(76,201,240,.6);
+ animation:puff .46s ease-out forwards;pointer-events:none;z-index:4}
+@keyframes puff{to{width:104px;height:104px;opacity:0;border-width:1px}}
 
 .city{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:end;height:100px;padding:0 8px 0;
  background:linear-gradient(#232a60,#12152e);border-radius:0 0 18px 18px;box-shadow:inset 0 0 0 2px #3b3f8f;border-top:3px solid #4cc9f0}
@@ -201,8 +215,9 @@ var V=[
 ["A child ___ need a visa for this trip.","don't","doesn't","doesn't","a child = he / she / it, so doesn't."]
 ];
 /* [nome, duracao da queda, pausa de leitura] */
-var SPEEDS=[["🐢 Slow",9900,1600],["🚲 Normal",7000,1100],["🚀 Fast",5000,700]];
+var SPEEDS=[["🐢 Slow",13500,2100],["🚲 Normal",9500,1500],["🚀 Fast",6500,1000]];
 var CITY=6, ALTURAS=["t2","t3","t1","t3","t2","t1"];
+var SEM_MOV=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches);
 
 var HOW=[["🏙️","Tap the word that is correct English, or press ← and →."],
  ["💥","Get it right and the wrong word pops in mid-air. Get it wrong and it lands on your city."],
@@ -256,7 +271,24 @@ function play(){
     hud.appendChild(h("div",null,h("span",{class:"label"},"City"),h("b",null,"🏙️ "+G.vivos+" / "+CITY)))}
   drawHud();
   function toast(txt,sub,cls){if(G.toast&&G.toast.parentNode)G.toast.remove();G.toast=h("div",{class:"toast "+cls},txt,h("small",null,sub));sky.appendChild(G.toast);var t=G.toast;setTimeout(function(){if(t.parentNode)t.remove()},1800)}
-  function puff(x,y){var p=h("div",{class:"puff"});p.style.left=x+"px";p.style.top=y+"px";sky.appendChild(p);setTimeout(function(){if(p.parentNode)p.remove()},460)}
+  function estoura(x,y){
+    var anel=h("div",{class:"puff"});anel.style.left=x+"px";anel.style.top=y+"px";sky.appendChild(anel);
+    setTimeout(function(){if(anel.parentNode)anel.remove()},480);
+    if(SEM_MOV)return;
+    var cores=["#ffffff","#4cc9f0","#ffd166","#cfd5ff"];
+    for(var i=0;i<12;i++){
+      var a=(Math.PI*2*i)/12+(Math.random()-.5)*.45, dist=32+Math.random()*46, tam=6+Math.random()*9;
+      var g=h("div",{class:"drop"});
+      g.style.left=x+"px";g.style.top=y+"px";
+      g.style.width=tam.toFixed(0)+"px";g.style.height=tam.toFixed(0)+"px";
+      g.style.background=cores[i%4];
+      g.style.setProperty("--dx",(Math.cos(a)*dist).toFixed(1)+"px");
+      g.style.setProperty("--dy",(Math.sin(a)*dist).toFixed(1)+"px");
+      g.style.animationDelay=Math.round(Math.random()*70)+"ms";
+      sky.appendChild(g);
+      (function(el){setTimeout(function(){if(el.parentNode)el.remove()},680)})(g);
+    }
+  }
   function derruba(col){
     var ordem=[col];for(var d=1;d<CITY;d++){ordem.push(col-d);ordem.push(col+d)}
     for(var j=0;j<ordem.length;j++){var idx=ordem[j];
@@ -275,7 +307,7 @@ function play(){
     var els=pares.map(function(p){
       var el=h("div",{class:"bomb",on:{click:function(ev){ev.stopPropagation();mira(p[0])}}},p[0],h("small",null,p[2]));
       el.style.left=p[1]+"%";sky.appendChild(el);return el});
-    G.cur={r:r,els:els,esq:pares[0][0],dir:pares[1][0],cols:[1,4],t0:now,dur:SPEEDS[speed][1]*Math.pow(.985,G.i)};
+    G.cur={r:r,els:els,esq:pares[0][0],dir:pares[1][0],cols:[1,4],t0:now,dur:SPEEDS[speed][1]*Math.pow(.993,G.i)};
     coloca(0);drawHud();
   }
   function coloca(p){var c=G.cur;if(!c)return;
@@ -292,7 +324,7 @@ function play(){
       G.ok++;roboCara("lose");G.good.push({bad:r[3],right:cheia});
       var be=c.els[iErrado],bc=c.els[iCerto];
       var bx=be.offsetLeft+be.offsetWidth/2, by=be.offsetTop+be.offsetHeight/2;
-      be.classList.add("ploc");puff(bx,by);
+      be.classList.add("ploc");estoura(bx,by);
       bc.classList.add("safe");
       toast("✓ "+r[3],r[4],"ok");
     }else{
