@@ -997,7 +997,7 @@ body[data-page="module"] .gdesc{display:none}
 
 /* ===== Layout v2 (Figma proposal, Nov 2026) ===== */
 body[data-page="home"] .wrap,body[data-page="module"] .wrap{max-width:1100px}
-#bar .tswitch{display:none}
+body:not(.gamesonly) #bar .tswitch{display:none}
 .statgroup{display:inline-flex;align-items:center;gap:14px;padding:8px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
 :root[data-theme="dark"] .statgroup{background:#1f2456;border-color:#2c3466}
 .herorow{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:center;margin-bottom:44px}
@@ -1969,6 +1969,7 @@ function pick(a){return a[Math.floor(Math.random()*a.length)]}
 
 /* ---------- top bar ---------- */
 function bar(){
+  document.body.classList.toggle("gamesonly",!!window.ONLY_GAMES);
   var b=document.getElementById("bar");b.innerHTML="";
   var nav=document.getElementById("navrow");
   if(!nav){nav=h("div",{class:"navrow",id:"navrow"});b.parentNode.insertBefore(nav,b.nextSibling)}
@@ -3831,7 +3832,7 @@ function avatars(){
     h("b",null,tx("How to get coins","Como ganhar moedas")),
     h("ul",null,
       h("li",null,"⭐ ",tx("Each new star in an activity: ","Cada estrela nova numa atividade: "),h("b",null,"+10")),
-      h("li",null,"🎓 ",tx("Pass a final test: ","Passar num teste final: "),h("b",null,"+50")),
+      window.ONLY_GAMES?null:h("li",null,"🎓 ",tx("Pass a final test: ","Passar num teste final: "),h("b",null,"+50")),
       h("li",null,"🕹️ ",tx("Win a game: ","Vencer um jogo: "),h("b",null,"+15 to +35"),tx(" (harder level, more coins)"," (nível mais difícil, mais moedas)")),
       h("li",null,"🔁 ",tx("Labs, reviews and stories: ","Labs, revisões e histórias: "),h("b",null,"+5 to +15"))));
   var hb=h("button",{class:"pillbtn coinhowbtn","aria-expanded":"false",onclick:function(){how.hidden=!how.hidden;hb.setAttribute("aria-expanded",how.hidden?"false":"true")}},"❓ "+tx("How to get coins?","Como ganhar moedas?"));
@@ -3852,14 +3853,14 @@ function avatars(){
     var own=S.owned.indexOf(f[0])>=0,locked=!own&&S.coins<f[1];
     g.appendChild(h("div",{class:"card"+(locked?" islocked":"")},h("span",{class:"face"},f[0]),priceLbl(f[1],own,locked),act(f[0],f[1],own)));
   });
-  a.appendChild(h("h2",{class:"step",style:"margin-top:10px"},"🎓 "+tx("Level badges","Medalhas de nível"),h("small",null,tx("You can't buy them: finish a level to win one","Não dá para comprar: termine um nível para ganhar"))));
+  if(!window.ONLY_GAMES){a.appendChild(h("h2",{class:"step",style:"margin-top:10px"},"🎓 "+tx("Level badges","Medalhas de nível"),h("small",null,tx("You can't buy them: finish a level to win one","Não dá para comprar: termine um nível para ganhar"))));
   var ag=h("div",{class:"shop pshop achv"});
   ACH.forEach(function(x){var id="img:"+x[0],lvm=M.filter(function(m){return m.lv===x[2]}),done=lvm.filter(passed).length,won=lvm.length>0&&done===lvm.length;
     if(won&&S.owned.indexOf(id)<0){S.owned.push(id);save()}
     var own=S.owned.indexOf(id)>=0;
     ag.appendChild(h("div",{class:"card pcard"+(own?" own":" islocked")},h("img",{class:"pimg",src:PIMG[x[0]],alt:x[1],loading:"lazy"}),h("b",null,x[1]),
       own?(S.face===id?h("span",{class:"badge"},t("using")):h("button",{class:"btn ghost",onclick:function(){S.face=id;save();bar();avatars()}},t("use"))):h("span",{class:"label pricel"},"🎓 "+done+" / "+lvm.length+" "+x[2]+tx(" tests"," testes"))))});
-  a.appendChild(ag);
+  a.appendChild(ag);}
   a.appendChild(h("h2",{class:"step",style:"margin-top:10px"},"🙂 Classic"));
   a.appendChild(g);
   PSETS.forEach(function(set,si){
