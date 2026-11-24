@@ -4326,7 +4326,8 @@ food:{name:"Food and shopping",mode:"free",
  t:["every morning|p","on Saturdays|p","yesterday|x","last week|x"]},
 past:{name:"Stories",mode:"free",
  s:["I|1","My brother|3","A dog|3","My friends|0","The robot|3"],
- v:["take|takes|took|fkuh","find|finds|found|fkuhg","lose|loses|lost|kuh","see|sees|saw|gwhu","break|breaks|broke|wu","eat|eats|ate|f"],
+ v:["take|takes|took|fkuh","find|finds|found|fkuhg","lose|loses|lost|kuh","see|sees|saw|gwhu","break|breaks|broke|wu","eat|eats|ate|f","give|gives|gave|fkuh|to","arrive|arrives|arrived||i"],
+ i:["my brother","my friends","to my brother","to my friends","for my brother"],
  o:["a|sandwich|f","the|keys|k","an|umbrella|u","|photos|h","a|ghost|g","the|window|w","an|egg|f"],
  f:["always","often","never","!badly|d|Badly says how. It goes after the verb and the object."],
  a:["strange|fkuhgw","small|fkuhgw","old|kuhgw","funny|hg","!quietly|d|Quietly is an adverb. Before a noun, use an adjective: quiet."],
@@ -4335,16 +4336,18 @@ past:{name:"Stories",mode:"free",
  t:["yesterday|x","last weekend|x","two days ago|x","every summer|p"]},
 trip:{name:"Travel plans",mode:"free",
  s:["I|1","My cousin|3","The pilot|3","We|0","The robot|3"],
- v:["book|books|booked|ht","pack|packs|packed|sup","check|checks|checked|tsp","visit|visits|visited|m","need|needs|needed|htsup"],
+ v:["book|books|booked|ht|for","pack|packs|packed|sup","check|checks|checked|tsp","visit|visits|visited|m","need|needs|needed|htsup","send|sends|sent|tp|to","arrive|arrives|arrived||i"],
+ i:["my cousin","my friends","to my cousin","to my friends","for my cousin","for my friends"],
  o:["a|hotel|h","the|tickets|t","a|suitcase|s","the|museum|m","an|umbrella|u","|maps|p","an|adapter|s","an|apartment|h"],
  f:["always","usually","sometimes","never","!fast|d|Fast says how. It goes after the verb and the object."],
  a:["cheap|htsu","small|hsump","comfortable|h","old|hmsup","!carefully|d|Carefully is an adverb. Before a noun, use an adjective: careful."],
  m:["carefully|pack,check","fast|pack,book","online|book,check","together|visit,book,pack","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
- w:["at the airport|check,need,pack","at the hotel|check,pack,need","on the train|check,pack","in the city centre|visit,book,check","at home|book,check,pack","!in the airport gate|d|Say at the gate."],
+ w:["at the airport|check,need,pack,arrive","at the hotel|check,pack,need,arrive","on the train|check,pack,arrive","in the city centre|visit,book,check,arrive","at home|book,check,pack","to the hotel|send","!in the airport gate|d|Say at the gate."],
  t:["every summer|p","before every trip|p","last month|x","yesterday|x"]},
 tech:{name:"Shopping for gadgets",mode:"free",
  s:["I|1","My boss|3","The shop assistant|3","My parents|0","The robot|3"],
- v:["compare|compares|compared|d","charge|charges|charged|db","use|uses|used|dbs","break|breaks|broke|ds","sell|sells|sold|db"],
+ v:["compare|compares|compared|d","charge|charges|charged|db","use|uses|used|dbs","break|breaks|broke|ds","sell|sells|sold|db|to","show|shows|showed|ds|to"],
+ i:["my boss","my parents","to my boss","to my parents","for my parents"],
  o:["|phones|d","the|laptop|d","|batteries|b","a|camera|d","the|screen|s","|headphones|d","an|iPad|d","an|e-reader|d"],
  f:["always","usually","often","never","!carefully|d|Carefully says how. It goes after the verb and the object."],
  a:["cheap|db","expensive|dbs","new|dbs","fast|d","!cheaply|d|Cheaply is an adverb. Before a noun, use an adjective: cheap."],
@@ -4353,7 +4356,8 @@ tech:{name:"Shopping for gadgets",mode:"free",
  t:["every year|p","every night|p","last year|x","yesterday|x"]},
 party:{name:"Parties and people",mode:"free",
  s:["I|1","The DJ|3","My best friend|3","The guests|0","The robot|3"],
- v:["sing|sings|sang|s","play|plays|played|sm","bring|brings|brought|cg","meet|meets|met|p","make|makes|made|csm"],
+ v:["sing|sings|sang|s|for","play|plays|played|sm","bring|brings|brought|cg|to","meet|meets|met|p","make|makes|made|csm|for","give|gives|gave|cg|to"],
+ i:["my best friend","the guests","to my best friend","to the guests","for my best friend","for the guests"],
  o:["a|cake|c","|songs|s","|people|p","a|present|g","|music|m","|snacks|c","an|apple pie|c","an|artist|p"],
  f:["always","usually","sometimes","never","!loudly|d|Loudly says how. It goes after the verb and the object."],
  a:["famous|smp","lovely|cgsmp","loud|ms","huge|cg","amazing|cgsmp","!beautifully|d|Beautifully is an adverb. Before a noun, use an adjective: beautiful."],
@@ -4416,7 +4420,9 @@ transport:{name:"Getting around",mode:"free",
  t:["every morning|p","on weekdays|p","yesterday|x","last Monday|x"]}};
 var LABMAP={"a1-1":"daily","a1-2":"daily","a1-3":"town","a1-4":"food","a2-1":"past","a2-2":"trip","a2-3":"tech","a2-4":"party","b1-1":"daily","b1-2":"health","b1-3":"work","b1-4":"news","b1-5":"work",halloween:"halloween",christmas:"christmas",fifteen:"party",transport:"transport",doctor:"health"};
 var LSLOT={s:["Subject","s"],v:["Verb","v"],r:["Article","o"],o:["What?","o"],f:["How often?","d"],a:["What kind?","a"],m:["How?","d"],w:["Where?","d"],t:["When?","d"]};
-var LLINES=[["s","v","r","o"],["f","a","m"],["w","t"]];
+var LLINES=[["s","v","r","o","i"],["f","a","m"],["w","t"]];LSLOT.i=["To whom?","o"];
+function labDi(v){return !!v&&(v.pat==="to"||v.pat==="for")}
+function labNeed(k,fill){return k!=="i"||labDi(fill.v)}
 var LPART={s:"head",v:"body",o:"legs",f:"arm1",a:"arm2",m:"hand1",w:"hand2",t:"feet"};
 function labOpts(B,k){
   return B[k].map(function(x){
@@ -4427,6 +4433,7 @@ function labOpts(B,k){
     if(k==="a")return {w:p[0],c:c,cats:p[1]||""};
     if(k==="t")return {w:p[0],c:c,tm:p[1]};
     if(k==="m"||k==="w")return {w:p[0],c:c,vb:p[1]?p[1].split(","):null};
+    if(k==="i"){var pm=/^(to|for) /.exec(p[0]);return {w:p[0],c:"o",prep:pm?pm[1]:"",after:!!pm}}
     return {w:x,c:c};
   });
 }
@@ -4479,16 +4486,24 @@ function labSentence(B,fill,upto){
   var hf=has("f")&&!fill.f.none;
   if(vf&&B.mode!=="free"&&vf.parts){add(vf.parts[0],"v");if(hf)add(fill.f.w,"d");add(vf.parts[1],"v")}
   else{if(hf)add(fill.f.w,"d");if(vf)add(vf.w,"v")}
-  if(has("o")){var o=fill.o;
+  var io=has("i")&&labDi(fill.v)&&!fill.i.none?fill.i:null;
+  if(io&&!io.after)add(io.w,"o");
+  if(has("o")&&!fill.o.none){var o=fill.o;
     if(has("r")&&!fill.r.none)add(fill.r.w,"o");if(has("a")&&!fill.a.none)add(fill.a.w,fill.a.c);add(o.w,"o")}
+  if(io&&io.after)add(io.w,"o");
   ["m","w","t"].forEach(function(k){if(has(k)&&!fill[k].none)add(fill[k].w,fill[k].c)});
   if(out.length){out[0][0]=out[0][0].charAt(0).toUpperCase()+out[0][0].slice(1);out[out.length-1][0]+="."}
   return out;
 }
 function labCheck(B,fill,line){
   var keys=[].concat.apply([],LLINES.slice(0,line+1));
-  for(var i=0;i<keys.length;i++)if(!fill[keys[i]])return {k:keys[i],why:"Choose a word for the "+LSLOT[keys[i]][0].replace("?","").toLowerCase()+" box."};
-  for(i=0;i<keys.length;i++)if(fill[keys[i]].bad)return {k:keys[i],why:fill[keys[i]].bad};
+  for(var i=0;i<keys.length;i++)if(!fill[keys[i]]&&labNeed(keys[i],fill))return {k:keys[i],why:"Choose a word for the "+LSLOT[keys[i]][0].replace("?","").toLowerCase()+" box."};
+  for(i=0;i<keys.length;i++)if(fill[keys[i]]&&labNeed(keys[i],fill)&&fill[keys[i]].bad)return {k:keys[i],why:fill[keys[i]].bad};
+  var tv=fill.v,to=fill.o,ti=labDi(tv)?fill.i:null;
+  if(tv&&tv.pat==="i"&&to&&!to.none)return {k:"o",why:"“"+tv.base+"” doesn't take a thing after it. Choose “— nothing”. Then say where: "+tv.base+" at the hotel."};
+  if(tv&&tv.pat==="i"&&fill.r&&!fill.r.none)return {k:"r",why:"“"+tv.base+"” has no thing after it, so no article. Choose “— no article”."};
+  if(tv&&tv.pat!=="i"&&to&&to.none)return {k:"o",why:"“"+tv.base+"” needs a thing after it: "+tv.base+" what?"};
+  if(ti&&!ti.none&&ti.prep&&ti.prep!==tv.pat)return {k:"i",why:tv.pat==="to"?"With “"+tv.base+"”, the person comes with to: "+tv.base+" something to "+ti.w.replace(/^(to|for) /,"")+". (For goes with buy, make, order…)":"With “"+tv.base+"”, the person comes with for: "+tv.base+" something for "+ti.w.replace(/^(to|for) /,"")+". (To goes with give, send, bring…)"};
   var s=fill.s,v=fill.v,t=fill.t&&!fill.t.none&&line>=2?fill.t:null,he=s.per===3,who=he?s.w+" = he, she or it":/^(I|You|We|They)$/.test(s.w)?"With "+s.w:s.w+" = they";
   if(B.mode!=="free"){
     if(v.form!==0)return {k:"v",why:"After "+B.mode+", use the verb with no to and no -s: "+B.mode+" "+v.base+"."};
@@ -4506,7 +4521,7 @@ function labCheck(B,fill,line){
 function isFreqT(t){return !!t&&!t.none&&/\bevery\b|^(once|twice|three times)\b/i.test(t.w||"")} function freqClash(f,t){if(!f||f.none||f.bad||!t||t.none||t.bad)return null;if(t.tm==="p"&&!isFreqT(t))return "Choose one: “"+f.w+"” at the start or “"+t.w+"” at the end. Together they sound strange.";if(!isFreqT(t))return null;var fw=(f.w||"").toLowerCase(),tw=(t.w||"").toLowerCase();if(fw==="never")return "“never” means zero times, but “"+t.w+"” says it happens. Use only one.";return "“"+f.w+"” and “"+t.w+"” both say how often. Use only one of them."}
 function vowelSound(w){w=(w||"").toLowerCase();if(/^(uni|use|eu|one|once)/.test(w))return false;if(/^(hour|honest|honour)/.test(w))return true;return /^[aeiou]/.test(w)}
 function labArt(fill){
-  var o=fill.o,r=fill.r;if(!o||!r||r.bad)return null;
+  var o=fill.o,r=fill.r;if(!o||!r||r.bad||o.none)return null;
   var plural=o.art===""||(o.art==="the"&&/[^s]s$/.test(o.w)),next=fill.a&&!fill.a.none&&!fill.a.bad?fill.a.w:o.w;
   if(!plural&&r.none)return {k:"r",why:"“"+o.w+"” is one thing (singular): we need an article. Use "+(vowelSound(next)?"an":"a")+" or the."};
   if(plural&&(r.w==="a"||r.w==="an"))return {k:"r",why:"“"+o.w+"” is plural or we can't count it, so no a/an. Use the, or no article."};
@@ -4533,6 +4548,7 @@ function labSense(B,fill,line){
   if(v&&o&&v.cats&&o.cat&&v.cats.indexOf(o.cat)<0){
     var okO=objs.filter(function(x){return v.cats.indexOf(x.cat)>=0}).map(function(x){return x.n}).slice(0,3),okV=vbs.filter(function(x){return x.cats.indexOf(o.cat)>=0}).map(function(x){return x.b});
     return {k:"o",why:"The grammar is fine, but we don't say “"+v.base+" "+o.w+"”. "+v.base.charAt(0).toUpperCase()+v.base.slice(1)+" goes with: "+okO.join(", ")+"."+(okV.length?" For "+o.w+", try: "+okV.join(", ")+".":"")}}
+  if(line>=1&&ad&&!ad.none&&o&&o.none)return {k:"a",why:"There is no thing after the verb, so there is nothing to describe. Choose “— no adjective”."};
   if(line>=1&&ad&&!ad.none&&ad.cats&&o&&o.cat&&ad.cats.indexOf(o.cat)<0){
     var okA=B.a.filter(function(x){return x.charAt(0)!=="!"}).map(function(x){return x.split("|")}).filter(function(p){return (p[1]||"").indexOf(o.cat)>=0}).map(function(p){return p[0]});
     return {k:"a",why:"“"+ad.w+" "+o.w+"” doesn't make sense. "+(okA.length?"For "+o.w+", try: "+okA.join(", ")+". ":"")+"Or choose “no adjective”."}}
@@ -4540,6 +4556,7 @@ function labSense(B,fill,line){
   if(line>=1&&v&&mm&&!mm.none&&!mm.bad){
     if(LSTATE.indexOf(v.base)>=0)return {k:"m",why:"“"+v.base+"” is a feeling or a state, not an action, so it has no “how”. Choose “— no adverb”."};
     if(mm.vb&&mm.vb.indexOf(v.base)<0)return {k:"m",why:"We don't say “"+v.base+" … "+mm.w+"”. “"+mm.w.charAt(0).toUpperCase()+mm.w.slice(1)+"” goes with: "+mm.vb.join(", ")+"."}}
+  if(line>=2&&v&&ww&&!ww.none&&!ww.bad&&v.base==="arrive"&&/^to /.test(ww.w))return {k:"w",why:"We arrive at or in a place, never “arrive to”: arrive at the hotel, arrive in Los Angeles."};
   if(line>=2&&v&&ww&&!ww.none&&!ww.bad&&ww.vb&&ww.vb.indexOf(v.base)<0)return {k:"w",why:"“"+v.base+" … "+ww.w+"” doesn't make sense. “"+ww.w.charAt(0).toUpperCase()+ww.w.slice(1)+"” goes with: "+ww.vb.join(", ")+"."};
   return null;
 }
@@ -4547,38 +4564,46 @@ var LSTATE=["need","want","love","like","know","have","hate","prefer"];
 function lab(m){
   var a=app(),B=LAB[LABMAP[m.id]||"daily"],fill={},line=0,open=null,bad=null,done=[],last=null,party=false,lastSay="";cur={m:m.id,k:"lab"};
   var O={};"sofamwt".split("").forEach(function(k){O[k]=labOpts(B,k)});
+  O.i=(B.i?labOpts(B,"i"):[]).concat([{w:"",c:"o",none:true}]);
+  O.o=O.o.concat([{w:"",c:"o",none:true}]);
   O.a=O.a.concat([{w:"",c:"a",none:true}]);
   O.r=[{w:"a",c:"o"},{w:"an",c:"o"},{w:"the",c:"o"},{w:"",c:"o",none:true}];
   ["m","w","t"].forEach(function(k){O[k]=O[k].concat([{w:"",c:"d",none:true}])});
   if(B.mode==="free")O.f=O.f.concat([{w:"",c:"d",none:true}]);
   if(B.mode==="free"){var hasOnce=O.t.some(function(x){return /^once/.test(x.w)});if(!hasOnce)O.t.splice(O.t.length-1,0,{w:"once a week",c:"d",tm:"p"})}
   function artOff(op){if(["r","o"].indexOf(open)<0||op.none||op.bad)return false;var f2={};for(var kk in fill)f2[kk]=fill[kk];f2[open]=op;return !!labArt(f2)}
-  function sOff(op){if(op.none||op.bad)return false;var v=fill.v;
+  function sOff(op){var v=fill.v;
+    if(open==="o"&&op.none)return !(v&&v.pat==="i");
+    if(open==="o"&&v&&v.pat==="i"&&!op.bad)return true;
+    if(open==="r"&&v&&v.pat==="i"&&!op.none)return true;
+    if(open==="a"&&fill.o&&fill.o.none&&!op.none)return true;
+    if(op.none||op.bad)return false;
     if(open==="o"&&v&&v.cats&&op.cat&&v.cats.indexOf(op.cat)<0)return true;
     if(open==="a"&&fill.o&&op.cats&&fill.o.cat&&op.cats.indexOf(fill.o.cat)<0)return true;
     if(open==="m"&&v&&(LSTATE.indexOf(v.base)>=0||(op.vb&&op.vb.indexOf(v.base)<0)))return true;
     if(open==="w"&&v&&op.vb&&op.vb.indexOf(v.base)<0)return true;
-    if(open==="r"&&!fill.o){var any=O.o.some(function(x){if(x.bad)return false;if(v&&v.cats&&x.cat&&v.cats.indexOf(x.cat)<0)return false;return !labArt({o:x,r:op})});return !any}
+    if(open==="r"&&!fill.o){var any=O.o.some(function(x){if(x.bad||x.none)return false;if(v&&v.cats&&x.cat&&v.cats.indexOf(x.cat)<0)return false;return !labArt({o:x,r:op})});return !any}
     return false}
   function fOff(op){return open==="f"&&B.mode==="free"&&!op.none&&!op.bad&&((fill.v&&fill.v.form===2)||!!freqClash(op,fill.t))}
   function tOff(op){if(open!=="t"||B.mode!=="free"||op.none||op.bad)return false;var v=fill.v,fq=fill.f&&!fill.f.none&&!fill.f.bad;
     if(v&&v.form===2&&op.tm==="p")return true;if(v&&v.form!==2&&op.tm==="x")return true;if(fq&&freqClash(fill.f,op))return true;return false}
-  O.v=B.v.map(function(x){var f=x.split("|");return {base:f[0],cats:f[3]||"",forms:B.mode==="free"?f.slice(0,3):[B.mode+" "+f[0],B.mode+" "+f[1],B.mode+" to "+f[0]]}});
-  function mkV(vb,fi){return {w:vb.forms[fi],c:"v",base:vb.base,cats:vb.cats,forms:vb.forms,form:fi,parts:B.mode==="free"?null:[B.mode,vb.forms[fi].slice(B.mode.length+1)]}}
+  O.v=B.v.map(function(x){var f=x.split("|");return {base:f[0],cats:f[3]||"",pat:f[4]||"",forms:B.mode==="free"?f.slice(0,3):[B.mode+" "+f[0],B.mode+" "+f[1],B.mode+" to "+f[0]]}});
+  function mkV(vb,fi){return {w:vb.forms[fi],c:"v",base:vb.base,cats:vb.cats,pat:vb.pat,forms:vb.forms,form:fi,parts:B.mode==="free"?null:[B.mode,vb.forms[fi].slice(B.mode.length+1)]}}
   a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go(m.id)}},"← "+t("back"))));
   a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},lvTag(m.lv)," "+m.t+(B.name!==m.t?" · "+B.name:"")),h("h1",null,"🤖 "+t("lab")),h("p",{class:"hint"},t("labD"))));
   var key=h("div",{class:"train labkey"},[["subject","s"],["verb","v"],["what","o"],["adjective","a"],["how · how often · where · when","d"]].map(function(x){return h("span",{class:"t-"+x[1]},x[0])}));
   var bot=h("div",{class:"labbotbox"}),say=h("p",{class:"labsay",role:"status"},"Click a box, or a part of my body, and choose a word."),rows=h("div",{class:"labrows"}),out=h("div",{class:"labout"});
   a.appendChild(key);
   a.appendChild(h("section",{class:"card labcard"},h("div",{class:"labgrid"},h("div",null,bot,say),rows),out));
-  function upto(li){return "sfvraomwt".split("").filter(function(k){return LLINES.slice(0,li+1).join().indexOf(k)>=0})}
+  function upto(li){return "sfvraoimwt".split("").filter(function(k){return LLINES.slice(0,li+1).join().indexOf(k)>=0&&labNeed(k,fill)})}
   function pickSlot(k){if(line>2)return;if(upto(line).indexOf(k)<0){say.textContent="First finish line "+(line+1)+".";return}open=open===k?null:k;draw()}
   function choose(k,opt){fill[k]=opt;bad=null;open=null;last=k;
+    if(k==="v"){if(!labDi(opt))delete fill.i;if(opt.pat==="i"){fill.r={w:"",c:"o",none:true};fill.o={w:"",c:"o",none:true};if(fill.a)fill.a={w:"",c:"a",none:true}}else{if(fill.o&&fill.o.none)delete fill.o;if(fill.r&&fill.r.none&&!fill.o)delete fill.r}}
     if(opt.bad){bad=k;say.textContent="Hmm… "+opt.bad;draw();return}
     var q=labArt(fill)||labTense(B,fill);if(q&&q.k==="r"&&k==="a"){var nw=opt.none?fill.o.w:opt.w;bad=null;open="r";var ar=vowelSound(nw)?"an":"a",ph=opt.none?nw:nw+" "+fill.o.w;say.textContent="The article now goes before “"+nw+"”, so we say “"+ar+" "+ph+"”. Choose the article again.";draw();return}
     if(q){bad=q.k;say.textContent="Wait… "+q.why;draw();return}
     say.textContent="Good. Keep going!";
-    var keys=[].concat.apply([],LLINES.slice(0,line+1));for(var i=0;i<keys.length;i++)if(!fill[keys[i]]){open=keys[i];break}
+    var keys=[].concat.apply([],LLINES.slice(0,line+1));for(var i=0;i<keys.length;i++)if(!fill[keys[i]]&&labNeed(keys[i],fill)){open=keys[i];break}
     draw()}
   function draw(){
     if(say.textContent!==lastSay){lastSay=say.textContent;say.classList.remove("pop");void say.offsetWidth;say.classList.add("pop")}
@@ -4598,11 +4623,13 @@ function lab(m){
       if(open&&li===line&&upto(li).indexOf(open)>=0){
         var pan=h("div",{class:"optpan"},h("span",{class:"label"},"Choose: "+LSLOT[open][0]));
         if(open==="v")O.v.forEach(function(vb){pan.appendChild(h("div",{class:"vrow2"},vb.forms.map(function(fm,fi){return h("button",{class:"tile t-v",onclick:function(){choose("v",mkV(vb,fi))}},fm)})))});
-        else{pan.appendChild(h("div",{class:"tiles"},O[open].map(function(op){var off=fOff(op);off=off||tOff(op)||artOff(op)||sOff(op);return h("button",{class:"tile t-"+(op.none?"o none":op.c)+(off?" off":""),disabled:off,title:off?"Not with the words you chose":"",onclick:function(){choose(open,op)}},op.none?{a:"— no adjective",f:"— no frequency word",r:"— no article",m:"— no adverb",w:"— no place",t:"— no time"}[open]:op.w)})));
+        else{pan.appendChild(h("div",{class:"tiles"},O[open].map(function(op){var off=fOff(op);off=off||tOff(op)||artOff(op)||sOff(op);return h("button",{class:"tile t-"+(op.none?"o none":op.c)+(off?" off":""),disabled:off,title:off?"Not with the words you chose":"",onclick:function(){choose(open,op)}},op.none?{a:"— no adjective",f:"— no frequency word",r:"— no article",m:"— no adverb",w:"— no place",t:"— no time",o:"— nothing",i:"— nobody"}[open]:op.w)})));
           if(open==="f"&&B.mode==="free")pan.appendChild(h("p",{class:"hint"},fill.v&&fill.v.form===2?"Your verb is in the past: one finished action. Frequency words (always, usually…) are for habits, so they are off.":fill.t&&!fill.t.none&&fill.t.tm==="p"?"You already say when at the end (“"+fill.t.w+"”). Choose one: a frequency word here, or the time at the end. Choose “— no frequency word”.":"Always, usually, sometimes, never: for habits in the present. They go before the main verb."));
           if(["o","a","m","w"].indexOf(open)>=0&&O[open].some(sOff))pan.appendChild(h("p",{class:"hint"},open==="m"&&fill.v&&LSTATE.indexOf(fill.v.base)>=0?"“"+fill.v.base+"” is a state, not an action: no “how”. Choose “— no adverb”.":"Grey words don't go with your "+(open==="a"?"word":"verb")+"."));
           if(["r","o"].indexOf(open)>=0&&O[open].some(artOff))pan.appendChild(h("p",{class:"hint"},open==="r"?"Grey articles don't fit your word: a + consonant sound, an + vowel sound, no a/an with plurals.":"Grey words don't fit your article: a + consonant sound, an + vowel sound, no a/an with plurals."));
           if(open==="t"&&B.mode==="free"&&fill.v)pan.appendChild(h("p",{class:"hint"},(fill.v.form===2?"Your verb is in the past: only past times (yesterday, last week…).":"Your verb is in the present: only habit times (every day, once a week…).")+(fill.f&&!fill.f.none&&!fill.f.bad?" You already have “"+fill.f.w+"”: choose one, so no habit time here. Choose “— no time”.":" Every… / on weekends / once a week = how often, at the end of the sentence.")))}
+        if(open==="i")pan.appendChild(h("p",{class:"hint"},"Two ways: "+(fill.v?fill.v.base:"give")+" my mom a present · "+(fill.v?fill.v.base:"give")+" a present "+(fill.v&&fill.v.pat==="for"?"for":"to")+" my mom. With to/for, the person goes at the end."));
+        if(open==="o"&&fill.v&&fill.v.pat==="i")pan.appendChild(h("p",{class:"hint"},"“"+fill.v.base+"” has no thing after it. Choose “— nothing” and say where later."));
         if(open==="v")pan.appendChild(h("p",{class:"hint"},B.mode==="free"?"Each verb has three forms: base · -s · past.":"Only one form is right after "+B.mode+"."));
         row.appendChild(pan);
       }
