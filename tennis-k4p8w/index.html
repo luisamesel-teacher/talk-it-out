@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robot Tennis · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12152e;--card:#1f2456;--ink:#eef1ff;--mute:#cfd5ff;--yel:#ffd166;--good:#7CFC9A;--bad:#ff8a80;
+ --p-on:#ff8a5c;--p-for:#3ccf9f;--p-to:#9d93ff;--p-no:#f2b84b;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;
+ background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+.wrap{max-width:900px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,h3{font-family:var(--disp);margin:0}
+h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255,209,102,.4)}
+.label{font:700 12px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.btn{font:800 17px var(--label);border-radius:999px;padding:12px 22px;min-height:48px;border:2px solid #12152e;border-bottom-width:5px;background:var(--yel);color:#12152e;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.btn.big{font-size:20px;padding:14px 28px;min-height:54px}
+.gov{position:fixed;inset:0;background:rgba(6,8,22,.88);display:grid;place-items:center;z-index:60;padding:18px}
+.gbox{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:22px;max-width:520px;width:100%}
+.gico{font-size:44px;text-align:center;line-height:1}
+.gbox h2{color:var(--yel);text-align:center;margin:6px 0 4px;font-size:32px}
+.rowend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:18px}
+.how.small li{font-size:16px;padding:8px 12px}
+.count{font:800 clamp(70px,20vw,140px)/1 var(--disp);color:var(--yel);text-shadow:0 0 26px rgba(255,209,102,.5)}
+.count.pop{animation:cpop .5s}
+@keyframes cpop{0%{transform:scale(.6);opacity:.25}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+.btn:focus-visible,.bk:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spread{justify-content:space-between}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:10px 14px}
+.how .e{font-size:28px;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
+.hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
+.toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
+.toast small{display:block;font:600 16px var(--body);color:var(--mute)}
+.toast.ok{color:var(--good)}.toast.no{color:var(--bad)}
+@keyframes pop{50%{transform:scale(1.1);box-shadow:0 0 22px var(--good)}}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.say{min-height:28px;font-weight:700;margin:10px 0 0}
+.list{display:grid;gap:8px;margin:12px 0}
+.list div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;background:rgba(255,255,255,.06);border-radius:12px;padding:8px 12px}
+.list b{color:var(--yel);white-space:nowrap}
+.list .wrongrow{background:rgba(255,80,80,.16);box-shadow:inset 0 0 0 2px #ff6b6b}.list .wrongrow b{color:#ff8a80}
+.redh{color:#ff8a80}
+.mean{color:var(--mute)}
+.stars{font-size:40px;letter-spacing:6px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.lv button{font:800 16px var(--label);padding:10px 16px;border-radius:999px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
+.ajuda{margin-top:14px;background:rgba(255,255,255,.06);border-radius:14px;padding:14px 16px}
+.ajuda h3{color:var(--yel);font-size:20px;margin-bottom:8px}
+.ajuda table{width:100%;border-collapse:collapse;font-size:16px}
+.ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+.ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
+.ajuda b{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pausebtn{font:800 14px var(--label);padding:8px 14px;min-height:40px;border-radius:999px;border:2px solid #12152e;border-bottom-width:3px;background:var(--yel);color:#12152e;cursor:pointer}
+.ghow{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.ghow li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:12px;padding:8px 12px;font-size:16px}
+.ghow .e{font-size:24px;text-align:center}
+.field{position:relative;height:min(46vh,340px);border-radius:18px;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
+.net{position:absolute;left:4%;right:4%;top:30%;height:3px;background:rgba(255,255,255,.28)}
+.net::after{content:"";position:absolute;inset:-9px 0 auto 0;height:18px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 11px)}
+.baseline{position:absolute;left:4%;right:4%;bottom:7%;height:3px;background:rgba(255,255,255,.18)}
+.robo{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;z-index:2}
+.robo .ant{width:3px;height:13px;background:#4cc9f0;margin:0 auto}
+.robo .ant::before{content:"";display:block;width:11px;height:11px;border-radius:50%;background:var(--yel);margin:-11px auto 0}
+.robo .head{width:66px;height:54px;background:#1f2456;border:3px solid #4cc9f0;border-radius:14px;position:relative}
+.robo i{position:absolute;top:17px;width:12px;height:12px;border-radius:50%;background:var(--yel)}
+.robo i.e{left:12px}.robo i.d{right:12px}
+.robo u{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:26px;height:4px;border-radius:3px;background:var(--mute)}
+.robo.win u{height:13px;border-radius:0 0 15px 15px;background:var(--good)}
+.robo.lose i{background:var(--bad);height:4px;border-radius:2px;top:22px}
+.robo.lose u{width:15px;height:15px;border-radius:50%;background:var(--bad)}
+.ball{position:absolute;top:0;transform:translateX(-50%);padding:10px 18px;border-radius:999px;background:#fff;color:#12152e;
+ font:800 clamp(16px,2.4vw,24px) var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;
+ box-shadow:0 6px 18px rgba(0,0,0,.4);cursor:pointer;text-align:center}
+.ball small{display:block;font:700 12px var(--label);opacity:.55;letter-spacing:.06em}
+.ball.ok{background:var(--good)}.ball.no{background:var(--bad)}
+.gap{display:inline-block;min-width:92px;border-bottom:3px solid var(--yel);vertical-align:bottom}
+.say{min-height:28px;font-weight:700;margin:10px 0 0}
+.say b{color:var(--yel)}
+@media (max-width:560px){.ball{font-size:16px;padding:8px 13px;max-width:44vw;white-space:normal;line-height:1.2}.ball small{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(k==="html")e.innerHTML=at.html;else if(at[k]!=null)e.setAttribute(k,at[k])}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
+var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=0;
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function best(l){try{return +localStorage.getItem(SLUG+"-best-"+l)||0}catch(e){return 0}}
+function setBest(l,v){try{localStorage.setItem(SLUG+"-best-"+l,String(v))}catch(e){}}
+
+/* ---- pausa, reinicio e contagem (padrao dos jogos do hub) ---- */
+var OV=null,PA={on:false,at:0,counting:false,pause:null,resume:null,restart:null,how:[]};
+function closeOv(){if(OV&&OV.parentNode)OV.parentNode.removeChild(OV);OV=null}
+function overlay(inner){closeOv();OV=h("div",{class:"gov"},inner);document.body.appendChild(OV);return OV}
+function countdown(n,done){
+  PA.counting=true;var el=h("div",{class:"count pop"},String(n));overlay(el);
+  var iv=setInterval(function(){
+    n--;
+    if(n>0)el.textContent=String(n);else if(n===0)el.textContent="GO!";
+    else{clearInterval(iv);closeOv();PA.counting=false;done();return}
+    el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");
+  },800);
+}
+function pauseBox(){
+  var tips=(PA.how||[]).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))});
+  overlay(h("div",{class:"gbox"},
+    h("div",{class:"gico","aria-hidden":"true"},"⏸"),h("h2",null,"Paused"),
+    tips.length?h("ol",{class:"ghow"},tips):null,
+    h("div",{class:"rowend"},
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"← Quit game"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;if(PA.restart)PA.restart()}}},"↻ Restart"),
+      h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"▶ RESUME"))));
+}
+function paBtn(){return h("button",{class:"pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"⏸ Pause")}
+window.addEventListener("keydown",function(e){
+  if(PA.counting||!PA.pause)return;
+  if(e.key==="p"||e.key==="P"||e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();
+    if(PA.on){if(PA.resume)PA.resume()}else PA.pause()}
+});
+function stop(){if(raf)cancelAnimationFrame(raf);raf=null;if(G&&G.iv){clearInterval(G.iv);G.iv=null}if(keyh)window.removeEventListener("keydown",keyh);keyh=null;PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;PA.restart=null;PA.how=[];closeOv()}
+
+function ajudaBox(){
+  var box=h("div",{class:"ajuda",style:"display:none"});
+  box.appendChild(h("h3",null,"As quatro regras de hoje, em português"));
+  var tb=h("table");
+  AJUDA.forEach(function(x){tb.appendChild(h("tr",null,h("td",null,x[0]),h("td",{html:x[1]})))});
+  box.appendChild(tb);
+  return box;
+}
+var AJUDA=[
+ ["plural irregular","<b>man → men, woman → women, child → children, person → people, foot → feet, tooth → teeth.</b> Nenhum deles leva <i>-s</i>."],
+ ["uma negativa só","o português diz duas vezes (<i>não fiz nada</i>), o inglês diz uma: <b>I didn't do anything</b> ou <b>I did nothing</b> — nunca as duas."],
+ ["a data decide o tempo","tem data ou marcador fechado (<i>yesterday, in 2019, ago, last night</i>) → <b>past simple</b>. Não tem, ou tem <i>ever, never, yet, just, already, since, twice</i> → <b>present perfect</b>."],
+ ["haven't pede verbo","<b>haven't</b> sempre vem com um particípio depois (<i>haven't gone, haven't seen</i>). Para posse é <b>don't have</b>: <i>I don't have a car</i>."]
+];
+
+function estrelas(n){return h("div",{class:"stars","aria-label":n+" stars"},"⭐".repeat(n)+"☆".repeat(3-n))}
+function listaFim(c,miss,good){
+  if(miss.length){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));
+    c.appendChild(h("div",{class:"list"},miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",{html:"→ "+m.right}))})))}
+  if(good.length){c.appendChild(h("h3",null,"✓ Right"));
+    c.appendChild(h("div",{class:"list"},good.map(function(m){return h("div",null,h("b",null,"✓ "+m.bad),h("span",{html:m.right}))})))}
+}
+
+var SLUG="tennis";
+/* [frase com ___, opcao A, opcao B, correta, por que] */
+var V=[
+["There were six ___ waiting outside the gate.","children","childs","children","child → children. It never takes -s."],
+["My ___ really hurt after that flight.","foots","feet","feet","foot → feet."],
+["Three ___ work in my team.","womans","women","women","woman → women. The sound changes too: WI-min."],
+["Four ___ were waiting at passport control.","persons","people","people","person → people."],
+["There are two ___ at reception.","men","mans","men","man → men."],
+["I ___ my laptop at the office yesterday.","left","leaved","left","leave is irregular: leave → left."],
+["She ___ the report last Friday.","has written","wrote","wrote","last Friday is a date, so past simple."],
+["I ___ to Japan. Maybe one day.","have never been","never was","have never been","No date, just your whole life. Present perfect."],
+["I ___ that film three times.","saw","have seen","have seen","three times in my life, and no date."],
+["They ___ the contract in March.","have signed","signed","signed","in March is a date, so past simple."],
+["I ___ already finished the first module.","have","did","have","already is a present perfect word, so it takes have."],
+["We didn't book ___ for the weekend.","nothing","anything","anything","didn't already carries the no, so nothing → anything."],
+["He told ___ about the new job.","nobody","not nobody","nobody","One negative word is enough."],
+["I ___ nothing wrong.","didn't do","did","did","nothing already carries the no, so the verb stays positive."],
+["We ___ anywhere last weekend.","didn't went","didn't go","didn't go","After didn't the verb goes back to its plain form."],
+["I ___ a meeting this afternoon.","haven't","don't have","don't have","haven't needs a verb after it. This sentence has none."],
+["She ___ sent the invoice yet.","haven't","hasn't","hasn't","she → hasn't. Only I, you, we and they take haven't."],
+["A child ___ need a visa for this trip.","don't","doesn't","doesn't","a child = he / she / it, so doesn't."]
+];
+/* [nome, duracao da descida, pausa de leitura] */
+var SPEEDS=[["🐢 Slow",9900,1600],["🚲 Normal",7000,1100],["🚀 Fast",5000,700]];
+var ALVO=11;
+
+var HOW=[["🎾","Tap the correct ball, or press ← and →."],
+ ["⏳","The balls hold still at first, so you can read the sentence."],
+ ["🤖","A wrong ball, or no ball at all, gives the point to the robot."]];
+
+function roboCara(c){var r=document.getElementById("robo");if(r)r.className="robo"+(c?" "+c:"")}
+
+function start(){
+  stop();app.innerHTML="";G=null;
+  var lv=h("div",{class:"lv"});
+  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
+  drawLv();
+  var box=ajudaBox();
+  app.appendChild(h("div",{class:"card"},
+    h("span",{class:"label"},"One is enough"),
+    h("h1",null,"🤖 Robot Tennis"),
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"🎾"),h("span",null,"Two balls come over the net. Only one of them is correct English — hit that one.")),
+      h("li",null,h("span",{class:"e"},"🤖"),h("span",null,"A wrong ball gives the point to the robot. First to "+ALVO+" wins.")),
+      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Win "+ALVO+" points and beat your best time."))),
+    h("span",{class:"label"},"Speed"),lv,
+    h("div",{class:"row"},
+      h("button",{class:"btn",on:{click:play}},"▶ Play"),
+      h("button",{class:"btn ghost small",on:{click:function(){box.style.display=box.style.display==="none"?"block":"none"}}},"Ajuda em português")),
+    box));
+}
+
+function play(){
+  stop();app.innerHTML="";
+  G={fila:shuffle(V),eu:0,ele:0,servidas:0,cur:null,miss:[],good:[],over:false,toast:null,t0:performance.now(),travado:false};
+  var field=h("div",{class:"field"}),say=h("p",{class:"say",role:"status"}),hud=h("div",{class:"hud"});
+  var frase=h("p",{class:"say",style:"font:600 clamp(18px,2.8vw,26px)/1.35 var(--body);margin:0 0 10px"});
+  field.appendChild(h("div",{class:"robo",id:"robo"},h("div",{class:"ant"}),h("div",{class:"head"},h("i",{class:"e"}),h("i",{class:"d"}),h("u",null))));
+  field.appendChild(h("div",{class:"net"}));
+  field.appendChild(h("div",{class:"baseline"}));
+  var sel=h("select",{class:"lvsel","aria-label":"Change speed",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
+  var clock=h("p",{class:"clock"},"⏱ 0:00");
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🤖 Robot Tennis"),
+    h("div",{class:"row"},sel,
+      paBtn(),
+      h("button",{class:"btn ghost small",on:{click:function(){stop();start()}}},"← Quit"))));
+  app.appendChild(hud);app.appendChild(clock);app.appendChild(frase);app.appendChild(field);app.appendChild(say);
+
+  function drawHud(){hud.innerHTML="";
+    hud.appendChild(h("div",null,h("span",{class:"label"},"You"),h("b",null,String(G.eu))));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Robot"),h("b",null,String(G.ele))));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Served"),h("b",null,G.servidas+" / "+V.length)))}
+  drawHud();
+  function toast(txt,sub,cls){if(G.toast&&G.toast.parentNode)G.toast.remove();G.toast=h("div",{class:"toast "+cls},txt,h("small",null,sub));field.appendChild(G.toast);var t=G.toast;setTimeout(function(){if(t.parentNode)t.remove()},1800)}
+
+  function saque(now){
+    if(!G.fila.length)G.fila=shuffle(V);
+    var r=G.fila.pop();G.servidas++;
+    frase.innerHTML=r[0].replace("___",'<span class="gap"></span>');
+    var dir=Math.random()<.5;
+    var pares=dir?[[r[1],26,"←"],[r[2],74,"→"]]:[[r[2],26,"←"],[r[1],74,"→"]];
+    var els=pares.map(function(p){
+      var el=h("div",{class:"ball",on:{click:function(ev){ev.stopPropagation();bate(p[0])}}},p[0],h("small",null,p[2]));
+      el.style.left=p[1]+"%";field.appendChild(el);return el});
+    G.cur={r:r,els:els,esq:pares[0][0],dir:pares[1][0],t0:now,dur:SPEEDS[speed][1]*Math.pow(.985,G.eu+G.ele)};
+    coloca(0);drawHud();
+  }
+  function coloca(p){var c=G.cur;if(!c)return;
+    var topo=field.clientHeight*0.30, fundo=field.clientHeight*0.93;
+    c.els.forEach(function(el){el.style.top=(topo+p*(fundo-topo-el.offsetHeight))+"px"})}
+
+  function bate(escolha){
+    var c=G.cur;if(!c||G.over||G.travado||PA.on||PA.counting)return;
+    G.travado=true;
+    var r=c.r,certo=escolha===r[3];
+    c.els.forEach(function(el){el.classList.add(el.firstChild.nodeValue===r[3]?"ok":"no")});
+    var cheia=r[0].replace("___","<b>"+r[3]+"</b>");
+    if(certo){G.eu++;roboCara("lose");G.good.push({bad:r[3],right:cheia});toast("✓ "+r[3],r[4],"ok")}
+    else{G.ele++;roboCara("win");G.miss.push({bad:(escolha===null?"no answer":escolha)+" — "+r[4],right:cheia});
+      toast(escolha===null?"⏱ Too slow":"✗ "+r[3],r[4],"no")}
+    say.innerHTML=cheia;drawHud();
+    var espera=certo?1500:2800;
+    setTimeout(function(){
+      if(G.over)return;
+      c.els.forEach(function(el){if(el.parentNode)el.remove()});
+      G.cur=null;G.travado=false;
+      if(G.eu>=ALVO||G.ele>=ALVO)end(G.eu>=ALVO);else G.last=performance.now();
+    },espera);
+  }
+
+  keyh=function(e){if(!G.cur||G.travado||PA.on||PA.counting)return;
+    if(e.key==="ArrowLeft"){e.preventDefault();bate(G.cur.esq)}
+    else if(e.key==="ArrowRight"){e.preventDefault();bate(G.cur.dir)}
+    else{var n=parseInt(e.key,10);if(n===1)bate(G.cur.esq);else if(n===2)bate(G.cur.dir)}};
+  window.addEventListener("keydown",keyh);
+
+  PA.how=HOW;PA.restart=play;
+  PA.pause=function(){
+    if(PA.on||PA.counting||!G||G.over)return;
+    PA.on=true;PA.at=performance.now();
+    if(raf)cancelAnimationFrame(raf);raf=null;
+    pauseBox();
+  };
+  PA.resume=function(){
+    if(!PA.on||PA.counting)return;
+    closeOv();
+    countdown(3,function(){
+      var d=performance.now()-PA.at;
+      G.t0+=d;G.last+=d;
+      if(G.cur)G.cur.t0+=d;
+      PA.on=false;
+      raf=requestAnimationFrame(frame);
+    });
+  };
+
+  function frame(now){
+    if(G.over||PA.on||PA.counting)return;
+    if(!G.cur&&!G.travado&&now-G.last>700)saque(now);
+    if(G.cur&&!G.travado){
+      var p=(now-G.cur.t0-SPEEDS[speed][2])/G.cur.dur;
+      if(p>=1)bate(null);else coloca(Math.max(0,p));
+    }
+    var bt=best(speed);clock.textContent="⏱ "+fmtT(now-G.t0)+(bt?" · best "+fmtT(bt):"");
+    raf=requestAnimationFrame(frame);
+  }
+  G.last=performance.now();raf=requestAnimationFrame(frame);
+}
+
+function end(win){
+  G.over=true;var el=performance.now()-G.t0,bt=best(speed),rec=win&&(!bt||el<bt);
+  if(rec)setBest(speed,Math.round(el));
+  stop();
+  setTimeout(function(){
+    var stars=!win?0:G.ele<=2?3:G.ele<=5?2:1;
+    app.innerHTML="";
+    var c=h("div",{class:"card"},h("span",{class:"label"},win?"You did it!":"Game over"),
+      h("h1",null,win?"🏆 You beat the robot!":"🤖 The robot got there first"),
+      estrelas(stars),
+      h("p",null,"Final score: ",h("b",null,G.eu+" – "+G.ele)," · Speed: ",h("b",null,SPEEDS[speed][0])),
+      h("p",{class:"mean"},"⏱ "+fmtT(el)+(win?(rec?" · 🏆 New record!":(bt?" · Best "+fmtT(bt):"")):"")));
+    var rw=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(win&&speed<2?" ghost":""),on:{click:play}},"↻ Try again"));
+    if(win&&speed<2)rw.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));
+    rw.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change speed"));
+    c.appendChild(rw);
+    listaFim(c,G.miss,G.good);
+    app.appendChild(c);window.scrollTo(0,0);
+  },700);
+}
+start();
+</script>
+<script data-goatcounter="https://englisharcade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

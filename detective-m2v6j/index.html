@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Date Detective · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12152e;--card:#1f2456;--ink:#eef1ff;--mute:#cfd5ff;--yel:#ffd166;--good:#7CFC9A;--bad:#ff8a80;
+ --p-on:#ff8a5c;--p-for:#3ccf9f;--p-to:#9d93ff;--p-no:#f2b84b;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;
+ background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+.wrap{max-width:900px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,h3{font-family:var(--disp);margin:0}
+h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255,209,102,.4)}
+.label{font:700 12px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.btn{font:800 17px var(--label);border-radius:999px;padding:12px 22px;min-height:48px;border:2px solid #12152e;border-bottom-width:5px;background:var(--yel);color:#12152e;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.btn.big{font-size:20px;padding:14px 28px;min-height:54px}
+.gov{position:fixed;inset:0;background:rgba(6,8,22,.88);display:grid;place-items:center;z-index:60;padding:18px}
+.gbox{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:22px;max-width:520px;width:100%}
+.gico{font-size:44px;text-align:center;line-height:1}
+.gbox h2{color:var(--yel);text-align:center;margin:6px 0 4px;font-size:32px}
+.rowend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:18px}
+.how.small li{font-size:16px;padding:8px 12px}
+.count{font:800 clamp(70px,20vw,140px)/1 var(--disp);color:var(--yel);text-shadow:0 0 26px rgba(255,209,102,.5)}
+.count.pop{animation:cpop .5s}
+@keyframes cpop{0%{transform:scale(.6);opacity:.25}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+.btn:focus-visible,.bk:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spread{justify-content:space-between}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:10px 14px}
+.how .e{font-size:28px;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
+.hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
+.toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
+.toast small{display:block;font:600 16px var(--body);color:var(--mute)}
+.toast.ok{color:var(--good)}.toast.no{color:var(--bad)}
+@keyframes pop{50%{transform:scale(1.1);box-shadow:0 0 22px var(--good)}}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.say{min-height:28px;font-weight:700;margin:10px 0 0}
+.list{display:grid;gap:8px;margin:12px 0}
+.list div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;background:rgba(255,255,255,.06);border-radius:12px;padding:8px 12px}
+.list b{color:var(--yel);white-space:nowrap}
+.list .wrongrow{background:rgba(255,80,80,.16);box-shadow:inset 0 0 0 2px #ff6b6b}.list .wrongrow b{color:#ff8a80}
+.redh{color:#ff8a80}
+.mean{color:var(--mute)}
+.stars{font-size:40px;letter-spacing:6px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.lv button{font:800 16px var(--label);padding:10px 16px;border-radius:999px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
+.ajuda{margin-top:14px;background:rgba(255,255,255,.06);border-radius:14px;padding:14px 16px}
+.ajuda h3{color:var(--yel);font-size:20px;margin-bottom:8px}
+.ajuda table{width:100%;border-collapse:collapse;font-size:16px}
+.ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+.ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
+.ajuda b{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pausebtn{font:800 14px var(--label);padding:8px 14px;min-height:40px;border-radius:999px;border:2px solid #12152e;border-bottom-width:3px;background:var(--yel);color:#12152e;cursor:pointer}
+.ghow{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.ghow li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:12px;padding:8px 12px;font-size:16px}
+.ghow .e{font-size:24px;text-align:center}
+.sides{display:grid;grid-template-columns:1fr minmax(0,2.1fr) 1fr;gap:10px;align-items:stretch;margin:12px 0 0;overflow:hidden}
+.side{border:3px dashed #3b3f8f;border-radius:18px;display:grid;align-content:center;justify-items:center;gap:6px;
+ padding:14px 8px;cursor:pointer;text-align:center;background:rgba(255,255,255,.04);transition:background .15s,border-color .15s,transform .15s}
+.side:hover,.side.hot{background:rgba(255,209,102,.12);border-color:var(--yel)}
+.side .k{font:800 26px var(--label);color:var(--mute)}
+.side .t{font:800 clamp(16px,2.2vw,22px)/1.1 var(--disp);color:var(--yel)}
+.side .d{font:600 13px var(--label);color:var(--mute)}
+.side.hit{animation:pop .45s}.side.bad{animation:shake .4s}
+.cardq{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;
+ display:grid;align-content:center;gap:12px;padding:20px;text-align:center;min-height:min(40vh,300px);
+ transition:transform .2s,opacity .2s}
+.cardq.out-l{transform:translateX(-115%) rotate(-7deg);opacity:0}
+.cardq.out-r{transform:translateX(115%) rotate(7deg);opacity:0}
+.q{font:600 clamp(19px,3vw,32px)/1.35 var(--body)}
+.q b{color:var(--yel);font-weight:800}
+.q .gap{display:inline-block;min-width:86px;border-bottom:3px solid var(--yel);vertical-align:bottom}
+.q .vb{color:var(--mute);font-weight:600}
+.why{min-height:26px;font:700 clamp(15px,2vw,19px) var(--body);color:var(--mute)}
+.why.ok{color:var(--good)}.why.no{color:var(--bad)}
+@media (max-width:560px){.sides{grid-template-columns:72px minmax(0,1fr) 72px;gap:6px}.side .d{display:none}.side .t{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(k==="html")e.innerHTML=at.html;else if(at[k]!=null)e.setAttribute(k,at[k])}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
+var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=0;
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function best(l){try{return +localStorage.getItem(SLUG+"-best-"+l)||0}catch(e){return 0}}
+function setBest(l,v){try{localStorage.setItem(SLUG+"-best-"+l,String(v))}catch(e){}}
+
+/* ---- pausa, reinicio e contagem (padrao dos jogos do hub) ---- */
+var OV=null,PA={on:false,at:0,counting:false,pause:null,resume:null,restart:null,how:[]};
+function closeOv(){if(OV&&OV.parentNode)OV.parentNode.removeChild(OV);OV=null}
+function overlay(inner){closeOv();OV=h("div",{class:"gov"},inner);document.body.appendChild(OV);return OV}
+function countdown(n,done){
+  PA.counting=true;var el=h("div",{class:"count pop"},String(n));overlay(el);
+  var iv=setInterval(function(){
+    n--;
+    if(n>0)el.textContent=String(n);else if(n===0)el.textContent="GO!";
+    else{clearInterval(iv);closeOv();PA.counting=false;done();return}
+    el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");
+  },800);
+}
+function pauseBox(){
+  var tips=(PA.how||[]).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))});
+  overlay(h("div",{class:"gbox"},
+    h("div",{class:"gico","aria-hidden":"true"},"⏸"),h("h2",null,"Paused"),
+    tips.length?h("ol",{class:"ghow"},tips):null,
+    h("div",{class:"rowend"},
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"← Quit game"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;if(PA.restart)PA.restart()}}},"↻ Restart"),
+      h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"▶ RESUME"))));
+}
+function paBtn(){return h("button",{class:"pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"⏸ Pause")}
+window.addEventListener("keydown",function(e){
+  if(PA.counting||!PA.pause)return;
+  if(e.key==="p"||e.key==="P"||e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();
+    if(PA.on){if(PA.resume)PA.resume()}else PA.pause()}
+});
+function stop(){if(raf)cancelAnimationFrame(raf);raf=null;if(G&&G.iv){clearInterval(G.iv);G.iv=null}if(keyh)window.removeEventListener("keydown",keyh);keyh=null;PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;PA.restart=null;PA.how=[];closeOv()}
+
+function ajudaBox(){
+  var box=h("div",{class:"ajuda",style:"display:none"});
+  box.appendChild(h("h3",null,"As quatro regras de hoje, em português"));
+  var tb=h("table");
+  AJUDA.forEach(function(x){tb.appendChild(h("tr",null,h("td",null,x[0]),h("td",{html:x[1]})))});
+  box.appendChild(tb);
+  return box;
+}
+var AJUDA=[
+ ["plural irregular","<b>man → men, woman → women, child → children, person → people, foot → feet, tooth → teeth.</b> Nenhum deles leva <i>-s</i>."],
+ ["uma negativa só","o português diz duas vezes (<i>não fiz nada</i>), o inglês diz uma: <b>I didn't do anything</b> ou <b>I did nothing</b> — nunca as duas."],
+ ["a data decide o tempo","tem data ou marcador fechado (<i>yesterday, in 2019, ago, last night</i>) → <b>past simple</b>. Não tem, ou tem <i>ever, never, yet, just, already, since, twice</i> → <b>present perfect</b>."],
+ ["haven't pede verbo","<b>haven't</b> sempre vem com um particípio depois (<i>haven't gone, haven't seen</i>). Para posse é <b>don't have</b>: <i>I don't have a car</i>."]
+];
+
+function estrelas(n){return h("div",{class:"stars","aria-label":n+" stars"},"⭐".repeat(n)+"☆".repeat(3-n))}
+function listaFim(c,miss,good){
+  if(miss.length){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));
+    c.appendChild(h("div",{class:"list"},miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",{html:"→ "+m.right}))})))}
+  if(good.length){c.appendChild(h("h3",null,"✓ Right"));
+    c.appendChild(h("div",{class:"list"},good.map(function(m){return h("div",null,h("b",null,"✓ "+m.bad),h("span",{html:m.right}))})))}
+}
+
+var SLUG="detective";
+/* [frase com ___, verbo, lado, frase completa, marcador] */
+var V=[
+["I ___ at this company three years ago.","start","past","I <b>started</b> at this company three years ago.","three years ago"],
+["She ___ alone.","never / travel","perfect","She <b>has never travelled</b> alone.","never, and no date"],
+["We ___ at six this morning.","land","past","We <b>landed</b> at six this morning.","this morning — the flight is over"],
+["___ you ever ___ a suitcase?","lose","perfect","<b>Have you ever lost</b> a suitcase?","ever = your whole life"],
+["They ___ to Lisbon in 2021.","move","past","They <b>moved</b> to Lisbon in 2021.","in 2021"],
+["I ___ the report yet.","not finish","perfect","I <b>haven't finished</b> the report yet.","yet"],
+["He ___ me twice yesterday.","call","past","He <b>called</b> me twice yesterday.","yesterday"],
+["My boss ___ the office.","just / leave","perfect","My boss <b>has just left</b> the office.","just"],
+["We ___ each other since March.","not see","perfect","We <b>haven't seen</b> each other since March.","since"],
+["I ___ sushi for the first time last year.","eat","past","I <b>ate</b> sushi for the first time last year.","last year"],
+["She ___ here since 2019.","work","perfect","She <b>has worked</b> here since 2019.","since — she still works here"],
+["The plane ___ late on Monday.","take off","past","The plane <b>took off</b> late on Monday.","on Monday"],
+["I ___ you the documents.","already / send","perfect","I <b>have already sent</b> you the documents.","already"],
+["We ___ the hotel last night.","book","past","We <b>booked</b> the hotel last night.","last night"],
+["___ you ___ to the new office?","be","perfect","<b>Have you been</b> to the new office?","no date — it is about your life"],
+["They ___ me a visa in 2020.","give","past","They <b>gave</b> me a visa in 2020.","in 2020"],
+["I ___ since the accident.","not drive","perfect","I <b>haven't driven</b> since the accident.","since"],
+["He ___ his passport on Tuesday.","forget","past","He <b>forgot</b> his passport on Tuesday.","on Tuesday"],
+["I ___ her twice.","meet","perfect","I <b>have met</b> her twice.","twice, and no date"],
+["We ___ two hours early that day.","arrive","past","We <b>arrived</b> two hours early that day.","that day"]
+];
+/* [nome, segundos] */
+var SPEEDS=[["🐢 Calm · 90s",90],["🚲 Normal · 60s",60],["🚀 Rush · 40s",40]];
+var VER_OK=3000,VER_NO=4500,VIDAS=3;
+var LADOS={past:["←","Past","simple","there is a date"],perfect:["→","Present","perfect","no date at all"]};
+
+var HOW=[["↔️","Press ← for past simple and → for present perfect, or tap a side."],
+ ["🔎","One word in the sentence decides it. Find that word."],
+ ["❤️","A wrong side costs one heart. You have "+VIDAS+"."]];
+
+function start(){
+  stop();app.innerHTML="";G=null;
+  var lv=h("div",{class:"lv"});
+  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
+  drawLv();
+  var box=ajudaBox();
+  app.appendChild(h("div",{class:"card"},
+    h("span",{class:"label"},"One is enough"),
+    h("h1",null,"🕵️ Date Detective"),
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"🔎"),h("span",null,"Past simple or present perfect? One word in the sentence decides it.")),
+      h("li",null,h("span",{class:"e"},"↔️"),h("span",null,"Send the card left for past simple, right for present perfect.")),
+      h("li",null,h("span",{class:"e"},"⏳"),h("span",null,"The clock stops while the answer is on screen, so reading is free."))),
+    h("span",{class:"label"},"Time"),lv,
+    h("div",{class:"row"},
+      h("button",{class:"btn",on:{click:play}},"▶ Play"),
+      h("button",{class:"btn ghost small",on:{click:function(){box.style.display=box.style.display==="none"?"block":"none"}}},"Ajuda em português")),
+    box));
+}
+
+function lado(k,onclick){
+  var L=LADOS[k];
+  return h("div",{class:"side","data-k":k,role:"button",tabindex:"0","aria-label":L[1]+" "+L[2],
+    on:{click:function(){onclick(k)},keydown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();onclick(k)}}}},
+    h("span",{class:"k"},L[0]),h("span",{class:"t"},L[1],h("br"),L[2]),h("span",{class:"d"},L[3]));
+}
+
+function play(){
+  stop();app.innerHTML="";
+  G={fila:shuffle(V),cur:null,pt:0,seq:0,melhor:0,vidas:VIDAS,resp:0,miss:[],good:[],over:false,travado:false,resta:SPEEDS[speed][1]*1000,iv:null,pausaRel:false};
+  var hud=h("div",{class:"hud"}),why=h("div",{class:"why"}),q=h("div",{class:"q"});
+  var cardq=h("div",{class:"cardq"},h("span",{class:"label"},"Put the verb in the right tense"),q,why);
+  var sel=h("select",{class:"lvsel","aria-label":"Change time",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
+  var clock=h("p",{class:"clock"});
+  var esq=lado("past",responde),dir=lado("perfect",responde);
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🕵️ Date Detective"),
+    h("div",{class:"row"},sel,
+      paBtn(),
+      h("button",{class:"btn ghost small",on:{click:function(){stop();start()}}},"← Quit"))));
+  app.appendChild(hud);app.appendChild(clock);
+  app.appendChild(h("div",{class:"sides"},esq,cardq,dir));
+
+  function drawHud(){hud.innerHTML="";
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Points"),h("b",null,String(G.pt))));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Streak"),h("b",null,G.seq+(G.seq>=6?" · x3":G.seq>=3?" · x2":""))));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.vidas)+"🖤".repeat(VIDAS-G.vidas))))}
+  drawHud();
+
+  function carta(){
+    if(!G.fila.length)G.fila=shuffle(V);
+    G.cur=G.fila.pop();
+    cardq.classList.remove("out-l","out-r");
+    q.innerHTML=G.cur[0].replace(/___/g,'<span class="gap"></span>')+' <span class="vb">('+G.cur[1]+')</span>';
+    why.className="why";why.textContent="";
+    G.travado=false;
+  }
+
+  function responde(k){
+    if(!G.cur||G.travado||G.over||PA.on||PA.counting||G.resta<=0)return;
+    G.travado=true;G.pausaRel=true;
+    var r=G.cur,certo=k===r[2],bom=r[2]==="past"?esq:dir,mau=r[2]==="past"?dir:esq;
+    G.resp++;
+    /* a lacuna se preenche com a resposta certa e fica na tela */
+    q.innerHTML=r[3];
+    var alvo=certo?bom:mau;
+    alvo.classList.remove("hit","bad");void alvo.offsetWidth;alvo.classList.add(certo?"hit":"bad");
+    bom.classList.add("hot");
+    var nome=r[2]==="past"?"past simple":"present perfect";
+    if(certo){
+      G.seq++;G.melhor=Math.max(G.melhor,G.seq);
+      var mult=G.seq>=6?3:G.seq>=3?2:1;
+      G.pt+=10*mult;
+      why.className="why ok";why.textContent="✓ "+nome+" — "+r[4];
+      G.good.push({bad:nome,right:r[3]});
+    }else{
+      G.seq=0;G.vidas--;
+      why.className="why no";why.textContent="✗ "+nome+" — "+r[4];
+      G.miss.push({bad:r[1]+" → "+(r[2]==="past"?"present perfect":"past simple"),right:r[3]+" <i>("+r[4]+")</i>"});
+    }
+    drawHud();
+    setTimeout(function(){
+      if(G.over)return;
+      bom.classList.remove("hot");
+      cardq.classList.add(r[2]==="past"?"out-l":"out-r");
+      setTimeout(function(){
+        if(G.over)return;
+        G.pausaRel=false;
+        if(G.vidas<=0)end(false);
+        else if(G.resta>0)carta();
+        else end(true);
+      },260);
+    },certo?VER_OK:VER_NO);
+  }
+
+  keyh=function(e){
+    if(PA.on||PA.counting)return;
+    if(e.key==="ArrowLeft"){e.preventDefault();responde("past")}
+    if(e.key==="ArrowRight"){e.preventDefault();responde("perfect")}};
+  window.addEventListener("keydown",keyh);
+
+  var sx=0,sy=0;
+  cardq.addEventListener("touchstart",function(ev){var t=ev.changedTouches[0];sx=t.clientX;sy=t.clientY},{passive:true});
+  cardq.addEventListener("touchend",function(ev){var t=ev.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+    if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))responde(dx<0?"past":"perfect")},{passive:true});
+
+  PA.how=HOW;PA.restart=play;
+  PA.pause=function(){if(PA.on||PA.counting||!G||G.over)return;PA.on=true;pauseBox()};
+  PA.resume=function(){if(!PA.on||PA.counting)return;closeOv();countdown(3,function(){PA.on=false})};
+
+  G.iv=setInterval(function(){
+    if(G.over)return;
+    if(!PA.on&&!PA.counting&&!G.pausaRel){
+      G.resta=Math.max(0,G.resta-100);
+      if(G.resta<=0&&!G.travado){end(true);return}
+    }
+    var bt=best(speed);
+    clock.textContent="⏱ "+fmtT(G.resta)+(bt?" · best "+bt+" pts":"")+(PA.on||G.pausaRel?" · paused":"");
+  },100);
+
+  carta();
+}
+
+function end(acabouTempo){
+  if(G.over)return;
+  G.over=true;
+  var bt=best(speed),rec=G.pt>bt;
+  if(rec)setBest(speed,G.pt);
+  stop();
+  setTimeout(function(){
+    var erros=G.miss.length,stars=G.vidas<=0?0:erros===0?3:erros===1?2:1;
+    app.innerHTML="";
+    var c=h("div",{class:"card"},
+      h("span",{class:"label"},G.vidas<=0?"Game over":"Time"),
+      h("h1",null,G.vidas<=0?"💔 No hearts left":(erros?"🕵️ Case closed":"🏆 Perfect round!")),
+      estrelas(stars),
+      h("p",null,"Points: ",h("b",null,String(G.pt))," · Answered: ",h("b",null,String(G.resp))," · Best streak: ",h("b",null,String(G.melhor))),
+      h("p",{class:"mean"},SPEEDS[speed][0]+(rec?" · 🏆 New record!":(bt?" · Best "+bt+" pts":""))));
+    var rw=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(G.vidas>0&&speed<2?" ghost":""),on:{click:play}},"↻ Try again"));
+    if(G.vidas>0&&speed<2)rw.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));
+    rw.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change time"));
+    c.appendChild(rw);
+    listaFim(c,G.miss,G.good);
+    app.appendChild(c);window.scrollTo(0,0);
+  },700);
+}
+start();
+</script>
+<script data-goatcounter="https://englisharcade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
