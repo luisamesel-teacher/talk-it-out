@@ -4401,119 +4401,119 @@ var LAB={
 daily:{name:"Daily life",mode:"free",
  s:["I|1","My sister|3","Our teacher|3","My friends|0","The robot|3"],
  v:["play|plays|played|gim","watch|watches|watched|t","cook|cooks|cooked|f","eat|eats|ate|f","love|loves|loved|fgimt","listen to|listens to|listened to|m"],
- o:["|pizza|f","|series|t","a|cake|f","|video games|g","the|guitar|i","|music|m","|films|t"],
+ o:["|pizza|f","|series|t","a|cake|f","|video games|g","the|guitar|i","|music|m","|films|t","an|omelette|f","an|episode|t","an|instrument|i"],
  f:["always","usually","sometimes","never","!slowly|d|Slowly says how. It goes after the verb and the object, not before the verb."],
  a:["delicious|f","funny|tg","old|igtm","strange|fgimt","loud|mi","!happily|d|Happily is an adverb. Before a noun, use an adjective: happy."],
- m:["happily","quickly","badly","loudly","!happy|a|Happy is an adjective. After the verb, use an adverb: happily."],
- w:["at home","in the kitchen","in the park","!in the party|d|At an event, say at: at the party."],
+ m:["happily|play,cook,eat,watch,listen to","quickly|cook,eat","slowly|cook,eat","badly|play,cook","loudly|play","!happy|a|Happy is an adjective. After the verb, use an adverb: happily."],
+ w:["at home","in the kitchen|cook,eat","in the park|play,eat,listen to","on the sofa|watch,eat,listen to,play","!in the party|d|At an event, say at: at the party."],
  t:["every day|p","on Sundays|p","yesterday|x","last night|x"]},
 town:{name:"Around town",mode:"can",
  s:["I|1","You|0","My grandma|3","The tourists|0","The robot|3"],
- v:["find|finds|found|ptb","buy|buys|bought|t","see|sees|saw|ptb","visit|visits|visited|p","take|takes|took|bt"],
- o:["a|bank|p","a|map|t","the|museum|p","|tickets|t","the|bus|b","|flowers|t"],
+ v:["find|finds|found|ptba","buy|buys|bought|t","see|sees|saw|ptba","visit|visits|visited|p","take|takes|took|bt"],
+ o:["a|bank|p","a|map|t","the|museum|p","|tickets|t","the|bus|b","|flowers|t","an|ATM|a","an|umbrella|t","a|souvenir|t"],
  f:["always","usually","often","never","!quickly|d|Quickly says how. It goes after the verb and the object."],
  a:["big|ptb","cheap|t","old|ptb","beautiful|pt","!easily|d|Easily is an adverb. Before a noun, use an adjective: easy."],
- m:["easily","quickly","safely","!easy|a|Easy is an adjective. After the verb, use an adverb: easily."],
- w:["near here","in the city centre","on Park Street","!in the corner|d|For a street corner, say on the corner or at the corner."],
+ m:["easily|find,buy,take,see","quickly","safely|take,visit","!easy|a|Easy is an adjective. After the verb, use an adverb: easily."],
+ w:["near here|find,buy,see,take","in the city centre","on Park Street","to the city centre|take","!in the corner|d|For a street corner, say on the corner or at the corner."],
  t:["today|p","tomorrow|p","at the weekend|p","!yesterday|d|Can is for now and the future. For the past, use could."]},
 food:{name:"Food and shopping",mode:"free",
  s:["I|1","My dad|3","The waiter|3","We|0","The robot|3"],
  v:["buy|buys|bought|fd","order|orders|ordered|fd","make|makes|made|fd","eat|eats|ate|f","drink|drinks|drank|d","want|wants|wanted|fd"],
- o:["|bread|f","a|sandwich|f","|eggs|f","an|apple|f","|orange juice|d","|cheese|f","|coffee|d"],
+ o:["|bread|f","a|sandwich|f","|eggs|f","an|apple|f","|orange juice|d","|cheese|f","|coffee|d","an|omelette|f","an|iced tea|d"],
  f:["usually","often","sometimes","never","!slowly|d|Slowly says how. It goes at the end, after the object."],
  a:["fresh|fd","hot|fd","cheap|fd","delicious|fd","cold|d","!quickly|d|Quickly is an adverb. Before a noun, use an adjective: quick."],
- m:["quickly","slowly","carefully","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
- w:["at the market","at the café","in the supermarket","!in the counter|d|Say at the counter."],
+ m:["quickly|buy,order,make,eat,drink","slowly|eat,drink,make","carefully|make","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
+ w:["at the market|buy","at the café|order,eat,drink,buy,want","in the supermarket|buy","at home|make,eat,drink,want","!in the counter|d|Say at the counter."],
  t:["every morning|p","on Saturdays|p","yesterday|x","last week|x"]},
 past:{name:"Stories",mode:"free",
  s:["I|1","My brother|3","A dog|3","My friends|0","The robot|3"],
  v:["take|takes|took|fkuh","find|finds|found|fkuhg","lose|loses|lost|kuh","see|sees|saw|gwhu","break|breaks|broke|wu","eat|eats|ate|f"],
- o:["a|sandwich|f","the|keys|k","an|umbrella|u","|photos|h","a|ghost|g","the|window|w"],
+ o:["a|sandwich|f","the|keys|k","an|umbrella|u","|photos|h","a|ghost|g","the|window|w","an|egg|f"],
  f:["always","often","never","!badly|d|Badly says how. It goes after the verb and the object."],
  a:["strange|fkuhgw","small|fkuhgw","old|kuhgw","funny|hg","!quietly|d|Quietly is an adverb. Before a noun, use an adjective: quiet."],
  m:["quietly","suddenly","quickly","!quiet|a|Quiet is an adjective. After the verb, use an adverb: quietly."],
- w:["at the beach","in the park","on the bus","!in the beach|d|Say at the beach or on the beach."],
+ w:["at the beach","in the park","on the bus","to the beach|take","!in the beach|d|Say at the beach or on the beach."],
  t:["yesterday|x","last weekend|x","two days ago|x","every summer|p"]},
 trip:{name:"Travel plans",mode:"free",
  s:["I|1","My cousin|3","The pilot|3","We|0","The robot|3"],
  v:["book|books|booked|ht","pack|packs|packed|sup","check|checks|checked|tsp","visit|visits|visited|m","need|needs|needed|htsup"],
- o:["a|hotel|h","the|tickets|t","a|suitcase|s","the|museum|m","an|umbrella|u","|maps|p"],
+ o:["a|hotel|h","the|tickets|t","a|suitcase|s","the|museum|m","an|umbrella|u","|maps|p","an|adapter|s","an|apartment|h"],
  f:["always","usually","sometimes","never","!fast|d|Fast says how. It goes after the verb and the object."],
  a:["cheap|htsu","small|hsump","comfortable|h","old|hmsup","!carefully|d|Carefully is an adverb. Before a noun, use an adjective: careful."],
- m:["carefully","fast","online","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
- w:["at the airport","in the hotel","on the train","!in the airport gate|d|Say at the gate."],
+ m:["carefully|pack,check","fast|pack,book","online|book,check","together|visit,book,pack","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
+ w:["at the airport|check,need,pack","at the hotel|check,pack,need","on the train|check,pack","in the city centre|visit,book,check","at home|book,check,pack","!in the airport gate|d|Say at the gate."],
  t:["every summer|p","before every trip|p","last month|x","yesterday|x"]},
 tech:{name:"Shopping for gadgets",mode:"free",
  s:["I|1","My boss|3","The shop assistant|3","My parents|0","The robot|3"],
  v:["compare|compares|compared|d","charge|charges|charged|db","use|uses|used|dbs","break|breaks|broke|ds","sell|sells|sold|db"],
- o:["|phones|d","the|laptop|d","|batteries|b","a|camera|d","the|screen|s","|headphones|d"],
+ o:["|phones|d","the|laptop|d","|batteries|b","a|camera|d","the|screen|s","|headphones|d","an|iPad|d","an|e-reader|d"],
  f:["always","usually","often","never","!carefully|d|Carefully says how. It goes after the verb and the object."],
  a:["cheap|db","expensive|dbs","new|dbs","fast|d","!cheaply|d|Cheaply is an adverb. Before a noun, use an adjective: cheap."],
- m:["carefully","quickly","online","!quick|a|Quick is an adjective. After the verb, use an adverb: quickly."],
+ m:["carefully|use,charge,compare","quickly|charge,sell,break,use","online|compare,sell","!quick|a|Quick is an adjective. After the verb, use an adverb: quickly."],
  w:["at the store","in the office","at home","!on the store|d|Say at the store or in the store."],
  t:["every year|p","every night|p","last year|x","yesterday|x"]},
 party:{name:"Parties and people",mode:"free",
  s:["I|1","The DJ|3","My best friend|3","The guests|0","The robot|3"],
  v:["sing|sings|sang|s","play|plays|played|sm","bring|brings|brought|cg","meet|meets|met|p","make|makes|made|csm"],
- o:["a|cake|c","|songs|s","|people|p","a|present|g","|music|m","|snacks|c"],
+ o:["a|cake|c","|songs|s","|people|p","a|present|g","|music|m","|snacks|c","an|apple pie|c","an|artist|p"],
  f:["always","usually","sometimes","never","!loudly|d|Loudly says how. It goes after the verb and the object."],
  a:["famous|smp","lovely|cgsmp","loud|ms","huge|cg","amazing|cgsmp","!beautifully|d|Beautifully is an adverb. Before a noun, use an adjective: beautiful."],
- m:["beautifully","happily","loudly","!beautiful|a|Beautiful is an adjective. After the verb, use an adverb: beautifully."],
- w:["at the party","in the garden","at the club","!in the party|d|At an event, say at: at the party."],
+ m:["beautifully|sing,play","happily|sing,play,meet,make,bring","loudly|sing,play","!beautiful|a|Beautiful is an adjective. After the verb, use an adverb: beautifully."],
+ w:["at the party","in the garden","at the club","to the party|bring","!in the party|d|At an event, say at: at the party."],
  t:["every birthday|p","on Fridays|p","last night|x","last Saturday|x"]},
 health:{name:"Health and advice",mode:"should",
  s:["I|1","You|0","My grandpa|3","The children|0","The robot|3"],
  v:["take|takes|took|tc","drink|drinks|drank|wc","eat|eats|ate|v","see|sees|saw|d","buy|buys|bought|tcvw"],
- o:["|tablets|t","|water|w","a|doctor|d","|vegetables|v","|cough syrup|c","|fruit|v","an|orange|v"],
+ o:["|tablets|t","|water|w","a|doctor|d","|vegetables|v","|cough syrup|c","|fruit|v","an|orange|v","an|apple|v"],
  f:["always","sometimes","never","!slowly|d|Slowly says how. It goes after the verb and the object."],
  a:["fresh|v","hot|w","cold|w","healthy|v","good|dv","organic|v","!healthily|d|Healthily is an adverb. Before a noun, use an adjective: healthy."],
- m:["slowly","properly","carefully","!slow|a|Slow is an adjective. After the verb, use an adverb: slowly."],
- w:["at home","at the pharmacy","in bed","!in the pharmacy counter|d|Say at the counter."],
+ m:["slowly|eat,drink","properly|take,eat","carefully|take","online|buy","!slow|a|Slow is an adjective. After the verb, use an adverb: slowly."],
+ w:["at home","at the pharmacy|buy,see","in bed|take,drink,eat","!in the pharmacy counter|d|Say at the counter."],
  t:["every day|p","after meals|p","tonight|p","!yesterday|d|Should is advice for now or later, not for the past."]},
 work:{name:"Work and big decisions",mode:"free",
  s:["I|1","My manager|3","The company|3","My colleagues|0","The robot|3"],
  v:["sign|signs|signed|c","send|sends|sent|er","accept|accepts|accepted|o","need|needs|needed|cv","prepare|prepares|prepared|rpe","write|writes|wrote|erp"],
- o:["a|contract|c","an|email|e","the|offer|o","|reports|r","a|visa|v","the|presentation|p"],
+ o:["a|contract|c","an|email|e","the|offer|o","|reports|r","a|visa|v","the|presentation|p","an|invoice|r"],
  f:["always","usually","sometimes","never","!quickly|d|Quickly says how. It goes after the verb and the object."],
  a:["important|ceorvp","new|ceorvp","long|ecrp","difficult|pr","!carefully|d|Carefully is an adverb. Before a noun, use an adjective: careful."],
- m:["carefully","quickly","online","!quick|a|Quick is an adjective. After the verb, use an adverb: quickly."],
+ m:["carefully|sign,prepare,write,accept","quickly|send,write,prepare,accept,sign","online|sign,send","!quick|a|Quick is an adjective. After the verb, use an adverb: quickly."],
  w:["at the office","at the head office","in a meeting","!in the head office desk|d|Say at the desk."],
  t:["every Monday|p","every month|p","last week|x","yesterday|x"]},
 news:{name:"News and stories",mode:"free",
  s:["The police|0","A thief|3","The journalist|3","My neighbours|0","The robot|3"],
  v:["steal|steals|stole|pch","find|finds|found|pchv","announce|announces|announced|n","share|shares|shared|nvhs","report|reports|reported|ns"],
- o:["a|painting|p","the|news|n","a|video|v","|photos|h","a|car|c","the|story|s"],
+ o:["a|painting|p","the|news|n","a|video|v","|photos|h","a|car|c","the|story|s","an|interview|n"],
  f:["always","often","never","!suddenly|d|Suddenly says how. It goes after the verb and the object."],
  a:["famous|pvs","strange|pnvhcs","viral|vh","expensive|pc","!secretly|d|Secretly is an adverb. Before a noun, use an adjective: secret."],
- m:["secretly","quickly","online","!secret|a|Secret is an adjective. After the verb, use an adverb: secretly."],
- w:["in the museum","on the internet","in the city","!in the internet|d|Say on the internet."],
+ m:["secretly|steal,share","quickly","online|share,report,announce","!secret|a|Secret is an adjective. After the verb, use an adverb: secretly."],
+ w:["in the museum|steal,find","on the internet|share,announce,report,find","in the city","!in the internet|d|Say on the internet."],
  t:["last night|x","yesterday|x","last week|x","every day|p"]},
 halloween:{name:"Halloween",mode:"free",
  s:["The witch|3","A vampire|3","The ghosts|0","I|1","My cat|3"],
  v:["play|plays|played|g","eat|eats|ate|f","carve|carves|carved|k","scare|scares|scared|n","steal|steals|stole|fkb","ride|rides|rode|b"],
- o:["|soccer|g","|candy|f","a|pumpkin|k","the|neighbours|n","a|broom|b","|cookies|f"],
+ o:["|soccer|g","|candy|f","a|pumpkin|k","the|neighbours|n","a|broom|b","|cookies|f","an|apple|f","an|owl|n"],
  f:["always","usually","sometimes","never","!happily|d|Happily says how. It goes after the verb and the object."],
  a:["scary|knb","spooky|knb","giant|kfb","orange|kf","old|nb","!scarily|d|Scarily is an adverb. Before a noun, use an adjective: scary."],
- m:["happily","quietly","angrily","!happy|a|Happy is an adjective. After the verb, use an adverb: happily."],
+ m:["happily|play,eat,ride,carve","quietly|eat,steal,carve,ride","angrily|scare,play","!happy|a|Happy is an adjective. After the verb, use an adverb: happily."],
  w:["in the graveyard","at the castle","on the roof","!in the Halloween party|d|At an event, say at: at the Halloween party."],
  t:["every night|p","on Halloween|p","last night|x","last Halloween|x"]},
 christmas:{name:"Christmas",mode:"free",
  s:["Santa|3","My aunt|3","The elves|0","We|0","The robot|3"],
  v:["wrap|wraps|wrapped|g","make|makes|made|fc","decorate|decorates|decorated|thf","eat|eats|ate|f","open|opens|opened|gc"],
- o:["|presents|g","the|tree|t","a|cake|f","|cookies|f","the|house|h","a|card|c"],
+ o:["|presents|g","the|tree|t","a|cake|f","|cookies|f","the|house|h","a|card|c","an|ornament|c"],
  f:["always","usually","sometimes","never","!happily|d|Happily says how. It goes after the verb and the object."],
  a:["red|gc","big|gtfh","beautiful|gthc","sweet|f","amazing|gtfhc","!sweetly|d|Sweetly is an adverb. Before a noun, use an adjective: sweet."],
- m:["happily","quickly","carefully","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
+ m:["happily","quickly","carefully|wrap,make,decorate,open","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
  w:["at home","in the living room","at the office party","!in the office party|d|At an event, say at: at the office party."],
  t:["every December|p","on Christmas Eve|p","last Christmas|x","last year|x"]},
 transport:{name:"Getting around",mode:"free",
  s:["I|1","The driver|3","My sister|3","The passengers|0","The robot|3"],
  v:["catch|catches|caught|uxrpm","miss|misses|missed|urpm","drive|drives|drove|ux","take|takes|took|uxrpm","ride|rides|rode|b","wait for|waits for|waited for|uxrpm"],
- o:["the|bus|u","a|taxi|x","the|train|r","the|plane|p","a|bike|b","the|metro|m"],
+ o:["the|bus|u","a|taxi|x","the|train|r","the|plane|p","a|bike|b","the|metro|m","an|express train|r","an|electric bike|b"],
  f:["always","usually","often","never","!slowly|d|Slowly says how. It goes after the verb and the object."],
  a:["fast|uxrpbm","crowded|urpm","late|urpm","empty|uxrpm","!quickly|d|Quickly is an adverb. Before a noun, use an adjective: quick."],
- m:["slowly","quickly","carefully","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
- w:["at the station","at the bus stop","in the city centre","!in the bus stop|d|Say at the bus stop."],
+ m:["slowly|drive,ride","quickly|catch,drive,ride","carefully|drive,ride","patiently|wait for","!careful|a|Careful is an adjective. After the verb, use an adverb: carefully."],
+ w:["at the station|catch,miss,wait for,take","at the bus stop|catch,miss,wait for","in the city centre|drive,ride,take,wait for","to work|drive,ride,take","to the airport|drive,take","!in the bus stop|d|Say at the bus stop."],
  t:["every morning|p","on weekdays|p","yesterday|x","last Monday|x"]}};
 var LABMAP={"a1-1":"daily","a1-2":"daily","a1-3":"town","a1-4":"food","a2-1":"past","a2-2":"trip","a2-3":"tech","a2-4":"party","b1-1":"daily","b1-2":"health","b1-3":"work","b1-4":"news","b1-5":"work",halloween:"halloween",christmas:"christmas",fifteen:"party",transport:"transport",doctor:"health"};
 var LSLOT={s:["Subject","s"],v:["Verb","v"],r:["Article","o"],o:["What?","o"],f:["How often?","d"],a:["What kind?","a"],m:["How?","d"],w:["Where?","d"],t:["When?","d"]};
@@ -4527,6 +4527,7 @@ function labOpts(B,k){
     if(k==="o")return {w:p[1],art:p[0],c:c,cat:p[2]||""};
     if(k==="a")return {w:p[0],c:c,cats:p[1]||""};
     if(k==="t")return {w:p[0],c:c,tm:p[1]};
+    if(k==="m"||k==="w")return {w:p[0],c:c,vb:p[1]?p[1].split(","):null};
     return {w:x,c:c};
   });
 }
@@ -4603,7 +4604,7 @@ function labCheck(B,fill,line){
   return null;
 }
 /* articles: one countable thing needs a/an or the; plural and uncountable nouns take the or nothing; a before consonant sounds, an before vowel sounds */
-function isFreqT(t){return !!t&&!t.none&&/^(every|once|twice|three times|before every)\b/i.test(t.w||"")} function freqClash(f,t){if(!f||f.none||f.bad||!isFreqT(t))return null;var fw=(f.w||"").toLowerCase(),tw=(t.w||"").toLowerCase();if(fw==="never")return "“never” means zero times, but “"+t.w+"” says it happens. Use only one.";if(/^every\b/.test(tw)){if(fw==="usually")return null;if(fw==="always")return "“always” and “"+t.w+"” say the same thing. Use only one.";return "“"+f.w+"” doesn't fit “"+t.w+"”: every means all the time. Use usually, or only one of them."}return null}
+function isFreqT(t){return !!t&&!t.none&&/\bevery\b|^(once|twice|three times)\b/i.test(t.w||"")} function freqClash(f,t){if(!f||f.none||f.bad||!isFreqT(t))return null;var fw=(f.w||"").toLowerCase(),tw=(t.w||"").toLowerCase();if(fw==="never")return "“never” means zero times, but “"+t.w+"” says it happens. Use only one.";return "“"+f.w+"” and “"+t.w+"” both say how often. Use only one of them."}
 function vowelSound(w){w=(w||"").toLowerCase();if(/^(uni|use|eu|one|once)/.test(w))return false;if(/^(hour|honest|honour)/.test(w))return true;return /^[aeiou]/.test(w)}
 function labArt(fill){
   var o=fill.o,r=fill.r;if(!o||!r||r.bad)return null;
@@ -4636,8 +4637,14 @@ function labSense(B,fill,line){
   if(line>=1&&ad&&!ad.none&&ad.cats&&o&&o.cat&&ad.cats.indexOf(o.cat)<0){
     var okA=B.a.filter(function(x){return x.charAt(0)!=="!"}).map(function(x){return x.split("|")}).filter(function(p){return (p[1]||"").indexOf(o.cat)>=0}).map(function(p){return p[0]});
     return {k:"a",why:"“"+ad.w+" "+o.w+"” doesn't make sense. "+(okA.length?"For "+o.w+", try: "+okA.join(", ")+". ":"")+"Or choose “no adjective”."}}
+  var mm=fill.m,ww=fill.w;
+  if(line>=1&&v&&mm&&!mm.none&&!mm.bad){
+    if(LSTATE.indexOf(v.base)>=0)return {k:"m",why:"“"+v.base+"” is a feeling or a state, not an action, so it has no “how”. Choose “— no adverb”."};
+    if(mm.vb&&mm.vb.indexOf(v.base)<0)return {k:"m",why:"We don't say “"+v.base+" … "+mm.w+"”. “"+mm.w.charAt(0).toUpperCase()+mm.w.slice(1)+"” goes with: "+mm.vb.join(", ")+"."}}
+  if(line>=2&&v&&ww&&!ww.none&&!ww.bad&&ww.vb&&ww.vb.indexOf(v.base)<0)return {k:"w",why:"“"+v.base+" … "+ww.w+"” doesn't make sense. “"+ww.w.charAt(0).toUpperCase()+ww.w.slice(1)+"” goes with: "+ww.vb.join(", ")+"."};
   return null;
 }
+var LSTATE=["need","want","love","like","know","have","hate","prefer"];
 function lab(m){
   var a=app(),B=LAB[LABMAP[m.id]||"daily"],fill={},line=0,open=null,bad=null,done=[],last=null,party=false,lastSay="";cur={m:m.id,k:"lab"};
   var O={};"sofamwt".split("").forEach(function(k){O[k]=labOpts(B,k)});
@@ -4647,6 +4654,13 @@ function lab(m){
   if(B.mode==="free")O.f=O.f.concat([{w:"",c:"d",none:true}]);
   if(B.mode==="free"){var hasOnce=O.t.some(function(x){return /^once/.test(x.w)});if(!hasOnce)O.t.splice(O.t.length-1,0,{w:"once a week",c:"d",tm:"p"})}
   function artOff(op){if(["r","o"].indexOf(open)<0||op.none||op.bad)return false;var f2={};for(var kk in fill)f2[kk]=fill[kk];f2[open]=op;return !!labArt(f2)}
+  function sOff(op){if(op.none||op.bad)return false;var v=fill.v;
+    if(open==="o"&&v&&v.cats&&op.cat&&v.cats.indexOf(op.cat)<0)return true;
+    if(open==="a"&&fill.o&&op.cats&&fill.o.cat&&op.cats.indexOf(fill.o.cat)<0)return true;
+    if(open==="m"&&v&&(LSTATE.indexOf(v.base)>=0||(op.vb&&op.vb.indexOf(v.base)<0)))return true;
+    if(open==="w"&&v&&op.vb&&op.vb.indexOf(v.base)<0)return true;
+    if(open==="r"&&!fill.o){var any=O.o.some(function(x){if(x.bad)return false;if(v&&v.cats&&x.cat&&v.cats.indexOf(x.cat)<0)return false;return !labArt({o:x,r:op})});return !any}
+    return false}
   function fOff(op){return open==="f"&&B.mode==="free"&&!op.none&&!op.bad&&((fill.v&&fill.v.form===2)||!!freqClash(op,fill.t))}
   function tOff(op){if(open!=="t"||B.mode!=="free"||op.none||op.bad)return false;var v=fill.v,fq=fill.f&&!fill.f.none&&!fill.f.bad;
     if(v&&v.form===2&&op.tm==="p")return true;if(v&&v.form!==2&&op.tm==="x")return true;if(fq&&freqClash(fill.f,op))return true;return false}
@@ -4685,8 +4699,9 @@ function lab(m){
       if(open&&li===line&&upto(li).indexOf(open)>=0){
         var pan=h("div",{class:"optpan"},h("span",{class:"label"},"Choose: "+LSLOT[open][0]));
         if(open==="v")O.v.forEach(function(vb){pan.appendChild(h("div",{class:"vrow2"},vb.forms.map(function(fm,fi){return h("button",{class:"tile t-v",onclick:function(){choose("v",mkV(vb,fi))}},fm)})))});
-        else{pan.appendChild(h("div",{class:"tiles"},O[open].map(function(op){var off=fOff(op);off=off||tOff(op)||artOff(op);return h("button",{class:"tile t-"+(op.none?"o none":op.c)+(off?" off":""),disabled:off,title:off?"Not with the words you chose":"",onclick:function(){choose(open,op)}},op.none?{a:"— no adjective",f:"— no frequency word",r:"— no article",m:"— no adverb",w:"— no place",t:"— no time"}[open]:op.w)})));
+        else{pan.appendChild(h("div",{class:"tiles"},O[open].map(function(op){var off=fOff(op);off=off||tOff(op)||artOff(op)||sOff(op);return h("button",{class:"tile t-"+(op.none?"o none":op.c)+(off?" off":""),disabled:off,title:off?"Not with the words you chose":"",onclick:function(){choose(open,op)}},op.none?{a:"— no adjective",f:"— no frequency word",r:"— no article",m:"— no adverb",w:"— no place",t:"— no time"}[open]:op.w)})));
           if(open==="f"&&B.mode==="free")pan.appendChild(h("p",{class:"hint"},fill.v&&fill.v.form===2?"Your verb is in the past: one finished action. Frequency words (always, usually…) are for habits, so they are off.":isFreqT(fill.t)?"You already say how often at the end (“"+fill.t.w+"”). Some words are off: they repeat it or don't fit it.":"Always, usually, sometimes, never: for habits in the present. They go before the main verb."));
+          if(["o","a","m","w"].indexOf(open)>=0&&O[open].some(sOff))pan.appendChild(h("p",{class:"hint"},open==="m"&&fill.v&&LSTATE.indexOf(fill.v.base)>=0?"“"+fill.v.base+"” is a state, not an action: no “how”. Choose “— no adverb”.":"Grey words don't go with your "+(open==="a"?"word":"verb")+"."));
           if(["r","o"].indexOf(open)>=0&&O[open].some(artOff))pan.appendChild(h("p",{class:"hint"},open==="r"?"Grey articles don't fit your word: a + consonant sound, an + vowel sound, no a/an with plurals.":"Grey words don't fit your article: a + consonant sound, an + vowel sound, no a/an with plurals."));
           if(open==="t"&&B.mode==="free"&&fill.v)pan.appendChild(h("p",{class:"hint"},(fill.v.form===2?"Your verb is in the past: only past times (yesterday, last week…).":"Your verb is in the present: only habit times (every day, once a week…).")+(fill.f&&!fill.f.none&&!fill.f.bad?" You already have “"+fill.f.w+"”, so no every… / once a week at the end.":" Every… / once a week = how often, at the end of the sentence.")))}
         if(open==="v")pan.appendChild(h("p",{class:"hint"},B.mode==="free"?"Each verb has three forms: base · -s · past.":"Only one form is right after "+B.mode+"."));
@@ -5486,13 +5501,13 @@ ZAPX["lb-dinner"]=["A table for four persons, please.|A table for four people, p
 ZAPX["lb-lax"]=["She doesn't speaks Spanish.|She doesn't speak Spanish.","How many luggages do you have?|How many bags do you have?","My husband have a company.|My husband has a company.","Do this bus go to the airport?|Does this bus go to the airport?","I prefer of the window seat.|I prefer the window seat.","I don't like wake up early.|I don't like waking up early.","The fly was very long.|The flight was very long.","We have anything to declare.|We have nothing to declare."];
 LAB.travelfam={name:"Our trip",mode:"free",
  s:["I|1","My wife|3","My husband|3","Our daughter|3","We|0"],
- v:["take|takes|took|sx","need|needs|needed|sxhdf","pack|packs|packed|s","book|books|booked|xh","drink|drinks|drank|d","eat|eats|ate|f"],
- o:["a|suitcase|s","|sunscreen|s","a|taxi|x","a|hotel|h","|coffee|d","|tap water|d","|pasta|f","|salad|f"],
+ v:["take|takes|took|sx","need|needs|needed|sxhdf","pack|packs|packed|s","book|books|booked|xh","drink|drinks|drank|d","eat|eats|ate|f","order|orders|ordered|dfx","buy|buys|bought|sdf"],
+ o:["a|suitcase|s","|sunscreen|s","an|umbrella|s","a|taxi|x","a|hotel|h","an|apartment|h","|coffee|d","|tap water|d","an|orange juice|d","|pasta|f","a|salad|f","an|omelette|f"],
  f:["always","usually","sometimes","never","!fast|d|Fast says how. It goes after the verb and the object."],
- a:["small|sxh","big|sxh","cheap|sxhdf","hot|df","cold|d","fresh|df","!carefully|d|Carefully is an adverb. Before a noun, use an adjective: careful."],
- m:["quickly","carefully","online","!quick|a|Quick is an adjective. After the verb, use an adverb: quickly."],
- w:["at the airport","on the plane","at the hotel","!in the airport gate|d|Say at the gate."],
- t:["on every trip|p","on weekends|p","yesterday|x","last night|x"]};
+ a:["small|sxh","big|sxh","old|sxh","cheap|sxhdf","hot|df","cold|d","fresh|df","!carefully|d|Carefully is an adverb. Before a noun, use an adjective: careful."],
+ m:["quickly|pack,eat,drink,order,book","carefully|pack","online|book,order,buy","!quick|a|Quick is an adjective. After the verb, use an adverb: quickly."],
+ w:["at the airport","on the plane|eat,drink,need,order","at the hotel|eat,drink,order,need,pack,buy,book","to the hotel|take","to the airport|take","!in the airport gate|d|Say at the gate."],
+ t:["on every trip|p","every morning|p","on weekends|p","yesterday|x","last night|x"]};
 LABMAP["lb-dinner"]="travelfam";LABMAP["lb-lax"]="travelfam";
 NUM.push({t:"US prices",hook:"Big prices: say them in hundreds. $1,300 = thirteen hundred.",listen:true,
  rows:[["hundreds","$1,300 thirteen hundred dollars · $2,400 twenty-four hundred dollars"],["also right","$1,300 one thousand three hundred dollars — longer, but correct"],["small prices","$8.99 eight ninety-nine · $12.50 twelve fifty"],["careful","$130 a hundred and thirty · $1,300 thirteen hundred"]],
