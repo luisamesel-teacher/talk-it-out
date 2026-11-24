@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Robot Tennis · Talk It Out</title>
+<title>Double Serve · Talk It Out</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -159,7 +159,7 @@ function listaFim(c,miss,good){
     c.appendChild(h("div",{class:"list"},good.map(function(m){return h("div",null,h("b",null,"✓ "+m.bad),h("span",{html:m.right}))})))}
 }
 
-var SLUG="tennis";
+var SLUG="pdoubleserve";
 /* [frase com ___, opcao A, opcao B, correta, por que] */
 var V=[
 ["There were six ___ waiting outside the gate.","children","childs","children","child → children. It never takes -s."],
@@ -199,7 +199,7 @@ function start(){
   var box=ajudaBox();
   app.appendChild(h("div",{class:"card"},
     h("span",{class:"label"},"One is enough"),
-    h("h1",null,"🤖 Robot Tennis"),
+    h("h1",null,"🎾 Double Serve"),
     h("ol",{class:"how"},
       h("li",null,h("span",{class:"e"},"🎾"),h("span",null,"Two balls come over the net. Only one of them is correct English — hit that one.")),
       h("li",null,h("span",{class:"e"},"🤖"),h("span",null,"A wrong ball gives the point to the robot. First to "+ALVO+" wins.")),
@@ -221,7 +221,7 @@ function play(){
   field.appendChild(h("div",{class:"baseline"}));
   var sel=h("select",{class:"lvsel","aria-label":"Change speed",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
   var clock=h("p",{class:"clock"},"⏱ 0:00");
-  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🤖 Robot Tennis"),
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"🎾 Double Serve"),
     h("div",{class:"row"},sel,
       paBtn(),
       h("button",{class:"btn ghost small",on:{click:function(){stop();start()}}},"← Quit"))));
