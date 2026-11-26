@@ -41,13 +41,13 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
 .hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
 .field{position:relative;height:min(48vh,360px);border-radius:18px 18px 0 0;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
-.word{position:absolute;top:0;padding:10px 18px;border-radius:14px;background:#fff;color:#12152e;font:800 24px var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s;text-align:center}
+.word{position:absolute;top:0;padding:10px 16px;border-radius:14px;background:#fff;color:#12152e;font:800 26px var(--label);line-height:1.18;border:3px solid #12152e;border-bottom-width:6px;width:max-content;max-width:min(80%,310px);box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s;text-align:center}
 .word small{display:block;font:600 13px var(--body);color:#444;margin-top:2px;letter-spacing:0}
-.toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 24px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
+.toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
 .toast small{display:block;font:600 16px var(--body);color:var(--mute)}
 .toast.ok{color:var(--good)}.toast.no{color:var(--bad)}
 .baskets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 22px var(--label);cursor:pointer;transition:transform .15s}
+.bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 28px var(--label);cursor:pointer;transition:transform .15s}
 .bk small{font:700 13px var(--label);opacity:.8}
 .bk.p-on{background:var(--p-on)}.bk.p-for{background:var(--p-for)}.bk.p-to{background:var(--p-to)}.bk.p-no{background:var(--p-no)}
 .arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px var(--label);min-width:74px;min-height:52px;border-radius:14px;border:2px solid #fff;border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
@@ -74,7 +74,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
 .ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
 .ajuda b{color:#fff}
-@media (max-width:560px){.bk{font-size:16px}.bk small{display:none}.word{font-size:18px;padding:8px 12px}.word small{font-size:11px}}
+@media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:21px;padding:8px 14px}.word small{font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -90,18 +90,18 @@ var V=[
 ["op","there is no denying that","___ online learning has become more popular.","<b>There is no denying that</b> online learning has become more popular.","states something as an accepted fact before your opinion","equivale a “não dá para negar que”"],
 ["add","furthermore","Social media connects people. ___, it offers real opportunities to learn.","Social media connects people. <b>Furthermore</b>, it offers real opportunities to learn.","adds a stronger point — more formal than “also”","soma uma ideia — mais formal que <i>also</i> ou <i>and</i>"],
 ["add","moreover","The app is free. ___, it works offline.","The app is free. <b>Moreover</b>, it works offline.","adds emphasis to a point already made","mesma função de <i>furthermore</i>, um pouco mais formal ainda"],
-["add","however","Many students enjoy online classes. ___, some miss face-to-face contact.","Many students enjoy online classes. <b>However</b>, some miss face-to-face contact.","introduces a contrasting idea in a new sentence","mais formal que <i>but</i> — começa uma frase nova"],
-["add","on the other hand","Studying abroad is exciting. ___, it can be expensive.","Studying abroad is exciting. <b>On the other hand</b>, it can be expensive.","introduces the opposite side of an argument","apresenta o outro lado — equivale a “por outro lado”"],
-["con","although","___ it takes time, learning a language opens many doors.","<b>Although</b> it takes time, learning a language opens many doors.","joins two clauses in one sentence, contrasting them","liga duas orações numa só frase — não começa frase nova como <i>however</i>"],
-["con","even though","___ he studied hard, he found the exam difficult.","<b>Even though</b> he studied hard, he found the exam difficult.","a stronger version of “although”, same structure","versão mais enfática de <i>although</i>, mesma estrutura"],
-["con","whereas","Younger students prefer group work, ___ adults often prefer studying alone.","Younger students prefer group work, <b>whereas</b> adults often prefer studying alone.","contrasts two clauses directly — more formal than “but”","mais formal que <i>but</i> — compara duas ideias na mesma frase"],
+["ctr","however","Many students enjoy online classes. ___, some miss face-to-face contact.","Many students enjoy online classes. <b>However</b>, some miss face-to-face contact.","introduces a contrasting idea in a new sentence","mais formal que <i>but</i> — começa uma frase nova"],
+["ctr","on the other hand","Studying abroad is exciting. ___, it can be expensive.","Studying abroad is exciting. <b>On the other hand</b>, it can be expensive.","introduces the opposite side of an argument","apresenta o outro lado — equivale a “por outro lado”"],
+["ctr","although","___ it takes time, learning a language opens many doors.","<b>Although</b> it takes time, learning a language opens many doors.","joins two clauses in one sentence, contrasting them","liga duas orações numa só frase — não começa frase nova como <i>however</i>"],
+["ctr","even though","___ he studied hard, he found the exam difficult.","<b>Even though</b> he studied hard, he found the exam difficult.","a stronger version of “although”, same structure","versão mais enfática de <i>although</i>, mesma estrutura"],
+["ctr","whereas","Younger students prefer group work, ___ adults often prefer studying alone.","Younger students prefer group work, <b>whereas</b> adults often prefer studying alone.","contrasts two clauses directly — more formal than “but”","mais formal que <i>but</i> — compara duas ideias na mesma frase"],
 ["res","as a result","Fewer students attended the course. ___, it was cancelled.","Fewer students attended the course. <b>As a result</b>, it was cancelled.","shows a direct consequence","mostra uma consequência direta — equivale a “como resultado”"],
 ["res","therefore","The evidence is clear. ___, the plan should go ahead.","The evidence is clear. <b>Therefore</b>, the plan should go ahead.","introduces a logical conclusion from what was just said","introduz uma conclusão lógica — equivale a “portanto”"],
 ["res","to sum up","___, technology has changed the way we learn, for better and for worse.","<b>To sum up</b>, technology has changed the way we learn, for better and for worse.","signals that your final point is coming","sinaliza que vem a conclusão — equivale a “resumindo”"],
 ["res","all things considered","___, the advantages of social media outweigh the drawbacks.","<b>All things considered</b>, the advantages of social media outweigh the drawbacks.","weighs up both sides before a final opinion","pondera os dois lados antes da conclusão final"]
 ];
-var B=[["op","View","Give an opinion"],["add","Add","Add / contrast"],["con","Though","Concession"],["res","So","Result / conclusion"]];
-var CLS={"op":"p-on","add":"p-for","con":"p-to","res":"p-no"};
+var B=[["op","View","Give an opinion"],["add","Add","Addition"],["ctr","But","Contrast / concession"],["res","So","Result / conclusion"]];
+var CLS={"op":"p-on","add":"p-for","ctr":"p-to","res":"p-no"};
 var WORD="phrase",TOPIC="Formal essay language";
 /* Further sets (e.g. single-word vocabulary upgrades) can be added here later and
    selected the same way bridge-w9r2k and markerhunt-m2v6j do: read a #set=... hash,
@@ -178,7 +178,7 @@ function start(){
     h("span",{class:"label"},TOPIC),
     h("h1",null,"✍️ Say It Better"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Drop each phrase into the basket for the job it does: giving an opinion, adding or contrasting, conceding a point, or reaching a result or conclusion.")),
+      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Drop each phrase into the basket for the job it does: giving an opinion, adding a point, contrasting it, or reaching a result or conclusion.")),
       h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong basket costs one.")),
       h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+V.length+" "+WORD+"s and beat your best time."))),
     h("span",{class:"label"},"Speed"),lv,
@@ -218,7 +218,13 @@ function play(){
     var el=h("div",{class:"word"},r[1]);
     G.cur={w:v,t0:now,dur:dur,fast:false,el:el};field.appendChild(el);place(0);drawHud();
   }
-  function place(p){var c=G.cur;if(!c)return;c.el.style.left="calc("+((G.col+.5)*25)+"% - "+(c.el.offsetWidth/2)+"px)";c.el.style.top=(p*(field.clientHeight-c.el.offsetHeight-6))+"px"}
+  function place(p){
+    var c=G.cur;if(!c)return;
+    var fw=field.clientWidth,w=c.el.offsetWidth;
+    var left=Math.max(6,Math.min(fw-w-6,(G.col+.5)/4*fw-w/2));
+    c.el.style.left=left+"px";
+    c.el.style.top=(p*(field.clientHeight-c.el.offsetHeight-6))+"px";
+  }
   function land(i){
     var c=G.cur;if(!c||G.over)return;G.cur=null;c.el.remove();
     var chosen=B[i][0],r=row(c.w),right=r[0],good=chosen===right,b=bk[i];
