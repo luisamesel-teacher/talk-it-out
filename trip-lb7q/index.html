@@ -4359,6 +4359,7 @@ function numbers(ti){
       h("button",{class:"btn",onclick:function(){numDrill(ti,false)}},"How do you say it? →"))));
   window.scrollTo(0,0);
 }
+function numBRsep(u,f){if(!/[$£€]|\d,\d{3}|\d\.\d{2}\b/.test(f))return false;u=String(u);return /\d\.\d{3}(?!\d)/.test(u)||/\d,\d{1,2}$/.test(u.trim())}
 function numDrill(ti,listen){
   var N=NUM[ti],qs=shuffle(N.q).map(function(x){var p=x.split("|");return {fig:p[0],ans:p[1],opts:shuffle(p.slice(1))}}),i=0,ok=0;cur={k:"num"};
   function digits(x){return String(x).replace(/\D/g,"").replace(/^0+(?=\d)/,"")}function numVal(x){x=String(x).replace(/[^\d.,]/g,"");var p=Math.max(x.lastIndexOf("."),x.lastIndexOf(","));if(p>=0&&x.length-p-1<=2)x=x.slice(0,p).replace(/[.,]/g,"")+"."+x.slice(p+1);else x=x.replace(/[.,]/g,"");return parseFloat(x)}function sameNum(u,f){if(digits(u)===digits(f))return true;var tf=/^(\d{1,2}):(\d{2})$/.exec(f),tu=/^\s*(\d{1,2})\s*(?:[:h.]\s*(\d{2}))?\s*h?\s*$/i.exec(u);if(tf){return !!tu&&(+tu[1])%12===(+tf[1])%12&&(+(tu[2]||0))===(+tf[2])}if(/[$£€]/.test(f)){var a=numVal(u),b=numVal(f);return !isNaN(a)&&Math.abs(a-b)<.001}return false}
@@ -4377,7 +4378,7 @@ function numDrill(ti,listen){
     if(listen){
       var inp=h("input",{id:"num-in",class:"inp spellin",type:"text",inputmode:"decimal",autocomplete:"off","aria-label":"Write the number you hear"});
       var ckrow=h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){check()}},t("check")));
-      function check(){if(done)return;inp.disabled=true;ckrow.remove();result(sameNum(inp.value,it.fig),inp.value||"—")}
+      function check(){if(done)return;inp.disabled=true;ckrow.remove();var g=sameNum(inp.value,it.fig);result(g,inp.value||"—");if(g&&numBRsep(inp.value,it.fig))fb.insertBefore(h("div",{class:"fb tip",style:"margin-top:10px"},h("b",null,"💡 "),"Right number! In English, write "+it.fig+": a comma for thousands, a point for cents. Portuguese does the opposite."),fb.lastChild)}
       inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check()}});
       box.appendChild(h("div",{class:"two"},h("button",{class:"btn listen",onclick:function(){sayIt(it.ans,.85);inp.focus({preventScroll:true})}},"🔊 Listen"),h("button",{class:"btn ghost",onclick:function(){sayIt(it.ans,.55);inp.focus({preventScroll:true})}},"🐢 Slowly")));
       box.appendChild(h("p",{class:"hint"},"Write it in numbers, for example 7:45 or 1999."));
