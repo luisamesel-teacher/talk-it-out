@@ -40,7 +40,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
 .hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
 .hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
-.field{position:relative;height:min(48vh,360px);border-radius:18px 18px 0 0;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
+.field{position:relative;height:min(62vh,520px);border-radius:18px 18px 0 0;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
 .word{position:absolute;top:0;padding:12px 20px;border-radius:16px;background:#fff;color:#12152e;font:800 34px var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;max-width:92%;line-height:1.1;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s;text-align:center}
 .word small{display:block;font:600 14px var(--body);color:#444;margin-top:2px;letter-spacing:0}
 .toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
@@ -49,6 +49,17 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .baskets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 28px var(--label);cursor:pointer;transition:transform .15s}
 .bk small{font:700 14px var(--label);opacity:.8}
+.how li{font-size:19px;line-height:1.4}
+.how li .e{font-size:28px}
+.card>.label{font-size:13.5px}
+.rev{display:grid;gap:7px;margin:14px 0 2px;max-height:46vh;overflow:auto;
+  background:rgba(255,255,255,.06);border-radius:14px;padding:12px}
+.rev div{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;
+  padding:9px 12px;border-radius:10px;background:rgba(255,255,255,.06)}
+.rev div b{font:800 18px var(--label);color:#fff}
+.rev div span{font:700 14px var(--label);color:#f2c14e;white-space:nowrap;text-align:right}
+.rev div i{grid-column:1/3;font-style:normal;font:400 15.5px/1.35 var(--body);opacity:.78}
+.rev div i:empty{display:none}
 .esc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0 4px}
 .fz{display:grid;gap:1px;padding:11px 6px 9px;border-radius:14px;cursor:pointer;
   background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.22);color:#fff;
@@ -89,7 +100,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
 .ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
 .ajuda b{color:#fff}
-@media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:27px;padding:10px 14px;max-width:94%}.word small{font-size:12px}}
+@media (max-width:560px){.bk{font-size:15px;line-height:1.1;padding:12px 2px 10px;hyphens:none}.bk small{display:none}.word{font-size:27px;padding:10px 14px;max-width:94%}.word small{font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -98,34 +109,34 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 <script>
 /* [basket, verb, gapped example, full example, meaning, contraste em português] */
 var P1=[
-["verb","achieve","","She worked hard to <b>achieve</b> it.","",""],
-["noun","achievement","","Winning was a real <b>achievement</b>.","",""],
-["adjective","imaginative","","A very <b>imaginative</b> routine.","",""],
-["noun","imagination","","It takes <b>imagination</b>.","",""],
-["adverb","hopelessly","","They were <b>hopelessly</b> late.","",""],
-["adjective","detrimental","","Late nights are <b>detrimental</b>.","",""],
-["verb","fulfil","","She wants to <b>fulfil</b> a promise.","",""],
-["noun","fulfilment","","She found real <b>fulfilment</b>.","",""],
-["adjective","applicable","","That rule isn't <b>applicable</b>.","",""],
-["verb","apply","","You should <b>apply</b> for it.","",""],
-["noun","application","","Send the <b>application</b> today.","",""],
-["adverb","arguably","","She is <b>arguably</b> the best.","",""],
-["adjective","managerial","","He has a <b>managerial</b> role.","",""],
-["verb","manage","","She will <b>manage</b> somehow.","",""],
-["noun","objection","","Nobody raised an <b>objection</b>.","",""],
-["verb","object","","Nobody will <b>object</b> to that.","",""],
-["adjective","discourteous","","That was <b>discourteous</b>.","",""],
-["noun","courtesy","","He had the <b>courtesy</b> to apologise.","",""],
-["adverb","increasingly","","It is <b>increasingly</b> tight.","",""],
-["verb","strengthen","","They want to <b>strengthen</b> the squad.","",""],
-["noun","strength","","That is her great <b>strength</b>.","",""],
+["verb","achieve","","She worked hard <b>to achieve</b> it.","",""],
+["verb","fulfil","","She wants <b>to fulfil</b> a promise.","",""],
+["verb","apply","","You should <b>apply</b> for it today.","",""],
+["verb","manage","","Somehow she <b>will manage</b> it.","",""],
+["verb","decide","","You <b>must decide</b> tonight.","",""],
+["verb","strengthen","","They want <b>to strengthen</b> the squad.","",""],
+["verb","simplify","","We should <b>simplify</b> the routine.","",""],
+["noun","achievement","","Winning was <b>a</b> real <b>achievement</b>.","",""],
+["noun","imagination","","It takes <b>a lot of imagination</b>.","",""],
+["noun","fulfilment","","She found <b>real fulfilment</b> in teaching.","",""],
+["noun","application","","Send <b>the application</b> today.","",""],
+["noun","objection","","Nobody raised <b>an objection</b>.","",""],
+["noun","courtesy","","He had <b>the courtesy</b> to apologise.","",""],
+["noun","strength","","That is <b>her</b> great <b>strength</b>.","",""],
+["noun","decision","","It was <b>a</b> hard <b>decision</b>.","",""],
+["adjective","imaginative","","It was <b>a very imaginative</b> routine.","",""],
+["adjective","detrimental","","Late nights are <b>detrimental</b> to her game.","",""],
+["adjective","applicable","","That rule is not <b>applicable</b> here.","",""],
+["adjective","managerial","","He has <b>a managerial</b> role now.","",""],
+["adjective","discourteous","","Leaving like that was <b>discourteous</b>.","",""],
 ["adjective","compelling","","The second half was <b>compelling</b>.","",""],
+["adjective","responsive","","She is <b>very responsive</b> to feedback.","",""],
+["adjective","educational","","The trip was <b>highly educational</b>.","",""],
+["adverb","hopelessly","","They arrived <b>hopelessly</b> late.","",""],
+["adverb","arguably","","She is <b>arguably</b> the best here.","",""],
+["adverb","increasingly","","The matches are getting <b>increasingly</b> tight.","",""],
 ["adverb","deliberately","","She did it <b>deliberately</b>.","",""],
-["noun","decision","","It was a hard <b>decision</b>.","",""],
-["verb","decide","","You must <b>decide</b> tonight.","",""],
-["adjective","responsive","","She is very <b>responsive</b>.","",""],
-["adverb","surprisingly","","<b>Surprisingly</b>, she won.","",""],
-["adjective","educational","","The trip was <b>educational</b>.","",""]
+["adverb","surprisingly","","<b>Surprisingly</b>, she won in two sets.","",""]
 ];
 var P2=[
 ["-ment","ACHIEVE","","ACHIEVE → <b>achievement</b>","something you managed to do","conquista"],
@@ -176,13 +187,13 @@ var P3=[
 ["-ness","WILLING","I admire her ___ to try again.","I admire her <b>willingness</b> to try again.","","disposição"]
 ];
 var V=P1;
-var B=[["noun","noun"],["verb","verb"],["adjective","adj"],["adverb","adv"]];
+var B=[["noun","noun"],["verb","verb"],["adjective","adjective"],["adverb","adverb"]];
 var CLS={"noun":"p-on","verb":"p-for","adjective":"p-to","adverb":"p-no"};
 /* other sets, chosen by the course link: #set=adj */
 var SET="",WORD="word",TOPIC="Phase 1 \u00b7 word classes",PHASE=1;
 var FASES=[null,
  {v:function(){return P1},w:"word",t:"Phase 1 \u00b7 word classes",
-  B:[["noun","noun"],["verb","verb"],["adjective","adj"],["adverb","adv"]],
+  B:[["noun","noun"],["verb","verb"],["adjective","adjective"],["adverb","adverb"]],
   how:"A finished word falls. Drop it in its word class \u2014 nothing else."},
  {v:function(){return P2},w:"root",t:"Phase 2 \u00b7 roots and suffixes",
   B:[["-ment","-ment"],["-tion","-tion"],["-ity","-ity"],["-ness","-ness"]],
@@ -265,6 +276,12 @@ function start(){
   function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
   drawLv();
   var box=ajudaBox();
+  var rev=h("div",{class:"rev"});rev.style.display="none";
+  V.forEach(function(r){
+    var alvo=PHASE===1?r[0]:(r[3].match(/<b>(.*?)<\/b>/)||[0,r[0]])[1];
+    rev.appendChild(h("div",null,h("b",null,r[1]),
+      h("i",{html:PHASE===1?r[3]:(r[4]||"")}),
+      h("span",null,PHASE===1?r[0]:alvo)))});
   var esc=h("div",{class:"esc"});
   function drawEsc(){esc.innerHTML="";[1,2,3].forEach(function(k){
     var f=FASES[k],ok=feito(k);
@@ -282,9 +299,12 @@ function start(){
       h("li",null,h("span",{class:"e"},"🧺"),h("span",null,FASES[PHASE].how)),
       h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong basket costs one.")),
       h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+V.length+" "+WORD+"s and beat your best time."))),
+    rev,
     h("span",{class:"label"},"Speed"),lv,
     h("div",{class:"row"},
       h("button",{class:"btn",on:{click:play}},"▶ Play"),
+      h("button",{class:"btn ghost small",on:{click:function(){
+        rev.style.display=rev.style.display==="none"?"grid":"none"}}},"👀 See the words first"),
       h("button",{class:"btn ghost small",on:{click:function(){box.style.display=box.style.display==="none"?"block":"none"}}},"Ajuda em português")),
     box);
   app.appendChild(card);
@@ -326,9 +346,9 @@ function play(){
     var chosen=B[i][0],r=row(c.w),right=r[0],good=chosen===right,b=bk[i];
     b.classList.remove("hit","bad");void b.offsetWidth;b.classList.add(good?"hit":"bad");
     var forma=(r[3].match(/<b>(.*?)<\/b>/)||[0,right])[1];
-    var rotulo=PHASE===1?r[1]+" = "+right:r[1]+" → "+forma;
-    if(good){G.ok++;if(G.good.indexOf(c.w)<0)G.good.push(c.w);toast("✓ "+rotulo,r[4],"ok");say.innerHTML=r[3]}
-    else{G.lives--;G.miss.push({bad:r[1]+" "+(chosen==="—"?"+ nothing":chosen),right:rotulo});toast("✗ "+rotulo,r[4],"no");say.innerHTML=r[3]}
+    var rotulo=PHASE===1?r[1]+" is "+(/^[aeiou]/.test(right)?"an ":"a ")+right:r[1]+" → "+forma;
+    if(good){G.ok++;if(G.good.indexOf(c.w)<0)G.good.push(c.w);toast("✓ "+rotulo,PHASE===1?r[3].replace(/<[^>]+>/g,""):r[4],"ok");say.innerHTML="<b>"+rotulo+"</b> — "+r[3]}
+    else{G.lives--;G.miss.push({bad:r[1]+" "+(chosen==="—"?"+ nothing":chosen),right:rotulo});toast("✗ "+rotulo,PHASE===1?r[3].replace(/<[^>]+>/g,""):r[4],"no");say.innerHTML="<b>"+rotulo+"</b> — "+r[3]}
     drawHud();G.last=performance.now();
     if(G.lives<=0)end(false);
   }
