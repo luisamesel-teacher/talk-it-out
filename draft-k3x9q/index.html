@@ -1,47 +1,48 @@
 <!doctype html><html><head> <meta name="robots" content="noindex, nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 1973 and 1974 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-72 and 81-1237
-M 1246-1469 · X 1470-1540 · ART 1541-1547 · GR 1548-1634 · GX 1635-1703 · BK 1704-1806 · PIC 1807-1807 · HOOK 1808-1821
-TLN 1822-1830 · EXP 1831-1848 · VERBS 1849-1850 · CAN 1851-1855 · CULT 1856-1876 · GYM 1877-1888 · BD 1889-1968 · TAGN 1969-1969
-LEVELS 1970-1970 · ACTS 1971-1972 · ACH 1975-1975 · PSETS 1976-1976 · faceEl() 1977-1977 · FACES 1978-1980 · T 1981-2058 · S 2059-2059
-KEY 2060-2060 · t() 2061-2061 · save() 2062-2062 · load() 2063-2067 · day() 2068-2068 · touchStreak() 2069-2071 · h() 2072-2084 · shuffle() 2085-2085
-starsFor() 2086-2086 · starEl() 2087-2087 · mod() 2088-2088 · art() 2089-2089 · modStars() 2090-2090 · PASS 2091-2091 · passed() 2092-2092 · actsDone() 2093-2093
-certOK() 2094-2094 · go() 2095-2095 · toTop() 2096-2096 · app() 2097-2097 · pick() 2098-2100 · bar() 2101-2123 · goBack() 2124-2124 · lvTag() 2125-2125
-menu() 2126-2141 · steps() 2142-2148 · nextStep() 2149-2151 · home() 2152-2215 · modulePage() 2216-2316 · backBtn() 2317-2318 · shell() 2319-2326 · swIcon() 2327-2327
-finish() 2328-2360 · run() 2361-2363 · chat() 2364-2395 · loose() 2396-2396 · writeIt() 2397-2430 · mcRun() 2431-2453 · quizItems() 2454-2454 · speedItems() 2455-2455
-quiz() 2456-2456 · cpItems() 2457-2460 · cpWhere() 2461-2468 · checkpoint() 2469-2508 · build() 2509-2555 · match() 2556-2591 · speed() 2592-2615 · HLT 2616-2629
-KW 2630-2643 · kw() 2644-2652 · caps() 2653-2653 · diffB() 2654-2655 · sents() 2656-2656 · hl() 2657-2665 · noteKind() 2666-2670 · BKIND 2671-2671
-blk() 2672-2673 · grammar() 2674-2719 · SERVE 2720-2726 · miss() 2727-2733 · ALL_LV 2734-2734 · maxLv() 2735-2735 · lvOf() 2736-2736 · bkItem() 2737-2737
-qKey() 2738-2738 · qFresh() 2739-2739 · qMark() 2740-2740 · gameQ() 2741-2741 · gameQ0() 2742-2742 · askPanel() 2743-2760 · LVN 2761-2761 · arcade() 2762-2780
-gTimer() 2781-2783 · fmtT() 2784-2784 · arcadeEnd() 2785-2807 · tennis() 2808-2896 · duel() 2897-2926 · zap() 2927-2968 · GAMES 2969-2971 · GP 2972-2972
-gclk() 2973-2973 · gHold() 2974-2974 · gGo() 2975-2975 · gClose() 2976-2976 · gFocus() 2977-2979 · COACH 2980-2992 · gCoach() 2993-3011 · TURNG 3012-3012
-gStartNow() 3013-3013 · gReady() 3014-3018 · gOverlay() 3019-3020 · GICONS 3021-3021 · GLIST 3022-3022 · sortNeed() 3023-3023 · poolNeed() 3024-3024 · HOW 3025-3033
-gRestart() 3034-3034 · gIntro() 3035-3054 · gCount() 3055-3065 · gPause() 3066-3079 · WCL 3080-3080 · WSB 3081-3087 · wsClasses() 3088-3088 · wsBank() 3089-3091
-wsWhy() 3092-3094 · penalty() 3095-3205 · wsort() 3206-3241 · wpool() 3242-3389 · HOOPS_BOT 3390-3390 · hoops() 3391-3560 · wonOf() 3561-3561 · starsWon() 3562-3562
-gameList() 3563-3567 · WT 3568-3579 · WTL 3580-3582 · wtubes() 3583-3635 · GN 3636-3654 · GNM 3655-3655 · GNL 3656-3658 · wgenius() 3659-3700
-TUBEMODS 3701-3701 · hasQ() 3702-3702 · hasGame() 3703-3720 · gameCards() 3721-3724 · hub() 3725-3751 · bossSVG() 3752-3771 · cert() 3772-3797 · timeline() 3798-3817
-today() 3818-3818 · exList() 3819-3819 · exFind() 3820-3820 · dueList() 3821-3821 · exCard() 3822-3822 · expr() 3823-3835 · review() 3836-3857 · verbList() 3858-3858
-memBoard() 3859-3871 · verbs() 3872-3916 · mistakes() 3917-3939 · PF 3940-3949 · PQ 3950-3950 · ENTRY 3951-3951 · TRACK 3952-3952 · HELPS 3953-3953
-TIPS 3954-3969 · L2() 3970-3970 · place() 3971-4001 · placeResult() 4002-4023 · avatars() 4024-4077 · VIS 4078-4078 · funnel() 4079-4112 · MAIL 4113-4134
-mailMock() 4135-4139 · mail() 4140-4168 · mailBuild() 4169-4193 · mailQuiz() 4194-4288 · canSpeak() 4289-4289 · voiceScore() 4290-4297 · voices() 4298-4301 · sayIt() 4302-4307
-voicePage() 4308-4325 · spNorm() 4326-4326 · spellDeck() 4327-4338 · spelling() 4339-4375 · gym() 4376-4425 · culture() 4426-4441 · progressCard() 4442-4451 · NUM 4452-4488
-clockSVG() 4489-4495 · numbers() 4496-4514 · numDrill() 4515-4554 · WV 4555-4569 · ADJ 4570-4576 · ADJQ 4577-4577 · ADVF 4578-4578 · ADVD 4579-4579
-ADVM 4580-4580 · ADVP 4581-4581 · ADVQ 4582-4582 · strip() 4583-4583 · meter() 4584-4584 · pics() 4585-4585 · words() 4586-4629 · wDrill() 4630-4653
-LAB 4654-4775 · LABMAP 4776-4776 · LSLOT 4777-4777 · LLINES 4778-4778 · labDi() 4779-4779 · labNeed() 4780-4780 · LPART 4781-4781 · labOpts() 4782-4794
-labRobot() 4795-4816 · LABCOIN 4817-4817 · labParty() 4818-4835 · labSentence() 4836-4852 · labCheck() 4853-4875 · isFreqT() 4876-4876 · vowelSound() 4877-4877 · labArt() 4878-4888
-labTense() 4889-4900 · labSense() 4901-4917 · LSTATE 4918-4918 · lab() 4919-5017 · RSWAP 5018-5018 · rVariant() 5019-5029 · race() 5030-5143 · ZAPX 5144-5162
-ideas() 5163-5170 · ownBox() 5171-5176 · applyTheme() 5177-5177 · nm() 5178-5178 · hi() 5179-5179 · welcome() 5180-5198 · choice() 5199-5212 · SG_SING 5213-5213
-SG_VERB 5214-5214 · sentenceTips() 5215-5249 · tipsBox() 5250-5258 · AI 5259-5259 · aiInit() 5260-5260 · aiReady() 5261-5261 · aiContext() 5262-5262 · aiCall() 5263-5267
-aiCheck() 5268-5272 · askTeacher() 5273-5289 · askFab() 5290-5294 · STORY 5295-5351 · storyFor() 5352-5352 · storyList() 5353-5360 · storyPage() 5361-5389 · aiStory() 5390-5395
-BDE 5396-5397 · REV 5398-5454 · ins() 5455-5598 · XQ 5599-5607 · REVIEWM 5608-5618 · TMOD 5619-5621 · SORTSET 5622-5628 · CDS 5629-5637
-CDL 5638-5640 · cdParse() 5641-5644 · wcommas() 5645-5687 · pvOf() 5688-5688 · pvPool() 5689-5691 · pvQs() 5692-5702 · arcadeMods() 5703-5703 · arcadePage() 5704-5743
-ARCMODES 5744-5744 · arcModeOf() 5745-5749 · arcModBtn() 5750-5771 · SPDICT 5772-5772 · spellDict() 5773-5787 · spKnown() 5788-5789 · spDist() 5790-5791 · spellIssues() 5792-5797
-lvMenu() 5798-5804 · COMMAMODS 5805-5806 · PSET 5807-5812 · PMODES 5813-5813 · poolSet() 5814-5814 · gD() 5815-5818 · TONE 5819-5821 · NINE 5822-5824
-soloCard() 5825-5827 · cityBank() 5828-5828 · SOLO 5829-5841 · MOVIES 5842-5898 · MVLV 5899-5900 · stuLv() 5901-5904 · wmovie() 5905-5988 · DCOL 5989-5989
-DIT 5990-5994 · DMAT 5995-5995 · dkC() 5996-5996 · dollSVG() 5997-6056 · dPiece() 6057-6057 · dArt() 6058-6058 · DVB 6059-6059 · wdoll() 6060-6163
-dartSents() 6164-6165 · dartGaps() 6166-6166 · wdarts() 6167-6228 · crossGaps() 6229-6229 · wcross() 6230-6284 · STAGS 6285-6308 · SGTAGS 6309-6309 · SPAGES 6310-6310
-sNorm() 6311-6311 · SIDX 6312-6312 · sIndex() 6313-6322 · sFind() 6323-6325 · searchBox() 6326-6344 · NINE_EXTRA 6345-6346 · route() 6347-6358 · start() 6359-6376
+NEVER read lines 1976 and 1977 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-75 and 84-1240
+M 1248-1472 · X 1473-1543 · ART 1544-1550 · GR 1551-1637 · GX 1638-1706 · BK 1707-1809 · PIC 1810-1810 · HOOK 1811-1824
+TLN 1825-1833 · EXP 1834-1851 · VERBS 1852-1853 · CAN 1854-1858 · CULT 1859-1879 · GYM 1880-1891 · BD 1892-1971 · TAGN 1972-1972
+LEVELS 1973-1973 · ACTS 1974-1975 · ACH 1978-1978 · PSETS 1979-1979 · faceEl() 1980-1980 · FACES 1981-1983 · T 1984-2061 · S 2062-2062
+KEY 2063-2063 · t() 2064-2064 · save() 2065-2065 · load() 2066-2070 · day() 2071-2071 · touchStreak() 2072-2074 · h() 2075-2087 · shuffle() 2088-2088
+starsFor() 2089-2089 · starEl() 2090-2090 · mod() 2091-2091 · art() 2092-2092 · modStars() 2093-2093 · PASS 2094-2094 · passed() 2095-2095 · actsDone() 2096-2096
+certOK() 2097-2097 · go() 2098-2098 · toTop() 2099-2099 · app() 2100-2100 · pick() 2101-2103 · bar() 2104-2126 · goBack() 2127-2127 · lvTag() 2128-2128
+menu() 2129-2144 · steps() 2145-2151 · nextStep() 2152-2154 · home() 2155-2218 · modulePage() 2219-2319 · backBtn() 2320-2321 · shell() 2322-2329 · swIcon() 2330-2330
+finish() 2331-2363 · run() 2364-2366 · chat() 2367-2398 · loose() 2399-2399 · writeIt() 2400-2433 · mcRun() 2434-2456 · quizItems() 2457-2457 · speedItems() 2458-2458
+quiz() 2459-2459 · cpItems() 2460-2463 · cpWhere() 2464-2471 · checkpoint() 2472-2511 · build() 2512-2558 · match() 2559-2594 · speed() 2595-2618 · HLT 2619-2632
+KW 2633-2646 · kw() 2647-2655 · caps() 2656-2656 · diffB() 2657-2658 · sents() 2659-2659 · hl() 2660-2668 · noteKind() 2669-2673 · BKIND 2674-2674
+blk() 2675-2676 · grammar() 2677-2722 · SERVE 2723-2729 · miss() 2730-2736 · ALL_LV 2737-2737 · maxLv() 2738-2738 · lvOf() 2739-2739 · bkItem() 2740-2740
+qKey() 2741-2741 · qFresh() 2742-2742 · qMark() 2743-2743 · gameQ() 2744-2744 · gameQ0() 2745-2745 · askPanel() 2746-2763 · LVN 2764-2764 · arcade() 2765-2783
+gTimer() 2784-2786 · fmtT() 2787-2787 · arcadeEnd() 2788-2810 · tennis() 2811-2899 · duel() 2900-2929 · zap() 2930-2971 · GAMES 2972-2974 · GP 2975-2975
+gclk() 2976-2976 · gHold() 2977-2977 · gGo() 2978-2978 · gClose() 2979-2979 · gFocus() 2980-2982 · COACH 2983-2995 · gCoach() 2996-3014 · TURNG 3015-3015
+gStartNow() 3016-3016 · gReady() 3017-3021 · gOverlay() 3022-3023 · GICONS 3024-3024 · GLIST 3025-3025 · sortNeed() 3026-3026 · poolNeed() 3027-3027 · HOW 3028-3036
+gRestart() 3037-3037 · gIntro() 3038-3057 · gCount() 3058-3068 · gPause() 3069-3082 · WCL 3083-3083 · WSB 3084-3090 · wsClasses() 3091-3091 · wsBank() 3092-3094
+wsWhy() 3095-3097 · penalty() 3098-3208 · wsort() 3209-3244 · wpool() 3245-3392 · HOOPS_BOT 3393-3393 · hoops() 3394-3563 · wonOf() 3564-3564 · starsWon() 3565-3565
+gameList() 3566-3570 · WT 3571-3582 · WTL 3583-3585 · wtubes() 3586-3638 · GN 3639-3657 · GNM 3658-3658 · GNL 3659-3661 · wgenius() 3662-3703
+TUBEMODS 3704-3704 · hasQ() 3705-3705 · hasGame() 3706-3723 · gameCards() 3724-3727 · hub() 3728-3754 · bossSVG() 3755-3774 · cert() 3775-3800 · timeline() 3801-3820
+today() 3821-3821 · exList() 3822-3822 · exFind() 3823-3823 · dueList() 3824-3824 · exCard() 3825-3825 · expr() 3826-3838 · review() 3839-3860 · verbList() 3861-3861
+memBoard() 3862-3874 · verbs() 3875-3919 · mistakes() 3920-3942 · PF 3943-3952 · PQ 3953-3953 · ENTRY 3954-3954 · TRACK 3955-3955 · HELPS 3956-3956
+TIPS 3957-3972 · L2() 3973-3973 · place() 3974-4004 · placeResult() 4005-4026 · avatars() 4027-4080 · VIS 4081-4081 · funnel() 4082-4115 · MAIL 4116-4137
+mailMock() 4138-4142 · mail() 4143-4171 · mailBuild() 4172-4196 · mailQuiz() 4197-4291 · canSpeak() 4292-4292 · voiceScore() 4293-4300 · voices() 4301-4304 · sayIt() 4305-4310
+voicePage() 4311-4328 · spNorm() 4329-4329 · spellDeck() 4330-4341 · spelling() 4342-4378 · gym() 4379-4428 · culture() 4429-4444 · progressCard() 4445-4454 · NUM 4455-4491
+clockSVG() 4492-4498 · numbers() 4499-4517 · numDrill() 4518-4557 · WV 4558-4572 · ADJ 4573-4579 · ADJQ 4580-4580 · ADVF 4581-4581 · ADVD 4582-4582
+ADVM 4583-4583 · ADVP 4584-4584 · ADVQ 4585-4585 · strip() 4586-4586 · meter() 4587-4587 · pics() 4588-4588 · words() 4589-4632 · wDrill() 4633-4656
+LAB 4657-4778 · LABMAP 4779-4779 · LSLOT 4780-4780 · LLINES 4781-4781 · labDi() 4782-4782 · labNeed() 4783-4783 · LPART 4784-4784 · labOpts() 4785-4797
+labRobot() 4798-4819 · LABCOIN 4820-4820 · labParty() 4821-4838 · labSentence() 4839-4855 · labCheck() 4856-4878 · isFreqT() 4879-4879 · vowelSound() 4880-4880 · labArt() 4881-4891
+labTense() 4892-4903 · labSense() 4904-4920 · LSTATE 4921-4921 · lab() 4922-5020 · RSWAP 5021-5021 · rVariant() 5022-5032 · race() 5033-5146 · ZAPX 5147-5165
+ideas() 5166-5173 · ownBox() 5174-5179 · applyTheme() 5180-5180 · nm() 5181-5181 · hi() 5182-5182 · welcome() 5183-5201 · choice() 5202-5215 · SG_SING 5216-5216
+SG_VERB 5217-5217 · sentenceTips() 5218-5252 · tipsBox() 5253-5261 · AI 5262-5262 · aiInit() 5263-5263 · aiReady() 5264-5264 · aiContext() 5265-5265 · aiCall() 5266-5270
+aiCheck() 5271-5275 · askTeacher() 5276-5292 · askFab() 5293-5297 · STORY 5298-5354 · storyFor() 5355-5355 · storyList() 5356-5363 · storyPage() 5364-5392 · aiStory() 5393-5398
+BDE 5399-5400 · REV 5401-5457 · ins() 5458-5601 · XQ 5602-5610 · REVIEWM 5611-5621 · TMOD 5622-5624 · SORTSET 5625-5631 · CDS 5632-5640
+CDL 5641-5643 · cdParse() 5644-5647 · wcommas() 5648-5690 · pvOf() 5691-5691 · pvPool() 5692-5694 · pvQs() 5695-5705 · arcadeMods() 5706-5706 · arcadePage() 5707-5746
+ARCMODES 5747-5747 · arcModeOf() 5748-5752 · arcModBtn() 5753-5774 · SPDICT 5775-5775 · spellDict() 5776-5790 · spKnown() 5791-5792 · spDist() 5793-5794 · spellIssues() 5795-5800
+lvMenu() 5801-5807 · COMMAMODS 5808-5809 · PSET 5810-5815 · PMODES 5816-5816 · poolSet() 5817-5817 · gD() 5818-5821 · TONE 5822-5824 · NINE 5825-5827
+soloCard() 5828-5830 · cityBank() 5831-5831 · SOLO 5832-5844 · MOVIES 5845-5901 · MVLV 5902-5903 · stuLv() 5904-5907 · wmovie() 5908-5991 · DCOL 5992-5992
+DIT 5993-5997 · DMAT 5998-5998 · dkC() 5999-5999 · dollSVG() 6000-6059 · dPiece() 6060-6060 · dArt() 6061-6061 · DVB 6062-6062 · wdoll() 6063-6180
+cvScale() 6181-6181 · dartSents() 6182-6183 · dartGaps() 6184-6184 · wdarts() 6185-6246 · SUREZ 6247-6247 · SURES 6248-6251 · wsure() 6252-6290 · crossGaps() 6291-6291
+wcross() 6292-6352 · STAGS 6353-6376 · SGTAGS 6377-6377 · SPAGES 6378-6378 · sNorm() 6379-6379 · SIDX 6380-6380 · sIndex() 6381-6390 · sFind() 6391-6393
+searchBox() 6394-6412 · NINE_EXTRA 6413-6414 · route() 6415-6426 · start() 6427-6435
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -70,6 +71,7 @@ MAP END -->
 .srit b{display:block}.srit small{display:block;color:#aab0d8;font-size:13px}.sric{font-size:22px;width:28px;text-align:center}.srsug{margin:4px 6px 0 0}
 body.light .srbox,html[data-theme=light] .srbox{background:#fff}
 .revchip.on{background:#ff6b9a!important;color:#12152e!important}
+.court.dartc{cursor:crosshair}.court.crossc{cursor:pointer}.penctl.crossctl{display:grid;grid-template-columns:repeat(3,minmax(64px,84px));grid-template-areas:". u ." "l d r";justify-content:center;gap:8px}.crossctl .cu{grid-area:u}.crossctl .cl{grid-area:l}.crossctl .cd{grid-area:d}.crossctl .cr{grid-area:r}.crossctl .btn{min-height:56px;min-width:0;margin:0}.surestage{max-width:760px;margin:0 auto}.surem{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:12px 0 6px}.surez{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:96px;padding:12px 8px;border-radius:16px;border:3px solid var(--zc);border-bottom-width:6px;background:#12152e;color:#fff;font:inherit;cursor:pointer}.surez b{font-size:18px;color:var(--zc)}.surez small{color:#cfd5ff;font-weight:700}.surei{font-size:28px;line-height:1}.surez:hover:not(:disabled){transform:translateY(-2px)}.surez.ok{background:color-mix(in srgb,var(--zc) 28%,#12152e);box-shadow:0 0 0 4px rgba(60,207,159,.35)}.surez.bad{opacity:.5}.surez:disabled{cursor:default}.suret{min-height:1.4em;text-align:right;font-weight:800;color:#ffd166}.dtask .dq mark{background:#ffd166;color:#12152e;border-radius:6px;padding:0 4px}
 </style></head><body>
 <!DOCTYPE html>
 <html lang="en">
@@ -1830,7 +1832,7 @@ var TLN={
 "b1-1":[[["dot",.14,"I moved in 2022 (finished)"],["span",.3,.5,"I've been a teacher for two years"]],[["dots",[.1,.17,.24,.31],"I used to skip classes"],["x",.42,"I stopped"]]]};
 /* type|expression|meaning|Portuguese|example   (c = chunk, i = idiom, p = phrasal verb) */
 var EXP={
-"a1-1":["c|Nice to meet you.|You say this when you meet someone for the first time.|Prazer em conhecer você.|I'm Ana. Nice to meet you.","c|How do you spell that?|You ask for the letters of a word.|Como se soletra?|My surname is Mesel. — How do you spell that?","c|What do you do?|You ask about someone's job.|O que você faz (da vida)?|What do you do? — I'm a nurse.","i|break the ice|to help people relax when they first meet|quebrar o gelo|A smile helps to break the ice.","p|fill in|to write information on a form|preencher|Please fill in this form.","p|sign up|to register for a course or service|inscrever-se|I want to sign up for the English course.","c|And you?|You ask the same question back.|E você?|I'm from Recife. And you?","c|Sorry, can you repeat that?|You ask someone to say something again.|Desculpe, pode repetir?|It's 555-0172. — Sorry, can you repeat that?","c|What's your surname?|You ask for someone's family name.|Qual é o seu sobrenome?|What's your surname? — It's Costa.","c|See you later!|You say this when you leave.|Até mais!|Bye, Ana! See you later!","p|come from|to be born in a place or live there|ser de, vir de|I come from Belo Horizonte."],
+"a1-1":["c|Nice to meet you.|You say this when you meet someone for the first time.|Prazer em conhecer você.|I'm Ana. Nice to meet you.","c|How do you spell that?|You ask for the letters of a word.|Como se soletra?|My surname is Mesel. — How do you spell that?","c|What do you do?|You ask about someone's job.|O que você faz (da vida)?|What do you do? — I'm a nurse.","i|break the ice|to help people relax when they first meet|quebrar o gelo|A smile helps to break the ice.","p|fill in|to write information on a form|preencher|Please fill in this form.","p|sign up|to register for a course or service|inscrever-se|I want to sign up for the English course.","c|And you?|You ask the same question back.|E você?|I'm from Recife. And you?","c|Sorry, can you repeat that?|You ask someone to say something again.|Desculpe, pode repetir?|It's 555-0172. — Sorry, can you repeat that?","c|What's your surname?|You ask for someone's family name.|Qual é o seu sobrenome?|What's your surname? — It's Costa.","c|See you later!|You say this when you leave.|Até mais!|Bye, Ana! See you later!","p|come from|to be born in a place or live there|ser de, vir de|I come from Belo Horizonte.","c|I have a question.|You want to ask the teacher something.|Tenho uma dúvida.|Ms. Mesel, I have a question.","c|I have two siblings.|You say how many brothers and sisters you have.|Tenho dois irmãos.|I have two siblings: a brother and a sister."],
 "a1-2":["p|turn off|to stop a light or a machine|desligar|Turn off the light before you go to sleep.","c|I'm running late.|I am going to arrive late.|Estou atrasado(a).|Sorry, I'm running late!","c|twice a week|two times every week|duas vezes por semana|I go to the gym twice a week.","c|It's my turn.|Now I do it.|É a minha vez.|It's my turn to cook tonight.","i|once in a blue moon|very rarely|uma vez na vida, outra na morte|I eat fast food once in a blue moon.","i|an early bird|a person who gets up early|quem madruga / pessoa matinal|My flatmate is an early bird.","p|get up|to leave your bed|levantar-se|I get up at seven.","p|wake up|to stop sleeping|acordar|I wake up at 6:30.","c|How often do you…?|You ask how many times someone does something.|Com que frequência você…?|How often do you go to the gym? — Twice a week.","c|on weekdays|from Monday to Friday|nos dias de semana|I get up early on weekdays.","c|in my free time|when you are not working or studying|no meu tempo livre|In my free time, I watch series.","p|sleep in|to sleep later than usual|dormir até mais tarde|I sleep in on Sundays.","i|a night owl|a person who goes to bed very late|pessoa notívaga, coruja|My brother is a night owl. He goes to bed at 2 a.m."],
 "a1-3":["p|get on|to enter a bus, train or plane|entrar (no ônibus, trem)|Get on the bus at the next stop.","c|Excuse me, …|a polite way to start a question to a stranger|Com licença, …|Excuse me, is there a bank near here?","c|How do I get to…?|You ask for directions.|Como eu chego a…?|How do I get to the station?","c|It's a five-minute walk.|You need five minutes on foot.|São cinco minutos a pé.|The pharmacy? It's a five-minute walk.","c|You can't miss it.|It is very easy to see.|Não tem como errar.|It's a big red building. You can't miss it.","i|a stone's throw away|very near|a um pulo daqui|The beach is a stone's throw away.","p|get off|to leave a bus or train|descer (do ônibus, do trem)|Get off at the next stop.","p|look for|to try to find|procurar|I'm looking for a pharmacy."],
 "a1-4":["p|run out of|to have no more of something|ficar sem|We've run out of milk. Can you buy some?","c|Can I have…, please?|You order politely.|Pode me ver…, por favor?|Can I have a coffee, please?","c|I'd like…|a polite form of I want|Eu gostaria de…|I'd like some orange juice.","c|Anything else?|The waiter asks if you want more.|Mais alguma coisa?|Anything else? — No, thanks.","c|Here you are.|You say this when you give something.|Aqui está.|Here you are. — Thank you!","i|not my cup of tea|I don't like it very much.|não é a minha praia|Coffee is not my cup of tea. I prefer juice.","i|a piece of cake|very easy|moleza / mamão com açúcar|Ordering in English is a piece of cake now.","p|eat out|to eat in a restaurant|comer fora|We eat out on Fridays.","p|try on|to put on clothes to see if they fit|experimentar (roupa)|Can I try on this jacket?"],
@@ -5143,7 +5145,7 @@ function race(m){
 }
 /* more bug-zapper sentences: "wrong|right", many of them typical mistakes of Brazilian learners */
 var ZAPX={
-"a1-1":["I have 25 years.|I am 25 years old.","I am with hunger.|I am hungry.","Is very cold today.|It is very cold today.","My mother is teacher.|My mother is a teacher.","He is engineer.|He is an engineer.","I am from Brasil.|I am from Brazil.","They is my friends.|They are my friends.","We is students.|We are students.","Are you agree?|Do you agree?","I am agree with you.|I agree with you.","My name are Ana.|My name is Ana.","Where you are from?|Where are you from?","She is a nurse very good.|She is a very good nurse.","How is your name?|What is your name?","Her name is Pedro.|His name is Pedro.","I'm 20 years.|I'm 20 years old.","I have cold.|I am cold.","Is she your sister? — Yes, she's.|Is she your sister? — Yes, she is.","The people is very friendly here.|The people are very friendly here.","I'm married with a doctor.|I'm married to a doctor.","Where is from your teacher?|Where is your teacher from?"],
+"a1-1":["I have 25 years.|I am 25 years old.","I have a doubt about the homework.|I have a question about the homework.","I am with hunger.|I am hungry.","Is very cold today.|It is very cold today.","My mother is teacher.|My mother is a teacher.","He is engineer.|He is an engineer.","I am from Brasil.|I am from Brazil.","They is my friends.|They are my friends.","We is students.|We are students.","Are you agree?|Do you agree?","I am agree with you.|I agree with you.","My name are Ana.|My name is Ana.","Where you are from?|Where are you from?","She is a nurse very good.|She is a very good nurse.","How is your name?|What is your name?","Her name is Pedro.|His name is Pedro.","I'm 20 years.|I'm 20 years old.","I have cold.|I am cold.","Is she your sister? — Yes, she's.|Is she your sister? — Yes, she is.","The people is very friendly here.|The people are very friendly here.","I'm married with a doctor.|I'm married to a doctor.","Where is from your teacher?|Where is your teacher from?"],
 "a1-2":["She work in a bank.|She works in a bank.","He don't like coffee.|He doesn't like coffee.","Do she play tennis?|Does she play tennis?","My father go to work by bus.|My father goes to work by bus.","I wake up always at seven.|I always wake up at seven.","She doesn't works on Sundays.|She doesn't work on Sundays.","He watchs TV every night.|He watches TV every night.","My sister studys English.|My sister studies English.","I go to the gym in Mondays.|I go to the gym on Mondays.","I study English at the afternoon.|I study English in the afternoon.","I have breakfast in the bed.|I have breakfast in bed.","What time you get up?|What time do you get up?","He haves breakfast at eight.|He has breakfast at eight.","Never I eat meat.|I never eat meat.","I wake up 7 o'clock.|I wake up at 7 o'clock.","I take a coffee every morning.|I have a coffee every morning.","She makes her homework after dinner.|She does her homework after dinner.","He goes to home after work.|He goes home after work.","Do you like mornings? — Yes, I like.|Do you like mornings? — Yes, I do.","I study English everyday.|I study English every day.","I go to the work by bus.|I go to work by bus.","I watch series in the night.|I watch series at night."],
 "a1-3":["Have a bank near here.|There is a bank near here.","Have many cafés in my street.|There are many cafés in my street.","There is two hotels here.|There are two hotels here.","I can to swim.|I can swim.","She cans drive.|She can drive.","Do you can help me?|Can you help me?","The pharmacy is in front the bank.|The pharmacy is in front of the bank.","Turn in the right.|Turn right.","The museum is in the Park Street.|The museum is on Park Street.","I live at Brazil.|I live in Brazil.","Is there any restaurants here?|Are there any restaurants here?","Wait me at the bus stop.|Wait for me at the bus stop.","The bank is next the school.|The bank is next to the school.","I can't to find the station.|I can't find the station."],
 "a1-4":["How much apples do you want?|How many apples do you want?","How many money do you have?|How much money do you have?","I want a bread, please.|I'd like some bread, please.","Can I have two coffee, please?|Can I have two coffees, please?","I need an information.|I need some information.","We don't have some milk.|We don't have any milk.","Do you have some eggs?|Do you have any eggs?","How much it costs?|How much does it cost?","I want to pay with card of credit.|I'd like to pay by credit card.","Give me a water.|Can I have a glass of water, please?","There is many people in the café.|There are many people in the café.","How much cost this juice?|How much does this juice cost?","I'd like some informations.|I'd like some information.","She buyed some cheese.|She bought some cheese."],
@@ -6083,35 +6085,48 @@ function wdoll(m){
       b.innerHTML=dollSVG(o,p.s==="full"?70:76,DVB[p.s],true);
       b.appendChild(h("small",null,done1?dPiece(p):(lvl<=2?p.n.split("").map(function(ch,i){return i===0?ch:(ch==="-"?"-":"_")}).join(" "):"?")));row.appendChild(b)});
     card.appendChild(row)}
+  var fine=!window.matchMedia||matchMedia("(pointer:fine)").matches,over=false;
+  function foc(){if(fine)try{inp.focus({preventScroll:true})}catch(e){}}
   function round(){if(my!==tok)return;if(ri>=ROUNDS){end(true);return}
     outfit=newOutfit();dressed={};todo=outfit.slice();picking=null;optBox.innerHTML="";msg.textContent="";draw();score();drawCard();
-    inp.disabled=false;inp.value="";try{inp.focus({preventScroll:true})}catch(e){}
+    inp.disabled=false;inp.value="";foc();
     ui.talk("Look at the clothes. Write the name of each piece.")}
   function submit(){if(GP.on||picking)return;var x=inp.value;if(!norm(x))return;var k=which(x);inp.value="";
     if(!k){msg.textContent="🤔 “"+x+"”? Check the spelling!";msg.className="dlmsg bad";return}
     var p=todo.filter(function(q){return q.n===k})[0];
     if(!p){msg.textContent=outfit.some(function(q){return q.n===k})?"✓ The "+k+" is already on.":"“"+k+"” is a clothes word, but it isn't in this picture.";msg.className="dlmsg";return}
-    msg.textContent="✓ "+k+"! "+(lvl<=2?"What colour is it?":"Which one is it?");msg.className="dlmsg ok";choose(p)}
+    msg.textContent="✓ "+k+"! "+(lvl<=2?"What colour is it?":lvl>=5?"Now describe it: size → colour → noun.":"Which one is it?");msg.className="dlmsg ok";choose(p)}
   function choose(p){picking=p;inp.disabled=true;drawCard();optBox.innerHTML="";
+    if(!fine)setTimeout(function(){try{optBox.scrollIntoView({block:"nearest",behavior:"smooth"})}catch(e){}},60);
+    if(lvl>=5){describe(p);return}
     var right=lvl<=2?p.c:(lvl===3?dPiece(p):dArt(dPiece(p))+dPiece(p)),opts=[right],cs=shuffle(CL.filter(function(c){return c!==p.c}));
     function phr(q,swap){var w=(q.z?(swap?q.c+" "+q.z:q.z+" "+q.c):q.c)+" "+q.n;return lvl>=4?dArt(w)+w:w}
     if(lvl>=4&&p.z)opts.push(phr(p,true));
     if(lvl>=3&&p.z)opts.push(lvl>=4?phr({z:p.z==="long"?"short":"long",c:p.c,n:p.n}):(p.z==="long"?"short":"long")+" "+p.c+" "+p.n);
     while(opts.length<NOPT){var c=cs.shift();var o=lvl<=2?c:(lvl===3?(p.z?p.z+" ":"")+c+" "+p.n:phr({z:p.z,c:c,n:p.n}));if(opts.indexOf(o)<0)opts.push(o)}
     shuffle(opts).forEach(function(o){var b=h("button",{class:"opt dlopt"},o);b.onclick=function(){if(GP.on||picking!==p)return;if(o===right)ok(b);else bad(b,o,right)};optBox.appendChild(b)})}
+  /* level 5: write the whole description (a long red dress) */
+  function describe(p){var w=dPiece(p),want=dArt(w)+w,pi=h("input",{class:"dlin",type:"text",autocomplete:"off",autocapitalize:"off",spellcheck:"false",placeholder:"a long red dress…","aria-label":"Describe the piece: size, colour, noun"}),pb=h("button",{class:"btn"},"OK");
+    function chk(){if(GP.on||picking!==p||over)return;var x=norm(pi.value).replace(/\bgray\b/g,"grey");if(!x)return;var am=x.match(/^(a|an) /),y=x.replace(/^(a|an) /,"");
+      if(y===w&&(!am||am[0]===dArt(w))){msg.textContent="✓ "+want+"!";msg.className="dlmsg ok";ok(pb);return}
+      var why=y===w?(dArt(w)?"✗ Check a / an: "+want+".":"✗ No a / an with "+p.n+": "+w+"."):(y.split(" ").sort().join(" ")===w.split(" ").sort().join(" ")?"✗ Check the order: size → colour → noun.":"✗ Not “"+pi.value.trim()+"”. Look at the picture again.");
+      hearts--;score();msg.textContent=why;msg.className="dlmsg bad";miss(m,"doll","Dress the doll: describe the "+p.n,pi.value.trim(),want,"Size → colour → noun.");pi.value="";
+      if(hearts<=0){end(false);return}if(fine)try{pi.focus({preventScroll:true})}catch(e){}}
+    pb.onclick=chk;pi.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();chk()}});
+    inp.parentNode.style.display="none";optBox.appendChild(h("div",{class:"dlrow",style:"flex:1 1 100%"},pi,pb));if(fine)try{pi.focus({preventScroll:true})}catch(e){}}
   function ok(b){var p=picking;picking=null;b.classList.add("ok");if(p.s==="full"){delete dressed.top;delete dressed.bottom}if(p.s==="top"||p.s==="bottom")delete dressed.full;
     dressed[p.s]=p;todo=todo.filter(function(q){return q!==p});draw();drawCard();ui.talk(pick(["Perfect!","Looking good!","Nice choice!"])+" "+dArt(dPiece(p))+dPiece(p)+".");
-    setTimeout(function(){if(my!==tok)return;optBox.innerHTML="";inp.disabled=false;try{inp.focus({preventScroll:true})}catch(e){}
+    setTimeout(function(){if(my!==tok||over)return;optBox.innerHTML="";inp.disabled=false;inp.parentNode.style.display="";foc();
       if(!todo.length){done++;score();msg.textContent="🎉 Outfit complete!";msg.className="dlmsg ok";ri++;setTimeout(function(){if(my===tok)round()},1100)}},500)}
-  function bad(b,o,right){b.classList.add("bad");b.disabled=true;hearts--;score();
+  function bad(b,o,right){if(over)return;b.classList.add("bad");b.disabled=true;hearts--;score();
     msg.textContent=lvl>=4&&o.indexOf(picking.c)>=0&&picking.z&&o.indexOf(picking.z)>=0?"✗ Check the order: size → colour → noun.":"✗ Not "+o+". Look at the picture again.";msg.className="dlmsg bad";
     miss(m,"doll","Dress the doll: "+dPiece(picking),o,right,lvl>=4?"Size → colour → noun.":"");if(hearts<=0)end(false)}
-  function end(win){if(my!==tok)return;inp.disabled=true;setTimeout(function(){if(my===tok)arcadeEnd(m,"doll",win,done+" outfits · "+(3-hearts)+" mistakes",lvl)},700)}
+  function end(win){if(my!==tok||over)return;over=true;picking=null;inp.disabled=true;[].forEach.call(optBox.querySelectorAll("button,input"),function(x){x.disabled=true});setTimeout(function(){if(my===tok)arcadeEnd(m,"doll",win,done+" outfits · "+(3-hearts)+" mistakes",lvl)},700)}
   go1.onclick=submit;inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();submit()}});
   score();draw();ui.ready(function(){if(my===tok)round()});
 }
 GAMES.doll=wdoll;GICONS.doll="👗";GLIST.push("doll");TURNG.push("doll");
-HOW.doll=function(l){return [["👀","Look at the clothes in the picture."],["⌨️","Write the name of each piece (dress, boots…) and press Enter."],["🎨",l<=2?"Then choose its colour.":l===3?"Then choose the right one: size and colour.":"Then choose the right words, in the right order: a long red dress."],["❤️","A wrong choice costs a heart. Dress 4 outfits to win."]]};
+HOW.doll=function(l){return [["👀","Look at the clothes in the picture."],["⌨️","Write the name of each piece (dress, boots…) and press Enter."],["🎨",l<=2?"Then choose its colour.":l===3?"Then choose the right one: size and colour.":l===4?"Then choose the right words, in the right order: a long red dress.":"Then write it all, in the right order: a long red dress."],["❤️","A wrong choice costs a heart. Dress 4 outfits to win."]]};
 COACH.doll=[[".dlcard","These are the clothes for your doll."],[".dlrow","Write the name of a piece and press Enter. Then choose its colour."],[".dlfig","Your doll gets dressed piece by piece."]];
 Object.assign(T.en,{doll:"Dress the doll",dollD:"See the clothes, write their names, then choose the right colour."});
 Object.assign(T.pt,{doll:"Dress the doll",dollD:"Veja as roupas, escreva o nome e escolha a cor certa."});
@@ -6127,7 +6142,7 @@ M.splice(M.findIndex(function(x){return x.id==="b1-6"})+1,0,{id:"b1-7",lv:"B1",t
  quiz:[
   ["I'm not sure, but we ___ find life on another planet.",["might","will certainly","are"],"Not sure → might / may / could."],
   ["Scientists are certain: the Sun ___ rise tomorrow.",["will","might","may not"],"Certain → will."],
-  ["Mars ___ be too cold for humans. Nobody knows yet.",["could","must to","is likely"],"Possibility → could + verb."],
+  ["There ___ be water under the ice on Europa. Nobody knows yet.",["could","must to","is likely"],"Possibility → could + verb."],
   ["Saturn is famous for ___ rings.",["its","it's","their"],"its = belonging to it. it's = it is."],
   ["Which is the closest planet to the Sun?",["Mercury","Venus","Mars"],"Mercury is the closest; Venus is the hottest."]],
  build:["People might live on Mars one day.","Jupiter is the biggest planet in our solar system.","We will probably see a comet next year.","Astronauts are likely to return to the Moon soon."],
@@ -6138,10 +6153,10 @@ Object.assign(BD,{
 "Jupiter is the biggest planet in our solar system.":"svoaoddddd|Say which planet is the biggest.|Júpiter é o maior planeta do nosso sistema solar.",
 "We will probably see a comet next year.":"svdvoodd|Make a prediction you are quite sure about.|Provavelmente veremos um cometa no ano que vem.",
 "Astronauts are likely to return to the Moon soon.":"svavvdddd|Say what will probably happen.|É provável que astronautas voltem à Lua em breve."});
-GR["b1-7"]={pts:[{t:"Predictions: will, might, may, could",use:"Use will when you are sure about the future. Use might, may or could when it's only possible. After all of them, use the verb without to. Add probably or definitely to say how sure you are.",pt:"Em português dizemos vai, talvez, pode ser que. Em inglês: will para certeza, might / may / could para possibilidade. Depois deles, o verbo vem sem to e sem -s: it might rain, she may come.",
-  form:[["sure","will · won't: The Sun will rise tomorrow."],["probably","will probably · probably won't: We'll probably go."],["possible","might · may · could: It might rain. They may come."],["not possible","might not · may not: He might not come. (not could not for possibility)"],["no to, no -s","✓ it might be · ✗ it might to be · ✗ it mights be"]],
+GR["b1-7"]={pts:[{t:"Predictions: will, might, may, could",use:"Use will when you are sure about the future. Use might, may or could when it's only possible. Use can't when it's impossible. After will, might, may and could, use the verb without to. Add probably or definitely to say how sure you are.",pt:"Em português dizemos vai, talvez, pode ser que. Em inglês: will para certeza, might / may / could para possibilidade. Depois deles, o verbo vem sem to e sem -s: it might rain, she may come.",
+  form:[["sure","will · won't: The Sun will rise tomorrow."],["probably","will probably · probably won't: We'll probably go."],["possible","might · may · could: It might rain. They may come."],["possibly not","might not · may not: He might not come. (= maybe he won't)"],["impossible","can't · couldn't: That can't be true. · People couldn't live on the Sun."],["no to, no -s","✓ it might be · ✗ it might to be · ✗ it mights be"]],
   ex:["Humans will probably go to Mars.","We might find life on another planet."],bad:["It might to be cold on Mars.","It might be cold on Mars."]},
- {t:"Be likely to · comparing planets",use:"Be likely to + verb = will probably. It is formal and common in news about science. To compare planets, use comparatives and superlatives: bigger than, the biggest, more distant than, the most distant.",pt:"Be likely to = é provável que. Para comparar: big → bigger → the biggest; distant → more distant → the most distant. Lembre: its (dele/dela) não tem apóstrofo.",
+ {t:"Be likely to · comparing planets",use:"Be likely to + verb = will probably. It is very common in news about science. To compare planets, use comparatives and superlatives: bigger than, the biggest, more distant than, the most distant.",pt:"Be likely to = é provável que. Para comparar: big → bigger → the biggest; distant → more distant → the most distant. Lembre: its (dele/dela) não tem apóstrofo.",
   form:[["likely","They're likely to launch it today. · It isn't likely to rain."],["short words","hot → hotter → the hottest · big → bigger → the biggest"],["long words","distant → more distant → the most distant"],["its / it's","Saturn and its rings · It's (= it is) cold."]],
   ex:["Venus is the hottest planet.","Tourists are likely to visit the Moon soon."],bad:["Mars is more small than Earth.","Mars is smaller than Earth."]}],
  qc:[["We ___ find water, but we're not sure.",["might","will","are going"]],["It might ___ very cold tonight.",["be","to be","being"]],["Jupiter is ___ planet.",["the biggest","the most big","the bigger"]],["Prices are likely ___ go up.",["to","—","for"]]]};
@@ -6162,6 +6177,8 @@ PIC["b1-7"]="🪐🚀🌙";LABMAP["b1-7"]="trip";
 if(typeof REVIEWM!=="undefined")REVIEWM["b1-7"]=["a2-2","a2-3"];
 TONE["b1-7"]="sky";
 /* ---------- Word darts: hit the words in order to build the sentence, or hit the word that fills the gap ---------- */
+/* canvas text: grow the words when the board is shown small (phones) */
+function cvScale(cv,W){var r=cv.getBoundingClientRect().width||W;return Math.max(1,Math.min(1.8,.8*W/r))}
 function dartSents(m){var out=[];(m.build||[]).forEach(function(s){out.push(s)});(m.speed||[]).forEach(function(x){if(x[1]===1)out.push(x[0])});
   return out.filter(function(s){var n=s.split(" ").length;return n>=3&&n<=8})}
 function dartGaps(m){var B=BK[m.id]||{},out=[];Object.keys(B).forEach(function(k){(B[k]||[]).forEach(function(str){if(typeof str!=="string")return;var a=str.split("|");if(a.length>=3&&a[0].indexOf("___")>=0&&a.slice(1).every(function(x){return x.length<=16}))out.push(a)})});return out}
@@ -6200,13 +6217,13 @@ function wdarts(m){
       ui.talk(cur1.k==="build"?"Look for word "+(step+1)+".":"Read the sentence again.");if(hearts<=0)end(false)}}
   function end(win){if(my!==tok)return;cur1=null;setTimeout(function(){if(my===tok)arcadeEnd(m,"darts",win,done+" rounds · "+(3-hearts)+" mistakes",lvl)},600)}
   function rr(x,y,w,h2,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h2,r);cx.arcTo(x+w,y+h2,x,y+h2,r);cx.arcTo(x,y+h2,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
-  function frame(){if(my!==tok)return;var t=now();
+  function frame(){if(my!==tok)return;var t=now(),FS=cvScale(cv,W);
     var bg=cx.createLinearGradient(0,0,0,H);bg.addColorStop(0,"#2b1d4a");bg.addColorStop(1,"#1a1030");cx.fillStyle=bg;cx.fillRect(0,0,W,H);
     cx.fillStyle="rgba(255,255,255,.04)";for(var px=0;px<W;px+=40)cx.fillRect(px,0,20,H);
     targets.forEach(function(tg){var sh=tg.shake&&t-tg.shake<400?Math.sin((t-tg.shake)/25)*6:0,x=tg.x+sh,y=tg.y;
       var rings=["#e63946","#f4f4f4","#e63946","#f4f4f4","#2a9d8f"];for(var k=0;k<5;k++){cx.beginPath();cx.arc(x,y,tg.r*(1-k*.18),0,7);cx.fillStyle=tg.hit?"rgba(60,207,159,"+(.35+k*.1)+")":rings[k];cx.fill()}
-      cx.font="800 "+(tg.w.length>9?14:17)+"px system-ui";cx.textAlign="center";cx.textBaseline="middle";var tw=cx.measureText(tg.w).width+16;
-      cx.fillStyle=tg.hit?"#3ccf9f":"#12152e";rr(x-tw/2,y-14,tw,28,10);cx.fill();cx.fillStyle=tg.hit?"#06261b":"#fff";cx.fillText(tg.w,x,y+1)});
+      cx.font="800 "+Math.round((tg.w.length>9?14:17)*FS)+"px system-ui";cx.textAlign="center";cx.textBaseline="middle";var tw=cx.measureText(tg.w).width+16;
+      cx.fillStyle=tg.hit?"#3ccf9f":"#12152e";rr(x-tw/2,y-14*FS,tw,28*FS,10);cx.fill();cx.fillStyle=tg.hit?"#06261b":"#fff";cx.fillText(tg.w,x,y+1)});
     fx=fx.filter(function(f){return t-f.t<900});fx.forEach(function(f){var a=1-(t-f.t)/900;cx.strokeStyle=f.ok?"rgba(60,207,159,"+a+")":"rgba(255,255,255,"+a+")";cx.lineWidth=3;cx.beginPath();cx.arc(f.x,f.y,8+(1-a)*20,0,7);cx.stroke();
       cx.fillStyle="#ffd166";cx.beginPath();cx.arc(f.x,f.y,4,0,7);cx.fill()});
     if(dart){var p=Math.min(1,(t-dart.t0)/260),x2=dart.x0+(dart.x-dart.x0)*p,y2=dart.y0+(dart.y-dart.y0)*p,sc=1.6-p*.8;
@@ -6226,6 +6243,50 @@ COACH.darts=[[".dtask","Read the task here."],[".court.dartc","The yellow target
 Object.assign(T.en,{darts:"Word darts",dartsD:"Hit the words in order to build the sentence, or hit the missing word."});
 Object.assign(T.pt,{darts:"Word darts",dartsD:"Acerte as palavras na ordem para montar a frase, ou acerte a palavra que falta."});
 
+/* ---------- Sure-o-meter (Space): how sure is each prediction? ---------- */
+var SUREZ=[["sure","💯","Sure","will · won't · definitely","#3ccf9f"],["prob","👍","Probably","probably · likely to","#4cc9f0"],["maybe","🤔","Maybe","might · may · could","#ffd166"],["no","🚫","Impossible","can't · couldn't","#ff6b6b"]];
+var SURES=[["The Sun will rise tomorrow.","sure","will"],["Winter will come after autumn.","sure","will"],["We'll definitely see the launch on TV.","sure","definitely"],["The rocket will land on Friday. It's all planned.","sure","will"],["Jupiter will still be the biggest planet next year.","sure","will"],["The Moon won't fall on Earth tonight.","sure","won't",1],["Astronauts won't find oceans on the Sun.","sure","won't",1],
+ ["Astronauts are likely to return to the Moon soon.","prob","likely to"],["We'll probably see a comet next year.","prob","probably"],["It's likely to be cloudy during the eclipse.","prob","likely to"],["Space trips are likely to get cheaper.","prob","likely to"],["She'll probably become an astronaut.","prob","probably"],["Space hotels probably won't open this year.","prob","probably won't",1],["It isn't likely to rain on the day of the launch.","prob","isn't likely to",1],
+ ["There might be life on Europa.","maybe","might"],["Space tourism may become popular.","maybe","may"],["Mars could have water under the ground.","maybe","could"],["Aliens may exist somewhere.","maybe","may"],["The mission could take ten years.","maybe","could"],["People might live on Mars one day.","maybe","might"],["We might not see the comet tonight.","maybe","might not",1],["The astronauts may not come back this year.","maybe","may not",1],
+ ["People can't live on the Sun.","no","can't"],["You can't breathe in space without a suit.","no","can't"],["A car can't drive to the Moon.","no","can't"],["That can't be a star. It's a plane!","no","can't"],["Fish can't swim on the Moon.","no","can't"],["Humans couldn't survive on Venus. It's far too hot.","no","couldn't",1],["Nobody could walk on Jupiter. It has no ground.","no","could",1]];
+function wsure(m){
+  var ui=arcade(m,"sure"),lvl=lvOf(m,"sure"),my=tok,_tm=gTimer(ui,m,"sure",lvl);
+  var ZN=lvl===1?["sure","maybe","no"]:["sure","prob","maybe","no"],SEC=[0,0,0,10,7][lvl-1],ROUNDS=10,hearts=3,done=0,ri=0,combo=0,pts=0,lock=true,tm=null,left=0,q=null;
+  var pool=shuffle(SURES.filter(function(s){return ZN.indexOf(s[1])>=0&&(lvl>=3||!s[3])})).slice(0,ROUNDS);
+  cur.pk="sure";cur.pts=0;
+  var card=h("div",{class:"dtask"}),tbar=h("div",{class:"suret",role:"timer"}),meter=h("div",{class:"surem",role:"group","aria-label":"How sure is it?"}),after=h("p",{class:"dlmsg",role:"status"});
+  ui.stage.appendChild(h("div",{class:"surestage"},card,tbar,meter,after));
+  function hv(){return Math.max(0,hearts)}
+  function score(){ui.board([faceEl()," "+t("you")],pts+" pts",[t("level")+" "+lvl,"Sentence "+Math.min(ri+1,ROUNDS)+" / "+ROUNDS+(combo>=2?" · 🔥 x"+Math.min(3,combo):"")],t("lives"),"♥♥♥".slice(0,hv())+"♡♡♡".slice(0,3-hv()))}
+  function zone(id){return SUREZ.filter(function(z){return z[0]===id})[0]}
+  function stopT(){if(tm){clearInterval(tm);tm=null}tbar.textContent=""}
+  function startT(){stopT();if(!SEC)return;left=SEC;tbar.textContent="⏱ "+left+"s";
+    tm=setInterval(function(){if(my!==tok){stopT();return}if(GP.on||lock)return;left--;tbar.textContent="⏱ "+left+"s";if(left<=0){stopT();answer(null,null)}},1000)}
+  function mark(s,k){var i=s.toLowerCase().indexOf(k.toLowerCase());return i<0?[s]:[s.slice(0,i),h("mark",null,s.slice(i,i+k.length)),s.slice(i+k.length)]}
+  function round(){if(my!==tok)return;if(ri>=ROUNDS||ri>=pool.length){end(true);return}
+    q=pool[ri];lock=false;after.textContent="";after.className="dlmsg";
+    card.innerHTML="";card.appendChild(h("span",{class:"label"},"🔭 How sure is this prediction?"));card.appendChild(h("p",{class:"dq"},q[0]));
+    meter.innerHTML="";ZN.forEach(function(id,i){var z=zone(id),b=h("button",{class:"surez",style:"--zc:"+z[4],"data-z":id,"aria-label":(i+1)+": "+z[2]+" ("+z[3]+")"},h("span",{class:"surei"},z[1]),h("b",null,z[2]),lvl<=2?h("small",null,z[3]):null);
+      b.onclick=function(){if(lock||GP.on)return;answer(id,b)};meter.appendChild(b)});
+    score();startT();ui.talk(pick(["How sure is it?","Sure, probably, maybe or impossible?","Find the key word!"]))}
+  function answer(id,b){if(lock||my!==tok)return;lock=true;stopT();var z=zone(q[1]),good=id===q[1];
+    [].forEach.call(meter.children,function(x){if(x.getAttribute("data-z")===q[1])x.classList.add("ok");else if(x===b)x.classList.add("bad");x.disabled=true});
+    var dq=card.querySelector(".dq");dq.innerHTML="";mark(q[0],q[2]).forEach(function(x){dq.appendChild(typeof x==="string"?document.createTextNode(x):x)});
+    if(good){combo++;var g=10*Math.min(3,combo);pts+=g;cur.pts=pts;done++;after.className="dlmsg ok";after.textContent="✓ “"+q[2]+"” → "+z[2]+" · +"+g+(combo>=2?" 🔥":"");ui.talk(pick(["Exactly!","Spot on!","Yes, that's it!"]))}
+    else{combo=0;hearts--;after.className="dlmsg bad";after.textContent=(id?"✗ ":"⏱ Time's up! ")+"“"+q[2]+"” → "+z[2]+" ("+z[3]+").";miss(m,"sure",q[0],id?zone(id)[2]:"(time)",z[2],"“"+q[2]+"” → "+z[2]+".");ui.talk("Look at the key word: "+q[2]+".")}
+    score();if(hearts<=0){end(false);return}
+    ri++;setTimeout(function(){if(my===tok)round()},good?1200:2200)}
+  function end(win){if(my!==tok)return;stopT();lock=true;setTimeout(function(){if(my===tok)arcadeEnd(m,"sure",win,done+" / "+ROUNDS+" right · "+(3-hv())+" mistakes",lvl)},700)}
+  keyh=function(e){var n=+e.key;if(n>=1&&n<=ZN.length&&!lock&&!GP.on){e.preventDefault();answer(ZN[n-1],meter.children[n-1])}};window.addEventListener("keydown",keyh);
+  score();ui.ready(function(){if(my===tok)round()});
+}
+GAMES.sure=wsure;GICONS.sure="🔭";GLIST.push("sure");TURNG.push("sure");
+HOW.sure=function(l){return [["🔭","Read a prediction about space."],["🎯",l===1?"Choose how sure it is: Sure, Maybe or Impossible.":"Choose how sure it is: Sure, Probably, Maybe or Impossible."],["🔑","Look for the key word: will, probably, likely to, might, may, could, can't."],["🔥","Right answers in a row give more points (x2, x3)."],["❤️","A wrong answer costs a heart. Get through 10 sentences to win."+([0,0,0,10,7][l-1]?" You have "+[0,0,0,10,7][l-1]+" seconds for each one.":"")]]};
+COACH.sure=[[".dtask","Read the prediction."],[".surem","How sure is it? Look for the key word and choose. You can also press 1, 2, 3 or 4."]];
+Object.assign(T.en,{sure:"Sure-o-meter",sureD:"How sure is each prediction? Sure, probably, maybe or impossible?"});
+Object.assign(T.pt,{sure:"Sure-o-meter",sureD:"Qual é a certeza de cada previsão? Certeza, provável, talvez ou impossível?"});
+(function(){var hg=hasGame;hasGame=function(m,k){if(k==="sure")return m.id==="b1-7";return hg(m,k)}})();
+
 /* ---------- Cross the road: cross the traffic and walk into the door with the right word ---------- */
 function crossGaps(m){return dartGaps(m).filter(function(a){return a.slice(1,4).every(function(x){return x.length<=12})})}
 function wcross(m){
@@ -6233,7 +6294,7 @@ function wcross(m){
   var LANES=[0,2,3,3,4,4][lvl],SPD=[0,60,80,105,130,160][lvl],ROUNDS=6,hearts=3,done=0,ri=0,qs=shuffle(crossGaps(m)),q=null;
   var cv=h("canvas",{width:W,height:H,class:"court crossc","aria-label":"Cross the road: move with the arrows"}),cx=cv.getContext("2d"),task=h("div",{class:"dtask"});
   ui.stage.appendChild(task);ui.stage.appendChild(cv);
-  ui.stage.appendChild(h("div",{class:"penctl crossctl"},h("button",{class:"btn ghost","aria-label":"Left",onclick:function(){mv(-1,0)}},"◀"),h("button",{class:"btn shoot","aria-label":"Forward",onclick:function(){mv(0,-1)}},"▲ GO"),h("button",{class:"btn ghost","aria-label":"Back",onclick:function(){mv(0,1)}},"▼"),h("button",{class:"btn ghost","aria-label":"Right",onclick:function(){mv(1,0)}},"▶")));
+  ui.stage.appendChild(h("div",{class:"penctl crossctl"},h("button",{class:"btn shoot cu","aria-label":"Forward",onclick:function(){mv(0,-1)}},"▲ GO"),h("button",{class:"btn ghost cl","aria-label":"Left",onclick:function(){mv(-1,0)}},"◀"),h("button",{class:"btn ghost cd","aria-label":"Back",onclick:function(){mv(0,1)}},"▼"),h("button",{class:"btn ghost cr","aria-label":"Right",onclick:function(){mv(1,0)}},"▶")));
   var COLS=8,CW=W/COLS,TOP=70,RH=(H-TOP-60)/LANES,px=3,py=LANES+1,cars=[],doors=[],flash=null,dead=0,txt=null;
   function rowY(r){return r===0?TOP-35:r===LANES+1?H-30:TOP+(r-.5)*RH}
   function now(){return gclk(performance.now())}
@@ -6254,11 +6315,11 @@ function wcross(m){
     setTimeout(function(){if(my!==tok)return;dead=0;px=3;py=LANES+1;if(hearts<=0)end(false)},700)}
   function end(win){if(my!==tok)return;q=null;setTimeout(function(){if(my===tok)arcadeEnd(m,"cross",win,done+" doors · "+(3-hearts)+" mistakes",lvl)},600)}
   var last=0;
-  function frame(){if(my!==tok)return;var t=now(),dt=last?Math.min(.05,(t-last)/1000):0;last=t;
+  function frame(){if(my!==tok)return;var t=now(),dt=last?Math.min(.05,(t-last)/1000):0,FS=cvScale(cv,W);last=t;
     cx.fillStyle="#2d6a4f";cx.fillRect(0,0,W,H);
     /* buildings with doors */
     cx.fillStyle="#3b3f8f";cx.fillRect(0,0,W,TOP-10);
-    doors.forEach(function(d){var x=d.c*CW+6,w=d.cw*CW-12;cx.fillStyle="#8d5524";cx.fillRect(x,8,w,TOP-18);cx.fillStyle="#ffd166";cx.font="800 "+(d.w.length>8?14:17)+"px system-ui";cx.textAlign="center";cx.textBaseline="middle";cx.fillText(d.w,x+w/2,TOP/2-2)});
+    doors.forEach(function(d){var x=d.c*CW+6,w=d.cw*CW-12;cx.fillStyle="#8d5524";cx.fillRect(x,8,w,TOP-18);cx.fillStyle="#ffd166";var fz=Math.round((d.w.length>8?14:17)*FS);cx.font="800 "+fz+"px system-ui";while(fz>11&&cx.measureText(d.w).width>w-8){fz--;cx.font="800 "+fz+"px system-ui"}cx.textAlign="center";cx.textBaseline="middle";cx.fillText(d.w,x+w/2,TOP/2-2)});
     cx.fillStyle="#9aa0a6";cx.fillRect(0,TOP-10,W,12);cx.fillRect(0,H-58,W,58);
     /* road */
     cx.fillStyle="#343a40";cx.fillRect(0,TOP+2,W,LANES*RH);
@@ -6272,13 +6333,19 @@ function wcross(m){
     if(txt&&t-txt.t<1200){cx.globalAlpha=1-(t-txt.t)/1200;cx.font="900 24px system-ui";cx.lineWidth=5;cx.strokeStyle="#12152e";cx.strokeText(txt.s,W/2,H-30);cx.fillStyle=txt.c;cx.fillText(txt.s,W/2,H-30);cx.globalAlpha=1}
     raf=requestAnimationFrame(frame)}
   keyh=function(e){var K={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(K){e.preventDefault();mv(K[0],K[1])}};window.addEventListener("keydown",keyh);
-  cv.addEventListener("pointerdown",function(e){e.preventDefault();var r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H,wx=(px+.5)*CW,wy=rowY(py);
+  /* swipe up / left / right / down on the board, or tap where you want to go */
+  var sw=null;
+  cv.addEventListener("pointerdown",function(e){e.preventDefault();sw={x:e.clientX,y:e.clientY,id:e.pointerId};try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+  cv.addEventListener("pointercancel",function(){sw=null});
+  cv.addEventListener("pointerup",function(e){if(!sw||sw.id!==e.pointerId)return;var dx=e.clientX-sw.x,dy=e.clientY-sw.y,s0=sw;sw=null;e.preventDefault();
+    if(Math.max(Math.abs(dx),Math.abs(dy))>=24){if(Math.abs(dy)>Math.abs(dx))mv(0,dy<0?-1:1);else mv(dx<0?-1:1,0);return}
+    var r=cv.getBoundingClientRect(),x=(s0.x-r.left)/r.width*W,y=(s0.y-r.top)/r.height*H,wx=(px+.5)*CW,wy=rowY(py);
     if(Math.abs(y-wy)>Math.abs(x-wx))mv(0,y<wy?-1:1);else mv(x<wx?-1:1,0)});
   score();raf=requestAnimationFrame(frame);ui.ready(function(){if(my===tok)round()});
 }
 GAMES.cross=wcross;GICONS.cross="🚦";GLIST.push("cross");
-HOW.cross=function(l){return [["🚶","Move with the arrows (or tap where you want to go)."],["🚗","Don't let the cars hit you!"],["🚪","At the top, walk into the door with the word that fills the gap."],["❤️","A car or a wrong door costs a heart. Get through 6 doors to win."]]};
-COACH.cross=[[".dtask","Read the sentence. Which word fills the gap?"],[".court.crossc","Cross the road. Watch the cars!"],[".crossctl","Use these buttons or the arrow keys. Walk into the right door at the top."]];
+HOW.cross=function(l){return [["🚶","Move with the arrows. On a phone, swipe up, left or right on the road (or tap where you want to go)."],["🚗","Don't let the cars hit you!"],["🚪","At the top, walk into the door with the word that fills the gap."],["❤️","A car or a wrong door costs a heart. Get through 6 doors to win."]]};
+COACH.cross=[[".dtask","Read the sentence. Which word fills the gap?"],[".court.crossc","Cross the road. Watch the cars!"],[".crossctl","Swipe on the road, or use these buttons or the arrow keys. Walk into the right door at the top."]];
 Object.assign(T.en,{cross:"Cross the road",crossD:"Cross the busy road and walk into the door with the right word."});
 Object.assign(T.pt,{cross:"Cross the road",crossD:"Atravesse a rua movimentada e entre na porta com a palavra certa."});
 (function(){var hg=hasGame;hasGame=function(m,k){if(k==="darts")return !m.rev&&(dartSents(m).length>=3||dartGaps(m).length>=6);if(k==="cross")return !m.rev&&crossGaps(m).length>=6;return hg(m,k)}})();
@@ -6369,9 +6436,3 @@ else start((window.claude&&window.claude.hot&&window.claude.hot.data)||{});
 </script>
 </body>
 </html>
-
-</body></html>
-
-</body></html>
-</body></html>
-</body></html>
