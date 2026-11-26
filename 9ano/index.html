@@ -1,46 +1,47 @@
 <!doctype html><html><head> <meta name="robots" content="noindex, nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 1965 and 1966 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-64 and 73-1229
-M 1238-1461 · X 1462-1532 · ART 1533-1539 · GR 1540-1626 · GX 1627-1695 · BK 1696-1798 · PIC 1799-1799 · HOOK 1800-1813
-TLN 1814-1822 · EXP 1823-1840 · VERBS 1841-1842 · CAN 1843-1847 · CULT 1848-1868 · GYM 1869-1880 · BD 1881-1960 · TAGN 1961-1961
-LEVELS 1962-1962 · ACTS 1963-1964 · ACH 1967-1967 · PSETS 1968-1968 · faceEl() 1969-1969 · FACES 1970-1972 · T 1973-2050 · S 2051-2051
-KEY 2052-2052 · t() 2053-2053 · save() 2054-2054 · load() 2055-2059 · day() 2060-2060 · touchStreak() 2061-2063 · h() 2064-2076 · shuffle() 2077-2077
-starsFor() 2078-2078 · starEl() 2079-2079 · mod() 2080-2080 · art() 2081-2081 · modStars() 2082-2082 · PASS 2083-2083 · passed() 2084-2084 · actsDone() 2085-2085
-certOK() 2086-2086 · go() 2087-2087 · toTop() 2088-2088 · app() 2089-2089 · pick() 2090-2092 · bar() 2093-2115 · goBack() 2116-2116 · lvTag() 2117-2117
-menu() 2118-2133 · steps() 2134-2140 · nextStep() 2141-2143 · home() 2144-2207 · modulePage() 2208-2308 · backBtn() 2309-2310 · shell() 2311-2318 · swIcon() 2319-2319
-finish() 2320-2352 · run() 2353-2355 · chat() 2356-2387 · loose() 2388-2388 · writeIt() 2389-2422 · mcRun() 2423-2445 · quizItems() 2446-2446 · speedItems() 2447-2447
-quiz() 2448-2448 · cpItems() 2449-2452 · cpWhere() 2453-2460 · checkpoint() 2461-2500 · build() 2501-2547 · match() 2548-2583 · speed() 2584-2607 · HLT 2608-2621
-KW 2622-2635 · kw() 2636-2644 · caps() 2645-2645 · diffB() 2646-2647 · sents() 2648-2648 · hl() 2649-2657 · noteKind() 2658-2662 · BKIND 2663-2663
-blk() 2664-2665 · grammar() 2666-2711 · SERVE 2712-2718 · miss() 2719-2725 · ALL_LV 2726-2726 · maxLv() 2727-2727 · lvOf() 2728-2728 · bkItem() 2729-2729
-qKey() 2730-2730 · qFresh() 2731-2731 · qMark() 2732-2732 · gameQ() 2733-2733 · gameQ0() 2734-2734 · askPanel() 2735-2752 · LVN 2753-2753 · arcade() 2754-2772
-gTimer() 2773-2775 · fmtT() 2776-2776 · arcadeEnd() 2777-2799 · tennis() 2800-2888 · duel() 2889-2918 · zap() 2919-2960 · GAMES 2961-2963 · GP 2964-2964
-gclk() 2965-2965 · gHold() 2966-2966 · gGo() 2967-2967 · gClose() 2968-2968 · gFocus() 2969-2971 · COACH 2972-2984 · gCoach() 2985-3003 · TURNG 3004-3004
-gStartNow() 3005-3005 · gReady() 3006-3010 · gOverlay() 3011-3012 · GICONS 3013-3013 · GLIST 3014-3014 · sortNeed() 3015-3015 · poolNeed() 3016-3016 · HOW 3017-3025
-gRestart() 3026-3026 · gIntro() 3027-3046 · gCount() 3047-3057 · gPause() 3058-3071 · WCL 3072-3072 · WSB 3073-3079 · wsClasses() 3080-3080 · wsBank() 3081-3083
-wsWhy() 3084-3086 · penalty() 3087-3197 · wsort() 3198-3233 · wpool() 3234-3381 · HOOPS_BOT 3382-3382 · hoops() 3383-3552 · wonOf() 3553-3553 · starsWon() 3554-3554
-gameList() 3555-3559 · WT 3560-3571 · WTL 3572-3574 · wtubes() 3575-3627 · GN 3628-3646 · GNM 3647-3647 · GNL 3648-3650 · wgenius() 3651-3692
-TUBEMODS 3693-3693 · hasQ() 3694-3694 · hasGame() 3695-3712 · gameCards() 3713-3716 · hub() 3717-3743 · bossSVG() 3744-3763 · cert() 3764-3789 · timeline() 3790-3809
-today() 3810-3810 · exList() 3811-3811 · exFind() 3812-3812 · dueList() 3813-3813 · exCard() 3814-3814 · expr() 3815-3827 · review() 3828-3849 · verbList() 3850-3850
-memBoard() 3851-3863 · verbs() 3864-3908 · mistakes() 3909-3931 · PF 3932-3941 · PQ 3942-3942 · ENTRY 3943-3943 · TRACK 3944-3944 · HELPS 3945-3945
-TIPS 3946-3961 · L2() 3962-3962 · place() 3963-3993 · placeResult() 3994-4015 · avatars() 4016-4069 · VIS 4070-4070 · funnel() 4071-4104 · MAIL 4105-4126
-mailMock() 4127-4131 · mail() 4132-4160 · mailBuild() 4161-4185 · mailQuiz() 4186-4280 · canSpeak() 4281-4281 · voiceScore() 4282-4289 · voices() 4290-4293 · sayIt() 4294-4299
-voicePage() 4300-4317 · spNorm() 4318-4318 · spellDeck() 4319-4330 · spelling() 4331-4367 · gym() 4368-4417 · culture() 4418-4433 · progressCard() 4434-4443 · NUM 4444-4480
-clockSVG() 4481-4487 · numbers() 4488-4506 · numDrill() 4507-4546 · WV 4547-4561 · ADJ 4562-4568 · ADJQ 4569-4569 · ADVF 4570-4570 · ADVD 4571-4571
-ADVM 4572-4572 · ADVP 4573-4573 · ADVQ 4574-4574 · strip() 4575-4575 · meter() 4576-4576 · pics() 4577-4577 · words() 4578-4621 · wDrill() 4622-4645
-LAB 4646-4767 · LABMAP 4768-4768 · LSLOT 4769-4769 · LLINES 4770-4770 · labDi() 4771-4771 · labNeed() 4772-4772 · LPART 4773-4773 · labOpts() 4774-4786
-labRobot() 4787-4808 · LABCOIN 4809-4809 · labParty() 4810-4827 · labSentence() 4828-4844 · labCheck() 4845-4867 · isFreqT() 4868-4868 · vowelSound() 4869-4869 · labArt() 4870-4880
-labTense() 4881-4892 · labSense() 4893-4909 · LSTATE 4910-4910 · lab() 4911-5009 · RSWAP 5010-5010 · rVariant() 5011-5021 · race() 5022-5135 · ZAPX 5136-5154
-ideas() 5155-5162 · ownBox() 5163-5168 · applyTheme() 5169-5169 · nm() 5170-5170 · hi() 5171-5171 · welcome() 5172-5190 · choice() 5191-5204 · SG_SING 5205-5205
-SG_VERB 5206-5206 · sentenceTips() 5207-5241 · tipsBox() 5242-5250 · AI 5251-5251 · aiInit() 5252-5252 · aiReady() 5253-5253 · aiContext() 5254-5254 · aiCall() 5255-5259
-aiCheck() 5260-5264 · askTeacher() 5265-5281 · askFab() 5282-5286 · STORY 5287-5343 · storyFor() 5344-5344 · storyList() 5345-5352 · storyPage() 5353-5381 · aiStory() 5382-5387
-BDE 5388-5389 · REV 5390-5446 · ins() 5447-5590 · XQ 5591-5599 · REVIEWM 5600-5610 · TMOD 5611-5613 · SORTSET 5614-5620 · CDS 5621-5629
-CDL 5630-5632 · cdParse() 5633-5636 · wcommas() 5637-5679 · pvOf() 5680-5680 · pvPool() 5681-5683 · pvQs() 5684-5694 · arcadeMods() 5695-5695 · arcadePage() 5696-5735
-ARCMODES 5736-5736 · arcModeOf() 5737-5741 · arcModBtn() 5742-5763 · SPDICT 5764-5764 · spellDict() 5765-5779 · spKnown() 5780-5781 · spDist() 5782-5783 · spellIssues() 5784-5789
-lvMenu() 5790-5796 · COMMAMODS 5797-5798 · PSET 5799-5804 · PMODES 5805-5805 · poolSet() 5806-5806 · gD() 5807-5810 · TONE 5811-5813 · NINE 5814-5816
-soloCard() 5817-5819 · cityBank() 5820-5820 · SOLO 5821-5833 · MOVIES 5834-5890 · MVLV 5891-5892 · stuLv() 5893-5896 · wmovie() 5897-5980 · DCOL 5981-5981
-DIT 5982-5986 · DMAT 5987-5987 · dkC() 5988-5988 · dollSVG() 5989-6048 · dPiece() 6049-6049 · dArt() 6050-6050 · DVB 6051-6051 · wdoll() 6052-6155
-dartSents() 6156-6157 · dartGaps() 6158-6158 · wdarts() 6159-6220 · crossGaps() 6221-6221 · wcross() 6222-6275 · NINE_EXTRA 6276-6277 · route() 6278-6289 · start() 6290-6307
+NEVER read lines 1973 and 1974 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-72 and 81-1237
+M 1246-1469 · X 1470-1540 · ART 1541-1547 · GR 1548-1634 · GX 1635-1703 · BK 1704-1806 · PIC 1807-1807 · HOOK 1808-1821
+TLN 1822-1830 · EXP 1831-1848 · VERBS 1849-1850 · CAN 1851-1855 · CULT 1856-1876 · GYM 1877-1888 · BD 1889-1968 · TAGN 1969-1969
+LEVELS 1970-1970 · ACTS 1971-1972 · ACH 1975-1975 · PSETS 1976-1976 · faceEl() 1977-1977 · FACES 1978-1980 · T 1981-2058 · S 2059-2059
+KEY 2060-2060 · t() 2061-2061 · save() 2062-2062 · load() 2063-2067 · day() 2068-2068 · touchStreak() 2069-2071 · h() 2072-2084 · shuffle() 2085-2085
+starsFor() 2086-2086 · starEl() 2087-2087 · mod() 2088-2088 · art() 2089-2089 · modStars() 2090-2090 · PASS 2091-2091 · passed() 2092-2092 · actsDone() 2093-2093
+certOK() 2094-2094 · go() 2095-2095 · toTop() 2096-2096 · app() 2097-2097 · pick() 2098-2100 · bar() 2101-2123 · goBack() 2124-2124 · lvTag() 2125-2125
+menu() 2126-2141 · steps() 2142-2148 · nextStep() 2149-2151 · home() 2152-2215 · modulePage() 2216-2316 · backBtn() 2317-2318 · shell() 2319-2326 · swIcon() 2327-2327
+finish() 2328-2360 · run() 2361-2363 · chat() 2364-2395 · loose() 2396-2396 · writeIt() 2397-2430 · mcRun() 2431-2453 · quizItems() 2454-2454 · speedItems() 2455-2455
+quiz() 2456-2456 · cpItems() 2457-2460 · cpWhere() 2461-2468 · checkpoint() 2469-2508 · build() 2509-2555 · match() 2556-2591 · speed() 2592-2615 · HLT 2616-2629
+KW 2630-2643 · kw() 2644-2652 · caps() 2653-2653 · diffB() 2654-2655 · sents() 2656-2656 · hl() 2657-2665 · noteKind() 2666-2670 · BKIND 2671-2671
+blk() 2672-2673 · grammar() 2674-2719 · SERVE 2720-2726 · miss() 2727-2733 · ALL_LV 2734-2734 · maxLv() 2735-2735 · lvOf() 2736-2736 · bkItem() 2737-2737
+qKey() 2738-2738 · qFresh() 2739-2739 · qMark() 2740-2740 · gameQ() 2741-2741 · gameQ0() 2742-2742 · askPanel() 2743-2760 · LVN 2761-2761 · arcade() 2762-2780
+gTimer() 2781-2783 · fmtT() 2784-2784 · arcadeEnd() 2785-2807 · tennis() 2808-2896 · duel() 2897-2926 · zap() 2927-2968 · GAMES 2969-2971 · GP 2972-2972
+gclk() 2973-2973 · gHold() 2974-2974 · gGo() 2975-2975 · gClose() 2976-2976 · gFocus() 2977-2979 · COACH 2980-2992 · gCoach() 2993-3011 · TURNG 3012-3012
+gStartNow() 3013-3013 · gReady() 3014-3018 · gOverlay() 3019-3020 · GICONS 3021-3021 · GLIST 3022-3022 · sortNeed() 3023-3023 · poolNeed() 3024-3024 · HOW 3025-3033
+gRestart() 3034-3034 · gIntro() 3035-3054 · gCount() 3055-3065 · gPause() 3066-3079 · WCL 3080-3080 · WSB 3081-3087 · wsClasses() 3088-3088 · wsBank() 3089-3091
+wsWhy() 3092-3094 · penalty() 3095-3205 · wsort() 3206-3241 · wpool() 3242-3389 · HOOPS_BOT 3390-3390 · hoops() 3391-3560 · wonOf() 3561-3561 · starsWon() 3562-3562
+gameList() 3563-3567 · WT 3568-3579 · WTL 3580-3582 · wtubes() 3583-3635 · GN 3636-3654 · GNM 3655-3655 · GNL 3656-3658 · wgenius() 3659-3700
+TUBEMODS 3701-3701 · hasQ() 3702-3702 · hasGame() 3703-3720 · gameCards() 3721-3724 · hub() 3725-3751 · bossSVG() 3752-3771 · cert() 3772-3797 · timeline() 3798-3817
+today() 3818-3818 · exList() 3819-3819 · exFind() 3820-3820 · dueList() 3821-3821 · exCard() 3822-3822 · expr() 3823-3835 · review() 3836-3857 · verbList() 3858-3858
+memBoard() 3859-3871 · verbs() 3872-3916 · mistakes() 3917-3939 · PF 3940-3949 · PQ 3950-3950 · ENTRY 3951-3951 · TRACK 3952-3952 · HELPS 3953-3953
+TIPS 3954-3969 · L2() 3970-3970 · place() 3971-4001 · placeResult() 4002-4023 · avatars() 4024-4077 · VIS 4078-4078 · funnel() 4079-4112 · MAIL 4113-4134
+mailMock() 4135-4139 · mail() 4140-4168 · mailBuild() 4169-4193 · mailQuiz() 4194-4288 · canSpeak() 4289-4289 · voiceScore() 4290-4297 · voices() 4298-4301 · sayIt() 4302-4307
+voicePage() 4308-4325 · spNorm() 4326-4326 · spellDeck() 4327-4338 · spelling() 4339-4375 · gym() 4376-4425 · culture() 4426-4441 · progressCard() 4442-4451 · NUM 4452-4488
+clockSVG() 4489-4495 · numbers() 4496-4514 · numDrill() 4515-4554 · WV 4555-4569 · ADJ 4570-4576 · ADJQ 4577-4577 · ADVF 4578-4578 · ADVD 4579-4579
+ADVM 4580-4580 · ADVP 4581-4581 · ADVQ 4582-4582 · strip() 4583-4583 · meter() 4584-4584 · pics() 4585-4585 · words() 4586-4629 · wDrill() 4630-4653
+LAB 4654-4775 · LABMAP 4776-4776 · LSLOT 4777-4777 · LLINES 4778-4778 · labDi() 4779-4779 · labNeed() 4780-4780 · LPART 4781-4781 · labOpts() 4782-4794
+labRobot() 4795-4816 · LABCOIN 4817-4817 · labParty() 4818-4835 · labSentence() 4836-4852 · labCheck() 4853-4875 · isFreqT() 4876-4876 · vowelSound() 4877-4877 · labArt() 4878-4888
+labTense() 4889-4900 · labSense() 4901-4917 · LSTATE 4918-4918 · lab() 4919-5017 · RSWAP 5018-5018 · rVariant() 5019-5029 · race() 5030-5143 · ZAPX 5144-5162
+ideas() 5163-5170 · ownBox() 5171-5176 · applyTheme() 5177-5177 · nm() 5178-5178 · hi() 5179-5179 · welcome() 5180-5198 · choice() 5199-5212 · SG_SING 5213-5213
+SG_VERB 5214-5214 · sentenceTips() 5215-5249 · tipsBox() 5250-5258 · AI 5259-5259 · aiInit() 5260-5260 · aiReady() 5261-5261 · aiContext() 5262-5262 · aiCall() 5263-5267
+aiCheck() 5268-5272 · askTeacher() 5273-5289 · askFab() 5290-5294 · STORY 5295-5351 · storyFor() 5352-5352 · storyList() 5353-5360 · storyPage() 5361-5389 · aiStory() 5390-5395
+BDE 5396-5397 · REV 5398-5454 · ins() 5455-5598 · XQ 5599-5607 · REVIEWM 5608-5618 · TMOD 5619-5621 · SORTSET 5622-5628 · CDS 5629-5637
+CDL 5638-5640 · cdParse() 5641-5644 · wcommas() 5645-5687 · pvOf() 5688-5688 · pvPool() 5689-5691 · pvQs() 5692-5702 · arcadeMods() 5703-5703 · arcadePage() 5704-5743
+ARCMODES 5744-5744 · arcModeOf() 5745-5749 · arcModBtn() 5750-5771 · SPDICT 5772-5772 · spellDict() 5773-5787 · spKnown() 5788-5789 · spDist() 5790-5791 · spellIssues() 5792-5797
+lvMenu() 5798-5804 · COMMAMODS 5805-5806 · PSET 5807-5812 · PMODES 5813-5813 · poolSet() 5814-5814 · gD() 5815-5818 · TONE 5819-5821 · NINE 5822-5824
+soloCard() 5825-5827 · cityBank() 5828-5828 · SOLO 5829-5841 · MOVIES 5842-5898 · MVLV 5899-5900 · stuLv() 5901-5904 · wmovie() 5905-5988 · DCOL 5989-5989
+DIT 5990-5994 · DMAT 5995-5995 · dkC() 5996-5996 · dollSVG() 5997-6056 · dPiece() 6057-6057 · dArt() 6058-6058 · DVB 6059-6059 · wdoll() 6060-6163
+dartSents() 6164-6165 · dartGaps() 6166-6166 · wdarts() 6167-6228 · crossGaps() 6229-6229 · wcross() 6230-6284 · STAGS 6285-6308 · SGTAGS 6309-6309 · SPAGES 6310-6310
+sNorm() 6311-6311 · SIDX 6312-6312 · sIndex() 6313-6322 · sFind() 6323-6325 · searchBox() 6326-6344 · NINE_EXTRA 6345-6346 · route() 6347-6358 · start() 6359-6376
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -61,6 +62,13 @@ MAP END -->
 .dltarget{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.dlpiece{background:#eef0fb;border:2px dashed #8a90c8;border-radius:14px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:86px}
 .dlpiece svg{height:84px;width:auto}.dlpiece small{font:800 13px ui-monospace,monospace;color:#12152e;letter-spacing:.5px}.dlpiece.done{border-style:solid;border-color:#3ccf9f}.dlpiece.done small{font-family:inherit;color:#0f7a57}.dlpiece.now{border-color:#ffd166;border-style:solid;box-shadow:0 0 0 3px rgba(255,209,102,.3)}
 .dlopts .dlopt{flex:1 1 140px;min-height:0;padding:10px 12px;font-weight:800}
+.srov{position:fixed;inset:0;z-index:120;background:rgba(8,10,25,.7);display:flex;justify-content:center;align-items:flex-start;padding:70px 12px 12px}
+.srbox{width:min(640px,100%);max-height:calc(100vh - 90px);display:flex;flex-direction:column;background:#1f2456;border:3px solid #4cc9f0;border-bottom-width:6px;border-radius:18px;padding:12px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.srtop{display:flex;gap:8px;align-items:center;font-size:20px}.srin{flex:1;min-width:0;font:700 18px system-ui;padding:10px 12px;border-radius:12px;border:2px solid #3b3f8f;background:#0b0d1f;color:#fff}
+.srres{overflow:auto;margin-top:10px}.srh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#aab0d8;margin:12px 4px 6px}
+.srit{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:#12152e;border:2px solid #2a2f6b;border-radius:12px;padding:8px 12px;margin:0 0 6px;color:#fff;cursor:pointer;font:inherit}.srit:hover,.srit:focus{border-color:#ffd166;outline:none}
+.srit b{display:block}.srit small{display:block;color:#aab0d8;font-size:13px}.sric{font-size:22px;width:28px;text-align:center}.srsug{margin:4px 6px 0 0}
+body.light .srbox,html[data-theme=light] .srbox{background:#fff}
 .revchip.on{background:#ff6b9a!important;color:#12152e!important}
 </style></head><body>
 <!DOCTYPE html>
@@ -6002,7 +6010,7 @@ function dollSVG(o,w,vb,ghost){w=w||200;var g='<svg viewBox="'+(vb||"0 0 200 360
   g+='<circle cx="53" cy="204" r="9" fill="'+sk+'"'+OL+'/><circle cx="147" cy="204" r="9" fill="'+sk+'"'+OL+'/>';
   g+='<rect x="90" y="80" width="20" height="22" fill="'+skd+'"/>';
   g+='<path d="M64 112 Q64 96 82 96 L118 96 Q136 96 136 112 L132 166 Q130 182 134 204 L66 204 Q70 182 68 166 Z" fill="'+sk+'"'+OL+'/>';
-  g+='<path d="M68 112 Q70 100 84 100 L116 100 Q130 100 132 112 L130 160 L70 160 Z" fill="#f6e7d2"'+OL+'/><path d="M67 184 L133 184 L135 210 Q100 220 65 210 Z" fill="#f6e7d2"'+OL+'/>';
+  g+='<path d="M68 112 Q70 100 84 100 L116 100 Q130 100 132 112 L130 160 L70 160 Z" fill="#f6e7d2"'+OL+'/><path d="M67 184 L133 184 L135 204 Q100 212 65 204 Z" fill="#f6e7d2"'+OL+'/>';
   g+='<circle cx="69" cy="60" r="6" fill="'+sk+'"'+OL+'/><circle cx="131" cy="60" r="6" fill="'+sk+'"'+OL+'/>';
   g+='<ellipse cx="100" cy="58" rx="31" ry="33" fill="'+sk+'"'+OL+'/>';
   g+='<path d="M68 56 Q68 20 100 20 Q132 20 132 56 Q126 40 110 42 Q102 30 88 40 Q76 42 68 56 Z" fill="'+hair+'"/>';
@@ -6023,17 +6031,17 @@ function dollSVG(o,w,vb,ghost){w=w||200;var g='<svg viewBox="'+(vb||"0 0 200 360
       if(b.n==="jeans")g+='<path d="M100 197 L100 222 M74 202 Q82 214 92 204 M108 204 Q118 214 126 202 M70 318 L94 318 M106 318 L130 318" stroke="#ffd166" stroke-width="1.8" fill="none" stroke-dasharray="4 3"/><circle cx="100" cy="193" r="2.6" fill="#ffd166"/>'}}
   /* dress */
   if(f){var fc=c(f),fd=dkC(fc,.45),L2=f.z==="long",y2=L2?324:252,xl2=L2?42:50,xr2=L2?158:150;
-    g+='<path d="M66 104 Q66 96 84 96 Q100 106 116 96 Q134 96 134 104 L130 166 L'+xr2+' '+y2+' Q100 '+(y2+10)+' '+xl2+' '+y2+' L70 166 Z"'+st(f)+'/>';
-    g+='<path d="M70 164 Q100 172 130 164 L130 174 Q100 182 70 174 Z" fill="'+fd+'"/><circle cx="100" cy="174" r="4" fill="#ffd166"/>';
+    g+='<path d="M63 106 Q63 95 84 95 Q100 106 116 95 Q137 95 137 106 L133 166 L'+xr2+' '+y2+' Q100 '+(y2+10)+' '+xl2+' '+y2+' L67 166 Z"'+st(f)+'/>';
+    g+='<path d="M67 162 Q100 170 133 162 L134 174 Q100 182 66 174 Z" fill="'+fd+'"/><circle cx="100" cy="174" r="4" fill="#ffd166"/>';
     g+='<path d="M84 180 L'+(L2?66:72)+' '+(y2-2)+' M116 180 L'+(L2?134:128)+' '+(y2-2)+'" stroke="'+fd+'" stroke-width="1.5" opacity=".55"/>'+shine('M72 110 L80 104 L78 160 L72 160 Z')}
-  /* tops */
-  if(t){var tc=c(t),td=dkC(tc,.45);
-    if(t.n==="T-shirt"){g+='<path d="M62 102 Q72 96 86 96 Q100 106 114 96 Q128 96 138 102 L160 132 L144 144 L136 128 L136 200 L64 200 L64 128 L56 144 L40 132 Z"'+st(t)+'/>';
-      g+='<path d="M86 96 Q100 110 114 96" stroke="'+td+'" stroke-width="4" fill="none"/><path d="M64 194 L136 194" stroke="'+td+'" stroke-width="2" opacity=".6"/>'+shine('M68 128 L76 124 L74 190 L68 190 Z')}
-    else{g+='<path d="M62 102 Q72 96 86 96 Q100 104 114 96 Q128 96 138 102 L160 196 L140 200 L136 136 L136 202 L64 202 L64 136 L60 200 L40 196 Z"'+st(t)+'/>';
-      if(t.n==="shirt")g+='<path d="M84 94 L100 116 L116 94 L110 92 L100 104 L90 92 Z" fill="#fff" stroke="'+td+'" stroke-width="1.5"/><path d="M100 116 L100 200" stroke="'+td+'" stroke-width="2"/><circle cx="104" cy="132" r="2.4" fill="#fff"/><circle cx="104" cy="152" r="2.4" fill="#fff"/><circle cx="104" cy="172" r="2.4" fill="#fff"/><path d="M40 190 L60 194 M140 194 L160 190" stroke="#fff" stroke-width="5"/>';
-      else g+='<path d="M86 96 Q100 110 114 96" stroke="'+td+'" stroke-width="6" fill="none"/><path d="M64 194 L136 194 M41 188 L59 192 M141 192 L159 188" stroke="'+td+'" stroke-width="7"/><path d="M74 194 L74 202 M86 194 L86 202 M98 194 L98 202 M110 194 L110 202 M122 194 L122 202" stroke="'+tc+'" stroke-width="1.5"/>';
-      g+=shine('M68 130 L76 124 L74 186 L68 186 Z')}}
+  /* tops: sleeves over the arms, then the body */
+  if(t){var tc=c(t),td=dkC(tc,.45),LS=t.n!=="T-shirt",sh=LS?102:40;
+    g+='<rect x="40" y="98" width="26" height="'+sh+'" rx="11"'+st(t)+'/><rect x="134" y="98" width="26" height="'+sh+'" rx="11"'+st(t)+'/>';
+    g+='<path d="M62 106 Q62 96 84 95 Q100 106 116 95 Q138 96 138 106 L137 208 L63 208 Z"'+st(t)+'/>';
+    if(t.n==="T-shirt")g+='<path d="M84 95 Q100 110 116 95" stroke="'+td+'" stroke-width="4" fill="none"/><path d="M41 132 L65 132 M135 132 L159 132 M64 202 L136 202" stroke="'+td+'" stroke-width="2" opacity=".6"/>';
+    else if(t.n==="shirt")g+='<path d="M82 93 L100 116 L118 93 L111 90 L100 104 L89 90 Z" fill="#fff" stroke="'+td+'" stroke-width="1.5"/><path d="M100 116 L100 206" stroke="'+td+'" stroke-width="2"/><circle cx="104" cy="132" r="2.4" fill="#fff"/><circle cx="104" cy="154" r="2.4" fill="#fff"/><circle cx="104" cy="176" r="2.4" fill="#fff"/><rect x="40" y="186" width="26" height="12" rx="4" fill="#fff" stroke="'+td+'" stroke-width="1.5"/><rect x="134" y="186" width="26" height="12" rx="4" fill="#fff" stroke="'+td+'" stroke-width="1.5"/>';
+    else g+='<path d="M84 95 Q100 112 116 95" stroke="'+td+'" stroke-width="6" fill="none"/><rect x="63" y="196" width="74" height="12" rx="3" fill="'+td+'"/><rect x="40" y="186" width="26" height="14" rx="5" fill="'+td+'"/><rect x="134" y="186" width="26" height="14" rx="5" fill="'+td+'"/><path d="M72 197 L72 207 M84 197 L84 207 M96 197 L96 207 M108 197 L108 207 M120 197 L120 207 M132 197 L132 207" stroke="'+tc+'" stroke-width="1.5"/>';
+    g+=shine('M67 112 L75 106 L73 194 L67 194 Z')+shine('M44 104 L50 102 L49 '+(LS?182:130)+' L44 '+(LS?182:130)+' Z')}
   /* shoes */
   if(ft){var fcl=c(ft),fdk=dkC(fcl,.45);
     if(ft.n==="boots")g+='<path d="M70 278 L96 278 L96 330 Q98 344 84 344 L62 344 Q58 336 70 330 Z"'+st(ft)+'/><path d="M104 278 L130 278 L130 330 Q142 336 138 344 L116 344 Q102 344 104 330 Z"'+st(ft)+'/><rect x="68" y="274" width="30" height="8" rx="3" fill="'+fdk+'"/><rect x="102" y="274" width="30" height="8" rx="3" fill="'+fdk+'"/>';
@@ -6274,6 +6282,67 @@ COACH.cross=[[".dtask","Read the sentence. Which word fills the gap?"],[".court.
 Object.assign(T.en,{cross:"Cross the road",crossD:"Cross the busy road and walk into the door with the right word."});
 Object.assign(T.pt,{cross:"Cross the road",crossD:"Atravesse a rua movimentada e entre na porta com a palavra certa."});
 (function(){var hg=hasGame;hasGame=function(m,k){if(k==="darts")return !m.rev&&(dartSents(m).length>=3||dartGaps(m).length>=6);if(k==="cross")return !m.rev&&crossGaps(m).length>=6;return hg(m,k)}})();
+/* ---------- Site search: reads the site's own text + Portuguese tags ---------- */
+var STAGS={
+"a1-1":"apresentar se apresentação verbo to be ser estar nome idade números informações pessoais cumprimentos olá hello introduce",
+"a1-2":"rotina dia a dia presente simples presente continuo present continuous present simple hábitos horas advérbios de frequência always usually never",
+"a1-3":"cidade direções transporte there is there are há tem can poder preposições de lugar next to opposite onde fica",
+"a1-4":"comida compras mercado restaurante dinheiro preço contável incontável some any much many how much how many artigos a an the",
+"a2-1":"passado pretérito past simple past continuous verbos irregulares sentimentos emoções história contar was were",
+"a2-2":"futuro planos presente continuo viagem aeroporto hotel going to will present continuous futuro",
+"a2-3":"comparar comparativo superlativo maior melhor mais compras",
+"a2-4":"experiências present perfect presente perfeito pretérito perfeito ever never already yet pedidos educados could would cultura",
+"a2-5":"pessoas lugares descrever pronomes relativos who which where that que onde relative clauses",
+"a2-6":"roupas vestuário moda clothes adjetivos ordem dos adjetivos cores materiais wear vestir experimentar try on loja",
+"b1-1":"mudanças de vida present perfect presente perfeito past simple passado used to costumava eventos",
+"b1-2":"regras conselhos must have to should obrigação dever saúde médico verbos modais",
+"b1-3":"condicionais if se first conditional second conditional decisões",
+"b1-4":"notícias voz passiva passive reported speech discurso indireto tecnologia mídia",
+"b1-5":"opiniões gerúndio infinitivo relative clauses linkers conectivos sentimentos",
+"b1-6":"conversa fiada small talk question tags né preposições expressões fixas on time by chance",
+"b1-7":"espaço planetas universo astronauta previsões futuro will might may could talvez provável likely comparativo superlativo",
+"b2-1":"biografias pessoas famosas relative clauses whose which non-defining orações relativas explicativas",
+"halloween":"halloween dia das bruxas festa assustador past simple past continuous",
+"christmas":"natal festas de fim de ano planos going to will presentes",
+"fifteen":"festa de 15 anos debutante quinceañera sweet 16 comparar both whereas",
+"transport":"transporte meios de transporte by on in ônibus carro trem quanto tempo demora",
+"doctor":"médico saúde sintomas doença corpo dor have hurt feel"};
+var SGTAGS={tennis:"tênis perguntas",duel:"robô chefe batalha perguntas",zap:"erros corrigir frases insetos",race:"corrida carro montar frase ordem das palavras",penalty:"futebol pênalti gol",sort:"cestas classes de palavras substantivo verbo adjetivo",pool:"sinuca bilhar classes de palavras",hoops:"basquete cesta",tubes:"tubos agrupar",genius:"memória sequência genius",commas:"vírgulas pontuação",movie:"filmes cinema adivinhar vocabulário",doll:"boneca roupas vestir cores",darts:"dardos alvo montar frase",cross:"atravessar a rua carros preposições portas",lab:"robô montar frases laboratório"};
+var SPAGES=[["verbs","🔤","Irregular verbs","verbos irregulares passado particípio lista"],["culture","🌎","Culture","cultura países costumes"],["numbers","🔢","Numbers, times and prices","números horas preços datas dinheiro"],["words","🖼️","Picture words","vocabulário palavras figuras imagens"],["spelling","🔊","Listen and write","ditado escutar ouvir escrever ortografia spelling"],["sentences","🧱","Sentence gym","escrever frases corrigir ortografia gramática"],["emails","✉️","Emails","email e-mail escrever mensagens formal informal"],["mistakes","🩹","My mistakes","meus erros revisar"],["review","🔁","Expressions review","revisar expressões revisão"],["arcade","🕹️","Arcade: all the games","jogos todos os jogos arcade"],["avatars","🙂","Avatars","avatar moedas coins"],["start","🧭","Level check","teste de nivelamento nível placement"]];
+function sNorm(x){return String(x||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9' ]+/g," ").replace(/\s+/g," ").trim()}
+var SIDX=null;
+function sIndex(){if(SIDX)return SIDX;var out=[];
+  function add(kind,ic,title,sub,hay,fn,w){out.push({k:kind,i:ic,t:title,s:sub,h:sNorm(title+" "+(sub||"")+" "+(hay||"")),ht:sNorm(title),fn:fn,w:w||0})}
+  M.concat(X).forEach(function(m){if(m.rev)return;
+    add("Modules","📘",m.t,m.lv+" · "+m.g,m.v+" "+(m.sit&&m.sit.t||"")+" "+(CAN[m.id]||"")+" "+(STAGS[m.id]||""),function(){go(m.id)},3);
+    var G=GR[m.id];if(G&&G.pts)G.pts.forEach(function(p){add("Grammar","📗",p.t,m.lv+" · "+m.t,(p.use||"")+" "+(p.form||[]).map(function(f){return f.join(" ")}).join(" ")+" "+(STAGS[m.id]||""),function(){go(m.id);setTimeout(function(){grammar(m)},0)},2)});
+    (EXP[m.id]||[]).forEach(function(e){var a=e.split("|");add("Expressions",{p:"🧩",c:"💬",i:"✨"}[a[0]]||"💬",a[1],(a[0]==="p"?"Phrasal verb":a[0]==="i"?"Idiom":"Chunk")+" · "+m.t,a[2]+" "+a[3]+" "+(a[4]||""),function(){go(m.id);setTimeout(function(){expr(m)},0)},1)})});
+  var seen={};GLIST.concat(["lab"]).forEach(function(k){if(seen[k])return;seen[k]=1;var name=k==="lab"?t("lab"):t(k);
+    add("Games",k==="lab"?"🤖":(GICONS[k]||"🎮"),name,"Choose a module",(t(k+"D")||"")+" "+(SGTAGS[k]||"")+" game jogo",function(){go("arcade/"+k)},2)});
+  SPAGES.forEach(function(p){add("Practice",p[1],p[2],"",p[3],function(){go(p[0])},1)});
+  var u={};out=out.filter(function(x){var key=x.k+"|"+x.t+"|"+x.s;if(u[key])return false;u[key]=1;return true});SIDX=out;return out}
+function sFind(q){var qs=sNorm(q).split(" ").filter(Boolean);if(!qs.length)return [];
+  return sIndex().map(function(it){var sc=0;for(var i=0;i<qs.length;i++){var w=qs[i];if(it.h.indexOf(w)<0)return null;sc+=(" "+it.ht+" ").indexOf(" "+w)>=0?6:(new RegExp("\\b"+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).test(it.h)?2:1)}
+    return {it:it,sc:sc+it.w}}).filter(Boolean).sort(function(a,b){return b.sc-a.sc}).map(function(x){return x.it})}
+function searchBox(){if(document.querySelector(".srov"))return;
+  var inp=h("input",{type:"search",class:"srin",placeholder:"Search: present perfect, roupas, try on, futebol…","aria-label":"Search the site",autocomplete:"off"}),res=h("div",{class:"srres",role:"list"}),
+    ov=h("div",{class:"srov",role:"dialog","aria-modal":"true","aria-label":"Search"},h("div",{class:"srbox"},h("div",{class:"srtop"},h("span",{"aria-hidden":"true"},"🔍"),inp,h("button",{class:"btn ghost small",onclick:close},"✕")),res));
+  function close(){ov.remove();document.removeEventListener("keydown",esc)}
+  function esc(e){if(e.key==="Escape")close()}
+  function open(it){close();it.fn()}
+  function draw(){res.innerHTML="";var q=inp.value,r=sFind(q);
+    if(!sNorm(q)){res.appendChild(h("p",{class:"hint"},"Type a topic, a grammar point, an expression or a game. You can write in English or Portuguese."));
+      ["present perfect","passado","roupas","phrasal verbs","futebol","comparativo"].forEach(function(x){res.appendChild(h("button",{class:"pillbtn srsug",onclick:function(){inp.value=x;draw();inp.focus()}},x))});return}
+    if(!r.length){res.appendChild(h("p",{class:"hint"},"Nothing found for “"+q+"”. Try another word, in English or Portuguese."));return}
+    var groups={};r.slice(0,40).forEach(function(it){(groups[it.k]=groups[it.k]||[]).push(it)});
+    ["Modules","Grammar","Expressions","Games","Practice"].forEach(function(g){var L=groups[g];if(!L)return;res.appendChild(h("h3",{class:"srh"},g));
+      L.slice(0,8).forEach(function(it){res.appendChild(h("button",{class:"srit",role:"listitem",onclick:function(){open(it)}},h("span",{class:"sric","aria-hidden":"true"},it.i),h("span",null,h("b",null,it.t),it.s?h("small",null,it.s):null)))})})}
+  inp.addEventListener("input",draw);inp.addEventListener("keydown",function(e){if(e.key==="Enter"){var f=res.querySelector(".srit");if(f)f.click()}});
+  ov.addEventListener("click",function(e){if(e.target===ov)close()});document.addEventListener("keydown",esc);
+  document.body.appendChild(ov);draw();setTimeout(function(){inp.focus()},30)}
+(function(){var b0=bar;bar=function(){b0();if(window.NINTH||window.ONLY_GAMES||!S.name)return;var b=document.getElementById("bar"),hm=b.querySelector(".homebtn"),sb=h("button",{class:"menubtn srbtn","aria-label":"Search",title:"Search",onclick:searchBox},"🔍",h("span",{class:"l"}," Search"));
+  if(hm)b.insertBefore(sb,hm);else b.appendChild(sb)}})();
+document.addEventListener("keydown",function(e){if(e.key==="/"&&!/input|textarea/i.test((e.target.tagName||""))&&!window.NINTH&&!window.ONLY_GAMES&&!(cur&&GAMES[cur.k])){e.preventDefault();searchBox()}});
 var NINE_EXTRA=[["🁫","Preposition Domino","Make real phrases and choose their meaning. Beat your time.","../domino/","#ff8a5c"],["🧺","Preposition Baskets","Put each word in the at, by, in or on basket. Beat your time.","../baskets/","#3ccf9f"],["🧪","Preposition Tubes","Group the words by preposition. Beat your time.","../ptubes/","#c084fc"],["🔴","Preposition Genius","Remember the sequence, then tap the prepositions.","../genius/","#f472b6"],["🔍","Comma Detective","Add the commas. Faster = more points.","../commas/","#4cc9f0"]];
 
 function route(){
