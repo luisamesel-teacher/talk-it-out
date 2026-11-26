@@ -1,45 +1,46 @@
 <!doctype html><html><head> <meta name="robots" content="noindex, nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 1951 and 1952 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-50 and 59-1215
-M 1224-1447 · X 1448-1518 · ART 1519-1525 · GR 1526-1612 · GX 1613-1681 · BK 1682-1784 · PIC 1785-1785 · HOOK 1786-1799
-TLN 1800-1808 · EXP 1809-1826 · VERBS 1827-1828 · CAN 1829-1833 · CULT 1834-1854 · GYM 1855-1866 · BD 1867-1946 · TAGN 1947-1947
-LEVELS 1948-1948 · ACTS 1949-1950 · ACH 1953-1953 · PSETS 1954-1954 · faceEl() 1955-1955 · FACES 1956-1958 · T 1959-2036 · S 2037-2037
-KEY 2038-2038 · t() 2039-2039 · save() 2040-2040 · load() 2041-2045 · day() 2046-2046 · touchStreak() 2047-2049 · h() 2050-2062 · shuffle() 2063-2063
-starsFor() 2064-2064 · starEl() 2065-2065 · mod() 2066-2066 · art() 2067-2067 · modStars() 2068-2068 · PASS 2069-2069 · passed() 2070-2070 · actsDone() 2071-2071
-certOK() 2072-2072 · go() 2073-2073 · toTop() 2074-2074 · app() 2075-2075 · pick() 2076-2078 · bar() 2079-2101 · goBack() 2102-2102 · lvTag() 2103-2103
-menu() 2104-2119 · steps() 2120-2126 · nextStep() 2127-2129 · home() 2130-2193 · modulePage() 2194-2294 · backBtn() 2295-2296 · shell() 2297-2304 · swIcon() 2305-2305
-finish() 2306-2338 · run() 2339-2341 · chat() 2342-2373 · loose() 2374-2374 · writeIt() 2375-2408 · mcRun() 2409-2431 · quizItems() 2432-2432 · speedItems() 2433-2433
-quiz() 2434-2434 · cpItems() 2435-2438 · cpWhere() 2439-2446 · checkpoint() 2447-2486 · build() 2487-2533 · match() 2534-2569 · speed() 2570-2593 · HLT 2594-2607
-KW 2608-2621 · kw() 2622-2630 · caps() 2631-2631 · diffB() 2632-2633 · sents() 2634-2634 · hl() 2635-2643 · noteKind() 2644-2648 · BKIND 2649-2649
-blk() 2650-2651 · grammar() 2652-2697 · SERVE 2698-2704 · miss() 2705-2711 · ALL_LV 2712-2712 · maxLv() 2713-2713 · lvOf() 2714-2714 · bkItem() 2715-2715
-qKey() 2716-2716 · qFresh() 2717-2717 · qMark() 2718-2718 · gameQ() 2719-2719 · gameQ0() 2720-2720 · askPanel() 2721-2738 · LVN 2739-2739 · arcade() 2740-2758
-gTimer() 2759-2761 · fmtT() 2762-2762 · arcadeEnd() 2763-2785 · tennis() 2786-2874 · duel() 2875-2904 · zap() 2905-2946 · GAMES 2947-2949 · GP 2950-2950
-gclk() 2951-2951 · gHold() 2952-2952 · gGo() 2953-2953 · gClose() 2954-2954 · gFocus() 2955-2957 · COACH 2958-2970 · gCoach() 2971-2984 · TURNG 2985-2985
-gStartNow() 2986-2986 · gReady() 2987-2991 · gOverlay() 2992-2993 · GICONS 2994-2994 · GLIST 2995-2995 · sortNeed() 2996-2996 · poolNeed() 2997-2997 · HOW 2998-3006
-gRestart() 3007-3007 · gIntro() 3008-3027 · gCount() 3028-3038 · gPause() 3039-3052 · WCL 3053-3053 · WSB 3054-3060 · wsClasses() 3061-3061 · wsBank() 3062-3064
-wsWhy() 3065-3067 · penalty() 3068-3178 · wsort() 3179-3214 · wpool() 3215-3362 · HOOPS_BOT 3363-3363 · hoops() 3364-3533 · wonOf() 3534-3534 · starsWon() 3535-3535
-gameList() 3536-3540 · WT 3541-3552 · WTL 3553-3555 · wtubes() 3556-3608 · GN 3609-3627 · GNM 3628-3628 · GNL 3629-3631 · wgenius() 3632-3673
-TUBEMODS 3674-3674 · hasQ() 3675-3675 · hasGame() 3676-3693 · gameCards() 3694-3697 · hub() 3698-3724 · bossSVG() 3725-3744 · cert() 3745-3770 · timeline() 3771-3790
-today() 3791-3791 · exList() 3792-3792 · exFind() 3793-3793 · dueList() 3794-3794 · exCard() 3795-3795 · expr() 3796-3808 · review() 3809-3830 · verbList() 3831-3831
-memBoard() 3832-3844 · verbs() 3845-3889 · mistakes() 3890-3912 · PF 3913-3922 · PQ 3923-3923 · ENTRY 3924-3924 · TRACK 3925-3925 · HELPS 3926-3926
-TIPS 3927-3942 · L2() 3943-3943 · place() 3944-3974 · placeResult() 3975-3996 · avatars() 3997-4050 · VIS 4051-4051 · funnel() 4052-4085 · MAIL 4086-4107
-mailMock() 4108-4112 · mail() 4113-4141 · mailBuild() 4142-4166 · mailQuiz() 4167-4261 · canSpeak() 4262-4262 · voiceScore() 4263-4270 · voices() 4271-4274 · sayIt() 4275-4280
-voicePage() 4281-4298 · spNorm() 4299-4299 · spellDeck() 4300-4311 · spelling() 4312-4348 · gym() 4349-4398 · culture() 4399-4414 · progressCard() 4415-4424 · NUM 4425-4461
-clockSVG() 4462-4468 · numbers() 4469-4487 · numDrill() 4488-4527 · WV 4528-4542 · ADJ 4543-4549 · ADJQ 4550-4550 · ADVF 4551-4551 · ADVD 4552-4552
-ADVM 4553-4553 · ADVP 4554-4554 · ADVQ 4555-4555 · strip() 4556-4556 · meter() 4557-4557 · pics() 4558-4558 · words() 4559-4602 · wDrill() 4603-4626
-LAB 4627-4748 · LABMAP 4749-4749 · LSLOT 4750-4750 · LLINES 4751-4751 · labDi() 4752-4752 · labNeed() 4753-4753 · LPART 4754-4754 · labOpts() 4755-4767
-labRobot() 4768-4789 · LABCOIN 4790-4790 · labParty() 4791-4808 · labSentence() 4809-4825 · labCheck() 4826-4848 · isFreqT() 4849-4849 · vowelSound() 4850-4850 · labArt() 4851-4861
-labTense() 4862-4873 · labSense() 4874-4890 · LSTATE 4891-4891 · lab() 4892-4990 · RSWAP 4991-4991 · rVariant() 4992-5002 · race() 5003-5116 · ZAPX 5117-5135
-ideas() 5136-5143 · ownBox() 5144-5149 · applyTheme() 5150-5150 · nm() 5151-5151 · hi() 5152-5152 · welcome() 5153-5171 · choice() 5172-5185 · SG_SING 5186-5186
-SG_VERB 5187-5187 · sentenceTips() 5188-5222 · tipsBox() 5223-5231 · AI 5232-5232 · aiInit() 5233-5233 · aiReady() 5234-5234 · aiContext() 5235-5235 · aiCall() 5236-5240
-aiCheck() 5241-5245 · askTeacher() 5246-5262 · askFab() 5263-5267 · STORY 5268-5324 · storyFor() 5325-5325 · storyList() 5326-5333 · storyPage() 5334-5362 · aiStory() 5363-5368
-BDE 5369-5370 · REV 5371-5427 · ins() 5428-5571 · XQ 5572-5580 · REVIEWM 5581-5591 · TMOD 5592-5594 · SORTSET 5595-5601 · CDS 5602-5610
-CDL 5611-5613 · cdParse() 5614-5617 · wcommas() 5618-5660 · pvOf() 5661-5661 · pvPool() 5662-5664 · pvQs() 5665-5675 · arcadeMods() 5676-5676 · arcadePage() 5677-5716
-ARCMODES 5717-5717 · arcModeOf() 5718-5722 · arcModBtn() 5723-5744 · SPDICT 5745-5745 · spellDict() 5746-5760 · spKnown() 5761-5762 · spDist() 5763-5764 · spellIssues() 5765-5770
-lvMenu() 5771-5777 · COMMAMODS 5778-5779 · PSET 5780-5785 · PMODES 5786-5786 · poolSet() 5787-5787 · gD() 5788-5791 · TONE 5792-5794 · NINE 5795-5797
-soloCard() 5798-5800 · cityBank() 5801-5801 · SOLO 5802-5814 · MOVIES 5815-5871 · MVLV 5872-5873 · stuLv() 5874-5877 · wmovie() 5878-5914 · NINE_EXTRA 5915-5916
-route() 5917-5928 · start() 5929-5946
+NEVER read lines 1965 and 1966 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-64 and 73-1229
+M 1238-1461 · X 1462-1532 · ART 1533-1539 · GR 1540-1626 · GX 1627-1695 · BK 1696-1798 · PIC 1799-1799 · HOOK 1800-1813
+TLN 1814-1822 · EXP 1823-1840 · VERBS 1841-1842 · CAN 1843-1847 · CULT 1848-1868 · GYM 1869-1880 · BD 1881-1960 · TAGN 1961-1961
+LEVELS 1962-1962 · ACTS 1963-1964 · ACH 1967-1967 · PSETS 1968-1968 · faceEl() 1969-1969 · FACES 1970-1972 · T 1973-2050 · S 2051-2051
+KEY 2052-2052 · t() 2053-2053 · save() 2054-2054 · load() 2055-2059 · day() 2060-2060 · touchStreak() 2061-2063 · h() 2064-2076 · shuffle() 2077-2077
+starsFor() 2078-2078 · starEl() 2079-2079 · mod() 2080-2080 · art() 2081-2081 · modStars() 2082-2082 · PASS 2083-2083 · passed() 2084-2084 · actsDone() 2085-2085
+certOK() 2086-2086 · go() 2087-2087 · toTop() 2088-2088 · app() 2089-2089 · pick() 2090-2092 · bar() 2093-2115 · goBack() 2116-2116 · lvTag() 2117-2117
+menu() 2118-2133 · steps() 2134-2140 · nextStep() 2141-2143 · home() 2144-2207 · modulePage() 2208-2308 · backBtn() 2309-2310 · shell() 2311-2318 · swIcon() 2319-2319
+finish() 2320-2352 · run() 2353-2355 · chat() 2356-2387 · loose() 2388-2388 · writeIt() 2389-2422 · mcRun() 2423-2445 · quizItems() 2446-2446 · speedItems() 2447-2447
+quiz() 2448-2448 · cpItems() 2449-2452 · cpWhere() 2453-2460 · checkpoint() 2461-2500 · build() 2501-2547 · match() 2548-2583 · speed() 2584-2607 · HLT 2608-2621
+KW 2622-2635 · kw() 2636-2644 · caps() 2645-2645 · diffB() 2646-2647 · sents() 2648-2648 · hl() 2649-2657 · noteKind() 2658-2662 · BKIND 2663-2663
+blk() 2664-2665 · grammar() 2666-2711 · SERVE 2712-2718 · miss() 2719-2725 · ALL_LV 2726-2726 · maxLv() 2727-2727 · lvOf() 2728-2728 · bkItem() 2729-2729
+qKey() 2730-2730 · qFresh() 2731-2731 · qMark() 2732-2732 · gameQ() 2733-2733 · gameQ0() 2734-2734 · askPanel() 2735-2752 · LVN 2753-2753 · arcade() 2754-2772
+gTimer() 2773-2775 · fmtT() 2776-2776 · arcadeEnd() 2777-2799 · tennis() 2800-2888 · duel() 2889-2918 · zap() 2919-2960 · GAMES 2961-2963 · GP 2964-2964
+gclk() 2965-2965 · gHold() 2966-2966 · gGo() 2967-2967 · gClose() 2968-2968 · gFocus() 2969-2971 · COACH 2972-2984 · gCoach() 2985-3003 · TURNG 3004-3004
+gStartNow() 3005-3005 · gReady() 3006-3010 · gOverlay() 3011-3012 · GICONS 3013-3013 · GLIST 3014-3014 · sortNeed() 3015-3015 · poolNeed() 3016-3016 · HOW 3017-3025
+gRestart() 3026-3026 · gIntro() 3027-3046 · gCount() 3047-3057 · gPause() 3058-3071 · WCL 3072-3072 · WSB 3073-3079 · wsClasses() 3080-3080 · wsBank() 3081-3083
+wsWhy() 3084-3086 · penalty() 3087-3197 · wsort() 3198-3233 · wpool() 3234-3381 · HOOPS_BOT 3382-3382 · hoops() 3383-3552 · wonOf() 3553-3553 · starsWon() 3554-3554
+gameList() 3555-3559 · WT 3560-3571 · WTL 3572-3574 · wtubes() 3575-3627 · GN 3628-3646 · GNM 3647-3647 · GNL 3648-3650 · wgenius() 3651-3692
+TUBEMODS 3693-3693 · hasQ() 3694-3694 · hasGame() 3695-3712 · gameCards() 3713-3716 · hub() 3717-3743 · bossSVG() 3744-3763 · cert() 3764-3789 · timeline() 3790-3809
+today() 3810-3810 · exList() 3811-3811 · exFind() 3812-3812 · dueList() 3813-3813 · exCard() 3814-3814 · expr() 3815-3827 · review() 3828-3849 · verbList() 3850-3850
+memBoard() 3851-3863 · verbs() 3864-3908 · mistakes() 3909-3931 · PF 3932-3941 · PQ 3942-3942 · ENTRY 3943-3943 · TRACK 3944-3944 · HELPS 3945-3945
+TIPS 3946-3961 · L2() 3962-3962 · place() 3963-3993 · placeResult() 3994-4015 · avatars() 4016-4069 · VIS 4070-4070 · funnel() 4071-4104 · MAIL 4105-4126
+mailMock() 4127-4131 · mail() 4132-4160 · mailBuild() 4161-4185 · mailQuiz() 4186-4280 · canSpeak() 4281-4281 · voiceScore() 4282-4289 · voices() 4290-4293 · sayIt() 4294-4299
+voicePage() 4300-4317 · spNorm() 4318-4318 · spellDeck() 4319-4330 · spelling() 4331-4367 · gym() 4368-4417 · culture() 4418-4433 · progressCard() 4434-4443 · NUM 4444-4480
+clockSVG() 4481-4487 · numbers() 4488-4506 · numDrill() 4507-4546 · WV 4547-4561 · ADJ 4562-4568 · ADJQ 4569-4569 · ADVF 4570-4570 · ADVD 4571-4571
+ADVM 4572-4572 · ADVP 4573-4573 · ADVQ 4574-4574 · strip() 4575-4575 · meter() 4576-4576 · pics() 4577-4577 · words() 4578-4621 · wDrill() 4622-4645
+LAB 4646-4767 · LABMAP 4768-4768 · LSLOT 4769-4769 · LLINES 4770-4770 · labDi() 4771-4771 · labNeed() 4772-4772 · LPART 4773-4773 · labOpts() 4774-4786
+labRobot() 4787-4808 · LABCOIN 4809-4809 · labParty() 4810-4827 · labSentence() 4828-4844 · labCheck() 4845-4867 · isFreqT() 4868-4868 · vowelSound() 4869-4869 · labArt() 4870-4880
+labTense() 4881-4892 · labSense() 4893-4909 · LSTATE 4910-4910 · lab() 4911-5009 · RSWAP 5010-5010 · rVariant() 5011-5021 · race() 5022-5135 · ZAPX 5136-5154
+ideas() 5155-5162 · ownBox() 5163-5168 · applyTheme() 5169-5169 · nm() 5170-5170 · hi() 5171-5171 · welcome() 5172-5190 · choice() 5191-5204 · SG_SING 5205-5205
+SG_VERB 5206-5206 · sentenceTips() 5207-5241 · tipsBox() 5242-5250 · AI 5251-5251 · aiInit() 5252-5252 · aiReady() 5253-5253 · aiContext() 5254-5254 · aiCall() 5255-5259
+aiCheck() 5260-5264 · askTeacher() 5265-5281 · askFab() 5282-5286 · STORY 5287-5343 · storyFor() 5344-5344 · storyList() 5345-5352 · storyPage() 5353-5381 · aiStory() 5382-5387
+BDE 5388-5389 · REV 5390-5446 · ins() 5447-5590 · XQ 5591-5599 · REVIEWM 5600-5610 · TMOD 5611-5613 · SORTSET 5614-5620 · CDS 5621-5629
+CDL 5630-5632 · cdParse() 5633-5636 · wcommas() 5637-5679 · pvOf() 5680-5680 · pvPool() 5681-5683 · pvQs() 5684-5694 · arcadeMods() 5695-5695 · arcadePage() 5696-5735
+ARCMODES 5736-5736 · arcModeOf() 5737-5741 · arcModBtn() 5742-5763 · SPDICT 5764-5764 · spellDict() 5765-5779 · spKnown() 5780-5781 · spDist() 5782-5783 · spellIssues() 5784-5789
+lvMenu() 5790-5796 · COMMAMODS 5797-5798 · PSET 5799-5804 · PMODES 5805-5805 · poolSet() 5806-5806 · gD() 5807-5810 · TONE 5811-5813 · NINE 5814-5816
+soloCard() 5817-5819 · cityBank() 5820-5820 · SOLO 5821-5833 · MOVIES 5834-5890 · MVLV 5891-5892 · stuLv() 5893-5896 · wmovie() 5897-5980 · DCOL 5981-5981
+DIT 5982-5986 · DMAT 5987-5987 · dkC() 5988-5988 · dollSVG() 5989-6048 · dPiece() 6049-6049 · dArt() 6050-6050 · DVB 6051-6051 · wdoll() 6052-6155
+dartSents() 6156-6157 · dartGaps() 6158-6158 · wdarts() 6159-6220 · crossGaps() 6221-6221 · wcross() 6222-6275 · NINE_EXTRA 6276-6277 · route() 6278-6289 · start() 6290-6307
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -47,6 +48,19 @@ MAP END -->
 .mvtime{font-weight:800;color:#ff8a5c;text-align:right;min-height:1.2em}
 .mvopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}.mvopt.ok{background:#3ccf9f!important;color:#06261b!important}.mvopt.bad{opacity:.45;text-decoration:line-through}
 .mvkw ul{margin:6px 0 0;padding-left:20px}.mvkw li{margin:3px 0}
+.dlstage{display:grid;grid-template-columns:230px minmax(0,1fr);gap:18px;align-items:start}@media(max-width:640px){.dlstage{grid-template-columns:1fr}.dlfig{max-width:180px;margin:0 auto}}
+.dlfig{position:relative;background:linear-gradient(180deg,#ffe3ec 0%,#fff6e8 62%,#e9d3b6 62%,#dcc19e 100%);border:4px solid #ff8fab;border-radius:22px;padding:14px 10px 8px;display:flex;justify-content:center;box-shadow:inset 0 0 0 4px #fff}.dlfig::before{content:"";position:absolute;left:12%;right:12%;top:8px;height:8px;border-radius:8px;background:#ffd166;box-shadow:0 2px 0 #c9a13e}
+.dlcard{background:#1f2456;border:2px solid #3b3f8f;border-radius:14px;padding:12px 14px}.dlwant{font-size:20px;font-weight:800;line-height:1.35;margin:6px 0 0;color:#fff}
+.dlrow{display:flex;gap:8px;margin:12px 0 6px}.dlin{flex:1;min-width:0;font:700 18px system-ui;padding:10px 12px;border-radius:12px;border:2px solid #4cc9f0;background:#0b0d1f;color:#fff}
+.dlhint{display:flex;flex-wrap:wrap;gap:6px}.dlhint .chip{font:800 14px ui-monospace,monospace;letter-spacing:.5px;padding:4px 10px;border-radius:999px;background:#2a2f6b;color:#ffd166}
+.dlmsg{min-height:1.4em;font-weight:700;margin:8px 0}.dlmsg.ok{color:#3ccf9f}.dlmsg.bad{color:#ff6b6b}
+.dlopts{display:flex;flex-wrap:wrap;gap:10px}.dlopt{background:#12152e;border:3px solid #3b3f8f;border-radius:14px;padding:6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:#cfd5ff;font-weight:700}
+.dlopt:hover{border-color:#ffd166}.dlopt.ok{border-color:#3ccf9f;box-shadow:0 0 0 4px rgba(60,207,159,.35)}.dlopt.bad{border-color:#ff6b6b;opacity:.5}
+.dtask{background:#1f2456;border:2px solid #3b3f8f;border-radius:14px;padding:10px 14px;margin:0 0 10px}.dtask .dq{font-size:19px;font-weight:800;margin:4px 0 0;color:#fff;min-height:1em}
+.dgot{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}.dgot .chip{font-weight:800;padding:5px 12px;border-radius:999px;background:#2a2f6b;color:#aab0d8}.dgot .chip.on{background:#3ccf9f;color:#06261b}
+.dltarget{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.dlpiece{background:#eef0fb;border:2px dashed #8a90c8;border-radius:14px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:86px}
+.dlpiece svg{height:84px;width:auto}.dlpiece small{font:800 13px ui-monospace,monospace;color:#12152e;letter-spacing:.5px}.dlpiece.done{border-style:solid;border-color:#3ccf9f}.dlpiece.done small{font-family:inherit;color:#0f7a57}.dlpiece.now{border-color:#ffd166;border-style:solid;box-shadow:0 0 0 3px rgba(255,209,102,.3)}
+.dlopts .dlopt{flex:1 1 140px;min-height:0;padding:10px 12px;font-weight:800}
 .revchip.on{background:#ff6b9a!important;color:#12152e!important}
 </style></head><body>
 <!DOCTYPE html>
@@ -2971,17 +2985,22 @@ var COACH={
 };
 function gCoach(k,done){S.coach=S.coach||{};var steps=(COACH[k]||[]).filter(function(st){return document.querySelector(st[0])});
   if(S.coach[k]||!steps.length){done();return}
-  var i=0,ring=h("div",{class:"coachring"}),tip=h("div",{class:"coachtip",role:"dialog","aria-live":"polite"}),shade=h("div",{class:"coachshade"});
+  var i=0,ring=h("div",{class:"coachring"}),tip=h("div",{class:"coachtip",role:"dialog","aria-live":"polite"}),shade=h("div",{class:"coachshade"}),el=null,raf2=0;
   document.body.appendChild(shade);document.body.appendChild(ring);document.body.appendChild(tip);
-  function end(){S.coach[k]=1;save();[shade,ring,tip].forEach(function(e){e.remove()});done()}
-  function show(){var el=document.querySelector(steps[i][0]);if(!el){end();return}
+  /* keep the ring and the tip on the element when the page scrolls or the window changes size */
+  function place(){if(!el)return;var r=el.getBoundingClientRect(),pad=8;ring.style.cssText="transition:none;top:"+(r.top-pad)+"px;left:"+(r.left-pad)+"px;width:"+(r.width+pad*2)+"px;height:"+(r.height+pad*2)+"px";
+    var th=tip.offsetHeight,below=r.bottom+pad+12+th<innerHeight-8,tt=below?r.bottom+pad+12:r.top-pad-12-th;
+    if(!below&&tt<8)tt=Math.max(8,Math.min(innerHeight-th-8,r.top+20));
+    tip.style.top=tt+"px";tip.style.left=Math.max(8,Math.min(innerWidth-tip.offsetWidth-8,r.left+r.width/2-tip.offsetWidth/2))+"px"}
+  function onMove(){if(raf2)return;raf2=requestAnimationFrame(function(){raf2=0;place()})}
+  window.addEventListener("scroll",onMove,{passive:true,capture:true});window.addEventListener("resize",onMove);
+  function end(){S.coach[k]=1;save();window.removeEventListener("scroll",onMove,{capture:true});window.removeEventListener("resize",onMove);[shade,ring,tip].forEach(function(e){e.remove()});done()}
+  function show(){el=document.querySelector(steps[i][0]);if(!el){end();return}
     try{el.scrollIntoView({block:"center",behavior:"instant"})}catch(e){}
-    setTimeout(function(){var r=el.getBoundingClientRect(),pad=8;ring.style.cssText="top:"+(r.top-pad)+"px;left:"+(r.left-pad)+"px;width:"+(r.width+pad*2)+"px;height:"+(r.height+pad*2)+"px";
-      tip.innerHTML="";tip.appendChild(h("span",{class:"label"},"Step "+(i+1)+" of "+steps.length));tip.appendChild(h("p",null,steps[i][1]));
-      tip.appendChild(h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:end},"Skip"),h("button",{class:"btn",onclick:function(){i++;if(i>=steps.length)end();else show()}},i+1<steps.length?"Next →":"Let's play! ▶")));
-      tip.style.visibility="hidden";var below=r.bottom+170<innerHeight,tt=below?r.bottom+pad+12:Math.max(8,r.top-pad-12-tip.offsetHeight);if(!below&&r.top-pad-12-tip.offsetHeight<8)tt=Math.min(innerHeight-tip.offsetHeight-8,r.top+20);
-      tip.style.top=tt+"px";tip.style.left=Math.max(8,Math.min(innerWidth-tip.offsetWidth-8,r.left+r.width/2-tip.offsetWidth/2))+"px";
-      tip.style.visibility="";var b=tip.querySelector(".btn:not(.ghost)");try{b.focus({preventScroll:true})}catch(e){}},260)}
+    tip.innerHTML="";tip.appendChild(h("span",{class:"label"},"Step "+(i+1)+" of "+steps.length));tip.appendChild(h("p",null,steps[i][1]));
+    tip.appendChild(h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:end},"Skip"),h("button",{class:"btn",onclick:function(){i++;if(i>=steps.length)end();else show()}},i+1<steps.length?"Next →":"Let's play! ▶")));
+    tip.style.visibility="hidden";
+    setTimeout(function(){place();tip.style.visibility="";var b=tip.querySelector(".btn:not(.ghost)");try{b.focus({preventScroll:true})}catch(e){}},120)}
   show()}
 var TURNG=["pool","tubes","genius","commas","duel","hoops","penalty"];
 function gStartNow(ui){gClose();gFocus(ui,false);var k=cur&&cur.k;gCoach(k,function(){gGo();gFocus(ui,true);if(ui&&ui._go){var f=ui._go;ui._go=null;f()}})}
@@ -5913,6 +5932,348 @@ COACH.movie=[[".mvscreen","Read the clue. It describes a famous film."],[".mvopt
 Object.assign(T.en,{movie:"Guess the movie",movieD:"Read the clues and guess the film. The clues follow your level."});
 Object.assign(T.pt,{movie:"Guess the movie",movieD:"Leia as pistas e adivinhe o filme. As pistas seguem o seu nível."});
 if(typeof ARCMODES!=="undefined")ARCMODES.movie="The clues follow your level (from the modules you did or your level check), not the module you pick.";
+/* ---------- Clothes & style (A2) and its game: Dress the doll ---------- */
+M.splice(M.findIndex(function(x){return x.id==="a2-5"})+1,0,{id:"a2-6",lv:"A2",t:"Clothes & style",g:"Adjective order · wear, put on, try on",v:"Clothes, colours & materials",
+ sit:{t:"Shopping for a party outfit",who:"Shop assistant",en:"You are in a clothes shop in London. You need something to wear to a friend's party on Saturday.",pt:"Você está numa loja de roupas em Londres. Precisa de algo para usar na festa de um amigo no sábado.",
+ turns:[
+  ["Hi! Can I help you?",["Yes, please. I'm looking for a nice long black dress.","Yes, please. I'm looking for a black long nice dress.","Yes, please. I'm looking for a dress long black nice."],"Opinion → size → colour → noun: a nice long black dress."],
+  ["Sure. What size are you?",["I'm a medium, I think.","I have medium, I think.","I'm size of medium, I think."],"I'm a small / a medium / a large."],
+  ["How about this one? It's silk.",["It's beautiful! Can I try it on?","It's beautiful! Can I try on it?","It's beautiful! Can I try it in?"],"try it on: the pronoun goes between try and on."],
+  ["So, how does it fit?",["It's a bit tight. Have you got it in a bigger size?","It's a bit tight. Have you got it in a more big size?","It's a bit tight. Do you got it in a bigger size?"],"bigger (not more big) · Have you got…?"]]},
+ quiz:[
+  ["She's wearing a ___ dress.",["beautiful red silk","red beautiful silk","silk red beautiful"],"Opinion → colour → material → noun."],
+  ["I've got some ___ shoes.",["new black leather","leather black new","black new leather"],"Age → colour → material → noun."],
+  ["Look! Tom ___ a funny hat today.",["is wearing","wears","is using"],"Now → present continuous. Clothes → wear, not use."],
+  ["These jeans are too small. Can I ___ a bigger size?",["try on","try in","wear on"],"try on = put on clothes in a shop to see if they fit."],
+  ["Which word is always plural?",["trousers","jacket","skirt"],"Trousers, jeans, shorts → these trousers, a pair of trousers."]],
+ build:["She is wearing a long red dress.","I have a nice old leather jacket.","He usually wears black trainers.","Can I try these jeans on?"],
+ match:[["👗","dress"],["👖","jeans"],["🧥","coat"],["👟","trainers"],["🧣","scarf"],["👒","hat"]],
+ speed:[["She's wearing a lovely blue cotton shirt.",1],["I bought a leather black bag.",0,"I bought a black leather bag."],["He's got a big old car.",1],["Look! She wears a hat today.",0,"Look! She's wearing a hat today."],["These trousers are too long.",1],["This trousers is too long.",0,"These trousers are too long."],["Can I try it on?",1],["Can I try on it?",0,"Can I try it on?"]]});
+Object.assign(BD,{
+"She is wearing a long red dress.":"svvoaao|Describe what she's wearing now.|Ela está usando um vestido vermelho longo.",
+"I have a nice old leather jacket.":"svoaaao|Describe your jacket.|Eu tenho uma jaqueta de couro velha e bonita.",
+"He usually wears black trainers.":"sdvao|Say what he wears most days.|Ele normalmente usa tênis pretos.",
+"Can I try these jeans on?":"vsvood|Ask to try the jeans in the shop.|Posso experimentar este jeans?"});
+GR["a2-6"]={pts:[{t:"Adjective order",use:"When you put two or more adjectives before a noun, they follow an order: opinion → size → age → shape → colour → origin → material → noun.",pt:"Em português o adjetivo vem depois do substantivo (um vestido vermelho). Em inglês todos vêm ANTES, numa ordem fixa: opinião → tamanho → idade → cor → origem → material → substantivo.",
+  form:[["opinion","nice · lovely · beautiful · ugly · cool"],["size · age","big · small · long · short · new · old"],["colour","red · black · dark blue · light green"],["origin · material","Italian · Brazilian · cotton · silk · leather · wool"],["noun","a lovely long red silk dress"]],
+  ex:["a lovely long red dress","a small old leather bag"],bad:["a red long dress","a long red dress"]},
+ {t:"Wear, put on, try on",use:"Wear = have clothes on your body: present continuous for now (I'm wearing a coat), present simple for habits (I usually wear jeans). Put on = start to wear. Take off = remove. Try on = wear it in a shop to see if it fits. Jeans, trousers and shorts are plural.",pt:"Usar roupa = wear (não use). Vestir = put on, tirar = take off, experimentar = try on. Jeans, trousers e shorts são sempre plurais: these jeans, a pair of trousers.",
+  form:[["now","I'm wearing a jacket today."],["habit","She usually wears dresses."],["put on · take off","Put on your coat. · Take off your shoes."],["try it on","Can I try it on? · Can I try them on?"],["plural","these jeans · my shorts · a pair of trousers"]],
+  ex:["Can I try these shoes on?","He's wearing a pair of old jeans."],bad:["I'm using a red shirt.","I'm wearing a red shirt."]}],
+ qc:[["She has a ___ bag.",["small black","black small","small blacks"]],["It's cold. I ___ a coat now.",["'m wearing","wear","'m using"]],["I like this shirt. Can I ___?",["try it on","try on it","try it in"]],["___ jeans are new.",["These","This","That"]]]};
+GX["a2-6"]=[{tips:["Think of a line: opinion → size → age → colour → origin → material → noun.","Opinion words (nice, ugly, lovely) always come first.","Material (cotton, wool, leather) comes just before the noun."],
+  tl:[["um vestido vermelho bonito","a beautiful red dress"],["uma bolsa de couro preta","a black leather bag"],["um casaco velho de lã","an old wool coat"],["sapatos novos italianos","new Italian shoes"]],
+  note:"Portuguese puts adjectives after the noun. English puts them all before it, in a fixed order."},
+ {tips:["Wear = usar roupa. Use = usar uma coisa (a phone, a pen).","Try it on / try them on: the pronoun goes between try and on.","Jeans, trousers, shorts, pyjamas → plural: they are, these."],
+  tl:[["Estou usando um casaco.","I'm wearing a coat."],["Posso experimentar?","Can I try it on?"],["Vista o casaco!","Put on your coat!"],["Esta calça é nova.","These trousers are new."]],
+  note:"Portuguese says esta calça (singular). English says these trousers (plural)."}];
+HOOK["a2-6"]=["Opinion → size → age → colour → material → NOUN.","WEAR clothes (not use) · TRY IT ON · THESE jeans."];
+HLT["a2-6"]=[["bonito|beautiful","couro|leather","lã|wool","italianos|Italian"],["usando|wearing","experimentar|try it on","Vista|Put on","Esta calça|These trousers"]];
+KW["a2-6"]=["lovely,long,red,small,old,leather","wearing,try,on,these,jeans,shoes"];
+BK["a2-6"]={g:["She's wearing a ___ dress.|beautiful long|long beautiful|beautifully long","I want a ___ jacket.|black leather|leather black|blacks leather","He has a ___ car.|big old|old big|bigger old","It's cold. ___ your coat!|Put on|Wear on|Dress","I like these boots. Can I try ___?|them on|on them|them in","These jeans ___ too small.|are|is|am","I ___ a uniform at school every day.|wear|am wearing|use","Look! Ana ___ a new hat.|is wearing|wears|wear","I need a new pair of ___.|trousers|trouser|shirt","___ shoes are very comfortable.|These|This|That","My grandma knits ___ scarves.|lovely wool|wool lovely|lovely wools","This shirt is small. Have you got a ___ size?|bigger|more big|big","The dress doesn't ___ me. It's too big.|fit|wear|dress","She's got ___ eyes.|big blue|blue big|bigs blue","I'd like a ___ T-shirt.|cotton|cottons|of cotton","What ___ you wearing to the party?|are|do|is","He usually ___ jeans at the weekend.|wears|is wearing|wear","___ your shoes off, please.|Take|Put|Try","It's a ___ bag.|small Italian|Italian small|smallest Italian","This coat is made ___ wool.|of|on|in","How much ___ these boots?|are|is|does"],x:[]};
+ZAPX["a2-6"]=["She has a red long dress.|She has a long red dress.","I'm using a blue jacket today.|I'm wearing a blue jacket today.","Can I try on it?|Can I try it on?","This jeans are new.|These jeans are new.","Look! He wears a hat now.|Look! He's wearing a hat now.","I bought a leather black bag.|I bought a black leather bag.","My trouser is dirty.|My trousers are dirty.","She's got a blue beautiful scarf.|She's got a beautiful blue scarf."];
+EXP["a2-6"]=["p|try on|to put on clothes in a shop to see if they fit|experimentar|Can I try on these boots?","p|put on|to start wearing something|vestir, colocar|Put on your coat, it's cold.","p|take off|to remove clothes|tirar (roupa)|Take off your shoes at the door.","c|Does it suit me?|You ask if something looks good on you.|Fica bem em mim?|Be honest: does this colour suit me?","c|It's a bit too tight.|You say clothes are too small.|Está um pouco apertado.|These jeans are a bit too tight.","c|Have you got it in a bigger size?|You ask for another size.|Tem num tamanho maior?|I love it! Have you got it in a bigger size?","i|dressed to kill|wearing very elegant, impressive clothes|arrasando no visual|Wow, you're dressed to kill tonight!","i|fit like a glove|to be exactly the right size|cair como uma luva|This jacket fits like a glove."];
+CAN["a2-6"]="describe clothes with adjectives in the right order and buy clothes in a shop";
+PIC["a2-6"]="👗👟🧣";LABMAP["a2-6"]="daily";
+if(typeof REVIEWM!=="undefined")REVIEWM["a2-6"]=["a1-4"];
+TONE["a2-6"]="rose";
+
+/* ---- Dress the doll: read the outfit, TYPE each clothes word, then choose the right one ---- */
+var DCOL={red:"#e63946",blue:"#3a86ff",green:"#2a9d8f",yellow:"#ffbe0b",black:"#2b2d42",white:"#f4f4f4",pink:"#ff8fab",purple:"#8338ec",brown:"#8d5524",grey:"#9aa0a6",orange:"#fb8500"};
+var DIT={
+ "T-shirt":{s:"top",a:["t-shirt","tshirt","t shirt","tee"]},shirt:{s:"top",a:[]},sweater:{s:"top",a:["jumper"]},
+ skirt:{s:"bottom",z:1,a:[]},trousers:{s:"bottom",a:["pants"]},jeans:{s:"bottom",a:[]},shorts:{s:"bottom",a:[]},
+ dress:{s:"full",z:1,a:[]},trainers:{s:"feet",a:["sneakers","trainer","sneaker"]},boots:{s:"feet",a:["boot"]},sandals:{s:"feet",a:["sandal"]},
+ hat:{s:"head",a:[]},cap:{s:"head",a:[]},scarf:{s:"neck",a:[]},glasses:{s:"face",a:["sunglasses"]}};
+var DMAT={top:["cotton","silk","wool"],bottom:["cotton","denim","wool"],full:["cotton","silk"],feet:["leather","rubber"],head:["wool","straw"],neck:["wool","silk"],face:["plastic","metal"]};
+function dkC(hx,f){var n=parseInt(hx.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;f=f||.28;return "rgb("+Math.round(r*(1-f))+","+Math.round(g*(1-f))+","+Math.round(b*(1-f))+")"}
+function dollSVG(o,w,vb,ghost){w=w||200;var g='<svg viewBox="'+(vb||"0 0 200 360")+'" width="'+w+'" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
+  var sk="#e8b17a",skd="#c98d55",hair="#6b3e26",OL=' stroke="#2a1d1d" stroke-opacity=".38" stroke-width="2" stroke-linejoin="round"';
+  function c(p){return DCOL[p.c]||"#ccc"}
+  function st(p){return ' fill="'+c(p)+'" stroke="'+dkC(c(p),.45)+'" stroke-width="2.2" stroke-linejoin="round"'}
+  function shine(d){return '<path d="'+d+'" fill="#fff" opacity=".18"/>'}
+  /* the doll */
+  if(ghost)g+='<g opacity=".16">';
+  g+='<ellipse cx="100" cy="350" rx="62" ry="7" fill="rgba(0,0,0,.25)"/>';
+  g+='<path d="M64 58 Q56 112 70 128 L130 128 Q144 112 136 58 Z" fill="'+hair+'"/>';
+  g+='<rect x="72" y="198" width="22" height="138" rx="11" fill="'+sk+'"'+OL+'/><rect x="106" y="198" width="22" height="138" rx="11" fill="'+sk+'"'+OL+'/>';
+  g+='<ellipse cx="82" cy="338" rx="13" ry="6.5" fill="'+sk+'"'+OL+'/><ellipse cx="118" cy="338" rx="13" ry="6.5" fill="'+sk+'"'+OL+'/>';
+  g+='<rect x="44" y="104" width="18" height="96" rx="9" fill="'+sk+'"'+OL+'/><rect x="138" y="104" width="18" height="96" rx="9" fill="'+sk+'"'+OL+'/>';
+  g+='<circle cx="53" cy="204" r="9" fill="'+sk+'"'+OL+'/><circle cx="147" cy="204" r="9" fill="'+sk+'"'+OL+'/>';
+  g+='<rect x="90" y="80" width="20" height="22" fill="'+skd+'"/>';
+  g+='<path d="M64 112 Q64 96 82 96 L118 96 Q136 96 136 112 L132 166 Q130 182 134 204 L66 204 Q70 182 68 166 Z" fill="'+sk+'"'+OL+'/>';
+  g+='<path d="M68 112 Q70 100 84 100 L116 100 Q130 100 132 112 L130 160 L70 160 Z" fill="#f6e7d2"'+OL+'/><path d="M67 184 L133 184 L135 210 Q100 220 65 210 Z" fill="#f6e7d2"'+OL+'/>';
+  g+='<circle cx="69" cy="60" r="6" fill="'+sk+'"'+OL+'/><circle cx="131" cy="60" r="6" fill="'+sk+'"'+OL+'/>';
+  g+='<ellipse cx="100" cy="58" rx="31" ry="33" fill="'+sk+'"'+OL+'/>';
+  g+='<path d="M68 56 Q68 20 100 20 Q132 20 132 56 Q126 40 110 42 Q102 30 88 40 Q76 42 68 56 Z" fill="'+hair+'"/>';
+  g+='<ellipse cx="88" cy="60" rx="5" ry="5.6" fill="#fff"/><ellipse cx="112" cy="60" rx="5" ry="5.6" fill="#fff"/><circle cx="88.6" cy="61" r="3.4" fill="#2b2d42"/><circle cx="112.6" cy="61" r="3.4" fill="#2b2d42"/><circle cx="89.8" cy="59.6" r="1.2" fill="#fff"/><circle cx="113.8" cy="59.6" r="1.2" fill="#fff"/>';
+  g+='<path d="M82 50 Q88 47 94 50 M106 50 Q112 47 118 50" stroke="'+hair+'" stroke-width="2.4" fill="none" stroke-linecap="round"/>';
+  g+='<ellipse cx="79" cy="71" rx="6" ry="3.5" fill="#ff8fab" opacity=".45"/><ellipse cx="121" cy="71" rx="6" ry="3.5" fill="#ff8fab" opacity=".45"/>';
+  g+='<path d="M91 73 Q100 81 109 73" stroke="#a0442d" stroke-width="3" fill="none" stroke-linecap="round"/>';
+  if(ghost)g+='</g>';
+  var b=o.bottom,t=o.top,f=o.full,ft=o.feet;
+  /* bottoms */
+  if(b){var bc=c(b),bd=dkC(bc,.45);
+    if(b.n==="skirt"){var L=b.z==="long",y=L?318:256,xl=L?46:54,xr=L?154:146;
+      g+='<path d="M66 192 L134 192 L'+xr+' '+y+' Q100 '+(y+8)+' '+xl+' '+y+' Z"'+st(b)+'/><rect x="66" y="190" width="68" height="9" rx="3" fill="'+bd+'"/>';
+      g+='<path d="M86 199 L'+(L?76:80)+' '+(y+2)+' M100 199 L100 '+(y+4)+' M114 199 L'+(L?124:120)+' '+(y+2)+'" stroke="'+bd+'" stroke-width="1.6" opacity=".6"/>'+shine('M70 200 L80 200 L'+(xl+12)+' '+(y-4)+' L'+(xl+4)+' '+(y-4)+' Z')}
+    else if(b.n==="shorts"){g+='<path d="M66 190 L134 190 L136 248 L104 248 L100 216 L96 248 L64 248 Z"'+st(b)+'/><rect x="66" y="188" width="68" height="9" rx="3" fill="'+bd+'"/><path d="M100 197 L100 216" stroke="'+bd+'" stroke-width="1.6"/>'}
+    else{g+='<path d="M66 190 L134 190 L132 332 L105 332 L100 222 L95 332 L68 332 Z"'+st(b)+'/><rect x="66" y="188" width="68" height="9" rx="3" fill="'+bd+'"/>';
+      g+='<path d="M82 222 L81 330 M118 222 L119 330" stroke="'+bd+'" stroke-width="1.4" opacity=".5"/>'+shine('M70 198 L78 198 L76 328 L71 328 Z');
+      if(b.n==="jeans")g+='<path d="M100 197 L100 222 M74 202 Q82 214 92 204 M108 204 Q118 214 126 202 M70 318 L94 318 M106 318 L130 318" stroke="#ffd166" stroke-width="1.8" fill="none" stroke-dasharray="4 3"/><circle cx="100" cy="193" r="2.6" fill="#ffd166"/>'}}
+  /* dress */
+  if(f){var fc=c(f),fd=dkC(fc,.45),L2=f.z==="long",y2=L2?324:252,xl2=L2?42:50,xr2=L2?158:150;
+    g+='<path d="M66 104 Q66 96 84 96 Q100 106 116 96 Q134 96 134 104 L130 166 L'+xr2+' '+y2+' Q100 '+(y2+10)+' '+xl2+' '+y2+' L70 166 Z"'+st(f)+'/>';
+    g+='<path d="M70 164 Q100 172 130 164 L130 174 Q100 182 70 174 Z" fill="'+fd+'"/><circle cx="100" cy="174" r="4" fill="#ffd166"/>';
+    g+='<path d="M84 180 L'+(L2?66:72)+' '+(y2-2)+' M116 180 L'+(L2?134:128)+' '+(y2-2)+'" stroke="'+fd+'" stroke-width="1.5" opacity=".55"/>'+shine('M72 110 L80 104 L78 160 L72 160 Z')}
+  /* tops */
+  if(t){var tc=c(t),td=dkC(tc,.45);
+    if(t.n==="T-shirt"){g+='<path d="M62 102 Q72 96 86 96 Q100 106 114 96 Q128 96 138 102 L160 132 L144 144 L136 128 L136 200 L64 200 L64 128 L56 144 L40 132 Z"'+st(t)+'/>';
+      g+='<path d="M86 96 Q100 110 114 96" stroke="'+td+'" stroke-width="4" fill="none"/><path d="M64 194 L136 194" stroke="'+td+'" stroke-width="2" opacity=".6"/>'+shine('M68 128 L76 124 L74 190 L68 190 Z')}
+    else{g+='<path d="M62 102 Q72 96 86 96 Q100 104 114 96 Q128 96 138 102 L160 196 L140 200 L136 136 L136 202 L64 202 L64 136 L60 200 L40 196 Z"'+st(t)+'/>';
+      if(t.n==="shirt")g+='<path d="M84 94 L100 116 L116 94 L110 92 L100 104 L90 92 Z" fill="#fff" stroke="'+td+'" stroke-width="1.5"/><path d="M100 116 L100 200" stroke="'+td+'" stroke-width="2"/><circle cx="104" cy="132" r="2.4" fill="#fff"/><circle cx="104" cy="152" r="2.4" fill="#fff"/><circle cx="104" cy="172" r="2.4" fill="#fff"/><path d="M40 190 L60 194 M140 194 L160 190" stroke="#fff" stroke-width="5"/>';
+      else g+='<path d="M86 96 Q100 110 114 96" stroke="'+td+'" stroke-width="6" fill="none"/><path d="M64 194 L136 194 M41 188 L59 192 M141 192 L159 188" stroke="'+td+'" stroke-width="7"/><path d="M74 194 L74 202 M86 194 L86 202 M98 194 L98 202 M110 194 L110 202 M122 194 L122 202" stroke="'+tc+'" stroke-width="1.5"/>';
+      g+=shine('M68 130 L76 124 L74 186 L68 186 Z')}}
+  /* shoes */
+  if(ft){var fcl=c(ft),fdk=dkC(fcl,.45);
+    if(ft.n==="boots")g+='<path d="M70 278 L96 278 L96 330 Q98 344 84 344 L62 344 Q58 336 70 330 Z"'+st(ft)+'/><path d="M104 278 L130 278 L130 330 Q142 336 138 344 L116 344 Q102 344 104 330 Z"'+st(ft)+'/><rect x="68" y="274" width="30" height="8" rx="3" fill="'+fdk+'"/><rect x="102" y="274" width="30" height="8" rx="3" fill="'+fdk+'"/>';
+    else if(ft.n==="sandals")g+='<rect x="66" y="339" width="34" height="7" rx="3.5"'+st(ft)+'/><rect x="100" y="339" width="34" height="7" rx="3.5"'+st(ft)+'/><path d="M72 338 L84 328 L94 338 M106 338 L116 328 L128 338" stroke="'+fcl+'" stroke-width="5" fill="none" stroke-linecap="round"/>';
+    else g+='<path d="M70 326 L94 326 Q98 336 100 344 L62 344 Q60 332 70 326 Z"'+st(ft)+'/><path d="M106 326 L130 326 Q140 332 138 344 L100 344 Q102 336 106 326 Z"'+st(ft)+'/><rect x="60" y="340" width="42" height="6" rx="3" fill="#fff"/><rect x="98" y="340" width="42" height="6" rx="3" fill="#fff"/><path d="M76 330 L88 330 M76 335 L90 335 M112 330 L124 330 M110 335 L124 335" stroke="#fff" stroke-width="2"/>'}
+  /* accessories */
+  if(o.neck){var nc=c(o.neck),nd=dkC(nc,.45);g+='<path d="M70 90 Q100 110 130 90 L132 104 Q100 124 68 104 Z"'+st(o.neck)+'/><path d="M108 104 L124 104 L122 162 L106 162 Z"'+st(o.neck)+'/><path d="M108 120 L123 120 M107 138 L122 138" stroke="'+nd+'" stroke-width="3"/><path d="M108 162 L108 170 M112 162 L112 170 M116 162 L116 170 M120 162 L120 170" stroke="'+nc+'" stroke-width="2"/>'}
+  if(o.face){var gc=c(o.face);g+='<circle cx="88" cy="60" r="10" fill="rgba(255,255,255,.22)" stroke="'+gc+'" stroke-width="3.5"/><circle cx="112" cy="60" r="10" fill="rgba(255,255,255,.22)" stroke="'+gc+'" stroke-width="3.5"/><path d="M98 58 Q100 55 102 58 M78 58 L69 55 M122 58 L131 55" stroke="'+gc+'" stroke-width="3.5" fill="none"/>'}
+  if(o.head){var hc=c(o.head),hd=dkC(hc,.45);
+    if(o.head.n==="cap")g+='<path d="M68 40 Q68 8 100 8 Q132 8 132 40 Z"'+st(o.head)+'/><path d="M124 38 Q150 38 160 46 Q140 48 122 44 Z" fill="'+hd+'"/><circle cx="100" cy="9" r="3.5" fill="'+hd+'"/><path d="M100 10 L100 38 M84 12 Q80 26 82 39 M116 12 Q120 26 118 39" stroke="'+hd+'" stroke-width="1.4" opacity=".6"/>';
+    else g+='<ellipse cx="100" cy="36" rx="58" ry="11"'+st(o.head)+'/><path d="M72 36 Q72 4 100 4 Q128 4 128 36 Z"'+st(o.head)+'/><path d="M72 28 Q100 34 128 28 L128 36 Q100 42 72 36 Z" fill="'+hd+'"/>'}
+  return g+'</svg>'}
+/* one piece in words, adjectives in order: size → colour → noun */
+function dPiece(p){return (p.z?p.z+" ":"")+p.c+" "+p.n}
+function dArt(x){return /s$/.test(x.split(" ").pop())&&!/dress$/.test(x)?"":(/^[aeiou]/.test(x)?"an ":"a ")}
+var DVB={top:"30 86 140 124",bottom:"36 182 128 156",full:"34 86 132 248",feet:"52 268 96 84",head:"36 -2 128 80",neck:"58 80 84 96",face:"64 38 72 44"};
+function wdoll(m){
+  var ui=arcade(m,"doll"),lvl=lvOf(m,"doll"),my=tok,_tm=gTimer(ui,m,"doll",lvl);
+  /* level: pieces, options, and what the options say (1 colour · 2 colour · 3 size + colour · 4-5 the right adjective order) */
+  var NP=[2,3,3,4,5][lvl-1],NOPT=[3,4,4,4,4][lvl-1],ROUNDS=4,hearts=3,done=0,ri=0,outfit=null,dressed={},todo=[],picking=null;
+  var doll=h("div",{class:"dlfig"}),card=h("div",{class:"dlcard"}),inp=h("input",{class:"dlin",type:"text",autocomplete:"off",autocapitalize:"off",spellcheck:"false",placeholder:"Type the name of a piece…","aria-label":"Type the name of a piece of clothing"}),
+    go1=h("button",{class:"btn"},"OK"),msg=h("p",{class:"dlmsg",role:"status"}),optBox=h("div",{class:"dlopts"});
+  ui.stage.appendChild(h("div",{class:"dlstage"},doll,h("div",{class:"dlside"},card,h("div",{class:"dlrow"},inp,go1),msg,optBox)));
+  function score(){ui.board([faceEl()," "+t("you")],done+" / "+ROUNDS,[t("level")+" "+lvl,"Outfit "+Math.min(ri+1,ROUNDS)+" / "+ROUNDS],t("lives"),"♥♥♥".slice(0,hearts)+"♡♡♡".slice(0,3-hearts))}
+  function pickN(arr){return arr[Math.floor(Math.random()*arr.length)]}
+  var CL=Object.keys(DCOL).filter(function(c){return c!=="white"});
+  function mk(n,used){var d=DIT[n],c=pickN(CL.filter(function(x){return used.indexOf(x)<0}));used.push(c);var p={n:n,s:d.s,c:c};if(d.z)p.z=pickN(["long","short"]);return p}
+  function names(s){return Object.keys(DIT).filter(function(k){return DIT[k].s===s})}
+  function newOutfit(){var ps=[],used=[];
+    if(lvl>=3&&Math.random()<.5)ps.push(mk(Math.random()<.5?"dress":"skirt",used));
+    if(!ps.length||ps[0].n==="skirt"){ps.push(mk(pickN(names("top")),used));if(!ps.some(function(p){return p.s==="bottom"}))ps.push(mk(pickN(names("bottom").filter(function(n){return lvl>=3||n!=="skirt"})),used))}
+    var extra=shuffle(["feet","head","neck","face"]);while(ps.length<NP)ps.push(mk(pickN(names(extra.shift())),used));
+    return ps.slice(0,NP)}
+  function draw(){var o={};Object.keys(dressed).forEach(function(s){o[s]=dressed[s]});doll.innerHTML=dollSVG(o,210)}
+  function norm(x){return x.toLowerCase().replace(/[^a-z\- ]/g,"").replace(/\s+/g," ").trim()}
+  function which(x){x=norm(x);var hit=null;Object.keys(DIT).forEach(function(k){if(norm(k)===x||DIT[k].a.indexOf(x)>=0)hit=k});return hit}
+  function drawCard(){card.innerHTML="";card.appendChild(h("span",{class:"label"},"👗 Dress the doll like this"));
+    var row=h("div",{class:"dltarget"});outfit.forEach(function(p){var o={};o[p.s]=p;var done1=todo.indexOf(p)<0,b=h("div",{class:"dlpiece"+(done1?" done":"")+(picking===p?" now":"")});
+      b.innerHTML=dollSVG(o,p.s==="full"?70:76,DVB[p.s],true);
+      b.appendChild(h("small",null,done1?dPiece(p):(lvl<=2?p.n.split("").map(function(ch,i){return i===0?ch:(ch==="-"?"-":"_")}).join(" "):"?")));row.appendChild(b)});
+    card.appendChild(row)}
+  function round(){if(my!==tok)return;if(ri>=ROUNDS){end(true);return}
+    outfit=newOutfit();dressed={};todo=outfit.slice();picking=null;optBox.innerHTML="";msg.textContent="";draw();score();drawCard();
+    inp.disabled=false;inp.value="";try{inp.focus({preventScroll:true})}catch(e){}
+    ui.talk("Look at the clothes. Write the name of each piece.")}
+  function submit(){if(GP.on||picking)return;var x=inp.value;if(!norm(x))return;var k=which(x);inp.value="";
+    if(!k){msg.textContent="🤔 “"+x+"”? Check the spelling!";msg.className="dlmsg bad";return}
+    var p=todo.filter(function(q){return q.n===k})[0];
+    if(!p){msg.textContent=outfit.some(function(q){return q.n===k})?"✓ The "+k+" is already on.":"“"+k+"” is a clothes word, but it isn't in this picture.";msg.className="dlmsg";return}
+    msg.textContent="✓ "+k+"! "+(lvl<=2?"What colour is it?":"Which one is it?");msg.className="dlmsg ok";choose(p)}
+  function choose(p){picking=p;inp.disabled=true;drawCard();optBox.innerHTML="";
+    var right=lvl<=2?p.c:(lvl===3?dPiece(p):dArt(dPiece(p))+dPiece(p)),opts=[right],cs=shuffle(CL.filter(function(c){return c!==p.c}));
+    function phr(q,swap){var w=(q.z?(swap?q.c+" "+q.z:q.z+" "+q.c):q.c)+" "+q.n;return lvl>=4?dArt(w)+w:w}
+    if(lvl>=4&&p.z)opts.push(phr(p,true));
+    if(lvl>=3&&p.z)opts.push(lvl>=4?phr({z:p.z==="long"?"short":"long",c:p.c,n:p.n}):(p.z==="long"?"short":"long")+" "+p.c+" "+p.n);
+    while(opts.length<NOPT){var c=cs.shift();var o=lvl<=2?c:(lvl===3?(p.z?p.z+" ":"")+c+" "+p.n:phr({z:p.z,c:c,n:p.n}));if(opts.indexOf(o)<0)opts.push(o)}
+    shuffle(opts).forEach(function(o){var b=h("button",{class:"opt dlopt"},o);b.onclick=function(){if(GP.on||picking!==p)return;if(o===right)ok(b);else bad(b,o,right)};optBox.appendChild(b)})}
+  function ok(b){var p=picking;picking=null;b.classList.add("ok");if(p.s==="full"){delete dressed.top;delete dressed.bottom}if(p.s==="top"||p.s==="bottom")delete dressed.full;
+    dressed[p.s]=p;todo=todo.filter(function(q){return q!==p});draw();drawCard();ui.talk(pick(["Perfect!","Looking good!","Nice choice!"])+" "+dArt(dPiece(p))+dPiece(p)+".");
+    setTimeout(function(){if(my!==tok)return;optBox.innerHTML="";inp.disabled=false;try{inp.focus({preventScroll:true})}catch(e){}
+      if(!todo.length){done++;score();msg.textContent="🎉 Outfit complete!";msg.className="dlmsg ok";ri++;setTimeout(function(){if(my===tok)round()},1100)}},500)}
+  function bad(b,o,right){b.classList.add("bad");b.disabled=true;hearts--;score();
+    msg.textContent=lvl>=4&&o.indexOf(picking.c)>=0&&picking.z&&o.indexOf(picking.z)>=0?"✗ Check the order: size → colour → noun.":"✗ Not "+o+". Look at the picture again.";msg.className="dlmsg bad";
+    miss(m,"doll","Dress the doll: "+dPiece(picking),o,right,lvl>=4?"Size → colour → noun.":"");if(hearts<=0)end(false)}
+  function end(win){if(my!==tok)return;inp.disabled=true;setTimeout(function(){if(my===tok)arcadeEnd(m,"doll",win,done+" outfits · "+(3-hearts)+" mistakes",lvl)},700)}
+  go1.onclick=submit;inp.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();submit()}});
+  score();draw();ui.ready(function(){if(my===tok)round()});
+}
+GAMES.doll=wdoll;GICONS.doll="👗";GLIST.push("doll");TURNG.push("doll");
+HOW.doll=function(l){return [["👀","Look at the clothes in the picture."],["⌨️","Write the name of each piece (dress, boots…) and press Enter."],["🎨",l<=2?"Then choose its colour.":l===3?"Then choose the right one: size and colour.":"Then choose the right words, in the right order: a long red dress."],["❤️","A wrong choice costs a heart. Dress 4 outfits to win."]]};
+COACH.doll=[[".dlcard","These are the clothes for your doll."],[".dlrow","Write the name of a piece and press Enter. Then choose its colour."],[".dlfig","Your doll gets dressed piece by piece."]];
+Object.assign(T.en,{doll:"Dress the doll",dollD:"See the clothes, write their names, then choose the right colour."});
+Object.assign(T.pt,{doll:"Dress the doll",dollD:"Veja as roupas, escreva o nome e escolha a cor certa."});
+(function(){var hg=hasGame;hasGame=function(m,k){if(k==="doll")return m.id==="a2-6";return hg(m,k)}})();
+/* ---------- Space (B1): predictions with will, might, may, could ---------- */
+M.splice(M.findIndex(function(x){return x.id==="b1-6"})+1,0,{id:"b1-7",lv:"B1",t:"Space",g:"Predictions: will · might · may · could · be likely to",v:"Space & the planets",
+ sit:{t:"At the planetarium",who:"Guide",en:"You are visiting a planetarium in São Paulo with your class. After the show, the guide asks you some questions.",pt:"Você está visitando um planetário em São Paulo com a sua turma. Depois da sessão, o guia faz algumas perguntas.",
+ turns:[
+  ["Do you think people will live on Mars one day?",["I think they will, but it might take a hundred years.","I think they will, but it might takes a hundred years.","I think they will, but it might to take a hundred years."],"might + verb without to (might take)."],
+  ["Which planet is the biggest in our solar system?",["Jupiter is the biggest. It's much bigger than Earth.","Jupiter is the most big. It's much more big than Earth.","Jupiter is the bigger. It's much biggest than Earth."],"big → bigger → the biggest."],
+  ["Would you like to travel into space?",["Maybe! It could be scary, but it would be amazing.","Maybe! It could being scary, but it would be amazing.","Maybe! It can to be scary, but it would be amazing."],"could + verb without to: it could be scary."],
+  ["Will tourists go to the Moon soon?",["They're likely to go in the next twenty years.","They're likely go in the next twenty years.","They're likely going in the next twenty years."],"be likely to + verb = will probably."]]},
+ quiz:[
+  ["I'm not sure, but we ___ find life on another planet.",["might","will certainly","are"],"Not sure → might / may / could."],
+  ["Scientists are certain: the Sun ___ rise tomorrow.",["will","might","may not"],"Certain → will."],
+  ["Mars ___ be too cold for humans. Nobody knows yet.",["could","must to","is likely"],"Possibility → could + verb."],
+  ["Saturn is famous for ___ rings.",["its","it's","their"],"its = belonging to it. it's = it is."],
+  ["Which is the closest planet to the Sun?",["Mercury","Venus","Mars"],"Mercury is the closest; Venus is the hottest."]],
+ build:["People might live on Mars one day.","Jupiter is the biggest planet in our solar system.","We will probably see a comet next year.","Astronauts are likely to return to the Moon soon."],
+ match:[["🪐","planet"],["🚀","rocket"],["🌙","moon"],["☄️","comet"],["👩‍🚀","astronaut"],["🔭","telescope"]],
+ speed:[["We might find water on Mars.",1],["It might to rain on Saturn.",0,"It might rain on Saturn."],["Jupiter is bigger than Earth.",1],["Venus is the most hot planet.",0,"Venus is the hottest planet."],["They're likely to launch the rocket today.",1],["Astronauts may to go back to the Moon.",0,"Astronauts may go back to the Moon."],["I don't think we'll meet aliens.",1],["The Moon goes around it's planet.",0,"The Moon goes around its planet."]]});
+Object.assign(BD,{
+"People might live on Mars one day.":"svvddd|Make a prediction you are not sure about.|As pessoas talvez morem em Marte um dia.",
+"Jupiter is the biggest planet in our solar system.":"svoaoddddd|Say which planet is the biggest.|Júpiter é o maior planeta do nosso sistema solar.",
+"We will probably see a comet next year.":"svdvoodd|Make a prediction you are quite sure about.|Provavelmente veremos um cometa no ano que vem.",
+"Astronauts are likely to return to the Moon soon.":"svavvdddd|Say what will probably happen.|É provável que astronautas voltem à Lua em breve."});
+GR["b1-7"]={pts:[{t:"Predictions: will, might, may, could",use:"Use will when you are sure about the future. Use might, may or could when it's only possible. After all of them, use the verb without to. Add probably or definitely to say how sure you are.",pt:"Em português dizemos vai, talvez, pode ser que. Em inglês: will para certeza, might / may / could para possibilidade. Depois deles, o verbo vem sem to e sem -s: it might rain, she may come.",
+  form:[["sure","will · won't: The Sun will rise tomorrow."],["probably","will probably · probably won't: We'll probably go."],["possible","might · may · could: It might rain. They may come."],["not possible","might not · may not: He might not come. (not could not for possibility)"],["no to, no -s","✓ it might be · ✗ it might to be · ✗ it mights be"]],
+  ex:["Humans will probably go to Mars.","We might find life on another planet."],bad:["It might to be cold on Mars.","It might be cold on Mars."]},
+ {t:"Be likely to · comparing planets",use:"Be likely to + verb = will probably. It is formal and common in news about science. To compare planets, use comparatives and superlatives: bigger than, the biggest, more distant than, the most distant.",pt:"Be likely to = é provável que. Para comparar: big → bigger → the biggest; distant → more distant → the most distant. Lembre: its (dele/dela) não tem apóstrofo.",
+  form:[["likely","They're likely to launch it today. · It isn't likely to rain."],["short words","hot → hotter → the hottest · big → bigger → the biggest"],["long words","distant → more distant → the most distant"],["its / it's","Saturn and its rings · It's (= it is) cold."]],
+  ex:["Venus is the hottest planet.","Tourists are likely to visit the Moon soon."],bad:["Mars is more small than Earth.","Mars is smaller than Earth."]}],
+ qc:[["We ___ find water, but we're not sure.",["might","will","are going"]],["It might ___ very cold tonight.",["be","to be","being"]],["Jupiter is ___ planet.",["the biggest","the most big","the bigger"]],["Prices are likely ___ go up.",["to","—","for"]]]};
+GX["b1-7"]=[{tips:["Sure → will. Possible → might, may, could.","After will, might, may and could: the verb with no to and no -s.","Probably goes after will and before won't: we'll probably go · we probably won't go."],
+  tl:[["Talvez chova amanhã.","It might rain tomorrow."],["Com certeza vamos ganhar.","We'll definitely win."],["Pode ser que ela venha.","She may come."],["Eles provavelmente não vão vir.","They probably won't come."]],
+  note:"Portuguese uses talvez with the subjunctive (talvez chova). English uses might + the normal verb (it might rain)."},
+ {tips:["be likely to = will probably: It's likely to rain.","One syllable → -er / -est. Two or more → more / the most.","its = belonging to it · it's = it is."],
+  tl:[["É provável que chova.","It's likely to rain."],["Vênus é o planeta mais quente.","Venus is the hottest planet."],["Marte é menor que a Terra.","Mars is smaller than Earth."],["Saturno e seus anéis","Saturn and its rings"]],
+  note:"Portuguese says mais quente. English says hotter: no more with short adjectives."}];
+HOOK["b1-7"]=["SURE → will. MAYBE → might / may / could + verb (no to).","be LIKELY TO = will probably."];
+HLT["b1-7"]=[["Talvez chova|might rain","com certeza|definitely","Pode ser|may","provavelmente|probably"],["provável|likely","mais quente|hottest","menor|smaller","seus|its"]];
+KW["b1-7"]=["will,might,may,could,probably","likely,hottest,biggest,smaller,its"];
+BK["b1-7"]={g:["People ___ live on Mars one day, but nobody is sure.|might|will|are","The Sun ___ rise tomorrow morning.|will|might|may","It might ___ very cold on that planet.|be|to be|being","We ___ probably see the comet next week.|will|might|are","They're likely ___ launch the rocket on Friday.|to|for|—","Jupiter is ___ planet in the solar system.|the biggest|the most big|the bigger","Mars is ___ than Earth.|smaller|more small|smallest","Venus is ___ planet.|the hottest|the most hot|hotter","Saturn is famous for ___ rings.|its|it's|their","He ___ come to the planetarium. He's still deciding.|may|will|is","I ___ think aliens will visit us.|don't|won't|might not","The mission ___ not be cheap.|will|is|does","Neptune is the ___ planet from the Sun.|most distant|distantest|more distant","Astronauts ___ need special food on long trips.|will|are likely|might to","It ___ be possible to visit Mars by 2050.|could|can to|must to","Is it likely ___ rain on the day of the launch?|to|for|that","We ___ definitely watch the eclipse!|will|might|may","Scientists ___ find water under the ice. It's possible.|could|will certainly|are","A day on Venus is ___ than a year on Venus.|longer|more long|longest","Space tourism ___ become popular soon.|may|mays|may to","Earth is the only planet ___ we know has life.|that|who|where"],x:[]};
+ZAPX["b1-7"]=["It might to rain on Saturn.|It might rain on Saturn.","Venus is the most hot planet.|Venus is the hottest planet.","Astronauts may to go back to the Moon.|Astronauts may go back to the Moon.","The Moon goes around it's planet.|The Moon goes around its planet.","Mars is more small than Earth.|Mars is smaller than Earth.","We'll probably to see a comet.|We'll probably see a comet.","They're likely go to Mars.|They're likely to go to Mars.","She mights become an astronaut.|She might become an astronaut."];
+EXP["b1-7"]=["p|take off|(a plane or rocket) to leave the ground|decolar|The rocket took off at 6 a.m.","p|blast off|(a rocket) to leave the ground with a lot of power|ser lançado (foguete)|Three, two, one… blast off!","p|find out|to discover information|descobrir|Scientists want to find out if there is water on Mars.","c|There's no way…|You say something is impossible.|De jeito nenhum…|There's no way I'm going into space!","c|Who knows?|You say nobody can be sure.|Quem sabe?|Will we meet aliens? Who knows?","c|It's only a matter of time.|You say something will certainly happen.|É só uma questão de tempo.|Tourists on Mars? It's only a matter of time.","i|over the moon|extremely happy|nas nuvens, muito feliz|She was over the moon when NASA called her.","i|once in a blue moon|very rarely|muito raramente|We see a comet like this once in a blue moon."];
+CAN["b1-7"]="make predictions about the future and say how sure you are, and talk about space and the planets";
+PIC["b1-7"]="🪐🚀🌙";LABMAP["b1-7"]="trip";
+if(typeof REVIEWM!=="undefined")REVIEWM["b1-7"]=["a2-2","a2-3"];
+TONE["b1-7"]="sky";
+/* ---------- Word darts: hit the words in order to build the sentence, or hit the word that fills the gap ---------- */
+function dartSents(m){var out=[];(m.build||[]).forEach(function(s){out.push(s)});(m.speed||[]).forEach(function(x){if(x[1]===1)out.push(x[0])});
+  return out.filter(function(s){var n=s.split(" ").length;return n>=3&&n<=8})}
+function dartGaps(m){var B=BK[m.id]||{},out=[];Object.keys(B).forEach(function(k){(B[k]||[]).forEach(function(str){if(typeof str!=="string")return;var a=str.split("|");if(a.length>=3&&a[0].indexOf("___")>=0&&a.slice(1).every(function(x){return x.length<=16}))out.push(a)})});return out}
+function wdarts(m){
+  var ui=arcade(m,"darts"),lvl=lvOf(m,"darts"),my=tok,_tm=gTimer(ui,m,"darts",lvl),W=640,H=420;
+  var SW=[0,26,40,58,74,90][lvl],SP=[0,.7,1,1.3,1.6,1.9][lvl],ROUNDS=6,hearts=3,done=0,ri=0;
+  var S1=shuffle(dartSents(m)),G1=shuffle(dartGaps(m)),plan=[];for(var i=0;i<ROUNDS;i++)plan.push((i%2===0&&S1.length)||!G1.length?"build":"gap");
+  var cv=h("canvas",{width:W,height:H,class:"court dartc","aria-label":"Darts: press space or tap to throw at the moving target"}),cx=cv.getContext("2d");
+  var task=h("div",{class:"dtask"}),got=h("div",{class:"dgot"});
+  ui.stage.appendChild(task);ui.stage.appendChild(cv);ui.stage.appendChild(h("div",{class:"penctl"},h("button",{class:"btn shoot",onclick:throwD},"🎯 THROW")));ui.stage.appendChild(got);
+  var targets=[],need=[],step=0,aimT=0,dart=null,fx=[],txt=null,cur1=null,ph=Math.random()*6;
+  function now(){return gclk(performance.now())}
+  function score(){ui.board([faceEl()," "+t("you")],done+" / "+ROUNDS,[t("level")+" "+lvl,"Round "+Math.min(ri+1,ROUNDS)+" / "+ROUNDS],t("lives"),"♥♥♥".slice(0,hearts)+"♡♡♡".slice(0,3-hearts))}
+  function layout(words){targets=[];var n=words.length,cols=n<=4?n:Math.ceil(n/2),rows=n<=4?1:2,R=Math.min(62,Math.max(44,250/cols));
+    var cells=[];for(var r=0;r<rows;r++)for(var c=0;c<cols;c++)cells.push([c,r]);cells=shuffle(cells).slice(0,n);
+    words.forEach(function(w,i){var c=cells[i],x=(c[0]+.5)*W/cols+(Math.random()*2-1)*14,y=rows===1?190:(c[1]===0?125:265)+(Math.random()*2-1)*10;
+      targets.push({w:w,x:x,y:y,r:R,hit:false,shake:0})})}
+  function round(){if(my!==tok)return;if(ri>=ROUNDS){end(true);return}
+    var kind=plan[ri];step=0;got.innerHTML="";
+    if(kind==="build"){var s=S1[ri%S1.length];var words=s.replace(/[.!?]$/,"").split(" ");cur1={k:"build",s:s,words:words};need=words.slice();layout(shuffle(words.map(function(w,i){return w})));
+      task.innerHTML="";task.appendChild(h("span",{class:"label"},"🎯 Build the sentence: hit the words in order"));task.appendChild(h("p",{class:"dq"},BD[s]&&BD[s].split("|")[2]?"🇧🇷 "+BD[s].split("|")[2]:words.length+" words: start with a capital letter"));}
+    else{var a=G1[ri%G1.length];cur1={k:"gap",a:a};need=[a[1]];layout(shuffle(a.slice(1)));
+      task.innerHTML="";task.appendChild(h("span",{class:"label"},"🎯 Hit the word that fills the gap"));task.appendChild(h("p",{class:"dq"},a[0]))}
+    drawGot();score();ui.talk(kind==="build"?"Hit the first word of the sentence!":"Which word fits?")}
+  function drawGot(){got.innerHTML="";if(!cur1||cur1.k!=="build")return;cur1.words.forEach(function(w,i){got.appendChild(h("span",{class:"chip"+(i<step?" on":"")},i<step?w:"___"))})}
+  function aimPos(t){var s=t/1000*SP+ph;return {x:W/2+Math.sin(s*1.3)*(W/2-70)*.92+Math.sin(s*3.1)*SW*.5,y:205+Math.sin(s*1.9)*120+Math.cos(s*2.7)*SW*.4}}
+  function throwD(){if(GP.on||dart||!cur1)return;var a=aimPos(now());dart={x0:W/2,y0:H+20,x:a.x,y:a.y,t0:now()}}
+  function land(){var a={x:dart.x,y:dart.y},hit=null;dart=null;targets.forEach(function(tg){if(!tg.hit&&Math.hypot(tg.x-a.x,tg.y-a.y)<tg.r)hit=tg});
+    fx.push({x:a.x,y:a.y,t:now(),ok:!!hit});
+    if(!hit){txt={s:"Missed! Try again.",c:"#cfd5ff",t:now()};return}
+    var want=need[step];
+    if(hit.w===want){hit.hit=true;step++;drawGot();txt={s:"✓ "+hit.w,c:"#3ccf9f",t:now()};
+      if(step>=need.length){done++;score();var full=cur1.k==="build"?cur1.s:cur1.a[0].replace("___",cur1.a[1]);ui.talk("✓ "+full);cur1=null;ri++;setTimeout(function(){if(my===tok)round()},1300)}}
+    else{hit.shake=now();hearts--;score();txt={s:"✗ Not "+hit.w,c:"#ff6b6b",t:now()};
+      miss(m,"darts",cur1.k==="build"?cur1.s:cur1.a[0],hit.w,want,cur1.k==="build"?"Word "+(step+1)+" is “"+want+"”.":"");
+      ui.talk(cur1.k==="build"?"Look for word "+(step+1)+".":"Read the sentence again.");if(hearts<=0)end(false)}}
+  function end(win){if(my!==tok)return;cur1=null;setTimeout(function(){if(my===tok)arcadeEnd(m,"darts",win,done+" rounds · "+(3-hearts)+" mistakes",lvl)},600)}
+  function rr(x,y,w,h2,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h2,r);cx.arcTo(x+w,y+h2,x,y+h2,r);cx.arcTo(x,y+h2,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
+  function frame(){if(my!==tok)return;var t=now();
+    var bg=cx.createLinearGradient(0,0,0,H);bg.addColorStop(0,"#2b1d4a");bg.addColorStop(1,"#1a1030");cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+    cx.fillStyle="rgba(255,255,255,.04)";for(var px=0;px<W;px+=40)cx.fillRect(px,0,20,H);
+    targets.forEach(function(tg){var sh=tg.shake&&t-tg.shake<400?Math.sin((t-tg.shake)/25)*6:0,x=tg.x+sh,y=tg.y;
+      var rings=["#e63946","#f4f4f4","#e63946","#f4f4f4","#2a9d8f"];for(var k=0;k<5;k++){cx.beginPath();cx.arc(x,y,tg.r*(1-k*.18),0,7);cx.fillStyle=tg.hit?"rgba(60,207,159,"+(.35+k*.1)+")":rings[k];cx.fill()}
+      cx.font="800 "+(tg.w.length>9?14:17)+"px system-ui";cx.textAlign="center";cx.textBaseline="middle";var tw=cx.measureText(tg.w).width+16;
+      cx.fillStyle=tg.hit?"#3ccf9f":"#12152e";rr(x-tw/2,y-14,tw,28,10);cx.fill();cx.fillStyle=tg.hit?"#06261b":"#fff";cx.fillText(tg.w,x,y+1)});
+    fx=fx.filter(function(f){return t-f.t<900});fx.forEach(function(f){var a=1-(t-f.t)/900;cx.strokeStyle=f.ok?"rgba(60,207,159,"+a+")":"rgba(255,255,255,"+a+")";cx.lineWidth=3;cx.beginPath();cx.arc(f.x,f.y,8+(1-a)*20,0,7);cx.stroke();
+      cx.fillStyle="#ffd166";cx.beginPath();cx.arc(f.x,f.y,4,0,7);cx.fill()});
+    if(dart){var p=Math.min(1,(t-dart.t0)/260),x2=dart.x0+(dart.x-dart.x0)*p,y2=dart.y0+(dart.y-dart.y0)*p,sc=1.6-p*.8;
+      cx.save();cx.translate(x2,y2);cx.rotate(Math.atan2(dart.y-dart.y0,dart.x-dart.x0)+Math.PI/2);cx.scale(sc,sc);
+      cx.fillStyle="#cfd5ff";cx.fillRect(-2,0,4,26);cx.fillStyle="#ff8a5c";cx.beginPath();cx.moveTo(0,18);cx.lineTo(-8,30);cx.lineTo(8,30);cx.fill();cx.fillStyle="#ffd166";cx.beginPath();cx.moveTo(0,-8);cx.lineTo(-3,0);cx.lineTo(3,0);cx.fill();cx.restore();
+      if(p>=1)land()}
+    if(cur1&&!dart){var a=aimPos(t);cx.strokeStyle="#ffd166";cx.lineWidth=3;cx.beginPath();cx.arc(a.x,a.y,16,0,7);cx.moveTo(a.x-24,a.y);cx.lineTo(a.x-8,a.y);cx.moveTo(a.x+8,a.y);cx.lineTo(a.x+24,a.y);cx.moveTo(a.x,a.y-24);cx.lineTo(a.x,a.y-8);cx.moveTo(a.x,a.y+8);cx.lineTo(a.x,a.y+24);cx.stroke()}
+    if(txt&&t-txt.t<1100){cx.globalAlpha=1-(t-txt.t)/1100;cx.font="900 26px system-ui";cx.textAlign="center";cx.lineWidth=5;cx.strokeStyle="#12152e";cx.strokeText(txt.s,W/2,H-30);cx.fillStyle=txt.c;cx.fillText(txt.s,W/2,H-30);cx.globalAlpha=1}
+    raf=requestAnimationFrame(frame)}
+  cv.addEventListener("pointerdown",function(e){e.preventDefault();throwD()});
+  keyh=function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();throwD()}};window.addEventListener("keydown",keyh);
+  score();raf=requestAnimationFrame(frame);ui.ready(function(){if(my===tok)round()});
+}
+GAMES.darts=wdarts;GICONS.darts="🎯";GLIST.push("darts");
+HOW.darts=function(l){return [["🎯","The target moves around the board. Press SPACE, tap the board or press THROW."],["🧩","Build rounds: hit the words of the sentence in order."],["❓","Gap rounds: hit the word that fills the gap."],["❤️","A wrong word costs a heart. A miss is free. Win 6 rounds."]]};
+COACH.darts=[[".dtask","Read the task here."],[".court.dartc","The yellow target moves. Throw when it is over the right word."],[".penctl","Press THROW, tap the board or press SPACE."]];
+Object.assign(T.en,{darts:"Word darts",dartsD:"Hit the words in order to build the sentence, or hit the missing word."});
+Object.assign(T.pt,{darts:"Word darts",dartsD:"Acerte as palavras na ordem para montar a frase, ou acerte a palavra que falta."});
+
+/* ---------- Cross the road: cross the traffic and walk into the door with the right word ---------- */
+function crossGaps(m){return dartGaps(m).filter(function(a){return a.slice(1,4).every(function(x){return x.length<=12})})}
+function wcross(m){
+  var ui=arcade(m,"cross"),lvl=lvOf(m,"cross"),my=tok,_tm=gTimer(ui,m,"cross",lvl),W=640,H=440;
+  var LANES=[0,2,3,3,4,4][lvl],SPD=[0,60,80,105,130,160][lvl],ROUNDS=6,hearts=3,done=0,ri=0,qs=shuffle(crossGaps(m)),q=null;
+  var cv=h("canvas",{width:W,height:H,class:"court crossc","aria-label":"Cross the road: move with the arrows"}),cx=cv.getContext("2d"),task=h("div",{class:"dtask"});
+  ui.stage.appendChild(task);ui.stage.appendChild(cv);
+  ui.stage.appendChild(h("div",{class:"penctl crossctl"},h("button",{class:"btn ghost","aria-label":"Left",onclick:function(){mv(-1,0)}},"◀"),h("button",{class:"btn shoot","aria-label":"Forward",onclick:function(){mv(0,-1)}},"▲ GO"),h("button",{class:"btn ghost","aria-label":"Back",onclick:function(){mv(0,1)}},"▼"),h("button",{class:"btn ghost","aria-label":"Right",onclick:function(){mv(1,0)}},"▶")));
+  var COLS=8,CW=W/COLS,TOP=70,RH=(H-TOP-60)/LANES,px=3,py=LANES+1,cars=[],doors=[],flash=null,dead=0,txt=null;
+  function rowY(r){return r===0?TOP-35:r===LANES+1?H-30:TOP+(r-.5)*RH}
+  function now(){return gclk(performance.now())}
+  function score(){ui.board([faceEl()," "+t("you")],done+" / "+ROUNDS,[t("level")+" "+lvl,"Round "+Math.min(ri+1,ROUNDS)+" / "+ROUNDS],t("lives"),"♥♥♥".slice(0,hearts)+"♡♡♡".slice(0,3-hearts))}
+  function lanes(){cars=[];var CC=["#e63946","#3a86ff","#ffbe0b","#2a9d8f","#8338ec","#fb8500"];
+    for(var l=1;l<=LANES;l++){var dir=l%2?1:-1,sp=SPD*(.75+Math.random()*.5),n=2+(lvl>3?1:0),len=l%3===0?120:80;
+      for(var k=0;k<n;k++)cars.push({l:l,dir:dir,sp:sp,len:len,x:(k*W/n+Math.random()*60)%W,c:CC[(l+k)%CC.length]})}}
+  function round(){if(my!==tok)return;if(ri>=ROUNDS||!qs.length){end(ri>=ROUNDS||done>=3);return}
+    q=qs[ri%qs.length];var ws=shuffle(q.slice(1,4)),slots=ws.length===2?[1,5]:[0,3,6];
+    doors=ws.map(function(w,i){return {w:w,c:slots[i],cw:2}});px=3;py=LANES+1;lanes();
+    task.innerHTML="";task.appendChild(h("span",{class:"label"},"🚦 Cross the road and walk into the right door"));task.appendChild(h("p",{class:"dq"},q[0]));score();ui.talk("Watch the cars!")}
+  function mv(dx,dy){if(GP.on||!q||dead)return;px=Math.max(0,Math.min(COLS-1,px+dx));py=Math.max(0,Math.min(LANES+1,py+dy));
+    if(py===0){var d=doors.filter(function(d){return px>=d.c&&px<d.c+d.cw})[0];
+      if(!d){txt={s:"Find a door!",c:"#cfd5ff",t:now()};py=1;return}
+      if(d.w===q[1]){done++;ri++;txt={s:"✓ "+q[0].replace("___",q[1]),c:"#3ccf9f",t:now()};ui.talk("✓ "+q[0].replace("___",q[1]));q=null;score();setTimeout(function(){if(my===tok)round()},1300)}
+      else{hearts--;score();txt={s:"✗ Not "+d.w,c:"#ff6b6b",t:now()};miss(m,"cross",q[0],d.w,q[1],"");py=LANES+1;if(hearts<=0)end(false)}}}
+  function hitCar(){if(dead)return;dead=now();hearts--;score();txt={s:"💥 Watch the cars!",c:"#ff6b6b",t:now()};
+    setTimeout(function(){if(my!==tok)return;dead=0;px=3;py=LANES+1;if(hearts<=0)end(false)},700)}
+  function end(win){if(my!==tok)return;q=null;setTimeout(function(){if(my===tok)arcadeEnd(m,"cross",win,done+" doors · "+(3-hearts)+" mistakes",lvl)},600)}
+  var last=0;
+  function frame(){if(my!==tok)return;var t=now(),dt=last?Math.min(.05,(t-last)/1000):0;last=t;
+    cx.fillStyle="#2d6a4f";cx.fillRect(0,0,W,H);
+    /* buildings with doors */
+    cx.fillStyle="#3b3f8f";cx.fillRect(0,0,W,TOP-10);
+    doors.forEach(function(d){var x=d.c*CW+6,w=d.cw*CW-12;cx.fillStyle="#8d5524";cx.fillRect(x,8,w,TOP-18);cx.fillStyle="#ffd166";cx.font="800 "+(d.w.length>8?14:17)+"px system-ui";cx.textAlign="center";cx.textBaseline="middle";cx.fillText(d.w,x+w/2,TOP/2-2)});
+    cx.fillStyle="#9aa0a6";cx.fillRect(0,TOP-10,W,12);cx.fillRect(0,H-58,W,58);
+    /* road */
+    cx.fillStyle="#343a40";cx.fillRect(0,TOP+2,W,LANES*RH);
+    cx.strokeStyle="#f4f4f4";cx.lineWidth=3;cx.setLineDash([22,18]);for(var l=1;l<LANES;l++){cx.beginPath();cx.moveTo(0,TOP+l*RH);cx.lineTo(W,TOP+l*RH);cx.stroke()}cx.setLineDash([]);
+    cars.forEach(function(c){if(!GP.on&&q)c.x+=c.dir*c.sp*dt;if(c.x>W+c.len)c.x=-c.len;if(c.x<-c.len)c.x=W+c.len;
+      var y=TOP+(c.l-.5)*RH,hh=Math.min(40,RH*.62);cx.fillStyle=c.c;cx.beginPath();cx.roundRect?cx.roundRect(c.x-c.len/2,y-hh/2,c.len,hh,9):cx.rect(c.x-c.len/2,y-hh/2,c.len,hh);cx.fill();
+      cx.fillStyle="rgba(255,255,255,.55)";cx.fillRect(c.x+(c.dir>0?c.len/2-24:-c.len/2+8),y-hh/2+5,16,hh-10);cx.fillStyle="#111";cx.fillRect(c.x-c.len/2+10,y+hh/2-4,14,6);cx.fillRect(c.x+c.len/2-24,y+hh/2-4,14,6);
+      if(q&&!dead&&py===c.l&&Math.abs(c.x-(px+.5)*CW)<c.len/2+14)hitCar()});
+    /* the walker */
+    var wx=(px+.5)*CW,wy=rowY(py);cx.font=(dead?"34px":"34px")+" system-ui";cx.textAlign="center";cx.textBaseline="middle";cx.fillText(dead?"💫":"🚶",wx,wy);
+    if(txt&&t-txt.t<1200){cx.globalAlpha=1-(t-txt.t)/1200;cx.font="900 24px system-ui";cx.lineWidth=5;cx.strokeStyle="#12152e";cx.strokeText(txt.s,W/2,H-30);cx.fillStyle=txt.c;cx.fillText(txt.s,W/2,H-30);cx.globalAlpha=1}
+    raf=requestAnimationFrame(frame)}
+  keyh=function(e){var K={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(K){e.preventDefault();mv(K[0],K[1])}};window.addEventListener("keydown",keyh);
+  cv.addEventListener("pointerdown",function(e){e.preventDefault();var r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H,wx=(px+.5)*CW,wy=rowY(py);
+    if(Math.abs(y-wy)>Math.abs(x-wx))mv(0,y<wy?-1:1);else mv(x<wx?-1:1,0)});
+  score();raf=requestAnimationFrame(frame);ui.ready(function(){if(my===tok)round()});
+}
+GAMES.cross=wcross;GICONS.cross="🚦";GLIST.push("cross");
+HOW.cross=function(l){return [["🚶","Move with the arrows (or tap where you want to go)."],["🚗","Don't let the cars hit you!"],["🚪","At the top, walk into the door with the word that fills the gap."],["❤️","A car or a wrong door costs a heart. Get through 6 doors to win."]]};
+COACH.cross=[[".dtask","Read the sentence. Which word fills the gap?"],[".court.crossc","Cross the road. Watch the cars!"],[".crossctl","Use these buttons or the arrow keys. Walk into the right door at the top."]];
+Object.assign(T.en,{cross:"Cross the road",crossD:"Cross the busy road and walk into the door with the right word."});
+Object.assign(T.pt,{cross:"Cross the road",crossD:"Atravesse a rua movimentada e entre na porta com a palavra certa."});
+(function(){var hg=hasGame;hasGame=function(m,k){if(k==="darts")return !m.rev&&(dartSents(m).length>=3||dartGaps(m).length>=6);if(k==="cross")return !m.rev&&crossGaps(m).length>=6;return hg(m,k)}})();
 var NINE_EXTRA=[["🁫","Preposition Domino","Make real phrases and choose their meaning. Beat your time.","../domino/","#ff8a5c"],["🧺","Preposition Baskets","Put each word in the at, by, in or on basket. Beat your time.","../baskets/","#3ccf9f"],["🧪","Preposition Tubes","Group the words by preposition. Beat your time.","../ptubes/","#c084fc"],["🔴","Preposition Genius","Remember the sequence, then tap the prepositions.","../genius/","#f472b6"],["🔍","Comma Detective","Add the commas. Faster = more points.","../commas/","#4cc9f0"]];
 
 function route(){
