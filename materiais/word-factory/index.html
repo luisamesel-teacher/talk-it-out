@@ -41,7 +41,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
 .hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
 .field{position:relative;height:min(48vh,360px);border-radius:18px 18px 0 0;background:linear-gradient(#12152e,#2a2f6b);box-shadow:inset 0 0 0 2px #3b3f8f;overflow:hidden}
-.word{position:absolute;top:0;padding:10px 16px;border-radius:14px;background:#fff;color:#12152e;font:800 24px var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:normal;max-width:76%;line-height:1.15;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s;text-align:center}
+.word{position:absolute;top:0;padding:12px 20px;border-radius:16px;background:#fff;color:#12152e;font:800 34px var(--label);border:3px solid #12152e;border-bottom-width:6px;white-space:nowrap;max-width:92%;line-height:1.1;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:left .12s;text-align:center}
 .word small{display:block;font:600 14px var(--body);color:#444;margin-top:2px;letter-spacing:0}
 .toast{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font:800 26px var(--disp);text-align:center;padding:10px 18px;border-radius:14px;background:rgba(10,12,30,.85);pointer-events:none;width:max-content;max-width:92%}
 .toast small{display:block;font:600 16px var(--body);color:var(--mute)}
@@ -49,7 +49,21 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .baskets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 28px var(--label);cursor:pointer;transition:transform .15s}
 .bk small{font:700 14px var(--label);opacity:.8}
-.word small{display:block;font:600 14px var(--body);line-height:1.3;margin-top:5px;white-space:normal}
+.esc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0 4px}
+.fz{display:grid;gap:1px;padding:11px 6px 9px;border-radius:14px;cursor:pointer;
+  background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.22);color:#fff;
+  font:inherit;text-align:center}
+.fz b{font:800 15px var(--label)}
+.fz small{font:600 11.5px var(--body);opacity:.72;line-height:1.2}
+.fz .st{font-size:13px;color:#f2c14e;min-height:16px}
+.fz.on{background:#f2c14e;border-color:#f2c14e;color:#12152e}
+.fz.on small{opacity:.9}
+.fz.ok{border-color:#3ccf9f}
+.frase{margin:4px 0 8px;padding:14px 16px;border-radius:14px;
+  background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.22);
+  font:600 21px/1.4 var(--body);color:#fff;text-align:center}
+.frase i{color:#f2c14e;font-style:normal;letter-spacing:.06em}
+
 .bk.p-on{background:var(--p-on)}.bk.p-for{background:var(--p-for)}.bk.p-to{background:var(--p-to)}.bk.p-no{background:var(--p-no)}
 .arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px var(--label);min-width:74px;min-height:52px;border-radius:14px;border:2px solid #fff;border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 .bk.under{transform:translateY(-8px);box-shadow:0 0 0 4px var(--yel)}
@@ -75,7 +89,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
 .ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
 .ajuda b{color:#fff}
-@media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:19px;padding:8px 12px;max-width:84%}.word small{font-size:12px}}
+@media (max-width:560px){.bk{font-size:22px}.bk small{display:none}.word{font-size:27px;padding:10px 14px;max-width:94%}.word small{font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -83,63 +97,106 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 <div class="wrap" id="app"></div>
 <script>
 /* [basket, verb, gapped example, full example, meaning, contraste em português] */
-var V=[
-["adjective","IMAGINE","Her new routine was highly ___.","Her new routine was highly <b>imaginative</b>.","full of new ideas","imaginativa — o <i>-iva</i> do português vira <i>-ive</i>"],
-["adjective","DETRIMENT","Late nights are ___ to her game.","Late nights are <b>detrimental</b> to her game.","causing harm","prejudicial — repare no <i>-al</i>"],
-["adjective","APPLY","That rule isn't ___ to junior players.","That rule isn't <b>applicable</b> to junior players.","relevant to a case","aplicável — o <i>-ável</i> vira <i>-able</i>, e o <i>y</i> cai"],
-["adjective","INTRODUCE","She booked an ___ class.","She booked an <b>introductory</b> class.","for beginners","introdutória — o <i>-ória</i> vira <i>-ory</i>"],
-["adjective","MANAGE","He moved into a ___ role.","He moved into a <b>managerial</b> role.","to do with managing","gerencial — o <i>e</i> de <i>manage</i> fica"],
-["adjective","COURTESY","Leaving without a word was ___.","Leaving without a word was <b>discourteous</b>.","rude, not polite","descortês — <i>dis-</i> nega, como o <i>des-</i>"],
-["adjective","EDUCATE","The trip was more ___ than the lesson.","The trip was more <b>educational</b> than the lesson.","it teaches you something","educativa — cuidado: não é <i>educative</i>"],
-["adjective","COMPEL","The second half was ___ from start to finish.","The second half was <b>compelling</b> from start to finish.","you cannot look away","envolvente, que prende"],
-["adjective","RESPOND","She is very ___ to feedback.","She is very <b>responsive</b> to feedback.","quick to react","receptiva — o <i>d</i> vira <i>s</i>"],
-["adjective","DOUBT","The umpire's call was ___.","The umpire's call was <b>doubtful</b>.","not certain","duvidosa — o <i>b</i> é mudo"],
-["adjective","NOISE","The changing room was ___ after the win.","The changing room was <b>noisy</b> after the win.","full of noise","barulhento — o <i>e</i> cai antes do <i>-y</i>"],
-["adverb","HOPE","They were ___ late for the party.","They were <b>hopelessly</b> late for the party.","with no chance at all","irremediavelmente — <i>-ly</i> é o nosso <i>-mente</i>"],
-["adverb","ARGUE","She is ___ the best dancer in the group.","She is <b>arguably</b> the best dancer in the group.","you could make the case","possivelmente — o <i>e</i> cai"],
-["adverb","INCREASE","The matches are getting ___ tight.","The matches are getting <b>increasingly</b> tight.","more and more","cada vez mais"],
-["adverb","SURPRISE","___, she won in straight sets.","<b>Surprisingly</b>, she won in straight sets.","it was not expected","surpreendentemente"],
-["adverb","DELIBERATE","She did it ___, and everyone saw.","She did it <b>deliberately</b>, and everyone saw.","on purpose","deliberadamente, de propósito"],
-["noun","OBJECT","Nobody raised a single ___.","Nobody raised a single <b>objection</b>.","a reason against something","objeção — o <i>-ção</i> vira <i>-tion</i>"],
-["noun","FULFIL","She found real ___ in teaching.","She found real <b>fulfilment</b> in teaching.","a deep sense of purpose","realização — o <i>-ment</i> faz substantivo de verbo"],
-["noun","IMAGINE","It takes ___ to choreograph that.","It takes <b>imagination</b> to choreograph that.","the ability to invent","imaginação — o <i>e</i> cai"],
-["noun","ACHIEVE","Winning that set was a real ___.","Winning that set was a real <b>achievement</b>.","something you managed to do","conquista — de novo o <i>-ment</i>"],
-["noun","DECIDE","It was a difficult ___ to make.","It was a difficult <b>decision</b> to make.","a choice you make","decisão — o <i>d</i> vira <i>s</i>"],
-["noun","ANXIOUS","He plays with real ___ in the final.","He plays with real <b>anxiety</b> in the final.","a worried feeling","ansiedade — o <i>-ous</i> vira <i>-ety</i>"],
-["noun","PRESS","He plays badly under ___.","He plays badly under <b>pressure</b>.","the weight of expectation","pressão"],
-["noun","COURTESY","He had the ___ to apologise.","He had the <b>courtesy</b> to apologise.","polite behaviour","cortesia — aqui o radical já é o substantivo"],
-["verb","STRENGTH","They want to ___ the squad in January.","They want to <b>strengthen</b> the squad in January.","to make stronger","fortalecer — <i>-en</i> faz verbo de adjetivo"],
-["verb","SIMPLE","We should ___ the routine.","We should <b>simplify</b> the routine.","to make simpler","simplificar — o <i>-ficar</i> vira <i>-fy</i>"],
-["verb","BROAD","Travel will ___ her horizons.","Travel will <b>broaden</b> her horizons.","to make wider","ampliar — de novo o <i>-en</i>"],
-["verb","ABLE","The grant will ___ her to travel.","The grant will <b>enable</b> her to travel.","to make possible","permitir — <i>en-</i> na frente também faz verbo"]
+var P1=[
+["verb","achieve","","She worked hard to <b>achieve</b> it.","",""],
+["noun","achievement","","Winning was a real <b>achievement</b>.","",""],
+["adjective","imaginative","","A very <b>imaginative</b> routine.","",""],
+["noun","imagination","","It takes <b>imagination</b>.","",""],
+["adverb","hopelessly","","They were <b>hopelessly</b> late.","",""],
+["adjective","detrimental","","Late nights are <b>detrimental</b>.","",""],
+["verb","fulfil","","She wants to <b>fulfil</b> a promise.","",""],
+["noun","fulfilment","","She found real <b>fulfilment</b>.","",""],
+["adjective","applicable","","That rule isn't <b>applicable</b>.","",""],
+["verb","apply","","You should <b>apply</b> for it.","",""],
+["noun","application","","Send the <b>application</b> today.","",""],
+["adverb","arguably","","She is <b>arguably</b> the best.","",""],
+["adjective","managerial","","He has a <b>managerial</b> role.","",""],
+["verb","manage","","She will <b>manage</b> somehow.","",""],
+["noun","objection","","Nobody raised an <b>objection</b>.","",""],
+["verb","object","","Nobody will <b>object</b> to that.","",""],
+["adjective","discourteous","","That was <b>discourteous</b>.","",""],
+["noun","courtesy","","He had the <b>courtesy</b> to apologise.","",""],
+["adverb","increasingly","","It is <b>increasingly</b> tight.","",""],
+["verb","strengthen","","They want to <b>strengthen</b> the squad.","",""],
+["noun","strength","","That is her great <b>strength</b>.","",""],
+["adjective","compelling","","The second half was <b>compelling</b>.","",""],
+["adverb","deliberately","","She did it <b>deliberately</b>.","",""],
+["noun","decision","","It was a hard <b>decision</b>.","",""],
+["verb","decide","","You must <b>decide</b> tonight.","",""],
+["adjective","responsive","","She is very <b>responsive</b>.","",""],
+["adverb","surprisingly","","<b>Surprisingly</b>, she won.","",""],
+["adjective","educational","","The trip was <b>educational</b>.","",""]
 ];
+var P2=[
+["-ment","ACHIEVE","","ACHIEVE → <b>achievement</b>","something you managed to do","conquista"],
+["-ment","FULFIL","","FULFIL → <b>fulfilment</b>","a deep sense of purpose","realização"],
+["-ment","MANAGE","","MANAGE → <b>management</b>","the people who run things","gestão"],
+["-ment","IMPROVE","","IMPROVE → <b>improvement</b>","a change for the better","melhoria"],
+["-ment","AGREE","","AGREE → <b>agreement</b>","when people decide together","acordo"],
+["-ment","REQUIRE","","REQUIRE → <b>requirement</b>","something you must have","exigência"],
+["-tion","IMAGINE","","IMAGINE → <b>imagination</b>","the power to invent","o <i>e</i> cai"],
+["-tion","INTRODUCE","","INTRODUCE → <b>introduction</b>","the opening part","introdução"],
+["-tion","EDUCATE","","EDUCATE → <b>education</b>","teaching and learning","educação"],
+["-tion","APPLY","","APPLY → <b>application</b>","a formal request","o <i>y</i> vira <i>i</i>"],
+["-tion","INFORM","","INFORM → <b>information</b>","facts about something","nunca no plural"],
+["-tion","OBJECT","","OBJECT → <b>objection</b>","a reason against","objeção"],
+["-ity","ABLE","","ABLE → <b>ability</b>","what you can do","o <i>le</i> vira <i>il</i>"],
+["-ity","RESPONSIBLE","","RESPONSIBLE → <b>responsibility</b>","what you must answer for","responsabilidade"],
+["-ity","ACTIVE","","ACTIVE → <b>activity</b>","something you do","atividade"],
+["-ity","SIMILAR","","SIMILAR → <b>similarity</b>","how two things are alike","semelhança"],
+["-ity","POPULAR","","POPULAR → <b>popularity</b>","being liked by many","popularidade"],
+["-ity","CREATIVE","","CREATIVE → <b>creativity</b>","the power to make new things","criatividade"],
+["-ness","HAPPY","","HAPPY → <b>happiness</b>","being happy","o <i>y</i> vira <i>i</i>"],
+["-ness","KIND","","KIND → <b>kindness</b>","being kind","gentileza"],
+["-ness","AWARE","","AWARE → <b>awareness</b>","knowing something is there","consciência"],
+["-ness","WEAK","","WEAK → <b>weakness</b>","a weak point","fraqueza"],
+["-ness","DARK","","DARK → <b>darkness</b>","the absence of light","escuridão"],
+["-ness","WILLING","","WILLING → <b>willingness</b>","being ready to do something","disposição"]
+];
+var P3=[
+["-ment","ACHIEVE","Winning that set was a real ___.","Winning that set was a real <b>achievement</b>.","","conquista"],
+["-ment","IMPROVE","There has been a huge ___ since March.","There has been a huge <b>improvement</b> since March.","","melhoria"],
+["-ment","AGREE","They finally reached an ___.","They finally reached an <b>agreement</b>.","","acordo"],
+["-ment","REQUIRE","Fitness is a basic ___ for the team.","Fitness is a basic <b>requirement</b> for the team.","","exigência"],
+["-ment","FULFIL","She found real ___ in teaching.","She found real <b>fulfilment</b> in teaching.","","realização"],
+["-tion","IMAGINE","It takes ___ to choreograph that.","It takes <b>imagination</b> to choreograph that.","","o <i>e</i> cai"],
+["-tion","APPLY","Her ___ arrived two days late.","Her <b>application</b> arrived two days late.","","o <i>y</i> vira <i>i</i>"],
+["-tion","EDUCATE","He believes in free ___ for everyone.","He believes in free <b>education</b> for everyone.","","educação"],
+["-tion","OBJECT","Nobody raised a single ___.","Nobody raised a single <b>objection</b>.","","objeção"],
+["-tion","INFORM","I need more ___ before I decide.","I need more <b>information</b> before I decide.","","nunca no plural"],
+["-ity","ABLE","She has the ___ to win this.","She has the <b>ability</b> to win this.","","o <i>le</i> vira <i>il</i>"],
+["-ity","RESPONSIBLE","Taking the penalty is a big ___.","Taking the penalty is a big <b>responsibility</b>.","","responsabilidade"],
+["-ity","POPULAR","The club's ___ grew after the final.","The club's <b>popularity</b> grew after the final.","","popularidade"],
+["-ity","CREATIVE","Dance gives her room for ___.","Dance gives her room for <b>creativity</b>.","","criatividade"],
+["-ity","ACTIVE","Swimming is her favourite ___.","Swimming is her favourite <b>activity</b>.","","atividade"],
+["-ness","HAPPY","Money doesn't buy ___.","Money doesn't buy <b>happiness</b>.","","o <i>y</i> vira <i>i</i>"],
+["-ness","KIND","Thank you for your ___.","Thank you for your <b>kindness</b>.","","gentileza"],
+["-ness","AWARE","There is growing ___ of the problem.","There is growing <b>awareness</b> of the problem.","","consciência"],
+["-ness","WEAK","Her backhand is still a ___.","Her backhand is still a <b>weakness</b>.","","fraqueza"],
+["-ness","WILLING","I admire her ___ to try again.","I admire her <b>willingness</b> to try again.","","disposição"]
+];
+var V=P1;
 var B=[["noun","noun"],["verb","verb"],["adjective","adj"],["adverb","adv"]];
 var CLS={"noun":"p-on","verb":"p-for","adjective":"p-to","adverb":"p-no"};
 /* other sets, chosen by the course link: #set=adj */
-var SET=(location.hash.match(/set=([\w-]+)/)||[])[1]||"",WORD="root",TOPIC=TOPIC;
-var CORE=[
-["noun","HAPPY","Money doesn't buy ___.","Money doesn't buy <b>happiness</b>.","the feeling of being happy","felicidade — o <i>y</i> vira <i>i</i>"],
-["noun","FRIEND","They have a long ___.","They have a long <b>friendship</b>.","the bond between friends","amizade — <i>-ship</i> faz substantivo"],
-["noun","INFORM","I need more ___ about the course.","I need more <b>information</b> about the course.","facts about something","informação — nunca <i>informations</i>"],
-["noun","FREE","They fought for their ___.","They fought for their <b>freedom</b>.","being free","liberdade — <i>-dom</i>"],
-["noun","KIND","Thank you for your ___.","Thank you for your <b>kindness</b>.","being kind","gentileza — <i>-ness</i>"],
-["noun","ARRIVE","We waited for his ___.","We waited for his <b>arrival</b>.","the moment of arriving","chegada — <i>-al</i> também faz substantivo"],
-["adjective","CARE","Be ___ with that glass.","Be <b>careful</b> with that glass.","giving attention","cuidadoso — <i>-ful</i> é cheio de"],
-["adjective","USE","This app is really ___.","This app is really <b>useful</b>.","it helps you","útil"],
-["adjective","DANGER","That street is ___ at night.","That street is <b>dangerous</b> at night.","it can hurt you","perigosa — o <i>-oso</i> vira <i>-ous</i>"],
-["adjective","RAIN","It was a cold, ___ afternoon.","It was a cold, <b>rainy</b> afternoon.","with a lot of rain","chuvosa — <i>-y</i>"],
-["adjective","HELP","The waiter was very ___.","The waiter was very <b>helpful</b>.","willing to help","prestativo"],
-["adjective","NOISE","The classroom was very ___.","The classroom was very <b>noisy</b>.","full of noise","barulhenta — o <i>e</i> cai"],
-["adverb","QUICK","She answered ___.","She answered <b>quickly</b>.","in a short time","rapidamente"],
-["adverb","EASY","You can do it ___.","You can do it <b>easily</b>.","without difficulty","facilmente — o <i>y</i> vira <i>i</i>"],
-["adverb","CARE","Drive ___ on that road.","Drive <b>carefully</b> on that road.","with attention","com cuidado"],
-["adverb","HAPPY","She smiled ___ at the camera.","She smiled <b>happily</b> at the camera.","in a happy way","alegremente"],
-["verb","WIDE","They want to ___ the road.","They want to <b>widen</b> the road.","to make wider","alargar — <i>-en</i>"],
-["verb","STRONG","Exercise will ___ your legs.","Exercise will <b>strengthen</b> your legs.","to make stronger","fortalecer"],
-["verb","SIMPLE","Can you ___ this for me?","Can you <b>simplify</b> this for me?","to make simpler","simplificar"],
-["verb","SHORT","They had to ___ the video.","They had to <b>shorten</b> the video.","to make shorter","encurtar"]
-];
-if(SET==="core"){V=CORE;WORD="root";TOPIC="Everyday word families"}
+var SET="",WORD="word",TOPIC="Phase 1 \u00b7 word classes",PHASE=1;
+var FASES=[null,
+ {v:function(){return P1},w:"word",t:"Phase 1 \u00b7 word classes",
+  B:[["noun","noun"],["verb","verb"],["adjective","adj"],["adverb","adv"]],
+  how:"A finished word falls. Drop it in its word class \u2014 nothing else."},
+ {v:function(){return P2},w:"root",t:"Phase 2 \u00b7 roots and suffixes",
+  B:[["-ment","-ment"],["-tion","-tion"],["-ity","-ity"],["-ness","-ness"]],
+  how:"Only the root falls. Drop it on the suffix that turns it into a noun."},
+ {v:function(){return P3},w:"root",t:"Phase 3 \u00b7 suffixes in a sentence",
+  B:[["-ment","-ment"],["-tion","-tion"],["-ity","-ity"],["-ness","-ness"]],
+  how:"The sentence stays at the top. The root falls. Choose its suffix."}];
+function setFase(k){PHASE=k;var f=FASES[k];V=f.v();WORD=f.w;TOPIC=f.t;B=f.B;
+  CLS={};B.forEach(function(x,i){CLS[x[0]]=["p-on","p-for","p-to","p-no"][i]})}
+function feito(k){try{return localStorage.getItem("wf-done-"+k)==="1"}catch(e){return false}}
+function marca(k){try{localStorage.setItem("wf-done-"+k,"1")}catch(e){}}
+
+
+
 
 
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
@@ -148,7 +205,7 @@ function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="
 var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=1;
 var SPEEDS=[["🐢 Slow",11000],["🚲 Normal",8000],["🚀 Fast",5500]];
 function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
-function bestT(l){try{return +localStorage.getItem("bridge-best-"+(SET?SET+"-":"")+l)||0}catch(e){return 0}}
+function bestT(l){try{return +localStorage.getItem("wf-best-"+PHASE+"-"+l)||0}catch(e){return 0}}
 function row(v){return V.filter(function(x){return x[1]===v})[0]}
 
 /* ---- pausa, reinício e contagem (mesmo padrão dos outros jogos) ---- */
@@ -208,11 +265,21 @@ function start(){
   function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
   drawLv();
   var box=ajudaBox();
+  var esc=h("div",{class:"esc"});
+  function drawEsc(){esc.innerHTML="";[1,2,3].forEach(function(k){
+    var f=FASES[k],ok=feito(k);
+    esc.appendChild(h("button",{class:"fz"+(k===PHASE?" on":"")+(ok?" ok":""),
+      on:{click:function(){setFase(k);start()}}},
+      h("b",null,"Phase "+k),
+      h("small",null,k===1?"word classes":k===2?"root + suffix":"in a sentence"),
+      h("span",{class:"st"},ok?"★":"")))})}
+  drawEsc();
   var card=h("div",{class:"card"},
     h("span",{class:"label"},TOPIC),
     h("h1",null,"🧺 Word Factory"),
+    esc,
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,SET==="adj"?"Decide the class first. The word itself comes after you land.":"Read the sentence. Drop the root in the basket for the class the gap needs.")),
+      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,FASES[PHASE].how)),
       h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong basket costs one.")),
       h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+V.length+" "+WORD+"s and beat your best time."))),
     h("span",{class:"label"},"Speed"),lv,
@@ -226,7 +293,7 @@ function start(){
 function play(){
   stop();app.innerHTML="";
   G={list:shuffle(V.map(function(x){return x[1]})),i:0,ok:0,lives:3,col:1,cur:null,last:0,miss:[],good:[],over:false,toast:null,t0:performance.now()};
-  var field=h("div",{class:"field"}),bas=h("div",{class:"baskets"}),say=h("p",{class:"say",role:"status"});
+  var frase=h("p",{class:"frase"}),field=h("div",{class:"field"}),bas=h("div",{class:"baskets"}),say=h("p",{class:"say",role:"status"});
   var hud=h("div",{class:"hud"});
   function mv(d){if(!G.cur||PA.on||PA.counting)return;G.col=Math.max(0,Math.min(3,G.col+d))}
   function ab(t,l,f){var b=h("button",{class:"ab","aria-label":l},t);b.addEventListener("pointerdown",function(e){e.preventDefault();f()});return b}
@@ -238,7 +305,7 @@ function play(){
     h("div",{class:"row"},sel,
       h("button",{class:"btn small pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"⏸ Pause"),
       h("button",{class:"btn ghost small",on:{click:function(){stop();start()}}},"← Quit"))));
-  app.appendChild(hud);app.appendChild(clock);app.appendChild(field);app.appendChild(bas);app.appendChild(ctl);app.appendChild(say);
+  app.appendChild(hud);app.appendChild(clock);if(PHASE===3)app.appendChild(frase);app.appendChild(field);app.appendChild(bas);app.appendChild(ctl);app.appendChild(say);
   function drawHud(){hud.innerHTML="";
     hud.appendChild(h("div",null,h("span",{class:"label"},"Sorted"),h("b",null,G.ok+" / "+G.list.length)));
     hud.appendChild(h("div",null,h("span",{class:"label"},WORD.charAt(0).toUpperCase()+WORD.slice(1)),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
@@ -249,7 +316,8 @@ function play(){
     if(G.i>=G.list.length){end(true);return}
     var v=G.list[G.i++],r=row(v);G.col=Math.floor(Math.random()*4);
     var dur=SPEEDS[speed][1]*Math.pow(.97,G.ok);
-    var el=h("div",{class:"word"},r[1],h("small",null,r[2]));
+    if(PHASE===3)frase.innerHTML=r[2].replace("___","<i>_____</i>");
+    var el=h("div",{class:"word"},r[1]);
     G.cur={w:v,t0:now,dur:dur,fast:false,el:el};field.appendChild(el);place(0);drawHud();
   }
   function place(p){var c=G.cur;if(!c)return;var fw=field.clientWidth,cw=c.el.offsetWidth,x=(G.col+.5)*fw/4-cw/2;x=Math.max(4,Math.min(x,fw-cw-4));c.el.style.left=x+"px";c.el.style.top=(p*(field.clientHeight-c.el.offsetHeight-6))+"px"}
@@ -258,7 +326,7 @@ function play(){
     var chosen=B[i][0],r=row(c.w),right=r[0],good=chosen===right,b=bk[i];
     b.classList.remove("hit","bad");void b.offsetWidth;b.classList.add(good?"hit":"bad");
     var forma=(r[3].match(/<b>(.*?)<\/b>/)||[0,right])[1];
-    var rotulo=r[1]+" → "+forma;
+    var rotulo=PHASE===1?r[1]+" = "+right:r[1]+" → "+forma;
     if(good){G.ok++;if(G.good.indexOf(c.w)<0)G.good.push(c.w);toast("✓ "+rotulo,r[4],"ok");say.innerHTML=r[3]}
     else{G.lives--;G.miss.push({bad:r[1]+" "+(chosen==="—"?"+ nothing":chosen),right:rotulo});toast("✗ "+rotulo,r[4],"no");say.innerHTML=r[3]}
     drawHud();G.last=performance.now();
@@ -297,8 +365,8 @@ function play(){
 }
 
 function end(win){
-  G.over=true;stop();var el=performance.now()-G.t0,bt=bestT(speed),rec=win&&(!bt||el<bt);
-  if(rec)try{localStorage.setItem("bridge-best-"+(SET?SET+"-":"")+speed,String(Math.round(el)))}catch(e){}
+  G.over=true;stop();if(win)marca(PHASE);var el=performance.now()-G.t0,bt=bestT(speed),rec=win&&(!bt||el<bt);
+  if(rec)try{localStorage.setItem("wf-best-"+PHASE+"-"+speed,String(Math.round(el)))}catch(e){}
   setTimeout(function(){
     var miss=G.miss.length,stars=!win?0:miss===0?3:miss===1?2:1;
     app.innerHTML="";
