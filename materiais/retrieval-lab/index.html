@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Retrieval Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primaria:#3C3489; --primaria-clara:#7F77DD; --lilas-forte:#CECBF6;
+  --lilas:#EEEDFE; --texto-lilas:#534AB7;
+  --neutro:#F4F2EC; --texto:#2C2C2A; --texto-2:#5F5E5A;
+  --certo:#1F7A52; --certo-bg:#E3F3EB;
+  --errado:#B4303C; --errado-bg:#FBE6E8;
+  --ambar:#F2C14E; --rosa:#F3D3DE;
+  --entalhe:12px; --card:#fff; --borda:#E3E0D6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --neutro:#1A1826; --texto:#F0EEF8; --texto-2:#A6A2BC;
+    --card:#232033; --borda:#35314A;
+    --lilas:#2B2740; --lilas-forte:#4A4370; --texto-lilas:#BDB6F0;
+    --primaria:#BDB6F0; --certo-bg:#15351F; --errado-bg:#3A1A20;
+    --certo:#7FD6A6; --errado:#F2A0AA;
+  }
+}
+:root[data-theme="dark"]{
+  --neutro:#1A1826; --texto:#F0EEF8; --texto-2:#A6A2BC;
+  --card:#232033; --borda:#35314A;
+  --lilas:#2B2740; --lilas-forte:#4A4370; --texto-lilas:#BDB6F0;
+  --primaria:#BDB6F0; --certo-bg:#15351F; --errado-bg:#3A1A20;
+  --certo:#7FD6A6; --errado:#F2A0AA;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Source Sans 3',sans-serif;background:var(--neutro);color:var(--texto);
+  line-height:1.55;font-size:17px;padding:0 16px 56px}
+.col{max-width:540px;margin:0 auto}
+
+header{padding:34px 0 10px}
+.marca{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.09em;
+  color:var(--texto-2);text-transform:uppercase}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;
+  color:var(--primaria);line-height:1.1;margin-top:8px}
+.sub{font-size:16px;color:var(--texto-2);margin-top:9px}
+
+.menu{display:flex;flex-direction:column;gap:11px;margin-top:24px}
+.modo{display:block;width:100%;text-align:left;cursor:pointer;font:inherit;
+  background:var(--card);border:1px solid var(--borda);border-left:5px solid var(--primaria-clara);
+  border-radius:13px;padding:17px 18px 15px;color:inherit;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.modo .tag{font-family:Inter,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  color:var(--texto-lilas);text-transform:uppercase}
+.modo h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;
+  color:var(--primaria);margin-top:6px;line-height:1.2}
+.modo p{font-size:15px;color:var(--texto-2);margin-top:6px}
+
+.jogo{display:none;margin-top:18px}
+.jogo.on{display:block}
+
+.barra{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:11px 14px;background:var(--lilas);border-radius:11px;margin-bottom:16px}
+.barra .n{font-family:Inter,sans-serif;font-size:12.5px;font-weight:700;color:var(--texto-lilas)}
+.barra .sep{flex:1}
+.voltar{font:inherit;font-size:14px;font-weight:600;cursor:pointer;border:0;background:none;
+  color:var(--texto-lilas);padding:2px 0;text-decoration:underline}
+
+.palco{background:var(--card);border:1px solid var(--borda);border-radius:14px;
+  padding:26px 20px;text-align:center;
+  clip-path:polygon(0 0, calc(100% - var(--entalhe)) 0, 100% var(--entalhe), 100% 100%, 0 100%)}
+.alvo{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:33px;
+  color:var(--primaria);line-height:1.15;word-break:break-word}
+.frase{font-size:19px;line-height:1.5;text-align:left}
+.frase b{display:inline-block;min-width:92px;border-bottom:2.5px solid var(--primaria-clara);
+  font-weight:700;color:var(--primaria)}
+.frase .pt{display:block;font-size:14.5px;color:var(--texto-2);font-style:italic;margin-top:10px}
+.moldura{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:28px;
+  color:var(--primaria)}
+.moldura small{display:block;font-family:'Source Sans 3',sans-serif;font-weight:400;
+  font-size:15px;color:var(--texto-2);margin-top:8px;font-style:italic}
+
+.ops{display:grid;gap:9px;margin-top:15px}
+.ops.duas{grid-template-columns:1fr 1fr}
+.op{font:inherit;font-size:16px;font-weight:600;cursor:pointer;padding:14px 12px;
+  background:var(--card);color:inherit;border:1.5px solid var(--borda);border-radius:11px;
+  transition:background .12s,border-color .12s}
+.op code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px}
+.op.certa{background:var(--certo-bg);border-color:var(--certo);color:var(--certo)}
+.op.errada{background:var(--errado-bg);border-color:var(--errado);color:var(--errado)}
+.op:disabled{cursor:default}
+
+.aviso{margin-top:14px;padding:14px 16px;border-radius:11px;font-size:16px;
+  background:var(--lilas);border-left:4px solid var(--primaria-clara);text-align:left;display:none}
+.aviso.on{display:block}
+.aviso b{color:var(--primaria)}
+.aviso .ex{display:block;margin-top:7px;font-style:italic;color:var(--texto-2);font-size:15px}
+
+.segue{display:block;width:100%;margin-top:14px;font:inherit;font-size:16px;font-weight:700;
+  cursor:pointer;padding:14px;border:0;border-radius:11px;
+  background:var(--primaria);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .segue{color:#1A1826}}
+:root[data-theme="dark"] .segue{color:#1A1826}
+
+.fim{text-align:center;padding:30px 18px}
+.fim .placar{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:46px;
+  color:var(--primaria);line-height:1}
+.fim p{margin-top:10px;color:var(--texto-2)}
+.lista{margin-top:18px;text-align:left;font-size:15.5px}
+.lista h3{font-family:Inter,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--texto-2);margin-bottom:8px}
+.lista li{margin:5px 0 5px 18px}
+.lista li b{color:var(--primaria)}
+
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--borda);
+  font-size:13.5px;color:var(--texto-2);text-align:center}
+</style>
+</head>
+<body>
+<div class="col">
+
+<header>
+  <div class="marca">Talk It Out · by Luisa Mesel</div>
+  <h1>Retrieval Lab</h1>
+  <p class="sub" id="sub">Three short games. Lock the <b>form</b> first — the word comes second. Nothing here is new: it is all from your own lessons.</p>
+</header>
+
+<div id="menu" class="menu">
+  <button class="modo" data-ir="classes">
+    <span class="tag">Game 1 · no typing</span>
+    <h2>Word classes</h2>
+    <p>A word drops in. Say what class it is. That is the whole game — you never build a word, you only recognise one.</p>
+  </button>
+  <button class="modo" data-ir="chunks">
+    <span class="tag">Game 2 · bring it back</span>
+    <h2>Say it in a block</h2>
+    <p>Expressions from your lessons that slipped away. Four options, one sentence, one tap.</p>
+  </button>
+  <button class="modo" data-ir="frames">
+    <span class="tag">Game 3 · page 219</span>
+    <h2>Frame and tail</h2>
+    <p>Every regret frame asks for a different ending. Choose the ending shape before you think about the words.</p>
+  </button>
+</div>
+
+<section id="jogo" class="jogo">
+  <div class="barra">
+    <span class="n" id="passo">1 / 12</span>
+    <span class="n"><span id="pontos">0</span> right</span>
+    <span class="sep"></span>
+    <button class="voltar" id="sair">Back to menu</button>
+  </div>
+  <div class="palco" id="palco"></div>
+  <div class="ops" id="ops"></div>
+  <div class="aviso" id="aviso"></div>
+  <button class="segue" id="segue" style="display:none">Next</button>
+</section>
+
+<footer>Talk It Out · Retrieval Lab</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CLASSES = ["noun","verb","adjective","adverb"];
+
+  var bancoClasses = [
+    ["detrimental","adjective","Too much screen time can be <b>detrimental</b> to your sleep."],
+    ["applicable","adjective","That rule is not <b>applicable</b> to junior players."],
+    ["introductory","adjective","She booked an <b>introductory</b> dance class."],
+    ["managerial","adjective","He moved into a <b>managerial</b> role last year."],
+    ["imaginative","adjective","It was an <b>imaginative</b> way to end the routine."],
+    ["discourteous","adjective","Leaving without a word was <b>discourteous</b>."],
+    ["compelling","adjective","The second half of the film was <b>compelling</b>."],
+    ["gripping","adjective","It is a <b>gripping</b> story from the first page."],
+    ["stunning","adjective","The final set was <b>stunning</b> to watch."],
+    ["detached","adjective","She sounded oddly <b>detached</b> on the phone."],
+    ["objectionable","adjective","He found the comment deeply <b>objectionable</b>."],
+    ["educational","adjective","The trip was far more <b>educational</b> than the lesson."],
+    ["hopelessly","adverb","They were <b>hopelessly</b> late for the party."],
+    ["increasingly","adverb","The matches are getting <b>increasingly</b> tight."],
+    ["arguably","adverb","She is <b>arguably</b> the best dancer in the group."],
+    ["courteously","adverb","He answered <b>courteously</b>, even then."],
+    ["objection","noun","Nobody raised a single <b>objection</b>."],
+    ["fulfilment","noun","She found real <b>fulfilment</b> in teaching."],
+    ["amends","noun","He tried to make <b>amends</b> after the argument."],
+    ["detachment","noun","She described it with complete <b>detachment</b>."],
+    ["imagination","noun","It takes <b>imagination</b> to choreograph that."],
+    ["courtesy","noun","He had the <b>courtesy</b> to apologise."],
+    ["fulfil","verb","She wants to <b>fulfil</b> a promise she made."],
+    ["seek","verb","They decided to <b>seek</b> a second opinion."],
+    ["amend","verb","We had to <b>amend</b> the schedule twice."],
+    ["undergo","verb","The club will <b>undergo</b> a full rebuild."],
+    ["sift","verb","I had to <b>sift</b> through hundreds of photos."],
+    ["manage","verb","Somehow she will <b>manage</b> to be there."]
+  ];
+
+  var bancoChunks = [
+    ["stuck in a rut","I felt ___ until I started dancing again.",
+      ["out of spite","in a hurry","on the edge"],
+      "Stuck in the same dull routine, going nowhere."],
+    ["out of spite","She said it ___, not because she meant it.",
+      ["in a rut","on purpose of","for the sake"],
+      "To hurt someone on purpose, out of bad feeling."],
+    ["a role model","Her older sister has always been ___ for her.",
+      ["a role player","a model role","a lead model"],
+      "Someone whose behaviour others copy."],
+    ["set a deadline","If you ___, you are far more likely to finish it.",
+      ["put a deadline","make a deadline","do a deadline"],
+      "The verb is <b>set</b>, never <i>put</i> or <i>make</i>."],
+    ["sift through","It took hours to ___ all the old messages.",
+      ["sift over","sieve through","sift out of"],
+      "To go through a large amount of material carefully."],
+    ["make amends","He sent flowers to ___ for forgetting.",
+      ["do amends","make amend","take amends"],
+      "<b>Make</b> amends, and <b>amends</b> is always plural."],
+    ["no longer","She ___ plays in the Saturday league.",
+      ["not longer","no more long","any longer"],
+      "This one has caught you twice. <b>No longer</b> sits before the verb."],
+    ["under pressure","He plays badly ___, and everyone knows it.",
+      ["on pressure","in pressure","with pressure"],
+      "The preposition is <b>under</b>."],
+    ["pose a threat","Those new rules ___ to small clubs.",
+      ["set a threat","make a threat","give a threat"],
+      "<b>Pose</b> a threat. <i>Make a threat</i> exists, but it means to threaten someone."],
+    ["drowned out","The music ___ everything she was saying.",
+      ["drowned over","cancelled out","turned out"],
+      "A louder sound covers a quieter one."],
+    ["was supposed to","She ___ call me back, but she never did.",
+      ["was supposing to","supposed to be","was to supposed"],
+      "Something was expected and did not happen."],
+    ["It's ages since","___ we last went out properly.",
+      ["It's ages that","There are ages","It has ages"],
+      "<b>It's ages since</b> + past simple."]
+  ];
+
+  var FORMAS = [
+    ["had","had + past participle"],
+    ["would","would + infinitive"],
+    ["have","have + past participle"],
+    ["tohave","to have + past participle"]
+  ];
+
+  var bancoFrames = [
+    ["I wish","about something that did not happen","had",
+      "I wish I <b>had phoned</b> you earlier."],
+    ["If only","about something you regret","had",
+      "If only I <b>had gone</b> to France instead."],
+    ["I'd sooner","about the past","had",
+      "I'd sooner I <b>had said</b> nothing at all."],
+    ["We'd rather","about what someone else did","had",
+      "We'd rather you <b>hadn't done</b> that."],
+    ["Don't you wish","about a choice not taken","had",
+      "Don't you wish you <b>had gone</b> to university?"],
+    ["I wish you","about a habit that annoys you","would",
+      "I wish you <b>wouldn't text</b> while I'm talking to you!"],
+    ["I wish the bus","about something irritating that keeps happening","would",
+      "I wish the bus <b>would be</b> on time for once!"],
+    ["You should","telling someone off about the past","have",
+      "You <b>should have mentioned</b> it before!"],
+    ["We shouldn't","a criticism of something already done","have",
+      "We <b>shouldn't have spoken</b> to him like that."],
+    ["Would you like","asking about a past wish","tohave",
+      "Would you like <b>to have stayed</b> longer?"],
+    ["She'd prefer","a past preference, with to","tohave",
+      "She'd prefer <b>to have travelled</b> on her own."],
+    ["He'd rather","a past preference, with no to","have",
+      "He'd rather <b>have seen</b> the film by himself."]
+  ];
+
+  var elMenu = document.getElementById("menu"),
+      elJogo = document.getElementById("jogo"),
+      elPalco = document.getElementById("palco"),
+      elOps = document.getElementById("ops"),
+      elAviso = document.getElementById("aviso"),
+      elSegue = document.getElementById("segue"),
+      elPasso = document.getElementById("passo"),
+      elPontos = document.getElementById("pontos");
+
+  var fila = [], i = 0, acertos = 0, erros = [], modo = "";
+
+  function baralha(a){
+    a = a.slice();
+    for (var k = a.length - 1; k > 0; k--){
+      var j = Math.floor(Math.random() * (k + 1));
+      var t = a[k]; a[k] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function botao(texto, ok, explica){
+    var b = document.createElement("button");
+    b.className = "op";
+    b.innerHTML = texto;
+    b.addEventListener("click", function(){
+      if (b.disabled) return;
+      var todos = elOps.querySelectorAll(".op");
+      for (var k = 0; k < todos.length; k++) todos[k].disabled = true;
+      if (ok){
+        b.classList.add("certa");
+        acertos++;
+      } else {
+        b.classList.add("errada");
+        for (var k2 = 0; k2 < todos.length; k2++){
+          if (todos[k2].dataset.ok === "1") todos[k2].classList.add("certa");
+        }
+        erros.push(fila[i]);
+      }
+      elPontos.textContent = acertos;
+      if (explica){
+        elAviso.innerHTML = explica;
+        elAviso.classList.add("on");
+      }
+      elSegue.style.display = "block";
+      elSegue.textContent = (i === fila.length - 1) ? "See how it went" : "Next";
+    });
+    if (ok) b.dataset.ok = "1";
+    return b;
+  }
+
+  function limpa(){
+    elOps.innerHTML = "";
+    elOps.className = "ops";
+    elAviso.className = "aviso";
+    elAviso.innerHTML = "";
+    elSegue.style.display = "none";
+  }
+
+  function pinta(){
+    limpa();
+    elPasso.textContent = (i + 1) + " / " + fila.length;
+    var i2 = fila[i];
+
+    if (modo === "classes"){
+      elPalco.innerHTML = '<div class="alvo">' + i2[0] + "</div>";
+      elOps.className = "ops duas";
+      baralha(CLASSES).forEach(function(c){
+        elOps.appendChild(botao(c, c === i2[1],
+          "<b>" + i2[0] + "</b> is " + (/^[aeiou]/.test(i2[1]) ? "an " : "a ") + i2[1] +
+          '.<span class="ex">' + i2[2] + "</span>"));
+      });
+    }
+
+    else if (modo === "chunks"){
+      elPalco.innerHTML = '<div class="frase">' + i2[1].replace("___", "<b>&nbsp;</b>") + "</div>";
+      var ops = baralha([i2[0]].concat(i2[2]));
+      ops.forEach(function(o){
+        elOps.appendChild(botao(o, o === i2[0],
+          "<b>" + i2[0] + "</b> — " + i2[3] +
+          '<span class="ex">' + i2[1].replace("___", i2[0]) + "</span>"));
+      });
+    }
+
+    else {
+      elPalco.innerHTML = '<div class="moldura">' + i2[0] + " …<small>" + i2[1] + "</small></div>";
+      baralha(FORMAS).forEach(function(f){
+        elOps.appendChild(botao("<code>" + f[1] + "</code>", f[0] === i2[2],
+          "<b>" + i2[0] + "</b> takes <b>" + FORMAS.filter(function(x){ return x[0] === i2[2]; })[0][1] +
+          '</b>.<span class="ex">' + i2[3] + "</span>"));
+      });
+    }
+  }
+
+  function fim(){
+    elOps.innerHTML = "";
+    elAviso.className = "aviso";
+    elSegue.style.display = "none";
+    elPasso.textContent = "done";
+    var html = '<div class="fim"><div class="placar">' + acertos + " / " + fila.length + "</div>";
+    html += "<p>" + (acertos === fila.length
+      ? "Every single one. Do it again tomorrow and see if it holds."
+      : "The ones below are the ones worth a second look.") + "</p>";
+    if (erros.length){
+      html += '<div class="lista"><h3>Look at these again</h3><ul>';
+      erros.forEach(function(e){
+        html += "<li><b>" + (modo === "frames" ? e[0] + " …" : e[0]) + "</b></li>";
+      });
+      html += "</ul></div>";
+    }
+    html += "</div>";
+    elPalco.innerHTML = html;
+    var again = document.createElement("button");
+    again.className = "segue";
+    again.textContent = "Play again";
+    again.addEventListener("click", function(){ comeca(modo); });
+    elOps.appendChild(again);
+  }
+
+  function comeca(m){
+    modo = m;
+    var banco = m === "classes" ? bancoClasses : (m === "chunks" ? bancoChunks : bancoFrames);
+    fila = baralha(banco).slice(0, 12);
+    i = 0; acertos = 0; erros = [];
+    elPontos.textContent = "0";
+    elMenu.style.display = "none";
+    elJogo.classList.add("on");
+    window.scrollTo(0, 0);
+    pinta();
+  }
+
+  elSegue.addEventListener("click", function(){
+    if (i === fila.length - 1){ fim(); return; }
+    i++;
+    pinta();
+  });
+
+  document.getElementById("sair").addEventListener("click", function(){
+    elJogo.classList.remove("on");
+    elMenu.style.display = "flex";
+    window.scrollTo(0, 0);
+  });
+
+  var modos = document.querySelectorAll(".modo");
+  for (var k = 0; k < modos.length; k++){
+    modos[k].addEventListener("click", function(){ comeca(this.dataset.ir); });
+  }
+})();
+</script>
+</body>
+</html>
