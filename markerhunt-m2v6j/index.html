@@ -185,9 +185,66 @@ var V=[
 var SPEEDS=[["🐢 Calm · 90s",90],["🚲 Normal · 60s",60],["🚀 Rush · 40s",40]];
 var VER_OK=3000,VER_NO=4500,VIDAS=3;
 var LADOS={past:["←","Past","simple","there is a date"],perfect:["→","Present","perfect","no date at all"]};
+/* other sets, chosen by the course link: #set=simple-cont, #set=past-cont, #set=will-going */
+var SET=(location.hash.match(/set=([\w-]+)/)||[])[1]||"";
+var SETS={
+"simple-cont":{L:{past:["←","Present","simple","habits, routines"],perfect:["→","Present","continuous","now, at the moment"]},
+  aj:[["o marcador decide","<i>every day, usually, often, never, on Saturdays</i> → <b>present simple</b> (rotina). <i>now, right now, at the moment, Look!, Listen!</i> → <b>present continuous</b> (acontecendo agora)."]],v:[
+["She ___ to work by bus.","go · every day","past","She <b>goes</b> to work by bus <i class=\"mk\">every day</i>.","every day — a habit"],
+["Look! The baby ___.","sleep","perfect","<i class=\"mk\">Look!</i> The baby <b>is sleeping</b>.","Look! — it's happening now"],
+["I ___ coffee in the morning.","usually / drink","past","I <i class=\"mk\">usually</i> <b>drink</b> coffee in the morning.","usually — a routine"],
+["Shh! I ___ on the phone right now.","talk","perfect","Shh! I <b>am talking</b> on the phone <i class=\"mk\">right now</i>.","right now"],
+["We ___ football on Saturdays.","play","past","We <b>play</b> football <i class=\"mk\">on Saturdays</i>.","on Saturdays — every week"],
+["My brother ___ for his exams at the moment.","study","perfect","My brother <b>is studying</b> for his exams <i class=\"mk\">at the moment</i>.","at the moment"],
+["He never ___ meat.","eat","past","He <i class=\"mk\">never</i> <b>eats</b> meat.","never — a habit"],
+["Listen! Someone ___ the piano.","play","perfect","<i class=\"mk\">Listen!</i> Someone <b>is playing</b> the piano.","Listen! — happening now"],
+["The shop ___ at 9 a.m.","open · every day","past","The shop <b>opens</b> at 9 a.m. <i class=\"mk\">every day</i>.","every day — a timetable"],
+["Why ___ a coat today? It's hot!","you / wear","perfect","Why <b>are you wearing</b> a coat <i class=\"mk\">today</i>? It's hot!","today — happening now, not usual"],
+["I ___ my grandma twice a month.","visit","past","I <b>visit</b> my grandma <i class=\"mk\">twice a month</i>.","twice a month — how often"],
+["They ___ dinner now. Call later.","have","perfect","They <b>are having</b> dinner <i class=\"mk\">now</i>. Call later.","now"],
+["She often ___ late.","arrive","past","She <i class=\"mk\">often</i> <b>arrives</b> late.","often — a habit"],
+["Look at the kids! They ___ in the pool.","swim","perfect","<i class=\"mk\">Look at</i> the kids! They <b>are swimming</b> in the pool.","Look at… — you can see it now"]
+]},
+"past-cont":{L:{past:["←","Past","simple","finished action"],perfect:["→","Past","continuous","in progress then"]},
+  aj:[["o marcador decide","<i>yesterday, ago, last year, suddenly</i> → <b>past simple</b> (ação terminada). <i>while, at 9 last night, all afternoon, when… interrompeu</i> → <b>past continuous</b> (ação em andamento)."]],v:[
+["I ___ my keys yesterday.","lose","past","I <b>lost</b> my keys <i class=\"mk\">yesterday</i>.","yesterday — a finished action"],
+["At 9 o'clock last night we ___ TV.","watch","perfect","<i class=\"mk\">At 9 o'clock last night</i> we <b>were watching</b> TV.","at 9 o'clock last night — in progress at that time"],
+["While she ___, the phone rang.","cook","perfect","<i class=\"mk\">While</i> she <b>was cooking</b>, the phone rang.","while — the longer action in progress"],
+["They ___ to Paris in 2019.","go","past","They <b>went</b> to Paris <i class=\"mk\">in 2019</i>.","in 2019 — a date"],
+["We ___ dinner when the lights went out.","have","perfect","We <b>were having</b> dinner <i class=\"mk\">when the lights went out</i>.","when … — another action interrupted it"],
+["Two days ago I ___ an old friend.","meet","past","<i class=\"mk\">Two days ago</i> I <b>met</b> an old friend.","two days ago"],
+["It ___ all afternoon, so we stayed home.","rain","perfect","It <b>was raining</b> <i class=\"mk\">all afternoon</i>, so we stayed home.","all afternoon — in progress for a long time"],
+["She ___ a new car last year.","buy","past","She <b>bought</b> a new car <i class=\"mk\">last year</i>.","last year"],
+["I ___ my bike when I fell.","ride","perfect","I <b>was riding</b> my bike <i class=\"mk\">when I fell</i>.","when I fell — interrupted"],
+["Suddenly, the dog ___.","bark","past","<i class=\"mk\">Suddenly</i>, the dog <b>barked</b>.","suddenly — a short action"],
+["This time last week I ___ on a beach.","lie","perfect","<i class=\"mk\">This time last week</i> I <b>was lying</b> on a beach.","this time last week — in progress then"],
+["He ___ the door and left.","close","past","He <b>closed</b> the door <i class=\"mk\">and left</i>.","and left — one action after another"],
+["The children ___ in the garden when it started to snow.","play","perfect","The children <b>were playing</b> in the garden <i class=\"mk\">when it started to snow</i>.","when it started — the background action"],
+["We ___ the film on Sunday night.","see","past","We <b>saw</b> the film <i class=\"mk\">on Sunday night</i>.","on Sunday night — a finished time"]
+]},
+"will-going":{L:{past:["←","Will","","decide now · opinion"],perfect:["→","Going","to","plan · evidence"]},
+  aj:[["o marcador decide","<i>I think, maybe, probably, I promise</i> ou uma decisão na hora → <b>will</b>. Um plano já feito (<i>I've bought the tickets</i>) ou algo que você vê acontecendo (<i>Look at those clouds!</i>) → <b>going to</b>."]],v:[
+["Look at those black clouds! It ___.","rain","perfect","<i class=\"mk\">Look at those black clouds!</i> It <b>is going to rain</b>.","you can see the evidence"],
+["I think it ___ a great party.","be","past","<i class=\"mk\">I think</i> it <b>will be</b> a great party.","I think — an opinion about the future"],
+["I've bought the tickets. We ___ the show on Friday.","see","perfect","<i class=\"mk\">I've bought the tickets.</i> We <b>are going to see</b> the show on Friday.","a plan you already made"],
+["The phone is ringing. I ___ it!","answer","past","The phone is ringing. I<b>'ll answer</b> it!","a decision now, at this moment"],
+["Maybe she ___ late.","be","past","<i class=\"mk\">Maybe</i> she <b>will be</b> late.","maybe — a guess"],
+["Careful! You ___ that glass!","drop","perfect","<i class=\"mk\">Careful!</i> You<b>'re going to drop</b> that glass!","you can see it about to happen"],
+["I promise I ___ you tomorrow.","call","past","<i class=\"mk\">I promise</i> I<b>'ll call</b> you tomorrow.","I promise — a promise"],
+["We've decided. We ___ a new flat.","rent","perfect","<i class=\"mk\">We've decided.</i> We<b>'re going to rent</b> a new flat.","we've decided — a plan"],
+["Wait, I ___ you with that bag.","help","past","<i class=\"mk\">Wait</i>, I<b>'ll help</b> you with that bag.","an offer, decided now"],
+["She's studied every day. She ___ the exam.","pass","perfect","<i class=\"mk\">She's studied every day.</i> She<b>'s going to pass</b> the exam.","evidence you can see now"],
+["Probably they ___ us next year.","visit","past","<i class=\"mk\">Probably</i> they <b>will visit</b> us next year.","probably — a prediction"],
+["Next summer I ___ Spanish. I've already found a course.","study","perfect","Next summer I<b>'m going to study</b> Spanish. <i class=\"mk\">I've already found a course.</i>","already found a course — a plan"],
+["Don't worry, I ___ anyone.","not tell","past","<i class=\"mk\">Don't worry</i>, I <b>won't tell</b> anyone.","a promise"],
+["He's packed his suitcase. He ___ tomorrow.","travel","perfect","<i class=\"mk\">He's packed his suitcase.</i> He<b>'s going to travel</b> tomorrow.","the suitcase is the evidence"]
+]}};
+if(SETS[SET]){V=SETS[SET].v;LADOS=SETS[SET].L;AJUDA=SETS[SET].aj;SLUG+="-"+SET}
+function nomeL(k){return (LADOS[k][1]+" "+LADOS[k][2]).trim().toLowerCase()}
+
 
 var HOW=[["🔎","One word in the sentence decides the tense. Hunt for that word."],
- ["↔️","Press ← for past simple and → for present perfect, or tap a side."],
+ ["↔️","Press ← for "+nomeL("past")+" and → for "+nomeL("perfect")+", or tap a side."],
  ["❤️","A wrong side costs one heart. You have "+VIDAS+"."]];
 
 function start(){
@@ -201,7 +258,7 @@ function start(){
     h("h1",null,"🔎 Marker Hunt"),
     h("ol",{class:"how"},
       h("li",null,h("span",{class:"e"},"🔎"),h("span",null,"Every sentence hides one word that decides the tense. Find it.")),
-      h("li",null,h("span",{class:"e"},"↔️"),h("span",null,"Send the card left for past simple, right for present perfect.")),
+      h("li",null,h("span",{class:"e"},"↔️"),h("span",null,"Send the card left for "+nomeL("past")+", right for "+nomeL("perfect")+".")),
       h("li",null,h("span",{class:"e"},"⏳"),h("span",null,"The marker lights up with the answer, and the clock stops while it is on screen."))),
     h("span",{class:"label"},"Time"),lv,
     h("div",{class:"row"},
@@ -256,7 +313,7 @@ function play(){
     var alvo=certo?bom:mau;
     alvo.classList.remove("hit","bad");void alvo.offsetWidth;alvo.classList.add(certo?"hit":"bad");
     bom.classList.add("hot");
-    var nome=r[2]==="past"?"past simple":"present perfect";
+    var nome=nomeL(r[2]);
     if(certo){
       G.seq++;G.melhor=Math.max(G.melhor,G.seq);
       var mult=G.seq>=6?3:G.seq>=3?2:1;
@@ -266,7 +323,7 @@ function play(){
     }else{
       G.seq=0;G.vidas--;
       why.className="why no";why.textContent="✗ "+nome+" — "+r[4];
-      G.miss.push({bad:r[1]+" → "+(r[2]==="past"?"present perfect":"past simple"),right:r[3]+" <i>("+r[4]+")</i>"});
+      G.miss.push({bad:r[1]+" → "+nomeL(r[2]==="past"?"perfect":"past"),right:r[3]+" <i>("+r[4]+")</i>"});
     }
     drawHud();
     setTimeout(function(){

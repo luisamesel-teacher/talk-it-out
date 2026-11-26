@@ -215,6 +215,10 @@ var V=[
 ["A child ___ need a visa for this trip.","don't","doesn't","doesn't","a child = he / she / it, so doesn't."]
 ];
 /* [nome, duracao da queda, pausa de leitura] */
+/* the course sends its own module words in the link: #m=<id>&b=<json [[sentence,optA,optB,right,why],...]> */
+var SET="",SETT="";
+try{var _m=location.hash.match(/[#&]m=([\w-]+)/),_b=location.hash.match(/[#&]b=([^&]+)/);
+  if(_b){var _v=JSON.parse(decodeURIComponent(_b[1]));if(_v&&_v.length>=6){V=_v;SET=_m?_m[1]:"x";SLUG+="-"+SET;AJUDA=[["como jogar","Duas palavras caem sobre a cidade: só uma deixa a frase certa. Toque nela ou use ← e →. A errada estoura; se você errar, um prédio cai."]];var _t=location.hash.match(/[#&]t=([^&]+)/);SETT=_t?decodeURIComponent(_t[1]):""}}}catch(e){}
 var SPEEDS=[["🐢 Slow",13500,2100],["🚲 Normal",9500,1500],["🚀 Fast",6500,1000]];
 var CITY=6, ALTURAS=["t2","t3","t1","t3","t2","t1"];
 var SEM_MOV=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches);
@@ -232,7 +236,7 @@ function start(){
   drawLv();
   var box=ajudaBox();
   app.appendChild(h("div",{class:"card"},
-    h("span",{class:"label"},"One is enough"),
+    h("span",{class:"label"},SETT||"One is enough"),
     h("h1",null,"🏙️ Save the City"),
     h("ol",{class:"how"},
       h("li",null,h("span",{class:"e"},"🤖"),h("span",null,"The robot drops two words on your city. Only one of them is correct English.")),

@@ -50,6 +50,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .bk{display:grid;justify-items:center;gap:2px;padding:12px 4px 10px;border-radius:0 0 22px 22px;border:3px solid #12152e;border-top-width:8px;color:#12152e;font:900 28px var(--label);cursor:pointer;transition:transform .15s}
 .bk small{font:700 14px var(--label);opacity:.8}
 .bk.p-on{background:var(--p-on)}.bk.p-for{background:var(--p-for)}.bk.p-to{background:var(--p-to)}.bk.p-no{background:var(--p-no)}
+.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px var(--label);min-width:74px;min-height:52px;border-radius:14px;border:2px solid #fff;border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 .bk.under{transform:translateY(-8px);box-shadow:0 0 0 4px var(--yel)}
 .bk.hit{animation:pop .45s}.bk.bad{animation:shake .4s}
 @keyframes pop{50%{transform:scale(1.1);box-shadow:0 0 22px var(--good)}}
@@ -101,6 +102,28 @@ var V=[
 ];
 var B=[["on","on"],["for","for"],["to","to"],["—","nothing"]];
 var CLS={"on":"p-on","for":"p-for","to":"p-to","—":"p-no"};
+/* other sets, chosen by the course link: #set=adj */
+var SET=(location.hash.match(/set=([\w-]+)/)||[])[1]||"",WORD="verb",TOPIC=TOPIC;
+var ADJ=[
+["at","good","She's really good ___ maths.","She's really good <b>at</b> maths.","able to do something well","boa <b>em</b> — o português usa <i>em</i>"],
+["at","bad","I'm bad ___ remembering names.","I'm bad <b>at</b> remembering names.","not able to do something well","ruim <b>em</b>"],
+["at","brilliant","He's brilliant ___ drawing.","He's brilliant <b>at</b> drawing.","very, very good at something","ótimo <b>em</b>"],
+["at","surprised","We were surprised ___ the price.","We were surprised <b>at</b> the price.","you didn't expect it","surpreso <b>com</b> (also: surprised by)"],
+["of","afraid","My sister is afraid ___ spiders.","My sister is afraid <b>of</b> spiders.","you feel fear","com medo <b>de</b>"],
+["of","proud","I'm so proud ___ you!","I'm so proud <b>of</b> you!","happy because someone did something good","orgulhoso <b>de</b>"],
+["of","tired","I'm tired ___ waiting.","I'm tired <b>of</b> waiting.","you don't want it any more","cansado <b>de</b>"],
+["of","jealous","He's jealous ___ his brother.","He's jealous <b>of</b> his brother.","you want what another person has","com ciúme / inveja <b>de</b>"],
+["of","full","The bus was full ___ tourists.","The bus was full <b>of</b> tourists.","with a lot of something inside","cheio <b>de</b>"],
+["in","interested","Are you interested ___ art?","Are you interested <b>in</b> art?","you want to know more","interessado <b>em</b>"],
+["in","involved","She's involved ___ a new project.","She's involved <b>in</b> a new project.","taking part in something","envolvido <b>em</b>"],
+["in","disappointed","I was disappointed ___ the film.","I was disappointed <b>in</b> the film.","it was not as good as you hoped","decepcionado <b>com</b> (also: with)"],
+["about","worried","Don't be worried ___ the test.","Don't be worried <b>about</b> the test.","you think something bad may happen","preocupado <b>com</b>"],
+["about","excited","The kids are excited ___ the trip.","The kids are excited <b>about</b> the trip.","very happy about something that is coming","animado <b>com</b>"],
+["about","nervous","He's nervous ___ his first day.","He's nervous <b>about</b> his first day.","a bit afraid before something","nervoso <b>com</b>"],
+["about","sorry","I'm sorry ___ the noise last night.","I'm sorry <b>about</b> the noise last night.","you feel bad about something","desculpe <b>por</b>"]
+];
+if(SET==="adj"){V=ADJ;B=[["at","at"],["of","of"],["in","in"],["about","about"]];CLS={"at":"p-on","of":"p-for","in":"p-to","about":"p-no"};WORD="adjective";TOPIC="Adjectives and their little words"}
+
 
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(k==="html")e.innerHTML=at.html;else if(at[k]!=null)e.setAttribute(k,at[k])}
@@ -108,7 +131,7 @@ function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="
 var app=document.getElementById("app"),G=null,raf=null,keyh=null,speed=1;
 var SPEEDS=[["🐢 Slow",11000],["🚲 Normal",8000],["🚀 Fast",5500]];
 function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
-function bestT(l){try{return +localStorage.getItem("bridge-best-"+l)||0}catch(e){return 0}}
+function bestT(l){try{return +localStorage.getItem("bridge-best-"+(SET?SET+"-":"")+l)||0}catch(e){return 0}}
 function row(v){return V.filter(function(x){return x[1]===v})[0]}
 
 /* ---- pausa, reinício e contagem (mesmo padrão dos outros jogos) ---- */
@@ -169,12 +192,12 @@ function start(){
   drawLv();
   var box=ajudaBox();
   var card=h("div",{class:"card"},
-    h("span",{class:"label"},"Verbs and their little words"),
+    h("span",{class:"label"},TOPIC),
     h("h1",null,"🧺 Bridge Words"),
     h("ol",{class:"how"},
-      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,"Drop each verb in the basket that goes with it: on, for, to — or nothing at all.")),
+      h("li",null,h("span",{class:"e"},"🧺"),h("span",null,SET==="adj"?"Drop each adjective in the basket that goes with it: at, of, in or about.":"Drop each verb in the basket that goes with it: on, for, to — or nothing at all.")),
       h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong basket costs one.")),
-      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+V.length+" verbs and beat your best time."))),
+      h("li",null,h("span",{class:"e"},"⏱"),h("span",null,"Sort all "+V.length+" "+WORD+"s and beat your best time."))),
     h("span",{class:"label"},"Speed"),lv,
     h("div",{class:"row"},
       h("button",{class:"btn",on:{click:play}},"▶ Play"),
@@ -188,6 +211,9 @@ function play(){
   G={list:shuffle(V.map(function(x){return x[1]})),i:0,ok:0,lives:3,col:1,cur:null,last:0,miss:[],good:[],over:false,toast:null,t0:performance.now()};
   var field=h("div",{class:"field"}),bas=h("div",{class:"baskets"}),say=h("p",{class:"say",role:"status"});
   var hud=h("div",{class:"hud"});
+  function mv(d){if(!G.cur||PA.on||PA.counting)return;G.col=Math.max(0,Math.min(3,G.col+d))}
+  function ab(t,l,f){var b=h("button",{class:"ab","aria-label":l},t);b.addEventListener("pointerdown",function(e){e.preventDefault();f()});return b}
+  var ctl=h("div",{class:"arrows"},ab("◀","Move left",function(){mv(-1)}),ab("▼ Drop","Drop faster",function(){if(G.cur&&!PA.on)G.cur.fast=true}),ab("▶","Move right",function(){mv(1)}));
   var bk=B.map(function(p,i){var b=h("button",{class:"bk "+CLS[p[0]],"aria-label":"Basket "+p[1],on:{click:function(){if(G.cur)land(i)}}},p[0],h("small",null,String(i+1)));bas.appendChild(b);return b});
   var sel=h("select",{class:"lvsel","aria-label":"Change speed",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
   var clock=h("p",{class:"clock"},"⏱ 0:00");
@@ -195,10 +221,10 @@ function play(){
     h("div",{class:"row"},sel,
       h("button",{class:"btn small pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"⏸ Pause"),
       h("button",{class:"btn ghost small",on:{click:function(){stop();start()}}},"← Quit"))));
-  app.appendChild(hud);app.appendChild(clock);app.appendChild(field);app.appendChild(bas);app.appendChild(say);
+  app.appendChild(hud);app.appendChild(clock);app.appendChild(field);app.appendChild(bas);app.appendChild(ctl);app.appendChild(say);
   function drawHud(){hud.innerHTML="";
     hud.appendChild(h("div",null,h("span",{class:"label"},"Sorted"),h("b",null,G.ok+" / "+G.list.length)));
-    hud.appendChild(h("div",null,h("span",{class:"label"},"Verb"),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},WORD==="verb"?"Verb":"Adjective"),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
     hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))))}
   drawHud();
   function toast(txt,sub,cls){if(G.toast&&G.toast.parentNode)G.toast.remove();G.toast=h("div",{class:"toast "+cls},txt,h("small",null,sub));field.appendChild(G.toast);var t=G.toast;setTimeout(function(){if(t.parentNode)t.remove()},1800)}
@@ -254,12 +280,12 @@ function play(){
 
 function end(win){
   G.over=true;stop();var el=performance.now()-G.t0,bt=bestT(speed),rec=win&&(!bt||el<bt);
-  if(rec)try{localStorage.setItem("bridge-best-"+speed,String(Math.round(el)))}catch(e){}
+  if(rec)try{localStorage.setItem("bridge-best-"+(SET?SET+"-":"")+speed,String(Math.round(el)))}catch(e){}
   setTimeout(function(){
     var miss=G.miss.length,stars=!win?0:miss===0?3:miss===1?2:1;
     app.innerHTML="";
     var c=h("div",{class:"card"},h("span",{class:"label"},win?"You did it!":"Game over"),
-      h("h1",null,win?"🏆 All verbs sorted!":"💔 No hearts left"),
+      h("h1",null,win?"🏆 All "+WORD+"s sorted!":"💔 No hearts left"),
       h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
       h("p",null,"Sorted: ",h("b",null,G.ok+" / "+G.list.length)," · Speed: ",h("b",null,SPEEDS[speed][0])),
       h("p",{class:"mean"},"⏱ "+fmtT(el)+(win?(rec?" · 🏆 New record!":(bt?" · Best "+fmtT(bt):"")):"")));
