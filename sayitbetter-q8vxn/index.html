@@ -144,6 +144,7 @@ function pauseBox(){
     h("div",{class:"rowend"},
       h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;stop();start()}}},"← Quit game"),
       h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;play()}}},"↻ Restart"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;stop();start()}}},"⚙️ Change speed"),
       h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"▶ RESUME"))));
 }
 window.addEventListener("keydown",function(e){
@@ -208,7 +209,7 @@ function play(){
   function drawHud(){hud.innerHTML="";
     hud.appendChild(h("div",null,h("span",{class:"label"},"Sorted"),h("b",null,G.ok+" / "+G.list.length)));
     hud.appendChild(h("div",null,h("span",{class:"label"},"Phrase"),h("b",null,Math.min(G.i,G.list.length)+" / "+G.list.length)));
-    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🦤".repeat(3-G.lives))))}
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))))}
   drawHud();
   function toast(txt,sub,cls){if(G.toast&&G.toast.parentNode)G.toast.remove();G.toast=h("div",{class:"toast "+cls},txt,h("small",null,sub));field.appendChild(G.toast);var t=G.toast;setTimeout(function(){if(t.parentNode)t.remove()},1800)}
   function spawn(now){

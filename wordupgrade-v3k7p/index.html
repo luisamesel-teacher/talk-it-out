@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Word Upgrade · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12152e;--card:#1f2456;--ink:#eef1ff;--mute:#cfd5ff;--yel:#ffd166;--good:#7CFC9A;--bad:#ff8a80;
+ --disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;
+ background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+.wrap{max-width:900px;margin:0 auto;padding:16px 16px 40px}
+h1,h2,h3{font-family:var(--disp);margin:0}
+h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255,209,102,.4)}
+.label{font:700 12px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.btn{font:800 17px var(--label);border-radius:999px;padding:12px 22px;min-height:48px;border:2px solid #12152e;border-bottom-width:5px;background:var(--yel);color:#12152e;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.small{font-size:14px;padding:8px 14px;min-height:40px;border-bottom-width:3px}
+.btn.big{font-size:20px;padding:14px 28px;min-height:54px}
+.gov{position:fixed;inset:0;background:rgba(6,8,22,.88);display:grid;place-items:center;z-index:60;padding:18px}
+.gbox{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:22px;max-width:520px;width:100%}
+.gico{font-size:44px;text-align:center;line-height:1}
+.gbox h2{color:var(--yel);text-align:center;margin:6px 0 4px;font-size:32px}
+.rowend{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:18px}
+.how.small li{font-size:16px;padding:8px 12px}
+.count{font:800 clamp(70px,20vw,140px)/1 var(--disp);color:var(--yel);text-shadow:0 0 26px rgba(255,209,102,.5)}
+.count.pop{animation:cpop .5s}
+@keyframes cpop{0%{transform:scale(.6);opacity:.25}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+.btn:focus-visible,.choice:focus-visible{outline:3px solid #4cc9f0;outline-offset:3px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spread{justify-content:space-between}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:14px;padding:10px 14px}
+.how .e{font-size:28px;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.hud div{background:#0b0d1f;border-radius:14px;padding:8px 14px;box-shadow:inset 0 0 0 2px #3b3f8f}
+.hud b{display:block;font:800 24px var(--disp);color:var(--yel)}
+.cardq{background:var(--card);border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;
+ padding:22px;text-align:left;transition:transform .2s,opacity .2s}
+.cardq.out-l{transform:translateX(-115%) rotate(-7deg);opacity:0}
+.cardq.out-r{transform:translateX(115%) rotate(7deg);opacity:0}
+.q{font:600 clamp(19px,3vw,27px)/1.45 var(--body)}
+.q .gap{display:inline-block;min-width:64px;border-bottom:3px solid var(--yel);vertical-align:bottom}
+.choices{display:grid;gap:10px;margin-top:16px}
+.choice{font:700 19px var(--label);text-align:left;padding:14px 18px;border-radius:14px;border:2px solid #4cc9f0;border-bottom-width:5px;background:#2a2f6b;color:var(--ink);cursor:pointer;transition:background .12s,border-color .12s,transform .12s}
+.choice:disabled{cursor:default}
+.choice.hit{animation:pop .45s}.choice.bad{animation:shake .4s}
+.choice.ok{background:var(--good);border-color:var(--good);color:#0b2e12}
+.choice.no{background:var(--bad);border-color:var(--bad);color:#3a0d0d}
+@keyframes pop{50%{transform:scale(1.03);box-shadow:0 0 22px var(--good)}}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.explain{margin-top:16px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.07);font:600 16px/1.5 var(--body);display:none}
+.explain.on{display:block}
+.explain .pt{display:block;margin-top:8px;font-style:italic;color:var(--mute);font-weight:500;font-size:15px}
+.list{display:grid;gap:8px;margin:12px 0}
+.list div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;background:rgba(255,255,255,.06);border-radius:12px;padding:8px 12px}
+.list b{color:var(--yel)}
+.list .wrongrow{background:rgba(255,80,80,.16);box-shadow:inset 0 0 0 2px #ff6b6b}.list .wrongrow b{color:#ff8a80}
+.redh{color:#ff8a80}
+.mean{color:var(--mute)}
+.stars{font-size:40px;letter-spacing:6px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.lv button{font:800 16px var(--label);padding:10px 16px;border-radius:999px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+.lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
+.clock{text-align:right;font-size:13px;opacity:.75;margin:-6px 4px 6px;font-variant-numeric:tabular-nums}
+.ajuda{margin-top:14px;background:rgba(255,255,255,.06);border-radius:14px;padding:14px 16px}
+.ajuda h3{color:var(--yel);font-size:20px;margin-bottom:8px}
+.ajuda table{width:100%;border-collapse:collapse;font-size:16px}
+.ajuda td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+.ajuda td:first-child{color:var(--yel);font-weight:700;white-space:nowrap}
+.ajuda b{color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pausebtn{font:800 14px var(--label);padding:8px 14px;min-height:40px;border-radius:999px;border:2px solid #12152e;border-bottom-width:3px;background:var(--yel);color:#12152e;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* [informal word/phrase, formal word, [3 distractors], gapped sentence, full sentence (bold), usage note, pt note]
+   Single-word / short-phrase formal upgrades — complements "Say It Better" (linking words and opinion phrases). */
+var V=[
+["important","crucial",["significant","sufficient","detrimental"],
+ "Getting enough sleep is ___ for learning.",
+ "Getting enough sleep is <b>crucial</b> for learning.",
+ "a stronger, more formal way to say something is very important",
+ "mais forte que “important” — equivale a “crucial/fundamental”"],
+["show","demonstrate",["determine","assist","employ"],
+ "These results clearly ___ the benefits of regular exercise.",
+ "These results clearly <b>demonstrate</b> the benefits of regular exercise.",
+ "the standard formal verb for showing something with evidence or data",
+ "mais formal que “show”, usado com resultados ou provas"],
+["a lot of","numerous",["sufficient","crucial","commence"],
+ "The report raises ___ concerns about the new policy.",
+ "The report raises <b>numerous</b> concerns about the new policy.",
+ "a formal way to say “a lot of” — only with countable nouns (concerns, examples, cases)",
+ "mais formal que “a lot of”, só com substantivos contáveis"],
+["get","obtain",["assist","cease","determine"],
+ "Travellers must ___ a visa before entering the country.",
+ "Travellers must <b>obtain</b> a visa before entering the country.",
+ "the formal verb for getting an official document (a visa, a licence, a permit)",
+ "mais formal que “get”, usado com documentos oficiais"],
+["help","assist",["demonstrate","numerous","commence"],
+ "Volunteers were on hand to ___ new students on their first day.",
+ "Volunteers were on hand to <b>assist</b> new students on their first day.",
+ "a more formal verb for helping someone",
+ "mais formal que “help”"],
+["big","significant",["numerous","obtain","sufficient"],
+ "The new law could have a ___ impact on small businesses.",
+ "The new law could have a <b>significant</b> impact on small businesses.",
+ "a formal way to say something is big or important in its effect",
+ "mais formal que “big” quando se fala de impacto ou efeito"],
+["bad","detrimental",["crucial","employ","determine"],
+ "Too much stress can be ___ to your health.",
+ "Too much stress can be <b>detrimental</b> to your health.",
+ "a formal way to say something is bad or harmful — usually followed by “to”",
+ "mais formal que “bad”, sempre seguido de “to”"],
+["find out","determine",["assist","significant","cease"],
+ "Scientists are trying to ___ the cause of the illness.",
+ "Scientists are trying to <b>determine</b> the cause of the illness.",
+ "a formal verb for finding something out through research or investigation",
+ "mais formal que “find out”, usado em pesquisa ou investigação"],
+["stop","cease",["obtain","demonstrate","significant"],
+ "The factory will ___ production at the end of the month.",
+ "The factory will <b>cease</b> production at the end of the month.",
+ "a formal verb for stopping an activity completely",
+ "mais formal que “stop” — uma atividade que para de vez"],
+["enough","sufficient",["detrimental","commence","assist"],
+ "There was not ___ evidence to support the claim.",
+ "There was not <b>sufficient</b> evidence to support the claim.",
+ "a formal way to say “enough”",
+ "mais formal que “enough”"],
+["use","employ",["numerous","determine","crucial"],
+ "Teachers often ___ group work to encourage discussion.",
+ "Teachers often <b>employ</b> group work to encourage discussion.",
+ "a formal verb for using a method or strategy",
+ "mais formal que “use” para método/estratégia — não confundir com “employer” (empregar alguém)"],
+["start","commence",["cease","obtain","significant"],
+ "The ceremony will ___ at exactly 9 a.m.",
+ "The ceremony will <b>commence</b> at exactly 9 a.m.",
+ "a very formal verb for starting something — common in official announcements",
+ "bem formal, típico de anúncios oficiais — pouco usado na fala"]
+];
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(k==="html")e.innerHTML=at.html;else if(at[k]!=null)e.setAttribute(k,at[k])}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
+var app=document.getElementById("app"),G=null,keyh=null,speed=1;
+function fmtT(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function best(l){try{return +localStorage.getItem("wordupgrade-best-"+l)||0}catch(e){return 0}}
+function setBest(l,v){try{localStorage.setItem("wordupgrade-best-"+l,String(v))}catch(e){}}
+
+/* ---- pausa, reinício e contagem (mesmo padrão dos outros jogos) ---- */
+var OV=null,PA={on:false,at:0,counting:false,pause:null,resume:null,restart:null,how:[]};
+function closeOv(){if(OV&&OV.parentNode)OV.parentNode.removeChild(OV);OV=null}
+function overlay(inner){closeOv();OV=h("div",{class:"gov"},inner);document.body.appendChild(OV);return OV}
+function countdown(n,done){
+  PA.counting=true;var el=h("div",{class:"count pop"},String(n));overlay(el);
+  var iv=setInterval(function(){
+    n--;
+    if(n>0)el.textContent=String(n);else if(n===0)el.textContent="GO!";
+    else{clearInterval(iv);closeOv();PA.counting=false;done();return}
+    el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");
+  },800);
+}
+function pauseBox(){
+  var tips=(PA.how||[]).map(function(s){return h("li",null,h("span",{class:"e","aria-hidden":"true"},s[0]),h("span",null,s[1]))});
+  overlay(h("div",{class:"gbox"},
+    h("div",{class:"gico","aria-hidden":"true"},"⏸"),h("h2",null,"Paused"),
+    tips.length?h("ol",{class:"how small"},tips):null,
+    h("div",{class:"rowend"},
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"← Quit game"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;if(PA.restart)PA.restart()}}},"↻ Restart"),
+      h("button",{class:"btn ghost",on:{click:function(){closeOv();PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;start()}}},"⚙️ Change speed"),
+      h("button",{class:"btn big",on:{click:function(){if(PA.resume)PA.resume()}}},"▶ RESUME"))));
+}
+function paBtn(){return h("button",{class:"pausebtn",on:{click:function(){if(PA.pause)PA.pause()}}},"⏸ Pause")}
+window.addEventListener("keydown",function(e){
+  if(PA.counting||!PA.pause)return;
+  if(e.key==="p"||e.key==="P"||e.key==="Escape"){e.preventDefault();e.stopImmediatePropagation();
+    if(PA.on){if(PA.resume)PA.resume()}else PA.pause()}
+});
+function stop(){if(keyh)window.removeEventListener("keydown",keyh);keyh=null;if(G&&G.iv){clearInterval(G.iv);G.iv=null}PA.on=false;PA.counting=false;PA.pause=null;PA.resume=null;PA.restart=null;PA.how=[];closeOv()}
+
+function ajudaBox(){
+  var box=h("div",{class:"ajuda",style:"display:none"});
+  box.appendChild(h("h3",null,"Por que essa é a certa"));
+  var tb=h("table");
+  V.forEach(function(x){tb.appendChild(h("tr",null,h("td",null,x[0]+" → "+x[1]),h("td",{html:x[6]})))});
+  box.appendChild(tb);
+  return box;
+}
+
+var SPEEDS=[["🐢 Calm · 90s",90],["🚲 Normal · 60s",60],["🚀 Rush · 40s",40]];
+var VIDAS=3,REVEAL_OK=2600,REVEAL_NO=4200;
+
+function start(){
+  stop();app.innerHTML="";G=null;
+  var lv=h("div",{class:"lv"});
+  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
+  drawLv();
+  var box=ajudaBox();
+  app.appendChild(h("div",{class:"card"},
+    h("span",{class:"label"},"Formal vocabulary"),
+    h("h1",null,"⬆️ Word Upgrade"),
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"⬆️"),h("span",null,"A sentence drops a plain, everyday word. Pick the formal word that replaces it best.")),
+      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A wrong choice costs one.")),
+      h("li",null,h("span",{class:"e"},"⏳"),h("span",null,"The explanation stays up as long as you need — the clock stops while it is on screen."))),
+    h("span",{class:"label"},"Time"),lv,
+    h("div",{class:"row"},
+      h("button",{class:"btn",on:{click:play}},"▶ Play"),
+      h("button",{class:"btn ghost small",on:{click:function(){box.style.display=box.style.display==="none"?"block":"none"}}},"Ajuda em português")),
+    box));
+}
+
+function play(){
+  stop();app.innerHTML="";
+  G={fila:shuffle(V.map(function(x,i){return i})),cur:null,pt:0,seq:0,melhor:0,vidas:VIDAS,resp:0,miss:[],good:[],over:false,travado:false,pausaRel:false,resta:SPEEDS[speed][1]*1000,iv:null};
+  var hud=h("div",{class:"hud"}),cardq=h("div",{class:"cardq"});
+  var sel=h("select",{class:"lvsel","aria-label":"Change time",on:{change:function(){speed=+sel.value;play()}}},SPEEDS.map(function(x,i){var o=h("option",{value:String(i)},x[0]);if(i===speed)o.selected=true;return o}));
+  var clock=h("p",{class:"clock"});
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"⬆️ Word Upgrade"),
+    h("div",{class:"row"},sel,paBtn(),
+      h("button",{class:"btn ghost small",on:{click:function(){stop();start()}}},"← Quit"))));
+  app.appendChild(hud);app.appendChild(clock);app.appendChild(cardq);
+
+  function drawHud(){hud.innerHTML="";
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Points"),h("b",null,String(G.pt))));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Streak"),h("b",null,G.seq+(G.seq>=6?" · x3":G.seq>=3?" · x2":""))));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),h("b",null,"❤️".repeat(G.vidas)+"🖤".repeat(VIDAS-G.vidas))))}
+  drawHud();
+
+  function carta(){
+    if(!G.fila.length)G.fila=shuffle(V.map(function(x,i){return i}));
+    G.cur=G.fila.pop();
+    cardq.classList.remove("out-l","out-r");
+    var item=V[G.cur];
+    var opts=shuffle([item[1]].concat(item[2]));
+    cardq.innerHTML="";
+    cardq.appendChild(h("div",{class:"q",html:item[3].replace(/___/g,'<span class="gap"></span>')}));
+    var choices=h("div",{class:"choices"});
+    opts.forEach(function(opt){
+      choices.appendChild(h("button",{class:"choice",on:{click:function(ev){responde(ev.currentTarget,opt,item)}}},opt));
+    });
+    cardq.appendChild(choices);
+    cardq.appendChild(h("div",{class:"explain"}));
+    G.travado=false;
+  }
+
+  function responde(btn,opt,item){
+    if(G.travado||G.over||PA.on||PA.counting||G.resta<=0)return;
+    G.travado=true;G.pausaRel=true;G.resp++;
+    var certo=opt===item[1];
+    var botoes=cardq.querySelectorAll(".choice");
+    botoes.forEach(function(b){b.disabled=true;if(b.textContent===item[1])b.classList.add("ok")});
+    btn.classList.remove("ok");
+    btn.classList.add(certo?"hit":"bad");
+    if(!certo)btn.classList.add("no");
+    var explain=cardq.querySelector(".explain");
+    explain.className="explain on";
+    explain.innerHTML="<b>"+item[0]+" → "+item[1]+"</b> — "+item[5]+"<span class=\"pt\">"+item[6]+"</span>";
+    if(certo){
+      G.seq++;G.melhor=Math.max(G.melhor,G.seq);
+      var mult=G.seq>=6?3:G.seq>=3?2:1;G.pt+=10*mult;
+      G.good.push(item);
+    }else{
+      G.seq=0;G.vidas--;
+      G.miss.push({bad:item[0]+" → "+opt,right:item[0]+" → "+item[1]});
+    }
+    drawHud();
+    setTimeout(function(){
+      if(G.over)return;
+      cardq.classList.add(certo?"out-l":"out-r");
+      setTimeout(function(){
+        if(G.over)return;
+        G.pausaRel=false;
+        if(G.vidas<=0)end(false);
+        else if(G.resta>0&&G.resp<V.length)carta();
+        else end(true);
+      },260);
+    },certo?REVEAL_OK:REVEAL_NO);
+  }
+
+  PA.how=[["⬆️","Pick the formal word that fits the gap."],["❤️","A wrong choice costs one heart. You have "+VIDAS+"."],["⏳","The clock stops while an explanation is on screen."]];
+  PA.restart=play;
+  PA.pause=function(){if(PA.on||PA.counting||!G||G.over)return;PA.on=true;pauseBox()};
+  PA.resume=function(){if(!PA.on||PA.counting)return;closeOv();countdown(3,function(){PA.on=false})};
+
+  G.iv=setInterval(function(){
+    if(G.over)return;
+    if(!PA.on&&!PA.counting&&!G.pausaRel){
+      G.resta=Math.max(0,G.resta-100);
+      if(G.resta<=0&&!G.travado){end(true);return}
+    }
+    var bt=best(speed);
+    clock.textContent="⏱ "+fmtT(G.resta)+(bt?" · best "+bt+" pts":"")+(PA.on||G.pausaRel?" · paused":"");
+  },100);
+
+  carta();
+}
+
+function end(acabouTempo){
+  if(G.over)return;
+  G.over=true;
+  var bt=best(speed),rec=G.pt>bt;
+  if(rec)setBest(speed,G.pt);
+  stop();
+  setTimeout(function(){
+    var erros=G.miss.length,stars=G.vidas<=0?0:erros===0?3:erros===1?2:1;
+    app.innerHTML="";
+    var c=h("div",{class:"card"},
+      h("span",{class:"label"},G.vidas<=0?"Game over":"Time"),
+      h("h1",null,G.vidas<=0?"💔 No hearts left":(erros?"⬆️ Words upgraded":"🏆 Every word upgraded!")),
+      h("div",{class:"stars","aria-label":stars+" stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
+      h("p",null,"Points: ",h("b",null,String(G.pt))," · Answered: ",h("b",null,String(G.resp))," · Best streak: ",h("b",null,String(G.melhor))),
+      h("p",{class:"mean"},SPEEDS[speed][0]+(rec?" · 🏆 New record!":(bt?" · Best "+bt+" pts":""))));
+    var rw=h("div",{class:"row",style:"margin-top:16px"},h("button",{class:"btn"+(G.vidas>0&&speed<2?" ghost":""),on:{click:play}},"↻ Try again"));
+    if(G.vidas>0&&speed<2)rw.appendChild(h("button",{class:"btn",on:{click:function(){speed++;play()}}},"⏭ Next level"));
+    rw.appendChild(h("button",{class:"btn ghost",on:{click:start}},"⚙️ Change speed"));
+    c.appendChild(rw);
+    if(G.miss.length){c.appendChild(h("h3",{class:"redh"},"✗ Your mistakes"));
+      c.appendChild(h("div",{class:"list"},G.miss.map(function(m){return h("div",{class:"wrongrow"},h("b",null,"✗ "+m.bad),h("span",null,"→ "+m.right))})))}
+    if(G.good.length){c.appendChild(h("h3",null,"✓ Right"));
+      c.appendChild(h("div",{class:"list"},G.good.map(function(item){return h("div",null,h("b",null,"✓ "+item[0]+" → "+item[1]))})))}
+    app.appendChild(c);window.scrollTo(0,0);
+  },700);
+}
+start();
+</script>
+<script data-goatcounter="https://englisharcade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
