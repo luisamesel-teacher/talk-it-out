@@ -1,57 +1,62 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 2098 and 2099 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-146 and 155-1332
-WIDE_LAYOUT 1341-1342 · M 1343-1593 · X 1594-1664 · ART 1665-1671 · GR 1672-1759 · GX 1760-1828 · BK 1829-1931 · PIC 1932-1932
-HOOK 1933-1946 · TLN 1947-1955 · EXP 1956-1973 · VERBS 1974-1975 · CAN 1976-1980 · CULT 1981-2001 · GYM 2002-2013 · BD 2014-2093
-TAGN 2094-2094 · LEVELS 2095-2095 · ACTS 2096-2097 · ACH 2100-2100 · PSETS 2101-2101 · faceEl() 2102-2102 · FACES 2103-2105 · T 2106-2183
-S 2184-2184 · KEY 2185-2185 · t() 2186-2186 · save() 2187-2187 · load() 2188-2192 · day() 2193-2193 · touchStreak() 2194-2196 · h() 2197-2209
-shuffle() 2210-2210 · starsFor() 2211-2211 · starEl() 2212-2212 · mod() 2213-2213 · art() 2214-2214 · modStars() 2215-2215 · PASS 2216-2216 · passed() 2217-2217
-actsDone() 2218-2218 · certOK() 2219-2219 · go() 2220-2220 · toTop() 2221-2221 · app() 2222-2222 · pick() 2223-2225 · bar() 2226-2248 · goBack() 2249-2249
-lvTag() 2250-2250 · menu() 2251-2266 · steps() 2267-2273 · nextStep() 2274-2276 · home() 2277-2346 · modulePage() 2347-2446 · backBtn() 2447-2448 · shell() 2449-2456
-swIcon() 2457-2457 · finish() 2458-2490 · run() 2491-2493 · chat() 2494-2525 · loose() 2526-2526 · writeIt() 2527-2560 · mcRun() 2561-2583 · quizItems() 2584-2584
-speedItems() 2585-2585 · quiz() 2586-2586 · cpItems() 2587-2590 · cpWhere() 2591-2598 · checkpoint() 2599-2638 · build() 2639-2685 · match() 2686-2722 · speed() 2723-2746
-HLT 2747-2760 · KW 2761-2774 · kw() 2775-2783 · caps() 2784-2784 · diffB() 2785-2786 · sents() 2787-2787 · hl() 2788-2796 · noteKind() 2797-2801
-BKIND 2802-2802 · blk() 2803-2804 · grammar() 2805-2850 · SERVE 2851-2857 · miss() 2858-2864 · ALL_LV 2865-2865 · maxLv() 2866-2866 · lvOf() 2867-2867
-bkItem() 2868-2868 · qKey() 2869-2869 · qFresh() 2870-2870 · qMark() 2871-2871 · gameQ() 2872-2872 · gameQ0() 2873-2873 · askPanel() 2874-2891 · LVN 2892-2892
-arcade() 2893-2911 · gTimer() 2912-2914 · fmtT() 2915-2915 · arcadeEnd() 2916-2938 · tennis() 2939-3032 · duel() 3033-3063 · wDiff() 3064-3068 · zap() 3069-3112
-GAMES 3113-3115 · GP 3116-3116 · gclk() 3117-3117 · gHold() 3118-3118 · gGo() 3119-3119 · gClose() 3120-3120 · gFocus() 3121-3123 · COACH 3124-3136
-gCoach() 3137-3155 · TURNG 3156-3156 · gStartNow() 3157-3157 · gReady() 3158-3162 · gOverlay() 3163-3164 · GICONS 3165-3165 · GLIST 3166-3166 · sortNeed() 3167-3167
-poolNeed() 3168-3168 · HOW 3169-3177 · gRestart() 3178-3178 · gIntro() 3179-3198 · gCount() 3199-3211 · gPause() 3212-3225 · WCL 3226-3226 · WSB 3227-3233
-wsClasses() 3234-3234 · wsBank() 3235-3237 · wsWhy() 3238-3240 · penalty() 3241-3351 · wsort() 3352-3387 · wpool() 3388-3535 · HOOPS_BOT 3536-3536 · hoops() 3537-3706
-wonOf() 3707-3707 · starsWon() 3708-3708 · gameList() 3709-3713 · WT 3714-3725 · WTL 3726-3728 · wtubes() 3729-3781 · GN 3782-3800 · GNM 3801-3801
-GNL 3802-3804 · wgenius() 3805-3846 · TUBEMODS 3847-3847 · hasQ() 3848-3848 · hasGame() 3849-3866 · gameCards() 3867-3870 · hub() 3871-3897 · bossSVG() 3898-3917
-cert() 3918-3943 · timeline() 3944-3963 · today() 3964-3964 · exList() 3965-3965 · exFind() 3966-3966 · dueList() 3967-3967 · exCard() 3968-3968 · expr() 3969-3981
-review() 3982-4003 · verbList() 4004-4004 · memBoard() 4005-4017 · verbs() 4018-4062 · mistakes() 4063-4086 · PF 4087-4096 · PQ 4097-4097 · ENTRY 4098-4098
-TRACK 4099-4099 · HELPS 4100-4100 · TIPS 4101-4116 · L2() 4117-4117 · place() 4118-4148 · placeResult() 4149-4170 · avatars() 4171-4224 · VIS 4225-4225
-funnel() 4226-4259 · MAIL 4260-4281 · mailMock() 4282-4286 · mail() 4287-4315 · mailBuild() 4316-4340 · mailQuiz() 4341-4435 · canSpeak() 4436-4436 · voiceScore() 4437-4444
-voices() 4445-4448 · sayIt() 4449-4454 · voicePage() 4455-4472 · spNorm() 4473-4473 · spellDeck() 4474-4485 · spelling() 4486-4522 · gym() 4523-4572 · culture() 4573-4588
-progressCard() 4589-4598 · NUM 4599-4635 · clockSVG() 4636-4642 · numbers() 4643-4661 · numDrill() 4662-4701 · WV 4702-4716 · ADJ 4717-4723 · ADJQ 4724-4724
-ADVF 4725-4725 · ADVD 4726-4726 · ADVM 4727-4727 · ADVP 4728-4728 · ADVQ 4729-4729 · strip() 4730-4730 · meter() 4731-4731 · wvList() 4732-4732
-ILL 4733-4733 · illEl() 4734-4734 · pics() 4735-4735 · words() 4736-4779 · wDrill() 4780-4803 · LAB 4804-4925 · LABMAP 4926-4926 · LSLOT 4927-4927
-LLINES 4928-4928 · labDi() 4929-4929 · labNeed() 4930-4930 · LPART 4931-4931 · labOpts() 4932-4944 · labRobot() 4945-4966 · LABCOIN 4967-4967 · labParty() 4968-4985
-labSentence() 4986-5002 · labCheck() 5003-5025 · isFreqT() 5026-5026 · vowelSound() 5027-5027 · labArt() 5028-5038 · labTense() 5039-5050 · labSense() 5051-5067 · LSTATE 5068-5068
-lab() 5069-5167 · RSWAP 5168-5168 · rVariant() 5169-5179 · race() 5180-5293 · ZAPX 5294-5312 · ideas() 5313-5320 · ownBox() 5321-5326 · applyTheme() 5327-5327
-nm() 5328-5328 · hi() 5329-5329 · welcome() 5330-5348 · choice() 5349-5362 · SG_SING 5363-5363 · SG_VERB 5364-5364 · sentenceTips() 5365-5399 · tipsBox() 5400-5408
-AI 5409-5409 · aiInit() 5410-5410 · aiReady() 5411-5411 · aiContext() 5412-5412 · aiCall() 5413-5417 · aiCheck() 5418-5422 · askTeacher() 5423-5439 · askFab() 5440-5444
-STORY 5445-5501 · storyFor() 5502-5502 · storyList() 5503-5510 · storyPage() 5511-5539 · aiStory() 5540-5545 · BDE 5546-5547 · REV 5548-5604 · ins() 5605-5754
-XQ 5755-5763 · REVIEWM 5764-5774 · TMOD 5775-5777 · SORTSET 5778-5784 · CDS 5785-5793 · CDL 5794-5796 · cdParse() 5797-5800 · wcommas() 5801-5843
-pvOf() 5844-5844 · pvPool() 5845-5847 · pvQs() 5848-5858 · arcadeMods() 5859-5859 · arcadePage() 5860-5899 · ARCMODES 5900-5900 · arcModeOf() 5901-5905 · arcModBtn() 5906-5927
-SPDICT 5928-5928 · spellDict() 5929-5943 · spKnown() 5944-5945 · spDist() 5946-5947 · spellIssues() 5948-5953 · lvMenu() 5954-5960 · COMMAMODS 5961-5962 · PSET 5963-5968
-PMODES 5969-5969 · poolSet() 5970-5970 · gD() 5971-5974 · TONE 5975-5977 · NINE 5978-5980 · soloCard() 5981-5983 · cityBank() 5984-5984 · SOLO 5985-6001
-MOVIES 6002-6058 · MVLV 6059-6060 · stuLv() 6061-6064 · wmovie() 6065-6150 · DCOL 6151-6151 · DIT 6152-6156 · DMAT 6157-6157 · dkC() 6158-6158
-dollSVG() 6159-6218 · dPiece() 6219-6219 · dArt() 6220-6220 · DVB 6221-6221 · wdoll() 6222-6327 · dartSents() 6328-6329 · dartGaps() 6330-6330 · wdarts() 6331-6392
-crossGaps() 6393-6393 · wcross() 6394-6449 · BRCAR 6450-6488 · brItems() 6489-6490 · brParse() 6491-6491 · wbridge() 6492-6586 · STAGS 6587-6614 · SGTAGS 6615-6615
-SPAGES 6616-6616 · sNorm() 6617-6617 · SIDX 6618-6618 · sIndex() 6619-6628 · sFind() 6629-6631 · searchBox() 6632-6651 · rKey() 6652-6652 · favG() 6653-6653
-favGM() 6654-6654 · togFav() 6655-6656 · gRate() 6657-6657 · heartEl() 6658-6660 · RQ 6661-6661 · rateCard() 6662-6678 · AFILT 6679-6699 · QW 6700-6777
-qwById() 6778-6778 · qwFor() 6779-6779 · qwList() 6780-6785 · qwPage() 6786-6817 · qwGameBtn() 6818-6820 · QWFF 6821-6828 · qwLow() 6829-6829 · qwDiff() 6830-6831
-qwIs() 6832-6832 · IRR 6833-6833 · QWRULES 6834-6870 · qwSent() 6871-6872 · qwFind() 6873-6875 · qwDetect() 6876-6876 · QWQUEUE 6877-6878 · qwTgt() 6879-6882
-qwToast() 6883-6899 · qwRecs() 6900-6965 · C1USES 6966-6974 · REG 6975-7016 · regFor() 7017-7017 · regFill() 7018-7018 · regForm() 7019-7019 · regGap() 7020-7022
-CAMTIP 7023-7032 · camTipEl() 7033-7065 · KWT 7066-7090 · kwtFor() 7091-7094 · INV 7095-7109 · wlift() 7110-7149 · wkwt() 7150-7186 · winv() 7187-7443
-MOCK 7444-7474 · MOCKNAME 7475-7475 · MOCKHOW 7476-7476 · wmock() 7477-7584 · PPM 7585-7585 · PPMQ 7586-7598 · ppmSlide() 7599-7612 · GSLX 7613-7801
-addTopic() 7802-8061 · sportsHub() 8062-8080 · gMark() 8081-8082 · USES 8083-8222 · gLines() 8223-8223 · grammar() 8224-8299 · mNo() 8300-8433 · nbFind() 8434-8435
-rmItem() 8436-8439 · rmPool() 8440-8440 · rematch() 8441-8467 · ARCLV 8468-8468 · arcLvGame() 8469-8582 · nbType() 8583-8584 · nbKey() 8585-8585 · nbCard() 8586-8599
-NINE_EXTRA 8600-8601 · route() 8602-8615 · start() 8616-8624
+NEVER read lines 2105 and 2106 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-151 and 160-1339
+WIDE_LAYOUT 1348-1349 · M 1350-1600 · X 1601-1671 · ART 1672-1678 · GR 1679-1766 · GX 1767-1835 · BK 1836-1938 · PIC 1939-1939
+HOOK 1940-1953 · TLN 1954-1962 · EXP 1963-1980 · VERBS 1981-1982 · CAN 1983-1987 · CULT 1988-2008 · GYM 2009-2020 · BD 2021-2100
+TAGN 2101-2101 · LEVELS 2102-2102 · ACTS 2103-2104 · ACH 2107-2107 · PSETS 2108-2108 · faceEl() 2109-2109 · FACES 2110-2112 · T 2113-2190
+S 2191-2191 · KEY 2192-2192 · t() 2193-2193 · save() 2194-2194 · load() 2195-2199 · day() 2200-2200 · touchStreak() 2201-2203 · h() 2204-2216
+shuffle() 2217-2217 · starsFor() 2218-2218 · starEl() 2219-2219 · mod() 2220-2220 · art() 2221-2221 · modStars() 2222-2222 · PASS 2223-2223 · passed() 2224-2224
+actsDone() 2225-2225 · certOK() 2226-2226 · go() 2227-2227 · toTop() 2228-2228 · app() 2229-2229 · pick() 2230-2232 · bar() 2233-2255 · goBack() 2256-2256
+lvTag() 2257-2257 · menu() 2258-2273 · steps() 2274-2280 · nextStep() 2281-2283 · home() 2284-2353 · modulePage() 2354-2453 · backBtn() 2454-2455 · shell() 2456-2463
+swIcon() 2464-2464 · finish() 2465-2497 · run() 2498-2500 · chat() 2501-2532 · loose() 2533-2533 · writeIt() 2534-2567 · mcRun() 2568-2590 · quizItems() 2591-2591
+speedItems() 2592-2592 · quiz() 2593-2593 · cpItems() 2594-2597 · cpWhere() 2598-2605 · checkpoint() 2606-2645 · build() 2646-2692 · match() 2693-2729 · speed() 2730-2753
+HLT 2754-2767 · KW 2768-2781 · kw() 2782-2790 · caps() 2791-2791 · diffB() 2792-2793 · sents() 2794-2794 · hl() 2795-2803 · noteKind() 2804-2808
+BKIND 2809-2809 · blk() 2810-2811 · grammar() 2812-2857 · SERVE 2858-2864 · miss() 2865-2871 · ALL_LV 2872-2872 · maxLv() 2873-2873 · lvOf() 2874-2874
+bkItem() 2875-2875 · qKey() 2876-2876 · qFresh() 2877-2877 · qMark() 2878-2878 · gameQ() 2879-2879 · gameQ0() 2880-2880 · askPanel() 2881-2898 · LVN 2899-2899
+arcade() 2900-2918 · gTimer() 2919-2921 · fmtT() 2922-2922 · arcadeEnd() 2923-2945 · tennis() 2946-3039 · duel() 3040-3070 · wDiff() 3071-3075 · zap() 3076-3119
+GAMES 3120-3122 · GP 3123-3123 · gclk() 3124-3124 · gHold() 3125-3125 · gGo() 3126-3126 · gClose() 3127-3127 · gFocus() 3128-3130 · COACH 3131-3143
+gCoach() 3144-3162 · TURNG 3163-3163 · gStartNow() 3164-3164 · gReady() 3165-3169 · gOverlay() 3170-3171 · GICONS 3172-3172 · GLIST 3173-3173 · sortNeed() 3174-3174
+poolNeed() 3175-3175 · HOW 3176-3184 · gRestart() 3185-3185 · gIntro() 3186-3205 · gCount() 3206-3218 · gPause() 3219-3232 · WCL 3233-3233 · WSB 3234-3240
+wsClasses() 3241-3241 · wsBank() 3242-3244 · wsWhy() 3245-3247 · penalty() 3248-3358 · wsort() 3359-3394 · wpool() 3395-3542 · HOOPS_BOT 3543-3543 · hoops() 3544-3713
+wonOf() 3714-3714 · starsWon() 3715-3715 · gameList() 3716-3720 · WT 3721-3732 · WTL 3733-3735 · wtubes() 3736-3788 · GN 3789-3807 · GNM 3808-3808
+GNL 3809-3811 · wgenius() 3812-3853 · TUBEMODS 3854-3854 · hasQ() 3855-3855 · hasGame() 3856-3873 · gameCards() 3874-3877 · hub() 3878-3904 · bossSVG() 3905-3924
+cert() 3925-3950 · timeline() 3951-3970 · today() 3971-3971 · exList() 3972-3972 · exFind() 3973-3973 · dueList() 3974-3974 · exCard() 3975-3975 · expr() 3976-3988
+review() 3989-4010 · verbList() 4011-4011 · memBoard() 4012-4024 · verbs() 4025-4069 · mistakes() 4070-4093 · PF 4094-4103 · PQ 4104-4104 · ENTRY 4105-4105
+TRACK 4106-4106 · HELPS 4107-4107 · TIPS 4108-4123 · L2() 4124-4124 · place() 4125-4155 · placeResult() 4156-4177 · avatars() 4178-4231 · VIS 4232-4232
+funnel() 4233-4266 · MAIL 4267-4288 · mailMock() 4289-4293 · mail() 4294-4322 · mailBuild() 4323-4347 · mailQuiz() 4348-4442 · canSpeak() 4443-4443 · voiceScore() 4444-4451
+voices() 4452-4455 · sayIt() 4456-4461 · voicePage() 4462-4479 · spNorm() 4480-4480 · spellDeck() 4481-4492 · spelling() 4493-4529 · gym() 4530-4579 · culture() 4580-4595
+progressCard() 4596-4605 · NUM 4606-4642 · clockSVG() 4643-4649 · numbers() 4650-4668 · numDrill() 4669-4708 · WV 4709-4723 · ADJ 4724-4730 · ADJQ 4731-4731
+ADVF 4732-4732 · ADVD 4733-4733 · ADVM 4734-4734 · ADVP 4735-4735 · ADVQ 4736-4736 · strip() 4737-4737 · meter() 4738-4738 · wvList() 4739-4739
+ILL 4740-4740 · illEl() 4741-4741 · pics() 4742-4742 · words() 4743-4786 · wDrill() 4787-4810 · LAB 4811-4932 · LABMAP 4933-4933 · LSLOT 4934-4934
+LLINES 4935-4935 · labDi() 4936-4936 · labNeed() 4937-4937 · LPART 4938-4938 · labOpts() 4939-4951 · labRobot() 4952-4973 · LABCOIN 4974-4974 · labParty() 4975-4992
+labSentence() 4993-5009 · labCheck() 5010-5032 · isFreqT() 5033-5033 · vowelSound() 5034-5034 · labArt() 5035-5045 · labTense() 5046-5057 · labSense() 5058-5074 · LSTATE 5075-5075
+lab() 5076-5174 · RSWAP 5175-5175 · rVariant() 5176-5186 · race() 5187-5300 · ZAPX 5301-5319 · ideas() 5320-5327 · ownBox() 5328-5333 · applyTheme() 5334-5334
+nm() 5335-5335 · hi() 5336-5336 · welcome() 5337-5355 · choice() 5356-5369 · SG_SING 5370-5370 · SG_VERB 5371-5371 · sentenceTips() 5372-5406 · tipsBox() 5407-5415
+AI 5416-5416 · aiInit() 5417-5417 · aiReady() 5418-5418 · aiContext() 5419-5419 · aiCall() 5420-5424 · aiCheck() 5425-5429 · askTeacher() 5430-5446 · askFab() 5447-5451
+STORY 5452-5508 · storyFor() 5509-5509 · storyList() 5510-5517 · storyPage() 5518-5546 · aiStory() 5547-5552 · BDE 5553-5554 · REV 5555-5611 · ins() 5612-5761
+XQ 5762-5770 · REVIEWM 5771-5781 · TMOD 5782-5784 · SORTSET 5785-5791 · CDS 5792-5800 · CDL 5801-5803 · cdParse() 5804-5807 · wcommas() 5808-5850
+pvOf() 5851-5851 · pvPool() 5852-5854 · pvQs() 5855-5865 · arcadeMods() 5866-5866 · arcadePage() 5867-5906 · ARCMODES 5907-5907 · arcModeOf() 5908-5912 · arcModBtn() 5913-5934
+SPDICT 5935-5935 · spellDict() 5936-5950 · spKnown() 5951-5952 · spDist() 5953-5954 · spellIssues() 5955-5960 · lvMenu() 5961-5967 · COMMAMODS 5968-5969 · PSET 5970-5975
+PMODES 5976-5976 · poolSet() 5977-5977 · gD() 5978-5981 · TONE 5982-5984 · NINE 5985-5987 · soloCard() 5988-5990 · cityBank() 5991-5991 · SOLO 5992-6008
+MOVIES 6009-6065 · MVLV 6066-6067 · stuLv() 6068-6071 · wmovie() 6072-6157 · DCOL 6158-6158 · DIT 6159-6163 · DMAT 6164-6164 · dkC() 6165-6165
+dollSVG() 6166-6225 · dPiece() 6226-6226 · dArt() 6227-6227 · DVB 6228-6228 · wdoll() 6229-6334 · dartSents() 6335-6336 · dartGaps() 6337-6337 · wdarts() 6338-6399
+crossGaps() 6400-6400 · wcross() 6401-6456 · BRCAR 6457-6495 · brItems() 6496-6497 · brParse() 6498-6498 · wbridge() 6499-6593 · STAGS 6594-6621 · SGTAGS 6622-6622
+SPAGES 6623-6623 · sNorm() 6624-6624 · SIDX 6625-6625 · sIndex() 6626-6635 · sFind() 6636-6638 · searchBox() 6639-6658 · rKey() 6659-6659 · favG() 6660-6660
+favGM() 6661-6661 · togFav() 6662-6663 · gRate() 6664-6664 · heartEl() 6665-6667 · RQ 6668-6668 · rateCard() 6669-6685 · AFILT 6686-6706 · QW 6707-6784
+qwById() 6785-6785 · qwFor() 6786-6786 · qwList() 6787-6792 · qwPage() 6793-6824 · qwGameBtn() 6825-6827 · QWFF 6828-6835 · qwLow() 6836-6836 · qwDiff() 6837-6838
+qwIs() 6839-6839 · IRR 6840-6840 · QWRULES 6841-6877 · qwSent() 6878-6879 · qwFind() 6880-6882 · qwDetect() 6883-6883 · QWQUEUE 6884-6885 · qwTgt() 6886-6889
+qwToast() 6890-6906 · qwRecs() 6907-6972 · C1USES 6973-6981 · REG 6982-7023 · regFor() 7024-7024 · regFill() 7025-7025 · regForm() 7026-7026 · regGap() 7027-7029
+CAMTIP 7030-7039 · camTipEl() 7040-7072 · KWT 7073-7097 · kwtFor() 7098-7101 · INV 7102-7116 · wlift() 7117-7156 · wkwt() 7157-7193 · winv() 7194-7450
+MOCK 7451-7481 · MOCKNAME 7482-7482 · MOCKHOW 7483-7483 · wmock() 7484-7591 · PPM 7592-7592 · PPMQ 7593-7605 · ppmSlide() 7606-7619 · GSLX 7620-7808
+addTopic() 7809-8068 · sportsHub() 8069-8087 · gMark() 8088-8089 · USES 8090-8229 · gLines() 8230-8230 · grammar() 8231-8306 · mNo() 8307-8440 · nbFind() 8441-8442
+rmItem() 8443-8446 · rmPool() 8447-8447 · rematch() 8448-8474 · ARCLV 8475-8475 · arcLvGame() 8476-8589 · nbType() 8590-8591 · nbKey() 8592-8592 · nbCard() 8593-8684
+QQ 8685-8717 · TONE_ATT 8718-8718 · TONEQ 8719-8725 · miniMC() 8726-8735 · miniBuild() 8736-8748 · qqById() 8749-8749 · qqItems() 8750-8750 · qqList() 8751-8759
+qqPage() 8760-8776 · tonePage() 8777-8788 · LVLS 8789-8789 · worldMods() 8790-8790 · worldDone() 8791-8791 · worldPerfect() 8792-8792 · MEDALS 8793-8811 · medalToast() 8812-8813
+checkMedals() 8814-8815 · achievements() 8816-8824 · SESS_KEY 8825-8825 · sessGet() 8826-8826 · sessPut() 8827-8827 · sessNew() 8828-8828 · sessCur() 8829-8829 · sessNote() 8830-8830
+sessLearned() 8831-8833 · fmtMin() 8834-8834 · hwList() 8835-8835 · hwPending() 8836-8836 · hwMake() 8837-8848 · endLesson() 8849-8856 · lessonPage() 8857-8874 · hwStart() 8875-8876
+hwScore() 8877-8883 · hwSyncQW() 8884-8884 · hwCard() 8885-8894 · homeworkPage() 8895-8925 · PLNOTE 8926-8926 · plBank() 8927-8973 · LOCKS_ON 8974-8974 · lvUnlockedIdx() 8975-8977
+lvUnlocked() 8978-8978 · modOpen() 8979-8979 · lockPage() 8980-9029 · NINE_EXTRA 9030-9031 · route() 9032-9045 · start() 9046-9054
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -1329,6 +1334,8 @@ body[data-page="module"] .grid>.card.act>p{margin:2px 0 0}
 .lvfrow{margin:0 0 10px}.lvfrow .lvfilt{margin-top:8px}
 .lvfilt .pillbtn.on[data-lv="A1"]{background:#17805f;border-color:#17805f;color:#fff}.lvfilt .pillbtn.on[data-lv="A2"]{background:#b05a00;border-color:#b05a00;color:#fff}.lvfilt .pillbtn.on[data-lv="B1"]{background:#5b3fb0;border-color:#5b3fb0;color:#fff}.lvfilt .pillbtn.on[data-lv="B2"]{background:#c2185b;border-color:#c2185b;color:#fff}.lvfilt .pillbtn.on[data-lv="C1"]{background:#0e7490;border-color:#0e7490;color:#fff}
 .rmfb{margin-top:12px}.nbgroup{margin:12px 0}.nbgroup>summary{cursor:pointer;font-size:18px;padding:12px 4px;min-height:44px}.nbsum p{font-size:16px}
+.sesschip b{font-weight:800}.worldline{margin:6px 0 12px}
+@media (max-width:620px){#bar .sesschip{position:fixed;left:12px;bottom:14px;z-index:30;min-height:44px;padding:6px 12px;background:var(--surface,#1f2456);box-shadow:0 4px 14px rgba(0,0,0,.35)}}
 </style>
 </head>
 <body>
@@ -2188,7 +2195,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 function load(d){
   var o=d&&d.coins!=null?d:null;
   if(!o){try{o=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){o=null}}
-  if(o&&typeof o==="object"){for(var k in S){if(o[k]!=null)S[k]=o[k]}}
+  if(o&&typeof o==="object"){for(var k in o){if(o[k]!=null)S[k]=o[k]}}
 }
 function day(off){var d=new Date();d.setDate(d.getDate()-(off||0));return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
 function touchStreak(){var td=day();if(S.last===td)return;S.streak=(S.last===day(1))?S.streak+1:1;S.last=td}
@@ -6871,7 +6878,7 @@ var QWRULES=[
 function qwSent(q,x){q=String(q||"");x=String(x||"");return q.indexOf("___")>=0?q.replace("___",x):(q&&x.split(" ").length<4?q+" "+x:x)}
 /* returns {rule, target} or null */
 function qwFind(q,got,right){var RAW=qwSent(q,right),G=qwLow(qwSent(q,got)),R=qwLow(RAW);if(G===R)return null;var D=qwDiff(G,R);
-  for(var i=0;i<QWRULES.length;i++){var r=QWRULES[i];try{if(r[2](G,R,D,RAW)){var t=r[1].split(":");if(t[0]==="qw"&&!qwById(t[1]))continue;if(t[0]==="g"&&!(mod(t[1])&&GR[t[1]]))continue;return {rule:r[0],kind:t[0],id:t[1]}}}catch(e){}}
+  for(var i=0;i<QWRULES.length;i++){var r=QWRULES[i];try{var rr=r[2](G,R,D,RAW);if(rr){var t=(typeof rr==="string"?rr:r[1]).split(":");if(t[0]==="qw"&&!qwById(t[1]))continue;if(t[0]==="g"&&!(mod(t[1])&&GR[t[1]]))continue;return {rule:r[0],kind:t[0],id:t[1]}}}catch(e){}}
   return null}
 function qwDetect(q,got,right){var f=qwFind(q,got,right);return f&&f.kind==="qw"?f.id:null}
 var QWQUEUE=[];
@@ -8450,13 +8457,13 @@ function rematch(){var a=app();cur={k:"mistakes"};var items=shuffle(rmPool()).sl
     var row=h("div",{class:"opts"});shuffle(it.opts).forEach(function(o){var b=h("button",{class:"opt",onclick:function(){if(done)return;done=true;
         var good=o===it.ans;b.classList.add(good?"ok":"no");
         if(good){ok++;run++;if(run%5===0){coins++;fb.appendChild(h("p",{class:"hint"},"🔥 5 in a row! +1 coin"))}
-          if(r.length&&d-r[0]>=2){beat++;coins+=2;var ty=nbType(e),now=Date.now(),sim=ty?S.err.filter(function(x){return x!==e&&nbType(x)===ty&&(x.d||0)<=now}):[];S.err=S.err.filter(function(x){return x!==e&&sim.indexOf(x)<0});fb.appendChild(h("div",{class:"fb ok"},h("b",null,"⚔️ Beaten! "),ty&&sim.length?"You beat "+ty.split(":").slice(1).join(":")+"! It leaves your notebook, with "+sim.length+" more mistake"+(sim.length>1?"s":"")+" of the same type. +2 coins":"This mistake leaves your notebook. +2 coins"))}
+          if(r.length&&d-r[0]>=2){beat++;coins+=2;S.beat=(S.beat||0)+1;var ty=nbType(e),now=Date.now(),sim=ty?S.err.filter(function(x){return x!==e&&nbType(x)===ty&&(x.d||0)<=now}):[];S.err=S.err.filter(function(x){return x!==e&&sim.indexOf(x)<0});fb.appendChild(h("div",{class:"fb ok"},h("b",null,"⚔️ Beaten! "),ty&&sim.length?"You beat "+ty.split(":").slice(1).join(":")+"! It leaves your notebook, with "+sim.length+" more mistake"+(sim.length>1?"s":"")+" of the same type. +2 coins":"This mistake leaves your notebook. +2 coins"))}
           else{if(!r.length)e.rw=[d];fb.appendChild(h("div",{class:"fb ok"},h("b",null,t("right")+" "),r.length?"Win it again on another day (2+ days after the first win) to beat it.":"Win 1 of 2. Come back in 2 days to win it again."))}}
         else{run=0;e.rw=[];bad.push(e);fb.appendChild(h("div",{class:"fb no"},h("b",null,"Not yet: "),it.ans))}
         save();[].forEach.call(row.children,function(x){x.disabled=true;if(x.textContent===it.ans){x.classList.add("ok");x.textContent="✓ "+it.ans}});if(!good)b.textContent="✗ "+o;
         fb.appendChild(h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){i++;show()}},t("next"))))}},o);row.appendChild(b)});
     box.appendChild(row);box.appendChild(fb)}
-  function end(){if(coins&&!window.NINTH){S.coins+=coins;bar()}save();
+  function end(){if(coins&&!window.NINTH){S.coins+=coins;bar()}save();if(window.hwScore)hwScore("rematch",items.length?ok/items.length:0);if(window.checkMedals)checkMedals();
     var by={};bad.forEach(function(e){var f=nbFind(e),k=f?f.kind+":"+f.id:"";if(k)by[k]=(by[k]||0)+1});
     box.appendChild(h("h2",null,ok+" / "+items.length+" right"));
     box.appendChild(h("p",null,beat?"⚔️ You beat "+beat+" mistake"+(beat>1?"s":"")+" for good!":"Come back in 2 days to beat them for good.",coins&&!window.NINTH?" 🪙 +"+coins:""));
@@ -8597,6 +8604,429 @@ function nbCard(e){var m=mod(e.m),f=nbFind(e),tq=f&&f.kind==="qw"?qwById(f.id):n
       tq?h("button",{class:"btn ghost",onclick:function(){go("qw/"+tq.id)}},"⚡ "+tq.t):null,
       tm&&GR[tm.id]?h("button",{class:"btn ghost",onclick:function(){grammar(tm)}},tm!==m?"📘 See the lesson: "+tm.t:t("nbGuide")):null,
       h("button",{class:"btn",onclick:function(){S.err=S.err.filter(function(x){return x!==e});save();mistakes()}},t("nbGot"))))}
+/* ---------- Accepted 27/11 (big run): Hello, me content · Reading between the lines (C1) · Only questions · Tone detector ---------- */
+(function(){
+ function Q(id,L){var m=mod(id);if(!m)return;L.forEach(function(x){if(!m.quiz.some(function(y){return y[0]===x[0]}))m.quiz.push(x)})}
+ function SP(id,L){var m=mod(id);if(!m)return;m.speed=m.speed||[];L.forEach(function(x){if(!m.speed.some(function(y){return y[0]===x[0]}))m.speed.push(x)})}
+ function Z(id,L){ZAPX[id]=ZAPX[id]||[];L.forEach(function(x){if(ZAPX[id].indexOf(x)<0)ZAPX[id].push(x)})}
+ function E(id,L){EXP[id]=EXP[id]||[];L.forEach(function(x){var k=x.split("|")[1];if(!EXP[id].some(function(y){return y.split("|")[1]===k}))EXP[id].push(x)})}
+ /* PROF-07 · Hello, me */
+ Q("a1-1",[["My brother ___ 18 years old.",["is","has","have"],"Age → be: He is 18."],["She's ___ engineer.",["an","a","—"],"Job: a / an + job. Engineer starts with a vowel sound → an."],["This is my sister. ___ name is Julia.",["Her","His","She"],"A woman → her."],["Where ___ your parents from?",["are","is","do"],"Your parents = they → are."],["How do you say 13?",["thirteen","thirty","threeteen"],"13 = thirteen; 30 = thirty."],["___ you married?",["Are","Do","Have"],"Married is an adjective → be: Are you married?"]]);
+ SP("a1-1",[["My name's Ana and I'm a nurse.",1],["Her husband is doctor.",0,"Her husband is a doctor."],["Are you married? — Yes, I am.",1],["Me and my sister is students.",0,"My sister and I are students."]]);
+ Z("a1-1",["Are you married? — Yes, I'm.|Are you married? — Yes, I am.","My friends is from Recife.|My friends are from Recife.","Me and my sister is students.|My sister and I are students.","Do you married?|Are you married?"]);
+ E("a1-1",["c|Where are you based?|You ask where someone lives or works.|Onde você mora / trabalha?|Where are you based? — In Curitiba.","c|I'm in my twenties.|You say your age in a friendly, less exact way.|Tenho vinte e poucos anos.|I'm in my twenties, and my sister is in her thirties."]);
+
+ /* LUISA-04 · C1 · Reading between the lines (before the exam module) */
+ if(!mod("c1-6")){M.splice(M.findIndex(function(x){return x.id==="c1-5"}),0,{id:"c1-6",lv:"C1",t:"Reading between the lines",g:"Attitude: criticism, annoyance, tact, insistence · regret and hesitation",v:"Feelings, tone & polite disagreement",
+ sit:{t:"A tense meeting",who:"Colleague",en:"At work, a colleague delivered a project a week late. You talk about it in a meeting.",pt:"No trabalho, um colega entregou um projeto com uma semana de atraso. Vocês conversam sobre isso numa reunião.",
+ turns:[
+  ["Sorry, the report is a week late. I had a lot on.",["You could have let us know earlier. We'd have changed the plan.","You could let us know earlier. We had changed the plan.","You could have to let us know earlier."],"Criticism about the past: could have + past participle."],
+  ["I know. I should have said something.",["Well, I'd have thought a quick email was possible.","Well, I would think a quick email was possible.","Well, I'd thought a quick email is possible."],"Softening: I'd have thought… sounds less direct."],
+  ["And the client keeps calling me about it.",["He will keep calling until he gets an answer.","He will keep to call until he gets an answer.","He keeps to calling until he gets an answer."],"Annoying habit: will keep + -ing."],
+  ["So, what do we do now?",["I was wondering whether we could split the work.","I was wondering could we split the work.","I wonder whether can we split the work."],"Tentative suggestion: I was wondering whether + normal word order."]]},
+ quiz:[
+  ["You ___ me! I waited for an hour.",["could have called","could call","could have call"],"Criticism: could have + past participle."],
+  ["My flatmate ___ leaving the lights on. It drives me mad.",["will keep","will keeps","is keep"],"Annoying habit: will keep + -ing."],
+  ["I wish you ___ interrupting me.",["would stop","stop","will stop"],"Asking someone to change: I wish you would…"],
+  ["I was wondering if you ___ help me with this.",["could","can","will"],"Tentative request: I was wondering if you could…"],
+  ["You ___ have bought a gift. It's very kind, but it wasn't necessary.",["needn't","mustn't","can't"],"needn't have = you did it, but it wasn't necessary."],
+  ["I ___ tell you! You just weren't listening.",["did","do","was"],"Emphatic did: insisting that it happened."],
+  ["“It's hard to say, really.” The speaker is…",["hesitating","criticising","insisting"],"It's hard to say = not ready to give an opinion."],
+  ["In ___, I should have taken the other job.",["hindsight","hindside","the past sight"],"In hindsight = looking back now."]],
+ build:["You could have told me earlier.","He will keep interrupting me.","I was wondering if you could help.","I did tell you about it."],
+ match:[["😤","annoyed"],["🙏","polite"],["🤔","hesitant"],["😔","regretful"],["☝️","insistent"],["🧐","critical"]],
+ speed:[["You could have told me!",1],["You could told me!",0,"You could have told me!"],["He will keep interrupting.",1],["He will keep to interrupt.",0,"He will keep interrupting."],["I wish you wouldn't do that.",1],["I wish you don't do that.",0,"I wish you wouldn't do that."],["I was wondering if you could help.",1],["I was wondering if you can help.",0,"I was wondering if you could help."]]});
+ Object.assign(BD,{"You could have told me earlier.":"svvvod|Criticise politely.|Você poderia ter me contado antes.","He will keep interrupting me.":"svvvo|Complain about a habit.|Ele vive me interrompendo.","I was wondering if you could help.":"svvlsvv|Ask politely.|Eu queria saber se você poderia ajudar.","I did tell you about it.":"svvodo|Insist that it happened.|Eu te falei sim sobre isso."});
+ GR["c1-6"]={pts:[
+  {t:"Criticism with modals",use:"Use could have, might have and needn't have + past participle to criticise or complain about what someone did or didn't do.",pt:"You could have told me! = Você podia ter me avisado! (crítica). Needn't have = fez, mas não precisava. A forma de should have está em Looking back (B2).",
+   form:[["could / might have","You could have told me! · You might have asked first!"],["needn't have","You needn't have shouted. (you shouted, but it wasn't necessary)"],["should(n't) have","You shouldn't have said that."]],
+   ex:["You might have warned me about the traffic!","You needn't have paid for everything."],bad:["You could told me!","You could have told me!"]},
+  {t:"Annoyance: will keep, always, would",use:"Will keep + -ing and always with the present continuous complain about annoying habits. She would say that! means it's typical of her. I wish you would or wouldn't asks someone to change.",pt:"Ele vive fazendo isso = He will keep doing that / He's always doing that. I wish you wouldn't… = queria que você parasse de…",
+   form:[["will keep + -ing","He will keep leaving the door open."],["always + continuous","She's always borrowing my charger!"],["would say that","He would say that, wouldn't he? (typical of him)"],["I wish you would(n't)","I wish you wouldn't shout."]],
+   ex:["My neighbour will keep playing loud music at night.","I wish you would listen to me for once."],bad:["I wish you don't do that.","I wish you wouldn't do that."]},
+  {t:"Asking and softening with tact",use:"Make requests and opinions softer with a past form or a modal: I was wondering if you could…, Would you mind…?, I'd have thought…, It might be worth…, I'm not sure that…",pt:"Para pedir ou discordar com tato, o inglês usa o passado e os modais: I was wondering if you could… (Será que você poderia…).",
+   form:[["requests","I was wondering if you could… · Would you mind + -ing?"],["opinions","I'd have thought… · It might be worth… · I'm not sure that's the best idea."]],
+   ex:["I was wondering if you could cover my shift on Friday.","It might be worth asking the manager first."],bad:["I was wondering if you can help me.","I was wondering if you could help me."]},
+  {t:"Emphasis and polite disagreement",use:"Use emphatic do or did to insist: I did tell you! Disagree politely with I take your point, but…, With respect, … or Well, actually…",pt:"I did tell you! = Eu te falei, sim! O do / did enfático reforça. Para discordar com educação: I take your point, but…",
+   form:[["emphatic do / did","I did lock the door! · I do understand, but…"],["polite disagreement","I take your point, but… · With respect, … · Well, actually…"]],
+   ex:["I do see your point, but we need more time.","With respect, the figures say otherwise."],bad:["I did told you!","I did tell you!"]},
+  {t:"Regret and hesitation (attitude questions in the exam)",use:"In C1 Listening and Reading, many questions ask about the speaker's attitude. Regret: I regret not…, In hindsight…, If only I'd… Hesitation: I'm in two minds, It's hard to say, I suppose…, I'd rather not commit…",pt:"Na prova C1, muitas perguntas pedem a atitude do falante. Arrependimento: In hindsight, I regret not… Hesitação: I'm in two minds, It's hard to say.",
+   form:[["regret","I regret not saying goodbye. · In hindsight, I should have stayed. · If only I'd listened."],["hesitation","I'm in two minds about it. · It's hard to say. · I suppose so… · I'd rather not commit just yet."],["exam tip","The words don't always name the feeling: listen to how the speaker says it."]],
+   ex:["In hindsight, I regret not taking that course.","I'm in two minds about moving abroad."],bad:["I regret to not say goodbye.","I regret not saying goodbye."],
+   warn:["**Regret to** + verb is for bad news: We regret to inform you… For the past, use **regret + -ing**."]}],
+  qc:[["You ___ have told me! I was worried.",["could","must","can"]],["He will keep ___ my pen.",["borrowing","to borrow","borrow"]],["I was wondering if you ___ help.",["could","can","will"]]]};
+ GX["c1-6"]=[{tips:["could have / might have + participle = criticism.","needn't have = it wasn't necessary, but you did it."],tl:[["Você podia ter me avisado!","You could have told me!"],["Não precisava ter pago.","You needn't have paid."]],note:"Portuguese says podia ter, with the same idea of criticism. English needs have + past participle."},
+  {tips:["will keep + -ing = vive fazendo.","I wish you wouldn't… = queria que você parasse de…"],tl:[["Ele vive interrompendo.","He will keep interrupting."],["Queria que você não gritasse.","I wish you wouldn't shout."]],note:"Portuguese uses vive + gerúndio for annoying habits. English uses will keep + -ing or always + continuous."},
+  {tips:["Past form = more polite: I was wondering if you could…","After wondering if, use could, not can."],tl:[["Será que você poderia me ajudar?","I was wondering if you could help me."],["Talvez valha a pena perguntar.","It might be worth asking."]],note:"Portuguese softens with será que and o futuro do pretérito (poderia). English uses the past and modals."},
+  {tips:["Emphatic did + base verb: I did tell you.","Agree first, then disagree: I take your point, but…"],tl:[["Eu te falei, sim!","I did tell you!"],["Entendo, mas o prazo é o prazo.","I take your point, but the deadline is the deadline."]],note:"Portuguese stresses with sim or a stronger voice. English can add do or did."},
+  {tips:["regret + -ing = past; regret to = bad news.","Hesitation words: I suppose, It's hard to say, I'm in two minds."],tl:[["Me arrependo de não ter me despedido.","I regret not saying goodbye."],["Estou dividido.","I'm in two minds."]],note:"Portuguese says me arrependo de não ter… English uses regret + not + -ing."}];
+ HOOK["c1-6"]=["COULD HAVE + participle = criticism.","WILL KEEP + -ing = annoying habit.","I WAS WONDERING IF YOU COULD… = polite.","I DID TELL you! = insisting.","IN HINDSIGHT · I'M IN TWO MINDS = regret · hesitation."];
+ KW["c1-6"]=["could have,might have,needn't have","will keep,always,would say,I wish you","wondering,would you mind,I'd have thought,might be worth","did,do,I take your point,with respect","regret,in hindsight,if only,in two minds,hard to say"];
+ BK["c1-6"]={g:["You ___ have asked me first!|might|must|should to","He will keep ___ the door open.|leaving|to leave|leave","I wish you ___ shout at me.|wouldn't|don't|won't","I was wondering if you ___ help me.|could|can|will","I ___ lock the door! I'm sure.|did|do|was","In ___, I should have stayed.|hindsight|backsight|the end"],x:["You ___ have paid. It was free!|needn't|mustn't|can't","I'm in two ___ about the job.|minds|heads|thoughts","Would you mind ___ the window?|closing|to close|close","I regret not ___ her the truth.|telling|tell|to tell"]};
+ ZAPX["c1-6"]=["You could told me!|You could have told me!","He will keep to interrupt.|He will keep interrupting.","I wish you don't do that.|I wish you wouldn't do that.","I was wondering if you can help me.|I was wondering if you could help me.","You needn't to shout.|You didn't need to shout.","I regret to not say goodbye.|I regret not saying goodbye."];
+ EXP["c1-6"]=["i|rub someone up the wrong way|to annoy someone without meaning to|irritar alguém|His tone always rubs me up the wrong way.","c|That's a bit much.|Something is unfair or too extreme.|Aí já é demais.|Two hours late? That's a bit much.","i|read between the lines|to understand what is not said directly|ler nas entrelinhas|Read between the lines: she isn't happy.","i|take something the wrong way|to be offended by something not meant badly|levar a mal|Don't take this the wrong way, but…","c|No offence, but…|You are going to criticise softly.|Sem ofensa, mas…|No offence, but your plan won't work.","c|With all due respect, …|You disagree with someone important.|Com todo o respeito, …|With all due respect, the numbers say otherwise."];
+ CAN["c1-6"]="recognise and use the attitude behind a sentence: criticism, annoyance, tact, insistence, regret and hesitation";PIC["c1-6"]="🧐😤🤔";LABMAP["c1-6"]="past";
+ if(typeof REVIEWM!=="undefined")REVIEWM["c1-6"]=["b2-2","c1-1"];
+ STAGS["c1-6"]="reading between the lines attitude tone criticism annoyance tact regret hesitation atitude tom crítica irritação arrependimento hesitação cambridge";}
+
+ QWRULES.unshift(
+  ["keepto","g:b1-5",function(G,R,D){if(!(/\bkeeps? to \w+/.test(G)&&/\bkeeps? \w+ing\b/.test(R)))return false;return /\bwill keep to\b/.test(G)?"g:c1-6":"g:b1-5"}],
+  ["wishdont","g:c1-6",function(G,R,D){return /\bi wish you (don't|won't|doesn't)\b/.test(G)&&/\bi wish you (wouldn't|would)\b/.test(R)}],
+  ["wondercan","g:c1-6",function(G,R,D){return /\bwondering (if|whether) (you|we|i|they|he|she) can\b/.test(G)&&/\bcould\b/.test(R)}],
+  ["needntto","g:c1-6",function(G,R,D){return /\bneedn't to\b/.test(G)}],
+  ["regretto","g:c1-6",function(G,R,D){return /\bregret to not\b/.test(G)}],
+  ["shortans","g:a1-1",function(G,R,D){return /\byes (i'm|she's|he's|we're|they're|you're|it's) $/.test(G)&&/\byes (i am|she is|he is|we are|they are|you are|it is) $/.test(R)}],
+  ["qbe","qq:q-be",function(G,R,D){var re=/^ (where|what|how old|who|how) (you|he|she|they|we|it|your \w+|the \w+) (are|is)\b/;return re.test(G)&&!re.test(R)}],
+  ["qdo","qq:q-do",function(G,R,D){return /^ (do|does) /.test(R)&&!/^ (do|does) /.test(G)&&/\?$/.test(String(R).trim()+"?")&&/^ (you|he|she|they|we|your|my) /.test(G)}],
+  ["qdid","qq:q-did",function(G,R,D){var re=/^ (where|what|when|why|who|how) (you|he|she|they|we) (went|saw|did|said|bought|took|ate|made|got|were|was)\b/;if(!(re.test(G)&&!re.test(R)))return false;return /^ \w+ \w+ (were|was)\b/.test(G)?"qq:q-were":"qq:q-did"}]);
+})();
+
+/* Only questions (LUISA-03): one page, lessons A1 → C1. mc: [prompt, right, wrong, wrong] · bld: questions to put in order */
+var QQ=[
+ {id:"q-be",lv:"A1",ic:"❓",t:"Questions with be",rule:"With be, the verb comes before the subject: Are you…? Is she…? Where are you from?",pt:"Com o verbo be, invertemos: Are you…? Is he…? Em português basta a entonação; em inglês a ordem muda.",ex:["Are you Brazilian?","Where is your office?","How old are your kids?"],bad:["Where you are from?","Where are you from?"],
+  mc:[["___ you tired?","Are","Do","Is"],["Choose the correct question.","Where is the station?","Where the station is?","Where is station?"],["Answer: “I'm 28.” Which question?","How old are you?","How many years do you have?","How old you are?"],["Choose the correct question.","Is your sister a doctor?","Your sister is a doctor?","Is your sister doctor?"],["___ your parents at home?","Are","Is","Do"]],bld:["Where are you from?","Is your brother married?"]},
+ {id:"q-do",lv:"A1",ic:"🔁",t:"Questions with do and does",rule:"Most verbs need do or does in questions: Do you like…? Does she work…? After does, the verb has no -s.",pt:"Em português não há auxiliar na pergunta. Em inglês, quase todo verbo pede do / does: Do you like coffee? Does she work here? Depois de does, o verbo fica sem -s.",ex:["Do you like coffee?","Does your brother play football?","Where do you live?"],bad:["You like coffee?","Do you like coffee?"],
+  mc:[["___ she work on Saturdays?","Does","Do","Is"],["Choose the correct question.","Does he speak English?","Does he speaks English?","He speaks English?"],["Answer: “I live in Recife.” Which question?","Where do you live?","Where you live?","Where are you live?"],["___ you have a car?","Do","Are","Have"],["Choose the correct question.","What time does the shop open?","What time the shop opens?","What time does the shop opens?"]],bld:["Do you work on Sundays?","Where does your sister live?"]},
+ {id:"q-wh",lv:"A1",ic:"💼",t:"What do you do? · How much, how many",rule:"Question word + do / does + subject + verb. What do you do? means What's your job? Use how much for things you can't count and how many for things you can count.",pt:"What do you do? pergunta a profissão. A ordem é: palavra interrogativa + do / does + sujeito + verbo. How much (não contável) × How many (contável).",ex:["What do you do? — I'm a teacher.","How many brothers do you have?","How much is this shirt?"],bad:["What you do?","What do you do?"],
+  mc:[["Answer: “I'm an engineer.” Which question?","What do you do?","What you do?","What are you do?"],["How ___ sisters do you have?","many","much","old"],["How ___ is the ticket?","much","many","cost"],["Choose the correct question.","What does your father do?","What your father does?","What does your father does?"],["Choose the correct question.","How many people work here?","How much people work here?","How many people works here?"]],bld:["What do you do?","How many cousins do you have?"]},
+ {id:"q-did",lv:"A2",ic:"⏪",t:"Past questions with did",rule:"In the past, use did + subject + base verb: Did you go? Where did you go? Never did + went.",pt:"Na pergunta no passado, o did já marca o passado e o verbo volta à forma base: Where did you go? (não went).",ex:["Did you sleep well?","Where did you go last weekend?","What did she say?"],bad:["Where you went?","Where did you go?"],
+  mc:[["Where ___ you go on holiday?","did","were","do"],["Choose the correct question.","Did you see the match?","Did you saw the match?","You saw the match?"],["Answer: “We went to Bahia.” Which question?","Where did you go?","Where you went?","Where did you went?"],["Choose the correct question.","What time did the film start?","What time the film started?","What time did the film started?"],["___ she call you yesterday?","Did","Was","Does"]],bld:["What did you do last night?","Did you have a good weekend?"]},
+ {id:"q-were",lv:"A2",ic:"🎬",t:"What were you doing? · Have you ever…?",rule:"Past continuous: was / were + subject + -ing. Life experience: Have you ever + past participle?",pt:"Was / were vem antes do sujeito: What were you doing? Have you ever + particípio pergunta sobre a vida toda.",ex:["What were you doing at 8?","Were they sleeping when you arrived?","Have you ever been to Chile?"],bad:["What you were doing?","What were you doing?"],
+  mc:[["Choose the correct question.","What were they wearing?","What they were wearing?","What were they wear?"],["___ you ever eaten sushi?","Have","Did","Are"],["Choose the correct question.","Have you ever been to London?","Have you ever went to London?","Did you ever been to London?"],["Answer: “I was watching TV.” Which question?","What were you doing?","What you were doing?","What did you doing?"],["___ it raining when you left?","Was","Did","Were"]],bld:["What were you doing at midnight?","Have you ever seen a ghost?"]},
+ {id:"q-long",lv:"A2",ic:"⏱️",t:"How long does it take? · Going to",rule:"How long does it take (to…)? asks about time. For plans: Are you going to…? What are you going to do?",pt:"Quanto tempo leva? = How long does it take? (não How much time…). Planos: Are you going to…?",ex:["How long does it take to get there?","What are you going to do on Saturday?","Is she going to come?"],bad:["How much time it takes?","How long does it take?"],
+  mc:[["Choose the correct question.","How long does it take to get to the airport?","How much time takes to get to the airport?","How long it takes to get to the airport?"],["What ___ you going to do tonight?","are","do","will"],["Answer: “About twenty minutes.” Which question?","How long does it take?","How much time it takes?","How long it is?"],["Choose the correct question.","Are you going to travel this year?","You are going to travel this year?","Are you go to travel this year?"],["___ they going to buy a house?","Are","Do","Will"]],bld:["How long does it take by bus?","What are you going to do tomorrow?"]},
+ {id:"q-subj",lv:"B1",ic:"👤",t:"Who called you? (subject questions)",rule:"When who or what is the subject, don't use do, does or did: Who called you? What happened? When it is the object, use the auxiliary: Who did you call?",pt:"Quem ligou? = Who called? (sem did, porque who é o sujeito). Para quem você ligou? = Who did you call?",ex:["Who called you last night?","What happened at the party?","Who did you invite?"],bad:["Who did call you?","Who called you?"],
+  mc:[["Choose the correct question.","Who broke the window?","Who did break the window?","Who did broke the window?"],["Choose the correct question.","What happened?","What did happen?","What happened it?"],["Answer: “Ana called me.” Which question?","Who called you?","Who did you call?","Who did call you?"],["Answer: “I called Ana.” Which question?","Who did you call?","Who called you?","Who you called?"],["Choose the correct question.","How many people came to the party?","How many people did come to the party?","How many people did they come to the party?"]],bld:["Who wrote this book?","What happened yesterday?"]},
+ {id:"q-ind",lv:"B1",ic:"🙏",m:"a2-4",t:"Do you know where…? (indirect questions)",rule:"After Could you tell me…?, Do you know…? and I wonder…, use normal word order: subject + verb. No do, does or did.",pt:"Depois de Could you tell me / Do you know / I wonder, a ordem é de frase afirmativa e não entra do / does / did.",ex:["Could you tell me where the station is?","Do you know what time it starts?","I wonder if she's coming."],bad:["Do you know where is the bank?","Do you know where the bank is?"],
+  mc:[["Choose the correct question.","Do you know where she lives?","Do you know where does she live?","Do you know where lives she?"],["Choose the correct question.","Could you tell me how much it costs?","Could you tell me how much does it cost?","Could you tell me how much is it costs?"],["Can you tell me ___ the museum opens?","what time","what time does","what time do"],["Choose the correct sentence.","I wonder if they've arrived.","I wonder have they arrived.","I wonder if have they arrived."],["Choose the correct question.","Do you know what happened?","Do you know what did happen?","Do you know what happened it?"]],bld:["Do you know where the toilets are?","Could you tell me what time it is?"]},
+ {id:"q-prep",lv:"B1",ic:"🎯",t:"Who are you talking to? (preposition at the end)",rule:"In everyday questions the preposition goes at the end: Who are you talking to? What are you looking at? Where are you from?",pt:"Em português a preposição vem antes (Com quem…?). Em inglês, normalmente ela vai para o fim: Who are you talking to?",ex:["Who are you waiting for?","What is this book about?","Where does she come from?"],bad:["With who are you going?","Who are you going with?"],
+  mc:[["Choose the most natural question.","Who are you going with?","With who are you going?","With who you are going?"],["What are you looking ___?","at","—","for at"],["Choose the most natural question.","What is the film about?","About what is the film?","What the film is about?"],["Answer: “I'm waiting for my mum.” Which question?","Who are you waiting for?","For who are you waiting?","Who you are waiting?"],["Who does this bag belong ___?","to","with","of"]],bld:["Who are you talking to?","What are you thinking about?"]},
+ {id:"q-neg",lv:"B2",ic:"😮",t:"Didn't you…? (negative questions)",rule:"Negative questions show surprise or ask you to agree: Didn't you get my message? Isn't it beautiful? Answer with the facts: Yes, I did / No, I didn't.",pt:"Você não recebeu…? = Didn't you get…? Na resposta, responda pelo fato: Yes, I did (recebi) / No, I didn't (não recebi).",ex:["Didn't you get my message?","Isn't she your cousin?","Why didn't you call me?"],bad:["Didn't you see it? — Yes, I didn't.","Didn't you see it? — No, I didn't."],
+  mc:[["Choose the correct question.","Why didn't you tell me?","Why you didn't tell me?","Why didn't you told me?"],["___ you like the film? Everybody loved it!","Didn't","Don't","Weren't"],["“Didn't you see it?” You didn't see it. Answer:","No, I didn't.","Yes, I didn't.","No, I did."],["Choose the correct question.","Isn't this the right bus?","This isn't the right bus?","Isn't this right the bus?"],["Choose the correct question.","Haven't you finished yet?","You haven't finished yet?","Haven't you finish yet?"]],bld:["Didn't you get my email?","Why didn't you come?"]},
+ {id:"q-modal",lv:"B2",ic:"🤷",t:"Should I have…? · whether",rule:"Questions about the past with modals: Should I have called? Could they have known? Indirect yes / no questions use if or whether: I wonder whether she knows.",pt:"Eu deveria ter ligado? = Should I have called? Pergunta indireta de sim / não: if ou whether (se).",ex:["Should I have told her?","Could they have missed the train?","I'm not sure whether he's coming."],bad:["Should I told her?","Should I have told her?"],
+  mc:[["Choose the correct question.","Should I have called you?","Should I called you?","Should have I called you?"],["Choose the correct question.","Could she have forgotten?","Could she forgot?","Could she have forget?"],["I'm not sure ___ he'll come.","whether","that","what"],["Choose the correct question.","Do you know whether the shop is open?","Do you know whether is the shop open?","Do you know is the shop open?"],["Choose the correct question.","Where could they have gone?","Where they could have gone?","Where could they have went?"]],bld:["Should I have said something?","Could they have got lost?"]},
+ {id:"q-echo",lv:"B2",ic:"💬",t:"Have you? Who with? (echo and follow-up questions)",rule:"In conversation, short questions keep the talk going: Did you? Have you? Really? Who with? Where to?",pt:"Para mostrar interesse: Did you? / Have you? (Ah, é?) e perguntas curtas: Who with? Where to?",ex:["I've just bought a car. — Have you? What kind?","We're moving to Lisbon. — Are you? When?","I went to a concert. — Who with?"],bad:["I went to Paris. — Did you went?","I went to Paris. — Did you?"],
+  mc:[["“I've been to Japan.” — “___? When?”","Have you","Did you","Are you"],["“She can't come.” — “___? Why not?”","Can't she","Doesn't she","Isn't she"],["“We're getting married!” — “___? Congratulations!”","Are you","Do you","Will you"],["“I'm going to the cinema.” — “Who ___?”","with","to","for"],["“He lost his passport.” — “___? Oh no!”","Did he","Was he","Has he lost"]],bld:["Who did you go with?","What kind of car is it?"]},
+ {id:"q-formal",lv:"C1",ic:"🎩",t:"Might I ask…? (formal and tentative questions)",rule:"To sound polite or formal, make the question tentative: I was wondering whether…, Might I ask…?, Would you mind if…? After them, use normal word order.",pt:"Para soar educado: I was wondering whether you could…, Would you mind if I…? A ordem é de frase afirmativa.",ex:["I was wondering whether you could help me.","Might I ask why the meeting was cancelled?","Would you mind if I opened the window?"],bad:["I was wondering could you help me.","I was wondering whether you could help me."],
+  mc:[["Choose the most polite question.","I was wondering whether you could send me the report.","Send me the report?","Can you to send me the report?"],["Would you mind if I ___ early?","left","leave","will leave"],["Choose the correct question.","Might I ask why you chose this company?","Might I ask why did you choose this company?","Might I to ask why you chose this company?"],["Would you mind ___ the door?","closing","to close","close"],["Choose the correct question.","Do you happen to know where the manager is?","Do you happen to know where is the manager?","Do you happen know where the manager is?"]],bld:["Would you mind waiting a moment?","Might I ask a question?"]},
+ {id:"q-part3",lv:"C1",ic:"🎓",t:"Speaking Part 3 follow-ups (C1 Advanced)",rule:"In the exam discussion, keep the conversation going with open follow-up questions: Why do you think that is? To what extent do you agree? What would happen if…?",pt:"No Speaking Part 3, use perguntas abertas para continuar a discussão com o parceiro.",ex:["Why do you think that is?","To what extent do you agree?","What would happen if nobody did anything?"],bad:["Why you think that is?","Why do you think that is?"],
+  mc:[["Choose the correct question.","To what extent do you agree?","In what extent do you agree?","To what extent you agree?"],["Choose the correct question.","Why do you think that is?","Why you think that is?","Why do you think is that?"],["Choose the correct question.","How far would you say that's true?","How far would you say is that true?","How much far would you say that's true?"],["What would happen if people ___ cars?","stopped using","stop using","would stop to use"],["Choose the best follow-up.","What makes you say that?","What makes you to say that?","What does make you say that?"]],bld:["What makes you say that?","To what extent do you agree?"]},
+ {id:"q-embed",lv:"C1",ic:"🔎",t:"What I'd like to know is… (embedded questions)",rule:"To ask in a softer, more formal way, embed the question: What I'd like to know is how… · I'd be interested to know whether… Use normal word order after the question word.",pt:"Pergunta embutida: What I'd like to know is how it works (ordem de frase afirmativa).",ex:["What I'd like to know is how much it will cost.","I'd be interested to know whether it's safe.","Could you clarify what you meant?"],bad:["What I'd like to know is how much will it cost.","What I'd like to know is how much it will cost."],
+  mc:[["Choose the correct sentence.","What I'd like to know is why it took so long.","What I'd like to know is why did it take so long.","What I like to know is why it took so long?"],["I'd be interested to know ___ the results are reliable.","whether","that","are"],["Choose the correct question.","Could you clarify what you meant?","Could you clarify what did you mean?","Could you clarify what meant you?"],["Choose the correct sentence.","I'm curious as to how they managed it.","I'm curious as to how did they manage it.","I'm curious how did they manage it."],["What I'd like to know is who ___ the decision.","made","did make","did made"]],bld:["Could you clarify what you meant?","I'd be interested to know why."]}];
+
+/* Tone detector (Reading between the lines): what does the speaker mean? 4 levels, from obvious to subtle */
+var TONE_ATT=["criticising","annoyed","regretting","asking politely","softening","insisting","hesitating"];
+var TONEQ=[
+ [["You could have told me you were coming!","criticising"],["I wish I'd studied harder at school.","regretting"],["I was wondering if you could lend me your notes.","asking politely"],["He will keep leaving his socks on the floor!","annoyed"],["Well, I'm not sure… it's hard to say.","hesitating"],["I did lock the door. I'm absolutely sure.","insisting"]],
+ [["You might have asked before taking my car.","criticising"],["If only I hadn't sold that apartment.","regretting"],["It might be worth checking the numbers again.","softening"],["She's always interrupting me in meetings!","annoyed"],["I suppose it could work… I'm in two minds about it.","hesitating"],["I'm telling you, I did send the email!","insisting"]],
+ [["You needn't have bought so much food.","criticising"],["In hindsight, I should have taken the job.","regretting"],["I'd have thought the second option is a bit risky.","softening"],["He would say that, wouldn't he?","annoyed"],["Would you mind keeping the noise down a little?","asking politely"],["I'd rather not commit to a date just yet.","hesitating"]],
+ [["Well, it would have been nice to be invited.","criticising"],["I regret not saying goodbye to her properly.","regretting"],["With respect, I'm not sure the data supports that.","softening"],["Do you really have to tap your pen like that?","annoyed"],["Things are, how shall I put it, a little complicated.","hesitating"],["I take your point, but the deadline is the deadline.","insisting"]]];
+
+/* ---------- small multiple-choice runner and question builder (used by Only questions and Tone detector) ---------- */
+function miniMC(box,items,kind,m,done){var i=0,ok=0;
+  function one(){box.innerHTML="";if(i>=items.length){done(ok,items.length);return}var it=items[i],fin=false;
+    box.appendChild(h("p",{class:"label"},(i+1)+" / "+items.length));box.appendChild(h("p",{class:"q",style:"font-size:22px"},it.q));
+    var row=h("div",{class:"opts"}),fb=h("div",{class:"rmfb","aria-live":"polite"});
+    shuffle(it.opts).forEach(function(o){var b=h("button",{class:"opt"},o);b.onclick=function(){if(fin)return;fin=true;var good=o===it.ans;if(good)ok++;else{b.classList.add("no");b.textContent="✗ "+o;miss(m||null,kind,it.q,o,it.ans,it.why||"")}
+      [].forEach.call(row.children,function(x){x.disabled=true;if(x.textContent===it.ans){x.classList.add("ok");x.textContent="✓ "+it.ans}});
+      fb.appendChild(h("div",{class:"fb "+(good?"ok":"no")},h("b",null,good?"Right! ":"Not quite. "),it.why||(good?"":"The answer is: "+it.ans)));
+      fb.appendChild(h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){i++;one()}},t("next"))))};row.appendChild(b)});
+    box.appendChild(row);box.appendChild(fb)}
+  one()}
+function miniBuild(box,sents,kind,done){var i=0,ok=0;
+  function one(){box.innerHTML="";if(i>=sents.length){done(ok,sents.length);return}var target=sents[i],words=target.replace(/[?.!]$/,"").split(" "),mark=target.slice(-1),got=[],tries=0;
+    box.appendChild(h("p",{class:"label"},"🧩 Question builder · "+(i+1)+" / "+sents.length));box.appendChild(h("p",{class:"hint"},"Tap the words in the right order."));
+    var line=h("p",{class:"q",style:"font-size:22px;min-height:1.6em"},""),pool=h("div",{class:"chips"}),fb=h("div",{class:"rmfb","aria-live":"polite"});
+    function draw(){line.textContent=got.join(" ")||"…"}
+    shuffle(words.map(function(w,ix){return [w,ix]})).forEach(function(p){var b=h("button",{class:"pillbtn"},p[0]);b.onclick=function(){if(b.disabled)return;b.disabled=true;got.push(p[0]);draw();
+      if(got.length===words.length){var s=got.join(" ")+mark,good=s===target;if(good&&tries===0)ok++;
+        if(good){fb.appendChild(h("div",{class:"fb ok"},h("b",null,"Right! "),target));fb.appendChild(h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){i++;one()}},t("next"))))}
+        else{tries++;if(tries===1)miss(null,kind,"Put the words in order: "+shuffle(words).join(" / "),s,target,"");fb.innerHTML="";fb.appendChild(h("div",{class:"fb no"},h("b",null,"Not quite. "),"Try again!"));setTimeout(function(){got=[];draw();[].forEach.call(pool.children,function(x){x.disabled=false})},900)}}};pool.appendChild(b)});
+    draw();box.appendChild(line);box.appendChild(pool);box.appendChild(fb)}
+  one()}
+
+/* ---------- Only questions ---------- */
+function qqById(id){return QQ.filter(function(q){return q.id===id})[0]}
+function qqItems(q){return q.mc.map(function(x){return {q:x[0],opts:x.slice(1),ans:x[1]}})}
+function qqList(){var a=app();cur={k:"questions"};document.body.setAttribute("data-page","qq");
+  a.appendChild(backBtn());
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"❓ Only questions"),h("h1",null,"Ask it right"),h("p",{class:"hint"},"Short lessons on how to ask questions in English, from A1 to C1. Classic mistakes included!")));
+  var lv0=window.QQLV||"all",chips=h("div",{class:"afilt lvfilt",role:"toolbar","aria-label":"Filter by level"}),grid=h("div",{class:"grid"});
+  function draw(){[].forEach.call(chips.children,function(b){b.classList.toggle("on",b._lv===lv0)});grid.innerHTML="";
+    QQ.filter(function(q){return lv0==="all"||q.lv===lv0}).forEach(function(q){var r=(S.qq||{})[q.id];
+      grid.appendChild(h("button",{class:"card act notch",style:"min-height:0",onclick:function(){go("questions/"+q.id)}},h("span",{class:"label"},lvTag(q.lv)," "+q.ic),h("h3",null,q.t),h("span",{class:"foot"},r?h("span",{class:"badge"},"✓ best "+r.best+"%"):h("span",{class:"newtag"},"New"))))})}
+  [["all","All"],["A1","A1"],["A2","A2"],["B1","B1"],["B2","B2"],["C1","C1"]].forEach(function(f){var b=h("button",{class:"pillbtn","data-lv":f[0]},f[1]);b._lv=f[0];b.onclick=function(){lv0=f[0];window.QQLV=lv0;draw()};chips.appendChild(b)});
+  a.appendChild(chips);a.appendChild(grid);draw();window.scrollTo(0,0)}
+function qqPage(id){var q=qqById(id);if(!q){qqList();return}var a=app(),m=q.m?mod(q.m):null;cur={k:"questions"};
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("questions")}},"← Only questions")));
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"❓ "+q.lv+" · Only questions"),h("h1",null,q.ic+" "+q.t)));
+  var box=h("section",{class:"card"});
+  a.appendChild(h("section",{class:"card gpt"},h("span",{class:"label"},"📘 The rule"),h("p",{style:"font-size:18px"},q.rule),h("ul",{class:"gex"},q.ex.map(function(e){return h("li",null,e)})),
+    h("div",{class:"fb no"},h("b",null,"✗ "),q.bad[0]),h("div",{class:"fb ok"},h("b",null,"✓ "),q.bad[1]),
+    h("details",{class:"gpt-pt",open:S.lang==="pt"?"":null},h("summary",null,"🇧🇷 Explicação em português"),h("p",{lang:"pt"},q.pt)),
+    m?h("p",null,h("button",{class:"link",onclick:function(){grammar(m)}},"📘 See it in the module: "+m.t)):null));
+  a.appendChild(box);
+  box.appendChild(h("div",{class:"rowend"},h("button",{class:"btn",onclick:start},"Start the practice ▸")));
+  function start(){miniMC(box,shuffle(qqItems(q)),"questions",null,function(ok,n){miniBuild(box,q.bld,"questions",function(ok2,n2){var pct=Math.round((ok+ok2)/(n+n2)*100);
+    S.qq=S.qq||{};var old=S.qq[q.id],first=!old;S.qq[q.id]={best:Math.max(pct,old?old.best:0),d:Date.now()};if(first){S.coins+=20;bar()}save();if(window.sessNote)sessNote("qq",q.id);if(window.hwScore)hwScore("qq",pct/100,null,q.id);if(window.checkMedals)checkMedals();
+    box.innerHTML="";box.appendChild(h("h2",null,pct+"%"+(pct>=80?" 🎉":"")));box.appendChild(h("p",null,first?"🪙 +20 coins for your first try.":"Best: "+S.qq[q.id].best+"%"));
+    var nx=QQ[QQ.indexOf(q)+1];box.appendChild(h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){qqPage(q.id)}},"↻ Again"),nx?h("button",{class:"btn",onclick:function(){go("questions/"+nx.id)}},"Next: "+nx.t+" ▸"):h("button",{class:"btn",onclick:function(){go("questions")}},"All lessons")))})})}
+  window.scrollTo(0,0)}
+
+/* ---------- Tone detector (Reading between the lines) ---------- */
+function tonePage(lv){var a=app(),L=Math.max(1,Math.min(TONEQ.length,+lv||1)),m=mod("c1-6");cur={k:"tone",m:"c1-6"};
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("c1-6")}},"← Reading between the lines")));
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"🎭 Tone detector · Level "+L+" of "+TONEQ.length),h("h1",null,"What does the speaker mean?"),h("p",{class:"hint"},"Read the sentence and choose the attitude behind it. The words don't always say the feeling!")));
+  var tabs=h("div",{class:"chips"});TONEQ.forEach(function(_,i){var done=((S.tone||{})[i+1]||0)>=0.8;tabs.appendChild(h("button",{class:"pillbtn"+(i+1===L?" on":""),onclick:function(){go("tone/"+(i+1))}},"Level "+(i+1)+(done?" ✓":"")))});a.appendChild(tabs);
+  var box=h("section",{class:"card"});a.appendChild(box);
+  var items=shuffle(TONEQ[L-1]).map(function(x){var others=shuffle(TONE_ATT.filter(function(o){return o!==x[1]})).slice(0,3);return {q:"“"+x[0]+"”",opts:[x[1]].concat(others),ans:x[1],why:"The speaker is "+x[1]+"."}});
+  miniMC(box,items,"tone",m,function(ok,n){var pct=ok/n;S.tone=S.tone||{};var old=S.tone[L]||0;if(pct>old)S.tone[L]=pct;if(pct>=0.8&&old<0.8){S.coins+=20;bar()}save();if(window.checkMedals)checkMedals();
+    box.innerHTML="";box.appendChild(h("h2",null,ok+" / "+n+(pct>=0.8?" 🎉":"")));box.appendChild(h("p",null,pct>=0.8?(old<0.8?"Level cleared! 🪙 +20 coins":"Level cleared!"):"Get 5 of 6 right to clear the level."));
+    box.appendChild(h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){tonePage(L)}},"↻ Again"),L<TONEQ.length?h("button",{class:"btn",onclick:function(){go("tone/"+(L+1))}},"Level "+(L+1)+" ▸"):null))});
+  window.scrollTo(0,0)}
+
+/* ---------- Medals (achievements): every medal is possible for every student ---------- */
+var LVLS=["A1","A2","B1","B2","C1"];
+function worldMods(lv){return M.filter(function(m){return m.lv===lv&&!m.rev})}
+function worldDone(lv){var ms=worldMods(lv);return ms.length>0&&ms.every(passed)}
+function worldPerfect(lv){var ms=worldMods(lv);return ms.length>0&&ms.every(function(m){return (S.cp[m.id]||0)>=0.9})}
+var MEDALS=[
+ ["first_hw","📚","First homework","Finish your first homework.",30,function(){return (S.hws||{}).done>=1}],
+ ["on_time","⏰","On time","Finish a homework before the due date.",30,function(){return (S.hws||{}).onTime>=1}],
+ ["hw3","🔥","Homework streak 3","Finish 3 homeworks in a row on time.",50,function(){return (S.hws||{}).best>=3}],
+ ["hw7","🔥","Homework streak 7","Finish 7 homeworks in a row on time.",80,function(){return (S.hws||{}).best>=7}],
+ ["hw15","🔥","Homework streak 15","Finish 15 homeworks in a row on time.",100,function(){return (S.hws||{}).best>=15}],
+ ["better","📈","Better than before","Improve your score on a homework task.",30,function(){return (S.hws||{}).improved>=1}],
+ ["nevergiveup","💪","Never give up","Try the same homework task 3 times.",30,function(){return (S.hws||{}).maxTries>=3}],
+ ["perfect","💯","Perfect score","Get 100% on a homework task.",50,function(){return (S.hws||{}).perfect>=1}],
+ ["focused","🎯","Focused learner","End 5 lessons with the End lesson button.",50,function(){return (S.ended||0)>=5}],
+ ["slayer5","⚔️","Mistake slayer 5","Beat 5 mistakes in the Rematch.",30,function(){return (S.beat||0)>=5}],
+ ["slayer25","⚔️","Mistake slayer 25","Beat 25 mistakes in the Rematch.",60,function(){return (S.beat||0)>=25}],
+ ["slayer100","⚔️","Mistake slayer 100","Beat 100 mistakes in the Rematch.",100,function(){return (S.beat||0)>=100}],
+ ["curious","❓","Curious mind","Do every Only questions lesson of one level.",50,function(){return LVLS.some(function(lv){var L=QQ.filter(function(q){return q.lv===lv});return L.length&&L.every(function(q){return (S.qq||{})[q.id]})})}],
+ ["tone","🎭","Tone detective","Clear all the levels of the Tone detector.",50,function(){return TONEQ.every(function(_,i){return ((S.tone||{})[i+1]||0)>=0.8})}],
+ ["bonus","🏠","Bonus house","Pass the Final test of a special lesson (Eating out, Sports…).",30,function(){return X.some(function(m){return !m.rev&&passed(m)})}],
+ ["explorer","🧭","Explorer","Go back and pass all the Final tests of a level below your level check.",50,function(){var pl=S.place&&LVLS.indexOf(S.place.lvl);return pl>0&&LVLS.slice(0,pl).some(worldDone)}],
+ ["perfect_world","🌟","Perfect world","Get 90% or more in every Final test of a level.",100,function(){return LVLS.some(worldPerfect)}]
+].concat(LVLS.map(function(lv){return ["world_"+lv,"🌍",lv+" World complete","Pass every Final test of "+lv+" ("+LEVELS[lv]+").",300,function(){return worldDone(lv)}]}));
+function medalToast(md){var el=h("div",{class:"qwtoast",role:"status"},h("span",{class:"qwt-ic","aria-hidden":"true"},md[1]),h("div",{class:"qwt-tx"},h("b",null,"New medal: "+md[2]),h("p",null,md[3]+" 🪙 +"+md[4]+" coins")),h("div",{class:"qwt-b"},h("button",{class:"btn",onclick:function(){el.remove();go("achievements")}},"See medals"),h("button",{class:"btn ghost",onclick:function(){el.remove()}},"OK")));
+  document.body.appendChild(el);setTimeout(function(){if(el.parentNode)el.remove()},9000)}
+function checkMedals(){if(window.NINTH||!S.name)return;S.med=S.med||{};var got=[];MEDALS.forEach(function(md){if(!S.med[md[0]]){var ok=false;try{ok=md[5]()}catch(e){}if(ok){S.med[md[0]]=Date.now();S.coins+=md[4];got.push(md)}}});
+  if(got.length){save();bar();got.forEach(function(md,i){setTimeout(function(){medalToast(md)},400+i*1500)})}}
+function achievements(){var a=app();cur={k:"achievements"};S.med=S.med||{};
+  a.appendChild(backBtn());var n=MEDALS.filter(function(md){return S.med[md[0]]}).length;
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"🏅 Achievements"),h("h1",null,"Your medals"),h("p",{class:"hint"},n+" of "+MEDALS.length+" medals. Every medal is possible for everyone: no rankings, just your own progress.")));
+  var g=h("div",{class:"grid"});MEDALS.forEach(function(md){var own=S.med[md[0]];
+    g.appendChild(h("div",{class:"card"+(own?"":" islocked"),style:"min-height:0"},h("span",{class:"label"},own?"✓ "+new Date(own).toLocaleDateString():"🔒 Locked"),h("h3",null,md[1]+" "+md[2]),h("p",null,md[3]),h("span",{class:"foot"},"🪙 "+md[4])))});
+  a.appendChild(g);
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("avatars")}},"🎓 Level badges (avatars) →")));window.scrollTo(0,0)}
+
+/* ---------- Lesson session: active-time timer, End lesson, summary and homework (works without login; saved in this browser) ---------- */
+var SESS_KEY="tio-session-v1",LEARN_K=["quiz","build","chat","write","match","speed","cp"],HW_MAX=4;
+function sessGet(){try{return JSON.parse(localStorage.getItem(SESS_KEY)||"null")}catch(e){return null}}
+function sessPut(x){try{localStorage.setItem(SESS_KEY,JSON.stringify(x))}catch(e){}}
+function sessNew(){var now=Date.now();return {id:"s"+now,start:now,last:now,active:0,acts:[],qq:[],reads:Object.keys(S.read||{}),coins0:S.coins,beat0:S.beat||0}}
+function sessCur(){var x=sessGet();if(!x){x=sessNew();sessPut(x)}return x}
+function sessNote(kind,v){if(!S.name||window.NINTH||window.ONLY_GAMES)return;var x=sessCur();if(kind==="act")x.acts.push(v);else if(kind==="qq")x.qq.push(v);x.last=Date.now();sessPut(x)}
+function sessLearned(x){var reads=Object.keys(S.read||{}).filter(function(k){return x.reads.indexOf(k)<0});
+  var qws=Object.keys(S.qw||{}).filter(function(k){return (S.qw[k].d||0)>=x.start});
+  return {acts:x.acts.filter(function(a){return LEARN_K.indexOf(a.k)>=0}),reads:reads,qws:qws,qq:x.qq}}
+function fmtMin(ms){var mn=Math.round(ms/60000);return mn<1?"< 1 min":mn+" min"}
+function hwList(){S.hw=S.hw||[];return S.hw}
+function hwPending(){return hwList().filter(function(w){return !w.doneAt})}
+function hwMake(x,errs,lr){
+  var studied=lr.acts.length?mod(lr.acts[lr.acts.length-1].m):lr.reads.length?mod(lr.reads[lr.reads.length-1]):null;
+  var tasks=[],G={};errs.forEach(function(e){var k=nbKey(e);if(k!=="other")G[k]=(G[k]||0)+1});
+  var top=Object.keys(G).sort(function(p,q){return G[q]-G[p]})[0];
+  if(top&&top.indexOf("qw:")===0)tasks.push({t:"qw",id:top.slice(3),name:"⚡ Quick win: "+qwById(top.slice(3)).t});
+  else{var mm=top?mod(top.slice(2)):studied;if(mm)tasks.push({t:"quiz",m:mm.id,name:"📘 "+mm.t+": quiz"})}
+  if(studied){var gl=gameList(studied).filter(function(k){return GAMES[k]});if(gl.length){var k=gl[Math.floor(Math.random()*gl.length)];tasks.push({t:"game",m:studied.id,k:k,name:(GICONS[k]||"🎮")+" "+t(k)+" · "+studied.t})}}
+  if(errs.length)tasks.push({t:"rematch",unlock:today()+2,name:"⚔️ Rematch of your mistakes"});
+  else{var nx=studied?M[M.indexOf(studied)+1]:null;if(nx&&gameList(nx).length){var k2=gameList(nx).filter(function(k){return GAMES[k]})[0];if(k2)tasks.push({t:"game",m:nx.id,k:k2,name:(GICONS[k2]||"🎮")+" "+t(k2)+" · "+nx.t+" (next step)"})}}
+  tasks=tasks.slice(0,3);tasks.forEach(function(tk){tk.best=null;tk.last=null;tk.tries=0});
+  if(!tasks.length)return null;
+  var w={id:"hw"+Date.now(),created:Date.now(),due:Date.now()+7*864e5,from:studied?studied.t:"",tasks:tasks};hwList().unshift(w);return w}
+function endLesson(auto,x){x=x||sessGet();if(!x)return null;var now=Date.now();
+  var lr=sessLearned(x),errs=(S.err||[]).filter(function(e){return (e.d||0)>=x.start}),L={id:x.id,start:x.start,end:auto?x.last:now,active:x.active,auto:!!auto,acts:x.acts,qws:lr.qws,reads:lr.reads,qq:lr.qq,coins:Math.max(0,S.coins-x.coins0),beat:Math.max(0,(S.beat||0)-(x.beat0||0)),errs:errs.map(function(e){return {q:e.q,got:e.got,right:e.right,m:e.m,k:e.k,d:e.d}}),hw:null,why:""};
+  var learned=lr.acts.length+lr.reads.length+lr.qws.length+lr.qq.length;
+  if(x.active<3*60000&&(L.end-x.start)<3*60000)L.why="short";else if(!learned)L.why="nolearn";else if(hwPending().length>=HW_MAX)L.why="full";
+  else{var w=hwMake(x,errs,lr);if(w)L.hw=w.id;else L.why="nolearn"}
+  S.lessons=S.lessons||[];S.lessons.unshift(L);if(S.lessons.length>30)S.lessons.length=30;
+  if(!auto)S.ended=(S.ended||0)+1;else S.lastAuto=L.id;
+  save();sessPut(null);try{localStorage.removeItem(SESS_KEY)}catch(e){}checkMedals();return L}
+function lessonPage(L){var a=app();cur={k:"lesson"};if(!L){go("home");return}
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("home")}},"← "+t("all"))));
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"📋 "+(L.auto?"Your last lesson (ended automatically)":"Today's lesson")),h("h1",null,"Well done, "+(S.name||"")+"!"),h("p",{class:"hint"},new Date(L.start).toLocaleString()+" · ⏱ "+fmtMin(L.active)+" of active study")));
+  var ul=h("ul",{class:"tips"});
+  L.acts.forEach(function(ac){var m=mod(ac.m);if(m)ul.appendChild(h("li",null,(LEARN_K.indexOf(ac.k)>=0?"✅ ":"🎮 ")+m.t+" · "+t(ac.k)+(ac.pct!=null?" · "+Math.round(ac.pct*100)+"%":"")))});
+  L.reads.forEach(function(id){var m=mod(id);if(m)ul.appendChild(h("li",null,"📘 "+m.t+" · grammar guide"))});
+  L.qws.forEach(function(id){var q=qwById(id);if(q)ul.appendChild(h("li",null,"⚡ Quick win · "+q.t))});
+  L.qq.forEach(function(id){var q=qqById(id);if(q)ul.appendChild(h("li",null,"❓ Only questions · "+q.t))});
+  if(!ul.children.length)ul.appendChild(h("li",null,"You looked around the site."));
+  a.appendChild(h("section",{class:"card gpt"},h("span",{class:"label"},"What you did"),ul,h("p",null,"🪙 +"+L.coins+" coins"+(L.beat?" · ⚔️ "+L.beat+" old mistake"+(L.beat>1?"s":"")+" beaten!":""))));
+  if(L.errs.length){var G={};L.errs.forEach(function(e){var k=nbKey(e);G[k]=(G[k]||0)+1});var box=h("section",{class:"card gpt"},h("span",{class:"label"},"Your mistakes today (they are in your notebook)"));
+    Object.keys(G).sort(function(p,q){return G[q]-G[p]}).forEach(function(k){var T=k==="other"?null:qwTgt(k);box.appendChild(h("div",{class:"rowend",style:"justify-content:space-between;flex-wrap:wrap"},h("p",null,h("b",null,G[k]+"× ")," "+(T?T.title:"Other")),T?h("button",{class:"btn ghost",onclick:T.go},T.btn):null))});a.appendChild(box)}
+  var w=L.hw&&hwList().filter(function(x){return x.id===L.hw})[0];
+  a.appendChild(h("section",{class:"card gpt"},h("span",{class:"label"},"📚 Homework"),
+    w?h("div",null,h("p",null,"Your homework is ready: "+w.tasks.length+" short tasks, about 10 minutes. You have one week. You can try each task again to beat your score."),h("ul",{class:"tips"},w.tasks.map(function(tk){return h("li",null,tk.name)}))):
+    h("p",null,L.why==="full"?"No new homework today: you already have "+HW_MAX+" waiting. Finish your homework first!":L.why==="nolearn"?"No homework today: homework comes after a lesson (a grammar guide, a module exercise or a Quick win). Games are always free!":"No homework today: the lesson was very short."),
+    h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){go("home")}},t("navHome")),w||hwPending().length?h("button",{class:"btn",onclick:function(){go("homework")}},"📚 My homework"):null)));
+  window.scrollTo(0,0)}
+function hwStart(w,ti){var tk=w.tasks[ti];window.HWT={hw:w.id,ti:ti,t:tk.t,m:tk.m,k:tk.k,id:tk.id,st:Date.now()};
+  if(tk.t==="qw")go("qw/"+tk.id);else if(tk.t==="quiz"){var m=mod(tk.m);window.FROMM=m.id;run(m,"quiz")}else if(tk.t==="game"){window.FROMA="homework";GAMES[tk.k](mod(tk.m))}else if(tk.t==="rematch")rematch()}
+function hwScore(kind,pct,m,k){var H=window.HWT;if(!H)return;var ok=(H.t==="quiz"&&kind==="quiz"&&m&&m.id===H.m)||(H.t==="game"&&kind==="game"&&m&&m.id===H.m&&k===H.k)||(H.t==="rematch"&&kind==="rematch")||(H.t==="qw"&&kind==="qw"&&k===H.id);if(!ok)return;
+  var w=hwList().filter(function(x){return x.id===H.hw})[0];window.HWT=null;if(!w)return;var tk=w.tasks[H.ti];if(!tk)return;var p=Math.round(pct*100);
+  S.hws=S.hws||{done:0,onTime:0,streak:0,best:0,improved:0,maxTries:0,perfect:0};tk.tries++;tk.last=p;
+  if(tk.best==null){tk.best=p;S.coins+=20}else if(p>tk.best){tk.best=p;S.coins+=10;S.hws.improved++}
+  S.hws.maxTries=Math.max(S.hws.maxTries,tk.tries);if(p>=100)S.hws.perfect++;
+  if(!w.doneAt&&w.tasks.every(function(x){return x.best!=null})){w.doneAt=Date.now();S.hws.done++;if(w.doneAt<=w.due){S.hws.onTime++;S.hws.streak++;S.hws.best=Math.max(S.hws.best,S.hws.streak)}else S.hws.streak=0}
+  save();bar();checkMedals()}
+function hwSyncQW(){var H=window.HWT;if(H&&H.t==="qw"){var r=(S.qw||{})[H.id];if(r&&(r.d||0)>=H.st)hwScore("qw",r.post/3,null,H.id)}}
+function hwCard(w,showDone){var due=new Date(w.due),late=!w.doneAt&&Date.now()>w.due,box=h("section",{class:"card gpt"});
+  box.appendChild(h("span",{class:"label"},(w.doneAt?"✅ Done":late?"⏳ Pending":"📚 Due "+due.toLocaleDateString())+(w.from?" · from "+w.from:"")));
+  w.tasks.forEach(function(tk,ti){var locked=tk.t==="rematch"&&today()<tk.unlock,lessonBtn=null;
+    if(tk.last!=null&&tk.last<60&&!(tk.t==="game")){var key=tk.t==="qw"?"qw:"+tk.id:tk.t==="quiz"?"g:"+tk.m:null;var T=key?qwTgt(key):null;if(tk.t==="rematch")lessonBtn=h("button",{class:"btn ghost",onclick:function(){go("mistakes")}},"📒 Review your notebook");else if(T)lessonBtn=h("button",{class:"btn ghost",onclick:T.go},"📘 Review the lesson")}
+    box.appendChild(h("div",{class:"rowend",style:"justify-content:space-between;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:8px"},
+      h("p",{style:"margin:6px 0"},h("b",null,tk.name),h("br"),h("small",{class:"hint"},locked?"Opens on "+new Date(tk.unlock*864e5).toLocaleDateString():tk.best==null?"Not done yet":"Best "+tk.best+"% · "+tk.tries+" tr"+(tk.tries>1?"ies":"y")),
+        tk.last!=null&&tk.last<60&&tk.t!=="game"?h("small",{class:"hint",style:"display:block"},"💡 More than 40% wrong: reviewing the lesson may help (optional)."):null),
+      h("span",null,lessonBtn,locked?null:h("button",{class:"btn"+(tk.best==null?"":" ghost"),onclick:function(){hwStart(w,ti)}},tk.best==null?"Start":"↻ Try again"))))});
+  if(!w.doneAt)box.appendChild(h("p",{style:"text-align:right"},h("button",{class:"link",onclick:function(){if(confirm("Delete this homework?\n\nIt's your choice, but skipping homework may slow down your learning, and you may lose medals (your homework streak goes back to zero).")){S.hw=hwList().filter(function(x){return x!==w});S.hws=S.hws||{};S.hws.streak=0;save();homeworkPage()}}},"🗑 Delete")));
+  return box}
+function homeworkPage(){var a=app();cur={k:"homework"};hwSyncQW();a.appendChild(backBtn());
+  var P=hwPending(),D=hwList().filter(function(w){return w.doneAt});
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"📚 Homework"),h("h1",null,"My homework"),h("p",{class:"hint"},"Homework comes from your own lessons and mistakes. You have one week for each, and you can try every task again to beat your score.")));
+  if(!P.length)a.appendChild(h("p",null,"No homework waiting. Finish a lesson (grammar guide, module exercise or Quick win) and press ⏱ End lesson to get one."));
+  P.forEach(function(w){a.appendChild(hwCard(w))});
+  if(D.length){var d=h("details",{class:"nbgroup"},h("summary",null,h("b",null,"✅ Done"),"· "+D.length));D.slice(0,10).forEach(function(w){d.appendChild(hwCard(w))});a.appendChild(d)}
+  var hs=S.hws||{};a.appendChild(h("p",{class:"hint"},"🔥 Homework streak: "+(hs.streak||0)+" · Best: "+(hs.best||0)+" · "));
+  window.scrollTo(0,0)}
+/* timer chip, activity tracking, auto-end after 60 minutes without activity */
+(function(){if(window.NINTH||window.ONLY_GAMES)return;var lastMark=Date.now();
+  function mark(){var now=Date.now();if(now-lastMark<5000)return;lastMark=now;if(!S.name)return;var x=sessGet();if(x&&now-x.last>=60*60000){endLesson(true,x);x=null}var nw=!x;if(!x){x=sessNew()}x.last=now;sessPut(x);if(nw)setTimeout(sessChip,0)}
+  ["pointerdown","keydown","touchstart"].forEach(function(ev){window.addEventListener(ev,mark,{passive:true})});
+  setInterval(function(){if(!S.name)return;var x=sessGet();if(!x)return;var now=Date.now();if(now-x.last>=60*60000){endLesson(true,x);bar();return}
+    if(document.visibilityState==="visible"&&now-x.last<5*60000){x.active+=15000;sessPut(x)}var c=document.querySelector(".sesschip b");if(c)c.textContent=fmtMin(x.active)},15000);
+  window.addEventListener("pagehide",function(){var x=sessGet();if(x)sessPut(x)});
+  window.sessChip=function(){if(!S.name)return;var b=document.getElementById("bar"),x=sessGet();if(!b||!x||b.querySelector(".sesschip"))return;
+    var chip=h("button",{class:"pillbtn sesschip",title:"End lesson","aria-label":"Lesson time. Tap to end the lesson."},"⏱ ",h("b",null,fmtMin(x.active)));
+    chip.onclick=function(){var y=sessGet();if(!y)return;if(confirm("End the lesson now?\n\nYou'll see a summary of what you did"+(hwPending().length<HW_MAX?" and get your homework.":"."))){var L=endLesson(false,y);bar();lessonPage(L)}};
+    var sg=b.querySelector(".statgroup");if(sg&&sg.nextSibling)b.insertBefore(chip,sg.nextSibling);else b.appendChild(chip)};
+  var bb=bar;bar=function(){bb.apply(this,arguments);sessChip()};
+  /* on load: an old session (60+ minutes without activity) ends by itself */
+  setTimeout(function(){var x=sessGet();if(x&&S.name&&Date.now()-x.last>=60*60000){endLesson(true,x);if((location.hash||"#home").match(/^#?(home)?$/))route()}},300);
+})();
+(function(){var fi=finish;finish=function(m,k,pct){var r=fi.apply(this,arguments);if(window.ONLY_GAMES||window.NINTH)return r;if(m&&!m.rev){sessNote("act",{m:m.id,k:k,pct:pct});hwScore(k==="quiz"?"quiz":"x",pct,m,k)}checkMedals();return r}})();
+(function(){var ae=arcadeEnd;arcadeEnd=function(m,k,win,line,lvl){var r=ae.apply(this,arguments);if(window.ONLY_GAMES||window.NINTH)return r;if(m&&!m.rev){sessNote("act",{m:m.id,k:k,pct:null});hwScore("game",win?Math.min(1,0.6+(lvl||1)*0.08):0,m,k)}checkMedals();return r}})();
+
+/* ---------- Level check v2 (LUISA-08): adaptive A1 → C1, 6 questions per level + tie-breaker, mistakes go to the notebook ---------- */
+PF.forEach(function(p){if(p.id==="exam")p.o[0]=["cam","Cambridge (Key, PET, FCE, C1 Advanced)","Cambridge (Key, PET, FCE, C1 Advanced)"]});
+HELPS.exam=["b1-4","b1-5","c1-5"];
+TIPS.career=["Pay extra attention to Small talk, What if… and Opinions.","Dê atenção especial a Small talk, What if… e Opinions."];
+TIPS.games=["The Arcade is for you: more than 20 games, with levels.","O Arcade é para você: mais de 20 jogos, com níveis."];
+var PLNOTE=["This test suggests where to start. You can always go back to any earlier lesson. New levels unlock when you pass the Final tests, or you can buy a single lesson with coins.","Este teste sugere por onde começar. Você sempre pode voltar a qualquer aula anterior. Os níveis seguintes abrem quando você passa nos Final tests, ou você pode comprar uma aula avulsa com moedas."];
+function plBank(lv){var ms=shuffle(worldMods(lv)),pools=ms.map(function(m){return shuffle(m.quiz.filter(function(q){return q[1].length>=3}).map(function(q){return {q:q[0],ans:q[1][0],opts:q[1],why:q[2],m:m.id}}))}),out=[],i=0;
+  while(out.length<9&&pools.some(function(p){return p.length})){var p=pools[i%pools.length];if(p.length)out.push(p.shift());i++}return out}
+place=function(){var ans={},steps=PF.slice(),i=0,wrong=[],passedL={},startI=1;cur={k:"start"};
+  function frame(label,q,opts,pick,pr){var a=app(),box=h("div",{class:"opts"});
+    a.appendChild(h("div",{class:"shell"},h("div",{class:"top"},h("h2",null,t("pfT")),h("button",{class:"link",onclick:function(){go("home")}},"✕")),
+      h("div",{class:"prog"},h("i",{style:"width:"+Math.round((pr||0)*100)+"%"})),h("p",{class:"hint"},t("pfLang")),h("span",{class:"label"},label),h("p",{class:"q"},q),box));
+    opts.forEach(function(o){box.appendChild(h("button",{class:"opt",onclick:function(){pick(o[0])}},o[1]))});window.scrollTo(0,0)}
+  function about(){while(i<steps.length&&steps[i].only&&ans.goal!==steps[i].only)i++;if(i>=steps.length){intro();return}var st=steps[i];
+    frame(t("pfAbout"),L2(st.q),st.o.map(function(o){return [o[0],S.lang==="pt"?o[2]:o[1]]}),function(v){ans[st.id]=v;i++;about()},i/steps.length*0.3)}
+  function intro(){var a=app();a.appendChild(h("div",{class:"shell"},h("div",{class:"top"},h("h2",null,t("pfT")),h("button",{class:"link",onclick:function(){go("home")}},"✕")),
+      h("span",{class:"label"},"🧭 "+t("pfCheck")),h("p",{class:"q"},"Now some English questions, from easy to harder. They stop when they get too hard for you."),
+      h("p",{class:"hint"},L2(PLNOTE)),h("p",{class:"hint"},"Not sure? Choose “"+t("pfIdk")+"”: don't guess."),
+      h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){startI=ans.exp==="never"?0:1;block(startI)}},"Start ▸"))));window.scrollTo(0,0)}
+  var down=false;
+  function block(li){var lv=LVLS[li],bank=plBank(lv),items=bank.slice(0,6),extra=bank.slice(6,9),list=items,qi=0,ok=0,tie=false,tok=0;
+    if(items.length<3){done(li);return}
+    function ask(){var it=list[qi];if(!it){next();return}
+      var o=shuffle(it.opts).map(function(x){return [x,x]});o.push(["?",t("pfIdk")]);
+      frame("Level "+lv+" · "+(qi+1)+" / "+list.length+(tie?" · tie-breaker":""),it.q,o,function(v){if(v===it.ans){if(tie)tok++;else ok++}else{wrong.push({lv:li,it:it,v:v});if(v!=="?")miss(mod(it.m),"place",it.q,v,it.ans,it.why)}qi++;ask()},0.3+li/5*0.7)}
+    function next(){if(!tie){if(ok>=5){pass();return}if(ok===4&&extra.length){tie=true;list=extra;qi=0;ask();return}fail();return}if(tok>=2)pass();else fail()}
+    function pass(){passedL[li]=true;if(down){done(li+1);return}if(li>=4)done(5);else block(li+1)}
+    function fail(){if(!down&&li===startI&&li>0){down=true;block(li-1)}else done(li)}
+    ask()}
+  function done(pi){var lvI=Math.min(pi,4),lv=LVLS[lvI],first=pi>=5?mod("c1-5"):worldMods(lv)[0];
+    var track=ans.goal==="exam"?ans.exam:(ans.goal==="fun"?"gen":(ans.goal==="gen"&&lvI>=3?"adv":ans.goal));if(ans.exp==="never"||(lvI===0&&!passedL[0]))S.lang="pt";
+    var gaps=[];wrong.filter(function(w){return w.lv<lvI&&w.v!=="?"}).forEach(function(w){var f=null;try{f=qwFind(w.it.q,w.v,w.it.ans)}catch(e){}var key=f?f.kind+":"+f.id:"g:"+w.it.m;if(gaps.indexOf(key)<0)gaps.push(key)});
+    S.place={goal:ans.goal,track:track,exp:ans.exp,feel:ans.feel,block:ans.block,like:ans.like,days:ans.days,mins:ans.mins,score:Object.keys(passedL).length,lvl:pi>=5?"C1":lv,entry:first?first.id:"a1-1",gaps:gaps.slice(0,4),v:2,d:Date.now()};
+    save();checkMedals();placeResult()}
+  about()};
+placeResult=function(){var a=app(),P=S.place,e=mod(P.entry)||M[0],help=(HELPS[P.goal]||[]).map(mod).filter(Boolean);cur={k:"start"};
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("home")}},"← "+t("all"))));
+  a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},t("pfPath")),h("h1",null,TRACK[P.track]||TRACK.gen)));
+  a.appendChild(h("section",{class:"card gpt"},
+    h("span",{class:"label"},t("pfLvl")+": "+P.lvl+(P.v?"":" · "+t("pfCheck")+" "+P.score+" / "+PQ.length)),
+    P.track!=="gen"&&P.track!=="adv"&&P.track!=="cam"?h("p",null,t("pfSoon")):null,
+    h("h2",null,t("pfStart")+": "+e.t),h("p",null,e.lv+" · "+e.sit.t+" · "+e.g),h("p",{class:"hint"},L2(PLNOTE)),
+    h("div",{class:"rowend",style:"justify-content:flex-start"},h("button",{class:"btn",onclick:function(){go(e.id)}},t("pfStart")+" →"),h("button",{class:"btn ghost",onclick:function(){go("menu")}},"See all modules"))));
+  if(P.gaps&&P.gaps.length){var gb=h("section",{class:"card gpt"},h("h2",null,"Before you start, review"),h("p",{class:"hint"},"Small gaps from earlier levels. Optional, but quick!"));
+    P.gaps.forEach(function(k){var T=qwTgt(k);if(T)gb.appendChild(h("div",{class:"rowend",style:"justify-content:space-between;flex-wrap:wrap"},h("p",null,T.title),h("button",{class:"btn ghost",onclick:T.go},T.btn)))});if(gb.children.length>2)a.appendChild(gb)}
+  if(help.length){var g=h("div",{class:"chips"});help.forEach(function(m){g.appendChild(h("button",{class:"pillbtn",onclick:function(){go(m.id)}},m.t+" ("+m.lv+")"))});a.appendChild(h("section",{class:"card gpt"},h("h2",null,t("pfHelp")),g))}
+  var ul=h("ul",{class:"tips"});[P.feel,P.block,P.like].forEach(function(k){if(TIPS[k])ul.appendChild(h("li",null,L2(TIPS[k])))});
+  var wk=(P.days||2)*(P.mins||30),pace=wk>=120?["two modules a week","dois módulos por semana"]:wk>=60?["one module a week","um módulo por semana"]:["one module every two weeks","um módulo a cada duas semanas"];
+  ul.appendChild(h("li",null,L2(["You have about "+wk+" minutes a week. Each module has two sessions of about 30 minutes: plan "+pace[0]+".","Você tem cerca de "+wk+" minutos por semana. Cada módulo tem duas sessões de uns 30 minutos: planeje "+pace[1]+"."])));
+  a.appendChild(h("section",{class:"card gpt"},h("h2",null,t("pfTips")),ul));
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("start")}},t("pfRedo"))));window.scrollTo(0,0)};
+
+/* ---------- Worlds and level locks (LUISA-09). LOCKS_ON stays false until there is login: the site shows the progress and the padlocks but blocks nothing ---------- */
+var LOCKS_ON=false,BUY_PRICE=300;
+function lvUnlockedIdx(){var base=0;if(S.place&&S.place.lvl)base=Math.max(base,LVLS.indexOf(String(S.place.lvl).slice(0,2)));
+  M.forEach(function(m){if((S.stars[m.id]&&Object.keys(S.stars[m.id]).length)||S.read[m.id]||S.cp[m.id])base=Math.max(base,LVLS.indexOf(m.lv))});
+  var k=0;while(k<4&&worldDone(LVLS[k]))k++;return Math.max(base,k)}
+function lvUnlocked(lv){return LVLS.indexOf(lv)<=lvUnlockedIdx()}
+function modOpen(m){return !LOCKS_ON||!m||M.indexOf(m)<0||lvUnlocked(m.lv)||!!(S.bought||{})[m.id]}
+function lockPage(m){var a=app();cur={k:"lock"};var prev=LVLS[LVLS.indexOf(m.lv)-1];
+  a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("home")}},"← "+t("all"))));
+  a.appendChild(h("section",{class:"card gpt"},h("span",{class:"label"},"🔒 "+m.lv+" · "+m.t),h("h2",null,"This level is still locked"),h("p",null,"Pass all the "+prev+" Final tests to open the "+m.lv+" world."),
+    h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){go("home")}},t("navHome")),h("button",{class:"btn",disabled:S.coins<BUY_PRICE?true:null,onclick:function(){if(S.coins<BUY_PRICE)return;S.coins-=BUY_PRICE;S.bought=S.bought||{};S.bought[m.id]=Date.now();save();bar();go(m.id)}},"🪙 Open this module for "+BUY_PRICE+" coins"))))}
+/* home: world progress under the level tabs, padlocks on levels that are not open yet */
+(function(){var hm=home;home=function(){var r=hm.apply(this,arguments);if(window.ONLY_GAMES||window.NINTH)return r;
+  var tabs=document.querySelector("#app .lvtabs"),head=document.querySelector("#app .pathhead");
+  if(tabs&&head){var line=h("p",{class:"hint worldline"},"");head.parentNode.insertBefore(line,head.nextSibling);
+    function upd(){var on=tabs.querySelector(".lvtab.on"),lv=on?on.getAttribute("data-lv"):"A1",ms=worldMods(lv),d=ms.filter(passed).length;
+      line.textContent=d===ms.length&&ms.length?"🌍 "+lv+" World complete! 🏅":"🌍 "+lv+" World: "+d+" / "+ms.length+" Final tests passed"+(LVLS.indexOf(lv)<4?" · pass them all to open "+LVLS[LVLS.indexOf(lv)+1]:"")}
+    [].forEach.call(tabs.children,function(b){var lv=b.getAttribute("data-lv");if(!lvUnlocked(lv)){b.insertBefore(h("span",{"aria-hidden":"true"},"🔒 "),b.firstChild);b.title="Opens when you pass all the "+LVLS[LVLS.indexOf(lv)-1]+" Final tests"}b.addEventListener("click",function(){setTimeout(upd,0)})});upd()}
+  var hq=document.querySelector("#app .homequick");
+  if(hq){hq.appendChild(h("button",{class:"arcbanner qwbanner",onclick:function(){go("questions")}},h("span",{class:"ab-ic","aria-hidden":"true"},"❓"),h("span",{class:"ab-tx"},h("b",null,"ONLY QUESTIONS"),h("span",null,"Ask it right, from A1 to C1.")),h("span",{class:"ab-go"},"ASK ▸")));
+    var extra=[],P=hwPending(),ready=(S.err||[]).filter(function(e){var r=e.rw||[];return r.length&&today()-r[0]>=2}).length,LA=S.lastAuto&&(S.lessons||[]).filter(function(l){return l.id===S.lastAuto})[0];
+    if(LA)extra.push(h("button",{class:"card act notch",style:"min-height:0;width:100%",onclick:function(){S.lastAuto=null;save();lessonPage(LA)}},h("span",{class:"label"},"📋 Your last lesson"),h("h3",null,fmtMin(LA.active)+(LA.hw?" · Homework ready":"")),h("p",null,"See the summary of what you did.")));
+    if(P.length)extra.push(h("button",{class:"card act notch",style:"min-height:0;width:100%",onclick:function(){go("homework")}},h("span",{class:"label"},"📚 Homework"),h("h3",null,P.length+" homework"+(P.length>1?"s":"")+" waiting"),h("p",null,"Short tasks from your own lessons. Try again to beat your score.")));
+    if(ready)extra.push(h("button",{class:"card act notch",style:"min-height:0;width:100%",onclick:function(){go("mistakes")}},h("span",{class:"label"},"⚔️ Rematch"),h("h3",null,ready+" mistake"+(ready>1?"s are":" is")+" ready for a rematch"),h("p",null,"Win again today and beat them for good.")));
+    if(S.place&&!S.place.v&&S.place.score>=5&&!S.placeInv)extra.push(h("div",{class:"card gpt",style:"width:100%"},h("span",{class:"label"},"🧭 New level check"),h("p",null,"The level check now goes from A1 to C1. You may be higher than B1! Try it?"),h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(ev){S.placeInv=1;save();ev.currentTarget.closest(".card").remove()}},"No, thanks"),h("button",{class:"btn",onclick:function(){go("start")}},"Try it ▸"))));
+    extra.reverse().forEach(function(el){hq.parentNode.insertBefore(el,hq.nextSibling)})}
+  return r}})();
+/* menu: new pages */
+(function(){var mn=menu;menu=function(){mn.apply(this,arguments);if(window.ONLY_GAMES||window.NINTH)return;var a=document.getElementById("app");
+  a.appendChild(h("h2",{class:"step",style:"margin-top:22px"},"🏅 Your progress"));
+  a.appendChild(h("div",{class:"menu"},[["📚 My homework","From your own lessons","homework"],["🏅 Achievements","Your medals","achievements"],["❓ Only questions","Ask it right, A1 to C1","questions"],["📒 "+t("nb"),"","mistakes"]].map(function(x){return h("button",{class:"card mitem",onclick:function(){go(x[2])}},h("b",null,x[0]),x[1]?h("span",null,x[1]):null)})))}})();
+/* module page: Tone detector card in Reading between the lines (part 3) */
+(function(){var mp=modulePage;modulePage=function(m,part){mp(m,part);if(!m||m.id!=="c1-6"||window.ONLY_GAMES)return;var p=(S.mpart||{})[m.id]||part||1;if(p!==3)return;
+  var a=document.getElementById("app");a.appendChild(h("button",{class:"card act notch ty-prac",style:"min-height:0;width:100%;margin-top:14px",onclick:function(){go("tone/1")}},h("span",{class:"label"},"🎭 Game"),h("h3",null,"Tone detector"),h("p",null,"What does the speaker mean? Criticising, annoyed, regretting, hesitating…")))}})();
+/* routes for the new pages and the level lock */
+(function(){var rt=route;route=function(){var kp=location.hash.replace("#","").split("/"),k=kp[0];
+  if(S.name&&!window.ONLY_GAMES&&!window.NINTH&&["achievements","homework","questions","tone","lesson"].indexOf(k)>=0){cur=null;bar();document.body.setAttribute("data-tone","");
+    if(k==="achievements")achievements();else if(k==="homework")homeworkPage();else if(k==="questions"){if(kp[1])qqPage(kp[1]);else qqList()}else if(k==="tone")tonePage(kp[1]);else if(k==="lesson")lessonPage((S.lessons||[])[0]);return}
+  var m=mod(k);if(LOCKS_ON&&S.name&&m&&!modOpen(m)&&!window.ONLY_GAMES){cur=null;bar();lockPage(m);return}
+  if(k===""||k==="home")hwSyncQW();rt.apply(this,arguments)}})();
+
+/* the mistake detector can also point to an Only questions lesson ("qq:ID") */
+(function(){var qt0=qwToast;qwToast=function(){if(cur&&["questions","tone","start"].indexOf(cur.k)>=0)return;return qt0.apply(this,arguments)}})();
+(function(){var qt=qwTgt;qwTgt=function(key){var t0=key.split(":");if(t0[0]==="qq"){var q=qqById(t0[1]);if(!q)return null;return {title:"❓ "+q.t,what:"This short lesson fixes it:",btn:"Open the lesson ▸",tag:"Lesson ▸",go:function(){go("questions/"+q.id)}}}return qt.apply(this,arguments)}})();
+QWRULES.unshift(
+ ["qqlong","qq:q-long",function(G,R,D){return /\bhow much time\b/.test(G)&&/\bhow long\b/.test(R)}],
+ ["qqsubj","qq:q-subj",function(G,R,D){return /^ (who|what) did \w+/.test(G)&&/^ (who|what) (\w+ed|broke|wrote|came|won|made|ate|took|went|saw|told|said)\b/.test(R)||/^ how many \w+ did (come|go|happen)\b/.test(G)}],
+ ["qqprep","qq:q-prep",function(G,R,D){return /^ (with|for|to|about|at) (who|whom|what)\b/.test(G)}],
+ ["qqpart3","qq:q-part3",function(G,R,D){return /\bin what extent\b|^ why you think\b|\bmakes you to\b|\bwhy do you think is that\b|\bhow far would you say is\b|\bwhat does make you\b/.test(G)}],
+ ["qqembed","qq:q-embed",function(G,R,D){var re=/\b(is|clarify|as to|curious) (how|why|what|who|where)( \w+)? (did|does|do|will) (it|they|you|he|she|we|i)\b/;return re.test(G)&&!re.test(R)}],
+ ["qqformal","qq:q-formal",function(G,R,D){return /\bwondering (could|can|would) (you|i|we)\b|\bask why did\b|\bhappen to know where is\b|\bhappen know\b|\bmight i to\b/.test(G)}],
+ ["qqneg","qq:q-neg",function(G,R,D){return /\byes i didn't\b|\bno i did $/.test(G)||/^ why you didn't\b/.test(G)}],
+ ["qqmodal","qq:q-modal",function(G,R,D){return /^ (should|could) (i|you|she|he|they|we) (told|called|went|forgot|forget)\b|^ should have (i|you|we)\b|^ where (they|we|you) could have\b/.test(G)}],
+ ["qqaux","qq:q-do",function(G,R,D){var a=/^ (do|does|did|are|is|was|were|have|has) (you|he|she|they|we|it|i|your|my|the|this|that) /.exec(R);if(!a||/^ (do|does|did|are|is|was|were|have|has) /.test(G))return false;
+   if(!/^ (you|he|she|they|we|it|i|your|my|the|this|that) /.test(G))return false;var map={do:"q-do",does:"q-do",did:"q-did",are:"q-be",is:"q-be",was:"q-were",were:"q-were",have:"q-were",has:"q-were"};return "qq:"+map[a[1]]}],
+ ["qqwh","qq:q-do",function(G,R,D){var a=/^ (where|what|when|why|how|who)( \w+){0,2}? (do|does|did|are|is|was|were) (you|he|she|they|we|it|i|your|my|the) /.exec(R);if(!a)return false;var aux=a[3];if(!new RegExp("^ "+a[1]+" ").test(G)||D.g.trim().split(" ").length>4||new RegExp("\\b"+aux+"\\b").test(G))return false;
+   if(new RegExp("^ "+a[1]+"( \\w+){0,2}? (do|does|did|are|is|was|were|am|have|has|be|will|can|would) ").test(G))return false;var map={do:"q-do",does:"q-do",did:"q-did",are:"q-be",is:"q-be",was:"q-were",were:"q-were"};return "qq:"+map[aux]}]);
 var NINE_EXTRA=[["🁫","Preposition Domino","Make real phrases and choose their meaning. Beat your time.","../domino/","#ff8a5c"],["🧺","Preposition Baskets","Put each word in the at, by, in or on basket. Beat your time.","../baskets/","#3ccf9f"],["🧪","Preposition Tubes","Group the words by preposition. Beat your time.","../ptubes/","#c084fc"],["🔴","Preposition Genius","Remember the sequence, then tap the prepositions.","../genius/","#f472b6"],["🔍","Comma Detective","Add the commas. Faster = more points.","../commas/","#4cc9f0"]];
 
 function route(){
