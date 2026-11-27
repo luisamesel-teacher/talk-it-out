@@ -303,5 +303,81 @@ function end(win){
 start();
 </script>
 <script data-goatcounter="https://englisharcade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- tio-barra -->
+<style id="tio-barra-css">
+.tio-bar{position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:10px;
+ flex-wrap:wrap;width:100%;max-width:100%;margin:0 0 14px;padding:10px 16px;
+ box-sizing:border-box;
+ background:rgba(127,127,127,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+ border-bottom:1px solid rgba(127,127,127,.32);color:inherit;
+ font:600 15px/1 Inter,system-ui,sans-serif}
+.tio-bar .sp{flex:1}
+.tio-bar button,.tio-bar a{font:inherit;cursor:pointer;color:inherit;text-decoration:none;
+ background:transparent;border:1.5px solid currentColor;border-radius:999px;
+ padding:9px 15px;opacity:.85;transition:opacity .12s,background .12s;white-space:nowrap}
+.tio-bar button:hover,.tio-bar a:hover{opacity:1;background:rgba(127,127,127,.18)}
+.tio-bar .volta{font-weight:800;opacity:1}
+@media (max-width:460px){.tio-bar{font-size:13.5px}.tio-bar button,.tio-bar a{padding:8px 12px}}
+</style>
+
+<script id="tio-barra-js">
+(function(){
+  var LIMPAR = false, BASE = "../";
+  var ESTADO = ["certa","certo","errada","errado","errado-box","ok","no","aberto",
+                "mostra","liberada","coberta","on","hit","bad","lit","selo","rever"];
+
+  function voltar(e){
+    var mesmo = document.referrer && document.referrer.indexOf(location.origin)===0
+                && document.referrer.indexOf(location.href.split("#")[0])!==0;
+    if(mesmo && history.length>1){ e.preventDefault(); history.back(); }
+  }
+
+  function limpar(){
+    var d=document;
+    d.querySelectorAll("input").forEach(function(i){
+      if(i.type==="checkbox"||i.type==="radio") i.checked=false;
+      else i.value="";
+      i.disabled=false; i.removeAttribute("readonly");
+    });
+    d.querySelectorAll("textarea").forEach(function(t){t.value="";t.disabled=false});
+    d.querySelectorAll("button").forEach(function(b){
+      if(!b.closest(".tio-bar")) b.disabled=false;
+    });
+    d.querySelectorAll("details[open]").forEach(function(x){x.open=false});
+    d.querySelectorAll("*").forEach(function(el){
+      if(el.closest(".tio-bar")) return;
+      ESTADO.forEach(function(c){ if(el.classList.contains(c)) el.classList.remove(c); });
+    });
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  function barra(){
+    if(document.querySelector(".tio-bar")) return;
+    var bar=document.createElement("div");
+    bar.className="tio-bar";
+    var a=document.createElement("a");
+    a.className="volta"; a.href=BASE; a.textContent="\u2190 Back";
+    a.setAttribute("aria-label","Back to Talk It Out");
+    a.addEventListener("click",voltar);
+    bar.appendChild(a);
+    bar.appendChild(Object.assign(document.createElement("span"),{className:"sp"}));
+    if(LIMPAR){
+      var c=document.createElement("button");
+      c.type="button"; c.textContent="Clear answers";
+      c.addEventListener("click",limpar);
+      bar.appendChild(c);
+    }
+    var r=document.createElement("button");
+    r.type="button"; r.textContent="Try again";
+    r.addEventListener("click",function(){location.reload()});
+    bar.appendChild(r);
+    document.body.insertBefore(bar, document.body.firstChild);
+  }
+
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",barra);
+  else barra();
+})();
+</script>
+<!-- /tio-barra -->
 </body>
 </html>

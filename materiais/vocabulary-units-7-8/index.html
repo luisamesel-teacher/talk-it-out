@@ -376,6 +376,7 @@ trocarModo('cartas');
 </script>
 
 
+
 <!-- tio-barra -->
 <style id="tio-barra-css">
 .tio-bar{position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:10px;
@@ -395,7 +396,7 @@ trocarModo('cartas');
 
 <script id="tio-barra-js">
 (function(){
-  var LIMPAR = true;
+  var LIMPAR = true, BASE = "../../";
   var ESTADO = ["certa","certo","errada","errado","errado-box","ok","no","aberto",
                 "mostra","liberada","coberta","on","hit","bad","lit","selo","rever"];
 
@@ -429,7 +430,7 @@ trocarModo('cartas');
     var bar=document.createElement("div");
     bar.className="tio-bar";
     var a=document.createElement("a");
-    a.className="volta"; a.href="../../"; a.textContent="\u2190 Back";
+    a.className="volta"; a.href=BASE; a.textContent="\u2190 Back";
     a.setAttribute("aria-label","Back to Talk It Out");
     a.addEventListener("click",voltar);
     bar.appendChild(a);
