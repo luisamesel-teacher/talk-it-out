@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>The Price · Talk It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171a3a;--ink:#fff;--mute:#b9b6d8;--yel:#f2c14e;--grn:#3ccf9f;--vio:#9d93ff;--org:#ff8a5c;
+ --disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 var(--body);min-height:100vh;
+ padding:0 14px 40px;
+ background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
+#app{max-width:620px;margin:0 auto;padding-top:22px}
+h1{color:var(--yel);font:800 clamp(28px,6vw,42px)/1.1 var(--disp);margin:6px 0 0;
+ text-shadow:0 0 14px rgba(242,193,78,.35)}
+h2{font:800 22px var(--disp);margin:0}
+.label{font:700 13.5px/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.card{background:#1d2048;border:2px solid #4cc9f0;border-bottom-width:6px;border-radius:20px;padding:20px}
+.how{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;
+ background:rgba(255,255,255,.07);border-radius:14px;padding:11px 14px;font-size:19px;line-height:1.4}
+.how .e{font-size:28px;text-align:center}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.row.spread{justify-content:space-between}
+.btn{font:800 18px var(--label);cursor:pointer;border:0;border-radius:999px;padding:13px 22px;
+ background:var(--yel);color:#12152e;box-shadow:0 4px 0 #b98c1f}
+.btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55);box-shadow:none}
+.btn.small{font-size:15px;padding:9px 15px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.lv button{font:700 16px var(--label);cursor:pointer;border-radius:999px;padding:10px 16px;
+ border:2px solid rgba(255,255,255,.55);background:transparent;color:#fff}
+.lv button.on{background:var(--yel);color:#12152e;border-color:var(--yel)}
+.esc{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 4px}
+.fz{display:grid;gap:1px;padding:11px 8px 9px;border-radius:14px;cursor:pointer;
+ background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.22);color:#fff;font:inherit;text-align:center}
+.fz b{font:800 15px var(--label)}
+.fz small{font:600 12px var(--body);opacity:.72;line-height:1.2}
+.fz.on{background:var(--yel);border-color:var(--yel);color:#12152e}
+.fz.on small{opacity:.9}
+.rev{display:grid;gap:7px;margin:14px 0 2px;max-height:46vh;overflow:auto;
+ background:rgba(255,255,255,.06);border-radius:14px;padding:12px}
+.rev div{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;
+ padding:9px 12px;border-radius:10px;background:rgba(255,255,255,.06)}
+.rev div b{font:400 15.5px/1.35 var(--body);opacity:.72;font-style:italic}
+.rev div span{font:700 14px var(--label);color:var(--yel);white-space:nowrap;text-align:right}
+.rev div i{grid-column:1/3;font-style:normal;font:600 17px/1.35 var(--body);opacity:1}
+.rev div i b{color:var(--yel)}
+
+.hud{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
+.hud>div{background:#12152e;border:2px solid #3b3f8f;border-radius:14px;padding:9px 11px}
+.hud .label{font-size:11.5px}
+.hud b{display:block;font:800 23px var(--label);color:var(--yel);margin-top:2px}
+.task{margin:4px 0 10px;padding:15px 16px;border-radius:15px;background:rgba(255,255,255,.1);
+ border:2px solid rgba(255,255,255,.22);font:600 21px/1.4 var(--body);text-align:center}
+.task i{color:var(--yel);font-style:normal;letter-spacing:.06em}
+.task b{font:400 16.5px/1.35 var(--body);color:var(--mute);display:block;margin-bottom:8px;letter-spacing:0;font-style:italic}
+canvas{display:block;width:100%;height:auto;border-radius:18px;background:#12152e;
+ box-shadow:inset 0 0 0 2px #3b3f8f;touch-action:none}
+.ctl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:12px}
+.ctl .go{grid-column:1/4}
+.ctl button{font:800 19px var(--label);cursor:pointer;border-radius:14px;padding:15px 8px;
+ border:2px solid rgba(255,255,255,.55);background:transparent;color:#fff}
+.ctl .go{background:var(--grn);color:#12152e;border-color:var(--grn)}
+.say{min-height:30px;font:700 18px var(--body);margin:12px 0 0;text-align:center}
+.say em{font-style:normal;color:var(--yel)}
+.stars{font-size:34px;margin:8px 0}
+.miss{display:grid;gap:7px;margin-top:14px;text-align:left}
+.miss div{background:rgba(255,120,130,.14);border:2px solid rgba(255,120,130,.5);
+ border-radius:11px;padding:9px 12px;font-size:16.5px}
+.miss div b{color:#ff9aa4}
+footer{margin:26px auto 0;max-width:620px;text-align:center;font-size:13.5px;color:var(--mute)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<footer>Talk It Out · by Luisa Mesel</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- bancos ----------
+   Mesmo formato do Arcade: "frase com ___|certa|errada|errada"
+   O radical vem em CAIXA ALTA no começo, separado por " · ".           */
+
+var SETS = {
+ cond: {nome:"Level 1 · Conditional inversion", sub:"should · were · had",
+  itens:[
+  "If you need any help, just call. · Should you · ___ need any help, just call.|Should you|If you|You should",
+  "If you wish to change your booking, we will help. · Should you · ___ wish to change your booking, we will help.|Should you|You should|If should",
+  "If they broke the contract, we would take action. · Were they to · ___ break the contract, we would take action.|Were they to|They were|If they were",
+  "If I went back, I would do it differently. · Were I to · ___ go back, I would do it differently.|Were I to|I were to|If I were",
+  "If I had known about the rain, I'd have taken a coat. · Had I · ___ known about the rain, I'd have taken a coat.|Had I|I had|If I had",
+  "If she had asked, I would have said yes. · Had she · ___ asked, I would have said yes.|Had she|She had|Did she",
+  "If it hadn't been for the traffic, we'd be there now. · Had it · ___ not been for the traffic, we'd be there now.|Had it|It had|If it",
+  "If you happen to see her, give her my regards. · Should you · ___ happen to see her, give her my regards.|Should you|You should|If you"]},
+
+ neg: {nome:"Level 2 · Negative adverbials", sub:"never · not only · hardly",
+  itens:[
+  "I have never seen anything like it. · have I · Never ___ seen anything like it.|have I|I have|did I",
+  "He didn't only lie, he lied twice. · did he · Not only ___ lie, he lied twice.|did he|he did|he",
+  "She had no sooner sat down than the phone rang. · had she · No sooner ___ sat down than the phone rang.|had she|she had|did she",
+  "We had hardly left when it started to pour. · had we · Hardly ___ left when it started to pour.|had we|we had|did we",
+  "We rarely see a performance like that. · do we · Rarely ___ see a performance like that.|do we|we do|did we",
+  "She had little idea what was coming. · did she · Little ___ know what was coming.|did she|she did|she",
+  "I only realised how tired I was after the final. · did I · Not until the final ___ realise how tired I was.|did I|I did|I",
+  "It only made sense when she explained. · did it · Only when she explained ___ make sense.|did it|it did|it",
+  "You must not open that door under any circumstances. · are you · Under no circumstances ___ to open that door.|are you|you are|do you",
+  "They never admitted any mistake. · did they · At no time ___ admit any mistake.|did they|they did|they",
+  "I have seldom felt so proud. · have I · Seldom ___ felt so proud.|have I|I have|did I",
+  "You should not reply to that on any account. · should you · On no account ___ reply to that.|should you|you should|do you"]},
+
+ mix: {nome:"Level 3 · Everything mixed", sub:"the two above, shuffled",
+  itens:[
+  "If you need any help, just call. · Should you · ___ need any help, just call.|Should you|If you|You should",
+  "If you wish to change your booking, we will help. · Should you · ___ wish to change your booking, we will help.|Should you|You should|If should",
+  "If they broke the contract, we would take action. · Were they to · ___ break the contract, we would take action.|Were they to|They were|If they were",
+  "If I went back, I would do it differently. · Were I to · ___ go back, I would do it differently.|Were I to|I were to|If I were",
+  "If I had known about the rain, I'd have taken a coat. · Had I · ___ known about the rain, I'd have taken a coat.|Had I|I had|If I had",
+  "If she had asked, I would have said yes. · Had she · ___ asked, I would have said yes.|Had she|She had|Did she",
+  "If it hadn't been for the traffic, we'd be there now. · Had it · ___ not been for the traffic, we'd be there now.|Had it|It had|If it",
+  "If you happen to see her, give her my regards. · Should you · ___ happen to see her, give her my regards.|Should you|You should|If you",
+  "I have never seen anything like it. · have I · Never ___ seen anything like it.|have I|I have|did I",
+  "He didn't only lie, he lied twice. · did he · Not only ___ lie, he lied twice.|did he|he did|he",
+  "She had no sooner sat down than the phone rang. · had she · No sooner ___ sat down than the phone rang.|had she|she had|did she",
+  "We had hardly left when it started to pour. · had we · Hardly ___ left when it started to pour.|had we|we had|did we",
+  "We rarely see a performance like that. · do we · Rarely ___ see a performance like that.|do we|we do|did we",
+  "She had little idea what was coming. · did she · Little ___ know what was coming.|did she|she did|she",
+  "I only realised how tired I was after the final. · did I · Not until the final ___ realise how tired I was.|did I|I did|I",
+  "It only made sense when she explained. · did it · Only when she explained ___ make sense.|did it|it did|it",
+  "You must not open that door under any circumstances. · are you · Under no circumstances ___ to open that door.|are you|you are|do you",
+  "They never admitted any mistake. · did they · At no time ___ admit any mistake.|did they|they did|they",
+  "I have seldom felt so proud. · have I · Seldom ___ felt so proud.|have I|I have|did I",
+  "You should not reply to that on any account. · should you · On no account ___ reply to that.|should you|you should|do you"]}
+};
+var ORD = ["cond","neg","mix"];
+var SPEEDS = [["🐢 Slow",46],["🚲 Normal",68],["🚀 Fast",96]];
+var setKey = "cond", speed = 0, app = document.getElementById("app");
+var raf = null, keyh = null;
+
+function h(t,at){
+  var e=document.createElement(t);
+  if(at)for(var k in at){
+    if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);
+    else if(k==="html")e.innerHTML=at.html;
+    else if(at[k]!=null)e.setAttribute(k,at[k]);
+  }
+  for(var i=2;i<arguments.length;i++){
+    var c=arguments[i]; if(c==null)continue;
+    e.appendChild(typeof c==="string"?document.createTextNode(c):c);
+  }
+  return e;
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function parse(str){
+  var a=str.split("|"), head=a[0].split(" · ");
+  return {raiz:head[0].trim(), palavra:(head[1]||"").trim(), frase:(head[2]||"").trim(), certa:a[1], ops:a.slice(1)};
+}
+function itens(){return SETS[setKey].itens.map(parse)}
+function best(){try{return +localStorage.getItem("price-best-"+setKey+"-"+speed)||0}catch(e){return 0}}
+function setBest(v){try{localStorage.setItem("ctr-best-"+setKey+"-"+speed,String(v))}catch(e){}}
+function stop(){if(raf)cancelAnimationFrame(raf);raf=null;if(keyh){window.removeEventListener("keydown",keyh);keyh=null}}
+
+/* ---------------- tela inicial ---------------- */
+function start(){
+  stop(); app.innerHTML="";
+  var S=SETS[setKey], lista=itens();
+
+  var esc=h("div",{class:"esc"});
+  ORD.forEach(function(k){
+    var s=SETS[k];
+    esc.appendChild(h("button",{class:"fz"+(k===setKey?" on":""),on:{click:function(){setKey=k;start()}}},
+      h("b",null,s.nome.split(" · ")[0]),
+      h("small",null,s.nome.split(" · ")[1]||"")));
+  });
+
+  var rev=h("div",{class:"rev"}); rev.style.display="none";
+  lista.forEach(function(q){
+    rev.appendChild(h("div",null,
+      h("b",null,q.raiz),
+      h("span",null,q.certa),
+      h("i",{html:q.frase.replace("___","<b>"+q.certa+"</b>")})));
+  });
+
+  var lv=h("div",{class:"lv"});
+  function drawLv(){lv.innerHTML="";SPEEDS.forEach(function(s,i){
+    lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;drawLv()}}},s[0]))})}
+  drawLv();
+
+  app.appendChild(h("div",{class:"card"},
+    h("span",{class:"label"},S.nome+" · "+S.sub),
+    h("h1",null,"⚡ The Price"),
+    esc,
+    h("ol",{class:"how"},
+      h("li",null,h("span",{class:"e"},"🚶"),h("span",null,"Read the plain sentence, then the inverted one. Then cross.")),
+      h("li",null,h("span",{class:"e"},"🚗"),h("span",null,"Don't let the cars hit you.")),
+      h("li",null,h("span",{class:"e"},"🚪"),h("span",null,"At the top, walk into the door that keeps the inversion legal.")),
+      h("li",null,h("span",{class:"e"},"❤️"),h("span",null,"3 hearts. A car or a wrong door costs one. Get through "+Math.min(8,lista.length)+" doors to win."))),
+    rev,
+    h("span",{class:"label"},"Speed"), lv,
+    h("div",{class:"row"},
+      h("button",{class:"btn",on:{click:play}},"▶ Play"),
+      h("button",{class:"btn ghost small",on:{click:function(){
+        rev.style.display=rev.style.display==="none"?"grid":"none"}}},"👀 See the words first"))
+  ));
+  window.scrollTo(0,0);
+}
+
+/* ---------------- o jogo ---------------- */
+function play(){
+  stop(); app.innerHTML="";
+  var W=640,H=460, LANES=4, laneH=62, topY=96, botY=H-44;
+  var fila=shuffle(itens()), total=Math.min(8,fila.length);
+  var G={i:0,ok:0,lives:3,over:false,miss:[],t0:performance.now(),hit:0,q:null,portas:[]};
+  var ROWS=[botY,0,0,0,0,topY-10], px=W/2, row=0, moving=false;
+  for(var _l=LANES-1;_l>=0;_l--)ROWS[LANES-_l]=topY+22+_l*laneH;
+  function py(){return ROWS[row]}
+
+  var task=h("div",{class:"task"});
+  var cv=h("canvas",{width:W,height:H,"aria-label":"Cross the road"});
+  var cx=cv.getContext("2d");
+  var hud=h("div",{class:"hud"});
+  var say=h("p",{class:"say",role:"status"});
+
+  app.appendChild(h("div",{class:"row spread"},h("h2",null,"⚡ The Price"),
+    h("button",{class:"btn ghost small",on:{click:start}},"← Quit")));
+  app.appendChild(hud);
+  app.appendChild(task);
+  app.appendChild(cv);
+  app.appendChild(h("div",{class:"ctl"},
+    h("button",{class:"go",on:{click:function(){mv(0,-1)}}},"▲ GO"),
+    h("button",{on:{click:function(){mv(-1,0)}}},"◀"),
+    h("button",{on:{click:function(){mv(0,1)}}},"▼"),
+    h("button",{on:{click:function(){mv(1,0)}}},"▶")));
+  app.appendChild(say);
+
+  function drawHud(){
+    hud.innerHTML="";
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Doors"),h("b",null,G.ok+" / "+total)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Sentence"),h("b",null,Math.min(G.i+1,total)+" / "+total)));
+    hud.appendChild(h("div",null,h("span",{class:"label"},"Hearts"),
+      h("b",null,"❤️".repeat(G.lives)+"🖤".repeat(3-G.lives))));
+  }
+
+  /* carros */
+  var cars=[];
+  function buildCars(){
+    cars=[];
+    var base=SPEEDS[speed][1];
+    for(var l=0;l<LANES;l++){
+      var dir=l%2?1:-1, v=(base+l*9)*(0.85+Math.random()*0.3);
+      var n=2;
+      for(var k=0;k<n;k++){
+        cars.push({lane:l,x:Math.random()*W,w:58+Math.random()*34,dir:dir,v:v,
+          c:["#ff8a5c","#3ccf9f","#9d93ff","#f2c14e","#4cc9f0"][(l+k)%5]});
+      }
+    }
+  }
+  function laneY(l){return topY+22+l*laneH}
+
+  function round(){
+    if(G.i>=total){fim(true);return}
+    G.q=fila[G.i];
+    G.portas=shuffle(G.q.ops.slice(0,3));
+    px=W/2; row=0;
+    task.innerHTML="<b>"+G.q.raiz+"</b>"+G.q.frase.replace("___","<i>_____</i>");
+    buildCars(); drawHud();
+  }
+
+  function mv(dx,dy){
+    if(G.over||moving)return;
+    if(dx)px=Math.max(30,Math.min(W-30,px+dx*74));
+    if(dy)row=Math.max(0,Math.min(ROWS.length-1,row-dy));
+    if(row===ROWS.length-1)checkDoor();
+  }
+
+  function checkDoor(){
+    var w=W/3, idx=Math.max(0,Math.min(2,Math.floor(px/w)));
+    var escolha=G.portas[idx], certo=escolha===G.q.certa;
+    moving=true;
+    if(certo){
+      G.ok++;
+      say.innerHTML="✓ <em>"+G.q.palavra+"</em> — "+G.q.frase.replace("___","<em>"+G.q.palavra+"</em>");
+    }else{
+      G.lives--;
+      G.miss.push(G.q);
+      say.innerHTML="✗ <b>"+escolha+"</b> — it is <em>"+G.q.palavra+"</em>";
+    }
+    G.i++; drawHud();
+    setTimeout(function(){
+      moving=false;
+      if(G.lives<=0){fim(false);return}
+      round();
+    },1100);
+  }
+
+  function bateu(){
+    G.lives--; G.hit=performance.now(); drawHud();
+    say.innerHTML="🚗 A car got you. Start again from the bottom.";
+    px=W/2; row=0;
+    if(G.lives<=0)fim(false);
+  }
+
+  var last=performance.now();
+  function frame(now){
+    if(G.over)return;
+    var dt=Math.min(.05,(now-last)/1000); last=now;
+
+    for(var i=0;i<cars.length;i++){
+      var c=cars[i]; c.x+=c.dir*c.v*dt;
+      if(c.dir>0&&c.x>W+c.w)c.x=-c.w;
+      if(c.dir<0&&c.x<-c.w)c.x=W+c.w;
+    }
+
+    /* colisão */
+    if(!moving&&now-G.hit>900){
+      for(var j=0;j<cars.length;j++){
+        var k=cars[j], y=laneY(k.lane);
+        if(Math.abs(py()-y)<20 && px>k.x-4 && px<k.x+k.w+4){ bateu(); break; }
+      }
+    }
+
+    /* desenho */
+    cx.clearRect(0,0,W,H);
+    cx.fillStyle="#1b1f4a"; cx.fillRect(0,topY,W,LANES*laneH+10);
+    cx.strokeStyle="rgba(255,255,255,.22)"; cx.lineWidth=3; cx.setLineDash([16,16]);
+    for(var l=1;l<LANES;l++){ cx.beginPath(); cx.moveTo(0,topY+10+l*laneH); cx.lineTo(W,topY+10+l*laneH); cx.stroke(); }
+    cx.setLineDash([]);
+
+    /* calçadas */
+    cx.fillStyle="#232a5e"; cx.fillRect(0,topY+LANES*laneH+10,W,H-(topY+LANES*laneH+10));
+    cx.fillRect(0,0,W,topY);
+
+    /* portas */
+    var pw=W/3;
+    for(var d=0;d<3;d++){
+      var x=d*pw+10, lab=G.portas[d]||"";
+      cx.fillStyle=["#ff8a5c","#3ccf9f","#9d93ff"][d];
+      cx.strokeStyle="#12152e"; cx.lineWidth=4;
+      roundRect(cx,x,16,pw-20,66,14); cx.fill(); cx.stroke();
+      cx.fillStyle="#12152e";
+      cx.font="800 23px Inter,system-ui,sans-serif";
+      cx.textAlign="center"; cx.textBaseline="middle";
+      cx.fillText(lab,x+(pw-20)/2,52);
+    }
+
+    /* carros */
+    for(var m=0;m<cars.length;m++){
+      var cc=cars[m], yy=laneY(cc.lane);
+      cx.fillStyle=cc.c; cx.strokeStyle="#12152e"; cx.lineWidth=3;
+      roundRect(cx,cc.x,yy-17,cc.w,34,9); cx.fill(); cx.stroke();
+      cx.fillStyle="rgba(18,21,46,.45)";
+      roundRect(cx,cc.x+(cc.dir>0?cc.w-24:10),yy-11,14,22,5); cx.fill();
+    }
+
+    /* jogador */
+    var pisca = now-G.hit<900 && Math.floor(now/110)%2===0;
+    if(!pisca){
+      cx.fillStyle="#fff"; cx.strokeStyle="#12152e"; cx.lineWidth=4;
+      cx.beginPath(); cx.arc(px,py(),19,0,6.284); cx.fill(); cx.stroke();
+      cx.font="22px system-ui,sans-serif"; cx.textAlign="center"; cx.textBaseline="middle";
+      cx.fillText("🚶",px,py()+1);
+    }
+
+    raf=requestAnimationFrame(frame);
+  }
+  function roundRect(c,x,y,w,hh,r){
+    c.beginPath();
+    c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+hh,r); c.arcTo(x+w,y+hh,x,y+hh,r);
+    c.arcTo(x,y+hh,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath();
+  }
+
+  keyh=function(e){
+    var k=e.key;
+    if(k==="ArrowUp"){mv(0,-1);e.preventDefault()}
+    else if(k==="ArrowDown"){mv(0,1);e.preventDefault()}
+    else if(k==="ArrowLeft"){mv(-1,0);e.preventDefault()}
+    else if(k==="ArrowRight"){mv(1,0);e.preventDefault()}
+  };
+  window.addEventListener("keydown",keyh);
+
+  var s0=null;
+  cv.addEventListener("pointerdown",function(e){s0={x:e.clientX,y:e.clientY}});
+  cv.addEventListener("pointerup",function(e){
+    if(!s0)return;
+    var dx=e.clientX-s0.x, dy=e.clientY-s0.y; s0=null;
+    if(Math.abs(dx)<18&&Math.abs(dy)<18){mv(0,-1);return}
+    if(Math.abs(dy)>Math.abs(dx))mv(0,dy<0?-1:1); else mv(dx<0?-1:1,0);
+  });
+
+  function fim(win){
+    G.over=true; stop();
+    var el=Math.round(performance.now()-G.t0), bt=best(), rec=win&&(!bt||el<bt);
+    if(rec)setBest(el);
+    setTimeout(function(){
+      app.innerHTML="";
+      var stars=!win?0:G.miss.length===0?3:G.miss.length===1?2:1;
+      var c=h("div",{class:"card"},
+        h("span",{class:"label"},win?"You did it!":"Game over"),
+        h("h1",null,win?"🏆 All doors cleared":"💔 No hearts left"),
+        h("div",{class:"stars"},"⭐".repeat(stars)+"☆".repeat(3-stars)),
+        h("p",null,"Doors: "+G.ok+" / "+total+" · "+SPEEDS[speed][0]),
+        h("p",{class:"label"},"⏱ "+(el/1000).toFixed(1)+"s"+(rec?" · 🏆 new record":(bt?" · best "+(bt/1000).toFixed(1)+"s":""))));
+      if(G.miss.length){
+        var mi=h("div",{class:"miss"});
+        G.miss.forEach(function(q){
+          mi.appendChild(h("div",{html:q.frase.replace("___","<b>"+q.certa+"</b>")+"<br><i style='opacity:.7;font-size:14.5px'>"+q.raiz+"</i>"}));
+        });
+        c.appendChild(h("span",{class:"label"},"Look at these again"));
+        c.appendChild(mi);
+      }
+      c.appendChild(h("div",{class:"row"},
+        h("button",{class:"btn",on:{click:play}},"↻ Try again"),
+        h("button",{class:"btn ghost small",on:{click:start}},"← Menu")));
+      app.appendChild(c); window.scrollTo(0,0);
+    },700);
+  }
+
+  drawHud(); round();
+  last=performance.now(); raf=requestAnimationFrame(frame);
+}
+
+start();
+})();
+</script>
+</body>
+</html>
