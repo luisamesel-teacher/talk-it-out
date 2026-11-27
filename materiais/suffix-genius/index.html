@@ -61,12 +61,18 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .lvsel{font:700 14px var(--label);padding:8px 10px;border-radius:999px;border:2px solid #fff;background:#12152e;color:#fff;min-height:40px}
 .board.paused .pad,.board.paused .center{filter:blur(3px) grayscale(.6);opacity:.6}
 .lv button{font-size:14px;padding:8px 12px}
+.esc{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin:14px 0 4px}
+.fz{display:grid;gap:1px;padding:10px 6px 8px;border-radius:13px;cursor:pointer;background:rgba(255,255,255,.07);
+ border:2px solid rgba(255,255,255,.22);color:#fff;font:inherit;text-align:center}
+.fz b{font:800 14px var(--label)} .fz small{font:600 11px var(--body);opacity:.72;line-height:1.2}
+.fz.on{background:#f2c14e;border-color:#f2c14e;color:#12152e}
 </style>
 </head>
 <body>
 <div class="wrap" id="app"></div>
 <script>
-var P=[
+var CONJ=[
+ {nome:"Level 1 · The easy four",sub:"-ment · -tion · -ity · -ness",pads:["-ment","-tion","-ity","-ness"],P:[
 ["-ment","achieve","achievement — something you managed to do, with effort",[["Winning that set was a real ___.","improvement","agreement"],["Her greatest ___ was finishing the marathon.","requirement","awareness"]]],
 ["-ment","improve","improvement — a change that makes something better",[["There has been a huge ___ since March.","achievement","instruction"],["The new coach brought a clear ___ to the team.","agreement","ability"]]],
 ["-ment","agree","agreement — when people decide something together",[["They finally reached an ___.","achievement","suggestion"],["We signed the ___ last Friday.","improvement","popularity"]]],
@@ -93,9 +99,67 @@ var P=[
 ["-ness","aware","awareness — knowing that something exists",[["There is growing ___ of the problem.","kindness","willingness"],["The campaign raised ___ of recycling.","happiness","weakness"]]],
 ["-ness","weak","weakness — a weak point",[["Her backhand is still a ___.","willingness","kindness"],["Chocolate is my one ___.","awareness","happiness"]]],
 ["-ness","willing","willingness — being ready to do something",[["I admire her ___ to try again.","awareness","weakness"],["His ___ to help made the difference.","kindness","happiness"]]],
-["-ness","dark","darkness — the absence of light",[["They walked home in total ___.","weakness","awareness"],["The ___ of the hall made it worse.","kindness","happiness"]]]
+["-ness","dark","darkness — the absence of light",[["They walked home in total ___.","weakness","awareness"],["The ___ of the hall made it worse.","kindness","happiness"]]]]},
+
+ {nome:"Level 2 · Nouns A",sub:"SB p.13 · -ure -ance -age -al",pads:["-ure", "-ance", "-age", "-al"],P:[
+  ["-ure","please","PLEASE → pleasure",[]],
+  ["-ure","expose","EXPOSE → exposure",[]],
+  ["-ure","close","CLOSE → closure",[]],
+  ["-ance","appear","APPEAR → appearance",[]],
+  ["-ance","annoy","ANNOY → annoyance",[]],
+  ["-ance","rely","RELY → reliance",[]],
+  ["-age","store","STORE → storage",[]],
+  ["-age","short","SHORT → shortage",[]],
+  ["-age","pack","PACK → package",[]],
+  ["-al","rehearse","REHEARSE → rehearsal",[]],
+  ["-al","renew","RENEW → renewal",[]],
+  ["-al","propose","PROPOSE → proposal",[]]]},
+
+ {nome:"Level 3 · Nouns B",sub:"SB p.13 · -cy -ship -hood -ence",pads:["-cy", "-ship", "-hood", "-ence"],P:[
+  ["-cy","efficient","EFFICIENT → efficiency",[]],
+  ["-cy","intimate","INTIMATE → intimacy",[]],
+  ["-cy","vacant","VACANT → vacancy",[]],
+  ["-ship","leader","LEADER → leadership",[]],
+  ["-ship","companion","COMPANION → companionship",[]],
+  ["-ship","partner","PARTNER → partnership",[]],
+  ["-hood","neighbour","NEIGHBOUR → neighbourhood",[]],
+  ["-hood","father","FATHER → fatherhood",[]],
+  ["-hood","adult","ADULT → adulthood",[]],
+  ["-ence","absent","ABSENT → absence",[]],
+  ["-ence","persistent","PERSISTENT → persistence",[]],
+  ["-ence","evident","EVIDENT → evidence",[]]]},
+
+ {nome:"Level 4 · Adjectives A",sub:"SB p.36 · -able -ative -ory -ial",pads:["-able", "-ative", "-ory", "-ial"],P:[
+  ["-able","approach","APPROACH → approachable",[]],
+  ["-able","apply","APPLY → applicable",[]],
+  ["-able","believe","BELIEVE → believable",[]],
+  ["-ative","argument","ARGUMENT → argumentative",[]],
+  ["-ative","inform","INFORM → informative",[]],
+  ["-ative","provoke","PROVOKE → provocative",[]],
+  ["-ory","introduce","INTRODUCE → introductory",[]],
+  ["-ory","contradict","CONTRADICT → contradictory",[]],
+  ["-ory","prepare","PREPARE → preparatory",[]],
+  ["-ial","manager","MANAGER → managerial",[]],
+  ["-ial","influence","INFLUENCE → influential",[]],
+  ["-ial","territory","TERRITORY → territorial",[]]]},
+
+ {nome:"Level 5 · Adjectives B",sub:"SB p.36 · -ous -less -ent -y",pads:["-ous", "-less", "-ent", "-y"],P:[
+  ["-ous","luxury","LUXURY → luxurious",[]],
+  ["-ous","mystery","MYSTERY → mysterious",[]],
+  ["-ous","adventure","ADVENTURE → adventurous",[]],
+  ["-less","end","END → endless",[]],
+  ["-less","price","PRICE → priceless",[]],
+  ["-less","sleep","SLEEP → sleepless",[]],
+  ["-ent","persist","PERSIST → persistent",[]],
+  ["-ent","appear","APPEAR → apparent",[]],
+  ["-ent","obey","OBEY → obedient",[]],
+  ["-y","chat","CHAT → chatty",[]],
+  ["-y","mud","MUD → muddy",[]],
+  ["-y","rock","ROCK → rocky",[]]]}
 ];
-var PREPS=["-ment","-tion","-ity","-ness"];
+var FASE=0;
+var P=CONJ[0].P;
+var PREPS=CONJ[0].pads;
 var SYN={"at all":"in any way","at first":"in the beginning","at last":"finally","at least":"the minimum","at once":"immediately","at the moment":"now","at times":"sometimes","by accident":"accidentally","by chance":"by luck","by hand":"manually","by mistake":"in error","by the time":"when","in a hurry":"rushing","in addition to":"besides","in danger":"at risk","in the end":"eventually","in time":"early enough","in trouble":"with problems","on average":"typically","on foot":"walking","on purpose":"intentionally","on sale":"cheaper than usual","on time":"punctually"};
 /* phrases too close in meaning to appear together as options */
 var TWIN=[["at last","in the end"],["by accident","by mistake"],["at the moment","at once"],["by chance","by accident"]];
@@ -108,7 +172,7 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 function pick(a){return a[Math.floor(Math.random()*a.length)]}
 function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==="on")for(var ev in at.on)e.addEventListener(ev,at.on[ev]);else if(at[k]!=null)e.setAttribute(k,at[k])}
   for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;if(Array.isArray(c))c.forEach(function(x){if(x!=null)e.appendChild(typeof x==="string"?document.createTextNode(x):x)});else e.appendChild(typeof c==="string"?document.createTextNode(c):c)}return e}
-var PREPS=["-ment","-tion","-ity","-ness"],app=document.getElementById("app"),G=null,speed=0,paused=false;
+var PREPS=CONJ[0].pads,app=document.getElementById("app"),G=null,speed=0,paused=false;
 /* [label, ms per word, words stay on screen, how many phrases, goal (roots in a row)] */
 var SPEEDS=[["1 · 6 roots · roots stay",1400,true,6,5],["2 · 10 roots",1350,false,10,5],["3 · 12 roots",1300,false,12,6],["4 · 14 roots",1250,false,14,6],["5 · 16 roots",1150,false,16,7],["6 · 18 roots",1100,false,18,7],["7 · 20 roots",1000,false,20,8],["8 · all roots",950,false,22,8],["9 · all, faster",850,false,22,9],["10 · all, fastest 🚀",750,false,22,10]];
 var ORDER=["achieve", "happy", "kind", "agree", "improve", "imagine", "educate", "able", "inform", "weak", "active", "object", "require", "popular", "aware", "suggest", "reduce", "responsible", "creative", "fulfil", "introduce", "willing", "manage", "simple", "dark", "disappoint", "original"];
@@ -119,10 +183,15 @@ function meaning(p,c){var x=P.filter(function(z){return z[0]===p&&z[1]===c})[0];
 function comps(){var all=[];P.forEach(function(x){if(all.indexOf(x[1])<0)all.push(x[1])});var o=ORDER.filter(function(c){return all.indexOf(c)>=0});all.forEach(function(c){if(o.indexOf(c)<0)o.push(c)});return o.slice(0,SPEEDS[speed][3])}
 function wait(ms,fn,tok){var left=ms;(function lp(){if(!G||G.my!==tok)return;if(!paused)left-=50;if(left<=0)fn();else setTimeout(lp,50)})()}
 function levelPills(onPick){var lv=h("div",{class:"lv"});SPEEDS.forEach(function(s,i){lv.appendChild(h("button",{class:i===speed?"on":null,on:{click:function(){speed=i;onPick()}}},s[0]))});return lv}
+function setFase(k){FASE=k;P=CONJ[k].P;PREPS=CONJ[k].pads;}
 function start(){
   G=null;paused=false;app.innerHTML="";
+  var esc=h("div",{class:"esc"});
+  CONJ.forEach(function(c,k){esc.appendChild(h("button",{class:"fz"+(k===FASE?" on":""),
+    on:{click:function(){setFase(k);start()}}},h("b",null,c.nome.split(" \u00b7 ")[0]),
+    h("small",null,c.nome.split(" \u00b7 ")[1]||"")))});
   var box=h("div",null);function draw(){box.innerHTML="";box.appendChild(levelPills(draw));var b=bestOf(speed);box.appendChild(h("p",{class:"mean"},"🎯 Goal: "+SPEEDS[speed][4]+" roots in a row"+(b?" · 🏆 Your best: "+b:"")))}draw();
-  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},"Suffixes that build nouns"),h("h1",null,"🧩 Suffix Genius"),
+  app.appendChild(h("div",{class:"card"},h("span",{class:"label"},CONJ[FASE].sub),h("h1",null,"🧩 Suffix Genius"),esc,
     h("ol",{class:"how"},
       h("li",null,h("span",{class:"e"},"👀"),h("span",null,"Watch the roots, one by one.")),
       h("li",null,h("span",{class:"e"},"🧠"),h("span",null,"Tap the suffix that turns each root into a noun, in the same order.")),

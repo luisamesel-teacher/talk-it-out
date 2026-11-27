@@ -60,7 +60,7 @@ h1{color:var(--yel);font-size:clamp(30px,6vw,46px);text-shadow:0 0 14px rgba(255
 .rev div span{font:700 14px var(--label);color:#f2c14e;white-space:nowrap;text-align:right}
 .rev div i{grid-column:1/3;font-style:normal;font:400 15.5px/1.35 var(--body);opacity:.78}
 .rev div i:empty{display:none}
-.esc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0 4px}
+.esc{display:grid;grid-template-columns:repeat(auto-fit,minmax(98px,1fr));gap:8px;margin:14px 0 4px}
 .fz{display:grid;gap:1px;padding:11px 6px 9px;border-radius:14px;cursor:pointer;
   background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.22);color:#fff;
   font:inherit;text-align:center}
@@ -186,6 +186,62 @@ var P3=[
 ["-ness","WEAK","Her backhand is still a ___.","Her backhand is still a <b>weakness</b>.","","fraqueza"],
 ["-ness","WILLING","I admire her ___ to try again.","I admire her <b>willingness</b> to try again.","","disposição"]
 ];
+var P4=[
+["-ure","PLEASE","","PLEASE → <b>pleasure</b>","",""],
+["-ure","EXPOSE","","EXPOSE → <b>exposure</b>","",""],
+["-ure","CLOSE","","CLOSE → <b>closure</b>","",""],
+["-ance","APPEAR","","APPEAR → <b>appearance</b>","",""],
+["-ance","ANNOY","","ANNOY → <b>annoyance</b>","",""],
+["-ance","RELY","","RELY → <b>reliance</b>","",""],
+["-age","STORE","","STORE → <b>storage</b>","",""],
+["-age","SHORT","","SHORT → <b>shortage</b>","",""],
+["-age","PACK","","PACK → <b>package</b>","",""],
+["-al","REHEARSE","","REHEARSE → <b>rehearsal</b>","",""],
+["-al","RENEW","","RENEW → <b>renewal</b>","",""],
+["-al","PROPOSE","","PROPOSE → <b>proposal</b>","",""]
+];
+var P5=[
+["-cy","EFFICIENT","","EFFICIENT → <b>efficiency</b>","",""],
+["-cy","INTIMATE","","INTIMATE → <b>intimacy</b>","",""],
+["-cy","VACANT","","VACANT → <b>vacancy</b>","",""],
+["-ship","LEADER","","LEADER → <b>leadership</b>","",""],
+["-ship","COMPANION","","COMPANION → <b>companionship</b>","",""],
+["-ship","PARTNER","","PARTNER → <b>partnership</b>","",""],
+["-hood","NEIGHBOUR","","NEIGHBOUR → <b>neighbourhood</b>","",""],
+["-hood","FATHER","","FATHER → <b>fatherhood</b>","",""],
+["-hood","ADULT","","ADULT → <b>adulthood</b>","",""],
+["-ence","ABSENT","","ABSENT → <b>absence</b>","",""],
+["-ence","PERSISTENT","","PERSISTENT → <b>persistence</b>","",""],
+["-ence","EVIDENT","","EVIDENT → <b>evidence</b>","",""]
+];
+var P6=[
+["-able","APPROACH","","APPROACH → <b>approachable</b>","",""],
+["-able","APPLY","","APPLY → <b>applicable</b>","",""],
+["-able","BELIEVE","","BELIEVE → <b>believable</b>","",""],
+["-ative","ARGUMENT","","ARGUMENT → <b>argumentative</b>","",""],
+["-ative","INFORM","","INFORM → <b>informative</b>","",""],
+["-ative","PROVOKE","","PROVOKE → <b>provocative</b>","",""],
+["-ory","INTRODUCE","","INTRODUCE → <b>introductory</b>","",""],
+["-ory","CONTRADICT","","CONTRADICT → <b>contradictory</b>","",""],
+["-ory","PREPARE","","PREPARE → <b>preparatory</b>","",""],
+["-ial","MANAGER","","MANAGER → <b>managerial</b>","",""],
+["-ial","INFLUENCE","","INFLUENCE → <b>influential</b>","",""],
+["-ial","TERRITORY","","TERRITORY → <b>territorial</b>","",""]
+];
+var P7=[
+["-ous","LUXURY","","LUXURY → <b>luxurious</b>","",""],
+["-ous","MYSTERY","","MYSTERY → <b>mysterious</b>","",""],
+["-ous","ADVENTURE","","ADVENTURE → <b>adventurous</b>","",""],
+["-less","END","","END → <b>endless</b>","",""],
+["-less","PRICE","","PRICE → <b>priceless</b>","",""],
+["-less","SLEEP","","SLEEP → <b>sleepless</b>","",""],
+["-ent","PERSIST","","PERSIST → <b>persistent</b>","",""],
+["-ent","APPEAR","","APPEAR → <b>apparent</b>","",""],
+["-ent","OBEY","","OBEY → <b>obedient</b>","",""],
+["-y","CHAT","","CHAT → <b>chatty</b>","",""],
+["-y","MUD","","MUD → <b>muddy</b>","",""],
+["-y","ROCK","","ROCK → <b>rocky</b>","",""]
+];
 var V=P1;
 var B=[["noun","noun"],["verb","verb"],["adjective","adjective"],["adverb","adverb"]];
 var CLS={"noun":"p-on","verb":"p-for","adjective":"p-to","adverb":"p-no"};
@@ -200,7 +256,19 @@ var FASES=[null,
   how:"Only the root falls. Drop it on the suffix that turns it into a noun."},
  {v:function(){return P3},w:"root",t:"Phase 3 \u00b7 suffixes in a sentence",
   B:[["-ment","-ment"],["-tion","-tion"],["-ity","-ity"],["-ness","-ness"]],
-  how:"The sentence stays at the top. The root falls. Choose its suffix."}];
+  how:"The sentence stays at the top. The root falls. Choose its suffix."},
+ {v:function(){return P4},w:"root",t:"Phase 4 \u00b7 nouns from the book",
+  B:[["-ure","-ure"],["-ance","-ance"],["-age","-age"],["-al","-al"]],
+  how:"Harder roots, straight from page 13. Drop each one on its suffix."},
+ {v:function(){return P5},w:"root",t:"Phase 5 \u00b7 nouns, the rarer four",
+  B:[["-cy","-cy"],["-ship","-ship"],["-hood","-hood"],["-ence","-ence"]],
+  how:"The four that almost nobody gets right the first time."},
+ {v:function(){return P6},w:"root",t:"Phase 6 \u00b7 adjectives from the book",
+  B:[["-able","-able"],["-ative","-ative"],["-ory","-ory"],["-ial","-ial"]],
+  how:"Page 36, exercise 2. Drop each root on the suffix that makes an adjective."},
+ {v:function(){return P7},w:"root",t:"Phase 7 \u00b7 adjectives, the last four",
+  B:[["-ous","-ous"],["-less","-less"],["-ent","-ent"],["-y","-y"]],
+  how:"The last group. After this one, page 36 has nothing left to surprise you."}];
 function setFase(k){PHASE=k;var f=FASES[k];V=f.v();WORD=f.w;TOPIC=f.t;B=f.B;
   CLS={};B.forEach(function(x,i){CLS[x[0]]=["p-on","p-for","p-to","p-no"][i]})}
 function feito(k){try{return localStorage.getItem("wf-done-"+k)==="1"}catch(e){return false}}
@@ -283,12 +351,12 @@ function start(){
       h("i",{html:PHASE===1?r[3]:(r[4]||"")}),
       h("span",null,PHASE===1?r[0]:alvo)))});
   var esc=h("div",{class:"esc"});
-  function drawEsc(){esc.innerHTML="";[1,2,3].forEach(function(k){
+  function drawEsc(){esc.innerHTML="";FASES.slice(1).map(function(_,ix){return ix+1}).forEach(function(k){
     var f=FASES[k],ok=feito(k);
     esc.appendChild(h("button",{class:"fz"+(k===PHASE?" on":"")+(ok?" ok":""),
       on:{click:function(){setFase(k);start()}}},
       h("b",null,"Phase "+k),
-      h("small",null,k===1?"word classes":k===2?"root + suffix":"in a sentence"),
+      h("small",null,(FASES[k].t.split(" \u00b7 ")[1]||"")),
       h("span",{class:"st"},ok?"★":"")))})}
   drawEsc();
   var card=h("div",{class:"card"},
