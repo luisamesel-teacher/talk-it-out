@@ -1,56 +1,57 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 2095 and 2096 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-145 and 154-1329
-WIDE_LAYOUT 1338-1339 · M 1340-1590 · X 1591-1661 · ART 1662-1668 · GR 1669-1756 · GX 1757-1825 · BK 1826-1928 · PIC 1929-1929
-HOOK 1930-1943 · TLN 1944-1952 · EXP 1953-1970 · VERBS 1971-1972 · CAN 1973-1977 · CULT 1978-1998 · GYM 1999-2010 · BD 2011-2090
-TAGN 2091-2091 · LEVELS 2092-2092 · ACTS 2093-2094 · ACH 2097-2097 · PSETS 2098-2098 · faceEl() 2099-2099 · FACES 2100-2102 · T 2103-2180
-S 2181-2181 · KEY 2182-2182 · t() 2183-2183 · save() 2184-2184 · load() 2185-2189 · day() 2190-2190 · touchStreak() 2191-2193 · h() 2194-2206
-shuffle() 2207-2207 · starsFor() 2208-2208 · starEl() 2209-2209 · mod() 2210-2210 · art() 2211-2211 · modStars() 2212-2212 · PASS 2213-2213 · passed() 2214-2214
-actsDone() 2215-2215 · certOK() 2216-2216 · go() 2217-2217 · toTop() 2218-2218 · app() 2219-2219 · pick() 2220-2222 · bar() 2223-2245 · goBack() 2246-2246
-lvTag() 2247-2247 · menu() 2248-2263 · steps() 2264-2270 · nextStep() 2271-2273 · home() 2274-2343 · modulePage() 2344-2443 · backBtn() 2444-2445 · shell() 2446-2453
-swIcon() 2454-2454 · finish() 2455-2487 · run() 2488-2490 · chat() 2491-2522 · loose() 2523-2523 · writeIt() 2524-2557 · mcRun() 2558-2580 · quizItems() 2581-2581
-speedItems() 2582-2582 · quiz() 2583-2583 · cpItems() 2584-2587 · cpWhere() 2588-2595 · checkpoint() 2596-2635 · build() 2636-2682 · match() 2683-2719 · speed() 2720-2743
-HLT 2744-2757 · KW 2758-2771 · kw() 2772-2780 · caps() 2781-2781 · diffB() 2782-2783 · sents() 2784-2784 · hl() 2785-2793 · noteKind() 2794-2798
-BKIND 2799-2799 · blk() 2800-2801 · grammar() 2802-2847 · SERVE 2848-2854 · miss() 2855-2861 · ALL_LV 2862-2862 · maxLv() 2863-2863 · lvOf() 2864-2864
-bkItem() 2865-2865 · qKey() 2866-2866 · qFresh() 2867-2867 · qMark() 2868-2868 · gameQ() 2869-2869 · gameQ0() 2870-2870 · askPanel() 2871-2888 · LVN 2889-2889
-arcade() 2890-2908 · gTimer() 2909-2911 · fmtT() 2912-2912 · arcadeEnd() 2913-2935 · tennis() 2936-3029 · duel() 3030-3060 · wDiff() 3061-3065 · zap() 3066-3109
-GAMES 3110-3112 · GP 3113-3113 · gclk() 3114-3114 · gHold() 3115-3115 · gGo() 3116-3116 · gClose() 3117-3117 · gFocus() 3118-3120 · COACH 3121-3133
-gCoach() 3134-3152 · TURNG 3153-3153 · gStartNow() 3154-3154 · gReady() 3155-3159 · gOverlay() 3160-3161 · GICONS 3162-3162 · GLIST 3163-3163 · sortNeed() 3164-3164
-poolNeed() 3165-3165 · HOW 3166-3174 · gRestart() 3175-3175 · gIntro() 3176-3195 · gCount() 3196-3208 · gPause() 3209-3222 · WCL 3223-3223 · WSB 3224-3230
-wsClasses() 3231-3231 · wsBank() 3232-3234 · wsWhy() 3235-3237 · penalty() 3238-3348 · wsort() 3349-3384 · wpool() 3385-3532 · HOOPS_BOT 3533-3533 · hoops() 3534-3703
-wonOf() 3704-3704 · starsWon() 3705-3705 · gameList() 3706-3710 · WT 3711-3722 · WTL 3723-3725 · wtubes() 3726-3778 · GN 3779-3797 · GNM 3798-3798
-GNL 3799-3801 · wgenius() 3802-3843 · TUBEMODS 3844-3844 · hasQ() 3845-3845 · hasGame() 3846-3863 · gameCards() 3864-3867 · hub() 3868-3894 · bossSVG() 3895-3914
-cert() 3915-3940 · timeline() 3941-3960 · today() 3961-3961 · exList() 3962-3962 · exFind() 3963-3963 · dueList() 3964-3964 · exCard() 3965-3965 · expr() 3966-3978
-review() 3979-4000 · verbList() 4001-4001 · memBoard() 4002-4014 · verbs() 4015-4059 · mistakes() 4060-4087 · PF 4088-4097 · PQ 4098-4098 · ENTRY 4099-4099
-TRACK 4100-4100 · HELPS 4101-4101 · TIPS 4102-4117 · L2() 4118-4118 · place() 4119-4149 · placeResult() 4150-4171 · avatars() 4172-4225 · VIS 4226-4226
-funnel() 4227-4260 · MAIL 4261-4282 · mailMock() 4283-4287 · mail() 4288-4316 · mailBuild() 4317-4341 · mailQuiz() 4342-4436 · canSpeak() 4437-4437 · voiceScore() 4438-4445
-voices() 4446-4449 · sayIt() 4450-4455 · voicePage() 4456-4473 · spNorm() 4474-4474 · spellDeck() 4475-4486 · spelling() 4487-4523 · gym() 4524-4573 · culture() 4574-4589
-progressCard() 4590-4599 · NUM 4600-4636 · clockSVG() 4637-4643 · numbers() 4644-4662 · numDrill() 4663-4702 · WV 4703-4717 · ADJ 4718-4724 · ADJQ 4725-4725
-ADVF 4726-4726 · ADVD 4727-4727 · ADVM 4728-4728 · ADVP 4729-4729 · ADVQ 4730-4730 · strip() 4731-4731 · meter() 4732-4732 · wvList() 4733-4733
-ILL 4734-4734 · illEl() 4735-4735 · pics() 4736-4736 · words() 4737-4780 · wDrill() 4781-4804 · LAB 4805-4926 · LABMAP 4927-4927 · LSLOT 4928-4928
-LLINES 4929-4929 · labDi() 4930-4930 · labNeed() 4931-4931 · LPART 4932-4932 · labOpts() 4933-4945 · labRobot() 4946-4967 · LABCOIN 4968-4968 · labParty() 4969-4986
-labSentence() 4987-5003 · labCheck() 5004-5026 · isFreqT() 5027-5027 · vowelSound() 5028-5028 · labArt() 5029-5039 · labTense() 5040-5051 · labSense() 5052-5068 · LSTATE 5069-5069
-lab() 5070-5168 · RSWAP 5169-5169 · rVariant() 5170-5180 · race() 5181-5294 · ZAPX 5295-5313 · ideas() 5314-5321 · ownBox() 5322-5327 · applyTheme() 5328-5328
-nm() 5329-5329 · hi() 5330-5330 · welcome() 5331-5349 · choice() 5350-5363 · SG_SING 5364-5364 · SG_VERB 5365-5365 · sentenceTips() 5366-5400 · tipsBox() 5401-5409
-AI 5410-5410 · aiInit() 5411-5411 · aiReady() 5412-5412 · aiContext() 5413-5413 · aiCall() 5414-5418 · aiCheck() 5419-5423 · askTeacher() 5424-5440 · askFab() 5441-5445
-STORY 5446-5502 · storyFor() 5503-5503 · storyList() 5504-5511 · storyPage() 5512-5540 · aiStory() 5541-5546 · BDE 5547-5548 · REV 5549-5605 · ins() 5606-5755
-XQ 5756-5764 · REVIEWM 5765-5775 · TMOD 5776-5778 · SORTSET 5779-5785 · CDS 5786-5794 · CDL 5795-5797 · cdParse() 5798-5801 · wcommas() 5802-5844
-pvOf() 5845-5845 · pvPool() 5846-5848 · pvQs() 5849-5859 · arcadeMods() 5860-5860 · arcadePage() 5861-5900 · ARCMODES 5901-5901 · arcModeOf() 5902-5906 · arcModBtn() 5907-5928
-SPDICT 5929-5929 · spellDict() 5930-5944 · spKnown() 5945-5946 · spDist() 5947-5948 · spellIssues() 5949-5954 · lvMenu() 5955-5961 · COMMAMODS 5962-5963 · PSET 5964-5969
-PMODES 5970-5970 · poolSet() 5971-5971 · gD() 5972-5975 · TONE 5976-5978 · NINE 5979-5981 · soloCard() 5982-5984 · cityBank() 5985-5985 · SOLO 5986-6002
-MOVIES 6003-6059 · MVLV 6060-6061 · stuLv() 6062-6065 · wmovie() 6066-6151 · DCOL 6152-6152 · DIT 6153-6157 · DMAT 6158-6158 · dkC() 6159-6159
-dollSVG() 6160-6219 · dPiece() 6220-6220 · dArt() 6221-6221 · DVB 6222-6222 · wdoll() 6223-6328 · dartSents() 6329-6330 · dartGaps() 6331-6331 · wdarts() 6332-6393
-crossGaps() 6394-6394 · wcross() 6395-6450 · BRCAR 6451-6489 · brItems() 6490-6491 · brParse() 6492-6492 · wbridge() 6493-6587 · STAGS 6588-6615 · SGTAGS 6616-6616
-SPAGES 6617-6617 · sNorm() 6618-6618 · SIDX 6619-6619 · sIndex() 6620-6629 · sFind() 6630-6632 · searchBox() 6633-6652 · rKey() 6653-6653 · favG() 6654-6654
-favGM() 6655-6655 · togFav() 6656-6657 · gRate() 6658-6658 · heartEl() 6659-6661 · RQ 6662-6662 · rateCard() 6663-6679 · AFILT 6680-6700 · QW 6701-6778
-qwById() 6779-6779 · qwFor() 6780-6780 · qwList() 6781-6786 · qwPage() 6787-6818 · qwGameBtn() 6819-6821 · QWFF 6822-6829 · qwLow() 6830-6830 · qwDiff() 6831-6832
-qwIs() 6833-6833 · IRR 6834-6834 · QWRULES 6835-6871 · qwSent() 6872-6873 · qwFind() 6874-6876 · qwDetect() 6877-6877 · QWQUEUE 6878-6879 · qwTgt() 6880-6883
-qwToast() 6884-6900 · qwRecs() 6901-6966 · C1USES 6967-6975 · REG 6976-7017 · regFor() 7018-7018 · regFill() 7019-7019 · regForm() 7020-7020 · regGap() 7021-7023
-CAMTIP 7024-7033 · camTipEl() 7034-7066 · KWT 7067-7091 · kwtFor() 7092-7095 · INV 7096-7110 · wlift() 7111-7150 · wkwt() 7151-7187 · winv() 7188-7444
-MOCK 7445-7475 · MOCKNAME 7476-7476 · MOCKHOW 7477-7477 · wmock() 7478-7585 · PPM 7586-7586 · PPMQ 7587-7599 · ppmSlide() 7600-7613 · GSLX 7614-7802
-addTopic() 7803-8062 · sportsHub() 8063-8081 · gMark() 8082-8083 · USES 8084-8223 · gLines() 8224-8224 · grammar() 8225-8300 · mNo() 8301-8434 · nbFind() 8435-8436
-rmItem() 8437-8440 · rmPool() 8441-8441 · rematch() 8442-8486 · NINE_EXTRA 8487-8488 · route() 8489-8502 · start() 8503-8511
+NEVER read lines 2098 and 2099 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-146 and 155-1332
+WIDE_LAYOUT 1341-1342 · M 1343-1593 · X 1594-1664 · ART 1665-1671 · GR 1672-1759 · GX 1760-1828 · BK 1829-1931 · PIC 1932-1932
+HOOK 1933-1946 · TLN 1947-1955 · EXP 1956-1973 · VERBS 1974-1975 · CAN 1976-1980 · CULT 1981-2001 · GYM 2002-2013 · BD 2014-2093
+TAGN 2094-2094 · LEVELS 2095-2095 · ACTS 2096-2097 · ACH 2100-2100 · PSETS 2101-2101 · faceEl() 2102-2102 · FACES 2103-2105 · T 2106-2183
+S 2184-2184 · KEY 2185-2185 · t() 2186-2186 · save() 2187-2187 · load() 2188-2192 · day() 2193-2193 · touchStreak() 2194-2196 · h() 2197-2209
+shuffle() 2210-2210 · starsFor() 2211-2211 · starEl() 2212-2212 · mod() 2213-2213 · art() 2214-2214 · modStars() 2215-2215 · PASS 2216-2216 · passed() 2217-2217
+actsDone() 2218-2218 · certOK() 2219-2219 · go() 2220-2220 · toTop() 2221-2221 · app() 2222-2222 · pick() 2223-2225 · bar() 2226-2248 · goBack() 2249-2249
+lvTag() 2250-2250 · menu() 2251-2266 · steps() 2267-2273 · nextStep() 2274-2276 · home() 2277-2346 · modulePage() 2347-2446 · backBtn() 2447-2448 · shell() 2449-2456
+swIcon() 2457-2457 · finish() 2458-2490 · run() 2491-2493 · chat() 2494-2525 · loose() 2526-2526 · writeIt() 2527-2560 · mcRun() 2561-2583 · quizItems() 2584-2584
+speedItems() 2585-2585 · quiz() 2586-2586 · cpItems() 2587-2590 · cpWhere() 2591-2598 · checkpoint() 2599-2638 · build() 2639-2685 · match() 2686-2722 · speed() 2723-2746
+HLT 2747-2760 · KW 2761-2774 · kw() 2775-2783 · caps() 2784-2784 · diffB() 2785-2786 · sents() 2787-2787 · hl() 2788-2796 · noteKind() 2797-2801
+BKIND 2802-2802 · blk() 2803-2804 · grammar() 2805-2850 · SERVE 2851-2857 · miss() 2858-2864 · ALL_LV 2865-2865 · maxLv() 2866-2866 · lvOf() 2867-2867
+bkItem() 2868-2868 · qKey() 2869-2869 · qFresh() 2870-2870 · qMark() 2871-2871 · gameQ() 2872-2872 · gameQ0() 2873-2873 · askPanel() 2874-2891 · LVN 2892-2892
+arcade() 2893-2911 · gTimer() 2912-2914 · fmtT() 2915-2915 · arcadeEnd() 2916-2938 · tennis() 2939-3032 · duel() 3033-3063 · wDiff() 3064-3068 · zap() 3069-3112
+GAMES 3113-3115 · GP 3116-3116 · gclk() 3117-3117 · gHold() 3118-3118 · gGo() 3119-3119 · gClose() 3120-3120 · gFocus() 3121-3123 · COACH 3124-3136
+gCoach() 3137-3155 · TURNG 3156-3156 · gStartNow() 3157-3157 · gReady() 3158-3162 · gOverlay() 3163-3164 · GICONS 3165-3165 · GLIST 3166-3166 · sortNeed() 3167-3167
+poolNeed() 3168-3168 · HOW 3169-3177 · gRestart() 3178-3178 · gIntro() 3179-3198 · gCount() 3199-3211 · gPause() 3212-3225 · WCL 3226-3226 · WSB 3227-3233
+wsClasses() 3234-3234 · wsBank() 3235-3237 · wsWhy() 3238-3240 · penalty() 3241-3351 · wsort() 3352-3387 · wpool() 3388-3535 · HOOPS_BOT 3536-3536 · hoops() 3537-3706
+wonOf() 3707-3707 · starsWon() 3708-3708 · gameList() 3709-3713 · WT 3714-3725 · WTL 3726-3728 · wtubes() 3729-3781 · GN 3782-3800 · GNM 3801-3801
+GNL 3802-3804 · wgenius() 3805-3846 · TUBEMODS 3847-3847 · hasQ() 3848-3848 · hasGame() 3849-3866 · gameCards() 3867-3870 · hub() 3871-3897 · bossSVG() 3898-3917
+cert() 3918-3943 · timeline() 3944-3963 · today() 3964-3964 · exList() 3965-3965 · exFind() 3966-3966 · dueList() 3967-3967 · exCard() 3968-3968 · expr() 3969-3981
+review() 3982-4003 · verbList() 4004-4004 · memBoard() 4005-4017 · verbs() 4018-4062 · mistakes() 4063-4086 · PF 4087-4096 · PQ 4097-4097 · ENTRY 4098-4098
+TRACK 4099-4099 · HELPS 4100-4100 · TIPS 4101-4116 · L2() 4117-4117 · place() 4118-4148 · placeResult() 4149-4170 · avatars() 4171-4224 · VIS 4225-4225
+funnel() 4226-4259 · MAIL 4260-4281 · mailMock() 4282-4286 · mail() 4287-4315 · mailBuild() 4316-4340 · mailQuiz() 4341-4435 · canSpeak() 4436-4436 · voiceScore() 4437-4444
+voices() 4445-4448 · sayIt() 4449-4454 · voicePage() 4455-4472 · spNorm() 4473-4473 · spellDeck() 4474-4485 · spelling() 4486-4522 · gym() 4523-4572 · culture() 4573-4588
+progressCard() 4589-4598 · NUM 4599-4635 · clockSVG() 4636-4642 · numbers() 4643-4661 · numDrill() 4662-4701 · WV 4702-4716 · ADJ 4717-4723 · ADJQ 4724-4724
+ADVF 4725-4725 · ADVD 4726-4726 · ADVM 4727-4727 · ADVP 4728-4728 · ADVQ 4729-4729 · strip() 4730-4730 · meter() 4731-4731 · wvList() 4732-4732
+ILL 4733-4733 · illEl() 4734-4734 · pics() 4735-4735 · words() 4736-4779 · wDrill() 4780-4803 · LAB 4804-4925 · LABMAP 4926-4926 · LSLOT 4927-4927
+LLINES 4928-4928 · labDi() 4929-4929 · labNeed() 4930-4930 · LPART 4931-4931 · labOpts() 4932-4944 · labRobot() 4945-4966 · LABCOIN 4967-4967 · labParty() 4968-4985
+labSentence() 4986-5002 · labCheck() 5003-5025 · isFreqT() 5026-5026 · vowelSound() 5027-5027 · labArt() 5028-5038 · labTense() 5039-5050 · labSense() 5051-5067 · LSTATE 5068-5068
+lab() 5069-5167 · RSWAP 5168-5168 · rVariant() 5169-5179 · race() 5180-5293 · ZAPX 5294-5312 · ideas() 5313-5320 · ownBox() 5321-5326 · applyTheme() 5327-5327
+nm() 5328-5328 · hi() 5329-5329 · welcome() 5330-5348 · choice() 5349-5362 · SG_SING 5363-5363 · SG_VERB 5364-5364 · sentenceTips() 5365-5399 · tipsBox() 5400-5408
+AI 5409-5409 · aiInit() 5410-5410 · aiReady() 5411-5411 · aiContext() 5412-5412 · aiCall() 5413-5417 · aiCheck() 5418-5422 · askTeacher() 5423-5439 · askFab() 5440-5444
+STORY 5445-5501 · storyFor() 5502-5502 · storyList() 5503-5510 · storyPage() 5511-5539 · aiStory() 5540-5545 · BDE 5546-5547 · REV 5548-5604 · ins() 5605-5754
+XQ 5755-5763 · REVIEWM 5764-5774 · TMOD 5775-5777 · SORTSET 5778-5784 · CDS 5785-5793 · CDL 5794-5796 · cdParse() 5797-5800 · wcommas() 5801-5843
+pvOf() 5844-5844 · pvPool() 5845-5847 · pvQs() 5848-5858 · arcadeMods() 5859-5859 · arcadePage() 5860-5899 · ARCMODES 5900-5900 · arcModeOf() 5901-5905 · arcModBtn() 5906-5927
+SPDICT 5928-5928 · spellDict() 5929-5943 · spKnown() 5944-5945 · spDist() 5946-5947 · spellIssues() 5948-5953 · lvMenu() 5954-5960 · COMMAMODS 5961-5962 · PSET 5963-5968
+PMODES 5969-5969 · poolSet() 5970-5970 · gD() 5971-5974 · TONE 5975-5977 · NINE 5978-5980 · soloCard() 5981-5983 · cityBank() 5984-5984 · SOLO 5985-6001
+MOVIES 6002-6058 · MVLV 6059-6060 · stuLv() 6061-6064 · wmovie() 6065-6150 · DCOL 6151-6151 · DIT 6152-6156 · DMAT 6157-6157 · dkC() 6158-6158
+dollSVG() 6159-6218 · dPiece() 6219-6219 · dArt() 6220-6220 · DVB 6221-6221 · wdoll() 6222-6327 · dartSents() 6328-6329 · dartGaps() 6330-6330 · wdarts() 6331-6392
+crossGaps() 6393-6393 · wcross() 6394-6449 · BRCAR 6450-6488 · brItems() 6489-6490 · brParse() 6491-6491 · wbridge() 6492-6586 · STAGS 6587-6614 · SGTAGS 6615-6615
+SPAGES 6616-6616 · sNorm() 6617-6617 · SIDX 6618-6618 · sIndex() 6619-6628 · sFind() 6629-6631 · searchBox() 6632-6651 · rKey() 6652-6652 · favG() 6653-6653
+favGM() 6654-6654 · togFav() 6655-6656 · gRate() 6657-6657 · heartEl() 6658-6660 · RQ 6661-6661 · rateCard() 6662-6678 · AFILT 6679-6699 · QW 6700-6777
+qwById() 6778-6778 · qwFor() 6779-6779 · qwList() 6780-6785 · qwPage() 6786-6817 · qwGameBtn() 6818-6820 · QWFF 6821-6828 · qwLow() 6829-6829 · qwDiff() 6830-6831
+qwIs() 6832-6832 · IRR 6833-6833 · QWRULES 6834-6870 · qwSent() 6871-6872 · qwFind() 6873-6875 · qwDetect() 6876-6876 · QWQUEUE 6877-6878 · qwTgt() 6879-6882
+qwToast() 6883-6899 · qwRecs() 6900-6965 · C1USES 6966-6974 · REG 6975-7016 · regFor() 7017-7017 · regFill() 7018-7018 · regForm() 7019-7019 · regGap() 7020-7022
+CAMTIP 7023-7032 · camTipEl() 7033-7065 · KWT 7066-7090 · kwtFor() 7091-7094 · INV 7095-7109 · wlift() 7110-7149 · wkwt() 7150-7186 · winv() 7187-7443
+MOCK 7444-7474 · MOCKNAME 7475-7475 · MOCKHOW 7476-7476 · wmock() 7477-7584 · PPM 7585-7585 · PPMQ 7586-7598 · ppmSlide() 7599-7612 · GSLX 7613-7801
+addTopic() 7802-8061 · sportsHub() 8062-8080 · gMark() 8081-8082 · USES 8083-8222 · gLines() 8223-8223 · grammar() 8224-8299 · mNo() 8300-8433 · nbFind() 8434-8435
+rmItem() 8436-8439 · rmPool() 8440-8440 · rematch() 8441-8467 · ARCLV 8468-8468 · arcLvGame() 8469-8582 · nbType() 8583-8584 · nbKey() 8585-8585 · nbCard() 8586-8599
+NINE_EXTRA 8600-8601 · route() 8602-8615 · start() 8616-8624
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -1325,7 +1326,9 @@ body[data-page="module"] .grid>.card.act>p{margin:2px 0 0}
   #bar .statgroup{gap:6px;padding:6px 9px}
   #bar .avatar,#bar .pillbtn.langbtn,#bar .menubtn{width:44px;min-width:44px;height:44px;min-height:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}
 }
-.lvfilt{margin-top:10px}
+.lvfrow{margin:0 0 10px}.lvfrow .lvfilt{margin-top:8px}
+.lvfilt .pillbtn.on[data-lv="A1"]{background:#17805f;border-color:#17805f;color:#fff}.lvfilt .pillbtn.on[data-lv="A2"]{background:#b05a00;border-color:#b05a00;color:#fff}.lvfilt .pillbtn.on[data-lv="B1"]{background:#5b3fb0;border-color:#5b3fb0;color:#fff}.lvfilt .pillbtn.on[data-lv="B2"]{background:#c2185b;border-color:#c2185b;color:#fff}.lvfilt .pillbtn.on[data-lv="C1"]{background:#0e7490;border-color:#0e7490;color:#fff}
+.rmfb{margin-top:12px}.nbgroup{margin:12px 0}.nbgroup>summary{cursor:pointer;font-size:18px;padding:12px 4px;min-height:44px}.nbsum p{font-size:16px}
 </style>
 </head>
 <body>
@@ -2457,11 +2460,11 @@ function finish(m,k,pct,review,note,tm){
   touchStreak();
   if(k==="cp"){
     var was=passed(m);S.cp[m.id]=Math.max(S.cp[m.id]||0,pct);
-    if(!was&&pct>=PASS)gain=50;
+    if(!was&&pct>=PASS)gain=100;
     if(pct>=PASS&&certOK(m)&&!S.cpDate[m.id])S.cpDate[m.id]=Date.now();
   }else{
     var st=starsFor(pct),rec=S.stars[m.id]||(S.stars[m.id]={}),old=rec[k]||0;
-    if(st>old){gain=(st-old)*10;rec[k]=st}
+    if(st>old){gain=(st-old)*15;rec[k]=st}
   }
   S.coins+=gain;S.xp+=Math.round(pct*20);save();bar();var nx=nextStep(m),low=pct<.5,goal=null;if(nx&&nx.k===k)nx=null;if(k!=="cp"){var st2=starsFor(pct),best=S.stars[m.id][k]||0;goal=st2>=3?"🏆 "+tx("Perfect! Activity mastered.","Perfeito! Atividade dominada."):"🎯 "+tx("Next goal: ","Próxima meta: ")+[50,80,100][st2]+"% → "+"★★★".slice(0,st2+1)+(st2+1>best?" (+"+(st2+1-best)*10+" "+t("coins")+")":"")}
   if(tm&&k!=="cp"){var st3=starsFor(pct),bst=S.stars[m.id][k]||0;goal=st3>=3?"🏆 "+tx("Super fast! Can you beat your record?","Muito rápido! Consegue bater o seu recorde?"):"🎯 "+tx("Finish in under ","Termine em menos de ")+fmtT(tm.goals[st3]*1000)+" → "+"★★★".slice(0,st3+1)+(st3+1>bst?" (+"+(st3+1-bst)*10+" "+t("coins")+")":"")}
@@ -4064,23 +4067,19 @@ function mistakes(){
   var list=S.err||[];
   if(!list.length){a.appendChild(h("p",null,t("nbEmpty")));return}
   var nrm=rmPool().length;
-  if(nrm)a.appendChild(h("section",{class:"card"},h("span",{class:"label"},"⚔️ Rematch"),h("p",null,"Replay your own mistakes. Win one on two different days, at least 2 days apart, and it leaves the notebook (+2 coins)."),h("div",{class:"rowend"},h("button",{class:"btn",onclick:rematch},"⚔️ Start the rematch ("+Math.min(8,nrm)+")"))));
-  list.forEach(function(e){
-    var m=mod(e.m),f=nbFind(e),tq=f&&f.kind==="qw"?qwById(f.id):null,tm=f&&f.kind==="g"?mod(f.id):tq&&tq.m?mod(tq.m):null;if(!tm)tm=m;
-    var hooks=tm&&HOOK[tm.id]?HOOK[tm.id]:[],r=e.rw||[];
-    a.appendChild(h("section",{class:"card gpt"},
-      h("span",{class:"label"},(m?m.t+" · ":"")+t(e.k)),
-      h("p",{class:"q",style:"font-size:22px"},e.q),
-      h("div",{class:"fb no"},h("b",null,t("nbYou")+": "),h("s",null,e.got)),
-      h("div",{class:"fb ok"},h("b",null,t("nbRight")+": "),e.right),
-      e.why?h("p",null,h("b",null,t("nbWhy")+": "),e.why):null,
-      hooks.length?h("div",{class:"rule"},h("span",{class:"label"},t("nbRule")+(tm&&tm!==m?" · "+tm.lv+" "+tm.t:"")),hooks.map(function(x){return h("p",null,x)})[0],hooks[1]?h("p",null,hooks[1]):null,hooks[2]?h("p",null,hooks[2]):null):null,
-      r.length?h("p",{class:"hint"},"⚔️ Rematch: 1 of 2 wins. Win it again 2 days after the first win."):null,
-      h("div",{class:"rowend"},
-        tq?h("button",{class:"btn ghost",onclick:function(){go("qw/"+tq.id)}},"⚡ "+tq.t):null,
-        tm&&GR[tm.id]?h("button",{class:"btn ghost",onclick:function(){grammar(tm)}},tm!==m?"📘 See the lesson: "+tm.t:t("nbGuide")):null,
-        h("button",{class:"btn",onclick:function(){S.err=S.err.filter(function(x){return x!==e});save();mistakes()}},t("nbGot")))));
-  });
+  if(nrm)a.appendChild(h("section",{class:"card"},h("span",{class:"label"},"⚔️ Rematch"),h("p",null,"Replay your own mistakes. Win one on two different days, at least 2 days apart, and it leaves the notebook (+2 coins), together with the other mistakes of the same type."),h("div",{class:"rowend"},h("button",{class:"btn",onclick:rematch},"⚔️ Start the rematch ("+Math.min(8,nrm)+")"))));
+  /* group by the lesson that fixes each mistake, biggest group first */
+  var G={},order=[];list.forEach(function(e){var k=nbKey(e);if(!G[k]){G[k]=[];order.push(k)}G[k].push(e)});
+  order.sort(function(x,y){return G[y].length-G[x].length});
+  function title(k){if(k==="other")return "📝 Other mistakes";if(/^g:/.test(k)){var gm=mod(k.slice(2));if(gm)return "📘 "+gm.lv+" · "+gm.t}var T=qwTgt(k);if(T)return T.title;var m=mod(k.split(":")[1]);return m?"📘 "+m.lv+" · "+m.t:"📝 Other mistakes"}
+  var sum=h("section",{class:"card nbsum"},h("span",{class:"label"},"📊 Your mistakes by lesson"));
+  order.forEach(function(k){var T=k==="other"?null:qwTgt(k);sum.appendChild(h("div",{class:"rowend",style:"justify-content:space-between;align-items:center;flex-wrap:wrap"},h("p",{style:"margin:6px 0"},h("b",null,G[k].length+" mistake"+(G[k].length>1?"s":""))," → "+title(k)),T?h("button",{class:"btn ghost",onclick:T.go},T.btn):null))});
+  a.appendChild(sum);
+  order.forEach(function(k,ix){var L=G[k].slice(),ty={};L.forEach(function(e){e._ty=nbType(e)||"";ty[e._ty]=(ty[e._ty]||0)+1});
+    L.sort(function(x,y){return (ty[y._ty]-ty[x._ty])||(x._ty<y._ty?-1:x._ty>y._ty?1:0)});
+    var d=h("details",{class:"nbgroup",open:ix===0?"":null},h("summary",null,h("b",null,title(k))," · "+L.length));
+    var last=null;L.forEach(function(e){if(e._ty&&ty[e._ty]>1&&e._ty!==last)d.appendChild(h("p",{class:"label",style:"margin:14px 0 4px"},"Same mistake × "+ty[e._ty]+": "+e._ty.split(":").slice(1).join(":")));last=e._ty;d.appendChild(nbCard(e))});
+    a.appendChild(d)});
   window.scrollTo(0,0);
 }
 
@@ -6807,7 +6806,7 @@ function qwPage(id){var q=qwById(id);if(!q){qwList();return}var a=app(),m=q.m?mo
     box.appendChild(tb);box.appendChild(h("p",{class:"qwbad"},h("s",null,"✗ "+q.bad[0]),"  ",h("b",null,"✓ "+q.bad[1])));
     box.appendChild(h("div",{class:"rowend"},h("button",{class:"btn",onclick:practice},"Practise →")))}
   function practice(){step=2;drawDots();quiz(q.prac,true,function(){final()})}
-  function final(){step=3;drawDots();quiz(q.post,false,function(n){post=n;S.qw=S.qw||{};S.qw[q.id]={pre:pre,post:post,d:Date.now()};S.xp+=20;S.coins+=10;save();bar();result()})}
+  function final(){step=3;drawDots();quiz(q.post,false,function(n){post=n;S.qw=S.qw||{};S.qw[q.id]={pre:pre,post:post,d:Date.now()};S.xp+=20;S.coins+=20;save();bar();result()})}
   function result(){step=4;drawDots();box.innerHTML="";var up=post-pre;
     box.appendChild(h("div",{class:"card res notch qwres"},h("span",{class:"label"},"Your result"),
       h("div",{class:"qwba"},h("div",null,h("small",null,"Before"),h("b",{class:"qwpre"},pre+"/3")),h("span",{class:"qwarr","aria-hidden":"true"},"→"),h("div",null,h("small",null,"After"),h("b",{class:"qwpost"},post+"/3"))),
@@ -6861,7 +6860,7 @@ var QWRULES=[
  ["passive","g:b1-4",function(G,R,D){return (function(){var PP="(\\w{2,}(ed|en)|built|made|written|sold|bought|taught|told|found|kept|left|lost|paid|sent|spent|known|shown|seen|done|grown|thrown|stolen|spoken|eaten|given|taken|broken|chosen|driven|forgotten)",re=new RegExp("\\b(is|are|was|were|been|be) "+PP+"\\b");return re.test(R)&&!re.test(G)&&/\b(is|are|was|were|been|be)\b/.test(D.r)&&!/\b(is|are|was|were|been|be)\b/.test(D.g)})()||/\b(is|are|was|were|been|be) (\w{2,}(ed|en)|built|made|written|sold|bought|taught|told|found|kept|left|lost|paid|sent|spent|known|shown|seen|done|grown|thrown|stolen|spoken|eaten|given|taken|broken|chosen|driven|forgotten|invented|discovered)\b/.test(D.r)&&!/\b(is|are|was|were|been|be)\b/.test(D.g)||qwIs(D,["was build","is make","were make","was write","is speak"],[])}],
  ["reported","g:b1-4",function(G,R,D){return /\bsaid (me|him|her|us|them)\b/.test(D.g)||qwIs(D,["said","told","say","tell"],["said","told","say","tell"])}],
  ["ingto","g:b1-5",function(G,R,D){return (/^ to \w+ $/.test(D.g)&&/^ \w+ing $/.test(D.r))||(/^ \w+ing $/.test(D.g)&&/^ to \w+ $/.test(D.r))}],
- ["whose","g:b2-1",function(G,R,D){return /\bwhose\b/.test(D.r)||/, (who|which|where) /.test(R)&&/\bthat\b/.test(D.g)}],
+ ["whose","g:b2-1",function(G,R,D,RAW){return /\bwhose\b/.test(D.r)||/,\s*(who|which|where)\b/i.test(String(RAW))&&/\b(that|what)\b/.test(D.g)}],
  ["relative","g:a2-5",function(G,R,D){return qwIs(D,["who","which","where","that","what"],["who","which","where","that"])||/\b(who|which|that) (he|she|it|they)\b/.test(D.g)||/\b(which|that) i \w+ it\b/.test(G)&&!/\b(which|that) i \w+ it\b/.test(R)}],
  ["tags","g:b1-6",function(G,R,D,RAW){return /,\s*[a-z']+ [a-z]+\s*\?\s*$/i.test(RAW)&&/\b(isn't|aren't|wasn't|weren't|don't|doesn't|didn't|can't|won't|haven't|hasn't|is|are|was|were|do|does|did|can|will|have|has) (it|you|he|she|they|we|i|there) $/.test(R)&&D.g.trim().split(" ").length<=3&&D.g!==D.r}],
  ["possessive","g:a1-1",function(G,R,D){return qwIs(D,["his","her","their","its","it's","your","you","my","he","she","they"],["his","her","their","its","your","my"])}],
@@ -8445,13 +8444,13 @@ function rematch(){var a=app();cur={k:"mistakes"};var items=shuffle(rmPool()).sl
   var box=h("section",{class:"card"});a.appendChild(box);
   function show(){box.innerHTML="";
     if(i>=items.length){end();return}
-    var it=items[i],e=it.e,done=false,fb=h("div",{"aria-live":"polite"}),r=e.rw||[];
+    var it=items[i],e=it.e,done=false,fb=h("div",{class:"rmfb","aria-live":"polite"}),r=e.rw||[];if((S.err||[]).indexOf(e)<0){i++;show();return}
     box.appendChild(h("span",{class:"label"},(i+1)+" / "+items.length+(run>=2?" · 🔥 "+run+" in a row":"")));
     box.appendChild(h("p",{class:"q",style:"font-size:22px"},it.q));
     var row=h("div",{class:"opts"});shuffle(it.opts).forEach(function(o){var b=h("button",{class:"opt",onclick:function(){if(done)return;done=true;
         var good=o===it.ans;b.classList.add(good?"ok":"no");
         if(good){ok++;run++;if(run%5===0){coins++;fb.appendChild(h("p",{class:"hint"},"🔥 5 in a row! +1 coin"))}
-          if(r.length&&d-r[0]>=2){beat++;coins+=2;S.err=S.err.filter(function(x){return x!==e});fb.appendChild(h("div",{class:"fb ok"},h("b",null,"⚔️ Beaten! "),"This mistake leaves your notebook. +2 coins"))}
+          if(r.length&&d-r[0]>=2){beat++;coins+=2;var ty=nbType(e),now=Date.now(),sim=ty?S.err.filter(function(x){return x!==e&&nbType(x)===ty&&(x.d||0)<=now}):[];S.err=S.err.filter(function(x){return x!==e&&sim.indexOf(x)<0});fb.appendChild(h("div",{class:"fb ok"},h("b",null,"⚔️ Beaten! "),ty&&sim.length?"You beat "+ty.split(":").slice(1).join(":")+"! It leaves your notebook, with "+sim.length+" more mistake"+(sim.length>1?"s":"")+" of the same type. +2 coins":"This mistake leaves your notebook. +2 coins"))}
           else{if(!r.length)e.rw=[d];fb.appendChild(h("div",{class:"fb ok"},h("b",null,t("right")+" "),r.length?"Win it again on another day (2+ days after the first win) to beat it.":"Win 1 of 2. Come back in 2 days to win it again."))}}
         else{run=0;e.rw=[];bad.push(e);fb.appendChild(h("div",{class:"fb no"},h("b",null,"Not yet: "),it.ans))}
         save();[].forEach.call(row.children,function(x){x.disabled=true;if(x.textContent===it.ans){x.classList.add("ok");x.textContent="✓ "+it.ans}});if(!good)b.textContent="✗ "+o;
@@ -8465,25 +8464,139 @@ function rematch(){var a=app();cur={k:"mistakes"};var items=shuffle(rmPool()).sl
     box.appendChild(h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:mistakes},t("nb")),rmPool().length?h("button",{class:"btn",onclick:rematch},"⚔️ Again"):null))}
   show();window.scrollTo(0,0)}
 
-/* Arcade: a Filter button that shows the levels (the page always opens with everything) */
-(function(){var ap=arcadePage;arcadePage=function(k){ap(k);if(window.NINTH||window.ONLY_GAMES||(k&&(GAMES[k]||k==="lab")))return;
+/* Arcade: a Filter button that shows the levels (the page always opens with everything). The chosen level also filters each game's module list. */
+var ARCLV="all";
+function arcLvGame(k){if(ARCLV==="all")return;var lv=ARCLV,any=false;
+  [].forEach.call(document.querySelectorAll("#app h2.lvl"),function(h2){var t0=(h2.firstChild&&h2.firstChild.textContent||"").trim(),g=h2.nextElementSibling;if(!g||!g.classList.contains("arcmods"))return;
+    if(/^[ABC][12]$/.test(t0)){var on=t0===lv;h2.style.display=g.style.display=on?"":"none";if(on)any=true;return}
+    var vis=0;[].forEach.call(g.children,function(b){var tg=b.querySelector(".lvtag"),ok=!tg||tg.getAttribute("data-lv")===lv;b.style.display=ok?"":"none";if(ok)vis++});h2.style.display=g.style.display=vis?"":"none";if(vis)any=true});
+  var lab=[].filter.call(document.querySelectorAll("#app p.label"),function(p){return /Choose the module/.test(p.textContent)})[0];
+  var note=h("p",{class:"hint lvnote"},any?"Showing "+lv+" modules. ":"No "+lv+" modules in this game yet. ",h("button",{class:"link",onclick:function(){ARCLV="all";arcadePage(k)}},"Show all levels"));
+  if(lab)lab.parentNode.insertBefore(note,lab.nextSibling)}
+(function(){var ap=arcadePage;arcadePage=function(k){ap(k);if(window.NINTH||window.ONLY_GAMES)return;
+  if(k&&(GAMES[k]||k==="lab")){arcLvGame(k);return}
   var LV=["A1","A2","B1","B2","C1"],all=M.concat(X).filter(function(m){return !m.rev});
   function lvSet(ms){var o={};ms.forEach(function(m){o[m.lv]=1});return o}
   function soloLv(x){try{return lvSet(all.filter(function(m){return x.mods(m)}))}catch(e){return null}}
-  var tagged=[];
-  [].forEach.call(document.querySelectorAll("#app .arcadebox .arcgrid > *"),function(c){var m1=/(?:^| )g-([a-z0-9]+)/.exec(c.className),gk=m1&&m1[1];if(gk&&GAMES[gk])tagged.push([c,lvSet(arcadeMods(gk))])});
+  var tagged=[],games=[];
+  [].forEach.call(document.querySelectorAll("#app .arcadebox .arcgrid > *"),function(c){var m1=/(?:^| )g-([a-z0-9]+)/.exec(c.className),gk=m1&&m1[1];
+    if(gk&&GAMES[gk]){var ms=arcadeMods(gk);tagged.push([c,lvSet(ms)]);var gm=c.querySelector(".gmods");games.push({c:c,ms:ms,gm:gm,t0:gm?gm.textContent:""})}});
   [].forEach.call(document.querySelectorAll("#app h2.lvl"),function(h2){var g=h2.nextElementSibling;if(!g||!g.classList.contains("solo"))return;
     if(/Grammar challenges/.test(h2.textContent)&&g.children.length===SOLO.length)[].forEach.call(g.children,function(c,i){var s=soloLv(SOLO[i]);if(s)tagged.push([c,s])});
     else [].forEach.call(g.children,function(c){var nm=(c.querySelector(".gname")||{}).textContent;if(nm==="Preposition Tubes")nm="Preposition Baskets";
       var x=SOLO.filter(function(y){return y.n===nm})[0],s=nm==="Comma Detective"&&typeof COMMAMODS!=="undefined"?lvSet(COMMAMODS.map(mod).filter(Boolean)):x&&soloLv(x);if(s)tagged.push([c,s])})});
-  var chips=h("div",{class:"afilt lvfilt",role:"toolbar","aria-label":"Filter by level",hidden:true}),cur3="all";
-  var btn=h("button",{class:"pillbtn","aria-expanded":"false",onclick:function(){var o=chips.hidden;chips.hidden=!o;btn.setAttribute("aria-expanded",o?"true":"false")}},"⚙️ Filter");
-  function apply(){[].forEach.call(chips.children,function(b){b.classList.toggle("on",b._lv===cur3);b.setAttribute("aria-pressed",b._lv===cur3?"true":"false")});
+  var chips=h("div",{class:"afilt lvfilt",role:"toolbar","aria-label":"Filter by level",hidden:ARCLV==="all"}),cur3=ARCLV;
+  var btn=h("button",{class:"pillbtn","aria-expanded":ARCLV==="all"?"false":"true",onclick:function(){var o=chips.hidden;chips.hidden=!o;btn.setAttribute("aria-expanded",o?"true":"false")}},"⚙️ Filter");
+  var cnt=document.querySelector("#app .arcadebox .arctitle span"),cnt0=cnt?cnt.textContent:"";
+  function apply(){ARCLV=cur3;[].forEach.call(chips.children,function(b){b.classList.toggle("on",b._lv===cur3);b.setAttribute("aria-pressed",b._lv===cur3?"true":"false")});
     tagged.forEach(function(p){p[0].style.display=cur3==="all"||p[1][cur3]?"":"none"});
+    games.forEach(function(g){if(!g.gm)return;if(cur3==="all"){g.gm.textContent=g.t0;return}var n=g.ms.filter(function(m){return m.lv===cur3}).length;g.gm.textContent=n+" "+cur3+" module"+(n===1?"":"s")});
+    if(cnt)cnt.textContent=cur3==="all"?cnt0:games.filter(function(g){return g.c.style.display!=="none"}).length+" "+cur3+" games";
     [].forEach.call(document.querySelectorAll("#app .arcgrid"),function(g){var vis=[].some.call(g.children,function(c){return c.style.display!=="none"}),h2=g.previousElementSibling;g.style.display=vis?"":"none";if(h2&&h2.tagName==="H2")h2.style.display=vis?"":"none"});
     btn.textContent=cur3==="all"?"⚙️ Filter":"⚙️ Filter: "+cur3}
-  [["all","All"]].concat(LV.map(function(l){return [l,l]})).forEach(function(f){var b=h("button",{class:"pillbtn"},f[1]);b._lv=f[0];b.onclick=function(){cur3=f[0];apply()};chips.appendChild(b)});
-  var head=document.querySelector("#app .mhead");if(!head)return;head.appendChild(h("div",{class:"row",style:"margin-top:10px"},btn));head.appendChild(chips);apply()}})();
+  [["all","All"]].concat(LV.map(function(l){return [l,l]})).forEach(function(f){var b=h("button",{class:"pillbtn","data-lv":f[0]},f[1]);b._lv=f[0];b.onclick=function(){cur3=f[0];apply()};chips.appendChild(b)});
+  var row=h("div",{class:"lvfrow"},btn,chips),box=document.querySelector("#app .arcadebox"),af=box&&box.querySelector(".afilt");
+  if(af)af.parentNode.insertBefore(row,af);else{var head=document.querySelector("#app .mhead");if(!head)return;head.appendChild(row)}
+  apply()}})();
+
+/* ---------- Accepted suggestions 27/11 (extra run): Looking back (B2), by × until, present perfect continuous, detector fixes, coins ---------- */
+(function(){
+ function Q(id,L){var m=mod(id);if(!m)return;L.forEach(function(x){if(!m.quiz.some(function(y){return y[0]===x[0]}))m.quiz.push(x)})}
+ function Z(id,L){ZAPX[id]=ZAPX[id]||[];L.forEach(function(x){if(ZAPX[id].indexOf(x)<0)ZAPX[id].push(x)})}
+ function G(id,p,hook,kw){var g=GR[id];if(!g||g.pts.some(function(x){return x.t===p.t}))return;var n=g.pts.length;g.pts.push(p);
+   if(hook&&HOOK[id]&&HOOK[id].length===n)HOOK[id].push(hook);if(kw&&KW[id]&&KW[id].length===n)KW[id].push(kw)}
+ /* A2 · Plans: by × until */
+ G("a2-2",{t:"By or until?",use:"By means no later than: use it for a deadline. Until means all the time up to that moment. In a negative sentence, until means not before.",pt:"Em português, “até” serve para tudo. Em inglês: by = prazo (até sexta, no máximo); until = o tempo todo até aquele momento (fico até domingo). Na negativa, until = não antes de (a loja só abre às 10).",
+   form:[["by = deadline","I'll finish it by Friday. · Please reply by tomorrow."],["until = all the time up to then","I'll stay in Rio until Sunday. · We waited until 10 p.m."],["not … until = not before","The shop doesn't open until 10. · We didn't have a label until 2001."]],
+   ex:["Please send me the report by Friday. It's the deadline.","I'll be at the office until six, then I'm going home."],bad:["I'll finish it until Friday.","I'll finish it by Friday."]},"Deadline → BY. The whole time → UNTIL.","by,until");
+ Q("a2-2",[["Please send me the report ___ Friday. It's the deadline.",["by","until","in"],"Deadline → by."],["I'll stay in Rio ___ Sunday, then I'll fly home.",["until","by","since"],"The whole time up to Sunday → until."],["The shop doesn't open ___ 10 a.m.",["until","by","since"],"Negative + until = not before 10."]]);
+ Z("a2-2",["I'll finish it until Friday.|I'll finish it by Friday.","Send me the photos until tomorrow.|Send me the photos by tomorrow."]);
+ /* B1 · Opinions: either … or / both … and */
+ Q("b1-5",[["The light is ___ on or off. Never both.",["either","both","neither"],"One of the two → either … or."],["She speaks ___ English and Spanish.",["both","either","also"],"The two together → both … and."]]);
+ Z("b1-5",["I like both of coffee and tea.|I like both coffee and tea.","You can either call or to send a message.|You can either call or send a message."]);
+ /* B1 · Life changes: present perfect continuous */
+ G("b1-1",{t:"Present perfect continuous: How long have you been…?",use:"Use have or has been + -ing for an activity that started in the past and is still going on, often with for, since or How long. Portuguese uses the present here, but English doesn't.",pt:"Em português dizemos “estou estudando inglês desde 2020” ou “moro aqui há três anos”, no presente. Em inglês, com for, since e How long, use have / has been + -ing: I've been studying English since 2020.",
+   form:[["+","I've been living here for three years. · She's been working all day."],["?","How long have you been waiting? · Have you been running?"],["state verbs","know, like, have (possess) → present perfect simple: I've known her for years."]],
+   ex:["I've been studying English since 2020.","It's been raining since this morning."],bad:["I'm living here for three years.","I've been living here for three years."]},"For / since / How long → HAVE BEEN + -ING, not I'm …-ing.","have been,has been,for,since,How long");
+ Q("b1-1",[["I ___ English since 2020.",["have been studying","am studying","study"],"From the past until now → have been + -ing."],["How long ___ for the bus?",["have you been waiting","are you waiting","do you wait"],"How long + present perfect continuous."],["She's tired because she ___ all day.",["has been working","is working since","works"],"A long activity with a result now → has been working."]]);
+ Z("b1-1",["I'm living here for three years.|I've been living here for three years.","I'm studying English since 2020.|I've been studying English since 2020.","How long are you waiting?|How long have you been waiting?","It's raining since this morning.|It's been raining since this morning."]);
+
+ /* B2 · Looking back: third conditional, should have, must have / can't have */
+ if(!mod("b2-2")){M.splice(M.findIndex(function(x){return x.id==="b2-1"})+1,0,{id:"b2-2",lv:"B2",t:"Looking back",g:"Third conditional · should have, could have · must have, can't have",v:"Regrets, mistakes & guesses about the past",
+ sit:{t:"A missed flight",who:"Friend",en:"Your friend missed a flight to Lisbon last week. You talk about what went wrong.",pt:"Seu amigo perdeu um voo para Lisboa na semana passada. Vocês conversam sobre o que deu errado.",
+ turns:[
+  ["I missed my flight to Lisbon last week!",["Oh no! If you had left earlier, you would have caught it.","Oh no! If you would have left earlier, you would have caught it.","Oh no! If you left earlier, you would catch it."],"Third conditional: If + had + past participle, would have + past participle."],
+  ["I know. I stayed at the party too long.",["You shouldn't have stayed so long!","You shouldn't have stay so long!","You didn't should stay so long!"],"Criticism about the past: shouldn't have + past participle."],
+  ["And I couldn't find my passport.",["You must have left it in your bag.","You must have leave it in your bag.","You must left it in your bag."],"Almost sure about the past: must have + past participle."],
+  ["The airline didn't help me at all.",["They can't have been very busy. That's terrible!","They mustn't have been very busy. That's terrible!","They can't be very busy. That's terrible!"],"Negative guess about the past: can't have been."]]},
+ quiz:[
+  ["If I ___ about the traffic, I would have left earlier.",["had known","would have known","knew"],"Third conditional: If + had + past participle."],
+  ["If she had studied, she ___ the exam.",["would have passed","would pass","had passed"],"Result in the past: would have + past participle."],
+  ["If it ___ rained, we would have gone to the beach.",["hadn't","didn't","wouldn't have"],"If + hadn't + past participle."],
+  ["You look tired. You ___ to bed earlier last night.",["should have gone","should have went","should go"],"should have + past participle (gone, not went)."],
+  ["You ___ me! I would have helped you.",["should have told","should told","had told"],"should have + past participle = a good idea that didn't happen."],
+  ["The lights are off. They ___ out.",["must have gone","must have go","must went"],"Almost sure about the past: must have + past participle."],
+  ["She ___ seen me. She was looking the other way.",["can't have","mustn't have","couldn't to have"],"Negative guess: can't have (not mustn't have)."],
+  ["We ___ taken a taxi, but we decided to walk.",["could have","must have","can have"],"could have = it was possible, but it didn't happen."]],
+ build:["If I had known, I would have come.","You should have told me earlier.","She must have missed the bus.","They can't have seen us."],
+ match:[["⏰","be late"],["✈️","miss a flight"],["🔑","lose your keys"],["🧳","forget your bag"],["😓","regret"],["🕵️","a guess"]],
+ speed:[["If I had known, I would have helped.",1],["If I would have known, I would have helped.",0,"If I had known, I would have helped."],["You should have gone to the doctor.",1],["You should have went to the doctor.",0,"You should have gone to the doctor."],["He must have forgotten his keys.",1],["He must have forget his keys.",0,"He must have forgotten his keys."],["She can't have seen us.",1],["She mustn't have seen us.",0,"She can't have seen us."]]});
+ Object.assign(BD,{"If I had known, I would have come.":"lsvvsvvv|Imagine a different past.|Se eu tivesse sabido, eu teria vindo.","You should have told me earlier.":"svvvod|Criticise a past decision.|Você deveria ter me contado antes.","She must have missed the bus.":"svvvoo|Guess what happened.|Ela deve ter perdido o ônibus.","They can't have seen us.":"svvvo|Say it's impossible that it happened.|Eles não podem ter nos visto."});
+ GR["b2-2"]={pts:[
+  {t:"Third conditional",use:"Use the third conditional to imagine a different past: something that did not happen and its result. If + had + past participle, then would have + past participle.",pt:"Em português: Se eu tivesse sabido, eu teria vindo. A forma é parecida: had + particípio = tivesse + particípio; would have + particípio = teria + particípio. Atenção: nunca use would na parte do if.",
+   form:[["if part","If + had + past participle: If I had known… · If she hadn't missed the bus…"],["result","would have + past participle: …I would have come. · …she would have arrived on time."],["short forms","If I'd known, I'd have come. (I'd = I had in the if part, I would in the result)"]],
+   ex:["If you had left earlier, you would have caught the plane.","If it hadn't rained, we would have gone to the beach."],bad:["If I would have known, I would have come.","If I had known, I would have come."],
+   warn:["Never **would** in the if part: ✗ If I would have known."]},
+  {t:"Should have, could have: regrets and criticism",use:"Use should have + past participle for a past mistake or a criticism: it was a good idea, but it didn't happen. Could have means it was possible, but it didn't happen.",pt:"Should have = deveria ter (arrependimento ou crítica). Could have = poderia ter. Depois de have vem sempre o particípio: gone, not went.",
+   form:[["should have","You should have told me. · I should have studied more."],["shouldn't have","You shouldn't have shouted at him."],["could have","We could have taken a taxi. (it was possible)"],["participle!","gone · seen · done · taken · eaten · forgotten"]],
+   ex:["I should have brought an umbrella.","You could have called me!"],bad:["I should have went to bed earlier.","I should have gone to bed earlier."]},
+  {t:"Must have, can't have, might have: guesses about the past",use:"Use these to guess about the past from the evidence. Must have: you're almost sure it happened. Can't have: you're almost sure it didn't. Might have, may have or could have: maybe.",pt:"Must have = deve ter (quase certeza). Can't have = não pode ter (quase certeza de que não). Might have = pode ter (talvez). Para o negativo de must have, use can't have, não mustn't have.",
+   form:[["must have","The lights are off. They must have gone out."],["can't have","She can't have seen me. She was looking the other way."],["might / may have","He might have missed the bus."],["✗ mustn't have","mustn't = it's not allowed. For a negative guess, use can't have."]],
+   ex:["You must have been tired after the trip.","They might have forgotten about the meeting."],bad:["She mustn't have seen us.","She can't have seen us."]}],
+  qc:[["If I ___ known, I would have helped.",["had","would have","have"]],["She ___ have seen us. She was asleep.",["can't","mustn't","shouldn't"]],["You should have ___ me!",["told","tell","telled"]]]};
+ GX["b2-2"]=[{tips:["Start with the if part: had + past participle.","Then the result: would have + past participle.","No would after if!"],tl:[["Se eu tivesse sabido, teria vindo.","If I had known, I would have come."],["Se não tivesse chovido, teríamos ido à praia.","If it hadn't rained, we would have gone to the beach."]],note:"Portuguese uses tivesse + particípio and teria + particípio, which match had and would have. The classic mistake is putting would in the if part."},
+  {tips:["should have = deveria ter · could have = poderia ter.","After have, always the past participle: gone, seen, done.","No to: ✗ should to have."],tl:[["Eu deveria ter estudado mais.","I should have studied more."],["Você poderia ter me ligado!","You could have called me!"]],note:"Portuguese says deveria ter and poderia ter, with the same order as English. Just remember the participle: gone, not went."},
+  {tips:["Sure it happened → must have.","Sure it didn't → can't have.","Maybe → might have / may have."],tl:[["Ela deve ter perdido o ônibus.","She must have missed the bus."],["Eles não podem ter nos visto.","They can't have seen us."]],note:"Portuguese uses deve ter and não pode ter, like English. The trap is the negative: não deve ter is often can't have, not mustn't have."}];
+ HOOK["b2-2"]=["IF + HAD + participle → WOULD HAVE + participle.","SHOULD HAVE GONE, not should have went.","Sure it happened: MUST HAVE. Sure it didn't: CAN'T HAVE."];
+ KW["b2-2"]=["had,would have,if","should have,shouldn't have,could have","must have,can't have,might have,may have"];
+ BK["b2-2"]={g:["If I ___ known, I would have come.|had|would have|have","If she had studied, she ___ passed.|would have|would|had","You should have ___ me!|told|tell|telled","He must have ___ his keys.|forgotten|forget|forgot","She ___ have seen us. She wasn't there.|can't|mustn't|don't","We ___ have taken a taxi, but we walked.|could|can|must"],x:["If we ___ left earlier, we wouldn't have missed the train.|had|would have|have","I ___ have eaten so much. I feel sick.|shouldn't|mustn't|can't","The ground is wet. It ___ have rained.|must|can't|should","If you had asked, I ___ have helped.|would|will|had"]};
+ ZAPX["b2-2"]=["If I would have known, I would have come.|If I had known, I would have come.","If I had knew, I would have helped.|If I had known, I would have helped.","I should have went to the doctor.|I should have gone to the doctor.","He must have forget his keys.|He must have forgotten his keys.","She mustn't have seen us.|She can't have seen us.","If you would have called me, I would have picked you up.|If you had called me, I would have picked you up."];
+ EXP["b2-2"]=["c|I should have known.|You realise something too late.|Eu devia ter imaginado.|He lied again? I should have known.","c|It could have been worse.|You say a bad situation was not so bad.|Poderia ter sido pior.|We lost our bags, but it could have been worse.","c|What if…?|You imagine a different past.|E se…?|What if we had stayed at home?","i|learn the hard way|to learn from a bad experience|aprender do jeito difícil|I learned the hard way that you need a visa.","i|be in two minds|to not be able to decide|estar dividido|I was in two minds about the job, so I said no.","p|look back on|to think about something in the past|relembrar, olhar para trás|I look back on that trip with a smile."];
+ CAN["b2-2"]="talk about regrets, criticise past decisions and guess what happened";PIC["b2-2"]="⏪✈️🕵️";LABMAP["b2-2"]="past";
+ if(typeof REVIEWM!=="undefined")REVIEWM["b2-2"]=["b1-3","b1-2"];
+ STAGS["b2-2"]="looking back third conditional terceira condicional should have could have must have can't have arrependimento dedução regrets";}
+
+ /* Mistake detector: lesson of the mistake's own grammar point (QA-04) + new rules */
+ QWRULES.unshift(
+  ["ifwasyou","g:b1-3",function(G,R,D){return /\bif i was you\b/.test(G)&&!/\bif i was you\b/.test(R)}],
+  ["passagree","g:b1-4",function(G,R,D){return qwIs(D,["was","were","is","are"],["was","were","is","are"])&&/\b(is|are|was|were) (formed|built|made|sold|stolen|written|invented|discovered|painted|founded|created|released|arrested|directed|broken|given|taken|seen|done|known|spoken|eaten|found|sent|paid|told|taught|shown|chosen|grown|used|played|watched|opened|closed|cancelled|delayed|designed|produced|translated|damaged|destroyed)\b/.test(R)}],
+  ["passdid","g:b1-4",function(G,R,D){var P="(formed|built|made|sold|stolen|written|invented|discovered|painted|founded|created|released|arrested|directed|broken|given|taken|done|known|spoken|eaten|found|sent|paid|told|taught|shown|chosen|grown|designed|produced|translated|damaged|destroyed)";return new RegExp("\\bdid "+P+"\\b").test(G)&&new RegExp("\\b(was|were) "+P+"\\b").test(R)}],
+  ["ifwouldhave","g:b2-2",function(G,R,D){var re=/\bif (i|you|he|she|we|they|it) would have\b|\bif (i|you|he|she|we|they|it) had (knew|went|saw|took|ate|did|came|ran|wrote|gave|forgot)\b/;return (re.test(G)&&!re.test(R)||/\bif \w+ (didn't|wouldn't have|knew|would)\b/.test(G)&&/\bif \w+ (had|hadn't)\b/.test(R))&&/\bwould have\b/.test(R)}],
+  ["modalpp","g:b2-2",function(G,R,D){var re=/\b(should|shouldn't|must|could|couldn't|might|may|can't|would) have (went|saw|took|ate|did|ran|wrote|go|forget|forgot|knew|leave|see|eat|come|came|stay|miss|study|tell|telled)\b/;return re.test(G)&&!re.test(R)||/\b(should|shouldn't|must|could|might|can't) (told|went|gone|done|seen|taken|left|eaten|known|been|had)\b/.test(G)&&/\bhave\b/.test(D.r)}],
+  ["mustnthave","g:b2-2",function(G,R,D){return /\bmustn't have\b/.test(G)&&/\bcan't have\b/.test(R)}],
+  ["ppcont","g:b1-1",function(G,R,D){return (/(\b(am|is|are)|'m|'re|'s) \w+ing\b/.test(G)||/\bhow long (are|is|am) \w+ \w+ing\b/.test(G))&&(/(\b(have|has)|'ve|'s) been \w+ing\b/.test(R)||/\b(have|has) \w+ been \w+ing\b/.test(R))}],
+  ["untilby","g:a2-2",function(G,R,D){return qwIs(D,["until","till"],["by"])}],
+  ["bothor","g:b1-5",function(G,R,D){var re=/\bboth of \w+ and\b|\beither \w+ or to\b/;return re.test(G)&&!re.test(R)}]);
+})();
+
+/* Mistake notebook: the exact type of a mistake (rule + the words swapped), e.g. "relative:that→which" */
+function nbType(e){var q=String(e.q||""),g=e.got,r=e.right;if(/^“.*”$/.test(q)){g=q.slice(1,-1);q=""}var f=null;try{f=qwFind(q,g,r)}catch(x){}if(!f)return null;
+  var D=qwDiff(qwLow(qwSent(q,g)),qwLow(qwSent(q,r)));return f.rule+":"+D.g.trim()+" → "+D.r.trim()}
+function nbKey(e){var f=nbFind(e);return f?f.kind+":"+f.id:(e.m&&mod(e.m)&&GR[e.m]?"g:"+e.m:"other")}
+function nbCard(e){var m=mod(e.m),f=nbFind(e),tq=f&&f.kind==="qw"?qwById(f.id):null,tm=f&&f.kind==="g"?mod(f.id):tq&&tq.m?mod(tq.m):null;if(!tm)tm=m;
+  var hooks=tm&&HOOK[tm.id]?HOOK[tm.id]:[],r=e.rw||[];
+  return h("section",{class:"card gpt"},
+    h("span",{class:"label"},(m?m.t+" · ":"")+t(e.k)),
+    h("p",{class:"q",style:"font-size:22px"},e.q),
+    h("div",{class:"fb no"},h("b",null,t("nbYou")+": "),h("s",null,e.got)),
+    h("div",{class:"fb ok"},h("b",null,t("nbRight")+": "),e.right),
+    e.why?h("p",null,h("b",null,t("nbWhy")+": "),e.why):null,
+    hooks.length?h("div",{class:"rule"},h("span",{class:"label"},t("nbRule")+(tm&&tm!==m?" · "+tm.lv+" "+tm.t:"")),hooks.map(function(x){return h("p",null,x)})[0],hooks[1]?h("p",null,hooks[1]):null,hooks[2]?h("p",null,hooks[2]):null):null,
+    r.length?h("p",{class:"hint"},"⚔️ Rematch: 1 of 2 wins. Win it again 2 days after the first win."):null,
+    h("div",{class:"rowend"},
+      tq?h("button",{class:"btn ghost",onclick:function(){go("qw/"+tq.id)}},"⚡ "+tq.t):null,
+      tm&&GR[tm.id]?h("button",{class:"btn ghost",onclick:function(){grammar(tm)}},tm!==m?"📘 See the lesson: "+tm.t:t("nbGuide")):null,
+      h("button",{class:"btn",onclick:function(){S.err=S.err.filter(function(x){return x!==e});save();mistakes()}},t("nbGot"))))}
 var NINE_EXTRA=[["🁫","Preposition Domino","Make real phrases and choose their meaning. Beat your time.","../domino/","#ff8a5c"],["🧺","Preposition Baskets","Put each word in the at, by, in or on basket. Beat your time.","../baskets/","#3ccf9f"],["🧪","Preposition Tubes","Group the words by preposition. Beat your time.","../ptubes/","#c084fc"],["🔴","Preposition Genius","Remember the sequence, then tap the prepositions.","../genius/","#f472b6"],["🔍","Comma Detective","Add the commas. Faster = more points.","../commas/","#4cc9f0"]];
 
 function route(){
