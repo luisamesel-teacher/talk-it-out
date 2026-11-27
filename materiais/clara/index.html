@@ -7,236 +7,258 @@
 <title>Clara's Arcade · Talk It Out</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#171a3a;--ink:#fff;--mute:#b9b6d8;--yel:#f2c14e;--grn:#3ccf9f;--vio:#9d93ff;--org:#ff8a5c;--cya:#4cc9f0;
- --disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif;--label:"Inter",system-ui,sans-serif}
+:root{
+  --bg:#12152e; --ink:#eef1ff; --mute:#a9aed6;
+  --surf:#1a2050; --surf2:#1f2456; --line:#2c3466;
+  --yel:#ffd166; --grn:#3ccf9f; --vio:#9d93ff; --org:#ff8a5c; --cya:#4cc9f0; --rose:#f78da7;
+  --disp:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Source Sans 3","Segoe UI",sans-serif;
+  --label:"Inter",system-ui,sans-serif;
+  --notch:14px;
+}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background:var(--bg);color:var(--ink);font:18px/1.5 var(--body);min-height:100vh;padding:0 16px 56px;
- background-image:radial-gradient(circle at 20% 0,#2a2f6b 0,transparent 55%),radial-gradient(circle at 90% 100%,#2a1f56 0,transparent 50%)}
-.col{max-width:600px;margin:0 auto}
+body{background:var(--bg);color:var(--ink);font:18px/1.5 var(--body);min-height:100vh;
+ background-image:
+  radial-gradient(1.5px 1.5px at 20% 30%,rgba(255,255,255,.45),transparent),
+  radial-gradient(1.5px 1.5px at 70% 18%,rgba(255,255,255,.35),transparent),
+  radial-gradient(1.5px 1.5px at 45% 75%,rgba(255,255,255,.3),transparent),
+  radial-gradient(1.5px 1.5px at 88% 62%,rgba(255,255,255,.35),transparent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
 
-header{padding:38px 0 6px}
-.marca{font:700 12px/1.2 var(--label);letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
-h1{font:800 clamp(32px,8vw,46px)/1.05 var(--disp);color:var(--yel);margin-top:9px;
- text-shadow:0 0 16px rgba(242,193,78,.35)}
-.sub{color:var(--mute);margin-top:11px;font-size:17px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+ padding:18px 0 16px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px}
+.brand svg{width:38px;height:auto;display:block;flex:none}
+.brand .nm{font:800 21px/1 var(--disp);color:#fff}
+.brand .tg{display:block;font:600 12.5px/1.3 var(--body);color:var(--mute);margin-top:4px}
+.pill{font:700 13px var(--label);border:1px solid rgba(255,255,255,.75);border-radius:999px;
+ padding:7px 14px;color:#fff}
 
-h2.sec{font:800 14px/1.2 var(--label);letter-spacing:.09em;text-transform:uppercase;
- color:var(--mute);margin:34px 0 12px}
+.hero{padding:40px 0 10px}
+h1{font:800 clamp(34px,5.4vw,48px)/1.05 var(--disp);color:var(--yel);
+ text-shadow:0 0 22px rgba(255,209,102,.3)}
+.lead{margin-top:14px;max-width:640px;font-size:18.5px;color:var(--mute)}
 
-.lista{display:grid;gap:12px}
-a.item{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center;
- text-decoration:none;color:inherit;background:#1d2048;border:2px solid #343a7d;
- border-left-width:6px;border-radius:17px;padding:16px 16px 15px}
-a.item .e{font-size:34px;text-align:center;line-height:1}
-a.item h3{font:800 20px/1.2 var(--disp);color:#fff}
-a.item p{font-size:15.5px;color:var(--mute);margin-top:5px}
-a.item .tag{display:inline-block;font:700 10.5px/1 var(--label);letter-spacing:.07em;
- text-transform:uppercase;padding:5px 9px;border-radius:999px;margin-top:9px;
- background:rgba(255,255,255,.1);color:#fff}
-a.g1{border-left-color:var(--org)} a.g2{border-left-color:var(--grn)}
-a.g3{border-left-color:var(--vio)} a.g4{border-left-color:var(--cya)}
-a.m{border-left-color:#5a5fb0}
-a.c{border-left-color:var(--yel)}
-a.c .e{font:800 26px var(--label);color:var(--yel)}
-.intro{color:var(--mute);font-size:16px;margin:-4px 0 13px}
+.sec{margin-top:44px}
+.sechead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.sechead h2{font:800 15px/1.2 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.sechead p{font-size:16px;color:var(--mute);opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:15px;margin-top:15px}
+.grid.mods{grid-template-columns:repeat(auto-fill,minmax(272px,1fr))}
+.grid.study{grid-template-columns:repeat(auto-fill,minmax(228px,1fr))}
 
-.nota{margin-top:30px;padding:16px 18px;border-radius:15px;background:rgba(255,255,255,.07);
- border:2px solid rgba(255,255,255,.16);font-size:16px;color:var(--mute)}
+.tile{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+ background:var(--surf);border:1px solid var(--line);border-top:4px solid var(--accent,var(--vio));
+ border-radius:16px;padding:19px 19px 17px;min-height:100%;
+ clip-path:polygon(0 0,calc(100% - var(--notch)) 0,100% var(--notch),100% 100%,0 100%);
+ transition:background .14s,transform .14s}
+.tile:hover{background:var(--surf2);transform:translateY(-2px)}
+.tile .e{font-size:33px;line-height:1}
+.tile h3{font:800 20px/1.2 var(--disp);color:#fff;margin-top:11px}
+.tile p{font-size:15.5px;line-height:1.42;color:var(--mute);margin-top:7px;flex:1}
+.tile .tag{align-self:flex-start;font:700 10.5px/1 var(--label);letter-spacing:.07em;
+ text-transform:uppercase;background:rgba(255,255,255,.1);border-radius:999px;
+ padding:6px 10px;margin-top:13px;color:#fff}
+.tile em,.mod em{font-style:italic;color:#d8d5ff}
+
+.t-org{--accent:var(--org)} .t-grn{--accent:var(--grn)} .t-vio{--accent:var(--vio)}
+.t-cya{--accent:var(--cya)} .t-yel{--accent:var(--yel)} .t-rose{--accent:var(--rose)}
+
+.mod{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;
+ text-decoration:none;color:inherit;background:var(--surf);border:1px solid var(--line);
+ border-left:4px solid var(--yel);border-radius:16px;padding:17px 18px;
+ transition:background .14s,transform .14s}
+.mod:hover{background:var(--surf2);transform:translateY(-2px)}
+.mod .n{font:800 27px/1 var(--label);color:var(--yel);padding-top:3px;text-align:center}
+.mod h3{font:800 19px/1.2 var(--disp);color:#fff}
+.mod p{font-size:15px;line-height:1.4;color:var(--mute);margin-top:6px}
+
+.std{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:center;
+ text-decoration:none;color:inherit;background:rgba(255,255,255,.05);
+ border:1px solid var(--line);border-radius:14px;padding:14px 15px;transition:background .14s}
+.std:hover{background:rgba(255,255,255,.1)}
+.std .e{font-size:25px;text-align:center}
+.std h3{font:700 16.5px/1.25 var(--body);color:#fff}
+.std p{font-size:14px;color:var(--mute);margin-top:3px}
+
+.nota{margin-top:40px;background:var(--surf);border:1px solid var(--line);
+ border-left:4px solid var(--grn);border-radius:16px;padding:19px 20px;font-size:17px;color:var(--mute)}
 .nota b{color:#fff}
-footer{margin-top:40px;padding-top:20px;border-top:1px solid #343a7d;
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
  font-size:13.5px;color:var(--mute);text-align:center}
+@media (max-width:560px){.hero{padding:30px 0 4px}.sec{margin-top:34px}}
 </style>
 </head>
 <body>
-<div class="col">
+<div class="wrap">
 
-<header>
-  <div class="marca">Talk It Out · by Luisa Mesel</div>
+<div class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 74 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 12a8 8 0 0 1 8-8h26a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H22l-9 9v-9h-1a8 8 0 0 1-8-8z" fill="#CECBF6"/>
+      <path d="M28 26a9 9 0 0 1 9-9h25a9 9 0 0 1 9 9v15a9 9 0 0 1-9 9H45l-8 8v-8a9 9 0 0 1-9-9z" fill="#12152e"/>
+      <path d="M31 27a7 7 0 0 1 7-7h23a7 7 0 0 1 7 7v13a7 7 0 0 1-7 7H45l-6 6v-6a7 7 0 0 1-8-7z" fill="#ffd166"/>
+    </svg>
+    <span><span class="nm">Talk It Out</span><span class="tg">Cambridge C1 Advanced · Clara</span></span>
+  </div>
+  <span class="pill">Everything in one place</span>
+</div>
+
+<div class="hero">
   <h1>Clara's Arcade</h1>
-  <p class="sub">Everything in one place. The games are for the words that keep slipping away — play them short and often rather than once for a long time.</p>
-</header>
+  <p class="lead">The games are for the words and structures that keep slipping away. Play them short and often rather than once for a long time — five minutes a day beats an hour on Sunday.</p>
+</div>
 
-<h2 class="sec">Games</h2>
-<div class="lista">
+<section class="sec">
+  <div class="sechead">
+    <h2>Games</h2>
+    <p>Word building first, then inversion.</p>
+  </div>
+  <div class="grid">
 
-  <a class="item g1" href="../word-factory/">
-    <span class="e">🧺</span>
-    <span>
+    <a class="tile t-org" href="../word-factory/">
+      <span class="e">🧺</span>
       <h3>Word Factory</h3>
-      <p>Three phases. The finished word falls into its class, then the root falls on its suffix, then the same thing with a sentence on top.</p>
+      <p>Three phases. The finished word falls into its class, then the root falls on its suffix, then the same with a sentence on top.</p>
       <span class="tag">Start here</span>
-    </span>
-  </a>
+    </a>
 
-  <a class="item g2" href="../suffix-genius/">
-    <span class="e">🧩</span>
-    <span>
+    <a class="tile t-grn" href="../suffix-genius/">
+      <span class="e">🧩</span>
       <h3>Suffix Genius</h3>
-      <p>Roots appear one after another. Tap the suffix for each one, in the same order. Every round adds a root.</p>
+      <p>Roots appear one after another. Tap the suffix for each, in the same order. Every round adds one more.</p>
       <span class="tag">Memory + suffixes</span>
-    </span>
-  </a>
+    </a>
 
-  <a class="item g3" href="../cross-the-road/">
-    <span class="e">🚦</span>
-    <span>
+    <a class="tile t-vio" href="../cross-the-road/">
+      <span class="e">🚦</span>
       <h3>Cross the Road</h3>
-      <p>Dodge the cars and walk into the door with the right suffix. Three banks, one for each word-formation lesson in the book.</p>
+      <p>Dodge the cars and walk into the door with the right suffix. One bank for each word-formation lesson in the book.</p>
       <span class="tag">Units 1 · 2 · 3</span>
-    </span>
-  </a>
+    </a>
 
-  <a class="item g4" href="../retrieval-lab/">
-    <span class="e">🎯</span>
-    <span>
-      <h3>Retrieval Lab</h3>
-      <p>The regret frames from page 219. Choose the shape of the ending — <em>had done</em>, <em>have done</em>, <em>to have done</em> — before the words.</p>
-      <span class="tag">Page 219</span>
-    </span>
-  </a>
-
-
-  <a class="item g1" href="../the-price/">
-    <span class="e">&#9889;</span>
-    <span>
+    <a class="tile t-yel" href="../the-price/">
+      <span class="e">⚡</span>
       <h3>The Price</h3>
-      <p>Cross the road again, but the doors are the inversion. <em>Had I</em> or <em>I had</em>? Three levels: should/were/had, then the negative adverbials, then both.</p>
-      <span class="tag">Inversion &middot; speed</span>
-    </span>
-  </a>
+      <p>The same road, but the doors are the inversion. <em>Had I</em> or <em>I had</em>? Conditional first, then the negative adverbials.</p>
+      <span class="tag">Inversion · speed</span>
+    </a>
 
-  <a class="item g3" href="../spotlight/">
-    <span class="e">&#128294;</span>
-    <span>
+    <a class="tile t-cya" href="../spotlight/">
+      <span class="e">🔦</span>
       <h3>Spotlight</h3>
       <p>One part of the sentence is lit up. Choose what puts <em>that part</em> in the spotlight: It-cleft, What-cleft or inversion.</p>
       <span class="tag">Inversion &amp; cleft</span>
-    </span>
-  </a>
+    </a>
 
+    <a class="tile t-rose" href="../retrieval-lab/">
+      <span class="e">🎯</span>
+      <h3>Retrieval Lab</h3>
+      <p>The regret frames from page 219. Pick the shape of the ending — <em>had done</em>, <em>have done</em>, <em>to have done</em> — before the words.</p>
+      <span class="tag">Page 219</span>
+    </a>
 
-  <a class="item g2" href="../../wordupgrade-v3k7p/">
-    <span class="e">&#11014;&#65039;</span>
-    <span>
+    <a class="tile t-grn" href="../../wordupgrade-v3k7p/">
+      <span class="e">⬆️</span>
       <h3>Word Upgrade</h3>
-      <p>A sentence drops a plain, everyday word. Choose the formal one that replaces it best. Six levels &mdash; start at <em>2 &middot; Core C1</em>.</p>
+      <p>A sentence drops a plain, everyday word. Choose the formal one that replaces it best. Start at level <em>2 · Core C1</em>.</p>
       <span class="tag">Formal vocabulary</span>
-    </span>
-  </a>
+    </a>
 
-  <a class="item g4" href="../../sayitbetter-q8vxn/">
-    <span class="e">&#9997;&#65039;</span>
-    <span>
+    <a class="tile t-cya" href="../../sayitbetter-q8vxn/">
+      <span class="e">✍️</span>
       <h3>Say It Better</h3>
-      <p>Sort the essay phrases into what they actually do: give an opinion, add a point, contrast it, or reach a conclusion.</p>
+      <p>Sort the essay phrases by what they actually do: give an opinion, add a point, contrast it, or reach a conclusion.</p>
       <span class="tag">Essay language</span>
-    </span>
-  </a>
+    </a>
 
-</div>
+  </div>
+</section>
 
-<h2 class="sec">The C1 course</h2>
-<p class="intro">Six modules built for the Advanced exam. Each one opens straight at the module &mdash; you only type your name the first time.</p>
-<div class="lista">
+<section class="sec">
+  <div class="sechead">
+    <h2>The C1 course</h2>
+    <p>Six modules. You only type your name the first time.</p>
+  </div>
+  <div class="grid mods">
 
-  <a class="item c" href="../../draft-k3x9q/#c1-1">
-    <span class="e">1</span>
-    <span>
-      <h3>Times change</h3>
-      <p>Past habits, <em>be / get used to</em>, and the regret frames: <em>I wish</em>, <em>if only</em>, <em>I'd rather</em>.</p>
-    </span>
-  </a>
+    <a class="mod" href="../../draft-k3x9q/#c1-1">
+      <span class="n">1</span>
+      <span><h3>Times change</h3>
+      <p>Past habits, <em>be / get used to</em>, and the regret frames: <em>I wish</em>, <em>if only</em>, <em>I'd rather</em>.</p></span>
+    </a>
 
-  <a class="item c" href="../../draft-k3x9q/#c1-2">
-    <span class="e">2</span>
-    <span>
-      <h3>If things were different</h3>
-      <p>Mixed conditionals, <em>provided</em>, <em>unless</em>, <em>but for</em> &mdash; and inversion.</p>
-    </span>
-  </a>
+    <a class="mod" href="../../draft-k3x9q/#c1-2">
+      <span class="n">2</span>
+      <span><h3>If things were different</h3>
+      <p>Mixed conditionals, <em>provided</em>, <em>unless</em>, <em>but for</em> — and inversion.</p></span>
+    </a>
 
-  <a class="item c" href="../../draft-k3x9q/#c1-3">
-    <span class="e">3</span>
-    <span>
-      <h3>Word building</h3>
-      <p>Suffixes, prefixes and nouns in formal English. Vocabulary of achievement, education and work.</p>
-    </span>
-  </a>
+    <a class="mod" href="../../draft-k3x9q/#c1-3">
+      <span class="n">3</span>
+      <span><h3>Word building</h3>
+      <p>Suffixes, prefixes and nouns in formal English. Achievement, education and work.</p></span>
+    </a>
 
-  <a class="item c" href="../../draft-k3x9q/#c1-4">
-    <span class="e">4</span>
-    <span>
-      <h3>Say it formally</h3>
-      <p>Register: formal verbs, impersonal structures, and the linkers an essay needs.</p>
-    </span>
-  </a>
+    <a class="mod" href="../../draft-k3x9q/#c1-4">
+      <span class="n">4</span>
+      <span><h3>Say it formally</h3>
+      <p>Register: formal verbs, impersonal structures, and the linkers an essay needs.</p></span>
+    </a>
 
-  <a class="item c" href="../../draft-k3x9q/#c1-6">
-    <span class="e">5</span>
-    <span>
-      <h3>Reading between the lines</h3>
-      <p>Attitude: criticism, annoyance, tact, insistence &mdash; plus regret and hesitation.</p>
-    </span>
-  </a>
+    <a class="mod" href="../../draft-k3x9q/#c1-6">
+      <span class="n">5</span>
+      <span><h3>Reading between the lines</h3>
+      <p>Attitude: criticism, annoyance, tact, insistence — plus regret and hesitation.</p></span>
+    </a>
 
-  <a class="item c" href="../../draft-k3x9q/#c1-5">
-    <span class="e">6</span>
-    <span>
-      <h3>The C1 Advanced exam</h3>
-      <p>The four papers, a strategy for every part, and the Mini Mock.</p>
-    </span>
-  </a>
+    <a class="mod" href="../../draft-k3x9q/#c1-5">
+      <span class="n">6</span>
+      <span><h3>The C1 Advanced exam</h3>
+      <p>The four papers, a strategy for every part, and the Mini Mock.</p></span>
+    </a>
 
-</div>
+  </div>
+</section>
 
-<h2 class="sec">Study pages</h2>
-<div class="lista">
+<section class="sec">
+  <div class="sechead">
+    <h2>Study pages</h2>
+    <p>To read, not to play.</p>
+  </div>
+  <div class="grid study">
 
-  <a class="item m" href="../word-families/">
-    <span class="e">🌳</span>
-    <span>
-      <h3>Word families</h3>
-      <p>One family per root, with the suffixes, the prefixes and the pairs that trick you. Cover the words and say them out loud first.</p>
-    </span>
-  </a>
+    <a class="std" href="../word-families/">
+      <span class="e">🌳</span>
+      <span><h3>Word families</h3><p>Cover the words and say them first.</p></span>
+    </a>
 
-  <a class="item m" href="../suffix-ment/">
-    <span class="e">🔤</span>
-    <span>
-      <h3>The suffix &minus;ment</h3>
-      <p>Twelve words in flashcards, easy to hard, plus a test of what the word does and eight gaps in exam format.</p>
-    </span>
-  </a>
+    <a class="std" href="../suffix-ment/">
+      <span class="e">🔤</span>
+      <span><h3>The suffix &minus;ment</h3><p>Flashcards, easy to hard, then eight gaps.</p></span>
+    </a>
 
-  <a class="item m" href="../cloze-word-building/">
-    <span class="e">🧱</span>
-    <span>
-      <h3>Gap-fill &amp; word building</h3>
-      <p>An open cloze with a word bank, and a study of prefixes and suffixes with practice at the end.</p>
-    </span>
-  </a>
+    <a class="std" href="../cloze-word-building/">
+      <span class="e">🧱</span>
+      <span><h3>Gap-fill &amp; word building</h3><p>Open cloze plus prefixes and suffixes.</p></span>
+    </a>
 
-  <a class="item m" href="../past-tenses/">
-    <span class="e">🕰️</span>
-    <span>
-      <h3>Past tenses</h3>
-      <p>The six past tenses with a timeline and tap exercises. Includes <em>having done</em> and the <em>used to</em> family.</p>
-    </span>
-  </a>
+    <a class="std" href="../past-tenses/">
+      <span class="e">🕰️</span>
+      <span><h3>Past tenses</h3><p>The six of them, with a timeline.</p></span>
+    </a>
 
-  <a class="item m" href="../challenge-achievement/">
-    <span class="e">🏔️</span>
-    <span>
-      <h3>Challenge &amp; achievement</h3>
-      <p>Unit 1 study card, with the collocations and the vocabulary of challenge and achievement.</p>
-    </span>
-  </a>
+    <a class="std" href="../challenge-achievement/">
+      <span class="e">🏔️</span>
+      <span><h3>Challenge &amp; achievement</h3><p>Unit 1 collocations.</p></span>
+    </a>
 
-</div>
+  </div>
+</section>
 
-<p class="nota"><b>Five minutes a day beats an hour on Sunday.</b> The games remember your best time in this browser, so you are racing yourself, not anyone else.</p>
+<p class="nota"><b>Your best times stay in this browser.</b> You are racing yourself, nobody else — so open the same game again tomorrow and try to beat the number you left there today.</p>
 
 <footer>Talk It Out · by Luisa Mesel</footer>
 
