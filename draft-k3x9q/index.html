@@ -1412,6 +1412,7 @@ body[data-page="module"] .grid>.card.act>p{margin:2px 0 0}
 /* WIDE LAYOUT: true = wider pages on desktop. To go back to the narrow layout, change to false. */
 var WIDE_LAYOUT=true;document.documentElement.classList.toggle("wide",WIDE_LAYOUT);
 /* ---------- course data: General English A1 → B1 ---------- */
+var TIO_LVS=["A1","A2","B1","B2","C1"];
 var M=[
 {id:"a1-1",lv:"A1",t:"Hello, me",g:"Verb to be",v:"Personal info & numbers",
  sit:{t:"First day at a language school",who:"Receptionist",en:"It is your first day at a language school. The receptionist needs your details.",pt:"É o seu primeiro dia numa escola de idiomas. A recepcionista precisa dos seus dados.",
@@ -2330,8 +2331,8 @@ function menu(){
   function to(k){return function(){go(k)}}
   sec(t("mStart"),[["🏠 "+t("navHome"),t("mHome"),to("home")],["🧭 "+t("pfT"),t("pfD"),to("start")],["🔊 "+t("voiceT"),"",to("voice")],["🙂 "+t("avatars"),"",to("avatars")],["✏️ Your name",S.name||"",function(){welcome(true)}],[S.theme==="light"?"🕹️ Arcade look":"☀️ Light look","",function(){S.theme=S.theme==="light"?"dark":"light";save();applyTheme();menu()}],
     ["🌐 "+t("lang"),"",function(){S.lang=S.lang==="en"?"pt":"en";save();route()}]]);
-  ["A1","A2","B1","B2","C1"].forEach(function(lv){sec(t("mMods")+" "+lv+" · "+LEVELS[lv],M.filter(function(m){return m.lv===lv}).map(function(m){return [mNo(m)+". "+m.t,m.sit.t,to(m.id),lvTag(m.lv)]}))});
-  sec(t("special"),X.filter(function(m){return !/^sp-/.test(m.id)}).map(function(m){return [m.t,m.sit.t,to(m.id),lvTag(m.lv)]}).concat([["🏅 Sports","8 sports, A2 to B2",to("sports"),lvTag("B1")]]));
+  TIO_LVS.forEach(function(lv){sec(t("mMods")+" "+lv+" · "+LEVELS[lv],M.filter(function(m){return m.lv===lv}).map(function(m){return [mNo(m)+". "+m.t,m.sit.t,to(m.id),lvTag(m.lv)]}))});
+  sec(t("special"),X.filter(function(m){return !/^sp-/.test(m.id)}).map(function(m){return [m.t,m.sit.t,to(m.id),lvTag(m.lv)]}).concat((typeof ONLY_LV!=="undefined"&&ONLY_LV)?[]:[["🏅 Sports","8 sports, A2 to B2",to("sports"),lvTag("B1")]]));
   sec(t("mRooms"),[["🕹️ Arcade","All the games",to("arcade")],["🔤 "+t("verbs"),"",to("verbs")],["🔊 "+t("spell"),"",to("spelling")],["🔢 "+t("num"),"",to("numbers")],["🖼️ "+t("words"),"",to("words")],["✉️ "+t("mail"),"",to("emails")],["🧱 "+t("gym"),"",to("sentences")],["📖 "+t("story"),"",to("stories")],["🎬 "+t("cultT"),"",to("culture")],["🔁 "+t("rev"),"",to("review")],["📓 "+t("nb"),"",to("mistakes")]]);
 }
 
@@ -2378,7 +2379,7 @@ function home(){
   if(S.place&&mod(S.place.entry))a.appendChild(h("button",{class:"card guide notch",onclick:function(){placeResult()}},h("span",{class:"label"},t("pfPath")),h("h3",null,TRACK[S.place.track]+" · "+t("pfStart").toLowerCase()+": "+mod(S.place.entry).t),h("p",null,t("pfLvl")+": "+S.place.lvl)));
   var nd=dueList().length,ne=(S.err||[]).length;
   if(nd)a.appendChild(h("button",{class:"card act notch",style:"min-height:0;width:100%;margin-bottom:18px",onclick:function(){go("review")}},h("span",{class:"label"},"🔁 "+t("rev")),h("h3",null,nd+" "+t("revDue")),h("p",null,t("openRev"))));
-  var LVS=["A1","A2","B1","B2","C1"],curLv=LVS.indexOf(S.homeLv)>=0?S.homeLv:(nextM&&LVS.indexOf(nextM.lv)>=0?nextM.lv:"A1");
+  var LVS=TIO_LVS,curLv=LVS.indexOf(S.homeLv)>=0?S.homeLv:(nextM&&LVS.indexOf(nextM.lv)>=0?nextM.lv:"A1");
   var tabs=h("div",{class:"lvtabs",role:"tablist","aria-label":"Levels"}),box=h("div",{class:"modgrid"});
   function modCard(m){var i=M.indexOf(m),n=modStars(m),L=steps(m),d=L.filter(function(x){return x.done}).length;
     return h("button",{class:"stop mcard"+(passed(m)?" done":n?" started":"")+(nextM===m?" isnext":""),onclick:function(){go(m.id)}},
@@ -5915,7 +5916,7 @@ GAMES.commas=wcommas;GLIST.push("commas");
 /* ---------- phrasal verbs: 3 per module, cumulative in the games ---------- */
 function pvOf(id){return exList(id).filter(function(x){return x.k==="p"})}
 function pvPool(m){if(m.rev)return {now:[],old:[]};var i=M.indexOf(m),now=pvOf(m.id),old=[];
-  var upto=i>=0?M.slice(0,i):M.filter(function(z){return ["A1","A2","B1","B2","C1"].indexOf(z.lv)<=["A1","A2","B1","B2","C1"].indexOf(m.lv)});
+  var upto=i>=0?M.slice(0,i):M.filter(function(z){return TIO_LVS.indexOf(z.lv)<=TIO_LVS.indexOf(m.lv)});
   upto.forEach(function(z){old=old.concat(pvOf(z.id))});return {now:now,old:old}}
 function pvQs(m){var P=pvPool(m),all=P.now.concat(P.old);if(all.length<3)return [];
   var pick=P.now.concat(shuffle(P.old).slice(0,3)),out=[];
@@ -5950,7 +5951,7 @@ function arcadePage(k){
   if(k==="lab"){
     a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("arcade")}},"← All the games")));
     a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"🕹️ Arcade"),h("h1",null,"🤖 "+t("lab")),h("p",{class:"hint"},"Build sentences box by box and bring the robot to life.")));
-    ["A1","A2","B1","B2","C1"].forEach(function(lv){var ms=M.filter(function(m){return m.lv===lv});if(!ms.length)return;
+    TIO_LVS.forEach(function(lv){var ms=M.filter(function(m){return m.lv===lv});if(!ms.length)return;
       a.appendChild(h("h2",{class:"lvl",style:"margin:18px 0 8px"},lv,h("span",null,LEVELS[lv])));
       a.appendChild(h("div",{class:"arcmods"},ms.map(function(m){return h("button",{class:"card arcmod",onclick:function(){window.FROMA="arcade/lab";lab(m)}},h("span",{class:"label"},lvTag(m.lv)," "+mNo(m)+". "+m.g),h("b",null,m.t))})))});
     a.appendChild(h("h2",{class:"lvl",style:"margin:18px 0 8px"},t("special"),h("span",null,"")));
@@ -5961,7 +5962,7 @@ function arcadePage(k){
   a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"🕹️ Arcade"),h("h1",null,GICONS[k]+" "+t(k)),h("p",{class:"hint"},t(k+"D"))));
   var modes=ARCMODES[k];if(modes)a.appendChild(h("p",{class:"hint"},"🎛️ "+modes));
   a.appendChild(h("p",{class:"label",style:"margin-top:14px"},"Choose the module"));
-  ["A1","A2","B1","B2","C1"].forEach(function(lv){var ms=mods.filter(function(m){return M.indexOf(m)>=0&&m.lv===lv});if(!ms.length)return;
+  TIO_LVS.forEach(function(lv){var ms=mods.filter(function(m){return M.indexOf(m)>=0&&m.lv===lv});if(!ms.length)return;
     a.appendChild(h("h2",{class:"lvl",style:"margin:18px 0 8px"},lv,h("span",null,LEVELS[lv])));
     a.appendChild(h("div",{class:"arcmods"},ms.map(function(m){return arcModBtn(m,k)})))});
   var xs=mods.filter(function(m){return X.indexOf(m)>=0});
@@ -6025,7 +6026,7 @@ function spellIssues(text){var d=spellDict(),keys=Object.keys(d),out=[],seen={},
   return out}
 function lvMenu(m,anchor){var old=document.getElementById("lvmenu");if(old){old.remove();return}
   var box=h("div",{class:"lvmenu",id:"lvmenu",role:"menu"});
-  ["A1","A2","B1","B2","C1"].forEach(function(lv){var ms=M.filter(function(z){return z.lv===lv});if(!ms.length)return;
+  TIO_LVS.forEach(function(lv){var ms=M.filter(function(z){return z.lv===lv});if(!ms.length)return;
     box.appendChild(h("div",{class:"lvm-h"},lvTag(lv)," "+LEVELS[lv]));
     box.appendChild(h("div",{class:"lvm-l"},ms.map(function(z){return h("button",{class:"lvm-i"+(z===m?" on":""),role:"menuitem",onclick:function(){box.remove();go(z.id)}},(M.indexOf(z)+1)+". "+z.t)})))});
   anchor.parentNode.style.position="relative";anchor.parentNode.appendChild(box);
@@ -8547,7 +8548,7 @@ function arcLvGame(k){if(ARCLV==="all")return;var lv=ARCLV,any=false;
   if(lab)lab.parentNode.insertBefore(note,lab.nextSibling)}
 (function(){var ap=arcadePage;arcadePage=function(k){ap(k);if(window.NINTH||window.ONLY_GAMES)return;
   if(k&&(GAMES[k]||k==="lab")){arcLvGame(k);return}
-  var LV=["A1","A2","B1","B2","C1"],all=M.concat(X).filter(function(m){return !m.rev});
+  var LV=TIO_LVS,all=M.concat(X).filter(function(m){return !m.rev});
   function lvSet(ms){var o={};ms.forEach(function(m){o[m.lv]=1});return o}
   function soloLv(x){try{return lvSet(all.filter(function(m){return x.mods(m)}))}catch(e){return null}}
   var tagged=[],games=[];
@@ -8851,7 +8852,7 @@ function tonePage(lv){var a=app(),L=Math.max(1,Math.min(TONEQ.length,+lv||1)),m=
   window.scrollTo(0,0)}
 
 /* ---------- Medals (achievements): every medal is possible for every student ---------- */
-var LVLS=["A1","A2","B1","B2","C1"];
+var LVLS=TIO_LVS;
 function worldMods(lv){return M.filter(function(m){return m.lv===lv&&!m.rev})}
 function worldDone(lv){var ms=worldMods(lv);return ms.length>0&&ms.every(passed)}
 function worldPerfect(lv){var ms=worldMods(lv);return ms.length>0&&ms.every(function(m){return (S.cp[m.id]||0)>=0.9})}
@@ -9222,6 +9223,13 @@ function start(d){
   load(d);
   window.addEventListener("hashchange",route);
   if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(function(){return S});
+  /* tio-only-lv — quando o link define ONLY_LV, o curso mostra só aquele nível.
+     Sem a variável, nada muda: continua o site geral. */
+  if(typeof ONLY_LV!=="undefined"&&ONLY_LV){
+    var soLv=function(a){return (a||[]).filter(function(m){return m&&m.lv===ONLY_LV})};
+    M=soLv(M); X=soLv(X); if(typeof REV!=="undefined")REV=soLv(REV);
+    if(typeof TIO_LVS!=="undefined")TIO_LVS.splice(0,TIO_LVS.length,ONLY_LV);
+  }
   applyTheme();aiInit();setTimeout(askFab,0);
   route();
 }
