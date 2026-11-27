@@ -1,64 +1,64 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 2170 and 2171 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+NEVER read lines 2171 and 2172 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
 CSS: lines 1-153 and 162-1404
-WIDE_LAYOUT 1413-1414 · M 1415-1665 · X 1666-1736 · ART 1737-1743 · GR 1744-1831 · GX 1832-1900 · BK 1901-2003 · PIC 2004-2004
-HOOK 2005-2018 · TLN 2019-2027 · EXP 2028-2045 · VERBS 2046-2047 · CAN 2048-2052 · CULT 2053-2073 · GYM 2074-2085 · BD 2086-2165
-TAGN 2166-2166 · LEVELS 2167-2167 · ACTS 2168-2169 · ACH 2172-2172 · PSETS 2173-2173 · faceEl() 2174-2174 · FACES 2175-2177 · T 2178-2255
-S 2256-2256 · KEY 2257-2257 · t() 2258-2258 · save() 2259-2259 · load() 2260-2264 · day() 2265-2265 · touchStreak() 2266-2268 · h() 2269-2281
-shuffle() 2282-2282 · starsFor() 2283-2283 · starEl() 2284-2284 · mod() 2285-2285 · art() 2286-2286 · modStars() 2287-2287 · PASS 2288-2288 · passed() 2289-2289
-actsDone() 2290-2290 · certOK() 2291-2291 · go() 2292-2292 · toTop() 2293-2293 · app() 2294-2294 · pick() 2295-2297 · bar() 2298-2320 · goBack() 2321-2321
-lvTag() 2322-2322 · menu() 2323-2338 · steps() 2339-2345 · nextStep() 2346-2348 · home() 2349-2418 · modulePage() 2419-2518 · backBtn() 2519-2520 · shell() 2521-2528
-swIcon() 2529-2529 · finish() 2530-2562 · run() 2563-2565 · chat() 2566-2597 · loose() 2598-2598 · writeIt() 2599-2632 · mcRun() 2633-2655 · quizItems() 2656-2656
-speedItems() 2657-2657 · quiz() 2658-2658 · cpItems() 2659-2662 · cpWhere() 2663-2670 · checkpoint() 2671-2710 · build() 2711-2757 · match() 2758-2794 · speed() 2795-2818
-HLT 2819-2832 · KW 2833-2846 · kw() 2847-2855 · caps() 2856-2856 · diffB() 2857-2858 · sents() 2859-2859 · hl() 2860-2868 · noteKind() 2869-2873
-BKIND 2874-2874 · blk() 2875-2876 · grammar() 2877-2922 · SERVE 2923-2929 · miss() 2930-2936 · ALL_LV 2937-2937 · maxLv() 2938-2938 · lvOf() 2939-2939
-bkItem() 2940-2940 · qKey() 2941-2941 · qFresh() 2942-2942 · qMark() 2943-2943 · gameQ() 2944-2944 · gameQ0() 2945-2945 · askPanel() 2946-2963 · LVN 2964-2964
-arcade() 2965-2983 · gTimer() 2984-2986 · fmtT() 2987-2987 · arcadeEnd() 2988-3010 · tennis() 3011-3104 · duel() 3105-3135 · wDiff() 3136-3140 · zap() 3141-3184
-GAMES 3185-3187 · GP 3188-3188 · gclk() 3189-3189 · gHold() 3190-3190 · gGo() 3191-3191 · gClose() 3192-3192 · gFocus() 3193-3195 · COACH 3196-3208
-gCoach() 3209-3227 · TURNG 3228-3228 · gStartNow() 3229-3229 · gReady() 3230-3234 · gOverlay() 3235-3236 · GICONS 3237-3237 · GLIST 3238-3238 · sortNeed() 3239-3239
-poolNeed() 3240-3240 · HOW 3241-3249 · gRestart() 3250-3250 · gIntro() 3251-3270 · gCount() 3271-3283 · gPause() 3284-3297 · WCL 3298-3298 · WSB 3299-3305
-wsClasses() 3306-3306 · wsBank() 3307-3309 · wsWhy() 3310-3312 · penalty() 3313-3423 · wsort() 3424-3459 · wpool() 3460-3607 · HOOPS_BOT 3608-3608 · hoops() 3609-3778
-wonOf() 3779-3779 · starsWon() 3780-3780 · gameList() 3781-3785 · WT 3786-3797 · WTL 3798-3800 · wtubes() 3801-3853 · GN 3854-3872 · GNM 3873-3873
-GNL 3874-3876 · wgenius() 3877-3918 · TUBEMODS 3919-3919 · hasQ() 3920-3920 · hasGame() 3921-3938 · gameCards() 3939-3942 · hub() 3943-3969 · bossSVG() 3970-3989
-cert() 3990-4015 · timeline() 4016-4035 · today() 4036-4036 · exList() 4037-4037 · exFind() 4038-4038 · dueList() 4039-4039 · exCard() 4040-4040 · expr() 4041-4053
-review() 4054-4075 · verbList() 4076-4076 · memBoard() 4077-4089 · verbs() 4090-4134 · mistakes() 4135-4158 · PF 4159-4168 · PQ 4169-4169 · ENTRY 4170-4170
-TRACK 4171-4171 · HELPS 4172-4172 · TIPS 4173-4188 · L2() 4189-4189 · place() 4190-4220 · placeResult() 4221-4242 · avatars() 4243-4296 · VIS 4297-4297
-funnel() 4298-4331 · MAIL 4332-4353 · mailMock() 4354-4358 · mail() 4359-4387 · mailBuild() 4388-4412 · mailQuiz() 4413-4507 · canSpeak() 4508-4508 · voiceScore() 4509-4516
-voices() 4517-4520 · sayIt() 4521-4526 · voicePage() 4527-4544 · spNorm() 4545-4545 · spellDeck() 4546-4557 · spelling() 4558-4594 · gym() 4595-4644 · culture() 4645-4660
-progressCard() 4661-4670 · NUM 4671-4707 · clockSVG() 4708-4714 · numbers() 4715-4733 · numDrill() 4734-4773 · WV 4774-4788 · ADJ 4789-4795 · ADJQ 4796-4796
-ADVF 4797-4797 · ADVD 4798-4798 · ADVM 4799-4799 · ADVP 4800-4800 · ADVQ 4801-4801 · strip() 4802-4802 · meter() 4803-4803 · wvList() 4804-4804
-ILL 4805-4805 · illEl() 4806-4806 · pics() 4807-4807 · words() 4808-4851 · wDrill() 4852-4875 · LAB 4876-4997 · LABMAP 4998-4998 · LSLOT 4999-4999
-LLINES 5000-5000 · labDi() 5001-5001 · labNeed() 5002-5002 · LPART 5003-5003 · labOpts() 5004-5016 · labRobot() 5017-5038 · LABCOIN 5039-5039 · labParty() 5040-5057
-labSentence() 5058-5074 · labCheck() 5075-5097 · isFreqT() 5098-5098 · vowelSound() 5099-5099 · labArt() 5100-5110 · labTense() 5111-5122 · labSense() 5123-5139 · LSTATE 5140-5140
-lab() 5141-5239 · RSWAP 5240-5240 · rVariant() 5241-5251 · race() 5252-5365 · ZAPX 5366-5384 · ideas() 5385-5392 · ownBox() 5393-5398 · applyTheme() 5399-5399
-nm() 5400-5400 · hi() 5401-5401 · welcome() 5402-5420 · choice() 5421-5434 · SG_SING 5435-5435 · SG_VERB 5436-5436 · sentenceTips() 5437-5471 · tipsBox() 5472-5480
-AI 5481-5481 · aiInit() 5482-5482 · aiReady() 5483-5483 · aiContext() 5484-5484 · aiCall() 5485-5489 · aiCheck() 5490-5494 · askTeacher() 5495-5511 · askFab() 5512-5516
-STORY 5517-5573 · storyFor() 5574-5574 · storyList() 5575-5582 · storyPage() 5583-5611 · aiStory() 5612-5617 · BDE 5618-5619 · REV 5620-5676 · ins() 5677-5826
-XQ 5827-5835 · REVIEWM 5836-5846 · TMOD 5847-5849 · SORTSET 5850-5856 · CDS 5857-5865 · CDL 5866-5868 · cdParse() 5869-5872 · wcommas() 5873-5915
-pvOf() 5916-5916 · pvPool() 5917-5919 · pvQs() 5920-5930 · arcadeMods() 5931-5931 · arcadePage() 5932-5971 · ARCMODES 5972-5972 · arcModeOf() 5973-5977 · arcModBtn() 5978-5999
-SPDICT 6000-6000 · spellDict() 6001-6015 · spKnown() 6016-6017 · spDist() 6018-6019 · spellIssues() 6020-6025 · lvMenu() 6026-6032 · COMMAMODS 6033-6034 · PSET 6035-6040
-PMODES 6041-6041 · poolSet() 6042-6042 · gD() 6043-6046 · TONE 6047-6049 · NINE 6050-6052 · soloCard() 6053-6055 · cityBank() 6056-6056 · SOLO 6057-6073
-MOVIES 6074-6130 · MVLV 6131-6132 · stuLv() 6133-6136 · wmovie() 6137-6222 · DCOL 6223-6223 · DIT 6224-6228 · DMAT 6229-6229 · dkC() 6230-6230
-dollSVG() 6231-6290 · dPiece() 6291-6291 · dArt() 6292-6292 · DVB 6293-6293 · wdoll() 6294-6399 · dartSents() 6400-6401 · dartGaps() 6402-6402 · wdarts() 6403-6464
-crossGaps() 6465-6465 · wcross() 6466-6521 · BRCAR 6522-6560 · brItems() 6561-6562 · brParse() 6563-6563 · wbridge() 6564-6658 · STAGS 6659-6686 · SGTAGS 6687-6687
-SPAGES 6688-6688 · sNorm() 6689-6689 · SIDX 6690-6690 · sIndex() 6691-6700 · sFind() 6701-6703 · searchBox() 6704-6723 · rKey() 6724-6724 · favG() 6725-6725
-favGM() 6726-6726 · togFav() 6727-6728 · gRate() 6729-6729 · heartEl() 6730-6732 · RQ 6733-6733 · rateCard() 6734-6750 · AFILT 6751-6771 · QW 6772-6849
-qwById() 6850-6850 · qwFor() 6851-6851 · qwList() 6852-6857 · qwPage() 6858-6889 · qwGameBtn() 6890-6892 · QWFF 6893-6900 · qwLow() 6901-6901 · qwDiff() 6902-6903
-qwIs() 6904-6904 · IRR 6905-6905 · QWRULES 6906-6942 · qwSent() 6943-6944 · qwFind() 6945-6947 · qwDetect() 6948-6948 · QWQUEUE 6949-6950 · qwTgt() 6951-6954
-qwToast() 6955-6971 · qwRecs() 6972-7037 · C1USES 7038-7046 · REG 7047-7088 · regFor() 7089-7089 · regFill() 7090-7090 · regForm() 7091-7091 · regGap() 7092-7094
-CAMTIP 7095-7104 · camTipEl() 7105-7137 · KWT 7138-7162 · kwtFor() 7163-7166 · INV 7167-7181 · wlift() 7182-7221 · wkwt() 7222-7258 · winv() 7259-7515
-MOCK 7516-7546 · MOCKNAME 7547-7547 · MOCKHOW 7548-7548 · wmock() 7549-7656 · PPM 7657-7657 · PPMQ 7658-7670 · ppmSlide() 7671-7684 · GSLX 7685-7873
-addTopic() 7874-8133 · sportsHub() 8134-8152 · gMark() 8153-8154 · USES 8155-8294 · gLines() 8295-8295 · grammar() 8296-8371 · mNo() 8372-8505 · nbFind() 8506-8507
-rmItem() 8508-8511 · rmPool() 8512-8512 · rematch() 8513-8539 · ARCLV 8540-8540 · arcLvGame() 8541-8654 · nbType() 8655-8656 · nbKey() 8657-8657 · nbCard() 8658-8749
-QQ 8750-8782 · TONE_ATT 8783-8783 · TONEQ 8784-8790 · miniMC() 8791-8800 · miniBuild() 8801-8813 · qqById() 8814-8814 · qqItems() 8815-8815 · qqList() 8816-8824
-qqPage() 8825-8841 · tonePage() 8842-8853 · LVLS 8854-8854 · worldMods() 8855-8855 · worldDone() 8856-8856 · worldPerfect() 8857-8857 · MEDALS 8858-8876 · medalToast() 8877-8878
-checkMedals() 8879-8880 · achievements() 8881-8889 · SESS_KEY 8890-8890 · sessGet() 8891-8891 · sessPut() 8892-8892 · sessNew() 8893-8893 · sessCur() 8894-8894 · sessNote() 8895-8895
-sessLearned() 8896-8898 · fmtMin() 8899-8899 · hwList() 8900-8900 · hwPending() 8901-8901 · hwMake() 8902-8913 · endLesson() 8914-8921 · lessonPage() 8922-8939 · hwStart() 8940-8941
-hwScore() 8942-8948 · hwSyncQW() 8949-8949 · hwCard() 8950-8959 · homeworkPage() 8960-8990 · PLNOTE 8991-8991 · plBank() 8992-9038 · LOCKS_ON 9039-9039 · lvUnlockedIdx() 9040-9042
-lvUnlocked() 9043-9043 · modOpen() 9044-9044 · lockPage() 9045-9094 · NINE_EXTRA 9095-9096 · MESBG 9097-9098 · MESNAME 9099-9099 · MESSEA 9100-9100 · mesSpr() 9101-9101
-MESSPR 9102-9115 · mesEl() 9116-9116 · mesNodes() 9117-9117 · meseland() 9118-9181 · REPORT_ON 9182-9182 · repCtx() 9183-9186 · repOpen() 9187-9204 · repFab() 9205-9206
-route() 9207-9220 · start() 9221-9229
+WIDE_LAYOUT 1413-1414 · TIO_LVS 1415-1415 · M 1416-1666 · X 1667-1737 · ART 1738-1744 · GR 1745-1832 · GX 1833-1901 · BK 1902-2004
+PIC 2005-2005 · HOOK 2006-2019 · TLN 2020-2028 · EXP 2029-2046 · VERBS 2047-2048 · CAN 2049-2053 · CULT 2054-2074 · GYM 2075-2086
+BD 2087-2166 · TAGN 2167-2167 · LEVELS 2168-2168 · ACTS 2169-2170 · ACH 2173-2173 · PSETS 2174-2174 · faceEl() 2175-2175 · FACES 2176-2178
+T 2179-2256 · S 2257-2257 · KEY 2258-2258 · t() 2259-2259 · save() 2260-2260 · load() 2261-2265 · day() 2266-2266 · touchStreak() 2267-2269
+h() 2270-2282 · shuffle() 2283-2283 · starsFor() 2284-2284 · starEl() 2285-2285 · mod() 2286-2286 · art() 2287-2287 · modStars() 2288-2288 · PASS 2289-2289
+passed() 2290-2290 · actsDone() 2291-2291 · certOK() 2292-2292 · go() 2293-2293 · toTop() 2294-2294 · app() 2295-2295 · pick() 2296-2298 · bar() 2299-2321
+goBack() 2322-2322 · lvTag() 2323-2323 · menu() 2324-2339 · steps() 2340-2346 · nextStep() 2347-2349 · home() 2350-2419 · modulePage() 2420-2519 · backBtn() 2520-2521
+shell() 2522-2529 · swIcon() 2530-2530 · finish() 2531-2563 · run() 2564-2566 · chat() 2567-2598 · loose() 2599-2599 · writeIt() 2600-2633 · mcRun() 2634-2656
+quizItems() 2657-2657 · speedItems() 2658-2658 · quiz() 2659-2659 · cpItems() 2660-2663 · cpWhere() 2664-2671 · checkpoint() 2672-2711 · build() 2712-2758 · match() 2759-2795
+speed() 2796-2819 · HLT 2820-2833 · KW 2834-2847 · kw() 2848-2856 · caps() 2857-2857 · diffB() 2858-2859 · sents() 2860-2860 · hl() 2861-2869
+noteKind() 2870-2874 · BKIND 2875-2875 · blk() 2876-2877 · grammar() 2878-2923 · SERVE 2924-2930 · miss() 2931-2937 · ALL_LV 2938-2938 · maxLv() 2939-2939
+lvOf() 2940-2940 · bkItem() 2941-2941 · qKey() 2942-2942 · qFresh() 2943-2943 · qMark() 2944-2944 · gameQ() 2945-2945 · gameQ0() 2946-2946 · askPanel() 2947-2964
+LVN 2965-2965 · arcade() 2966-2984 · gTimer() 2985-2987 · fmtT() 2988-2988 · arcadeEnd() 2989-3011 · tennis() 3012-3105 · duel() 3106-3136 · wDiff() 3137-3141
+zap() 3142-3185 · GAMES 3186-3188 · GP 3189-3189 · gclk() 3190-3190 · gHold() 3191-3191 · gGo() 3192-3192 · gClose() 3193-3193 · gFocus() 3194-3196
+COACH 3197-3209 · gCoach() 3210-3228 · TURNG 3229-3229 · gStartNow() 3230-3230 · gReady() 3231-3235 · gOverlay() 3236-3237 · GICONS 3238-3238 · GLIST 3239-3239
+sortNeed() 3240-3240 · poolNeed() 3241-3241 · HOW 3242-3250 · gRestart() 3251-3251 · gIntro() 3252-3271 · gCount() 3272-3284 · gPause() 3285-3298 · WCL 3299-3299
+WSB 3300-3306 · wsClasses() 3307-3307 · wsBank() 3308-3310 · wsWhy() 3311-3313 · penalty() 3314-3424 · wsort() 3425-3460 · wpool() 3461-3627 · HOOPS_BOT 3628-3628
+hoops() 3629-3798 · wonOf() 3799-3799 · starsWon() 3800-3800 · gameList() 3801-3805 · WT 3806-3817 · WTL 3818-3820 · wtubes() 3821-3873 · GN 3874-3892
+GNM 3893-3893 · GNL 3894-3896 · wgenius() 3897-3938 · TUBEMODS 3939-3939 · hasQ() 3940-3940 · hasGame() 3941-3958 · gameCards() 3959-3962 · hub() 3963-3989
+bossSVG() 3990-4009 · cert() 4010-4035 · timeline() 4036-4055 · today() 4056-4056 · exList() 4057-4057 · exFind() 4058-4058 · dueList() 4059-4059 · exCard() 4060-4060
+expr() 4061-4073 · review() 4074-4095 · verbList() 4096-4096 · memBoard() 4097-4109 · verbs() 4110-4154 · mistakes() 4155-4178 · PF 4179-4188 · PQ 4189-4189
+ENTRY 4190-4190 · TRACK 4191-4191 · HELPS 4192-4192 · TIPS 4193-4208 · L2() 4209-4209 · place() 4210-4240 · placeResult() 4241-4262 · avatars() 4263-4316
+VIS 4317-4317 · funnel() 4318-4351 · MAIL 4352-4373 · mailMock() 4374-4378 · mail() 4379-4407 · mailBuild() 4408-4432 · mailQuiz() 4433-4527 · canSpeak() 4528-4528
+voiceScore() 4529-4536 · voices() 4537-4540 · sayIt() 4541-4546 · voicePage() 4547-4564 · spNorm() 4565-4565 · spellDeck() 4566-4577 · spelling() 4578-4614 · gym() 4615-4664
+culture() 4665-4680 · progressCard() 4681-4690 · NUM 4691-4727 · clockSVG() 4728-4734 · numbers() 4735-4753 · numDrill() 4754-4793 · WV 4794-4808 · ADJ 4809-4815
+ADJQ 4816-4816 · ADVF 4817-4817 · ADVD 4818-4818 · ADVM 4819-4819 · ADVP 4820-4820 · ADVQ 4821-4821 · strip() 4822-4822 · meter() 4823-4823
+wvList() 4824-4824 · ILL 4825-4825 · illEl() 4826-4826 · pics() 4827-4827 · words() 4828-4871 · wDrill() 4872-4895 · LAB 4896-5017 · LABMAP 5018-5018
+LSLOT 5019-5019 · LLINES 5020-5020 · labDi() 5021-5021 · labNeed() 5022-5022 · LPART 5023-5023 · labOpts() 5024-5036 · labRobot() 5037-5058 · LABCOIN 5059-5059
+labParty() 5060-5077 · labSentence() 5078-5094 · labCheck() 5095-5117 · isFreqT() 5118-5118 · vowelSound() 5119-5119 · labArt() 5120-5130 · labTense() 5131-5142 · labSense() 5143-5159
+LSTATE 5160-5160 · lab() 5161-5259 · RSWAP 5260-5260 · rVariant() 5261-5271 · race() 5272-5385 · ZAPX 5386-5404 · ideas() 5405-5412 · ownBox() 5413-5418
+applyTheme() 5419-5419 · nm() 5420-5420 · hi() 5421-5421 · welcome() 5422-5440 · choice() 5441-5454 · SG_SING 5455-5455 · SG_VERB 5456-5456 · sentenceTips() 5457-5491
+tipsBox() 5492-5500 · AI 5501-5501 · aiInit() 5502-5502 · aiReady() 5503-5503 · aiContext() 5504-5504 · aiCall() 5505-5509 · aiCheck() 5510-5514 · askTeacher() 5515-5531
+askFab() 5532-5536 · STORY 5537-5593 · storyFor() 5594-5594 · storyList() 5595-5602 · storyPage() 5603-5631 · aiStory() 5632-5637 · BDE 5638-5639 · REV 5640-5696
+ins() 5697-5846 · XQ 5847-5855 · REVIEWM 5856-5866 · TMOD 5867-5869 · SORTSET 5870-5876 · CDS 5877-5885 · CDL 5886-5888 · cdParse() 5889-5892
+wcommas() 5893-5935 · pvOf() 5936-5936 · pvPool() 5937-5939 · pvQs() 5940-5950 · arcadeMods() 5951-5951 · arcadePage() 5952-5991 · ARCMODES 5992-5992 · arcModeOf() 5993-5997
+arcModBtn() 5998-6019 · SPDICT 6020-6020 · spellDict() 6021-6035 · spKnown() 6036-6037 · spDist() 6038-6039 · spellIssues() 6040-6045 · lvMenu() 6046-6052 · COMMAMODS 6053-6054
+PSET 6055-6060 · PMODES 6061-6061 · poolSet() 6062-6062 · gD() 6063-6066 · TONE 6067-6069 · NINE 6070-6072 · soloCard() 6073-6075 · cityBank() 6076-6076
+SOLO 6077-6093 · MOVIES 6094-6150 · MVLV 6151-6152 · stuLv() 6153-6156 · wmovie() 6157-6242 · DCOL 6243-6243 · DIT 6244-6248 · DMAT 6249-6249
+dkC() 6250-6250 · dollSVG() 6251-6310 · dPiece() 6311-6311 · dArt() 6312-6312 · DVB 6313-6313 · wdoll() 6314-6419 · dartSents() 6420-6421 · dartGaps() 6422-6422
+wdarts() 6423-6484 · crossGaps() 6485-6485 · wcross() 6486-6541 · BRCAR 6542-6580 · brItems() 6581-6582 · brParse() 6583-6583 · wbridge() 6584-6678 · STAGS 6679-6706
+SGTAGS 6707-6707 · SPAGES 6708-6708 · sNorm() 6709-6709 · SIDX 6710-6710 · sIndex() 6711-6720 · sFind() 6721-6723 · searchBox() 6724-6743 · rKey() 6744-6744
+favG() 6745-6745 · favGM() 6746-6746 · togFav() 6747-6748 · gRate() 6749-6749 · heartEl() 6750-6752 · RQ 6753-6753 · rateCard() 6754-6770 · AFILT 6771-6791
+QW 6792-6869 · qwById() 6870-6870 · qwFor() 6871-6871 · qwList() 6872-6877 · qwPage() 6878-6909 · qwGameBtn() 6910-6912 · QWFF 6913-6920 · qwLow() 6921-6921
+qwDiff() 6922-6923 · qwIs() 6924-6924 · IRR 6925-6925 · QWRULES 6926-6962 · qwSent() 6963-6964 · qwFind() 6965-6967 · qwDetect() 6968-6968 · QWQUEUE 6969-6970
+qwTgt() 6971-6974 · qwToast() 6975-6991 · qwRecs() 6992-7057 · C1USES 7058-7066 · REG 7067-7108 · regFor() 7109-7109 · regFill() 7110-7110 · regForm() 7111-7111
+regGap() 7112-7114 · CAMTIP 7115-7124 · camTipEl() 7125-7157 · KWT 7158-7182 · kwtFor() 7183-7186 · INV 7187-7201 · wlift() 7202-7241 · wkwt() 7242-7278
+winv() 7279-7535 · MOCK 7536-7566 · MOCKNAME 7567-7567 · MOCKHOW 7568-7568 · wmock() 7569-7676 · PPM 7677-7677 · PPMQ 7678-7690 · ppmSlide() 7691-7704
+GSLX 7705-7893 · addTopic() 7894-8153 · sportsHub() 8154-8172 · gMark() 8173-8174 · USES 8175-8314 · gLines() 8315-8315 · grammar() 8316-8391 · mNo() 8392-8525
+nbFind() 8526-8527 · rmItem() 8528-8531 · rmPool() 8532-8532 · rematch() 8533-8559 · ARCLV 8560-8560 · arcLvGame() 8561-8674 · nbType() 8675-8676 · nbKey() 8677-8677
+nbCard() 8678-8769 · QQ 8770-8802 · TONE_ATT 8803-8803 · TONEQ 8804-8810 · miniMC() 8811-8820 · miniBuild() 8821-8833 · qqById() 8834-8834 · qqItems() 8835-8835
+qqList() 8836-8844 · qqPage() 8845-8861 · tonePage() 8862-8873 · LVLS 8874-8874 · worldMods() 8875-8875 · worldDone() 8876-8876 · worldPerfect() 8877-8877 · MEDALS 8878-8896
+medalToast() 8897-8898 · checkMedals() 8899-8900 · achievements() 8901-8909 · SESS_KEY 8910-8910 · sessGet() 8911-8911 · sessPut() 8912-8912 · sessNew() 8913-8913 · sessCur() 8914-8914
+sessNote() 8915-8915 · sessLearned() 8916-8918 · fmtMin() 8919-8919 · hwList() 8920-8920 · hwPending() 8921-8921 · hwMake() 8922-8933 · endLesson() 8934-8941 · lessonPage() 8942-8959
+hwStart() 8960-8961 · hwScore() 8962-8968 · hwSyncQW() 8969-8969 · hwCard() 8970-8979 · homeworkPage() 8980-9010 · PLNOTE 9011-9011 · plBank() 9012-9058 · LOCKS_ON 9059-9059
+lvUnlockedIdx() 9060-9062 · lvUnlocked() 9063-9063 · modOpen() 9064-9064 · lockPage() 9065-9114 · NINE_EXTRA 9115-9116 · MESBG 9117-9118 · MESNAME 9119-9119 · MESSEA 9120-9120
+mesSpr() 9121-9121 · MESSPR 9122-9135 · mesEl() 9136-9136 · mesNodes() 9137-9137 · meseland() 9138-9201 · REPORT_ON 9202-9202 · repCtx() 9203-9206 · repOpen() 9207-9224
+repFab() 9225-9226 · route() 9227-9240 · start() 9241-9256
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -3195,7 +3195,7 @@ function gFocus(ui,smooth){if(!ui||!ui.stage||!ui.stage.isConnected)return;var b
 
 /* ---------- first-play coach: step by step, shown once per game ---------- */
 var COACH={
- pool:[[".pooltable","Touch the table where you want the white ball to go. A small target shows your aim. You can drag to adjust."],[".aimbtn","Use ⟲ and ⟳ to fine-tune the aim."],[".pmeter","This bar shows the power."],[".poolctl .btn.shoot","Hold this button: the bar goes up and down. Let go when the power is right!"],[".pooltable","Hit the yellow word ball into the pocket with the right label."]],
+ pool:[[".pooltable","Touch the table where you want the white ball to go. A small target shows your aim. Drag to adjust, then let go: the angle locks."],[".aimbtn","Use ⟲ and ⟳ to fine-tune the aim."],[".poolctl .btn.shoot","Tap LOCK AIM (or tap the table again) to fix the angle."],[".pmeter","Then move sideways: right = stronger, left = softer. Tap to shoot!"],[".pooltable","Hit the yellow word ball into the pocket with the right label."]],
  tennis:[[".court","Move your racket left and right: drag on the court or use ← →."],[".court","Hit the ball with the edge of the racket to change its direction."],["#app>.score","When someone misses, a question appears: answer right to win the point."]],
  penalty:[[".court.pen","This is the goal. The target shows where you will shoot."],[".penctl","Move the target with the arrows (or ← → ↑ ↓), then press SHOOT."],["#app>.score","A goal only counts if you answer the question right."]],
  duel:[[".bossbox","This is the boss. Break all its pieces to win."],["#app>.score","Every wrong answer costs you a heart."]],
@@ -3246,7 +3246,7 @@ var HOW={
  race:function(l){return [["🏎️","Steer with ← → or tap the left or right side of the road."],["🧩","Three gates come with three words. Drive into the next word of the sentence."],["🎨","Emoji and colours help you: blue = subject, red = verb, green = adjective."],["❤️","A wrong gate costs a life. Finish the sentences before the robot!"]]},
  penalty:function(l){return [["🎯","Aim: move the mouse or drag your finger. You can also use ← → ↑ ↓."],["⚽","Shoot: click or tap where you want the ball to go. SPACE and the SHOOT button work too."],["❓","Goal? Now answer the question. Only a right answer makes the goal count."],["🏆",l>=5?"Final phase: 5 shots. Score all 5!":"You have 10 shots. Score "+(l>=4?8:5+l)+" to pass phase "+l+"."]]},
  sort:function(l){return [["⬇️","Words fall from the sky."],["🧺","Put each word in the right basket: tap the basket, or move with ← → and drop with ↓."],["❤️","A wrong basket costs a life. You have 3."],["🏆","Sort "+sortNeed(l)+" words to win."]]},
- pool:function(l){return [["🎱","Touch the table to aim. Hold the button and let go to shoot: the meter shows the power."],["🔤","Hit the word ball into the right pocket."],["❌","Wrong pocket, or the white ball in a pocket: you lose a life."],["🏆","Pocket "+poolNeed(l)+" words in the right pockets to win."]]}
+ pool:function(l){return [l>=5?["🎱","Impossible: drag back from the white ball like a slingshot. Direction = angle, distance = power. Let go to shoot."]:["🎱","Tap or click the table to aim, then tap again to lock the angle. Move sideways to choose the power and tap to shoot."],["🔤","Hit the word ball into the right pocket."],["❌","Wrong pocket, or the white ball in a pocket: you lose a life."],["🏆","Pocket "+poolNeed(l)+" words in the right pockets to win."]]}
 };
 function gRestart(m,k,lv){if(lv){if(!S.pick)S.pick={};S.pick[m.id+":"+k]=lv;save()}GP.quick=m.id+":"+k;GAMES[k](m)}
 function gIntro(m,k,ui){
@@ -3469,15 +3469,23 @@ function wpool(m){
   var cv=h("canvas",{width:W,height:H,class:"court pooltable","aria-label":"Pool table"}),cx=cv.getContext("2d");
   var pw=h("input",{type:"range",min:"15",max:"100",value:"60","aria-label":"Power",oninput:function(){pow=pw.value/100}});
   ui.stage.appendChild(cv);
-  var pmeter=h("i",{style:"width:0%"}),charging=false,chT=0,shotBtn=h("button",{class:"btn shoot","aria-label":"Hold to choose the power, let go to shoot"},"🎱 HOLD & RELEASE");
+  var pmeter=h("i",{style:"width:0%"}),charging=false,chT=0,IMP=lvl>=5,px0=null,pDown=false;
+  /* 27/11 (Luisa): levels 1-4 = tap/click to lock the angle, then move sideways (mouse, cursor or finger) to set the power, tap/click again (or let go) to shoot. Impossible = the old slingshot: pull back from the white ball, angle and distance at the same time. */
+  var shotBtn=h("button",{class:"btn shoot","aria-label":IMP?"Shoot":"Lock the aim"},IMP?"🎱 SHOOT":"🔒 LOCK AIM"),reBtn=h("button",{class:"btn ghost reaim",hidden:true,"aria-label":"Choose the angle again"},"↩ Aim again");
+  function setPow(v){pow=Math.max(.12,Math.min(1,v));pmeter.style.width=Math.round(pow*100)+"%";pmeter.parentNode.className=pow>.8?"hot":""}
+  function ctl(){if(IMP){shotBtn.textContent="🎱 SHOOT";return}var p=phase==="power";shotBtn.textContent=p?"🎱 SHOOT":"🔒 LOCK AIM";shotBtn.setAttribute("aria-label",p?"Shoot":"Lock the aim");reBtn.hidden=!p;hintEl.textContent=p?"💪 Angle locked. Move sideways to choose the power (→ stronger, ← softer), then tap or click to shoot.":"🎯 Touch the table where you want to aim (drag to adjust, ⟲ ⟳ fine-tune). Then tap or click again to lock the angle."}
+  function lockAim(x){if(phase!=="aim"||GP.on)return;phase="power";aimPt=aimPt||null;px0=x==null?null:x;setPow(.12);ctl()}
+  function reAim(){if(phase!=="power")return;phase="aim";px0=null;pDown=false;pmeter.style.width="0%";ctl()}
   function holdTurn(d){var b=h("button",{class:"btn ghost aimbtn","aria-label":d<0?"Turn left":"Turn right"},d<0?"⟲":"⟳"),iv=null;
     function go1(e){if(e)e.preventDefault();turn(d);var n=0;clearInterval(iv);iv=setInterval(function(){n++;turn(n>8?d*3:d)},70)}function stop1(){clearInterval(iv)}
     b.addEventListener("pointerdown",go1);["pointerup","pointerleave","pointercancel"].forEach(function(ev){b.addEventListener(ev,stop1)});return b}
-  function chargeStart(e){if(e)e.preventDefault();if(phase!=="aim"||GP.on||charging)return;charging=true;chT=performance.now();shotBtn.classList.add("on")}
-  function chargeEnd(e){if(e)e.preventDefault();if(!charging)return;charging=false;shotBtn.classList.remove("on");shoot()}
-  shotBtn.addEventListener("pointerdown",chargeStart);shotBtn.addEventListener("pointerup",chargeEnd);shotBtn.addEventListener("pointerleave",function(){if(charging)chargeEnd()});
-  ui.stage.appendChild(h("div",{class:"penctl poolctl"},holdTurn(-1),h("div",{class:"pmeter","aria-label":"Power"},h("span",null,"Power"),h("b",null,pmeter)),holdTurn(1),shotBtn));
-  ui.stage.appendChild(h("p",{class:"hint",style:"text-align:center;margin:6px 0 0"},"🎯 Touch the table where you want to aim (drag to adjust). ⟲ ⟳ fine-tune. Hold the button to choose the power and let go to shoot."));
+  function chargeStart(e){if(e)e.preventDefault()}
+  function chargeEnd(e){if(e)e.preventDefault()}
+  shotBtn.addEventListener("click",function(){if(IMP){shoot();return}if(phase==="aim")lockAim(null);else if(phase==="power")shoot()});
+  reBtn.addEventListener("click",reAim);
+  var hintEl=h("p",{class:"hint",style:"text-align:center;margin:6px 0 0"},IMP?"🎯 Impossible: drag BACK from the white ball like a slingshot. The direction is the angle, the distance is the power. Let go to shoot.":"");
+  ui.stage.appendChild(h("div",{class:"penctl poolctl"},holdTurn(-1),h("div",{class:"pmeter","aria-label":"Power"},h("span",null,"Power"),h("b",null,pmeter)),holdTurn(1),shotBtn,reBtn));
+  ui.stage.appendChild(hintEl);ctl();
   function turn(d){if(phase==="aim"){ang+=d*Math.PI/180;aimPt=null}}
   function score(){ui.board(t("score"),pts+" / "+need,[t("level")+" "+lvl,wb?"Shot "+Math.min(tries+1,6)+" of 6 for this word":""],t("lives"),"♥♥♥".slice(0,lives)+"♡♡♡".slice(0,3-lives))}
   function say(s,c){txt={s:s,c:c||"#ffd166",t:gclk(performance.now())}}
@@ -3487,14 +3495,25 @@ function wpool(m){
         ok2=cxp>X0+40&&cxp<X1-40&&cyp>Y0+40&&cyp<Y1-40&&pk.every(function(q2){return Math.hypot(cxp-q2[0],cyp-q2[1])>80})}while(!ok2&&tries2<60);
       if(ok2){cue.x=cxp;cue.y=cyp;cue.vx=cue.vy=0}}
     wb={x:x,y:y,vx:0,vy:0,on:true,it:it};tries=0;if(lvl>=4)deal();ang=Math.atan2(wb.y-cue.y,wb.x-cue.x);score()}
-  function shoot(){if(phase!=="aim"||GP.on)return;pmeter.style.width="0%";var v=.25+pow*1.35;cue.vx=Math.cos(ang)*v;cue.vy=Math.sin(ang)*v;phase="roll";tries++;score()}
+  function shoot(){if((phase!=="aim"&&phase!=="power")||GP.on)return;pmeter.style.width="0%";px0=null;pDown=false;var v=.25+pow*1.35;cue.vx=Math.cos(ang)*v;cue.vy=Math.sin(ang)*v;phase="roll";tries++;score()}
   function pos(e){var r=cv.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width*W,y:(e.clientY-r.top)/r.height*H}}
   var aimPt=null;function aimTo(p){var dx=p.x-cue.x,dy=p.y-cue.y;if(Math.hypot(dx,dy)>6){ang=Math.atan2(dy,dx);aimPt=p}}
-  cv.addEventListener("pointerdown",function(e){if(phase!=="aim")return;drag=pos(e);aimTo(drag);try{cv.setPointerCapture(e.pointerId)}catch(_){}});
-  cv.addEventListener("pointermove",function(e){if(!drag||phase!=="aim")return;aimTo(pos(e))});
-  cv.addEventListener("pointerup",function(e){drag=null});
-  keyh=function(e){if(e.key==="ArrowLeft"){turn(-3);e.preventDefault()}else if(e.key==="ArrowRight"){turn(3);e.preventDefault()}else if(e.key===" "||e.key==="Enter"){if(!e.repeat)chargeStart();e.preventDefault()}};
-  var keyu=function(e){if(my!==tok){window.removeEventListener("keyup",keyu);return}if(e.key===" "||e.key==="Enter"){chargeEnd();e.preventDefault()}};window.addEventListener("keyup",keyu);
+  function powFrom(cx0){if(px0==null)px0=cx0-.12*260;setPow((cx0-px0)/260)}
+  cv.addEventListener("pointerdown",function(e){if(GP.on)return;var p=pos(e);try{cv.setPointerCapture(e.pointerId)}catch(_){}
+    if(IMP){if(phase!=="aim")return;drag=p;return}
+    if(phase==="aim"){drag=p;aimTo(p)}else if(phase==="power"){pDown=true;if(px0==null)px0=e.clientX-pow*260}});
+  cv.addEventListener("pointermove",function(e){
+    if(IMP){if(!drag||phase!=="aim")return;var p=pos(e),dx=cue.x-p.x,dy=cue.y-p.y,d=Math.hypot(dx,dy);if(d>8){ang=Math.atan2(dy,dx);aimPt=null;setPow(d/170)}return}
+    if(phase==="aim"&&drag)aimTo(pos(e));else if(phase==="power")powFrom(e.clientX)});
+  var winMove=function(e){if(my!==tok){window.removeEventListener("pointermove",winMove);return}if(!IMP&&phase==="power"&&e.pointerType==="mouse"&&e.target!==cv)powFrom(e.clientX)};window.addEventListener("pointermove",winMove);
+  cv.addEventListener("pointerup",function(e){
+    if(IMP){if(!drag)return;var p=pos(e),moved=Math.hypot(p.x-drag.x,p.y-drag.y);drag=null;if(moved>14&&phase==="aim")shoot();return}
+    if(phase==="aim"&&drag){drag=null;lockAim(e.pointerType==="mouse"?e.clientX:null);return}
+    if(phase==="power"&&pDown){pDown=false;shoot()}});
+  keyh=function(e){if(e.key==="ArrowLeft"){if(phase==="power")setPow(pow-.05);else turn(-3);e.preventDefault()}else if(e.key==="ArrowRight"){if(phase==="power")setPow(pow+.05);else turn(3);e.preventDefault()}
+    else if(IMP&&e.key==="ArrowUp"){setPow(pow+.05);e.preventDefault()}else if(IMP&&e.key==="ArrowDown"){setPow(pow-.05);e.preventDefault()}
+    else if(e.key==="Escape"){reAim()}else if(e.key===" "||e.key==="Enter"){if(!e.repeat){if(IMP||phase==="power")shoot();else if(phase==="aim")lockAim(null)}e.preventDefault()}};
+  var keyu=function(e){if(my!==tok){window.removeEventListener("keyup",keyu);return}};window.addEventListener("keyup",keyu);
   window.addEventListener("keydown",keyh);
   function pocketOf(b){for(var i=0;i<6;i++){if(Math.hypot(b.x-pk[i][0],b.y-pk[i][1])<(i===1||i===4?25:25))return i}return -1}
   function wall(b){if(b.x<X0+R){b.x=X0+R;b.vx=-b.vx*.85}if(b.x>X1-R){b.x=X1-R;b.vx=-b.vx*.85}if(b.y<Y0+R){b.y=Y0+R;b.vy=-b.vy*.85}if(b.y>Y1-R){b.y=Y1-R;b.vy=-b.vy*.85}}
@@ -3516,7 +3535,7 @@ function wpool(m){
     else if(wb&&tries>=6){msg=SS?"Six shots! It was “"+WCL[wb.it.c][0]+"”.":"Six shots! It was "+(wb.it.c==="a"||wb.it.c==="d"?"an ":"a ")+WCL[wb.it.c][0].toLowerCase()+".";col="#ffffff";ui.talk(wb.it.why||wsWhy(wb.it));wb=null}
     if(msg)say(msg,col);
     if(pts>=need||lives<=0){over=true;phase="end";score();setTimeout(function(){if(my===tok)arcadeEnd(m,"pool",pts>=need,pts+" words in the right pocket · "+(3-lives)+" lives lost",lvl)},1300);return}
-    if(!wb)newWord();phase="aim";score();
+    if(!wb)newWord();phase="aim";score();ctl();
   }
   function rr(x,y,w,hh,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+hh,r);cx.arcTo(x+w,y+hh,x,y+hh,r);cx.arcTo(x,y+hh,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
   function wallT(x,y,dx,dy){var t=1e9;if(dx>1e-6)t=Math.min(t,(X1-R-x)/dx);if(dx<-1e-6)t=Math.min(t,(X0+R-x)/dx);if(dy>1e-6)t=Math.min(t,(Y1-R-y)/dy);if(dy<-1e-6)t=Math.min(t,(Y0+R-y)/dy);return Math.max(0,t)}
@@ -3568,8 +3587,8 @@ function wpool(m){
     cx.clearRect(0,0,W,H);
     if(!TBL)TBL=poolTable();cx.drawImage(TBL,0,0);
     sinks=sinks.filter(function(k){return now-k.t<450});sinks.forEach(function(k){var f=1-(now-k.t)/450;cx.globalAlpha=f;cx.fillStyle=k.c;cx.beginPath();cx.arc(k.x,k.y,Math.max(1,R*f),0,7);cx.fill();cx.globalAlpha=1});
-    if(aimPt&&phase==="aim"){cx.strokeStyle="rgba(255,255,255,.75)";cx.lineWidth=2;cx.beginPath();cx.arc(aimPt.x,aimPt.y,9,0,7);cx.moveTo(aimPt.x-14,aimPt.y);cx.lineTo(aimPt.x-5,aimPt.y);cx.moveTo(aimPt.x+5,aimPt.y);cx.lineTo(aimPt.x+14,aimPt.y);cx.moveTo(aimPt.x,aimPt.y-14);cx.lineTo(aimPt.x,aimPt.y-5);cx.moveTo(aimPt.x,aimPt.y+5);cx.lineTo(aimPt.x,aimPt.y+14);cx.stroke()}
-    if(lvl<=3&&phase==="aim"&&wb&&wb.on){var pr=predict();if(pr.hit&&pr.pocket>=0){var gp=pk[pr.pocket],gl=cx.createRadialGradient(gp[0],gp[1],8,gp[0],gp[1],40);gl.addColorStop(0,"rgba(255,209,102,.55)");gl.addColorStop(1,"rgba(255,209,102,0)");cx.fillStyle=gl;cx.beginPath();cx.arc(gp[0],gp[1],40,0,7);cx.fill()}}
+    if(aimPt&&(phase==="aim"||phase==="power")){cx.strokeStyle="rgba(255,255,255,.75)";cx.lineWidth=2;cx.beginPath();cx.arc(aimPt.x,aimPt.y,9,0,7);cx.moveTo(aimPt.x-14,aimPt.y);cx.lineTo(aimPt.x-5,aimPt.y);cx.moveTo(aimPt.x+5,aimPt.y);cx.lineTo(aimPt.x+14,aimPt.y);cx.moveTo(aimPt.x,aimPt.y-14);cx.lineTo(aimPt.x,aimPt.y-5);cx.moveTo(aimPt.x,aimPt.y+5);cx.lineTo(aimPt.x,aimPt.y+14);cx.stroke()}
+    if(lvl<=3&&(phase==="aim"||phase==="power")&&wb&&wb.on){var pr=predict();if(pr.hit&&pr.pocket>=0){var gp=pk[pr.pocket],gl=cx.createRadialGradient(gp[0],gp[1],8,gp[0],gp[1],40);gl.addColorStop(0,"rgba(255,209,102,.55)");gl.addColorStop(1,"rgba(255,209,102,0)");cx.fillStyle=gl;cx.beginPath();cx.arc(gp[0],gp[1],40,0,7);cx.fill()}}
     pk.forEach(function(p,i){
       var c=WCL[lab[i]],cc=CC[c[2]],top=i<3;cx.font="800 16px system-ui, sans-serif";var lw=Math.max(88,cx.measureText(c[0]).width+40),lx=Math.max(4,Math.min(W-lw-4,p[0]-lw/2)),ly=top?3:H-35;
       cx.strokeStyle=cc[1];cx.lineWidth=4;cx.beginPath();cx.arc(p[0],p[1],27.5,0,7);cx.stroke();
@@ -3577,7 +3596,7 @@ function wpool(m){
       cx.lineWidth=2.5;cx.strokeStyle=cc[1];rr(lx,ly,lw,30,10);cx.stroke();
       cx.fillStyle=cc[1];cx.beginPath();cx.arc(lx+14,ly+15,5,0,7);cx.fill();
       cx.fillStyle="#17213b";cx.textAlign="center";cx.fillText(c[0],lx+lw/2+6,ly+21)});
-    if(phase==="aim"&&cue.on){var P2=predict(),hp=null;
+    if((phase==="aim"||phase==="power")&&cue.on){var P2=predict(),hp=null;
       cx.strokeStyle="rgba(255,255,255,.8)";cx.setLineDash([7,7]);cx.lineWidth=2;cx.beginPath();cx.moveTo(cue.x,cue.y);cx.lineTo(P2.cx1,P2.cy1);
       if(!P2.hit){cx.lineTo(P2.cx1+P2.rx*90,P2.cy1+P2.ry*90)}cx.stroke();cx.setLineDash([]);
       if(P2.hit){cx.strokeStyle="rgba(255,255,255,.9)";cx.lineWidth=2;cx.beginPath();cx.arc(P2.cx1,P2.cy1,R,0,7);cx.stroke();

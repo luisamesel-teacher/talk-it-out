@@ -1,56 +1,56 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 2084 and 2085 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-145 and 154-1318
-WIDE_LAYOUT 1327-1328 · M 1329-1579 · X 1580-1650 · ART 1651-1657 · GR 1658-1745 · GX 1746-1814 · BK 1815-1917 · PIC 1918-1918
-HOOK 1919-1932 · TLN 1933-1941 · EXP 1942-1959 · VERBS 1960-1961 · CAN 1962-1966 · CULT 1967-1987 · GYM 1988-1999 · BD 2000-2079
-TAGN 2080-2080 · LEVELS 2081-2081 · ACTS 2082-2083 · ACH 2086-2086 · PSETS 2087-2087 · faceEl() 2088-2088 · FACES 2089-2091 · T 2092-2169
-S 2170-2170 · KEY 2171-2171 · t() 2172-2172 · save() 2173-2173 · load() 2174-2178 · day() 2179-2179 · touchStreak() 2180-2182 · h() 2183-2195
-shuffle() 2196-2196 · starsFor() 2197-2197 · starEl() 2198-2198 · mod() 2199-2199 · art() 2200-2200 · modStars() 2201-2201 · PASS 2202-2202 · passed() 2203-2203
-actsDone() 2204-2204 · certOK() 2205-2205 · go() 2206-2206 · toTop() 2207-2207 · app() 2208-2208 · pick() 2209-2211 · bar() 2212-2234 · goBack() 2235-2235
-lvTag() 2236-2236 · menu() 2237-2252 · steps() 2253-2259 · nextStep() 2260-2262 · home() 2263-2332 · modulePage() 2333-2432 · backBtn() 2433-2434 · shell() 2435-2442
-swIcon() 2443-2443 · finish() 2444-2476 · run() 2477-2479 · chat() 2480-2511 · loose() 2512-2512 · writeIt() 2513-2546 · mcRun() 2547-2569 · quizItems() 2570-2570
-speedItems() 2571-2571 · quiz() 2572-2572 · cpItems() 2573-2576 · cpWhere() 2577-2584 · checkpoint() 2585-2624 · build() 2625-2671 · match() 2672-2708 · speed() 2709-2732
-HLT 2733-2746 · KW 2747-2760 · kw() 2761-2769 · caps() 2770-2770 · diffB() 2771-2772 · sents() 2773-2773 · hl() 2774-2782 · noteKind() 2783-2787
-BKIND 2788-2788 · blk() 2789-2790 · grammar() 2791-2836 · SERVE 2837-2843 · miss() 2844-2850 · ALL_LV 2851-2851 · maxLv() 2852-2852 · lvOf() 2853-2853
-bkItem() 2854-2854 · qKey() 2855-2855 · qFresh() 2856-2856 · qMark() 2857-2857 · gameQ() 2858-2858 · gameQ0() 2859-2859 · askPanel() 2860-2877 · LVN 2878-2878
-arcade() 2879-2897 · gTimer() 2898-2900 · fmtT() 2901-2901 · arcadeEnd() 2902-2924 · tennis() 2925-3018 · duel() 3019-3049 · wDiff() 3050-3054 · zap() 3055-3098
-GAMES 3099-3101 · GP 3102-3102 · gclk() 3103-3103 · gHold() 3104-3104 · gGo() 3105-3105 · gClose() 3106-3106 · gFocus() 3107-3109 · COACH 3110-3122
-gCoach() 3123-3141 · TURNG 3142-3142 · gStartNow() 3143-3143 · gReady() 3144-3148 · gOverlay() 3149-3150 · GICONS 3151-3151 · GLIST 3152-3152 · sortNeed() 3153-3153
-poolNeed() 3154-3154 · HOW 3155-3163 · gRestart() 3164-3164 · gIntro() 3165-3184 · gCount() 3185-3197 · gPause() 3198-3211 · WCL 3212-3212 · WSB 3213-3219
-wsClasses() 3220-3220 · wsBank() 3221-3223 · wsWhy() 3224-3226 · penalty() 3227-3337 · wsort() 3338-3373 · wpool() 3374-3521 · HOOPS_BOT 3522-3522 · hoops() 3523-3692
-wonOf() 3693-3693 · starsWon() 3694-3694 · gameList() 3695-3699 · WT 3700-3711 · WTL 3712-3714 · wtubes() 3715-3767 · GN 3768-3786 · GNM 3787-3787
-GNL 3788-3790 · wgenius() 3791-3832 · TUBEMODS 3833-3833 · hasQ() 3834-3834 · hasGame() 3835-3852 · gameCards() 3853-3856 · hub() 3857-3883 · bossSVG() 3884-3903
-cert() 3904-3929 · timeline() 3930-3949 · today() 3950-3950 · exList() 3951-3951 · exFind() 3952-3952 · dueList() 3953-3953 · exCard() 3954-3954 · expr() 3955-3967
-review() 3968-3989 · verbList() 3990-3990 · memBoard() 3991-4003 · verbs() 4004-4048 · mistakes() 4049-4071 · PF 4072-4081 · PQ 4082-4082 · ENTRY 4083-4083
-TRACK 4084-4084 · HELPS 4085-4085 · TIPS 4086-4101 · L2() 4102-4102 · place() 4103-4133 · placeResult() 4134-4155 · avatars() 4156-4209 · VIS 4210-4210
-funnel() 4211-4244 · MAIL 4245-4266 · mailMock() 4267-4271 · mail() 4272-4300 · mailBuild() 4301-4325 · mailQuiz() 4326-4420 · canSpeak() 4421-4421 · voiceScore() 4422-4429
-voices() 4430-4433 · sayIt() 4434-4439 · voicePage() 4440-4457 · spNorm() 4458-4458 · spellDeck() 4459-4470 · spelling() 4471-4507 · gym() 4508-4557 · culture() 4558-4573
-progressCard() 4574-4583 · NUM 4584-4620 · clockSVG() 4621-4627 · numbers() 4628-4646 · numDrill() 4647-4686 · WV 4687-4701 · ADJ 4702-4708 · ADJQ 4709-4709
-ADVF 4710-4710 · ADVD 4711-4711 · ADVM 4712-4712 · ADVP 4713-4713 · ADVQ 4714-4714 · strip() 4715-4715 · meter() 4716-4716 · wvList() 4717-4717
-ILL 4718-4718 · illEl() 4719-4719 · pics() 4720-4720 · words() 4721-4764 · wDrill() 4765-4788 · LAB 4789-4910 · LABMAP 4911-4911 · LSLOT 4912-4912
-LLINES 4913-4913 · labDi() 4914-4914 · labNeed() 4915-4915 · LPART 4916-4916 · labOpts() 4917-4929 · labRobot() 4930-4951 · LABCOIN 4952-4952 · labParty() 4953-4970
-labSentence() 4971-4987 · labCheck() 4988-5010 · isFreqT() 5011-5011 · vowelSound() 5012-5012 · labArt() 5013-5023 · labTense() 5024-5035 · labSense() 5036-5052 · LSTATE 5053-5053
-lab() 5054-5152 · RSWAP 5153-5153 · rVariant() 5154-5164 · race() 5165-5278 · ZAPX 5279-5297 · ideas() 5298-5305 · ownBox() 5306-5311 · applyTheme() 5312-5312
-nm() 5313-5313 · hi() 5314-5314 · welcome() 5315-5333 · choice() 5334-5347 · SG_SING 5348-5348 · SG_VERB 5349-5349 · sentenceTips() 5350-5384 · tipsBox() 5385-5393
-AI 5394-5394 · aiInit() 5395-5395 · aiReady() 5396-5396 · aiContext() 5397-5397 · aiCall() 5398-5402 · aiCheck() 5403-5407 · askTeacher() 5408-5424 · askFab() 5425-5429
-STORY 5430-5486 · storyFor() 5487-5487 · storyList() 5488-5495 · storyPage() 5496-5524 · aiStory() 5525-5530 · BDE 5531-5532 · REV 5533-5589 · ins() 5590-5739
-XQ 5740-5748 · REVIEWM 5749-5759 · TMOD 5760-5762 · SORTSET 5763-5769 · CDS 5770-5778 · CDL 5779-5781 · cdParse() 5782-5785 · wcommas() 5786-5828
-pvOf() 5829-5829 · pvPool() 5830-5832 · pvQs() 5833-5843 · arcadeMods() 5844-5844 · arcadePage() 5845-5884 · ARCMODES 5885-5885 · arcModeOf() 5886-5890 · arcModBtn() 5891-5912
-SPDICT 5913-5913 · spellDict() 5914-5928 · spKnown() 5929-5930 · spDist() 5931-5932 · spellIssues() 5933-5938 · lvMenu() 5939-5945 · COMMAMODS 5946-5947 · PSET 5948-5953
-PMODES 5954-5954 · poolSet() 5955-5955 · gD() 5956-5959 · TONE 5960-5962 · NINE 5963-5965 · soloCard() 5966-5968 · cityBank() 5969-5969 · SOLO 5970-5986
-MOVIES 5987-6043 · MVLV 6044-6045 · stuLv() 6046-6049 · wmovie() 6050-6135 · DCOL 6136-6136 · DIT 6137-6141 · DMAT 6142-6142 · dkC() 6143-6143
-dollSVG() 6144-6203 · dPiece() 6204-6204 · dArt() 6205-6205 · DVB 6206-6206 · wdoll() 6207-6312 · dartSents() 6313-6314 · dartGaps() 6315-6315 · wdarts() 6316-6377
-crossGaps() 6378-6378 · wcross() 6379-6434 · BRCAR 6435-6473 · brItems() 6474-6475 · brParse() 6476-6476 · wbridge() 6477-6571 · STAGS 6572-6599 · SGTAGS 6600-6600
-SPAGES 6601-6601 · sNorm() 6602-6602 · SIDX 6603-6603 · sIndex() 6604-6613 · sFind() 6614-6616 · searchBox() 6617-6636 · rKey() 6637-6637 · favG() 6638-6638
-favGM() 6639-6639 · togFav() 6640-6641 · gRate() 6642-6642 · heartEl() 6643-6645 · RQ 6646-6646 · rateCard() 6647-6663 · AFILT 6664-6684 · QW 6685-6762
-qwById() 6763-6763 · qwFor() 6764-6764 · qwList() 6765-6770 · qwPage() 6771-6802 · qwGameBtn() 6803-6805 · QWFF 6806-6813 · qwLow() 6814-6814 · qwDiff() 6815-6816
-qwIs() 6817-6817 · IRR 6818-6818 · QWRULES 6819-6855 · qwSent() 6856-6857 · qwFind() 6858-6860 · qwDetect() 6861-6861 · QWQUEUE 6862-6863 · qwTgt() 6864-6867
-qwToast() 6868-6884 · qwRecs() 6885-6950 · C1USES 6951-6959 · REG 6960-7001 · regFor() 7002-7002 · regFill() 7003-7003 · regForm() 7004-7004 · regGap() 7005-7007
-CAMTIP 7008-7017 · camTipEl() 7018-7050 · KWT 7051-7075 · kwtFor() 7076-7079 · INV 7080-7094 · wlift() 7095-7134 · wkwt() 7135-7171 · winv() 7172-7428
-MOCK 7429-7459 · MOCKNAME 7460-7460 · MOCKHOW 7461-7461 · wmock() 7462-7569 · PPM 7570-7570 · PPMQ 7571-7583 · ppmSlide() 7584-7597 · GSLX 7598-7786
-addTopic() 7787-8046 · sportsHub() 8047-8065 · gMark() 8066-8067 · USES 8068-8207 · gLines() 8208-8208 · grammar() 8209-8283 · NINE_EXTRA 8284-8285 · route() 8286-8299
-start() 8300-8317
+NEVER read lines 2103 and 2104 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-164 and 173-1337
+WIDE_LAYOUT 1346-1347 · M 1348-1598 · X 1599-1669 · ART 1670-1676 · GR 1677-1764 · GX 1765-1833 · BK 1834-1936 · PIC 1937-1937
+HOOK 1938-1951 · TLN 1952-1960 · EXP 1961-1978 · VERBS 1979-1980 · CAN 1981-1985 · CULT 1986-2006 · GYM 2007-2018 · BD 2019-2098
+TAGN 2099-2099 · LEVELS 2100-2100 · ACTS 2101-2102 · ACH 2105-2105 · PSETS 2106-2106 · faceEl() 2107-2107 · FACES 2108-2110 · T 2111-2188
+S 2189-2189 · KEY 2190-2190 · t() 2191-2191 · save() 2192-2192 · load() 2193-2197 · day() 2198-2198 · touchStreak() 2199-2201 · h() 2202-2214
+shuffle() 2215-2215 · starsFor() 2216-2216 · starEl() 2217-2217 · mod() 2218-2218 · art() 2219-2219 · modStars() 2220-2220 · PASS 2221-2221 · passed() 2222-2222
+actsDone() 2223-2223 · certOK() 2224-2224 · go() 2225-2225 · toTop() 2226-2226 · app() 2227-2227 · pick() 2228-2230 · bar() 2231-2253 · goBack() 2254-2254
+lvTag() 2255-2255 · menu() 2256-2271 · steps() 2272-2278 · nextStep() 2279-2281 · home() 2282-2351 · modulePage() 2352-2451 · backBtn() 2452-2453 · shell() 2454-2461
+swIcon() 2462-2462 · finish() 2463-2495 · run() 2496-2498 · chat() 2499-2530 · loose() 2531-2531 · writeIt() 2532-2565 · mcRun() 2566-2588 · quizItems() 2589-2589
+speedItems() 2590-2590 · quiz() 2591-2591 · cpItems() 2592-2595 · cpWhere() 2596-2603 · checkpoint() 2604-2643 · build() 2644-2690 · match() 2691-2727 · speed() 2728-2751
+HLT 2752-2765 · KW 2766-2779 · kw() 2780-2788 · caps() 2789-2789 · diffB() 2790-2791 · sents() 2792-2792 · hl() 2793-2801 · noteKind() 2802-2806
+BKIND 2807-2807 · blk() 2808-2809 · grammar() 2810-2855 · SERVE 2856-2862 · miss() 2863-2869 · ALL_LV 2870-2870 · maxLv() 2871-2871 · lvOf() 2872-2872
+bkItem() 2873-2873 · qKey() 2874-2874 · qFresh() 2875-2875 · qMark() 2876-2876 · gameQ() 2877-2877 · gameQ0() 2878-2878 · askPanel() 2879-2896 · LVN 2897-2897
+arcade() 2898-2916 · gTimer() 2917-2919 · fmtT() 2920-2920 · arcadeEnd() 2921-2943 · tennis() 2944-3037 · duel() 3038-3068 · wDiff() 3069-3073 · zap() 3074-3117
+GAMES 3118-3120 · GP 3121-3121 · gclk() 3122-3122 · gHold() 3123-3123 · gGo() 3124-3124 · gClose() 3125-3125 · gFocus() 3126-3128 · COACH 3129-3141
+gCoach() 3142-3160 · TURNG 3161-3161 · gStartNow() 3162-3162 · gReady() 3163-3167 · gOverlay() 3168-3169 · GICONS 3170-3170 · GLIST 3171-3171 · sortNeed() 3172-3172
+poolNeed() 3173-3173 · HOW 3174-3182 · gRestart() 3183-3183 · gIntro() 3184-3203 · gCount() 3204-3216 · gPause() 3217-3230 · WCL 3231-3231 · WSB 3232-3238
+wsClasses() 3239-3239 · wsBank() 3240-3242 · wsWhy() 3243-3245 · penalty() 3246-3356 · wsort() 3357-3392 · wpool() 3393-3559 · HOOPS_BOT 3560-3560 · hoops() 3561-3730
+wonOf() 3731-3731 · starsWon() 3732-3732 · gameList() 3733-3737 · WT 3738-3749 · WTL 3750-3752 · wtubes() 3753-3805 · GN 3806-3824 · GNM 3825-3825
+GNL 3826-3828 · wgenius() 3829-3870 · TUBEMODS 3871-3871 · hasQ() 3872-3872 · hasGame() 3873-3890 · gameCards() 3891-3894 · hub() 3895-3921 · bossSVG() 3922-3941
+cert() 3942-3967 · timeline() 3968-3987 · today() 3988-3988 · exList() 3989-3989 · exFind() 3990-3990 · dueList() 3991-3991 · exCard() 3992-3992 · expr() 3993-4005
+review() 4006-4027 · verbList() 4028-4028 · memBoard() 4029-4041 · verbs() 4042-4086 · mistakes() 4087-4109 · PF 4110-4119 · PQ 4120-4120 · ENTRY 4121-4121
+TRACK 4122-4122 · HELPS 4123-4123 · TIPS 4124-4139 · L2() 4140-4140 · place() 4141-4171 · placeResult() 4172-4193 · avatars() 4194-4247 · VIS 4248-4248
+funnel() 4249-4282 · MAIL 4283-4304 · mailMock() 4305-4309 · mail() 4310-4338 · mailBuild() 4339-4363 · mailQuiz() 4364-4458 · canSpeak() 4459-4459 · voiceScore() 4460-4467
+voices() 4468-4471 · sayIt() 4472-4477 · voicePage() 4478-4495 · spNorm() 4496-4496 · spellDeck() 4497-4508 · spelling() 4509-4545 · gym() 4546-4595 · culture() 4596-4611
+progressCard() 4612-4621 · NUM 4622-4658 · clockSVG() 4659-4665 · numbers() 4666-4684 · numDrill() 4685-4724 · WV 4725-4739 · ADJ 4740-4746 · ADJQ 4747-4747
+ADVF 4748-4748 · ADVD 4749-4749 · ADVM 4750-4750 · ADVP 4751-4751 · ADVQ 4752-4752 · strip() 4753-4753 · meter() 4754-4754 · wvList() 4755-4755
+ILL 4756-4756 · illEl() 4757-4757 · pics() 4758-4758 · words() 4759-4802 · wDrill() 4803-4826 · LAB 4827-4948 · LABMAP 4949-4949 · LSLOT 4950-4950
+LLINES 4951-4951 · labDi() 4952-4952 · labNeed() 4953-4953 · LPART 4954-4954 · labOpts() 4955-4967 · labRobot() 4968-4989 · LABCOIN 4990-4990 · labParty() 4991-5008
+labSentence() 5009-5025 · labCheck() 5026-5048 · isFreqT() 5049-5049 · vowelSound() 5050-5050 · labArt() 5051-5061 · labTense() 5062-5073 · labSense() 5074-5090 · LSTATE 5091-5091
+lab() 5092-5190 · RSWAP 5191-5191 · rVariant() 5192-5202 · race() 5203-5316 · ZAPX 5317-5335 · ideas() 5336-5343 · ownBox() 5344-5349 · applyTheme() 5350-5350
+nm() 5351-5351 · hi() 5352-5352 · welcome() 5353-5371 · choice() 5372-5385 · SG_SING 5386-5386 · SG_VERB 5387-5387 · sentenceTips() 5388-5422 · tipsBox() 5423-5431
+AI 5432-5432 · aiInit() 5433-5433 · aiReady() 5434-5434 · aiContext() 5435-5435 · aiCall() 5436-5440 · aiCheck() 5441-5445 · askTeacher() 5446-5462 · askFab() 5463-5467
+STORY 5468-5524 · storyFor() 5525-5525 · storyList() 5526-5533 · storyPage() 5534-5562 · aiStory() 5563-5568 · BDE 5569-5570 · REV 5571-5627 · ins() 5628-5777
+XQ 5778-5786 · REVIEWM 5787-5797 · TMOD 5798-5800 · SORTSET 5801-5807 · CDS 5808-5816 · CDL 5817-5819 · cdParse() 5820-5823 · wcommas() 5824-5866
+pvOf() 5867-5867 · pvPool() 5868-5870 · pvQs() 5871-5881 · arcadeMods() 5882-5882 · arcadePage() 5883-5922 · ARCMODES 5923-5923 · arcModeOf() 5924-5928 · arcModBtn() 5929-5950
+SPDICT 5951-5951 · spellDict() 5952-5966 · spKnown() 5967-5968 · spDist() 5969-5970 · spellIssues() 5971-5976 · lvMenu() 5977-5983 · COMMAMODS 5984-5985 · PSET 5986-5991
+PMODES 5992-5992 · poolSet() 5993-5993 · gD() 5994-5997 · TONE 5998-6000 · NINE 6001-6003 · soloCard() 6004-6006 · cityBank() 6007-6007 · SOLO 6008-6024
+MOVIES 6025-6081 · MVLV 6082-6083 · stuLv() 6084-6087 · wmovie() 6088-6173 · DCOL 6174-6174 · DIT 6175-6179 · DMAT 6180-6180 · dkC() 6181-6181
+dollSVG() 6182-6241 · dPiece() 6242-6242 · dArt() 6243-6243 · DVB 6244-6244 · wdoll() 6245-6350 · dartSents() 6351-6352 · dartGaps() 6353-6353 · wdarts() 6354-6415
+crossGaps() 6416-6416 · wcross() 6417-6472 · BRCAR 6473-6511 · brItems() 6512-6513 · brParse() 6514-6514 · wbridge() 6515-6609 · STAGS 6610-6637 · SGTAGS 6638-6638
+SPAGES 6639-6639 · sNorm() 6640-6640 · SIDX 6641-6641 · sIndex() 6642-6651 · sFind() 6652-6654 · searchBox() 6655-6674 · rKey() 6675-6675 · favG() 6676-6676
+favGM() 6677-6677 · togFav() 6678-6679 · gRate() 6680-6680 · heartEl() 6681-6683 · RQ 6684-6684 · rateCard() 6685-6701 · AFILT 6702-6722 · QW 6723-6800
+qwById() 6801-6801 · qwFor() 6802-6802 · qwList() 6803-6808 · qwPage() 6809-6840 · qwGameBtn() 6841-6843 · QWFF 6844-6851 · qwLow() 6852-6852 · qwDiff() 6853-6854
+qwIs() 6855-6855 · IRR 6856-6856 · QWRULES 6857-6893 · qwSent() 6894-6895 · qwFind() 6896-6898 · qwDetect() 6899-6899 · QWQUEUE 6900-6901 · qwTgt() 6902-6905
+qwToast() 6906-6922 · qwRecs() 6923-6988 · C1USES 6989-6997 · REG 6998-7039 · regFor() 7040-7040 · regFill() 7041-7041 · regForm() 7042-7042 · regGap() 7043-7045
+CAMTIP 7046-7055 · camTipEl() 7056-7088 · KWT 7089-7113 · kwtFor() 7114-7117 · INV 7118-7132 · wlift() 7133-7172 · wkwt() 7173-7209 · winv() 7210-7466
+MOCK 7467-7497 · MOCKNAME 7498-7498 · MOCKHOW 7499-7499 · wmock() 7500-7607 · PPM 7608-7608 · PPMQ 7609-7621 · ppmSlide() 7622-7635 · GSLX 7636-7824
+addTopic() 7825-8084 · sportsHub() 8085-8103 · gMark() 8104-8105 · USES 8106-8245 · gLines() 8246-8246 · grammar() 8247-8321 · NINE_EXTRA 8322-8323 · route() 8324-8339
+TRIPM 8340-8439 · TRIPSPELL 8440-8442 · tripCard() 8443-8443 · TRIPNOTES 8444-8460 · tripNotes() 8461-8469 · tripExtras() 8470-8477 · tripHome() 8478-8502 · start() 8503-8511
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -3127,7 +3127,7 @@ function gFocus(ui,smooth){if(!ui||!ui.stage||!ui.stage.isConnected)return;var b
 
 /* ---------- first-play coach: step by step, shown once per game ---------- */
 var COACH={
- pool:[[".pooltable","Touch the table where you want the white ball to go. A small target shows your aim. You can drag to adjust."],[".aimbtn","Use ⟲ and ⟳ to fine-tune the aim."],[".pmeter","This bar shows the power."],[".poolctl .btn.shoot","Hold this button: the bar goes up and down. Let go when the power is right!"],[".pooltable","Hit the yellow word ball into the pocket with the right label."]],
+ pool:[[".pooltable","Touch the table where you want the white ball to go. A small target shows your aim. Drag to adjust, then let go: the angle locks."],[".aimbtn","Use ⟲ and ⟳ to fine-tune the aim."],[".poolctl .btn.shoot","Tap LOCK AIM (or tap the table again) to fix the angle."],[".pmeter","Then move sideways: right = stronger, left = softer. Tap to shoot!"],[".pooltable","Hit the yellow word ball into the pocket with the right label."]],
  tennis:[[".court","Move your racket left and right: drag on the court or use ← →."],[".court","Hit the ball with the edge of the racket to change its direction."],["#app>.score","When someone misses, a question appears: answer right to win the point."]],
  penalty:[[".court.pen","This is the goal. The target shows where you will shoot."],[".penctl","Move the target with the arrows (or ← → ↑ ↓), then press SHOOT."],["#app>.score","A goal only counts if you answer the question right."]],
  duel:[[".bossbox","This is the boss. Break all its pieces to win."],["#app>.score","Every wrong answer costs you a heart."]],
@@ -3178,7 +3178,7 @@ var HOW={
  race:function(l){return [["🏎️","Steer with ← → or tap the left or right side of the road."],["🧩","Three gates come with three words. Drive into the next word of the sentence."],["🎨","Emoji and colours help you: blue = subject, red = verb, green = adjective."],["❤️","A wrong gate costs a life. Finish the sentences before the robot!"]]},
  penalty:function(l){return [["🎯","Aim: move the mouse or drag your finger. You can also use ← → ↑ ↓."],["⚽","Shoot: click or tap where you want the ball to go. SPACE and the SHOOT button work too."],["❓","Goal? Now answer the question. Only a right answer makes the goal count."],["🏆",l>=5?"Final phase: 5 shots. Score all 5!":"You have 10 shots. Score "+(l>=4?8:5+l)+" to pass phase "+l+"."]]},
  sort:function(l){return [["⬇️","Words fall from the sky."],["🧺","Put each word in the right basket: tap the basket, or move with ← → and drop with ↓."],["❤️","A wrong basket costs a life. You have 3."],["🏆","Sort "+sortNeed(l)+" words to win."]]},
- pool:function(l){return [["🎱","Touch the table to aim. Hold the button and let go to shoot: the meter shows the power."],["🔤","Hit the word ball into the right pocket."],["❌","Wrong pocket, or the white ball in a pocket: you lose a life."],["🏆","Pocket "+poolNeed(l)+" words in the right pockets to win."]]}
+ pool:function(l){return [l>=5?["🎱","Impossible: drag back from the white ball like a slingshot. Direction = angle, distance = power. Let go to shoot."]:["🎱","Tap or click the table to aim, then tap again to lock the angle. Move sideways to choose the power and tap to shoot."],["🔤","Hit the word ball into the right pocket."],["❌","Wrong pocket, or the white ball in a pocket: you lose a life."],["🏆","Pocket "+poolNeed(l)+" words in the right pockets to win."]]}
 };
 function gRestart(m,k,lv){if(lv){if(!S.pick)S.pick={};S.pick[m.id+":"+k]=lv;save()}GP.quick=m.id+":"+k;GAMES[k](m)}
 function gIntro(m,k,ui){
@@ -3401,15 +3401,23 @@ function wpool(m){
   var cv=h("canvas",{width:W,height:H,class:"court pooltable","aria-label":"Pool table"}),cx=cv.getContext("2d");
   var pw=h("input",{type:"range",min:"15",max:"100",value:"60","aria-label":"Power",oninput:function(){pow=pw.value/100}});
   ui.stage.appendChild(cv);
-  var pmeter=h("i",{style:"width:0%"}),charging=false,chT=0,shotBtn=h("button",{class:"btn shoot","aria-label":"Hold to choose the power, let go to shoot"},"🎱 HOLD & RELEASE");
+  var pmeter=h("i",{style:"width:0%"}),charging=false,chT=0,IMP=lvl>=5,px0=null,pDown=false;
+  /* 27/11 (Luisa): levels 1-4 = tap/click to lock the angle, then move sideways (mouse, cursor or finger) to set the power, tap/click again (or let go) to shoot. Impossible = the old slingshot: pull back from the white ball, angle and distance at the same time. */
+  var shotBtn=h("button",{class:"btn shoot","aria-label":IMP?"Shoot":"Lock the aim"},IMP?"🎱 SHOOT":"🔒 LOCK AIM"),reBtn=h("button",{class:"btn ghost reaim",hidden:true,"aria-label":"Choose the angle again"},"↩ Aim again");
+  function setPow(v){pow=Math.max(.12,Math.min(1,v));pmeter.style.width=Math.round(pow*100)+"%";pmeter.parentNode.className=pow>.8?"hot":""}
+  function ctl(){if(IMP){shotBtn.textContent="🎱 SHOOT";return}var p=phase==="power";shotBtn.textContent=p?"🎱 SHOOT":"🔒 LOCK AIM";shotBtn.setAttribute("aria-label",p?"Shoot":"Lock the aim");reBtn.hidden=!p;hintEl.textContent=p?"💪 Angle locked. Move sideways to choose the power (→ stronger, ← softer), then tap or click to shoot.":"🎯 Touch the table where you want to aim (drag to adjust, ⟲ ⟳ fine-tune). Then tap or click again to lock the angle."}
+  function lockAim(x){if(phase!=="aim"||GP.on)return;phase="power";aimPt=aimPt||null;px0=x==null?null:x;setPow(.12);ctl()}
+  function reAim(){if(phase!=="power")return;phase="aim";px0=null;pDown=false;pmeter.style.width="0%";ctl()}
   function holdTurn(d){var b=h("button",{class:"btn ghost aimbtn","aria-label":d<0?"Turn left":"Turn right"},d<0?"⟲":"⟳"),iv=null;
     function go1(e){if(e)e.preventDefault();turn(d);var n=0;clearInterval(iv);iv=setInterval(function(){n++;turn(n>8?d*3:d)},70)}function stop1(){clearInterval(iv)}
     b.addEventListener("pointerdown",go1);["pointerup","pointerleave","pointercancel"].forEach(function(ev){b.addEventListener(ev,stop1)});return b}
-  function chargeStart(e){if(e)e.preventDefault();if(phase!=="aim"||GP.on||charging)return;charging=true;chT=performance.now();shotBtn.classList.add("on")}
-  function chargeEnd(e){if(e)e.preventDefault();if(!charging)return;charging=false;shotBtn.classList.remove("on");shoot()}
-  shotBtn.addEventListener("pointerdown",chargeStart);shotBtn.addEventListener("pointerup",chargeEnd);shotBtn.addEventListener("pointerleave",function(){if(charging)chargeEnd()});
-  ui.stage.appendChild(h("div",{class:"penctl poolctl"},holdTurn(-1),h("div",{class:"pmeter","aria-label":"Power"},h("span",null,"Power"),h("b",null,pmeter)),holdTurn(1),shotBtn));
-  ui.stage.appendChild(h("p",{class:"hint",style:"text-align:center;margin:6px 0 0"},"🎯 Touch the table where you want to aim (drag to adjust). ⟲ ⟳ fine-tune. Hold the button to choose the power and let go to shoot."));
+  function chargeStart(e){if(e)e.preventDefault()}
+  function chargeEnd(e){if(e)e.preventDefault()}
+  shotBtn.addEventListener("click",function(){if(IMP){shoot();return}if(phase==="aim")lockAim(null);else if(phase==="power")shoot()});
+  reBtn.addEventListener("click",reAim);
+  var hintEl=h("p",{class:"hint",style:"text-align:center;margin:6px 0 0"},IMP?"🎯 Impossible: drag BACK from the white ball like a slingshot. The direction is the angle, the distance is the power. Let go to shoot.":"");
+  ui.stage.appendChild(h("div",{class:"penctl poolctl"},holdTurn(-1),h("div",{class:"pmeter","aria-label":"Power"},h("span",null,"Power"),h("b",null,pmeter)),holdTurn(1),shotBtn,reBtn));
+  ui.stage.appendChild(hintEl);ctl();
   function turn(d){if(phase==="aim"){ang+=d*Math.PI/180;aimPt=null}}
   function score(){ui.board(t("score"),pts+" / "+need,[t("level")+" "+lvl,wb?"Shot "+Math.min(tries+1,6)+" of 6 for this word":""],t("lives"),"♥♥♥".slice(0,lives)+"♡♡♡".slice(0,3-lives))}
   function say(s,c){txt={s:s,c:c||"#ffd166",t:gclk(performance.now())}}
@@ -3419,14 +3427,25 @@ function wpool(m){
         ok2=cxp>X0+40&&cxp<X1-40&&cyp>Y0+40&&cyp<Y1-40&&pk.every(function(q2){return Math.hypot(cxp-q2[0],cyp-q2[1])>80})}while(!ok2&&tries2<60);
       if(ok2){cue.x=cxp;cue.y=cyp;cue.vx=cue.vy=0}}
     wb={x:x,y:y,vx:0,vy:0,on:true,it:it};tries=0;if(lvl>=4)deal();ang=Math.atan2(wb.y-cue.y,wb.x-cue.x);score()}
-  function shoot(){if(phase!=="aim"||GP.on)return;pmeter.style.width="0%";var v=.25+pow*1.35;cue.vx=Math.cos(ang)*v;cue.vy=Math.sin(ang)*v;phase="roll";tries++;score()}
+  function shoot(){if((phase!=="aim"&&phase!=="power")||GP.on)return;pmeter.style.width="0%";px0=null;pDown=false;var v=.25+pow*1.35;cue.vx=Math.cos(ang)*v;cue.vy=Math.sin(ang)*v;phase="roll";tries++;score()}
   function pos(e){var r=cv.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width*W,y:(e.clientY-r.top)/r.height*H}}
   var aimPt=null;function aimTo(p){var dx=p.x-cue.x,dy=p.y-cue.y;if(Math.hypot(dx,dy)>6){ang=Math.atan2(dy,dx);aimPt=p}}
-  cv.addEventListener("pointerdown",function(e){if(phase!=="aim")return;drag=pos(e);aimTo(drag);try{cv.setPointerCapture(e.pointerId)}catch(_){}});
-  cv.addEventListener("pointermove",function(e){if(!drag||phase!=="aim")return;aimTo(pos(e))});
-  cv.addEventListener("pointerup",function(e){drag=null});
-  keyh=function(e){if(e.key==="ArrowLeft"){turn(-3);e.preventDefault()}else if(e.key==="ArrowRight"){turn(3);e.preventDefault()}else if(e.key===" "||e.key==="Enter"){if(!e.repeat)chargeStart();e.preventDefault()}};
-  var keyu=function(e){if(my!==tok){window.removeEventListener("keyup",keyu);return}if(e.key===" "||e.key==="Enter"){chargeEnd();e.preventDefault()}};window.addEventListener("keyup",keyu);
+  function powFrom(cx0){if(px0==null)px0=cx0-.12*260;setPow((cx0-px0)/260)}
+  cv.addEventListener("pointerdown",function(e){if(GP.on)return;var p=pos(e);try{cv.setPointerCapture(e.pointerId)}catch(_){}
+    if(IMP){if(phase!=="aim")return;drag=p;return}
+    if(phase==="aim"){drag=p;aimTo(p)}else if(phase==="power"){pDown=true;if(px0==null)px0=e.clientX-pow*260}});
+  cv.addEventListener("pointermove",function(e){
+    if(IMP){if(!drag||phase!=="aim")return;var p=pos(e),dx=cue.x-p.x,dy=cue.y-p.y,d=Math.hypot(dx,dy);if(d>8){ang=Math.atan2(dy,dx);aimPt=null;setPow(d/170)}return}
+    if(phase==="aim"&&drag)aimTo(pos(e));else if(phase==="power")powFrom(e.clientX)});
+  var winMove=function(e){if(my!==tok){window.removeEventListener("pointermove",winMove);return}if(!IMP&&phase==="power"&&e.pointerType==="mouse"&&e.target!==cv)powFrom(e.clientX)};window.addEventListener("pointermove",winMove);
+  cv.addEventListener("pointerup",function(e){
+    if(IMP){if(!drag)return;var p=pos(e),moved=Math.hypot(p.x-drag.x,p.y-drag.y);drag=null;if(moved>14&&phase==="aim")shoot();return}
+    if(phase==="aim"&&drag){drag=null;lockAim(e.pointerType==="mouse"?e.clientX:null);return}
+    if(phase==="power"&&pDown){pDown=false;shoot()}});
+  keyh=function(e){if(e.key==="ArrowLeft"){if(phase==="power")setPow(pow-.05);else turn(-3);e.preventDefault()}else if(e.key==="ArrowRight"){if(phase==="power")setPow(pow+.05);else turn(3);e.preventDefault()}
+    else if(IMP&&e.key==="ArrowUp"){setPow(pow+.05);e.preventDefault()}else if(IMP&&e.key==="ArrowDown"){setPow(pow-.05);e.preventDefault()}
+    else if(e.key==="Escape"){reAim()}else if(e.key===" "||e.key==="Enter"){if(!e.repeat){if(IMP||phase==="power")shoot();else if(phase==="aim")lockAim(null)}e.preventDefault()}};
+  var keyu=function(e){if(my!==tok){window.removeEventListener("keyup",keyu);return}};window.addEventListener("keyup",keyu);
   window.addEventListener("keydown",keyh);
   function pocketOf(b){for(var i=0;i<6;i++){if(Math.hypot(b.x-pk[i][0],b.y-pk[i][1])<(i===1||i===4?25:25))return i}return -1}
   function wall(b){if(b.x<X0+R){b.x=X0+R;b.vx=-b.vx*.85}if(b.x>X1-R){b.x=X1-R;b.vx=-b.vx*.85}if(b.y<Y0+R){b.y=Y0+R;b.vy=-b.vy*.85}if(b.y>Y1-R){b.y=Y1-R;b.vy=-b.vy*.85}}
@@ -3448,7 +3467,7 @@ function wpool(m){
     else if(wb&&tries>=6){msg=SS?"Six shots! It was “"+WCL[wb.it.c][0]+"”.":"Six shots! It was "+(wb.it.c==="a"||wb.it.c==="d"?"an ":"a ")+WCL[wb.it.c][0].toLowerCase()+".";col="#ffffff";ui.talk(wb.it.why||wsWhy(wb.it));wb=null}
     if(msg)say(msg,col);
     if(pts>=need||lives<=0){over=true;phase="end";score();setTimeout(function(){if(my===tok)arcadeEnd(m,"pool",pts>=need,pts+" words in the right pocket · "+(3-lives)+" lives lost",lvl)},1300);return}
-    if(!wb)newWord();phase="aim";score();
+    if(!wb)newWord();phase="aim";score();ctl();
   }
   function rr(x,y,w,hh,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+hh,r);cx.arcTo(x+w,y+hh,x,y+hh,r);cx.arcTo(x,y+hh,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
   function wallT(x,y,dx,dy){var t=1e9;if(dx>1e-6)t=Math.min(t,(X1-R-x)/dx);if(dx<-1e-6)t=Math.min(t,(X0+R-x)/dx);if(dy>1e-6)t=Math.min(t,(Y1-R-y)/dy);if(dy<-1e-6)t=Math.min(t,(Y0+R-y)/dy);return Math.max(0,t)}
@@ -3500,8 +3519,8 @@ function wpool(m){
     cx.clearRect(0,0,W,H);
     if(!TBL)TBL=poolTable();cx.drawImage(TBL,0,0);
     sinks=sinks.filter(function(k){return now-k.t<450});sinks.forEach(function(k){var f=1-(now-k.t)/450;cx.globalAlpha=f;cx.fillStyle=k.c;cx.beginPath();cx.arc(k.x,k.y,Math.max(1,R*f),0,7);cx.fill();cx.globalAlpha=1});
-    if(aimPt&&phase==="aim"){cx.strokeStyle="rgba(255,255,255,.75)";cx.lineWidth=2;cx.beginPath();cx.arc(aimPt.x,aimPt.y,9,0,7);cx.moveTo(aimPt.x-14,aimPt.y);cx.lineTo(aimPt.x-5,aimPt.y);cx.moveTo(aimPt.x+5,aimPt.y);cx.lineTo(aimPt.x+14,aimPt.y);cx.moveTo(aimPt.x,aimPt.y-14);cx.lineTo(aimPt.x,aimPt.y-5);cx.moveTo(aimPt.x,aimPt.y+5);cx.lineTo(aimPt.x,aimPt.y+14);cx.stroke()}
-    if(lvl<=3&&phase==="aim"&&wb&&wb.on){var pr=predict();if(pr.hit&&pr.pocket>=0){var gp=pk[pr.pocket],gl=cx.createRadialGradient(gp[0],gp[1],8,gp[0],gp[1],40);gl.addColorStop(0,"rgba(255,209,102,.55)");gl.addColorStop(1,"rgba(255,209,102,0)");cx.fillStyle=gl;cx.beginPath();cx.arc(gp[0],gp[1],40,0,7);cx.fill()}}
+    if(aimPt&&(phase==="aim"||phase==="power")){cx.strokeStyle="rgba(255,255,255,.75)";cx.lineWidth=2;cx.beginPath();cx.arc(aimPt.x,aimPt.y,9,0,7);cx.moveTo(aimPt.x-14,aimPt.y);cx.lineTo(aimPt.x-5,aimPt.y);cx.moveTo(aimPt.x+5,aimPt.y);cx.lineTo(aimPt.x+14,aimPt.y);cx.moveTo(aimPt.x,aimPt.y-14);cx.lineTo(aimPt.x,aimPt.y-5);cx.moveTo(aimPt.x,aimPt.y+5);cx.lineTo(aimPt.x,aimPt.y+14);cx.stroke()}
+    if(lvl<=3&&(phase==="aim"||phase==="power")&&wb&&wb.on){var pr=predict();if(pr.hit&&pr.pocket>=0){var gp=pk[pr.pocket],gl=cx.createRadialGradient(gp[0],gp[1],8,gp[0],gp[1],40);gl.addColorStop(0,"rgba(255,209,102,.55)");gl.addColorStop(1,"rgba(255,209,102,0)");cx.fillStyle=gl;cx.beginPath();cx.arc(gp[0],gp[1],40,0,7);cx.fill()}}
     pk.forEach(function(p,i){
       var c=WCL[lab[i]],cc=CC[c[2]],top=i<3;cx.font="800 16px system-ui, sans-serif";var lw=Math.max(88,cx.measureText(c[0]).width+40),lx=Math.max(4,Math.min(W-lw-4,p[0]-lw/2)),ly=top?3:H-35;
       cx.strokeStyle=cc[1];cx.lineWidth=4;cx.beginPath();cx.arc(p[0],p[1],27.5,0,7);cx.stroke();
@@ -3509,7 +3528,7 @@ function wpool(m){
       cx.lineWidth=2.5;cx.strokeStyle=cc[1];rr(lx,ly,lw,30,10);cx.stroke();
       cx.fillStyle=cc[1];cx.beginPath();cx.arc(lx+14,ly+15,5,0,7);cx.fill();
       cx.fillStyle="#17213b";cx.textAlign="center";cx.fillText(c[0],lx+lw/2+6,ly+21)});
-    if(phase==="aim"&&cue.on){var P2=predict(),hp=null;
+    if((phase==="aim"||phase==="power")&&cue.on){var P2=predict(),hp=null;
       cx.strokeStyle="rgba(255,255,255,.8)";cx.setLineDash([7,7]);cx.lineWidth=2;cx.beginPath();cx.moveTo(cue.x,cue.y);cx.lineTo(P2.cx1,P2.cy1);
       if(!P2.hit){cx.lineTo(P2.cx1+P2.rx*90,P2.cy1+P2.ry*90)}cx.stroke();cx.setLineDash([]);
       if(P2.hit){cx.strokeStyle="rgba(255,255,255,.9)";cx.lineWidth=2;cx.beginPath();cx.arc(P2.cx1,P2.cy1,R,0,7);cx.stroke();
