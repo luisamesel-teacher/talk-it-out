@@ -1,67 +1,68 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 2205 and 2206 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-158 and 167-1439
-WIDE_LAYOUT 1448-1449 · M 1450-1700 · X 1701-1771 · ART 1772-1778 · GR 1779-1866 · GX 1867-1935 · BK 1936-2038 · PIC 2039-2039
-HOOK 2040-2053 · TLN 2054-2062 · EXP 2063-2080 · VERBS 2081-2082 · CAN 2083-2087 · CULT 2088-2108 · GYM 2109-2120 · BD 2121-2200
-TAGN 2201-2201 · LEVELS 2202-2202 · ACTS 2203-2204 · ACH 2207-2207 · PSETS 2208-2208 · faceEl() 2209-2209 · FACES 2210-2212 · T 2213-2290
-S 2291-2291 · KEY 2292-2292 · t() 2293-2293 · save() 2294-2294 · load() 2295-2299 · day() 2300-2300 · touchStreak() 2301-2303 · h() 2304-2316
-shuffle() 2317-2317 · starsFor() 2318-2318 · starEl() 2319-2319 · mod() 2320-2320 · art() 2321-2321 · modStars() 2322-2322 · PASS 2323-2323 · passed() 2324-2324
-actsDone() 2325-2325 · certOK() 2326-2326 · go() 2327-2327 · toTop() 2328-2328 · app() 2329-2329 · pick() 2330-2332 · bar() 2333-2355 · goBack() 2356-2356
-lvTag() 2357-2357 · menu() 2358-2373 · steps() 2374-2383 · nextStep() 2384-2386 · home() 2387-2456 · modulePage() 2457-2563 · backBtn() 2564-2565 · shell() 2566-2573
-swIcon() 2574-2574 · finish() 2575-2607 · run() 2608-2610 · chat() 2611-2642 · loose() 2643-2643 · writeIt() 2644-2677 · mcRun() 2678-2700 · quizItems() 2701-2701
-speedItems() 2702-2702 · quiz() 2703-2703 · cpItems() 2704-2713 · cpWhere() 2714-2721 · checkpoint() 2722-2768 · build() 2769-2815 · match() 2816-2852 · speed() 2853-2876
-HLT 2877-2890 · KW 2891-2904 · kw() 2905-2913 · caps() 2914-2914 · diffB() 2915-2916 · sents() 2917-2917 · hl() 2918-2926 · noteKind() 2927-2931
-BKIND 2932-2932 · blk() 2933-2934 · grammar() 2935-2980 · SERVE 2981-2987 · miss() 2988-2994 · ALL_LV 2995-2995 · maxLv() 2996-2996 · lvOf() 2997-2997
-bkItem() 2998-2998 · qKey() 2999-2999 · qFresh() 3000-3000 · qMark() 3001-3001 · gameQ() 3002-3002 · gameQ0() 3003-3003 · askPanel() 3004-3021 · LVN 3022-3022
-arcade() 3023-3041 · gTimer() 3042-3044 · fmtT() 3045-3045 · arcadeEnd() 3046-3068 · tennis() 3069-3162 · duel() 3163-3193 · wDiff() 3194-3198 · zap() 3199-3242
-GAMES 3243-3245 · GP 3246-3246 · gclk() 3247-3247 · gHold() 3248-3248 · gGo() 3249-3249 · gClose() 3250-3250 · gFocus() 3251-3253 · COACH 3254-3266
-gCoach() 3267-3285 · TURNG 3286-3286 · gStartNow() 3287-3287 · gReady() 3288-3292 · gOverlay() 3293-3294 · GICONS 3295-3295 · GLIST 3296-3296 · sortNeed() 3297-3297
-poolNeed() 3298-3298 · HOW 3299-3307 · gRestart() 3308-3308 · gIntro() 3309-3328 · gCount() 3329-3341 · gPause() 3342-3355 · WCL 3356-3356 · WSB 3357-3363
-wsClasses() 3364-3364 · wsBank() 3365-3367 · wsWhy() 3368-3370 · penalty() 3371-3481 · wsort() 3482-3517 · wpool() 3518-3684 · HOOPS_BOT 3685-3685 · hoops() 3686-3855
-wonOf() 3856-3856 · starsWon() 3857-3857 · gameList() 3858-3862 · WT 3863-3874 · WTL 3875-3877 · wtubes() 3878-3930 · GN 3931-3949 · GNM 3950-3950
-GNL 3951-3953 · wgenius() 3954-3995 · TUBEMODS 3996-3996 · hasQ() 3997-3997 · hasGame() 3998-4015 · gameCards() 4016-4019 · hub() 4020-4046 · bossSVG() 4047-4066
-cert() 4067-4092 · timeline() 4093-4112 · today() 4113-4113 · exList() 4114-4114 · exFind() 4115-4115 · dueList() 4116-4116 · exCard() 4117-4117 · expr() 4118-4130
-review() 4131-4152 · verbList() 4153-4153 · memBoard() 4154-4166 · verbs() 4167-4211 · mistakes() 4212-4235 · PF 4236-4245 · PQ 4246-4246 · ENTRY 4247-4247
-TRACK 4248-4248 · HELPS 4249-4249 · TIPS 4250-4265 · L2() 4266-4266 · place() 4267-4297 · placeResult() 4298-4319 · avatars() 4320-4373 · VIS 4374-4374
-funnel() 4375-4408 · MAIL 4409-4430 · mailMock() 4431-4435 · mail() 4436-4464 · mailBuild() 4465-4489 · mailQuiz() 4490-4584 · canSpeak() 4585-4585 · voiceScore() 4586-4593
-voices() 4594-4597 · sayIt() 4598-4603 · voicePage() 4604-4621 · spNorm() 4622-4622 · spellDeck() 4623-4634 · spelling() 4635-4671 · gym() 4672-4721 · culture() 4722-4737
-progressCard() 4738-4747 · NUM 4748-4784 · clockSVG() 4785-4791 · numbers() 4792-4810 · numDrill() 4811-4850 · WV 4851-4865 · ADJ 4866-4872 · ADJQ 4873-4873
-ADVF 4874-4874 · ADVD 4875-4875 · ADVM 4876-4876 · ADVP 4877-4877 · ADVQ 4878-4878 · strip() 4879-4879 · meter() 4880-4880 · wvList() 4881-4881
-ILL 4882-4882 · illEl() 4883-4883 · pics() 4884-4884 · words() 4885-4928 · wDrill() 4929-4952 · LAB 4953-5074 · LABMAP 5075-5075 · LSLOT 5076-5076
-LLINES 5077-5077 · labDi() 5078-5078 · labNeed() 5079-5079 · LPART 5080-5080 · labOpts() 5081-5093 · labRobot() 5094-5115 · LABCOIN 5116-5116 · labParty() 5117-5134
-labSentence() 5135-5151 · labCheck() 5152-5174 · isFreqT() 5175-5175 · vowelSound() 5176-5176 · labArt() 5177-5187 · labTense() 5188-5199 · labSense() 5200-5216 · LSTATE 5217-5217
-lab() 5218-5316 · RSWAP 5317-5317 · rVariant() 5318-5328 · race() 5329-5442 · ZAPX 5443-5461 · ideas() 5462-5469 · ownBox() 5470-5475 · applyTheme() 5476-5476
-nm() 5477-5477 · hi() 5478-5478 · welcome() 5479-5497 · choice() 5498-5511 · SG_SING 5512-5512 · SG_VERB 5513-5513 · sentenceTips() 5514-5548 · tipsBox() 5549-5557
-AI 5558-5558 · aiInit() 5559-5559 · aiReady() 5560-5560 · aiContext() 5561-5561 · aiCall() 5562-5566 · aiCheck() 5567-5571 · askTeacher() 5572-5588 · askFab() 5589-5593
-STORY 5594-5650 · storyFor() 5651-5651 · storyList() 5652-5659 · storyPage() 5660-5688 · aiStory() 5689-5694 · BDE 5695-5696 · REV 5697-5753 · ins() 5754-5903
-XQ 5904-5914 · REVIEWM 5915-5925 · TMOD 5926-5928 · SORTSET 5929-5935 · CDS 5936-5944 · CDL 5945-5947 · cdParse() 5948-5951 · wcommas() 5952-5994
-pvOf() 5995-5995 · pvPool() 5996-5998 · pvQs() 5999-6009 · arcadeMods() 6010-6010 · arcadePage() 6011-6050 · ARCMODES 6051-6051 · arcModeOf() 6052-6056 · arcModBtn() 6057-6078
-SPDICT 6079-6079 · spellDict() 6080-6094 · spKnown() 6095-6096 · spDist() 6097-6098 · spellIssues() 6099-6104 · lvMenu() 6105-6111 · COMMAMODS 6112-6113 · PSET 6114-6119
-PMODES 6120-6120 · poolSet() 6121-6121 · gD() 6122-6125 · TONE 6126-6128 · NINE 6129-6131 · soloCard() 6132-6134 · cityBank() 6135-6135 · SOLO 6136-6152
-MOVIES 6153-6209 · MVLV 6210-6211 · stuLv() 6212-6215 · wmovie() 6216-6301 · DCOL 6302-6302 · DIT 6303-6307 · DMAT 6308-6308 · dkC() 6309-6309
-dollSVG() 6310-6369 · dPiece() 6370-6370 · dArt() 6371-6371 · DVB 6372-6372 · wdoll() 6373-6478 · dartSents() 6479-6480 · dartGaps() 6481-6481 · wdarts() 6482-6543
-crossGaps() 6544-6544 · wcross() 6545-6600 · BRCAR 6601-6639 · brItems() 6640-6641 · brParse() 6642-6642 · wbridge() 6643-6737 · STAGS 6738-6765 · SGTAGS 6766-6766
-SPAGES 6767-6767 · sNorm() 6768-6768 · SIDX 6769-6769 · sIndex() 6770-6779 · sFind() 6780-6782 · searchBox() 6783-6802 · rKey() 6803-6803 · favG() 6804-6804
-favGM() 6805-6805 · togFav() 6806-6807 · gRate() 6808-6808 · heartEl() 6809-6811 · RQ 6812-6812 · rateCard() 6813-6829 · AFILT 6830-6850 · QW 6851-6928
-qwById() 6929-6929 · qwFor() 6930-6930 · qwList() 6931-6936 · qwPage() 6937-6968 · qwGameBtn() 6969-6971 · QWFF 6972-6973 · XQ_NOQW 6974-6980 · qwLow() 6981-6981
-qwDiff() 6982-6983 · qwIs() 6984-6984 · IRR 6985-6985 · QWRULES 6986-7044 · qwSent() 7045-7046 · qwFind() 7047-7049 · qwDetect() 7050-7050 · QWQUEUE 7051-7052
-qwTgt() 7053-7056 · qwToast() 7057-7073 · qwRecs() 7074-7139 · C1USES 7140-7148 · REG 7149-7190 · regFor() 7191-7191 · regFill() 7192-7192 · regForm() 7193-7193
-regGap() 7194-7196 · CAMTIP 7197-7206 · camTipEl() 7207-7239 · KWT 7240-7264 · kwtFor() 7265-7268 · INV 7269-7283 · wlift() 7284-7323 · wkwt() 7324-7360
-winv() 7361-7617 · MOCK 7618-7648 · MOCKNAME 7649-7649 · MOCKHOW 7650-7650 · wmock() 7651-7758 · PPM 7759-7759 · PPMQ 7760-7772 · ppmSlide() 7773-7786
-GSLX 7787-7975 · addTopic() 7976-8235 · sportsHub() 8236-8247 · SPK 8248-8266 · spkLang() 8267-8267 · spkImg() 8268-8268 · c1SpkEl() 8269-8307 · C1KIT 8308-8347
-c1KitEl() 8348-8380 · gMark() 8381-8382 · USES 8383-8522 · gLines() 8523-8523 · grammar() 8524-8599 · mNo() 8600-8733 · nbFind() 8734-8735 · rmItem() 8736-8739
-rmPool() 8740-8740 · rematch() 8741-8767 · ARCLV 8768-8768 · arcLvGame() 8769-8884 · nbType() 8885-8886 · nbKey() 8887-8887 · nbCard() 8888-9003 · QQ 9004-9036
-TONE_ATT 9037-9037 · TONEQ 9038-9044 · miniMC() 9045-9054 · miniBuild() 9055-9067 · qqById() 9068-9068 · qqItems() 9069-9069 · qqList() 9070-9078 · qqPage() 9079-9095
-tonePage() 9096-9107 · LVLS 9108-9108 · worldMods() 9109-9109 · worldDone() 9110-9110 · worldPerfect() 9111-9111 · MEDALS 9112-9130 · medalToast() 9131-9132 · checkMedals() 9133-9134
-achievements() 9135-9143 · SESS_KEY 9144-9144 · sessGet() 9145-9145 · sessPut() 9146-9146 · sessNew() 9147-9147 · sessCur() 9148-9148 · sessNote() 9149-9149 · sessLearned() 9150-9152
-fmtMin() 9153-9153 · hwList() 9154-9154 · hwPending() 9155-9155 · hwMake() 9156-9167 · endLesson() 9168-9175 · lessonPage() 9176-9193 · hwStart() 9194-9195 · hwScore() 9196-9202
-hwSyncQW() 9203-9203 · hwCard() 9204-9213 · homeworkPage() 9214-9244 · PLNOTE 9245-9245 · plBank() 9246-9292 · LOCKS_ON 9293-9293 · lvUnlockedIdx() 9294-9296 · lvUnlocked() 9297-9297
-modOpen() 9298-9298 · lockPage() 9299-9348 · NINE_EXTRA 9349-9350 · MESBG 9351-9352 · MESNAME 9353-9353 · MESSEA 9354-9354 · mesSpr() 9355-9355 · MESSPR 9356-9369
-mesEl() 9370-9370 · mesNodes() 9371-9371 · meseland() 9372-9452 · REPORT_ON 9453-9453 · repCtx() 9454-9457 · repOpen() 9458-9475 · repFab() 9476-9477 · MHERO 9478-9479
-mheroCur() 9480-9480 · mheroImg() 9481-9481 · mheroEl() 9482-9497 · IC_HOME 9498-9498 · IC_SHOP 9499-9499 · IC_SEARCH 9500-9500 · icBtn() 9501-9501 · profMenu() 9502-9552
-route() 9553-9567 · SUPPT 9568-9568 · GLOSS 9569-9569 · supMode() 9570-9570 · supTx() 9571-9574 · supStr() 9575-9726 · ORD_RULES 9727-9743 · ORD_ORDER 9744-9744
-ordRank() 9745-9745 · ordText() 9746-9746 · ordNeed() 9747-9747 · ORD_MOVED 9748-9748 · ordPrereq() 9749-9754 · start() 9755-9764
+NEVER read lines 2206 and 2207 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-159 and 168-1440
+WIDE_LAYOUT 1449-1450 · M 1451-1701 · X 1702-1772 · ART 1773-1779 · GR 1780-1867 · GX 1868-1936 · BK 1937-2039 · PIC 2040-2040
+HOOK 2041-2054 · TLN 2055-2063 · EXP 2064-2081 · VERBS 2082-2083 · CAN 2084-2088 · CULT 2089-2109 · GYM 2110-2121 · BD 2122-2201
+TAGN 2202-2202 · LEVELS 2203-2203 · ACTS 2204-2205 · ACH 2208-2208 · PSETS 2209-2209 · faceEl() 2210-2210 · FACES 2211-2213 · T 2214-2291
+S 2292-2292 · KEY 2293-2293 · t() 2294-2294 · save() 2295-2295 · load() 2296-2300 · day() 2301-2301 · touchStreak() 2302-2304 · h() 2305-2317
+shuffle() 2318-2318 · starsFor() 2319-2319 · starEl() 2320-2320 · mod() 2321-2321 · art() 2322-2322 · modStars() 2323-2323 · PASS 2324-2324 · passed() 2325-2325
+actsDone() 2326-2326 · certOK() 2327-2327 · go() 2328-2328 · toTop() 2329-2329 · app() 2330-2330 · pick() 2331-2333 · bar() 2334-2356 · goBack() 2357-2357
+lvTag() 2358-2358 · menu() 2359-2376 · steps() 2377-2386 · nextStep() 2387-2389 · home() 2390-2459 · modulePage() 2460-2566 · backBtn() 2567-2568 · shell() 2569-2576
+swIcon() 2577-2577 · finish() 2578-2610 · run() 2611-2613 · chat() 2614-2645 · loose() 2646-2646 · writeIt() 2647-2680 · mcRun() 2681-2703 · quizItems() 2704-2704
+speedItems() 2705-2705 · quiz() 2706-2706 · cpItems() 2707-2716 · cpWhere() 2717-2724 · checkpoint() 2725-2771 · build() 2772-2818 · match() 2819-2855 · speed() 2856-2879
+HLT 2880-2893 · KW 2894-2907 · kw() 2908-2916 · caps() 2917-2917 · diffB() 2918-2919 · sents() 2920-2920 · hl() 2921-2929 · noteKind() 2930-2934
+BKIND 2935-2935 · blk() 2936-2937 · grammar() 2938-2983 · SERVE 2984-2990 · miss() 2991-2997 · ALL_LV 2998-2998 · maxLv() 2999-2999 · lvOf() 3000-3000
+bkItem() 3001-3001 · qKey() 3002-3002 · qFresh() 3003-3003 · qMark() 3004-3004 · gameQ() 3005-3005 · gameQ0() 3006-3006 · askPanel() 3007-3024 · LVN 3025-3025
+arcade() 3026-3044 · gTimer() 3045-3047 · fmtT() 3048-3048 · arcadeEnd() 3049-3071 · tennis() 3072-3165 · duel() 3166-3196 · wDiff() 3197-3201 · zap() 3202-3245
+GAMES 3246-3248 · GP 3249-3249 · gclk() 3250-3250 · gHold() 3251-3251 · gGo() 3252-3252 · gClose() 3253-3253 · gFocus() 3254-3256 · COACH 3257-3269
+gCoach() 3270-3288 · TURNG 3289-3289 · gStartNow() 3290-3290 · gReady() 3291-3295 · gOverlay() 3296-3297 · GICONS 3298-3298 · GLIST 3299-3299 · sortNeed() 3300-3300
+poolNeed() 3301-3301 · HOW 3302-3310 · gRestart() 3311-3311 · gIntro() 3312-3331 · gCount() 3332-3344 · gPause() 3345-3358 · WCL 3359-3359 · WSB 3360-3366
+wsClasses() 3367-3367 · wsBank() 3368-3370 · wsWhy() 3371-3373 · penalty() 3374-3484 · wsort() 3485-3520 · wpool() 3521-3687 · HOOPS_BOT 3688-3688 · hoops() 3689-3858
+wonOf() 3859-3859 · starsWon() 3860-3860 · gameList() 3861-3865 · WT 3866-3877 · WTL 3878-3880 · wtubes() 3881-3933 · GN 3934-3952 · GNM 3953-3953
+GNL 3954-3956 · wgenius() 3957-3998 · TUBEMODS 3999-3999 · hasQ() 4000-4000 · hasGame() 4001-4018 · gameCards() 4019-4022 · hub() 4023-4049 · bossSVG() 4050-4069
+cert() 4070-4095 · timeline() 4096-4115 · today() 4116-4116 · exList() 4117-4117 · exFind() 4118-4118 · dueList() 4119-4119 · exCard() 4120-4120 · expr() 4121-4133
+review() 4134-4155 · verbList() 4156-4156 · memBoard() 4157-4169 · verbs() 4170-4214 · mistakes() 4215-4238 · PF 4239-4248 · PQ 4249-4249 · ENTRY 4250-4250
+TRACK 4251-4251 · HELPS 4252-4252 · TIPS 4253-4268 · L2() 4269-4269 · place() 4270-4300 · placeResult() 4301-4322 · avatars() 4323-4376 · VIS 4377-4377
+funnel() 4378-4411 · MAIL 4412-4433 · mailMock() 4434-4438 · mail() 4439-4467 · mailBuild() 4468-4492 · mailQuiz() 4493-4587 · canSpeak() 4588-4588 · voiceScore() 4589-4596
+voices() 4597-4600 · sayIt() 4601-4606 · voicePage() 4607-4624 · spNorm() 4625-4625 · spellDeck() 4626-4637 · spelling() 4638-4674 · gym() 4675-4724 · culture() 4725-4740
+progressCard() 4741-4750 · NUM 4751-4787 · clockSVG() 4788-4794 · numbers() 4795-4813 · numDrill() 4814-4853 · WV 4854-4868 · ADJ 4869-4875 · ADJQ 4876-4876
+ADVF 4877-4877 · ADVD 4878-4878 · ADVM 4879-4879 · ADVP 4880-4880 · ADVQ 4881-4881 · strip() 4882-4882 · meter() 4883-4883 · wvList() 4884-4884
+ILL 4885-4885 · illEl() 4886-4886 · pics() 4887-4887 · words() 4888-4931 · wDrill() 4932-4955 · LAB 4956-5077 · LABMAP 5078-5078 · LSLOT 5079-5079
+LLINES 5080-5080 · labDi() 5081-5081 · labNeed() 5082-5082 · LPART 5083-5083 · labOpts() 5084-5096 · labRobot() 5097-5118 · LABCOIN 5119-5119 · labParty() 5120-5137
+labSentence() 5138-5154 · labCheck() 5155-5177 · isFreqT() 5178-5178 · vowelSound() 5179-5179 · labArt() 5180-5190 · labTense() 5191-5202 · labSense() 5203-5219 · LSTATE 5220-5220
+lab() 5221-5319 · RSWAP 5320-5320 · rVariant() 5321-5331 · race() 5332-5445 · ZAPX 5446-5464 · ideas() 5465-5472 · ownBox() 5473-5478 · applyTheme() 5479-5479
+nm() 5480-5480 · hi() 5481-5481 · welcome() 5482-5500 · choice() 5501-5514 · SG_SING 5515-5515 · SG_VERB 5516-5516 · sentenceTips() 5517-5551 · tipsBox() 5552-5560
+AI 5561-5561 · aiInit() 5562-5562 · aiReady() 5563-5563 · aiContext() 5564-5564 · aiCall() 5565-5569 · aiCheck() 5570-5574 · askTeacher() 5575-5591 · askFab() 5592-5596
+STORY 5597-5653 · storyFor() 5654-5654 · storyList() 5655-5662 · storyPage() 5663-5691 · aiStory() 5692-5697 · BDE 5698-5699 · REV 5700-5756 · ins() 5757-5906
+XQ 5907-5917 · REVIEWM 5918-5928 · TMOD 5929-5931 · SORTSET 5932-5938 · CDS 5939-5947 · CDL 5948-5950 · cdParse() 5951-5954 · wcommas() 5955-5997
+pvOf() 5998-5998 · pvPool() 5999-6001 · pvQs() 6002-6012 · arcadeMods() 6013-6013 · arcadePage() 6014-6053 · ARCMODES 6054-6054 · arcModeOf() 6055-6059 · arcModBtn() 6060-6081
+SPDICT 6082-6082 · spellDict() 6083-6097 · spKnown() 6098-6099 · spDist() 6100-6101 · spellIssues() 6102-6107 · lvMenu() 6108-6114 · COMMAMODS 6115-6116 · PSET 6117-6122
+PMODES 6123-6123 · poolSet() 6124-6124 · gD() 6125-6128 · TONE 6129-6131 · NINE 6132-6134 · soloCard() 6135-6137 · cityBank() 6138-6138 · SOLO 6139-6155
+MOVIES 6156-6212 · MVLV 6213-6214 · stuLv() 6215-6218 · wmovie() 6219-6304 · DCOL 6305-6305 · DIT 6306-6310 · DMAT 6311-6311 · dkC() 6312-6312
+dollSVG() 6313-6372 · dPiece() 6373-6373 · dArt() 6374-6374 · DVB 6375-6375 · wdoll() 6376-6481 · dartSents() 6482-6483 · dartGaps() 6484-6484 · wdarts() 6485-6546
+crossGaps() 6547-6547 · wcross() 6548-6603 · BRCAR 6604-6642 · brItems() 6643-6644 · brParse() 6645-6645 · wbridge() 6646-6740 · STAGS 6741-6768 · SGTAGS 6769-6769
+SPAGES 6770-6770 · sNorm() 6771-6771 · SIDX 6772-6772 · sIndex() 6773-6782 · sFind() 6783-6785 · searchBox() 6786-6805 · rKey() 6806-6806 · favG() 6807-6807
+favGM() 6808-6808 · togFav() 6809-6810 · gRate() 6811-6811 · heartEl() 6812-6814 · RQ 6815-6815 · rateCard() 6816-6832 · AFILT 6833-6853 · QW 6854-6931
+qwById() 6932-6932 · qwFor() 6933-6933 · qwList() 6934-6939 · qwPage() 6940-6971 · qwGameBtn() 6972-6974 · QWFF 6975-6976 · XQ_NOQW 6977-6983 · qwLow() 6984-6984
+qwDiff() 6985-6986 · qwIs() 6987-6987 · IRR 6988-6988 · QWRULES 6989-7047 · qwSent() 7048-7049 · qwFind() 7050-7052 · qwDetect() 7053-7053 · QWQUEUE 7054-7055
+qwTgt() 7056-7059 · qwToast() 7060-7076 · qwRecs() 7077-7142 · C1USES 7143-7151 · REG 7152-7193 · regFor() 7194-7194 · regFill() 7195-7195 · regForm() 7196-7196
+regGap() 7197-7199 · CAMTIP 7200-7209 · camTipEl() 7210-7242 · KWT 7243-7267 · kwtFor() 7268-7271 · INV 7272-7286 · wlift() 7287-7326 · wkwt() 7327-7363
+winv() 7364-7620 · MOCK 7621-7651 · MOCKNAME 7652-7652 · MOCKHOW 7653-7653 · wmock() 7654-7761 · PPM 7762-7762 · PPMQ 7763-7775 · ppmSlide() 7776-7789
+GSLX 7790-7978 · addTopic() 7979-8238 · sportsHub() 8239-8250 · SPK 8251-8269 · spkLang() 8270-8270 · spkImg() 8271-8271 · c1SpkEl() 8272-8310 · C1KIT 8311-8350
+c1KitEl() 8351-8383 · gMark() 8384-8385 · USES 8386-8525 · gLines() 8526-8526 · grammar() 8527-8602 · mNo() 8603-8736 · nbFind() 8737-8738 · rmItem() 8739-8742
+rmPool() 8743-8743 · rematch() 8744-8770 · ARCLV 8771-8771 · arcLvGame() 8772-8887 · nbType() 8888-8889 · nbKey() 8890-8890 · nbCard() 8891-9006 · QQ 9007-9039
+TONE_ATT 9040-9040 · TONEQ 9041-9047 · miniMC() 9048-9057 · miniBuild() 9058-9070 · qqById() 9071-9071 · qqItems() 9072-9072 · qqList() 9073-9081 · qqPage() 9082-9098
+tonePage() 9099-9110 · LVLS 9111-9111 · worldMods() 9112-9112 · worldDone() 9113-9113 · worldPerfect() 9114-9114 · MEDALS 9115-9133 · medalToast() 9134-9135 · checkMedals() 9136-9137
+achievements() 9138-9146 · SESS_KEY 9147-9147 · sessGet() 9148-9148 · sessPut() 9149-9149 · sessNew() 9150-9150 · sessCur() 9151-9151 · sessNote() 9152-9152 · sessLearned() 9153-9155
+fmtMin() 9156-9156 · hwList() 9157-9157 · hwPending() 9158-9158 · hwMake() 9159-9170 · endLesson() 9171-9178 · lessonPage() 9179-9196 · hwStart() 9197-9198 · hwScore() 9199-9205
+hwSyncQW() 9206-9206 · hwCard() 9207-9216 · homeworkPage() 9217-9247 · PLNOTE 9248-9248 · plBank() 9249-9295 · LOCKS_ON 9296-9296 · lvUnlockedIdx() 9297-9299 · lvUnlocked() 9300-9300
+modOpen() 9301-9301 · lockPage() 9302-9352 · NINE_EXTRA 9353-9354 · MESBG 9355-9356 · MESNAME 9357-9357 · MESSEA 9358-9358 · mesSpr() 9359-9359 · MESSPR 9360-9373
+mesEl() 9374-9374 · mesNodes() 9375-9375 · meseland() 9376-9456 · REPORT_ON 9457-9457 · repCtx() 9458-9461 · repOpen() 9462-9479 · repFab() 9480-9481 · MHERO 9482-9483
+mheroCur() 9484-9484 · mheroImg() 9485-9485 · mheroEl() 9486-9501 · IC_HOME 9502-9502 · IC_SHOP 9503-9503 · IC_SEARCH 9504-9504 · icBtn() 9505-9505 · profMenu() 9506-9556
+route() 9557-9572 · SUPPT 9573-9573 · GLOSS 9574-9574 · supMode() 9575-9575 · supTx() 9576-9579 · supStr() 9580-9731 · ORD_RULES 9732-9748 · ORD_ORDER 9749-9749
+ordRank() 9750-9750 · ordText() 9751-9751 · ordNeed() 9752-9752 · ORD_MOVED 9753-9753 · ordPrereq() 9754-9760 · BETA_ON 9761-9761 · BETA_OK 9762-9762 · BETA_HIDE 9763-9763
+betaPage() 9764-9764 · betaApply() 9765-9768 · start() 9769-9779
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -2359,10 +2360,12 @@ function menu(){
   var a=app();cur={k:"menu"};
   a.appendChild(h("div",{class:"mhead"},h("h1",null,t("navMenu"))));
   function sec(title,items){
+    items=items.filter(function(x){return !(x[2]&&x[2]._k)||betaPage(x[2]._k)});
+    if(!items.length)return;
     a.appendChild(h("h2",{class:"step",style:"margin-top:22px"},title));
     a.appendChild(h("div",{class:"menu"},items.map(function(x){return h("button",{class:"card mitem",onclick:x[2]},x[3]||null,h("b",null,x[0]),x[1]?h("span",null,x[1]):null)})));
   }
-  function to(k){return function(){go(k)}}
+  function to(k){var f=function(){go(k)};f._k=k;return f}
   sec(t("mStart"),[["🏠 "+t("navHome"),t("mHome"),to("home")],["🧭 "+t("pfT"),t("pfD"),to("start")],["🔊 "+t("voiceT"),"",to("voice")],["🙂 "+t("avatars"),"",to("avatars")],["✏️ Your name",S.name||"",function(){welcome(true)}],[S.theme==="light"?"🕹️ Arcade look":"☀️ Light look","",function(){S.theme=S.theme==="light"?"dark":"light";save();applyTheme();menu()}],
     ["🌐 "+t("lang"),"",function(){S.lang=S.lang==="en"?"pt":"en";save();route()}]]);
   ["A1","A2","B1","B2","C1"].forEach(function(lv){sec(t("mMods")+" "+lv+" · "+LEVELS[lv],M.filter(function(m){return m.lv===lv}).map(function(m){return [mNo(m)+". "+m.t,m.sit.t,to(m.id),lvTag(m.lv)]}))});
@@ -2517,10 +2520,10 @@ function modulePage(m,part){
     h("h3",null,h("span",{class:"train",style:"display:inline-flex"},[["Who","s"],["Verb","v"],["What","o"],["How","d"]].map(function(x){return h("span",{class:"t-"+x[1]},x[0])}))),
     h("p",null,t("labD"))));
   var pop=CULT.filter(function(c){return c.mods.indexOf(m.id)>=0});
-  if(pop.length)a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("culture")}},h("span",{class:"label"},"🎬 "+t("pop")),h("h3",null,pop.map(function(c){return c.t}).join(" · ")),h("p",null,t("popD"))));
-  if(["a1-1","a1-2","a1-4","a2-3","transport","eatout","market","airport"].indexOf(m.id)>=0)a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("numbers")}},h("span",{class:"label"},"🔢 "+t("num")),h("h3",null,"7:45 · $3.50 · 5 May · 1999"),h("p",null,t("numD"))));
-  if(["a2-4","b1-4","b1-5"].indexOf(m.id)>=0)a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("emails")}},h("span",{class:"label"},"✉️ "+t("mail")),h("h3",null,"Work · Complaint · Invitation"),h("p",null,t("mailD"))));
-  if(["a2-1","a2-4","b1-1","b1-4","halloween"].indexOf(m.id)>=0)a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("verbs")}},h("span",{class:"label"},"🔤 "+t("verbs")),h("h3",null,"go · went · gone"),h("p",null,t("verbsD"))));
+  if(pop.length&&betaPage("culture"))a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("culture")}},h("span",{class:"label"},"🎬 "+t("pop")),h("h3",null,pop.map(function(c){return c.t}).join(" · ")),h("p",null,t("popD"))));
+  if(["a1-1","a1-2","a1-4","a2-3","transport","eatout","market","airport"].indexOf(m.id)>=0&&betaPage("numbers"))a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("numbers")}},h("span",{class:"label"},"🔢 "+t("num")),h("h3",null,"7:45 · $3.50 · 5 May · 1999"),h("p",null,t("numD"))));
+  if(["a2-4","b1-4","b1-5"].indexOf(m.id)>=0&&betaPage("emails"))a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("emails")}},h("span",{class:"label"},"✉️ "+t("mail")),h("h3",null,"Work · Complaint · Invitation"),h("p",null,t("mailD"))));
+  if(["a2-1","a2-4","b1-1","b1-4","halloween"].indexOf(m.id)>=0&&betaPage("verbs"))a.appendChild(h("button",{class:"card guide notch ty-study",onclick:function(){go("verbs")}},h("span",{class:"label"},"🔤 "+t("verbs")),h("h3",null,"go · went · gone"),h("p",null,t("verbsD"))));
   }
   if(part===4){
   a.appendChild(h("p",{class:"label",style:"margin-top:18px"},"🗣️ "+tx("Talk to the robot","Converse com o robô")));
@@ -9308,7 +9311,7 @@ function lockPage(m){var a=app();cur={k:"lock"};var prev=LVLS[LVLS.indexOf(m.lv)
       line.textContent=d===ms.length&&ms.length?"🌍 "+lv+" World complete! 🏅":"🌍 "+lv+" World: "+d+" / "+ms.length+" Final tests passed"+(LVLS.indexOf(lv)<4?" · pass them all to open "+LVLS[LVLS.indexOf(lv)+1]:"")}
     [].forEach.call(tabs.children,function(b){var lv=b.getAttribute("data-lv");if(!lvUnlocked(lv)){b.insertBefore(h("span",{"aria-hidden":"true"},"🔒 "),b.firstChild);b.title="Opens when you pass all the "+LVLS[LVLS.indexOf(lv)-1]+" Final tests"}b.addEventListener("click",function(){setTimeout(upd,0)})});upd()}
   var hq=document.querySelector("#app .homequick");
-  if(hq){hq.appendChild(h("button",{class:"arcbanner qwbanner",onclick:function(){go("questions")}},h("span",{class:"ab-ic","aria-hidden":"true"},"❓"),h("span",{class:"ab-tx"},h("b",null,"ONLY QUESTIONS"),h("span",null,"Ask it right, from A1 to C1.")),h("span",{class:"ab-go"},"ASK ▸")));
+  if(hq&&betaPage("questions")){hq.appendChild(h("button",{class:"arcbanner qwbanner",onclick:function(){go("questions")}},h("span",{class:"ab-ic","aria-hidden":"true"},"❓"),h("span",{class:"ab-tx"},h("b",null,"ONLY QUESTIONS"),h("span",null,"Ask it right, from A1 to C1.")),h("span",{class:"ab-go"},"ASK ▸")));
     var extra=[],P=hwPending(),ready=(S.err||[]).filter(function(e){var r=e.rw||[];return r.length&&today()-r[0]>=2}).length,LA=S.lastAuto&&(S.lessons||[]).filter(function(l){return l.id===S.lastAuto})[0];
     if(LA)extra.push(h("button",{class:"card act notch",style:"min-height:0;width:100%",onclick:function(){S.lastAuto=null;save();lessonPage(LA)}},h("span",{class:"label"},"📋 Your last lesson"),h("h3",null,fmtMin(LA.active)+(LA.hw?" · Homework ready":"")),h("p",null,"See the summary of what you did.")));
     if(P.length)extra.push(h("button",{class:"card act notch",style:"min-height:0;width:100%",onclick:function(){go("homework")}},h("span",{class:"label"},"📚 Homework"),h("h3",null,P.length+" homework"+(P.length>1?"s":"")+" waiting"),h("p",null,"Short tasks from your own lessons. Try again to beat your score.")));
@@ -9319,12 +9322,13 @@ function lockPage(m){var a=app();cur={k:"lock"};var prev=LVLS[LVLS.indexOf(m.lv)
 /* menu: new pages */
 (function(){var mn=menu;menu=function(){mn.apply(this,arguments);if(window.ONLY_GAMES||window.NINTH)return;var a=document.getElementById("app");
   a.appendChild(h("h2",{class:"step",style:"margin-top:22px"},"🏅 Your progress"));
-  a.appendChild(h("div",{class:"menu"},[["📚 My homework","From your own lessons","homework"],["🏅 Achievements","Your medals","achievements"],["❓ Only questions","Ask it right, A1 to C1","questions"],["📒 "+t("nb"),"","mistakes"]].map(function(x){return h("button",{class:"card mitem",onclick:function(){go(x[2])}},h("b",null,x[0]),x[1]?h("span",null,x[1]):null)})))}})();
+  a.appendChild(h("div",{class:"menu"},[["📚 My homework","From your own lessons","homework"],["🏅 Achievements","Your medals","achievements"],["❓ Only questions","Ask it right, A1 to C1","questions"],["📒 "+t("nb"),"","mistakes"]].filter(function(x){return betaPage(x[2])}).map(function(x){return h("button",{class:"card mitem",onclick:function(){go(x[2])}},h("b",null,x[0]),x[1]?h("span",null,x[1]):null)})))}})();
 /* module page: Tone detector card in Reading between the lines (part 3) */
 (function(){var mp=modulePage;modulePage=function(m,part){mp(m,part);if(!m||m.id!=="c1-6"||window.ONLY_GAMES)return;var p=(S.mpart||{})[m.id]||part||1;if(p!==3)return;
   var a=document.getElementById("app");a.appendChild(h("button",{class:"card act notch ty-prac",style:"min-height:0;width:100%;margin-top:14px",onclick:function(){go("tone/1")}},h("span",{class:"label"},"🎭 Game"),h("h3",null,"Tone detector"),h("p",null,"What does the speaker mean? Criticising, annoyed, regretting, hesitating…")))}})();
 /* routes for the new pages and the level lock */
 (function(){var rt=route;route=function(){var kp=location.hash.replace("#","").split("/"),k=kp[0];
+  if(typeof BETA_ON!=="undefined"&&BETA_ON&&!betaPage(k)){location.hash="home";return}
   if(S.name&&!window.ONLY_GAMES&&!window.NINTH&&["achievements","homework","questions","tone","lesson"].indexOf(k)>=0){cur=null;bar();document.body.setAttribute("data-tone","");
     if(k==="achievements")achievements();else if(k==="homework")homeworkPage();else if(k==="questions"){if(kp[1])qqPage(kp[1]);else qqList()}else if(k==="tone")tonePage(kp[1]);else if(k==="lesson")lessonPage((S.lessons||[])[0]);return}
   var m=mod(k);if(LOCKS_ON&&S.name&&m&&!modOpen(m)&&!window.ONLY_GAMES){cur=null;bar();lockPage(m);return}
@@ -9390,7 +9394,7 @@ function meseland(onLv){
   function drawTabs(){tabs.innerHTML="";LVLS.forEach(function(L){var on=L===lv,lk=LOCKS_ON&&!lvUnlocked(L);tabs.appendChild(h("button",{class:"mes-tab"+(on?" on":""),role:"tab","aria-selected":on?"true":"false",onclick:function(){if(L===lv)return;lv=L;S.homeLv=L;save();sel=-1;draw();if(onLv)onLv(L)}},h("b",null,L),on?h("span",null,MESNAME[L]):null,lk?h("span",{"aria-label":"locked"},"🔒"):null))})}
   function drawSel(){var A=stops(),p=A[sel];[].forEach.call(layer.querySelectorAll(".mes-node"),function(b,i){b.classList.toggle("sel",+b.getAttribute("data-k")===sel)});
     if(p){hero.style.left=p.x+"%";hero.style.top=p.y+"%"}
-    card.innerHTML="";if(!p)return;var m=p.m,st=p.bonus?"bonus":stOf(m),ms=worldMods(lv),d=ms.filter(passed).length,nx=LVLS[LVLS.indexOf(lv)+1];
+    card.innerHTML="";if(!p){card.appendChild(h("div",{class:"mes-info"},h("span",{class:"mes-kick"},lv+" · "+MESNAME[lv]),h("h3",null,"🚧 Coming soon"),h("p",null,"This island is still being built. It opens after the beta.")));card.appendChild(hint);return}var m=p.m,st=p.bonus?"bonus":stOf(m),ms=worldMods(lv),d=ms.filter(passed).length,nx=LVLS[LVLS.indexOf(lv)+1];
     var status=st==="done"?"★ Final test passed":st==="current"?"▶ You are here"+(nextStep(m)?" · next: "+nextStep(m).n:""):st==="locked"?"🔒 Opens when you pass all the "+LVLS[LVLS.indexOf(lv)-1]+" Final tests":st==="bonus"?"Bonus boat · always open · doesn't count to open the next island":(modStars(m)?"Started · "+modStars(m)+" ★":"Open · not started");
     card.appendChild(h("div",{class:"mes-info"},h("span",{class:"mes-kick"},(p.bonus?"Bonus · ":"Stage "+(sel+1)+" of "+ms.length+" · ")+lv+" · "+MESNAME[lv]),h("h3",null,m.t),h("p",null,m.g),h("p",{class:"mes-st "+st},status)));
     card.appendChild(h("div",{class:"mes-btns"},
@@ -9553,6 +9557,7 @@ function profMenu(btn){var old=document.getElementById("profmenu");if(old){old.r
 function route(){
   cur=null;bar();
   var k0=location.hash.replace("#",""),kp=k0.split("/"),k=kp[0],m=mod(k),part=+kp[1]||0;
+  if(BETA_ON&&!betaPage(k)){location.hash="home";return}
   if(!m&&(k===""||k==="home"||k==="menu"))window.FROMM=null;
   if(k!=="arcade"&&!(cur&&GAMES[cur.k]))window.FROMA=null;
   if(m&&m.rev&&S.name){document.body.setAttribute("data-tone","rose");hub(m);return}
@@ -9752,9 +9757,19 @@ function ordPrereq(){
   if(typeof XQ!=="undefined"&&XQ[id])XQ[id]=fix(id,XQ[id],function(t,s){XQ[t]=XQ[t]||[];if(XQ[t].indexOf(s)<0)XQ[t].push(s)},"XQ");
   if(typeof ZAPX!=="undefined"&&ZAPX[id])ZAPX[id]=fix(id,ZAPX[id],function(t,s){ZAPX[t]=ZAPX[t]||[];if(ZAPX[t].indexOf(s)<0)ZAPX[t].push(s)},"ZAPX");
   if(typeof BK!=="undefined"&&BK[id])["g","x"].forEach(function(k){if(BK[id][k])BK[id][k]=fix(id,BK[id][k],function(t,s){if(!BK[t])return;BK[t].g=BK[t].g||[];if(BK[t].g.indexOf(s)<0&&(BK[t].x||[]).indexOf(s)<0)BK[t].g.push(s)},"BK."+k)})})}
+/* ---------- LUISA-16 (accepted 27/11): beta shows only what was audited, approved by Luisa and corrected. BETA_ON=false brings everything back ---------- */
+var BETA_ON=true;
+var BETA_OK=["a1-1","a1-2","a1-3","a1-4","a2-1","a2-2","a2-3","a2-4","a2-5","a2-6","b1-1","b1-2","b1-3","b1-4","b1-5","b1-6","b1-7","b2-1","b2-2"];
+var BETA_HIDE=["sports","questions","tone","numbers","sentences","emails","culture","verbs","spelling"];
+function betaPage(k){return !BETA_ON||BETA_HIDE.indexOf(k)<0}
+function betaApply(){if(!BETA_ON)return;var ok=function(m){return BETA_OK.indexOf(m.id)>=0};
+  window.M_ALL=M.slice();window.X_ALL=X.slice();M=M.filter(ok);X=X.filter(ok);
+  if(typeof SOLO!=="undefined")SOLO.splice(0,SOLO.length);
+  if(typeof SPAGES!=="undefined")for(var i=SPAGES.length-1;i>=0;i--)if(!betaPage(SPAGES[i][0]))SPAGES.splice(i,1)}
 function start(d){
   load(d);
   try{ordPrereq()}catch(e){}
+  try{betaApply()}catch(e){}
   window.addEventListener("hashchange",route);
   if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(function(){return S});
   applyTheme();aiInit();setTimeout(askFab,0);
