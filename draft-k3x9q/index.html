@@ -2470,7 +2470,7 @@ function modulePage(m,part){
   function sess(n,done){return h("h2",{class:"step"},h("span",null,n),t("sess")+" "+n,h("small",null,t("sessT")),done?h("b",{class:"badge"},"✓ "+t("sessDone")):null)}
   var s1=["chat","quiz","build","write"],s2=["match","speed"];
   var d1=s1.every(function(k){return s[k]>0}),d2=s2.every(function(k){return s[k]>0})&&passed(m);
-  var PARTS=[["🧭","Start","Review, situation, words",["match"]],["📘","Grammar","Guide and quiz",["guide","quiz"]],["🎯","Practise","Speed, sentence builder",["speed","build"]],["🗣️","Use it","Chat, expressions, write",["chat","write"]],["🕹️","Arcade","Games against the robot",[]],["🎓","Final test","Test and certificate",["cp"]]];
+  var PARTS=[["🧭","Start","Review, situation, words",["match"]],["📘","Grammar","Guide and quiz",["guide","quiz"]],["🎯","Practise","Speed, builder, robot lab",["speed","build"]],["🗣️","Use it","Chat, expressions, write",["chat","write"]],["🕹️","Arcade","Games against the robot",[]],["🎓","Final test","Test and certificate",["cp"]]];
   var stepPart=function(k){for(var i=0;i<PARTS.length;i++)if(PARTS[i][3].indexOf(k)>=0)return i+1;return 1};
   S.mpart=S.mpart||{};
   if(!part)part=S.mpart[m.id]||(nx?stepPart(nx.k):1);
