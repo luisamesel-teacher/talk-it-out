@@ -105,6 +105,8 @@ body.light .srbox,html[data-theme=light] .srbox{background:#fff}
 .qwmod{display:flex;gap:14px;align-items:center;text-align:left;width:100%;margin:12px 0;border-color:#ffd166!important;background:linear-gradient(90deg,rgba(255,209,102,.18),rgba(255,209,102,.04)),#1f2456!important}.qwmod b{display:block;font-size:19px}.qwmod .gplay{margin-left:auto;background:#ffd166;color:#12152e;padding:8px 14px;border-radius:999px;font-weight:900}
 .qwbanner{--gc:#ffd166}
 /* ---- C1: Cambridge tips, register ladder, Register Lift, Key Word Squeeze, Inversion Switch ---- */
+.kitTabs{flex-wrap:wrap}.spkBox{display:grid;gap:10px;margin-top:6px}.spkPart{font-weight:800;font-size:18px;margin:0}.spkQ{font-size:18px;font-weight:600;margin:4px 0}.spkHint,.spkNote{opacity:.8;margin:0}.spkPics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.spkPics figure{margin:0}.spkPics img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block;background:rgba(127,127,127,.2)}.spkPics figcaption{font-size:13px;opacity:.8;margin-top:3px}@media(max-width:560px){.spkPics{grid-template-columns:1fr 1fr}}.spkClock{font-size:56px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}.spkClock.low{color:#ff5a6e}.spkBar{height:6px;background:rgba(127,127,127,.25);border-radius:4px;overflow:hidden}.spkBar i{display:block;height:100%;background:#ffd166;transition:width .25s linear}.spkBtns{display:flex;gap:8px;flex-wrap:wrap}.spkOpts{margin:4px 0;padding-left:20px}.spkDots{display:flex;gap:6px}.spkDots span{width:10px;height:10px;border-radius:50%;background:rgba(127,127,127,.35)}.spkDots .d{background:#4cc9f0}.spkDots .n{background:#ffd166}.spkLang{display:grid;gap:8px;margin-top:8px}.spkLangSec p{margin:2px 0 0}.spkSelf{list-style:none;padding:0;margin:0;display:grid;gap:6px}.spkSelf label{display:flex;gap:8px;align-items:flex-start}
+.kitTabs{display:flex;gap:8px;margin:12px 0 8px}.kitTabs .btn.on{background:#ffd166;color:#111;border-color:#ffd166}.kitSec{border:1px solid rgba(127,127,127,.3);border-radius:12px;padding:8px 12px;margin:8px 0}.kitSec summary{cursor:pointer;font-weight:700}.kitPart h4{margin:10px 0 4px}.kitLang{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}.kitLang li{display:flex;gap:8px;align-items:center}.kitSay{border:0;background:none;cursor:pointer;font-size:16px;padding:2px}
 .camtips{display:grid;gap:12px;margin-top:10px}.camcard{padding:14px 16px;border-radius:14px;background:rgba(76,201,240,.08);border:2px solid #4cc9f0}.camcard h3{margin:4px 0 8px}
 .camul{margin:0;padding-left:20px;display:grid;gap:6px}.camul li{line-height:1.45}.camex{margin-top:10px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.22)}.camex p{margin:4px 0}.camkey{font-weight:900;letter-spacing:.12em;color:#ffd166}
 .ladder{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px}.ladder .lh{font:900 12px var(--label);letter-spacing:.08em;text-transform:uppercase;opacity:.8}.ladder span{padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.06)}
@@ -8220,6 +8222,132 @@ function sportsHub(){
       h("span",{class:"foot"},passed(m)?h("span",{class:"badge"},t("passed")):modStars(m)+" / "+ACTS.length*3+" ★")))});a.appendChild(g)});
   window.scrollTo(0,0);
 }
+/* ---------- C1 · Speaking practice (timed run, adapted from the Macbeth speaking site) ---------- */
+var SPK={
+ img:"materiais/c1-speaking/",gh:"https://luisamesel-teacher.github.io/talk-it-out/materiais/c1-speaking/",
+ p1:["Where do you see yourself in five years' time?","What do you enjoy most about the place where you live?","How do you usually spend your free time?","Is there a skill you'd really like to learn? Why?","How important is it for you to keep up with the news?","What kind of things make you feel motivated?","Do you prefer planning things in advance or being spontaneous?","Who has had the biggest influence on you so far?","How has technology changed the way you study or work?","What was the last thing that made you laugh?","If you could live in another country for a year, where would you go?","Do you think you're a good listener?"],
+ p2:[
+  {id:"s1",t:"Ways of learning",cap:["An online lesson at home","A pottery workshop","Studying in a library"],q:["Why might the people have chosen to learn in these ways?","How effective might each way of learning be?"],part:"Which way of learning would suit you best?"},
+  {id:"s2",t:"Under pressure",cap:["Before a race","Waiting for results","Dinner service"],q:["What pressure might the people be under?","How might they be dealing with it?"],part:"Which situation looks the most stressful to you?"},
+  {id:"s3",t:"Celebrations",cap:["Graduation day","A birthday","Winning a match"],q:["Why might these moments be important to the people?","How might they remember them later?"],part:"Which celebration would you most like to be part of?"},
+  {id:"s4",t:"Technology at home",n:2,cap:["Dinner with phones","A video call"],q:["How is technology affecting the people?","Is it bringing them together or keeping them apart?"],part:"Which use of technology seems the most positive?"},
+  {id:"s5",t:"Helping others",cap:["Cleaning a beach","Carrying shopping","Helping with homework"],q:["Why might the people be helping?","How might the people being helped feel?"],part:"Which kind of help do you think matters most?",need:3},
+  {id:"s6",t:"Taking risks",cap:["Climbing","Opening a business","Moving abroad"],q:["Why might the people be taking these risks?","What might they gain or lose?"],part:"Which risk would you be most willing to take?",need:3},
+  {id:"s7",t:"Teamwork",cap:["An operating theatre","A band rehearsal","A start-up meeting"],q:["How important is teamwork in these situations?","What problems might the people face?"],part:"Which team would you most like to work in?",need:3},
+  {id:"s8",t:"Making decisions",cap:["Viewing a flat","Choosing a course","Reading a label"],q:["What might the people be considering?","How difficult might these decisions be?"],part:"Which decision do you think is the hardest?",need:3}],
+ p3:[
+  {q:"How effective might these be in helping people manage stress at work?",o:["regular exercise","flexible working hours","talking to colleagues","taking up a hobby","longer holidays"],d:"Which do you think would make the biggest difference?"},
+  {q:"Why might people choose to live in a big city?",o:["job opportunities","culture and entertainment","public transport","meeting new people","education"],d:"Which reason do you think is the most important?"},
+  {q:"How might these help a town attract more visitors?",o:["a music festival","better public transport","cheaper hotels","a new museum","local food markets"],d:"Which would be the best investment?"},
+  {q:"What might be the benefits of these ways of learning a language?",o:["living abroad","online apps","private lessons","watching series","talking to native speakers"],d:"Which way is the most effective?"}],
+ p4:["Do you think people today are under more pressure than in the past?","Should schools focus more on practical skills?","Is it always a good idea to take risks?","How has social media changed the way people celebrate?","Do you think people help each other less than they used to?","Are big decisions easier to make alone or with others?"],
+ self:["I answered every question with a reason or an example.","I compared the pictures instead of describing them one by one.","I answered BOTH questions in Part 2.","I used at least three phrases from the useful language.","I asked my partner's opinion and reacted to it.","We reached a decision in the last minute of Part 3.","I didn't stop for long: I paraphrased when I didn't know a word."]};
+function spkLang(keys){var box=h("div",{class:"spkLang"});C1KIT.lang.filter(function(s){return keys.some(function(k){return s.p.indexOf(k)>=0})}).forEach(function(s){box.appendChild(h("div",{class:"spkLangSec"},h("b",null,s.p),h("p",null,s.items.join(" · "))))});return box}
+function spkImg(id,n){var f=id+"_"+n+".jpg";var im=h("img",{src:SPK.img+f,alt:"",loading:"lazy"});im.onerror=function(){if(im.src.indexOf(SPK.gh)<0)im.src=SPK.gh+f};return im}
+function c1SpkEl(){
+  var box=h("div",{class:"spkBox"}),pick=function(a){return a[Math.floor(Math.random()*a.length)]},tick=null,run=[];
+  function ready(){return SPK.p2.filter(function(s){return !s.need})}
+  function plan(){var set=pick(ready()),t3=pick(SPK.p3),p1=shuffle(SPK.p1).slice(0,2),p4=shuffle(SPK.p4).slice(0,2);
+    return [
+     {k:"Part 1 · Interview",secs:40,hint:"Answer, then add a reason or an example.",body:function(b){b.appendChild(h("p",{class:"spkQ"},p1[0]))},lang:["Buying"]},
+     {k:"Part 1 · Interview",secs:40,hint:"Not one word, not a speech.",body:function(b){b.appendChild(h("p",{class:"spkQ"},p1[1]))},lang:["Buying"]},
+     {k:"Part 2 · Long turn",secs:60,hint:"Choose TWO pictures. Compare them and answer BOTH questions. Speculate!",body:function(b){
+       var g=h("div",{class:"spkPics"});(set.n===2?[1,2]:[1,2,3]).forEach(function(n){g.appendChild(h("figure",null,spkImg(set.id,n),h("figcaption",null,set.cap[n-1])))});
+       b.appendChild(g);set.q.forEach(function(q){b.appendChild(h("p",{class:"spkQ"},q))})},lang:["Compare","Speculate","Answer"]},
+     {k:"Part 2 · Your partner's pictures",secs:30,hint:"A short answer: give your opinion and one reason.",body:function(b){b.appendChild(h("p",{class:"spkQ"},set.part))},lang:["Opinions"]},
+     {k:"Part 3 · Discussion",secs:120,hint:"Talk with your partner (or alone, out loud). Ask, react, develop. You don't need to cover every idea.",body:function(b){
+       b.appendChild(h("p",{class:"spkQ"},t3.q));var ul=h("ul",{class:"spkOpts"});t3.o.forEach(function(o){ul.appendChild(h("li",null,o))});b.appendChild(ul)},lang:["Interact"]},
+     {k:"Part 3 · Decision",secs:60,hint:"Try to agree on one answer. Disagreeing politely is fine too.",body:function(b){b.appendChild(h("p",{class:"spkQ"},t3.d))},lang:["Decide"]},
+     {k:"Part 4 · Discussion",secs:45,hint:"Longer answers, with examples.",body:function(b){b.appendChild(h("p",{class:"spkQ"},p4[0]))},lang:["Opinions"]},
+     {k:"Part 4 · Discussion",secs:45,hint:"React to your partner: That's a fair point, and…",body:function(b){b.appendChild(h("p",{class:"spkQ"},p4[1]))},lang:["Opinions","Interact"]}]}
+  function stop(){if(tick){clearInterval(tick);tick=null}}
+  function intro(){stop();box.innerHTML="";
+    box.appendChild(h("p",null,"A full Speaking test, timed like the real one: about 15 minutes. Questions and pictures are drawn at random. Speak out loud until the clock stops."));
+    box.appendChild(h("p",{class:"spkNote"},ready().length+" picture sets. A new set each time you run the test."));
+    box.appendChild(h("button",{class:"btn",onclick:function(){run=plan();step(0)}},"Start the test"))}
+  function step(i){stop();box.innerHTML="";if(i>=run.length){done();return}
+    var s=run[i],left=s.secs,body=h("div",{class:"spkBody"}),clock=h("div",{class:"spkClock"}),bar=h("i"),go,next;
+    var dots=h("div",{class:"spkDots"});run.forEach(function(_,j){dots.appendChild(h("span",{class:j<i?"d":j===i?"n":""}))});
+    function paint(){clock.textContent=Math.floor(left/60)+":"+String(left%60).padStart(2,"0");clock.classList.toggle("low",left<=10&&left>0);bar.style.width=(left/s.secs*100)+"%"}
+    s.body(body);paint();
+    go=h("button",{class:"btn",onclick:function(){go.disabled=true;go.textContent="Speaking…";tick=setInterval(function(){left--;paint();if(left<=0){stop();go.style.display="none";next.style.display=""}},1000)}},"Start "+s.secs+"s");
+    next=h("button",{class:"btn",style:"display:none",onclick:function(){step(i+1)}},i<run.length-1?"Next":"Finish");
+    box.appendChild(dots);box.appendChild(h("p",{class:"spkPart"},s.k));box.appendChild(body);box.appendChild(h("p",{class:"spkHint"},s.hint));
+    box.appendChild(clock);box.appendChild(h("div",{class:"spkBar"},bar));
+    box.appendChild(h("div",{class:"spkBtns"},go,next,h("button",{class:"btn ghost",onclick:function(){step(i+1)}},"Skip"),h("button",{class:"btn ghost",onclick:intro},"Stop")));
+    box.appendChild(h("details",{class:"kitSec",open:true},h("summary",null,"Useful language"),spkLang(s.lang)))}
+  function done(){box.innerHTML="";box.appendChild(h("p",{class:"spkPart"},"Test complete 🎉"));box.appendChild(h("p",null,"Check yourself. Tick what you really did:"));
+    var ul=h("ul",{class:"spkSelf"}),n=h("p",{class:"spkNote"});function cnt(){var c=ul.querySelectorAll("input:checked").length;n.textContent=c+" / "+SPK.self.length+(c===SPK.self.length?" · Excellent!":c>=5?" · Very good. Pick one to improve next time.":" · Choose two of these to focus on in your next run.")}
+    SPK.self.forEach(function(t){ul.appendChild(h("li",null,h("label",null,h("input",{type:"checkbox",onchange:cnt}),h("span",null,t))))});
+    box.appendChild(ul);box.appendChild(n);cnt();box.appendChild(h("button",{class:"btn",onclick:function(){run=plan();step(0)}},"Run again"))}
+  intro();return box}
+
+/* ---------- C1 · Exam toolkit for c1-5: exam tips by paper + useful language by task ---------- */
+var C1KIT={
+tips:[
+ {p:"📖 Reading & Use of English",items:[
+  ["Part 1 · Multiple-choice cloze","Read the whole text once before you choose.","Look at the words AFTER the gap: a preposition or a noun often decides (a result **of**, **pose** a threat).","All four options usually have a similar meaning. The collocation decides, not the meaning."],
+  ["Part 2 · Open cloze","Ask: which word class is missing? Article, preposition, auxiliary, linker, relative pronoun.","Check the whole sentence: singular or plural, positive or negative, time.","ONE word only. A contraction counts as two words."],
+  ["Part 3 · Word formation","Decide the word class first (noun, adjective, adverb, verb).","Then check meaning: does it need a negative prefix (**un**-, **in**-, **dis**-) or a plural?","Spelling counts. A misspelt word gets no mark."],
+  ["Part 4 · Key word transformation","Keep the meaning of the first sentence.","Never change the key word. Write 3–6 words, including it.","Each answer is worth two marks. Half right can still score one."],
+  ["Part 5 · Multiple choice","Read the question first, find the part of the text, then read around it.","The right option says the same idea in different words. An option that repeats words from the text is often a trap."],
+  ["Part 6 · Cross-text matching","Four writers, one topic. Note each writer's opinion before you read the questions.","Questions ask who agrees or disagrees with whom: compare opinions, not facts."],
+  ["Part 7 · Gapped text","Look at the start and the end of each paragraph: this, these, however, such, pronouns.","One paragraph doesn't fit anywhere. Read the full text again at the end."],
+  ["Part 8 · Multiple matching","Read the questions first, then scan the texts for the same idea in other words.","Ideas can appear in any order. Don't spend too long on one question."]]},
+ {p:"✍️ Writing",items:[
+  ["Part 1 · Essay (compulsory)","Discuss TWO of the three points in the notes.","Say which one is more important, and why. That's the task, not an extra.","Formal register, clear paragraphs, your view in the conclusion."],
+  ["Part 2 · Report","Use headings. Present facts, then recommendations.","Impersonal language: It was found that… · It is recommended that…"],
+  ["Part 2 · Proposal","Use headings. Focus on the future: what should happen and why.","Persuade the reader: This would allow… · I would strongly suggest…"],
+  ["Part 2 · Review","Describe AND evaluate. Engage the reader from the first line.","End with a clear recommendation and who it's for."],
+  ["Part 2 · Email or letter","Check who is reading: a friend, a manager, an editor? Register follows the reader.","Answer every point in the input."],
+  ["All tasks","220–260 words. Plan for 5 minutes, write for 35, check for 5.","Don't copy phrases from the task: show your own range.","One or two advanced structures (inversion, cleft) are enough. Accuracy matters more."]]},
+ {p:"🎧 Listening",items:[
+  ["Part 1 · Three short extracts","Two questions per extract: often attitude, purpose or agreement.","Listen to the whole extract before you decide."],
+  ["Part 2 · Sentence completion","Predict the type of word for each gap before you listen.","You hear the exact word you write. Spelling counts."],
+  ["Part 3 · Interview","Questions follow the order of the recording.","The answer often comes after but, actually, in fact, to be honest."],
+  ["Part 4 · Multiple matching","Five speakers, two tasks. Try to do both tasks during the first listening.","Use the second listening to check, not to start."]]},
+ {p:"🗣️ Speaking",items:[
+  ["Part 1 · Interview (2 min)","Answer, then add a reason or an example.","Not one word, not a memorised speech."],
+  ["Part 2 · Long turn (1 min)","Choose TWO of the three pictures and compare them.","Answer BOTH questions on the card. Speculate: don't describe every detail.","Then answer a short question about your partner's pictures (30 seconds)."],
+  ["Part 3 · Discussion (2 min + 1 min)","Talk WITH your partner: ask, respond, develop.","You don't need to discuss every prompt. Depth beats speed.","In the last minute, try to reach a decision. You can still disagree politely."],
+  ["Part 4 · Discussion (5 min)","Give longer answers with examples.","React to what your partner says: That's a fair point, and…"]]}],
+lang:[
+ {p:"🖼️ Speaking Part 2 · Compare",items:["Both pictures show… , but in the first one…","Whereas the people in this picture… , the ones in the other…","The main difference between them is that…","In contrast, … / Similarly, …","What these two situations have in common is…"]},
+ {p:"🔍 Speaking Part 2 · Speculate",items:["It looks as if they've just…","They might well be feeling…","I'd imagine that…","Judging by their expressions, …","I get the impression that…","It's hard to say for sure, but…"]},
+ {p:"🎯 Speaking Part 2 · Answer the questions",items:["As for why they might be doing this, I'd say…","Turning to the second question, …","In terms of how they might be feeling, …"]},
+ {p:"🤝 Speaking Part 3 · Interact",items:["Shall we start with this one?","What do you think about…?","Where do you stand on…?","That's a fair point, and I'd add that…","I see what you mean, but…","I'd go along with that.","Shall we move on?"]},
+ {p:"✅ Speaking Part 3 · Decide",items:["So, have we reached a decision?","If we had to choose one, I'd go for…","I think we both agree that…","Shall we agree to disagree?"]},
+ {p:"⏳ Buying time",items:["That's a tricky question.","Let me think about that for a moment.","I've never really thought about that, but…","How can I put it? …"]},
+ {p:"💬 Speaking Part 4 · Opinions",items:["On balance, I'd say…","It depends to a large extent on…","There's a lot to be said for…","I'm in two minds about this."]},
+ {p:"📝 Essay",items:["It is often argued that…","There is no doubt that…","Another key factor is…","Admittedly, … However, …","In my view, the most significant factor is…","All things considered, …"]},
+ {p:"📊 Report and proposal",items:["The aim of this report is to…","It was found that…","It is recommended that…","The purpose of this proposal is to…","This would allow…","I would strongly suggest that…"]},
+ {p:"⭐ Review",items:["If you're looking for…, this is the one for you.","What impressed me most was…","My only criticism is that…","I would thoroughly recommend it to…"]},
+ {p:"✉️ Email or letter",items:["I am writing with regard to…","I would be grateful if you could…","Just a quick note to…","Looking forward to hearing from you."]}]};
+function c1KitEl(){
+  var tabs=h("div",{class:"kitTabs"}),body=h("div",{class:"kitBody"}),cur="tips";
+  function bold(t){var p=h("span");t.split(/\*\*/).forEach(function(x,i){p.appendChild(i%2?h("b",null,x):document.createTextNode(x))});return p}
+  function draw(){
+    body.innerHTML="";tabs.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===cur)});
+    if(cur==="tips")C1KIT.tips.forEach(function(sec){
+      var d=h("details",{class:"kitSec"},h("summary",null,sec.p));
+      sec.items.forEach(function(it){var ul=h("ul",{class:"camul"});it.slice(1).forEach(function(t){ul.appendChild(h("li",null,bold(t)))});d.appendChild(h("div",{class:"kitPart"},h("h4",null,it[0]),ul))});
+      body.appendChild(d)});
+    else if(cur==="spk")body.appendChild(c1SpkEl());
+    else C1KIT.lang.forEach(function(sec){
+      var d=h("details",{class:"kitSec"},h("summary",null,sec.p)),ul=h("ul",{class:"kitLang"});
+      sec.items.forEach(function(t){ul.appendChild(h("li",null,h("button",{class:"kitSay","aria-label":"Listen",title:"Listen",onclick:function(){if(typeof sayIt==="function")sayIt(t.replace(/…/g,""))}},"🔊"),h("span",null,t)))});
+      d.appendChild(ul);body.appendChild(d)});
+  }
+  [["tips","Exam tips"],["lang","Useful language"],["spk","🎙️ Speaking practice"]].forEach(function(x){var b=h("button",{class:"btn ghost small","data-k":x[0],onclick:function(){cur=x[0];draw()}},x[1]);tabs.appendChild(b)});
+  draw();return h("div",null,tabs,body);
+}
+(function(){var mp=modulePage;modulePage=function(m,part){mp(m,part);if(window.ONLY_GAMES||!m||m.id!=="c1-5")return;var p=(S.mpart||{})[m.id]||part||1;if(p!==1)return;
+  var grid=document.querySelector("#app > .grid");if(!grid)return;
+  var open=false,body=c1KitEl();body.style.display="none";
+  var card=h("div",{class:"card guide notch ty-study camcardwrap kitCard"},h("span",{class:"label"},"🧰 Exam toolkit · C1 Advanced"),h("h3",null,"Tips for every part · useful language · timed Speaking practice"),
+    h("button",{class:"btn ghost small",onclick:function(ev){open=!open;body.style.display=open?"block":"none";ev.currentTarget.textContent=open?"Hide the toolkit":"Open the toolkit"}},"Open the toolkit"),body);
+  grid.parentNode.insertBefore(card,grid)}})();
+
 /* Quick win cards in the Learn part of their module, after the grammar guide and the robot lab */
 (function(){var mp=modulePage;modulePage=function(m,part){mp(m,part);var L=qwFor(m.id);if(!L.length||window.ONLY_GAMES)return;var p=(S.mpart||{})[m.id]||part||1;if(p!==1)return;
   var host=document.querySelector("#app .labguide")||document.querySelector("#app .card.guide.ty-study:not(.revcard)")||document.querySelector("#app .card.sit");if(!host)return;var ref=host.nextSibling;
