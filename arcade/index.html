@@ -61,8 +61,8 @@ modOpen() 9301-9301 · lockPage() 9302-9352 · NINE_EXTRA 9353-9354 · MESBG 935
 mesEl() 9374-9374 · mesNodes() 9375-9375 · meseland() 9376-9456 · REPORT_ON 9457-9457 · repCtx() 9458-9461 · repOpen() 9462-9479 · repFab() 9480-9481 · MHERO 9482-9483
 mheroCur() 9484-9484 · mheroImg() 9485-9485 · mheroEl() 9486-9501 · IC_HOME 9502-9502 · IC_SHOP 9503-9503 · IC_SEARCH 9504-9504 · icBtn() 9505-9505 · profMenu() 9506-9556
 route() 9557-9572 · SUPPT 9573-9573 · GLOSS 9574-9574 · supMode() 9575-9575 · supTx() 9576-9579 · supStr() 9580-9731 · ORD_RULES 9732-9748 · ORD_ORDER 9749-9749
-ordRank() 9750-9750 · ordText() 9751-9751 · ordNeed() 9752-9752 · ORD_MOVED 9753-9753 · ordPrereq() 9754-9760 · BETA_ON 9761-9761 · BETA_OK 9762-9762 · BETA_HIDE 9763-9763
-betaPage() 9764-9764 · betaApply() 9765-9768 · start() 9769-9779
+ordRank() 9750-9750 · ordText() 9751-9751 · ordNeed() 9752-9752 · ORD_MOVED 9753-9753 · ordPrereq() 9754-9760 · GTOPICS 9761-9776 · GTABLE 9777-9782 · gTopicOf() 9783-9783
+gHubPoints() 9784-9784 · gHub() 9785-9812 · BETA_ON 9813-9813 · BETA_OK 9814-9814 · BETA_HIDE 9815-9815 · betaPage() 9816-9816 · betaApply() 9817-9820 · start() 9821-9831
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -2370,7 +2370,7 @@ function menu(){
     ["🌐 "+t("lang"),"",function(){S.lang=S.lang==="en"?"pt":"en";save();route()}]]);
   ["A1","A2","B1","B2","C1"].forEach(function(lv){sec(t("mMods")+" "+lv+" · "+LEVELS[lv],M.filter(function(m){return m.lv===lv}).map(function(m){return [mNo(m)+". "+m.t,m.sit.t,to(m.id),lvTag(m.lv)]}))});
   sec(t("special"),X.filter(function(m){return !/^sp-/.test(m.id)}).map(function(m){return [m.t,m.sit.t,to(m.id),lvTag(m.lv)]}).concat([["🏅 Sports","8 sports, A2 to B2",to("sports"),lvTag("B1")]]));
-  sec(t("mRooms"),[["🕹️ Arcade","All the games",to("arcade")],["🔤 "+t("verbs"),"",to("verbs")],["🔊 "+t("spell"),"",to("spelling")],["🔢 "+t("num"),"",to("numbers")],["🖼️ "+t("words"),"",to("words")],["✉️ "+t("mail"),"",to("emails")],["🧱 "+t("gym"),"",to("sentences")],["📖 "+t("story"),"",to("stories")],["🎬 "+t("cultT"),"",to("culture")],["🔁 "+t("rev"),"",to("review")],["📓 "+t("nb"),"",to("mistakes")]]);
+  sec(t("mRooms"),[["🕹️ Arcade","All the games",to("arcade")],["🔤 "+t("verbs"),"",to("verbs")],["🔊 "+t("spell"),"",to("spelling")],["🔢 "+t("num"),"",to("numbers")],["🖼️ "+t("words"),"",to("words")],["✉️ "+t("mail"),"",to("emails")],["🧱 "+t("gym"),"",to("sentences")],["📖 "+t("story"),"",to("stories")],["🎬 "+t("cultT"),"",to("culture")],["🔁 "+t("rev"),"",to("review")],["📚 Grammar by topic","A1 to C1",to("grammar")],["📓 "+t("nb"),"",to("mistakes")]]);
 }
 
 /* ---------- the steps of a module, in course order, and the next one ---------- */
@@ -9757,6 +9757,58 @@ function ordPrereq(){
   if(typeof XQ!=="undefined"&&XQ[id])XQ[id]=fix(id,XQ[id],function(t,s){XQ[t]=XQ[t]||[];if(XQ[t].indexOf(s)<0)XQ[t].push(s)},"XQ");
   if(typeof ZAPX!=="undefined"&&ZAPX[id])ZAPX[id]=fix(id,ZAPX[id],function(t,s){ZAPX[t]=ZAPX[t]||[];if(ZAPX[t].indexOf(s)<0)ZAPX[t].push(s)},"ZAPX");
   if(typeof BK!=="undefined"&&BK[id])["g","x"].forEach(function(k){if(BK[id][k])BK[id][k]=fix(id,BK[id][k],function(t,s){if(!BK[t])return;BK[t].g=BK[t].g||[];if(BK[t].g.indexOf(s)<0&&(BK[t].x||[]).indexOf(s)<0)BK[t].g.push(s)},"BK."+k)})})}
+/* ---------- LUISA-18 (accepted 27/11): Grammar by topic — every point of every module, grouped by topic, from A1 to C1 ---------- */
+var GTOPICS=[
+ ["be","🙂","Be, have & pronouns",/verb to be|possess|possessive|object pronouns/i],
+ ["present","⏰","Present: every day & right now",/present simple|right now|every day or right now|adverbs of frequency/i],
+ ["past","📜","Past",/past simple|past continuous|one negative|past perfect|used to|past habits|times change/i],
+ ["future","🔮","Future",/future|going to|^will|plan, decision|prediction|likely/i],
+ ["perfect","✅","Perfect tenses",/present perfect|past perfect|perfect continuous|for or since|third conditional/i],
+ ["modals","🚦","Modal verbs",/^can$|^can\b|must|should|have to|might|guesses|modal|could have/i],
+ ["cond","🔀","Conditionals & wishes",/conditional|wish|if only|regret/i],
+ ["questions","❓","Questions",/question|tags/i],
+ ["relative","🔗","Relative clauses",/relative|whose|non-defining|repeat the person/i],
+ ["passive","📰","Passive & reported speech",/passive|reported/i],
+ ["compare","⚖️","Adjectives: comparing, order & intensifiers",/comparative|superlative|very, really|absolutely|adjective order/i],
+ ["nouns","🧺","Nouns, articles & quantity",/countable|articles|plurals|there is|ordering/i],
+ ["prep","📍","Prepositions",/in, on, at|by or until|preposition|transport/i],
+ ["verbs","🔧","Verb patterns & phrasal verbs",/-ing or to|like \+ -ing|feelings: -ed|wear, put on/i],
+ ["write","✍️","Linkers, register & word building",/linker|register|formal|word formation|emphasis|inversion|cleft/i]];
+var GTABLE={
+ present:[["routine and facts","present simple","I work in a bank."],["happening now, temporary","present continuous","I'm working from home today."],["feelings and thoughts (no -ing)","like · want · know","I like pizza."],["from the past until now","present perfect + for / since","I've lived here for three years."]],
+ past:[["finished action, finished time","past simple","I went to Rio last year."],["in progress in the past","past continuous","I was cooking when you called."],["the earlier past","past perfect","When I arrived, the film had started."],["past habit","used to","I used to play football."],["experience or news, no finished time","present perfect","I've been to Rio. · I've just eaten."]],
+ future:[["plan you already have","be going to","I'm going to study medicine."],["prediction with evidence","be going to","Look at the clouds! It's going to rain."],["decision now · offer · promise","will","I'll help you."],["arrangement in the diary","present continuous","I'm meeting Ana at 7."],["opinion or guess","will · might · may","I think it will rain. It might snow."],["condition","if + present, will","If it rains, we'll stay at home."]],
+ modals:[["ability","can · could","I can swim."],["obligation","have to · must","I have to work tomorrow."],["prohibition","mustn't","You mustn't smoke here."],["not necessary","don't have to","You don't have to come."],["advice","should","You should rest."],["possibility","might · may · could","It might rain."],["deduction about the past","must have · can't have","She must have left."]],
+ cond:[["real or possible","if + present, will","If it rains, I'll stay at home."],["imaginary present","if + past, would","If I had money, I'd travel."],["imaginary past","if + had + participle, would have","If I had known, I'd have come."]]};
+function gTopicOf(p){for(var i=0;i<GTOPICS.length;i++)if(GTOPICS[i][3].test(p.t))return GTOPICS[i];return null}
+function gHubPoints(key){var out=[];M.slice().sort(function(a,b){return ordRank(a.id)-ordRank(b.id)}).forEach(function(m){var g=GR[m.id];if(!g)return;g.pts.forEach(function(p,ix){var tp=gTopicOf(p);if(tp&&tp[0]===key)out.push({m:m,p:p,ix:ix})})});return out}
+function gHub(key){var a=app();cur={k:"grammar"};document.body.setAttribute("data-page","grammarhub");
+ a.appendChild(backBtn());
+ var tp=GTOPICS.filter(function(x){return x[0]===key})[0];
+ if(!tp){a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"📚 Grammar by topic"),h("h1",null,"All the grammar, A1 to C1"),h("p",{class:"hint"},"Choose a topic to see every point about it, level by level, with the guide and a quick practice.")));
+  a.appendChild(h("div",{class:"menu"},GTOPICS.map(function(x){var n=gHubPoints(x[0]).length;if(!n)return null;var lvs=[];gHubPoints(x[0]).forEach(function(q){if(lvs.indexOf(q.m.lv)<0)lvs.push(q.m.lv)});
+   return h("button",{class:"card mitem",onclick:function(){go("grammar/"+x[0])}},h("b",null,x[1]+" "+x[2]),h("span",null,n+(n>1?" points · ":" point · ")+lvs.join(" → ")))}).filter(Boolean)));return}
+ var pts=gHubPoints(key);
+ a.appendChild(h("p",null,h("button",{class:"link",onclick:function(){go("grammar")}},"← All topics")));
+ a.appendChild(h("div",{class:"mhead"},h("span",{class:"label"},"📚 Grammar by topic"),h("h1",null,tp[1]+" "+tp[2]),h("p",{class:"hint"},pts.length+" points, in the order of the course.")));
+ if(GTABLE[key]){var tb=h("table",{class:"ctab"});tb.appendChild(h("tr",null,h("th",null,"When"),h("th",null,"Use"),h("th",null,"Example")));GTABLE[key].forEach(function(r){tb.appendChild(h("tr",null,h("td",null,r[0]),h("th",null,r[1]),h("td",null,r[2])))});
+  a.appendChild(h("div",{class:"card gpt",style:"margin-bottom:18px"},h("span",{class:"label"},"🗺️ The big picture"),h("div",{class:"scroll"},tb)))}
+ pts.forEach(function(q){var p=q.p,m=q.m;
+  a.appendChild(h("div",{class:"card guide notch ty-study",style:"margin-bottom:12px"},h("span",{class:"label"},lvTag(m.lv)," "+m.t),h("h3",null,p.t),h("p",null,String(p.use||"").replace(/\*\*/g,"")),
+   (p.form||[]).length?h("ul",{class:"tips"},(p.form||[]).slice(0,3).map(function(r){return h("li",null,h("b",null,r[0]+": "),r[1])})):null,
+   h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){grammar(m);setTimeout(function(){var el=document.getElementById("gp"+q.ix);if(el)el.scrollIntoView({block:"start"})},60)}},"📘 Open the guide"))))});
+ var qws=(typeof QW!=="undefined"?QW:[]).filter(function(w){return pts.some(function(q){return q.m.id===w.m})});
+ if(qws.length)a.appendChild(h("div",{class:"card",style:"margin:6px 0 16px"},h("span",{class:"label"},"⚡ Classic mistakes on this topic"),h("div",{class:"chips",style:"margin-top:8px"},qws.map(function(w){return h("button",{class:"pillbtn",onclick:function(){go("qw/"+w.id)}},(w.ic||"⚡")+" "+w.t)}))));
+ var box=h("section",{class:"card"});a.appendChild(h("h2",{class:"step"},"🎯 Practise this topic"));a.appendChild(box);
+ var pool=[];pts.forEach(function(q){var kws=String((KW[q.m.id]||[])[q.ix]||"").split(",").map(function(w){return w.trim().toLowerCase()}).filter(function(w){return w.length>1});
+  (q.m.quiz||[]).forEach(function(x){var txt=(x[0]+" "+x[1][0]).toLowerCase();if(!kws.length||kws.some(function(w){return txt.indexOf(w)>=0}))pool.push({q:x[0],opts:x[1].slice(),ans:x[1][0],why:x[2]})})});
+ var seen={};pool=shuffle(pool.filter(function(x){if(seen[x.q])return false;seen[x.q]=1;return true})).slice(0,10);
+ if(!pool.length){box.appendChild(h("p",{class:"hint"},"No practice items yet for this topic."));return}
+ box.appendChild(h("button",{class:"btn",onclick:function(){miniMC(box,pool,"grammar",null,function(ok,n){box.innerHTML="";box.appendChild(h("h2",null,ok+" / "+n+(ok/n>=0.8?" 🎉":"")));box.appendChild(h("div",{class:"rowend"},h("button",{class:"btn ghost",onclick:function(){gHub(key)}},"↻ Again")))})}},"▶ Start ("+pool.length+" questions)"))}
+(function(){var r0=route;route=function(){var kp=location.hash.replace("#","").split("/");if(kp[0]==="grammar"&&S.name&&!window.ONLY_GAMES&&!window.NINTH){bar();gHub(kp[1]);window.scrollTo(0,0);return}return r0.apply(this,arguments)}})();
+(function(){var g1=grammar;grammar=function(m){var r=g1.apply(this,arguments);try{var g=GR[m&&m.id];if(!g||window.ONLY_GAMES)return r;var tps=[];g.pts.forEach(function(p){var t=gTopicOf(p);if(t&&tps.indexOf(t)<0)tps.push(t)});
+  if(tps.length){var a=document.getElementById("app");a.appendChild(h("div",{class:"card",style:"margin-top:16px"},h("span",{class:"label"},"📚 See the whole topic, A1 to C1"),h("div",{class:"chips",style:"margin-top:8px"},tps.map(function(t){return h("button",{class:"pillbtn",onclick:function(){go("grammar/"+t[0])}},t[1]+" "+t[2])}))))}}catch(e){}return r}})();
+if(typeof SPAGES!=="undefined")SPAGES.push(["grammar","📚","Grammar by topic","gramática por tema todos os níveis futuro passado presente modais condicionais"]);
 /* ---------- LUISA-16 (accepted 27/11): beta shows only what was audited, approved by Luisa and corrected. BETA_ON=false brings everything back ---------- */
 var BETA_ON=true;
 var BETA_OK=["a1-1","a1-2","a1-3","a1-4","a2-1","a2-2","a2-3","a2-4","a2-5","a2-6","b1-1","b1-2","b1-3","b1-4","b1-5","b1-6","b1-7","b2-1","b2-2"];
