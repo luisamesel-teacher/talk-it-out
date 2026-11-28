@@ -60,8 +60,8 @@ hwSyncQW() 9195-9195 · hwCard() 9196-9205 · homeworkPage() 9206-9236 · PLNOTE
 modOpen() 9290-9290 · lockPage() 9291-9340 · NINE_EXTRA 9341-9342 · MESBG 9343-9344 · MESNAME 9345-9345 · MESSEA 9346-9346 · mesSpr() 9347-9347 · MESSPR 9348-9361
 mesEl() 9362-9362 · mesNodes() 9363-9363 · meseland() 9364-9444 · REPORT_ON 9445-9445 · repCtx() 9446-9449 · repOpen() 9450-9467 · repFab() 9468-9469 · MHERO 9470-9471
 mheroCur() 9472-9472 · mheroImg() 9473-9473 · mheroEl() 9474-9489 · IC_HOME 9490-9490 · IC_SHOP 9491-9491 · IC_SEARCH 9492-9492 · icBtn() 9493-9493 · profMenu() 9494-9544
-route() 9545-9559 · ORD_RULES 9560-9576 · ORD_ORDER 9577-9577 · ordRank() 9578-9578 · ordText() 9579-9579 · ordNeed() 9580-9580 · ORD_MOVED 9581-9581 · ordPrereq() 9582-9587
-start() 9588-9597
+route() 9545-9653 · ORD_RULES 9654-9670 · ORD_ORDER 9671-9671 · ordRank() 9672-9672 · ordText() 9673-9673 · ordNeed() 9674-9674 · ORD_MOVED 9675-9675 · ordPrereq() 9676-9681
+start() 9682-9691
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -2644,7 +2644,7 @@ function loose(x){return spNorm(x).replace(/\bi'm\b/g,"i am").replace(/\b(it|he|
 function writeIt(m){
   var sh=shell(m,"write"),audio=canSpeak(),items=[],i=0,score=0,review=[],box=h("div",{class:"shell"});
   shuffle(m.build).slice(0,3).forEach(function(x){items.push({kind:"dict",ans:x,cue:x})});
-  (GX[m.id]||[]).forEach(function(g){g.tl.forEach(function(r){
+  (GX[m.id]||[]).forEach(function(g){if(g&&g.tl)g.tl.forEach(function(r){
     if(items.length<7&&!/[\/(…]/.test(r[0]+r[1])&&/[.?!]$/.test(r[1]))items.push({kind:"tr",ans:r[1],cue:r[0]})})});
   sh.body.appendChild(box);
   function show(){
@@ -9556,6 +9556,100 @@ function route(){
   if(k==="sports"&&!m){sportsHub();return}
   if(m)modulePage(m,part);else if(k==="arcade"&&!window.ONLY_GAMES)arcadePage(kp[1]);else if(k==="avatars")avatars();else if(k==="verbs")verbs();else if(k==="review")review(false);else if(k==="mistakes")mistakes();else if(k==="emails")mail(0);else if(k==="spelling")spelling();else if(k==="sentences")gym();else if(k==="stories")storyList();else if(k==="culture")culture();else if(k==="numbers")numbers(0);else if(k==="words")words();else if(k==="voice")voicePage();else if(k==="menu")menu();else if(k==="start")place();else home();
 }
+/* ---------- ORD-05 · ORD-06 · ORD-07 · ORD-08 (accepted 27/11): lighter first module, future forms step by step, a lighter Experiences, past perfect before reported speech ---------- */
+(function(){
+ /* parallel arrays (USES, GX, HOOK, KW, HLT, TLN) follow the grammar points by index */
+ function arr(o,id,n){if(!o[id])o[id]=[];while(o[id].length<n)o[id].push(undefined);return o[id]}
+ function insPt(id,ix,pt,par){var g=GR[id];if(!g)return;var n=g.pts.length;g.pts.splice(ix,0,pt);[USES,GX,HOOK,KW,HLT,TLN].forEach(function(o,k){if(!o)return;var a=arr(o,id,n),v=par?par[k]:undefined;if(o===GX&&!v)v={tips:[],tl:[]};a.splice(ix,0,v)})}
+ function cutPt(id,ix){var g=GR[id];if(!g||!g.pts[ix])return null;var n=g.pts.length,out={pt:g.pts.splice(ix,1)[0],par:[]};[USES,GX,HOOK,KW,HLT,TLN].forEach(function(o){if(!o){out.par.push(undefined);return}var a=arr(o,id,n);out.par.push(a.splice(ix,1)[0])});return out}
+ function ptIx(id,re){var g=GR[id];if(!g)return -1;for(var i=0;i<g.pts.length;i++)if(re.test(g.pts[i].t))return i;return -1}
+ function moveEXP(from,keys,to){if(!EXP[from])return;EXP[from]=EXP[from].filter(function(x){var k=x.split("|")[1];if(keys.indexOf(k)<0)return true;EXP[to]=EXP[to]||[];if(!EXP[to].some(function(y){return y.split("|")[1]===k}))EXP[to].push(x);return false})}
+ /* ORD-05 · Hello, me: only the chunks of the dialogue; the rest goes where it is taught */
+ moveEXP("a1-1",["come from","Where are you based?","fill in","sign up"],"a1-2");
+ moveEXP("a1-1",["break the ice"],"b1-6");
+ moveEXP("a1-1",["I'm in my twenties."],"a2-5");
+ if(ZAPX["a1-1"])ZAPX["a1-1"]=ZAPX["a1-1"].filter(function(x){return !/^(I am agree with you\.|Come with they!|I live with they\.)\|/.test(x)});
+ WV["a1-1"]=(WV["a1-1"]||[]).concat(["😋|hungry|com fome|you want to eat","🥤|thirsty|com sede|you want to drink","😴|sleepy|com sono|you want to sleep","😨|afraid|com medo|you feel fear","🥵|hot|com calor|your body is very warm","🥶|cold|com frio|your body is not warm","1️⃣3️⃣|thirteen · thirty|treze · trinta|13 · 30 (teen = 13–19, ty = 20, 30, 40…)","1️⃣4️⃣|fourteen · forty|catorze · quarenta|14 · 40 (forty has no u)"].filter(function(x){var k=x.split("|")[1];return !(WV["a1-1"]||[]).some(function(y){return y.split("|")[1]===k})}));
+ /* ORD-06 · Plans: form first (going to, then will), contrast last; by / until becomes a tip */
+ var bu=ptIx("a2-2",/By or until/i);var BU=bu>=0?cutPt("a2-2",bu):null;
+ var c0=ptIx("a2-2",/Three ways/i);
+ if(c0>=0){var P=GR["a2-2"].pts[c0];P.t="Plan, decision or arrangement?";P.use="Now compare the three futures. The choice depends on when and how you decided.";
+  P.form=P.form.filter(function(r){return r[0]!=="there will be"});P.bad=["The phone is ringing. I'm going to get it.","The phone is ringing. I'll get it."];
+  var gx=arr(GX,"a2-2",GR["a2-2"].pts.length)[c0];if(gx){gx.tips=(gx.tips||[]).concat(["Até = by or until. By = a deadline (by Friday). Until = all the time up to then (until Sunday). Not … until = not before: The shop doesn't open until 10."])}
+  if(HOOK["a2-2"])HOOK["a2-2"][c0]="Plan? GOING TO. Deciding now? WILL. In the diary? -ING.";
+  insPt("a2-2",c0,{t:"Will: decisions now, offers and promises",use:"Use will ('ll) for a decision you make while you speak, an offer, a promise or an opinion about the future. After will, use the base verb with no to.",pt:"Will = decisão na hora, oferta, promessa ou opinião sobre o futuro. Depois de will vem o verbo sem to.",
+   form:[["+","I'll help you. · It will be sunny tomorrow."],["−","I won't (= will not) tell anyone."],["?","Will you come to the party? — Yes, I will. / No, I won't."],["there will be","There will be more floods. · Will there be glaciers in 2050? — No, there won't. (✗ Will have more floods.)"]],
+   ex:["It's cold in here. I'll close the window.","Don't worry, I won't forget."],bad:["I will to call you later.","I will call you later."]},
+   [undefined,{tips:["After will, use the base verb with no to: I will call.","Won't = will not.","Decide now? Offer? Promise? → will."],tl:[["Eu te ligo amanhã.","I'll call you tomorrow."],["Vai ter mais enchentes.","There will be more floods."]],note:"Portuguese often uses the present for the future (Eu te ligo amanhã). In English, use will for a promise or a decision made now, and there will be for vai ter."},"Decide NOW, offer, promise → WILL + verb (no to).","will,'ll,won't,there will be",undefined,undefined]);
+  insPt("a2-2",c0,{t:"Going to: plans and evidence",use:"Use be going to for a plan you made before you speak, or for a prediction when you can see the evidence.",pt:"Going to = vou + verbo: um plano que você já tinha, ou uma previsão com evidência (olha as nuvens!). Não esqueça o verbo be: I'm going to.",
+   form:[["+","I'm going to book a hotel. · She's going to study medicine."],["−","I'm not going to work tomorrow. · They aren't going to come."],["?","Are you going to travel? — Yes, I am. / No, I'm not."],["evidence","Look at those clouds! It's going to rain."]],
+   ex:["We're going to visit my grandma this weekend.","Be careful! You're going to fall!"],bad:["I going to call you.","I'm going to call you."]},
+   [undefined,{tips:["Going to = vou + verbo.","Always use be: I'm going to, she's going to (✗ I going to).","You can see it coming → going to: Look at the sky! It's going to rain."],tl:[["Vou reservar um hotel.","I'm going to book a hotel."],["Não vou trabalhar amanhã.","I'm not going to work tomorrow."]],note:"Ir + infinitivo works like be going to. The trap is forgetting be: ✗ I going to."},"PLAN or EVIDENCE → BE + GOING TO + verb.","going to,gonna",undefined,undefined]);
+  if(KW["a2-2"])KW["a2-2"][2]="leaving,meeting,arrangement,diary,going to,will";
+  if(USES["a2-2"]&&USES["a2-2"][2]&&USES["a2-2"][2].length===3){var u=USES["a2-2"][2];USES["a2-2"][0]=[u[0]];USES["a2-2"][1]=[u[1]];USES["a2-2"][2]=u}}
+ /* ORD-07 · Experiences: two moments (life so far · it still matters); for / since stays in Life changes; requests to Food & shopping, indirect questions to Opinions */
+ var pp=ptIx("a2-4",/three moments/i);
+ if(pp>=0){var Q=GR["a2-4"].pts[pp];Q.t="Present perfect: your life so far and news";Q.form=Q.form.filter(function(r){return !/period still running/i.test(r[0])}).map(function(r){return [r[0].replace("3 · It still matters","2 · It still matters"),r[1]]});
+  if(HOOK["a2-4"])HOOK["a2-4"][pp]="Which moment? Your life so far (ever · never) · news that still matters (just · already · yet). Finished time? Past simple."}
+ var rq=ptIx("a2-4",/Polite requests/i);
+ if(rq>=0){var RQ=cutPt("a2-4",rq);
+  var req={t:"Polite requests: Can I…? Could you…?",use:"In a café or a shop, ask politely with Can I have…? or Could you…? and add please.",pt:"Para pedir com educação: Can I have…? (Pode me trazer…?) e Could you…? (Você poderia…?), sempre com please.",form:[["Can I have…?","Can I have the menu, please? · Can I have a coffee, please?"],["Could you…?","Could you bring the bill, please? · Could you help me, please?"]],ex:["Can I have a glass of water, please?","Could you speak more slowly, please?"],bad:["I want the menu.","Can I have the menu, please?"]};
+  insPt("a1-4",(GR["a1-4"]||{pts:[]}).pts.length,req,[undefined,undefined,"Can I have…? · Could you…? + please.","can i have,could you,please",undefined,undefined]);
+  var ind={t:"Indirect questions",use:"Start with Could you tell me…? or Do you know…? and then use statement order: subject + verb, with no do / does / did.",pt:"Pergunta indireta: Could you tell me / Do you know + ordem de frase afirmativa (sujeito + verbo), sem do/does/did.",form:[["direct","Where are the drinks?"],["indirect","Could you tell me where the drinks are?"],["no do","Do you know what time the bus leaves? (✗ what time does the bus leave)"]],ex:["Do you know where the station is?","Could you tell me how much it costs?"],bad:["Could you tell me where are the drinks?","Could you tell me where the drinks are?"]};
+  insPt("b1-5",(GR["b1-5"]||{pts:[]}).pts.length,ind,[undefined,undefined,"Could you tell me… + statement order.","could you tell me,do you know,where,what time",undefined,undefined])}
+ if(typeof XQ_NOQW!=="undefined"){XQ_NOQW["a2-4"]=(XQ_NOQW["a2-4"]||[]).concat(["since"]);if(XQ["a2-4"]){var since=QW.filter(function(q){return q.id==="since"})[0];if(since){var drop=since.prac.concat(since.post).map(function(it){return it.join("|")});XQ["a2-4"]=XQ["a2-4"].filter(function(x){return drop.indexOf(x)<0})}}}
+ var m24=mod("a2-4");if(m24&&m24.sit&&m24.sit.turns&&m24.sit.turns[3]&&/Have you just arrived/.test(m24.sit.turns[3][0]))m24.sit.turns[3]=[m24.sit.turns[3][0],["Yes, I've just arrived.","Yes, I just have arrived.","Yes, I've arrived just."],"just goes between have and the past participle."];
+ /* ORD-08 · News & stories: past perfect before reported speech; backshift table completed */
+ var rs=ptIx("b1-4",/Reported speech/i);
+ if(rs>=0&&ptIx("b1-4",/Past perfect/i)<0){
+  var R=GR["b1-4"].pts[rs];R.form=R.form.map(function(r){return r[0]==="Tense change"?[r[0],r[1]+" · went → had gone · have seen → had seen"]:r});
+  insPt("b1-4",rs,{t:"Past perfect: the earlier past",use:"Use had + past participle for something that happened BEFORE another moment in the past. It is the earlier of two past actions.",pt:"Past perfect = had + particípio: o passado do passado (eu já tinha…). Mostra o que aconteceu ANTES de outra ação no passado.",
+   form:[["form","had + past participle: I had seen · she had left · they hadn't eaten"],["timeline","① had + participle (earlier) → ② past simple (later): When I arrived, the film had started."],["in reported speech","\"I lost my keys.\" → She said she had lost her keys."]],
+   ex:["When we got to the station, the train had left.","I didn't watch the film because I had seen it before."],bad:["When I arrived, the film already started.","When I arrived, the film had already started."]},
+   [undefined,{tips:["Two actions in the past? The earlier one → had + participle.","had is the same for all persons: I had, she had, they had.","Já tinha = had already: I had already eaten."],tl:[["Quando cheguei, o filme já tinha começado.","When I arrived, the film had already started."],["Ela disse que tinha perdido as chaves.","She said she had lost her keys."]],note:"Portuguese uses tinha + particípio (eu tinha visto), very close to had + participle. Brazilians often use the simple past for both actions, and the order of events gets lost."},"Earlier past → HAD + participle.","had,had gone,had seen,had left,had started,before",undefined,undefined])}
+})();
+/* ---------- ORD-11 (accepted 27/11), items 1, 2, 5, 9, 12, 13 ---------- */
+(function(){
+ function arr(o,id,n){if(!o[id])o[id]=[];while(o[id].length<n)o[id].push(undefined);return o[id]}
+ function insPt(id,ix,pt,par){var g=GR[id];if(!g)return;var n=g.pts.length;g.pts.splice(ix,0,pt);[USES,GX,HOOK,KW,HLT,TLN].forEach(function(o,k){if(!o)return;var a=arr(o,id,n),v=par?par[k]:undefined;if(o===GX&&!v)v={tips:[],tl:[]};a.splice(ix,0,v)})}
+ function ptIx(id,re){var g=GR[id];if(!g)return -1;for(var i=0;i<g.pts.length;i++)if(re.test(g.pts[i].t))return i;return -1}
+ function addEx(id,re,L){var i=ptIx(id,re);if(i<0)return;var p=GR[id].pts[i];p.ex=(p.ex||[]).concat(L.filter(function(x){return (p.ex||[]).indexOf(x)<0}))}
+ function addWV(id,L){WV[id]=WV[id]||[];L.forEach(function(x){var k=x.split("|")[1];if(!WV[id].some(function(y){return y.split("|")[1]===k}))WV[id].push(x)})}
+ /* 1 · would like goes to the café (a1-4); like + -ing and want + to stay in My day */
+ var lk=ptIx("a1-2",/Like \+ -ing/i);
+ if(lk>=0){var L=GR["a1-2"].pts[lk];L.t="Like + -ing · want + to";L.form=L.form.filter(function(r){return !/would you like/i.test(r[0])}).map(function(r){return [r[0],r[1].replace(" · I'd like to pay by card.","")]});
+  L.use=L.use.replace(" Would you like + a / an + thing, or + to + verb.","");L.pt=L.pt.replace(/ Would you like a cup of tea\? \(coisa\) · Would you like to try it\? \(ação\)\./,"")}
+ var rq=ptIx("a1-4",/Polite requests/i);
+ if(rq>=0){var Q=GR["a1-4"].pts[rq];Q.t="Ordering: I'd like… · Can I have…? · Would you like…?";Q.use="In a café or a shop: I'd like… (a polite I want), Can I have…? and Could you…? with please. The waiter asks Would you like + a / an + thing, or + to + verb.";
+  Q.pt="Para pedir: I'd like… (= eu gostaria), Can I have…? e Could you…?, com please. O garçom oferece: Would you like a coffee? (coisa) · Would you like to pay now? (ação).";
+  Q.form=[["I'd like…","I'd like a coffee, please. · I'd like to pay by card."],["Can I have…?","Can I have the menu, please?"],["Could you…?","Could you bring the bill, please?"],["Would you like…?","Would you like a cup of tea? (a thing) · Would you like to try it? (an action)"]];
+  Q.bad=["I want the menu.","I'd like the menu, please."];if(KW["a1-4"])KW["a1-4"][rq]="i'd like,can i have,could you,would you like,please"}
+ /* 2 · directions before the chat (Around town) */
+ addWV("a1-3",["⬅️|turn left|virar à esquerda|go to the left at a corner","➡️|turn right|virar à direita|go to the right at a corner","⬆️|go straight on|seguir em frente|keep going in the same direction","↔️|between|entre|in the middle of two places","🔄|opposite|em frente (do outro lado)|on the other side of the street, facing it","👫|next to|ao lado de|at the side of something","🚪|in front of|na frente de|in the place just before something","📐|on the corner|na esquina|where two streets meet"]);
+ /* 5 · a home for things that the exercises already use */
+ if(GR["a2-1"]&&ptIx("a2-1",/-ed or -ing/i)<0)insPt("a2-1",GR["a2-1"].pts.length,{t:"Feelings: -ed or -ing?",use:"-ed adjectives say how a person feels (I'm bored). -ing adjectives describe the thing that causes the feeling (The film is boring).",pt:"-ed = como a pessoa se sente (I'm bored = estou entediado). -ing = a coisa que causa o sentimento (The film is boring = o filme é chato). ✗ I'm boring = eu sou chato!",
+  form:[["-ed (how you feel)","bored · tired · interested · excited · surprised"],["-ing (the thing)","boring · tiring · interesting · exciting · surprising"]],ex:["I was so tired after the trip.","The trip was long and tiring.","Were you surprised? The ending was really surprising!"],bad:["I'm boring in this class.","I'm bored in this class."]},[undefined,undefined,"-ED = how I FEEL. -ING = what the THING is like.","bored,boring,tired,tiring,interested,interesting,excited,exciting,surprised,surprising",undefined,undefined]);
+ if(GR["a2-3"]&&ptIx("a2-3",/absolutely/i)<0)insPt("a2-3",GR["a2-3"].pts.length,{t:"Very, really, too or absolutely?",use:"Very and really go with normal adjectives (very cold). Absolutely goes with extreme adjectives (absolutely freezing, absolutely huge). Too means more than you want: it is a problem (too expensive).",pt:"Very / really + adjetivo normal (very cold). Absolutely + adjetivo extremo (absolutely freezing, absolutely amazing). Too = demais, é um problema (too expensive).",
+  form:[["normal","very / really good · very cold · really small"],["extreme","absolutely amazing · absolutely freezing · really huge"],["too","too expensive · too noisy (a problem)"],["✗","very amazing · absolutely good · too wonderful"]],ex:["The view from the hotel was absolutely amazing.","This phone is really fast, but it's too expensive for me.","It was very cold, but not absolutely freezing."],bad:["The view was very amazing.","The view was absolutely amazing."]},[undefined,undefined,"NORMAL → very. EXTREME → absolutely. A PROBLEM → too.","very,really,absolutely,too,amazing,awful,huge,freezing",undefined,undefined]);
+ if(GX["a2-6"]&&GX["a2-6"][0]){var t6=GX["a2-6"][0].tips=GX["a2-6"][0].tips||[];if(!t6.some(function(x){return /have got/i.test(x)}))t6.push("Have got = have (possess), very common in British English: I've got a new jacket = I have a new jacket · Have you got…? · I haven't got…")}
+ /* 9 · B1 grammar with examples; must / have to in two steps */
+ var sh=ptIx("b1-2",/Should, have to, must/i);
+ if(sh>=0&&ptIx("b1-2",/mustn't or don't have to/i)<0){var S2=GR["b1-2"].pts[sh],neg=S2.form.filter(function(r){return /mustn't|don't have to/.test(r[0])});S2.form=S2.form.filter(function(r){return neg.indexOf(r)<0});
+  S2.ex=(S2.ex||[]).concat(["You should drink more water.","Nurses have to wear a uniform at work.","You must take this medicine twice a day."]);
+  insPt("b1-2",sh+1,{t:"Mustn't or don't have to?",use:"They look similar, but they mean very different things. Mustn't = it is not allowed. Don't have to = it is not necessary, you can choose.",pt:"Mustn't = é proibido. Don't have to = não precisa (você escolhe). Cuidado: em português 'não precisa' e 'não pode' são bem diferentes, e em inglês também.",form:neg.length?neg:[["mustn't","prohibited: You mustn't drive."],["don't have to","not necessary: You don't have to stay in bed."]],
+   ex:["You mustn't use your phone in the exam room.","It's Saturday! We don't have to get up early.","You mustn't smoke here, but you don't have to leave the building."],bad:["You don't have to smoke in the hospital. It's forbidden.","You mustn't smoke in the hospital. It's forbidden."]},[undefined,undefined,"MUSTN'T = not allowed 🚫 · DON'T HAVE TO = not necessary 🤷","mustn't,don't have to,doesn't have to,not allowed,not necessary",undefined,undefined])}
+ addEx("b1-3",/First conditional/i,["If it rains tomorrow, we'll stay at home.","If you call me, I'll pick you up.","She'll be angry if you don't tell her."]);
+ addEx("b1-3",/Second conditional/i,["If I won the lottery, I'd travel around the world.","If I were you, I'd take the job.","What would you do if you lost your phone?"]);
+ addEx("b1-4",/Passive voice/i,["English is spoken all over the world.","The bridge was built in 1974.","My bike has been stolen!"]);
+ addEx("b1-4",/Reported speech/i,["\"I'm tired.\" → She said she was tired.","\"We'll call you.\" → They told me they would call me.","\"I can't swim.\" → He said he couldn't swim."]);
+ addEx("b1-5",/-ing or to/i,["I enjoy working from home.","We've decided to move to Curitiba.","She's thinking of starting her own business."]);
+ addEx("b1-5",/^Relative clauses$/i,["The colleague who helped me is from Recife.","This is the app that I told you about.","That's the café where we first met."]);
+ addEx("b1-5",/^Linkers$/i,["Although it was raining, we went for a walk.","The plan was good. However, it was too expensive.","I was tired, so I went to bed early."]);
+ /* 12 · examples inside the level */
+ ["a1-3","a1-4"].forEach(function(id){if(EXP[id])EXP[id]=EXP[id].map(function(x){return x.replace("|I'm looking for a pharmacy.","|Excuse me, can you help me look for a pharmacy?").replace("|We've run out of milk. Can you buy some?","|We always run out of milk on Sundays!")})});
+ /* 13 · an adult scenario for Space */
+ var m7=mod("b1-7");if(m7&&m7.sit&&/with your class/.test(m7.sit.en)){m7.sit.en="You are at a talk about space at a planetarium in São Paulo. After the talk, the guide asks the audience some questions.";m7.sit.pt="Você está numa palestra sobre o espaço num planetário em São Paulo. Depois da palestra, o guia faz algumas perguntas ao público."}
+})();
 /* ORD-04 · each game/test item only appears in the module that teaches its grammar, or later. Items that come too early move to the module that teaches them. */
 var ORD_RULES=[
  ["pressimple","a1-2",/\b(do|does|don't|doesn't)\b/],
