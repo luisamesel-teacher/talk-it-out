@@ -1,69 +1,69 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.arrows{display:flex;justify-content:center;gap:10px;margin:10px 0 4px}.arrows .ab{font:900 22px system-ui;min-width:74px;min-height:50px;border-radius:14px;border:2px solid var(--line,#3b3f8f);border-bottom-width:5px;background:#1f2456;color:#fff;cursor:pointer;touch-action:manipulation;user-select:none}.arrows .ab:active{transform:translateY(2px);border-bottom-width:3px;background:#ffd166;color:#12152e}
 <!-- MAP START (for Claude helpers; regenerated on every publish). Read this map, then read only the line ranges you need with read_artifact offset/limit.
-NEVER read lines 2239 and 2240 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
-CSS: lines 1-160 and 169-1472
-WIDE_LAYOUT 1481-1482 · TIO_LVS 1483-1483 · M 1484-1734 · X 1735-1805 · ART 1806-1812 · GR 1813-1900 · GX 1901-1969 · BK 1970-2072
-PIC 2073-2073 · HOOK 2074-2087 · TLN 2088-2096 · EXP 2097-2114 · VERBS 2115-2116 · CAN 2117-2121 · CULT 2122-2142 · GYM 2143-2154
-BD 2155-2234 · TAGN 2235-2235 · LEVELS 2236-2236 · ACTS 2237-2238 · ACH 2241-2241 · PSETS 2242-2242 · faceEl() 2243-2243 · FACES 2244-2246
-T 2247-2324 · S 2325-2325 · KEY 2326-2326 · t() 2327-2327 · save() 2328-2328 · load() 2329-2333 · day() 2334-2334 · touchStreak() 2335-2337
-h() 2338-2350 · shuffle() 2351-2351 · starsFor() 2352-2352 · starEl() 2353-2353 · mod() 2354-2354 · art() 2355-2355 · modStars() 2356-2356 · PASS 2357-2357
-passed() 2358-2358 · actsDone() 2359-2359 · certOK() 2360-2360 · go() 2361-2361 · toTop() 2362-2362 · app() 2363-2363 · pick() 2364-2366 · bar() 2367-2389
-goBack() 2390-2390 · lvTag() 2391-2391 · menu() 2392-2409 · steps() 2410-2419 · nextStep() 2420-2422 · home() 2423-2492 · modulePage() 2493-2599 · backBtn() 2600-2601
-shell() 2602-2609 · swIcon() 2610-2610 · finish() 2611-2643 · run() 2644-2646 · chat() 2647-2678 · loose() 2679-2679 · writeIt() 2680-2713 · mcRun() 2714-2736
-quizItems() 2737-2737 · speedItems() 2738-2738 · quiz() 2739-2739 · cpItems() 2740-2749 · cpWhere() 2750-2757 · checkpoint() 2758-2804 · build() 2805-2851 · match() 2852-2888
-speed() 2889-2912 · HLT 2913-2926 · KW 2927-2940 · kw() 2941-2949 · caps() 2950-2950 · diffB() 2951-2952 · sents() 2953-2953 · hl() 2954-2962
-noteKind() 2963-2967 · BKIND 2968-2968 · blk() 2969-2970 · grammar() 2971-3016 · SERVE 3017-3023 · miss() 3024-3030 · ALL_LV 3031-3031 · maxLv() 3032-3032
-lvOf() 3033-3033 · bkItem() 3034-3034 · qKey() 3035-3035 · qFresh() 3036-3036 · qMark() 3037-3037 · gameQ() 3038-3038 · gameQ0() 3039-3039 · askPanel() 3040-3057
-LVN 3058-3058 · arcade() 3059-3077 · gTimer() 3078-3080 · fmtT() 3081-3081 · arcadeEnd() 3082-3104 · tennis() 3105-3198 · duel() 3199-3229 · wDiff() 3230-3234
-zap() 3235-3278 · GAMES 3279-3281 · GP 3282-3282 · gclk() 3283-3283 · gHold() 3284-3284 · gGo() 3285-3285 · gClose() 3286-3286 · gFocus() 3287-3289
-COACH 3290-3302 · gCoach() 3303-3321 · TURNG 3322-3322 · gStartNow() 3323-3323 · gReady() 3324-3328 · gOverlay() 3329-3330 · GICONS 3331-3331 · GLIST 3332-3332
-sortNeed() 3333-3333 · poolNeed() 3334-3334 · HOW 3335-3343 · gRestart() 3344-3344 · gIntro() 3345-3364 · gCount() 3365-3377 · gPause() 3378-3391 · WCL 3392-3392
-WSB 3393-3399 · wsClasses() 3400-3400 · wsBank() 3401-3403 · wsWhy() 3404-3406 · penalty() 3407-3517 · wsort() 3518-3553 · wpool() 3554-3720 · HOOPS_BOT 3721-3721
-hoops() 3722-3891 · wonOf() 3892-3892 · starsWon() 3893-3893 · gameList() 3894-3898 · WT 3899-3910 · WTL 3911-3913 · wtubes() 3914-3966 · GN 3967-3985
-GNM 3986-3986 · GNL 3987-3989 · wgenius() 3990-4031 · TUBEMODS 4032-4032 · hasQ() 4033-4033 · hasGame() 4034-4051 · gameCards() 4052-4055 · hub() 4056-4082
-bossSVG() 4083-4102 · cert() 4103-4128 · timeline() 4129-4148 · today() 4149-4149 · exList() 4150-4150 · exFind() 4151-4151 · dueList() 4152-4152 · exCard() 4153-4153
-expr() 4154-4166 · review() 4167-4188 · verbList() 4189-4189 · memBoard() 4190-4202 · verbs() 4203-4247 · mistakes() 4248-4271 · PF 4272-4281 · PQ 4282-4282
-ENTRY 4283-4283 · TRACK 4284-4284 · HELPS 4285-4285 · TIPS 4286-4301 · L2() 4302-4302 · place() 4303-4333 · placeResult() 4334-4355 · avatars() 4356-4409
-VIS 4410-4410 · funnel() 4411-4444 · MAIL 4445-4466 · mailMock() 4467-4471 · MCOL 4472-4472 · mailInbox() 4473-4488 · mailChunks() 4489-4491 · mail() 4492-4519
-mailBuild() 4520-4544 · mailQuiz() 4545-4640 · canSpeak() 4641-4641 · voiceScore() 4642-4649 · voices() 4650-4653 · sayIt() 4654-4659 · voicePage() 4660-4677 · spNorm() 4678-4678
-spellDeck() 4679-4690 · spelling() 4691-4727 · gym() 4728-4777 · culture() 4778-4793 · progressCard() 4794-4803 · NUM 4804-4840 · clockSVG() 4841-4847 · numbers() 4848-4866
-numDrill() 4867-4906 · WV 4907-4921 · ADJ 4922-4928 · ADJQ 4929-4929 · ADVF 4930-4930 · ADVD 4931-4931 · ADVM 4932-4932 · ADVP 4933-4933
-ADVQ 4934-4934 · strip() 4935-4935 · meter() 4936-4936 · wvList() 4937-4937 · ILL 4938-4938 · illEl() 4939-4939 · pics() 4940-4940 · words() 4941-4984
-wDrill() 4985-5008 · LAB 5009-5131 · LAB_FIT 5132-5132 · labFits() 5133-5133 · LABMAP 5134-5134 · LSLOT 5135-5135 · LLINES 5136-5136 · labDi() 5137-5137
-labNeed() 5138-5138 · LPART 5139-5139 · labOpts() 5140-5152 · labRobot() 5153-5174 · LABCOIN 5175-5175 · labParty() 5176-5193 · labSentence() 5194-5210 · labCheck() 5211-5233
-isFreqT() 5234-5234 · vowelSound() 5235-5235 · labArt() 5236-5246 · labTense() 5247-5258 · labSense() 5259-5275 · LSTATE 5276-5276 · lab() 5277-5375 · RSWAP 5376-5376
-rVariant() 5377-5387 · race() 5388-5501 · ZAPX 5502-5520 · ideas() 5521-5528 · ownBox() 5529-5534 · applyTheme() 5535-5535 · nm() 5536-5536 · hi() 5537-5537
-welcome() 5538-5556 · choice() 5557-5570 · SG_SING 5571-5571 · SG_VERB 5572-5572 · sentenceTips() 5573-5607 · tipsBox() 5608-5616 · AI 5617-5617 · aiInit() 5618-5618
-aiReady() 5619-5619 · aiContext() 5620-5620 · aiCall() 5621-5625 · aiCheck() 5626-5630 · askTeacher() 5631-5647 · askFab() 5648-5652 · STORY 5653-5709 · storyFor() 5710-5710
-storyList() 5711-5718 · storyPage() 5719-5747 · aiStory() 5748-5753 · BDE 5754-5755 · REV 5756-5812 · ins() 5813-5962 · XQ 5963-5973 · REVIEWM 5974-5984
-TMOD 5985-5987 · SORTSET 5988-5994 · CDS 5995-6003 · CDL 6004-6006 · cdParse() 6007-6010 · wcommas() 6011-6053 · pvOf() 6054-6054 · pvPool() 6055-6057
-pvQs() 6058-6068 · arcadeMods() 6069-6069 · arcadePage() 6070-6109 · ARCMODES 6110-6110 · arcModeOf() 6111-6115 · arcModBtn() 6116-6137 · SPDICT 6138-6138 · spellDict() 6139-6153
-spKnown() 6154-6155 · spDist() 6156-6157 · spellIssues() 6158-6163 · lvMenu() 6164-6170 · COMMAMODS 6171-6172 · PSET 6173-6178 · PMODES 6179-6179 · poolSet() 6180-6180
-gD() 6181-6184 · TONE 6185-6187 · NINE 6188-6190 · soloCard() 6191-6193 · cityBank() 6194-6194 · SOLO 6195-6211 · MOVIES 6212-6268 · MVLV 6269-6270
-stuLv() 6271-6274 · wmovie() 6275-6360 · DCOL 6361-6361 · DIT 6362-6366 · DMAT 6367-6367 · dkC() 6368-6368 · dollSVG() 6369-6428 · dPiece() 6429-6429
-dArt() 6430-6430 · DVB 6431-6431 · wdoll() 6432-6537 · dartSents() 6538-6539 · dartGaps() 6540-6540 · wdarts() 6541-6602 · crossGaps() 6603-6603 · wcross() 6604-6659
-BRCAR 6660-6698 · brItems() 6699-6700 · brParse() 6701-6701 · wbridge() 6702-6796 · STAGS 6797-6824 · SGTAGS 6825-6825 · SPAGES 6826-6826 · sNorm() 6827-6827
-SIDX 6828-6828 · sIndex() 6829-6838 · sFind() 6839-6841 · searchBox() 6842-6861 · rKey() 6862-6862 · favG() 6863-6863 · favGM() 6864-6864 · togFav() 6865-6866
-gRate() 6867-6867 · heartEl() 6868-6870 · RQ 6871-6871 · rateCard() 6872-6888 · AFILT 6889-6909 · QW 6910-6987 · qwById() 6988-6988 · qwFor() 6989-6989
-qwList() 6990-6995 · qwPage() 6996-7027 · qwGameBtn() 7028-7030 · QWFF 7031-7032 · XQ_NOQW 7033-7039 · qwLow() 7040-7040 · qwDiff() 7041-7042 · qwIs() 7043-7043
-IRR 7044-7044 · QWRULES 7045-7103 · qwSent() 7104-7105 · qwFind() 7106-7108 · qwDetect() 7109-7109 · QWQUEUE 7110-7111 · qwTgt() 7112-7115 · qwToast() 7116-7132
-qwRecs() 7133-7198 · C1USES 7199-7207 · REG 7208-7249 · regFor() 7250-7250 · regFill() 7251-7251 · regForm() 7252-7252 · regGap() 7253-7255 · CAMTIP 7256-7265
-camTipEl() 7266-7298 · KWT 7299-7323 · kwtFor() 7324-7327 · INV 7328-7342 · wlift() 7343-7382 · wkwt() 7383-7419 · winv() 7420-7676 · MOCK 7677-7707
-MOCKNAME 7708-7708 · MOCKHOW 7709-7709 · wmock() 7710-7817 · PPM 7818-7818 · PPMQ 7819-7831 · ppmSlide() 7832-7845 · GSLX 7846-8034 · addTopic() 8035-8294
-sportsHub() 8295-8306 · SPK 8307-8325 · spkLang() 8326-8326 · spkImg() 8327-8327 · c1SpkEl() 8328-8366 · C1KIT 8367-8406 · c1KitEl() 8407-8439 · gMark() 8440-8441
-USES 8442-8581 · gLines() 8582-8582 · grammar() 8583-8658 · mNo() 8659-8792 · nbFind() 8793-8794 · rmItem() 8795-8798 · rmPool() 8799-8799 · rematch() 8800-8826
-ARCLV 8827-8827 · arcLvGame() 8828-8943 · nbType() 8944-8945 · nbKey() 8946-8946 · nbCard() 8947-9062 · QQ 9063-9095 · TONE_ATT 9096-9096 · TONEQ 9097-9103
-miniMC() 9104-9113 · miniBuild() 9114-9126 · qqById() 9127-9127 · qqItems() 9128-9128 · qqList() 9129-9137 · qqPage() 9138-9154 · tonePage() 9155-9166 · LVLS 9167-9167
-worldMods() 9168-9168 · worldDone() 9169-9169 · worldPerfect() 9170-9170 · MEDALS 9171-9189 · medalToast() 9190-9191 · checkMedals() 9192-9193 · achievements() 9194-9202 · SESS_KEY 9203-9203
-sessGet() 9204-9204 · sessPut() 9205-9205 · sessNew() 9206-9206 · sessCur() 9207-9207 · sessNote() 9208-9208 · sessLearned() 9209-9211 · fmtMin() 9212-9212 · hwList() 9213-9213
-hwPending() 9214-9214 · hwMake() 9215-9226 · endLesson() 9227-9234 · lessonPage() 9235-9252 · hwStart() 9253-9254 · hwScore() 9255-9261 · hwSyncQW() 9262-9262 · hwCard() 9263-9272
-homeworkPage() 9273-9303 · PLNOTE 9304-9304 · plBank() 9305-9351 · LOCKS_ON 9352-9352 · lvUnlockedIdx() 9353-9355 · lvUnlocked() 9356-9356 · modOpen() 9357-9357 · lockPage() 9358-9408
-NINE_EXTRA 9409-9410 · MESBG 9411-9412 · MESNAME 9413-9413 · MESSEA 9414-9414 · mesSpr() 9415-9415 · MESSPR 9416-9429 · mesEl() 9430-9430 · mesNodes() 9431-9431
-meseland() 9432-9512 · REPORT_ON 9513-9513 · repCtx() 9514-9517 · repOpen() 9518-9535 · repFab() 9536-9537 · MHERO 9538-9539 · mheroCur() 9540-9540 · mheroImg() 9541-9541
-mheroEl() 9542-9557 · IC_HOME 9558-9558 · IC_SHOP 9559-9559 · IC_SEARCH 9560-9560 · icBtn() 9561-9561 · profMenu() 9562-9612 · route() 9613-9628 · SUPPT 9629-9629
-GLOSS 9630-9630 · supMode() 9631-9631 · supTx() 9632-9635 · supStr() 9636-9787 · ORD_RULES 9788-9804 · ORD_ORDER 9805-9805 · ordRank() 9806-9806 · ordText() 9807-9807
-ordNeed() 9808-9808 · ORD_MOVED 9809-9809 · ordPrereq() 9810-9816 · GTOPICS 9817-9832 · GTABLE 9833-9838 · gTopicOf() 9839-9839 · gHubPoints() 9840-9840 · gHub() 9841-9868
-BETA_ON 9869-9869 · BETA_OK 9870-9870 · BETA_HIDE 9871-9871 · betaPage() 9872-9872 · betaApply() 9873-9876 · start() 9877-9894
+NEVER read lines 2244 and 2245 (PIMG and its Object.assign: avatar pictures, ~560 KB on two lines).
+CSS: lines 1-160 and 169-1477
+WIDE_LAYOUT 1486-1487 · TIO_LVS 1488-1488 · M 1489-1739 · X 1740-1810 · ART 1811-1817 · GR 1818-1905 · GX 1906-1974 · BK 1975-2077
+PIC 2078-2078 · HOOK 2079-2092 · TLN 2093-2101 · EXP 2102-2119 · VERBS 2120-2121 · CAN 2122-2126 · CULT 2127-2147 · GYM 2148-2159
+BD 2160-2239 · TAGN 2240-2240 · LEVELS 2241-2241 · ACTS 2242-2243 · ACH 2246-2246 · PSETS 2247-2247 · faceEl() 2248-2248 · FACES 2249-2251
+T 2252-2329 · S 2330-2330 · KEY 2331-2331 · t() 2332-2332 · save() 2333-2333 · load() 2334-2338 · day() 2339-2339 · touchStreak() 2340-2342
+h() 2343-2355 · shuffle() 2356-2356 · starsFor() 2357-2357 · starEl() 2358-2358 · mod() 2359-2359 · art() 2360-2360 · modStars() 2361-2361 · PASS 2362-2362
+passed() 2363-2363 · actsDone() 2364-2364 · certOK() 2365-2365 · go() 2366-2366 · toTop() 2367-2367 · app() 2368-2368 · pick() 2369-2371 · bar() 2372-2394
+goBack() 2395-2395 · lvTag() 2396-2396 · menu() 2397-2414 · steps() 2415-2424 · nextStep() 2425-2427 · home() 2428-2497 · modulePage() 2498-2604 · backBtn() 2605-2606
+shell() 2607-2614 · swIcon() 2615-2615 · finish() 2616-2648 · run() 2649-2651 · chat() 2652-2683 · loose() 2684-2684 · writeIt() 2685-2718 · mcRun() 2719-2741
+quizItems() 2742-2742 · speedItems() 2743-2743 · quiz() 2744-2744 · cpItems() 2745-2754 · cpWhere() 2755-2762 · checkpoint() 2763-2809 · build() 2810-2856 · match() 2857-2893
+speed() 2894-2917 · HLT 2918-2931 · KW 2932-2945 · kw() 2946-2954 · caps() 2955-2955 · diffB() 2956-2957 · sents() 2958-2958 · hl() 2959-2967
+noteKind() 2968-2972 · BKIND 2973-2973 · blk() 2974-2975 · grammar() 2976-3021 · SERVE 3022-3028 · miss() 3029-3035 · ALL_LV 3036-3036 · maxLv() 3037-3037
+lvOf() 3038-3038 · bkItem() 3039-3039 · qKey() 3040-3040 · qFresh() 3041-3041 · qMark() 3042-3042 · gameQ() 3043-3043 · gameQ0() 3044-3044 · askPanel() 3045-3062
+LVN 3063-3063 · arcade() 3064-3082 · gTimer() 3083-3085 · fmtT() 3086-3086 · arcadeEnd() 3087-3109 · tennis() 3110-3203 · duel() 3204-3234 · wDiff() 3235-3239
+zap() 3240-3283 · GAMES 3284-3286 · GP 3287-3287 · gclk() 3288-3288 · gHold() 3289-3289 · gGo() 3290-3290 · gClose() 3291-3291 · gFocus() 3292-3294
+COACH 3295-3307 · gCoach() 3308-3326 · TURNG 3327-3327 · gStartNow() 3328-3328 · gReady() 3329-3333 · gOverlay() 3334-3335 · GICONS 3336-3336 · GLIST 3337-3337
+sortNeed() 3338-3338 · poolNeed() 3339-3339 · HOW 3340-3348 · gRestart() 3349-3349 · gIntro() 3350-3369 · gCount() 3370-3382 · gPause() 3383-3396 · WCL 3397-3397
+WSB 3398-3404 · wsClasses() 3405-3405 · wsBank() 3406-3408 · wsWhy() 3409-3411 · penalty() 3412-3522 · wsort() 3523-3558 · wpool() 3559-3725 · HOOPS_BOT 3726-3726
+hoops() 3727-3896 · wonOf() 3897-3897 · starsWon() 3898-3898 · gameList() 3899-3903 · WT 3904-3915 · WTL 3916-3918 · wtubes() 3919-3971 · GN 3972-3990
+GNM 3991-3991 · GNL 3992-3994 · wgenius() 3995-4036 · TUBEMODS 4037-4037 · hasQ() 4038-4038 · hasGame() 4039-4056 · gameCards() 4057-4060 · hub() 4061-4087
+bossSVG() 4088-4107 · cert() 4108-4133 · timeline() 4134-4153 · today() 4154-4154 · exList() 4155-4155 · exFind() 4156-4156 · dueList() 4157-4157 · exCard() 4158-4158
+expr() 4159-4171 · review() 4172-4193 · verbList() 4194-4194 · memBoard() 4195-4207 · verbs() 4208-4252 · mistakes() 4253-4276 · PF 4277-4286 · PQ 4287-4287
+ENTRY 4288-4288 · TRACK 4289-4289 · HELPS 4290-4290 · TIPS 4291-4306 · L2() 4307-4307 · place() 4308-4338 · placeResult() 4339-4360 · avatars() 4361-4414
+VIS 4415-4415 · funnel() 4416-4449 · MAIL 4450-4485 · mailMock() 4486-4490 · MCOL 4491-4491 · mailInbox() 4492-4507 · mailChunks() 4508-4510 · mailBank() 4511-4517
+mail() 4518-4546 · mailBuild() 4547-4571 · mailQuiz() 4572-4667 · canSpeak() 4668-4668 · voiceScore() 4669-4676 · voices() 4677-4680 · sayIt() 4681-4686 · voicePage() 4687-4704
+spNorm() 4705-4705 · spellDeck() 4706-4717 · spelling() 4718-4754 · gym() 4755-4804 · culture() 4805-4820 · progressCard() 4821-4830 · NUM 4831-4867 · clockSVG() 4868-4874
+numbers() 4875-4893 · numDrill() 4894-4933 · WV 4934-4948 · ADJ 4949-4955 · ADJQ 4956-4956 · ADVF 4957-4957 · ADVD 4958-4958 · ADVM 4959-4959
+ADVP 4960-4960 · ADVQ 4961-4961 · strip() 4962-4962 · meter() 4963-4963 · wvList() 4964-4964 · ILL 4965-4965 · illEl() 4966-4966 · pics() 4967-4967
+words() 4968-5011 · wDrill() 5012-5035 · LAB 5036-5158 · LAB_FIT 5159-5159 · labFits() 5160-5160 · LABMAP 5161-5161 · LSLOT 5162-5162 · LLINES 5163-5163
+labDi() 5164-5164 · labNeed() 5165-5165 · LPART 5166-5166 · labOpts() 5167-5179 · labRobot() 5180-5201 · LABCOIN 5202-5202 · labParty() 5203-5220 · labSentence() 5221-5237
+labCheck() 5238-5260 · isFreqT() 5261-5261 · vowelSound() 5262-5262 · labArt() 5263-5273 · labTense() 5274-5285 · labSense() 5286-5302 · LSTATE 5303-5303 · lab() 5304-5402
+RSWAP 5403-5403 · rVariant() 5404-5414 · race() 5415-5528 · ZAPX 5529-5547 · ideas() 5548-5555 · ownBox() 5556-5561 · applyTheme() 5562-5562 · nm() 5563-5563
+hi() 5564-5564 · welcome() 5565-5583 · choice() 5584-5597 · SG_SING 5598-5598 · SG_VERB 5599-5599 · sentenceTips() 5600-5634 · tipsBox() 5635-5643 · AI 5644-5644
+aiInit() 5645-5645 · aiReady() 5646-5646 · aiContext() 5647-5647 · aiCall() 5648-5652 · aiCheck() 5653-5657 · askTeacher() 5658-5674 · askFab() 5675-5679 · STORY 5680-5736
+storyFor() 5737-5737 · storyList() 5738-5745 · storyPage() 5746-5774 · aiStory() 5775-5780 · BDE 5781-5782 · REV 5783-5839 · ins() 5840-5989 · XQ 5990-6000
+REVIEWM 6001-6011 · TMOD 6012-6014 · SORTSET 6015-6021 · CDS 6022-6030 · CDL 6031-6033 · cdParse() 6034-6037 · wcommas() 6038-6080 · pvOf() 6081-6081
+pvPool() 6082-6084 · pvQs() 6085-6095 · arcadeMods() 6096-6096 · arcadePage() 6097-6136 · ARCMODES 6137-6137 · arcModeOf() 6138-6142 · arcModBtn() 6143-6164 · SPDICT 6165-6165
+spellDict() 6166-6180 · spKnown() 6181-6182 · spDist() 6183-6184 · spellIssues() 6185-6190 · lvMenu() 6191-6197 · COMMAMODS 6198-6199 · PSET 6200-6205 · PMODES 6206-6206
+poolSet() 6207-6207 · gD() 6208-6211 · TONE 6212-6214 · NINE 6215-6217 · soloCard() 6218-6220 · cityBank() 6221-6221 · SOLO 6222-6238 · MOVIES 6239-6295
+MVLV 6296-6297 · stuLv() 6298-6301 · wmovie() 6302-6387 · DCOL 6388-6388 · DIT 6389-6393 · DMAT 6394-6394 · dkC() 6395-6395 · dollSVG() 6396-6455
+dPiece() 6456-6456 · dArt() 6457-6457 · DVB 6458-6458 · wdoll() 6459-6564 · dartSents() 6565-6566 · dartGaps() 6567-6567 · wdarts() 6568-6629 · crossGaps() 6630-6630
+wcross() 6631-6686 · BRCAR 6687-6725 · brItems() 6726-6727 · brParse() 6728-6728 · wbridge() 6729-6823 · STAGS 6824-6851 · SGTAGS 6852-6852 · SPAGES 6853-6853
+sNorm() 6854-6854 · SIDX 6855-6855 · sIndex() 6856-6865 · sFind() 6866-6868 · searchBox() 6869-6888 · rKey() 6889-6889 · favG() 6890-6890 · favGM() 6891-6891
+togFav() 6892-6893 · gRate() 6894-6894 · heartEl() 6895-6897 · RQ 6898-6898 · rateCard() 6899-6915 · AFILT 6916-6936 · QW 6937-7014 · qwById() 7015-7015
+qwFor() 7016-7016 · qwList() 7017-7022 · qwPage() 7023-7054 · qwGameBtn() 7055-7057 · QWFF 7058-7059 · XQ_NOQW 7060-7066 · qwLow() 7067-7067 · qwDiff() 7068-7069
+qwIs() 7070-7070 · IRR 7071-7071 · QWRULES 7072-7130 · qwSent() 7131-7132 · qwFind() 7133-7135 · qwDetect() 7136-7136 · QWQUEUE 7137-7138 · qwTgt() 7139-7142
+qwToast() 7143-7159 · qwRecs() 7160-7225 · C1USES 7226-7234 · REG 7235-7276 · regFor() 7277-7277 · regFill() 7278-7278 · regForm() 7279-7279 · regGap() 7280-7282
+CAMTIP 7283-7292 · camTipEl() 7293-7325 · KWT 7326-7350 · kwtFor() 7351-7354 · INV 7355-7369 · wlift() 7370-7409 · wkwt() 7410-7446 · winv() 7447-7703
+MOCK 7704-7734 · MOCKNAME 7735-7735 · MOCKHOW 7736-7736 · wmock() 7737-7844 · PPM 7845-7845 · PPMQ 7846-7858 · ppmSlide() 7859-7872 · GSLX 7873-8061
+addTopic() 8062-8321 · sportsHub() 8322-8333 · SPK 8334-8352 · spkLang() 8353-8353 · spkImg() 8354-8354 · c1SpkEl() 8355-8393 · C1KIT 8394-8433 · c1KitEl() 8434-8466
+gMark() 8467-8468 · USES 8469-8608 · gLines() 8609-8609 · grammar() 8610-8685 · mNo() 8686-8819 · nbFind() 8820-8821 · rmItem() 8822-8825 · rmPool() 8826-8826
+rematch() 8827-8853 · ARCLV 8854-8854 · arcLvGame() 8855-8970 · nbType() 8971-8972 · nbKey() 8973-8973 · nbCard() 8974-9089 · QQ 9090-9122 · TONE_ATT 9123-9123
+TONEQ 9124-9130 · miniMC() 9131-9140 · miniBuild() 9141-9153 · qqById() 9154-9154 · qqItems() 9155-9155 · qqList() 9156-9164 · qqPage() 9165-9181 · tonePage() 9182-9193
+LVLS 9194-9194 · worldMods() 9195-9195 · worldDone() 9196-9196 · worldPerfect() 9197-9197 · MEDALS 9198-9216 · medalToast() 9217-9218 · checkMedals() 9219-9220 · achievements() 9221-9229
+SESS_KEY 9230-9230 · sessGet() 9231-9231 · sessPut() 9232-9232 · sessNew() 9233-9233 · sessCur() 9234-9234 · sessNote() 9235-9235 · sessLearned() 9236-9238 · fmtMin() 9239-9239
+hwList() 9240-9240 · hwPending() 9241-9241 · hwMake() 9242-9253 · endLesson() 9254-9261 · lessonPage() 9262-9279 · hwStart() 9280-9281 · hwScore() 9282-9288 · hwSyncQW() 9289-9289
+hwCard() 9290-9299 · homeworkPage() 9300-9330 · PLNOTE 9331-9331 · plBank() 9332-9378 · LOCKS_ON 9379-9379 · lvUnlockedIdx() 9380-9382 · lvUnlocked() 9383-9383 · modOpen() 9384-9384
+lockPage() 9385-9435 · NINE_EXTRA 9436-9437 · MESBG 9438-9439 · MESNAME 9440-9440 · MESSEA 9441-9441 · mesSpr() 9442-9442 · MESSPR 9443-9456 · mesEl() 9457-9457
+mesNodes() 9458-9458 · meseland() 9459-9539 · REPORT_ON 9540-9540 · repCtx() 9541-9544 · repOpen() 9545-9562 · repFab() 9563-9564 · MHERO 9565-9566 · mheroCur() 9567-9567
+mheroImg() 9568-9568 · mheroEl() 9569-9584 · IC_HOME 9585-9585 · IC_SHOP 9586-9586 · IC_SEARCH 9587-9587 · icBtn() 9588-9588 · profMenu() 9589-9639 · route() 9640-9655
+SUPPT 9656-9656 · GLOSS 9657-9657 · supMode() 9658-9658 · supTx() 9659-9662 · supStr() 9663-9814 · ORD_RULES 9815-9831 · ORD_ORDER 9832-9832 · ordRank() 9833-9833
+ordText() 9834-9834 · ordNeed() 9835-9835 · ORD_MOVED 9836-9836 · ordPrereq() 9837-9843 · GTOPICS 9844-9859 · GTABLE 9860-9865 · gTopicOf() 9866-9866 · gHubPoints() 9867-9867
+gHub() 9868-9895 · BETA_ON 9896-9896 · BETA_OK 9897-9897 · BETA_HIDE 9898-9898 · betaPage() 9899-9899 · betaApply() 9900-9903 · start() 9904-9921
 MAP END -->
 .mvstage{max-width:760px;margin:0 auto}.mvscreen{background:linear-gradient(180deg,#0b0d1f,#1a1f4d);border:3px solid #4cc9f0;border-radius:18px;padding:16px 20px;box-shadow:0 0 0 6px #12152e inset}
 .mvclue .mvc{margin:8px 0;font-size:18px;line-height:1.45;color:#dfe3ff;opacity:.75}.mvclue .mvc.new{opacity:1;color:#fff;animation:mvIn .35s ease}.mvclue .mvc b{color:#ffd166;margin-right:4px}
@@ -493,6 +493,11 @@ mark{background:var(--track);color:#17213b;border-radius:4px;padding:0 4px;font-
 .mwhy b{color:var(--mc);font-family:var(--label);white-space:nowrap}
 .mchunks{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
 .mchunk{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface);text-align:left}
+.mbank{display:grid;gap:8px}
+.mgrp{border:1.5px solid var(--line);border-radius:12px;padding:4px 12px;background:var(--bg)}
+.mgrp summary{cursor:pointer;font-family:var(--label);font-weight:700;padding:8px 0;font-size:15px}
+.mgrp summary small{color:var(--muted);font-weight:500}
+.mgrp .mchunks{padding:0 0 10px}
 .mchunk b{display:block;font-size:16px}.mchunk span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
 @media (max-width:560px){.inbox .seg{grid-template-columns:1fr;gap:2px}}
 @media (max-width:560px){.mailmock{grid-template-columns:1fr}.mailmock b{border-top:1px solid var(--line)}}
@@ -2259,7 +2264,7 @@ var T={en:{
  sess:"Session", sessT:"about 30 minutes", sessDone:"done", goal:"After this module you can",
  prog:"My progress", progStars:"stars", progTests:"final tests passed", progExp:"expressions in review", progNb:"mistakes to review", canT:"Now I can", canNone:"Pass a Final test to unlock your first “Now I can”.",
  gym:"Sentence gym", gymD:"Make your sentences longer, one piece at a time: adjectives, adverbs, prepositions and linkers.",
- pop:"Songs and series", popD:"Real titles that use this grammar. Listen, watch and notice.", cultT:"Culture corner", cultD:"Songs, series and celebrations connected to your modules.", spell:"Spelling booth", spellD:"Listen and write: past verbs, chunks of language and phrasal verbs.", noAudio:"This device has no English voice, so read the clue and write the answer in English.", mail:"Email lab", mailD:"How to write an email for work, to complain and to invite: models, chunks and practice.", st1:"Get ready", st2:"Practise", st3:"Play against the robot", st4:"Prove it", when:"When to use it", tlKey:"The highlighted words are the ones to compare.",
+ pop:"Songs and series", popD:"Real titles that use this grammar. Listen, watch and notice.", cultT:"Culture corner", cultD:"Songs, series and celebrations connected to your modules.", spell:"Spelling booth", spellD:"Listen and write: past verbs, chunks of language and phrasal verbs.", noAudio:"This device has no English voice, so read the clue and write the answer in English.", mail:"Email lab", mailD:"How to write an email for work, to complain, to invite and to apply for a job: models, a phrase bank and practice.", st1:"Get ready", st2:"Practise", st3:"Play against the robot", st4:"Prove it", when:"When to use it", tlKey:"The highlighted words are the ones to compare.",
  nb:"Mistake notebook", nbD:"Every mistake from the exercises and games is saved here, with an explanation.", nbEmpty:"No mistakes saved. Play an activity and come back.", nbYou:"You answered", nbRight:"Correct", nbWhy:"Why", nbRule:"Rule to remember", nbGuide:"Open the Grammar guide", nbGot:"Got it, remove", nbSee:"See the explanations in your Mistake notebook", nbCount:"mistake(s) to review", noAns:"(no answer in time)", orderWhy:"Check the word order: subject + verb + the rest. In questions, the helper verb comes first.", wasOk:"(this sentence is correct)", zapped:"You zapped it", letPass:"You let it pass",
  pfT:"Find your starting point", pfD:"Seven questions about you and a quick check. It takes two minutes.", pfGo:"Start the form", pfRedo:"Do the form again", pfPath:"Your path", pfTrack:"Recommended track", pfSoon:"This track is not open yet. Build your base in General English first.", pfStart:"Start here", pfHelp:"Modules that already help with your goal", pfTips:"Tips for you", pfCheck:"Quick check", pfIdk:"I don't know", pfLvl:"Estimated level", pfAbout:"About you", pfLang:"Prefere em português? Toque em “Ajuda em português” no topo.",
  exprT:"Chunks, idioms & phrasal verbs", exprD:"Ready-made language for this situation. Open it and the expressions join your review list.", chunks:"Chunks of language", idioms:"Idioms", phrasals:"Phrasal verbs",
@@ -2297,7 +2302,7 @@ var T={en:{
  sess:"Sessão", sessT:"cerca de 30 minutos", sessDone:"feita", goal:"Depois deste módulo você consegue (in English)",
  prog:"Meu progresso", progStars:"estrelas", progTests:"provas finais aprovadas", progExp:"expressões em revisão", progNb:"erros para revisar", canNone:"Passe em uma Final test para liberar o seu primeiro “Now I can”.",
  gymD:"Deixe as suas frases mais longas, uma peça de cada vez: adjetivos, advérbios, preposições e conectivos.",
- popD:"Títulos reais que usam esta gramática. Ouça, assista e repare.", cultD:"Músicas, séries e datas ligadas aos seus módulos.", spellD:"Ouça e escreva: verbos no passado, chunks of language e phrasal verbs.", noAudio:"Este aparelho não tem voz em inglês, então leia a pista e escreva a resposta em inglês.", mailD:"Como montar um e-mail de trabalho, de reclamação e de convite: modelos, chunks e prática.", st1:"Prepare-se", st2:"Pratique", st3:"Jogue contra o robô", st4:"Mostre o que aprendeu", when:"Quando usar", tlKey:"As palavras destacadas são as que você deve comparar.",
+ popD:"Títulos reais que usam esta gramática. Ouça, assista e repare.", cultD:"Músicas, séries e datas ligadas aos seus módulos.", spellD:"Ouça e escreva: verbos no passado, chunks of language e phrasal verbs.", noAudio:"Este aparelho não tem voz em inglês, então leia a pista e escreva a resposta em inglês.", mailD:"Como montar um e-mail de trabalho, de reclamação, de convite e de candidatura a vaga: modelos, banco de frases e prática.", st1:"Prepare-se", st2:"Pratique", st3:"Jogue contra o robô", st4:"Mostre o que aprendeu", when:"Quando usar", tlKey:"As palavras destacadas são as que você deve comparar.",
  nbD:"Todo erro dos exercícios e dos jogos fica guardado aqui, com uma explicação.", nbEmpty:"Nenhum erro guardado. Faça uma atividade e volte.", nbYou:"Você respondeu", nbRight:"Correto", nbWhy:"Por quê", nbGuide:"Abrir o Grammar guide", nbGot:"Entendi, remover", nbSee:"Veja as explicações no seu Mistake notebook", nbCount:"erro(s) para revisar",
  pfT:"Descubra por onde começar", pfD:"Sete perguntas sobre você e um teste rápido. Leva dois minutos.", pfGo:"Começar o formulário", pfRedo:"Refazer o formulário", pfPath:"Seu caminho", pfTrack:"Trilha recomendada", pfSoon:"Esta trilha ainda não está aberta. Construa a base no General English primeiro.", pfStart:"Comece aqui", pfHelp:"Módulos que já ajudam no seu objetivo", pfTips:"Dicas para você", pfCheck:"Teste rápido", pfIdk:"Não sei", pfLvl:"Nível estimado", pfAbout:"Sobre você", pfLang:"Prefer English? Tap “English only” at the top.",
  exprD:"Linguagem pronta para esta situação. Ao abrir, as expressões entram na sua lista de revisão.",
@@ -4457,12 +4462,26 @@ var MAIL={
  {t:"Invitation",hook:"What, when, where, reply by.",sit:"You invite friends and colleagues to a dinner at your place.",
   m:["Dinner on Saturday?","Hi everyone,","I'm having a small dinner at my place to celebrate my new job, and I'd love you to come.","It's on Saturday 14 June at 8 p.m. My address is 20 King Street. Feel free to bring a friend.","Please let me know by Wednesday if you can make it.","Hope to see you there!","See you soon,\nAna"],
   chunks:[["I'd love you to come.","Adoraria que você viesse."],["Would you like to…?","Você gostaria de…?"],["It's on… at…","É no dia… às…"],["Let me know if you can make it.","Me avise se você consegue ir."],["I'd love to come! / I'm afraid I can't make it.","Adoraria ir! / Infelizmente não vou conseguir."]],
-  tips:["Give the day, the time and the place. Remember: ON Saturday, AT 8 p.m., AT 20 King Street.","Ask for a reply by a date.","Match the tone to the reader: Hi everyone for friends, Dear colleagues for the office."]}],
+  tips:["Give the day, the time and the place. Remember: ON Saturday, AT 8 p.m., AT 20 King Street.","Ask for a reply by a date.","Match the tone to the reader: Hi everyone for friends, Dear colleagues for the office."]},
+ {t:"Job application",hook:"Which job, why you, what next.",sit:"You see an online advert for a receptionist job at a hotel.",
+  m:["Application: Receptionist position","Dear Hiring Manager,","I am writing to express my interest in the Receptionist position advertised on your website.","I have two years of experience in customer service. Furthermore, I speak English and Spanish, and I am highly organised.","I have attached my CV for your review. I am available for an interview at your earliest convenience.","Thank you for considering my application.","Kind regards,\nAna Souza"],
+  chunks:[["I am writing to express my interest in…","Escrevo para manifestar meu interesse em…"],["I have experience in…","Tenho experiência em…"],["Furthermore, …","Além disso, …"],["I have attached my CV for your review.","Anexei meu currículo para sua análise."],["I am available for an interview at your earliest convenience.","Estou disponível para uma entrevista quando for melhor para você."]],
+  tips:["First line: which job and where you saw it.","Give two or three facts that make you a good candidate: experience, languages, skills.","Formal synonyms for job: position, role, vacancy. Do not write I need this job."]}],
+ bank:[
+  ["🟢","Starting",[["I am writing to ask about…","Escrevo para perguntar sobre…"],["I am writing with reference to…","Escrevo em referência a…"],["Further to our conversation, …","Dando continuidade à nossa conversa, …"],["Thank you for your email.","Obrigado(a) pelo seu e-mail."],["Just a quick note to… (friendly)","Só um recado rápido para… (informal)"]]],
+  ["🙋","Asking politely",[["Could you please…?","Você poderia, por favor…?"],["I would be grateful if you could…","Eu agradeceria se você pudesse…"],["Would it be possible to…?","Seria possível…?"],["Could you let me know…?","Você pode me informar…?"]]],
+  ["🔗","Linking your ideas",[["Regarding… / With regard to…","Em relação a…"],["In addition, … / Furthermore, …","Além disso, …"],["However, …","No entanto, …"],["Therefore, … / As a result, …","Portanto, … / Como resultado, …"]]],
+  ["📎","Files and links",[["Please find attached…","Segue em anexo…"],["I have attached… for your review.","Anexei… para sua análise."],["Here is the link to…","Segue o link para…"]]],
+  ["📅","Arranging a meeting",[["Are you available on…?","Você está disponível no dia…?"],["Does Tuesday at 3 p.m. work for you?","Terça às 15h funciona para você?"],["I am available at your earliest convenience.","Estou disponível quando for melhor para você."],["Could we move the meeting to…?","Podemos mudar a reunião para…?"]]],
+  ["⏰","Following up",[["I am just following up on…","Estou retomando o assunto de…"],["Just a reminder that…","Só lembrando que…"],["I have not received a reply yet.","Ainda não recebi resposta."]]],
+  ["🙏","Saying sorry",[["Sorry for the late reply.","Desculpe a demora para responder."],["I apologise for any inconvenience.","Peço desculpas por qualquer transtorno."],["Unfortunately, …","Infelizmente, …"]]],
+  ["👋","Ending",[["Please let me know if you have any questions.","Me avise se tiver alguma dúvida."],["Thank you for your help.","Obrigado(a) pela ajuda."],["I look forward to hearing from you.","Fico no aguardo."],["Have a great weekend! (friendly)","Bom fim de semana! (informal)"]]]],
+ signoff:[["Dear Sir or Madam,","Yours faithfully,"],["Dear Mr / Ms + family name,","Yours sincerely,"],["Dear Hiring Manager, / Dear Ana,","Kind regards, / Best regards,"],["Hi Carla, / Hi everyone,","Best, / Cheers, / See you soon,"]],
  reg:[["Dear Ms Silva,","Hi Carla,"],["I am writing to…","Just a quick note to…"],["I would like to…","I want to… / Can I…?"],["Could you please…?","Can you…?"],["I look forward to hearing from you.","Talk soon!"],["Kind regards, / Yours sincerely,","Best, / Cheers,"]],
  tl:[["Prezado Sr. Silva,","Dear Mr Silva,","Prezado|Dear"],["Segue em anexo o relatório.","Please find attached the report.","Segue em anexo|Please find attached"],["Fico no aguardo.","I look forward to hearing from you.","Fico no aguardo|look forward to hearing"],["Atenciosamente,","Kind regards,","Atenciosamente|Kind regards"],["Abraços,","Best, / Cheers,","Abraços|Best,Cheers"]],
  note:"Portuguese work emails are often longer and more formal. English emails go straight to the point: the request comes first. Fico no aguardo is not I stay waiting: say I look forward to hearing from you. After look forward to, the verb takes -ing. With Dear, use the family name (Dear Mr Silva), but with Hi, use the first name (Hi João).",
- bad:[["I look forward to hear from you.","I look forward to hearing from you."],["Dear Mr João,","Dear Mr Silva, / Hi João,"],["Follows attached the report.","Please find attached the report."],["I want my money back NOW!!!","I would like a full refund."]],
- quiz:["You write to a company you do not know. Which greeting?|Dear Sir or Madam,|Hey guys,|Hi dear,","Which sentence is correct?|I look forward to hearing from you.|I look forward to hear from you.|I look forward hearing from you.","You send a file. What do you write?|Please find attached the report.|Follows attached the report.|In attach, the report.","Which is the best subject line for a complaint?|Order 48213: wrong item received|HELP!!!|Problem","You need an answer before the weekend. What do you write?|Could you reply by Friday?|Reply until Friday.|Answer me in Friday.","Polite complaint: choose the best sentence.|I would like a full refund.|Give my money back now.|I want my money, OK?","Inviting a friend: choose the best sentence.|Would you like to come to my party?|Do you want come to my party?|You like to come to my party?","You cannot go to the party. What do you reply?|I'm afraid I can't make it.|I don't go.|No, thanks you.","A friendly sign-off for a colleague you know well:|Best,|Yours faithfully,|Dear,"]
+ bad:[["I look forward to hear from you.","I look forward to hearing from you."],["Dear Mr Silva, … Yours faithfully,","Dear Mr Silva, … Yours sincerely,"],["Sorry for the delay to answer.","Sorry for the late reply."],["Dear Mr João,","Dear Mr Silva, / Hi João,"],["Follows attached the report.","Please find attached the report."],["I want my money back NOW!!!","I would like a full refund."]],
+ quiz:["You write to a company you do not know. Which greeting?|Dear Sir or Madam,|Hey guys,|Hi dear,","Which sentence is correct?|I look forward to hearing from you.|I look forward to hear from you.|I look forward hearing from you.","You send a file. What do you write?|Please find attached the report.|Follows attached the report.|In attach, the report.","Which is the best subject line for a complaint?|Order 48213: wrong item received|HELP!!!|Problem","You need an answer before the weekend. What do you write?|Could you reply by Friday?|Reply until Friday.|Answer me in Friday.","Polite complaint: choose the best sentence.|I would like a full refund.|Give my money back now.|I want my money, OK?","Inviting a friend: choose the best sentence.|Would you like to come to my party?|Do you want come to my party?|You like to come to my party?","You cannot go to the party. What do you reply?|I'm afraid I can't make it.|I don't go.|No, thanks you.","A friendly sign-off for a colleague you know well:|Best,|Yours faithfully,|Dear,","You start with Dear Sir or Madam. How do you finish?|Yours faithfully,|Yours sincerely,|Kisses,","You ask for a favour, politely. Choose the best sentence.|I would be grateful if you could send me the form.|Send me the form.|I want that you send me the form.","Your answer is late. What do you write?|Sorry for the late reply.|Sorry for the delay to answer.|Excuse me for answer late.","Which word adds more information?|Furthermore,|However,|Therefore,","A formal word for job in an application:|position|work place|employ","You want to check if a time is OK. What do you write?|Does Tuesday at 3 p.m. work for you?|Tuesday 3 p.m. is good for you?|You can Tuesday at 3 p.m.?"]
 };
 function mailMock(parts,texts){
   var d=h("div",{class:"mailmock"});
@@ -4489,6 +4508,13 @@ function mailInbox(ty){
 function mailChunks(ty){
   return h("div",{class:"mchunks"},ty.chunks.map(function(c){return h("div",{class:"mchunk"},h("b",null,c[0]),h("span",{lang:"pt"},c[1]))}));
 }
+function mailBank(){
+  var so=h("div",{class:"pairs"},h("b",null,"If you start with…"),h("b",null,"…finish with"));
+  MAIL.signoff.forEach(function(r){so.appendChild(h("span",null,r[0]));so.appendChild(h("span",{style:"font-weight:700"},r[1]))});
+  return h("section",{class:"card gpt"},h("h2",null,"Phrase bank"),h("div",{class:"hook"},"Useful phrases for any email, by what you want to do."),
+    h("div",{class:"mbank"},MAIL.bank.map(function(g,n){return h("details",{class:"mgrp",open:n<2?"":null},h("summary",null,h("span",{"aria-hidden":"true"},g[0]+" "),g[1],h("small",null," · "+g[2].length)),h("div",{class:"mchunks"},g[2].map(function(c){return h("div",{class:"mchunk"},h("b",null,c[0]),h("span",{lang:"pt"},c[1]))})))})),
+    blk("Start and finish: they must match",so));
+}
 function mail(ti){
   var a=app(),ty=MAIL.types[ti||0];ti=ti||0;cur={k:"mail"};
   a.appendChild(backBtn());
@@ -4504,6 +4530,7 @@ function mail(ti){
     blk("Phrases to copy",mailChunks(ty)),
     blk(t("tips"),ul),
     h("div",{class:"rowend"},h("button",{class:"btn",onclick:function(){mailBuild(ti)}},"Build this email →"))));
+  a.appendChild(mailBank());
   var reg=h("div",{class:"pairs"},h("b",null,"Formal"),h("b",null,"Friendly"));
   MAIL.reg.forEach(function(r){reg.appendChild(h("span",null,r[0]));reg.appendChild(h("span",null,r[1]))});
   var cmp=h("div",{class:"shell",style:"gap:8px"});
